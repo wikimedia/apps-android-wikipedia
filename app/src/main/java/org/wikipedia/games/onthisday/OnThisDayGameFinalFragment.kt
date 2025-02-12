@@ -166,14 +166,13 @@ class OnThisDayGameFinalFragment : Fragment() {
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
             val isSaved = updateBookmark()
-            binding.listItemBookmark.isVisible = true
             binding.listItemBookmark.setOnClickListener {
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
             page.thumbnailUrl?.let {
                 binding.listItemThumbnail.isVisible = true
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
             } ?: run {
                 binding.listItemThumbnail.isVisible = false
             }
@@ -274,61 +273,63 @@ class OnThisDayGameFinalFragment : Fragment() {
             return Duration.between(now, startOfNextDay)
         }
 
-        fun maybeShowOnThisDayGameEndMessage(activity: Activity) {
-            // TODO: also show survey if necessary (before the snackbar)
+        fun maybeShowOnThisDayGameEndContent(activity: Activity) {
+            if (!Prefs.otdGameSurveyShown) {
+                Prefs.otdGameSurveyShown = true
+                maybeShowOnThisDayGameSurvey1(activity) {
+                    maybeShowThanksSnackbar(activity)
+                }
+            } else {
+                maybeShowThanksSnackbar(activity)
+            }
+        }
 
+        private fun maybeShowThanksSnackbar(activity: Activity) {
             if (calculateTotalGamesPlayed() == 1) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
             }
         }
 
-        private fun maybeShowOnThisDayGameSurvey1(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
-            if (/*!Prefs.otdEntryDialogShown && */OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
-                val choices = arrayOf(activity.getString(R.string.survey_dialog_option_satisfied),
-                    activity.getString(R.string.survey_dialog_option_neutral),
-                    activity.getString(R.string.survey_dialog_option_unsatisfied))
-                var selection = -1
-                MaterialAlertDialogBuilder(activity)
-                    .setCancelable(false)
-                    .setTitle("How satisfied were you with the On This Day game?")
-                    .setSingleChoiceItems(choices, -1) { _, which ->
-                        selection = which
-                    }
-                    .setPositiveButton("Next") { _, _ ->
-                        maybeShowOnThisDayGameSurvey2(activity, wikiSite)
-                    }
-                    .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
-
-                    }
-                    .show()
-            }
+        private fun maybeShowOnThisDayGameSurvey1(activity: Activity, onComplete: () -> Unit) {
+            val choices = arrayOf(activity.getString(R.string.survey_dialog_option_satisfied),
+                activity.getString(R.string.survey_dialog_option_neutral),
+                activity.getString(R.string.survey_dialog_option_unsatisfied))
+            var selection = -1
+            MaterialAlertDialogBuilder(activity)
+                .setCancelable(false)
+                .setTitle(R.string.on_this_day_game_survey_q1)
+                .setSingleChoiceItems(choices, -1) { _, which ->
+                    selection = which
+                }
+                .setPositiveButton(R.string.survey_dialog_next) { _, _ ->
+                    maybeShowOnThisDayGameSurvey2(activity, onComplete)
+                }
+                .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
+                    onComplete()
+                }
+                .show()
         }
 
-        private fun maybeShowOnThisDayGameSurvey2(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
-            if (/*!Prefs.otdEntryDialogShown && */OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
-                val choices = arrayOf("Yes", "Maybe", "No")
-                var selection = -1
+        private fun maybeShowOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
+            val choices = arrayOf(activity.getString(R.string.survey_dialog_general_yes),
+                activity.getString(R.string.survey_dialog_general_maybe),
+                activity.getString(R.string.survey_dialog_general_no))
+            var selection = -1
+            MaterialAlertDialogBuilder(activity)
+                .setCancelable(false)
+                .setTitle(R.string.on_this_day_game_survey_q1)
+                .setSingleChoiceItems(choices, -1) { _, which ->
+                    selection = which
+                }
+                .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
 
-                val dialog = MaterialAlertDialogBuilder(activity)
-                    .setCancelable(false)
-                    .setTitle("How satisfied were you with the On This Day game?")
-                    .setSingleChoiceItems(choices, -1) { _, which ->
-                        selection = which
-                    }
-                    .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
-
-
-
-
-
-
-                        FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
-                    }
-                    .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
-
-                    }
-                    .show()
-            }
+                    FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+                }
+                .setNegativeButton(R.string.survey_dialog_cancel, null)
+                .setOnDismissListener {
+                    onComplete()
+                }
+                .show()
         }
     }
 }

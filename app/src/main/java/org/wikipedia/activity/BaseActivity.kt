@@ -37,6 +37,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
@@ -210,6 +211,13 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         }
         return super.dispatchTouchEvent(event)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && data?.hasExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED) == true) {
+            OnThisDayGameFinalFragment.maybeShowOnThisDayGameEndContent(this)
+        }
     }
 
     protected fun setStatusBarColor(@ColorInt color: Int) {

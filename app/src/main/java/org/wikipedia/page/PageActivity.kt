@@ -58,7 +58,6 @@ import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.navtab.NavTab
@@ -390,13 +389,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             return true
         }
         return super.onKeyDown(keyCode, event)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && data?.hasExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED) == true) {
-            OnThisDayGameFinalFragment.maybeShowOnThisDayGameEndMessage(this)
-        }
     }
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
