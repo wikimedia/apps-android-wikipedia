@@ -40,7 +40,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
         binding.playGameButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
-            (requireActivity() as? OnThisDayGameActivity)?.animateQuestions()
+            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
         }
 
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)

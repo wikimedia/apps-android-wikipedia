@@ -62,10 +62,12 @@
 
         <Button
             android:id="@+id/playGameButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/on_this_day_game_dialog_button"
             android:textColor="?attr/progressive_color"
+            android:paddingStart="64dp"
+            android:paddingEnd="64dp"
             android:layout_marginTop="48dp"
             android:backgroundTint="?attr/paper_color"/>
 
