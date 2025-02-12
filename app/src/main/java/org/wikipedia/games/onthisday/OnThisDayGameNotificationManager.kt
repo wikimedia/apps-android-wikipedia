@@ -9,6 +9,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DAILY_GAME
 import org.wikipedia.notifications.NotificationPresenter
@@ -40,29 +41,35 @@ object OnThisDayGameNotificationManager {
     }
 
     private fun showDisabledNotificationDialog(activity: Activity) {
+        WikiGamesEvent.submit("impression", "notification_modal", "game_end")
         MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Icon)
             .setTitle(R.string.on_this_day_game_turn_off_notification_dialog_title)
             .setMessage(R.string.on_this_day_game_turn_off_notification_dialog_subtitle)
             .setIcon(R.drawable.outline_notifications_off_24)
             .setPositiveButton(R.string.on_this_day_game_turn_off_notification_dialog_positive_btn_label) { _, _ ->
+                WikiGamesEvent.submit("on_click", "notification_modal", "game_end")
                 Prefs.otdNotificationState = OnThisDayGameNotificationState.ENABLED
                 activity.invalidateOptionsMenu()
             }
             .setNegativeButton(R.string.on_this_day_game_turn_off_notification_dialog_negative_btn_label) { _, _ ->
+                WikiGamesEvent.submit("off_click", "notification_modal", "game_end")
                 disableNotifications(activity, showUndo = true)
             }
             .show()
     }
 
     private fun showEnabledNotificationDialog(activity: Activity) {
+        WikiGamesEvent.submit("impression", "notification_modal", "game_end")
         MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Icon)
             .setTitle(R.string.on_this_day_game_turn_on_notification_dialog_title)
             .setMessage(R.string.on_this_day_game_turn_on_notification_dialog_subtitle)
             .setIcon(R.drawable.outline_notifications_active_24)
             .setPositiveButton(R.string.on_this_day_game_turn_on_notification_dialog_positive_btn_label) { _, _ ->
+                WikiGamesEvent.submit("on_click", "notification_modal", "game_end")
                 enableNotifications(activity, showUndo = true)
             }
             .setNegativeButton(R.string.on_this_day_game_turn_on_notification_dialog_negative_btn_label) { _, _ ->
+                WikiGamesEvent.submit("off_click", "notification_modal", "game_end")
                 Prefs.otdNotificationState = OnThisDayGameNotificationState.DISABLED
                 activity.invalidateOptionsMenu()
             }
@@ -78,6 +85,7 @@ object OnThisDayGameNotificationManager {
                 activity.getString(R.string.on_this_day_game_notification_turned_off_snackbar_message)
             ).apply {
                 setAction(R.string.reading_list_item_delete_undo) {
+                    WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
                     enableNotifications(activity, showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
@@ -95,6 +103,7 @@ object OnThisDayGameNotificationManager {
                 activity.getString(R.string.on_this_day_game_notification_turned_on_snackbar_message)
             ).apply {
                 setAction(R.string.reading_list_item_delete_undo) {
+                    WikiGamesEvent.submit("undo_click", "notification_snackbar", "game_end")
                     disableNotifications(activity, showUndo = false)
                     activity.invalidateOptionsMenu()
                 }
