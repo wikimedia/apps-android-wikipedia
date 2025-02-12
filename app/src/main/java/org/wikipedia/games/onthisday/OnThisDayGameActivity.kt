@@ -17,6 +17,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
@@ -68,7 +69,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
-    private val cardAnimatorSet = AnimatorSet()
+    private val cardAnimatorSetIn = AnimatorSet()
+    private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
     private var newStatusBarInsets: Insets? = null
     private var newNavBarInsets: Insets? = null
@@ -178,8 +180,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted
-                    && viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
+                    viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
                     true
                 } else {
@@ -364,6 +366,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_neutral)
 
         binding.centerContent.isVisible = false
+        binding.correctIncorrectText.text = null
         binding.currentQuestionContainer.isVisible = true
         supportInvalidateOptionsMenu()
     }
@@ -396,8 +399,15 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
-        animateQuestions()
+        if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
+            animateQuestionsOut {
+                updateGameState(gameState)
+                animateQuestionsIn()
+            }
+        } else {
+            updateGameState(gameState)
+            animateQuestionsIn()
+        }
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -570,7 +580,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    fun animateQuestions() {
+    fun animateQuestionsIn() {
         binding.dateText.isVisible = true
         binding.progressText.isVisible = true
 
@@ -584,30 +594,76 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 0f, 1f)
 
         val duration = 750L
+        var delay = 500L
         textA1.setDuration(duration)
+        textA1.startDelay = delay
         textA1.interpolator = DecelerateInterpolator()
         translationX1.setDuration(duration)
-        translationX1.startDelay = duration
+        delay += duration
+        translationX1.startDelay = delay
         translationX1.interpolator = DecelerateInterpolator()
         translationA1.setDuration(duration)
-        translationA1.startDelay = duration
+        translationA1.startDelay = delay
+        delay += duration
         translationA1.interpolator = DecelerateInterpolator()
         translationX2.setDuration(duration)
-        translationX2.startDelay = duration * 2
+        translationX2.startDelay = delay
         translationX2.interpolator = DecelerateInterpolator()
         translationA2.setDuration(duration)
-        translationA2.startDelay = duration * 2
+        translationA2.startDelay = delay
         translationA2.interpolator = DecelerateInterpolator()
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
-        cardAnimatorSet.cancel()
-        cardAnimatorSet.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
-        cardAnimatorSet.doOnEnd {
+        cardAnimatorSetIn.cancel()
+        cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetIn.doOnEnd {
             binding.questionCard1.isEnabled = true
             binding.questionCard2.isEnabled = true
         }
-        cardAnimatorSet.start()
+        cardAnimatorSetIn.start()
+    }
+
+    fun animateQuestionsOut(onFinished: () -> Unit) {
+        binding.questionCard1.alpha = 1f
+        binding.questionCard2.alpha = 1f
+        binding.questionDate1.isInvisible = true
+        binding.questionDate2.isInvisible = true
+        binding.centerContent.isInvisible = true
+
+        val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 1f, 0f)
+        val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 1f, 0f)
+
+        val duration = 250L
+        var delay = 0L
+        translationX1.setDuration(duration)
+        translationX1.startDelay = delay
+        translationX1.interpolator = AccelerateInterpolator()
+        translationA1.setDuration(duration)
+        translationA1.startDelay = delay
+        delay += duration
+        translationA1.interpolator = AccelerateInterpolator()
+        translationX2.setDuration(duration)
+        translationX2.startDelay = delay
+        translationX2.interpolator = AccelerateInterpolator()
+        translationA2.setDuration(duration)
+        translationA2.startDelay = delay
+        translationA2.interpolator = AccelerateInterpolator()
+
+        binding.questionCard1.isEnabled = false
+        binding.questionCard2.isEnabled = false
+        cardAnimatorSetOut.cancel()
+        cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetOut.doOnEnd {
+            binding.root.post {
+                if (!isDestroyed) {
+                    onFinished()
+                }
+            }
+        }
+        cardAnimatorSetOut.start()
     }
 
     fun requestPermissionAndScheduleGameNotification() {
