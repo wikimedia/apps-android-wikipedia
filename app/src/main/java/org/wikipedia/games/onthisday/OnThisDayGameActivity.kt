@@ -676,18 +676,15 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
-                ContextCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
+                ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
                     OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
                 }
-
-                else -> {
-                    requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
-                }
+                else -> requestPermissionLauncher.launch(permission)
             }
+        } else {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 
@@ -703,7 +700,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
+        fun newIntent(context: Context, invokeSource: InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
