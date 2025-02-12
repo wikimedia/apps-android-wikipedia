@@ -235,10 +235,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onFinish() {
-        if (WikipediaApp.instance.haveMainActivity) {
-            finish()
-        } else {
+        if (viewModel.invokeSource == InvokeSource.NOTIFICATION) {
             goToMainTab()
+        } else {
+            finish()
         }
     }
 
