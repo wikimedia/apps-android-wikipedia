@@ -20,6 +20,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
@@ -47,7 +48,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        invokeSource = requireActivity().intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         prepareWikipediaLanguagesList()
@@ -264,7 +265,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
     private inner class FooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView)
 
     private fun wantResultFromItemClick(): Boolean {
-        val source = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        val source = requireActivity().intent.serializableExtra<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
         return source != null && (source == InvokeSource.SEARCH || source == InvokeSource.TALK_TOPICS_ACTIVITY || source == InvokeSource.USER_CONTRIB_ACTIVITY)
     }
 
