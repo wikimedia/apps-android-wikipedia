@@ -605,23 +605,24 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         val duration = 750L
         var delay = 500L
-        textA1.setDuration(duration)
+        val interpolator = DecelerateInterpolator()
+        textA1.duration = duration
         textA1.startDelay = delay
-        textA1.interpolator = DecelerateInterpolator()
-        translationX1.setDuration(duration)
+        textA1.interpolator = interpolator
+        translationX1.duration = duration
         delay += duration
         translationX1.startDelay = delay
-        translationX1.interpolator = DecelerateInterpolator()
-        translationA1.setDuration(duration)
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
         translationA1.startDelay = delay
         delay += duration
-        translationA1.interpolator = DecelerateInterpolator()
-        translationX2.setDuration(duration)
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
         translationX2.startDelay = delay
-        translationX2.interpolator = DecelerateInterpolator()
-        translationA2.setDuration(duration)
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
         translationA2.startDelay = delay
-        translationA2.interpolator = DecelerateInterpolator()
+        translationA2.interpolator = interpolator
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
@@ -647,20 +648,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 1f, 0f)
 
         val duration = 250L
-        var delay = 0L
-        translationX1.setDuration(duration)
-        translationX1.startDelay = delay
-        translationX1.interpolator = AccelerateInterpolator()
-        translationA1.setDuration(duration)
-        translationA1.startDelay = delay
-        delay += duration
-        translationA1.interpolator = AccelerateInterpolator()
-        translationX2.setDuration(duration)
-        translationX2.startDelay = delay
-        translationX2.interpolator = AccelerateInterpolator()
-        translationA2.setDuration(duration)
-        translationA2.startDelay = delay
-        translationA2.interpolator = AccelerateInterpolator()
+        val interpolator = AccelerateInterpolator()
+        translationX1.duration = duration
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
+        translationX2.startDelay = duration
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
+        translationA2.startDelay = duration
+        translationA2.interpolator = interpolator
 
         cardAnimatorSetOut.cancel()
         cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
