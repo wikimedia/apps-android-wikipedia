@@ -14,13 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.dp
-import androidx.core.text.toHtml
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.FileUtil.readFile
 
 class LicenseActivity : BaseActivity() {
@@ -71,7 +69,7 @@ class LicenseActivity : BaseActivity() {
             ) {
                 Text(
                     text = AnnotatedString.fromHtml(
-                        htmlString = CustomHtmlParser.fromHtml(licenseText).toHtml()
+                        htmlString = licenseText ?: ""
                     ),
                     color = WikipediaTheme.colors.inactiveColor
                 )

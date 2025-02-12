@@ -192,7 +192,7 @@ fun AboutScreenContent(
 
         AboutScreenFooter(
             modifier = Modifier
-                .padding(top = 24.dp)
+                .padding(top = 24.dp, bottom = 16.dp)
         )
     }
 }
