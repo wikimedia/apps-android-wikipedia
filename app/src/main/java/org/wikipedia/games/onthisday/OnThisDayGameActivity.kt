@@ -181,7 +181,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                WikiGamesEvent.submit("read_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
                     true
