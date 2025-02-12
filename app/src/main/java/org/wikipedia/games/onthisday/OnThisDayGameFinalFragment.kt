@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -312,8 +313,7 @@ class OnThisDayGameFinalFragment : Fragment() {
                     onComplete()
                 }
                 .show()
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
-            dialog.findViewById(android.R.id.alertTitle)
+            setupSurveyDialog(activity, dialog)
         }
 
         private fun maybeShowOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
@@ -337,7 +337,15 @@ class OnThisDayGameFinalFragment : Fragment() {
                     onComplete()
                 }
                 .show()
+            setupSurveyDialog(activity, dialog)
+        }
+
+        private fun setupSurveyDialog(activity: Activity, dialog: AlertDialog) {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+            val id = dialog.context.resources.getIdentifier("alertTitle", "id", activity.packageName)
+            dialog.findViewById<TextView>(id)?.let {
+                it.isSingleLine = false
+            }
         }
     }
 }
