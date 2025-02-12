@@ -17,7 +17,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
@@ -57,6 +57,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
 import java.time.MonthDay
@@ -70,8 +71,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
-    private val goNextAnimatorSet = AnimatorSet()
-    private val cardAnimatorSet = AnimatorSet()
+    private val cardAnimatorSetIn = AnimatorSet()
+    private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
     private var newStatusBarInsets: Insets? = null
     private var newNavBarInsets: Insets? = null
@@ -89,7 +90,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        mediaPlayer = MediaPlayer.create(this, R.raw.sound_logo)
+        mediaPlayer = MediaPlayer()
 
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
@@ -129,7 +130,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            params = binding.fragmentContainerFinish.layoutParams as ViewGroup.MarginLayoutParams
+            params = binding.fragmentContainer.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
@@ -182,7 +183,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         return when (item.itemId) {
             android.R.id.home -> {
                 WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
+                    viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
                     true
                 } else {
@@ -309,8 +311,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
-        goNextAnimatorSet.cancel()
-
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -384,6 +384,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_neutral)
 
         binding.centerContent.isVisible = false
+        binding.correctIncorrectText.text = null
         binding.currentQuestionContainer.isVisible = true
         supportInvalidateOptionsMenu()
     }
@@ -391,8 +392,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
+        binding.dateText.isVisible = false
+        binding.progressText.isVisible = false
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerStart, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -406,17 +410,24 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.scoreText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
 
-        mediaPlayer.start()
+        playSound("sound_logo")
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerFinish, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
-        animateQuestions()
+        if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
+            animateQuestionsOut {
+                updateGameState(gameState)
+                animateQuestionsIn()
+            }
+        } else {
+            updateGameState(gameState)
+            animateQuestionsIn()
+        }
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -437,7 +448,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.questionDate2.setTextColor(Color.WHITE)
             setCorrectIcon(binding.questionStatusIcon2)
         }
-
+        playSound("sound_completion")
         enqueueGoNext(gameState)
     }
 
@@ -463,6 +474,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate1.setTextColor(Color.WHITE)
         binding.questionDate2.setTextColor(Color.WHITE)
 
+        playSound("sound_error")
         enqueueGoNext(gameState)
     }
 
@@ -481,12 +493,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
         binding.questionDate1.isVisible = true
         binding.questionDate2.isVisible = true
+        binding.questionCard1.isEnabled = false
+        binding.questionCard2.isEnabled = false
 
-        binding.nextQuestionText.postDelayed({
-            if (!isDestroyed) {
-                animateGoNext(gameState)
-            }
-        }, 500)
+        binding.whichCameFirstText.isVisible = false
+        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
+        binding.nextQuestionText.isVisible = true
     }
 
     fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
@@ -594,54 +606,87 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    fun animateQuestions() {
+    fun animateQuestionsIn() {
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        binding.dateText.isVisible = true
+        binding.progressText.isVisible = true
 
+        binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
+        val textA1 = ObjectAnimator.ofFloat(binding.whichCameFirstText, "alpha", 0f, 1f)
         val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 0f, 1f)
         val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 0f, 1f)
 
         val duration = 750L
-        translationX1.setDuration(duration)
-        translationX1.interpolator = DecelerateInterpolator()
-        translationA1.setDuration(duration)
-        translationA1.interpolator = DecelerateInterpolator()
-        translationX2.setDuration(duration)
-        translationX2.startDelay = duration
-        translationX2.interpolator = DecelerateInterpolator()
-        translationA2.setDuration(duration)
-        translationA2.startDelay = duration
-        translationA2.interpolator = DecelerateInterpolator()
+        var delay = 500L
+        val interpolator = DecelerateInterpolator()
+        textA1.duration = duration
+        textA1.startDelay = delay
+        textA1.interpolator = interpolator
+        translationX1.duration = duration
+        delay += duration
+        translationX1.startDelay = delay
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
+        translationA1.startDelay = delay
+        delay += duration
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
+        translationX2.startDelay = delay
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
+        translationA2.startDelay = delay
+        translationA2.interpolator = interpolator
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
-        cardAnimatorSet.cancel()
-        cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
-        cardAnimatorSet.doOnEnd {
+        cardAnimatorSetIn.cancel()
+        cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetIn.doOnEnd {
             binding.questionCard1.isEnabled = true
             binding.questionCard2.isEnabled = true
         }
-        cardAnimatorSet.start()
+        cardAnimatorSetIn.start()
     }
 
-    private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {
-        binding.whichCameFirstText.isVisible = false
-        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-        binding.nextQuestionText.isVisible = true
+    fun animateQuestionsOut(onFinished: () -> Unit) {
+        binding.questionCard1.alpha = 1f
+        binding.questionCard2.alpha = 1f
+        binding.questionDate1.isInvisible = true
+        binding.questionDate2.isInvisible = true
+        binding.centerContent.isInvisible = true
 
-        val translationX = ObjectAnimator.ofFloat(binding.nextQuestionText, "translationX", 0f, DimenUtil.dpToPx(-8f), 0f)
+        val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 1f, 0f)
+        val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 1f, 0f)
 
-        val duration = 1500L
-        translationX.setDuration(duration)
-        translationX.interpolator = AccelerateDecelerateInterpolator()
-        translationX.repeatCount = ObjectAnimator.INFINITE
+        val duration = 250L
+        val interpolator = AccelerateInterpolator()
+        translationX1.duration = duration
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
+        translationX2.startDelay = duration
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
+        translationA2.startDelay = duration
+        translationA2.interpolator = interpolator
 
-        goNextAnimatorSet.cancel()
-        goNextAnimatorSet.playTogether(translationX)
-        goNextAnimatorSet.start()
+        cardAnimatorSetOut.cancel()
+        cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetOut.doOnEnd {
+            binding.root.post {
+                if (!isDestroyed) {
+                    onFinished()
+                }
+            }
+        }
+        cardAnimatorSetOut.start()
     }
 
     fun requestPermissionAndScheduleGameNotification() {
@@ -655,6 +700,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
         } else {
             OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
+        }
+    }
+
+    private fun playSound(soundName: String) {
+        try {
+            mediaPlayer.reset()
+            mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 

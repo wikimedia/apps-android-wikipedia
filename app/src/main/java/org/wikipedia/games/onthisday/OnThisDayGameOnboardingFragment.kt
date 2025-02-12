@@ -41,7 +41,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         binding.playGameButton.setOnClickListener {
             WikiGamesEvent.submit("play_click", "game_play", slideName = viewModel.getCurrentScreenName())
             requireActivity().supportFragmentManager.popBackStack()
-            (requireActivity() as? OnThisDayGameActivity)?.animateQuestions()
+            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
         }
 
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)

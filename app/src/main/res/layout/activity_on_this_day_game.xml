@@ -128,9 +128,10 @@
             app:layout_constraintStart_toStartOf="@id/questionCard1"
             app:layout_constraintEnd_toEndOf="@id/questionCard1"
             android:elevation="8dp"
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
             android:layout_marginTop="-12dp"
             android:background="@drawable/game_date_background_neutral"
-            style="@style/P"
             android:textColor="?attr/primary_color"
             android:paddingHorizontal="8dp"
             android:paddingTop="2dp"
@@ -145,8 +146,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/questionCard1"
             app:layout_constraintBottom_toTopOf="@id/questionCard2"
-            android:layout_marginTop="40dp"
-            android:animateLayoutChanges="true">
+            android:layout_marginTop="40dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -159,8 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    style="@style/P"
-                    android:textStyle="bold"
+                    style="@style/P.Article"
                     android:text="@string/on_this_day_game_correct"
                     android:textColor="?attr/primary_color"/>
 
@@ -231,9 +230,10 @@
             app:layout_constraintStart_toStartOf="@id/questionCard2"
             app:layout_constraintEnd_toEndOf="@id/questionCard2"
             android:elevation="8dp"
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
             android:layout_marginTop="-12dp"
             android:background="@drawable/game_date_background_neutral"
-            style="@style/P"
             android:textColor="?attr/primary_color"
             android:paddingHorizontal="8dp"
             android:paddingTop="2dp"
@@ -293,12 +293,7 @@
         android:visibility="gone"/>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerStart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerFinish"
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"/>
