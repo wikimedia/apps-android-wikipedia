@@ -37,6 +37,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -181,6 +182,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
+                WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
                     viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
@@ -191,16 +193,21 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 }
             }
             R.id.menu_learn_more -> {
+                WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true
             }
             R.id.menu_report_feature -> {
+                WikiGamesEvent.submit("report_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
                 FeedbackUtil.composeEmail(this,
                     subject = getString(R.string.on_this_day_game_report_email_subject),
                     body = getString(R.string.on_this_day_game_report_email_body))
                 true
             }
             R.id.menu_notifications -> {
+                WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
                 OnThisDayGameNotificationManager.handleNotificationClick(this)
                 true
             }
@@ -244,14 +251,18 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun showPauseDialog() {
+        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName())
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
             .setIcon(R.drawable.ic_pause_filled_24)
             .setTitle(R.string.on_this_day_game_pause_title)
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
+                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
                 finish()
             }
-            .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
+            .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
+                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
+            }
             .show()
     }
 
@@ -494,6 +505,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             return
         }
+        WikiGamesEvent.submit("impression", "game_play", slideName = "game_end_article")
+
         binding.root.requestApplyInsets()
         bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
@@ -550,13 +563,16 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
         dialogBinding.saveButton.setImageResource(bookmarkResource)
         dialogBinding.saveButton.setOnClickListener {
+            WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article")
             onBookmarkIconClick(dialogBinding.saveButton, pageSummary)
         }
         dialogBinding.shareButton.setOnClickListener {
+            WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article")
             ShareUtil.shareText(this, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
         }
         FeedbackUtil.setButtonTooltip(dialogBinding.shareButton, dialogBinding.saveButton)
         dialogBinding.readArticleButton.setOnClickListener {
+            WikiGamesEvent.submit("read_click", "game_play", slideName = "game_end_article")
             val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
             startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
         }
@@ -591,6 +607,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     fun animateQuestionsIn() {
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
         binding.dateText.isVisible = true
         binding.progressText.isVisible = true
 
