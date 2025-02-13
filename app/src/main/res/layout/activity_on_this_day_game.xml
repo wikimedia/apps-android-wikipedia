@@ -296,20 +296,4 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"/>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/bottomSheetCoordinatorLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="0dp"
-        app:layout_behavior="@string/bottom_sheet_behavior">
-
-        <include
-            android:id="@+id/articleDialogContainer"
-            layout="@layout/dialog_on_this_day_game_article" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
