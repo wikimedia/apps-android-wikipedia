@@ -40,18 +40,15 @@ fun LicenseLinkText(
                     ),
                     linkInteractionListener = {
                         if (linkTextData.asset != null) {
-                            println("orange: content ${linkTextData.text}")
                             val intent = Intent(context, LicenseActivity::class.java)
                             intent.putExtra(LicenseActivity.ASSET, linkTextData.asset)
                             context.startActivity(intent)
                         } else {
-                            println("orange: url ${linkTextData.text}")
                            uriHandler.openUri(linkTextData.url ?: "")
                         }
                     }
                 )
             ) {
-                println("orange: ${linkTextData.text}")
                 append(linkTextData.text)
             }
         }

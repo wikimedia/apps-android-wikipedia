@@ -42,7 +42,7 @@ fun WikiTopAppBar(
                 Icon(
                     imageVector = navigationIcon,
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
+                    contentDescription = "Navigate up"
                 )
             }
         },

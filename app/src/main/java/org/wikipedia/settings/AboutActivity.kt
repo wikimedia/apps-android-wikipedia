@@ -127,6 +127,7 @@ fun AboutWikipediaScreen(
     val context = LocalContext.current
 
     Scaffold(
+        modifier = modifier,
         snackbarHost = {
             SnackbarHost(
                 hostState = snackbarHostState,
@@ -141,7 +142,7 @@ fun AboutWikipediaScreen(
         },
         topBar = {
             WikiTopAppBar(
-                title = "About",
+                title = stringResource(R.string.about_activity_title),
                 onNavigationClick = onBackButtonClick
             )
         },
