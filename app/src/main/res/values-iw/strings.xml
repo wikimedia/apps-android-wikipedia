@@ -1815,12 +1815,11 @@
   <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
   <string name="on_this_day_game_pause_positive">הבנתי</string>
   <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
-  <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">מה היה קודם?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
   <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
-  <string name="on_this_day_game_stats_played">מספר המשחקים</string>
   <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
   <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
   <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
