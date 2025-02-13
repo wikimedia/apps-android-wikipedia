@@ -1,21 +1,29 @@
 package org.wikipedia.page.tabs
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import kotlinx.serialization.Serializable
+import org.wikipedia.database.PageBackStackItemTypeConverter
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
+@Entity
 @Serializable
-class Tab {
-    val backStack = mutableListOf<PageBackStackItem>()
-
+@TypeConverters(PageBackStackItemTypeConverter::class)
+class Tab(
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    val backStack: MutableList<PageBackStackItem> = mutableListOf()
+) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
 
-    val backStackPositionTitle: PageTitle?
-        get() = if (backStack.isEmpty()) null else backStack[backStackPosition].title
+    fun getBackStackPositionTitle(): PageTitle? {
+        return backStack.getOrNull(backStackPosition)?.title
+    }
 
     fun setBackStackPositionTitle(title: PageTitle) {
-        backStackPositionTitle?.run {
+        getBackStackPositionTitle()?.run {
             backStack[backStackPosition].title = title
         }
     }
