@@ -1700,12 +1700,11 @@
   <string name="on_this_day_game_pause_negative">Продолжи со играње</string>
   <string name="on_this_day_game_pause_positive">Јасно</string>
   <string name="on_this_day_game_feed_entry_card_heading">Википедиини игри</string>
-  <string name="on_this_day_game_feed_entry_card_title">Што се случило попрво?</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">Што се случило попрво?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
   <string name="on_this_day_game_result">Освоивте %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Следна игра за %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
-  <string name="on_this_day_game_stats_played">Играни игри</string>
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
   <string name="on_this_day_game_stats_streak">Тековна седенка</string>
   <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
