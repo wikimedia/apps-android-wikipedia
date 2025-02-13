@@ -142,18 +142,18 @@ class OnThisDayGameArticleBottomSheet(
         }
         dialogBinding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article")
-            ShareUtil.shareText(activity, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
+            ShareUtil.shareText(activity, pageSummary.getPageTitle(viewModel.wikiSite))
         }
         FeedbackUtil.setButtonTooltip(dialogBinding.shareButton, dialogBinding.saveButton)
         dialogBinding.readArticleButton.setOnClickListener {
             WikiGamesEvent.submit("read_click", "game_play", slideName = "game_end_article")
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
+            val entry = HistoryEntry(pageSummary.getPageTitle(viewModel.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
             activity.startActivity(PageActivity.newIntentForNewTab(activity, entry, entry.title))
         }
     }
 
     private fun onBookmarkIconClick(view: ImageView, pageSummary: PageSummary) {
-        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
+        val pageTitle = pageSummary.getPageTitle(viewModel.wikiSite)
         val isSaved = viewModel.savedPages.contains(pageSummary)
         if (isSaved) {
             LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {

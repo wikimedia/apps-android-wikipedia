@@ -21,7 +21,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
@@ -171,7 +170,7 @@ class OnThisDayGameFinalFragment : Fragment() {
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
                 WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
-                ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
+                ShareUtil.shareText(requireActivity(), page.getPageTitle(viewModel.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.setOnClickListener {
@@ -201,7 +200,7 @@ class OnThisDayGameFinalFragment : Fragment() {
     }
 
     private fun onBookmarkIconClick(view: View, pageSummary: PageSummary, position: Int, isSaved: Boolean) {
-        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
+        val pageTitle = pageSummary.getPageTitle(viewModel.wikiSite)
         if (isSaved) {
             LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
