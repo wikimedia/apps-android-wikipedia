@@ -1655,6 +1655,10 @@
   <string name="survey_dialog_option_very_unsatisfied">매우 불만족</string>
   <string name="survey_dialog_cancel">취소</string>
   <string name="survey_dialog_submit">제출</string>
+  <string name="survey_dialog_next">다음</string>
+  <string name="survey_dialog_general_yes">예</string>
+  <string name="survey_dialog_general_no">아니요</string>
+  <string name="survey_dialog_general_maybe">아마도</string>
   <string name="survey_dialog_input_hint">추가 피드백</string>
   <string name="survey_dialog_submitted_snackbar">의견이 제출되었습니다. 고맙습니다!</string>
   <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
@@ -1667,11 +1671,13 @@
   <string name="on_this_day_game_point">+1점</string>
   <string name="on_this_day_game_next">다음 질문</string>
   <string name="on_this_day_game_finish">최종 결과</string>
+  <string name="on_this_day_game_nav_title">게임</string>
+  <string name="on_this_day_game_encourage1">축하합니다!</string>
+  <string name="on_this_day_game_share_back_button">돌아가기</string>
   <string name="on_this_day_game_pause_positive">알겠습니다</string>
   <string name="on_this_day_game_feed_entry_card_heading">위키백과 게임</string>
   <string name="on_this_day_game_result">%2$d점 중 %1$d점을 받았습니다.</string>
   <string name="on_this_day_game_next_in">다음 게임 (%s)</string>
-  <string name="on_this_day_game_stats_played">플레이한 게임</string>
   <string name="on_this_day_game_stats_average_score">평균 점수</string>
   <string name="on_this_day_game_menu_info">더 알아보기</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">당신은 이 질문을 틀렸습니다</string>

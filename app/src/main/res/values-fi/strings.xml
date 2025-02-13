@@ -1651,7 +1651,7 @@
   <string name="email_report_patroller_tasks_body">Olen huomannut ongelman Muokkausten tarkistaminen -ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_campaign_maybe_later_snackbar">Muistutamme sinua jälleen huomenna.</string>
   <string name="donation_campaign_donated_snackbar">Kiitos, lahjoittaja! Anteliaisuutesi auttaa pitämään Wikipedian ja sen sisarsivustot menestyvinä.</string>
-  <string name="donation_campaign_go_back_button">Palaa takaisin</string>
+  <string name="donation_campaign_go_back_button">Takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
   <string name="donate_gpay_dialog_title">Lahjoita Google Payllä?</string>
   <string name="donate_gpay_dialog_description">Lahjoita Google Payllä tai valite toinen maksutapa.</string>
@@ -1691,6 +1691,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Erittäin tyytymätön</string>
   <string name="survey_dialog_cancel">Peruuta</string>
   <string name="survey_dialog_submit">Lähetä</string>
+  <string name="survey_dialog_next">Teksti</string>
+  <string name="survey_dialog_general_yes">Kyllä</string>
+  <string name="survey_dialog_general_no">Ei</string>
+  <string name="survey_dialog_general_maybe">Ehkä</string>
   <string name="survey_dialog_input_hint">Lisää palautetta</string>
   <string name="survey_dialog_submitted_snackbar">Palaute lähetetty. Kiitos!</string>
   <string name="on_this_day_game_entry_dialog_title">Esittelyssä</string>
@@ -1707,6 +1711,17 @@
   <string name="on_this_day_game_point">+1 piste</string>
   <string name="on_this_day_game_next">Seuraava kysymys</string>
   <string name="on_this_day_game_finish">Lopputulokset</string>
+  <string name="on_this_day_game_experiment_chip_text">Kokeellinen</string>
+  <string name="on_this_day_game_nav_title">Pelit</string>
+  <string name="on_this_day_game_share">Jaa ystäville</string>
+  <string name="on_this_day_game_encourage0">Parempaa onnea huomenna!</string>
+  <string name="on_this_day_game_encourage1">Onnittelut!</string>
+  <string name="on_this_day_game_encourage2">Hienoa työtä!</string>
+  <string name="on_this_day_game_encourage3">Erinomaista!</string>
+  <string name="on_this_day_game_share_title">Sait tänään %1$d / %2$d pistettä WikiDate Detective -pelissä</string>
+  <string name="on_this_day_game_share_subtitle">Mukana olleet aiheet:</string>
+  <string name="on_this_day_game_share_footer">Pelattavissa vain rajoitetun ajan ainoastaan Wikipedian Android-sovelluksessa</string>
+  <string name="on_this_day_game_share_back_button">Takaisin</string>
   <string name="on_this_day_game_pause_title">Keskeytetäänkö peli?</string>
   <string name="on_this_day_game_pause_body">Edistymisesi tallennetaan tämän päivän ajaksi. Löydät pelin Tutki-syötteestäsi.</string>
   <string name="on_this_day_game_pause_negative">Jatka pelaamista</string>
@@ -1717,10 +1732,10 @@
   <string name="on_this_day_game_result">Sait %1$d / %2$d pistettä.</string>
   <string name="on_this_day_game_next_in">Aikaa seuraavaan peliin: %s</string>
   <string name="on_this_day_game_your_stats">Tilastosi</string>
-  <string name="on_this_day_game_stats_played">Pelatut pelit</string>
   <string name="on_this_day_game_stats_average_score">Keskimääräinen tulos</string>
   <string name="on_this_day_game_stats_streak">Nykyinen putki</string>
   <string name="on_this_day_game_result_subtitle">Tämän päivän pelissä mainittujen artikkelien määrä</string>
+  <string name="on_this_day_game_completed_message">Kiitos pelaamisesta. Uusi \"Kumpi tuli ensin?\" -peli on saatavilla päivittäin Tutki-syötteessä.</string>
   <string name="on_this_day_game_menu_notifications">Peli-ilmoitukset</string>
   <string name="on_this_day_game_menu_info">Lisätietoja</string>
   <string name="on_this_day_game_menu_feedback">Ongelma ominaisuudessa</string>
@@ -1744,4 +1759,6 @@
   <string name="on_this_day_game_report_email_body">Olen huomannut ongelman Wikipedia-pelt-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="on_this_day_game_notification_undo">Kumoa</string>
   <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Mikä tuli ensin?\" -triviapeliä Wikipedian Android-sovelluksessa %s</string>
+  <string name="on_this_day_game_survey_q1">Kuinka tyytyväinen olit tähän peliin?</string>
+  <string name="on_this_day_game_survey_q2">Olisitko kiinnostunut pelaamaan muita erilaisia Wikipedia-pelejä?</string>
 </resources>
