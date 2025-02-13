@@ -1531,7 +1531,7 @@
   </plurals>
   <string name="preview_edit_title">Podgląd edycji</string>
   <string name="preview_edit_summarize_edit_title">Podsumuj edycję</string>
-  <string name="preview_edit_summarize_edit_hint">Jak poprawiłeś(-aś) tę stronę?</string>
+  <string name="preview_edit_summarize_edit_hint">W jaki sposób poprawiono tę stronę?</string>
   <string name="preview_edit_minor_edit">To jest drobna zmiana</string>
   <string name="preview_edit_watch_this_page">Obserwuj tę stronę</string>
   <string name="preview_edit_learn_more">Dowiedz się więcej o podsumowaniach edycji</string>
@@ -1722,12 +1722,11 @@
   <string name="on_this_day_game_pause_negative">Kontynuuj grę</string>
   <string name="on_this_day_game_pause_positive">Rozumiem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Gry Wikipedii</string>
-  <string name="on_this_day_game_feed_entry_card_title">Co było pierwsze?</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">Co było pierwsze?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Zgadnij, które wydarzenie miało miejsce jako pierwsze tego dnia w historii.</string>
   <string name="on_this_day_game_result">Zdobyłeś %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Następna gra za %s</string>
   <string name="on_this_day_game_your_stats">Twoje statystyki</string>
-  <string name="on_this_day_game_stats_played">Rozegrane gry</string>
   <string name="on_this_day_game_stats_average_score">Średni wynik</string>
   <string name="on_this_day_game_stats_streak">Aktualna passa</string>
   <string name="on_this_day_game_result_subtitle">Artykuły przywołane w dzisiejszej grze</string>

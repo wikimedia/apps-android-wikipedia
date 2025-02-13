@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ViewWikiGamesCardBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -18,6 +19,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     init {
         binding.viewWikiGamesCardContentContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         binding.viewWikiGamesCardContentContainer.setOnClickListener {
+            WikiGamesEvent.submit("enter_click", "game_feed")
             (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card!!.wikiSite), 0)
         }
     }
@@ -31,6 +33,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                 setTitle(langCode)
                 setSubTitle(langCode)
             }
+            WikiGamesEvent.submit("impression", "game_feed")
         }
 
     override var callback: FeedAdapter.Callback? = null

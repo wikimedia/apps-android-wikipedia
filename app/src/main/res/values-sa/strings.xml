@@ -179,6 +179,5 @@
   <string name="on_this_day_game_entry_dialog_snackbar_message">विकिपीडिया-क्रीडाः Explore feed इत्यत्र उपलभ्यन्ते ।</string>
   <string name="on_this_day_game_score">अङ्कः : %d</string>
   <string name="on_this_day_game_feed_entry_card_heading">विकिपीडिया-क्रीडाः</string>
-  <string name="on_this_day_game_feed_entry_card_title">प्रथमं किम् आगतं ?</string>
-  <string name="on_this_day_game_stats_played" fuzzy="true">क्रीडितम्</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">प्रथमं किम् आगतं ?</string>
 </resources>
