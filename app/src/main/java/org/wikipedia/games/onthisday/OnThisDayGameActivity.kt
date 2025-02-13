@@ -20,12 +20,14 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
@@ -69,6 +71,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+        }
         callback = this
 
         setContentView(binding.root)
@@ -108,17 +114,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
 
-            var params = binding.currentQuestionContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+            binding.currentQuestionContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
+                leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+                rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            }
 
-            params = binding.fragmentContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+            binding.bottomContent.updatePadding(bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom)
+
+            binding.fragmentContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
+                leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+                rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            }
 
             articleBottomSheet.onApplyWindowInsets(newStatusBarInsets, toolbarHeight)
             binding.bottomSheetCoordinatorLayout.updatePadding(

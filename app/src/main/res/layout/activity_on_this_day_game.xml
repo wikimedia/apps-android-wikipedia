@@ -243,11 +243,10 @@
         <FrameLayout
             android:id="@+id/bottomContent"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:paddingVertical="20dp"
             android:animateLayoutChanges="true"
             android:background="?attr/progressive_color">
 
@@ -255,8 +254,8 @@
                 android:id="@+id/scoreText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
+                android:layout_marginVertical="20dp"
                 style="@style/P"
                 android:text="@string/on_this_day_game_score"
                 android:textColor="?attr/paper_color"/>
@@ -265,11 +264,10 @@
                 android:id="@+id/nextQuestionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="end|center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center_vertical"
                 android:paddingStart="8dp"
                 android:layout_marginEnd="16dp"
                 style="@style/P"
