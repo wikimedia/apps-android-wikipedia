@@ -7,6 +7,8 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -15,16 +17,19 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -54,7 +59,11 @@ class OnThisDayGameFinalFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
 
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+
         binding.shareButton.setOnClickListener {
+            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
             val shareMessage = getString(R.string.on_this_day_game_share_link_message,
                 getString(R.string.on_this_day_game_share_url))
             ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
@@ -161,10 +170,12 @@ class OnThisDayGameFinalFragment : Fragment() {
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
+                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(WikipediaApp.instance.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.setOnClickListener {
+                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
@@ -184,6 +195,7 @@ class OnThisDayGameFinalFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
+            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
             (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
         }
     }
@@ -271,11 +283,77 @@ class OnThisDayGameFinalFragment : Fragment() {
             return Duration.between(now, startOfNextDay)
         }
 
-        fun maybeShowOnThisDayGameEndMessage(activity: Activity) {
-            // TODO: also show survey if necessary (before the snackbar)
+        fun maybeShowOnThisDayGameEndContent(activity: Activity) {
+            if (!Prefs.otdGameSurveyShown) {
+                Prefs.otdGameSurveyShown = true
+                showOnThisDayGameSurvey1(activity) {
+                    maybeShowThanksSnackbar(activity)
+                }
+            } else {
+                maybeShowThanksSnackbar(activity)
+            }
+        }
 
-            if (calculateTotalGamesPlayed() == 1) {
+        private fun maybeShowThanksSnackbar(activity: Activity) {
+            if (activity is PageActivity && calculateTotalGamesPlayed() == 1) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+            }
+        }
+
+        private fun showOnThisDayGameSurvey1(activity: Activity, onComplete: () -> Unit) {
+            WikiGamesEvent.submit("impression", "survey_modal_1")
+            val choices = arrayOf(activity.getString(R.string.survey_dialog_option_satisfied),
+                activity.getString(R.string.survey_dialog_option_neutral),
+                activity.getString(R.string.survey_dialog_option_unsatisfied))
+            var selection = -1
+            var dialog: AlertDialog? = null
+            dialog = MaterialAlertDialogBuilder(activity)
+                .setCancelable(false)
+                .setTitle(R.string.on_this_day_game_survey_q1)
+                .setSingleChoiceItems(choices, -1) { _, which ->
+                    selection = which
+                    dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
+                }
+                .setPositiveButton(R.string.survey_dialog_next) { _, _ ->
+                    WikiGamesEvent.submit("submit", "survey_modal_1", feedbackSelect = choices[selection])
+                    showOnThisDayGameSurvey2(activity, onComplete)
+                }
+                .setNegativeButton(R.string.survey_dialog_cancel) { _, _ ->
+                    onComplete()
+                }
+                .show()
+            setupSurveyDialog(activity, dialog)
+        }
+
+        private fun showOnThisDayGameSurvey2(activity: Activity, onComplete: () -> Unit) {
+            val choices = arrayOf(activity.getString(R.string.survey_dialog_general_yes),
+                activity.getString(R.string.survey_dialog_general_maybe),
+                activity.getString(R.string.survey_dialog_general_no))
+            var selection = -1
+            var dialog: AlertDialog? = null
+            dialog = MaterialAlertDialogBuilder(activity)
+                .setCancelable(false)
+                .setTitle(R.string.on_this_day_game_survey_q2)
+                .setSingleChoiceItems(choices, -1) { _, which ->
+                    selection = which
+                    dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
+                }
+                .setPositiveButton(R.string.survey_dialog_submit) { _, _ ->
+                    WikiGamesEvent.submit("submit", "survey_modal_2", feedbackSelect = choices[selection])
+                }
+                .setNegativeButton(R.string.survey_dialog_cancel, null)
+                .setOnDismissListener {
+                    onComplete()
+                }
+                .show()
+            setupSurveyDialog(activity, dialog)
+        }
+
+        private fun setupSurveyDialog(activity: Activity, dialog: AlertDialog) {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).isEnabled = false
+            val id = dialog.context.resources.getIdentifier("alertTitle", "id", activity.packageName)
+            dialog.findViewById<TextView>(id)?.let {
+                it.isSingleLine = false
             }
         }
     }

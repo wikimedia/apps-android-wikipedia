@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -96,9 +97,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
             totalState.langToState[wikiSite.languageCode]?.let {
                 currentState = it
-                if (overrideDate) {
-                    currentState = it.copy(currentQuestionState = composeQuestionState(0))
-                }
             } ?: run {
                 currentState = GameState(currentQuestionState = composeQuestionState(0))
             }
@@ -122,9 +120,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it)?.langToHistory }?.toMutableMap() ?: mutableMapOf()
                 val history = totalHistory[wikiSite.languageCode] ?: GameHistory()
                 _gameState.postValue(GameEnded(currentState, history))
-            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay &&
-                currentState.currentQuestionIndex >= currentState.totalQuestions) {
-                // we're coming back from a previous day's completed game, so start a new day's game.
+            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
+                // we're coming back from a previous day's game (whether it was finished or not), so start a new day's game.
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
                 _gameState.postValue(GameStarted(currentState))
             } else {
@@ -145,6 +142,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun submitCurrentResponse(selectedYear: Int) {
         if (currentState.currentQuestionState.goToNext) {
+            WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName())
+
             val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
             if (nextQuestionIndex >= currentState.totalQuestions) {
@@ -175,6 +174,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 _gameState.postValue(CurrentQuestion(currentState))
             }
         } else {
+            WikiGamesEvent.submit("select_click", "game_play", slideName = getCurrentScreenName())
+
             currentState = currentState.copy(currentQuestionState = currentState.currentQuestionState.copy(yearSelected = selectedYear, goToNext = true))
 
             val isCorrect = selectedYear == min(currentState.currentQuestionState.event1.year, currentState.currentQuestionState.event2.year)
@@ -190,6 +191,16 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
         persistState()
+    }
+
+    fun getCurrentScreenName(): String {
+        return if (_gameState.value is GameEnded) {
+            "game_end"
+        } else if (_gameState.value is GameStarted) {
+            "game_start"
+        } else {
+            "game_play_" + (currentState.currentQuestionIndex + 1)
+        }
     }
 
     fun resetCurrentDayState() {
