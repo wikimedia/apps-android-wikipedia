@@ -1650,7 +1650,6 @@
   <string name="on_this_day_game_result">Резултат %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Следећа игра %s</string>
   <string name="on_this_day_game_your_stats">Статистика</string>
-  <string name="on_this_day_game_stats_played">Одиграно</string>
   <string name="on_this_day_game_stats_average_score">Просечан резултат</string>
   <string name="on_this_day_game_menu_info">Сазнајте више</string>
   <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
