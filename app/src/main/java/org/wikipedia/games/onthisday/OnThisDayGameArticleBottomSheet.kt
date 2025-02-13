@@ -14,7 +14,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.DialogOnThisDayGameArticleBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -94,19 +93,19 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment() {
         }
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article")
-            ShareUtil.shareText(requireActivity(), pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
+            ShareUtil.shareText(requireActivity(), pageSummary.getPageTitle(viewModel.wikiSite))
         }
         FeedbackUtil.setButtonTooltip(binding.shareButton, binding.saveButton)
         binding.readArticleButton.setOnClickListener {
             WikiGamesEvent.submit("read_click", "game_play", slideName = "game_end_article")
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
+            val entry = HistoryEntry(pageSummary.getPageTitle(viewModel.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
         return binding.root
     }
 
     private fun onBookmarkIconClick(view: ImageView, pageSummary: PageSummary) {
-        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
+        val pageTitle = pageSummary.getPageTitle(viewModel.wikiSite)
         val isSaved = viewModel.savedPages.contains(pageSummary)
         if (isSaved) {
             LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
