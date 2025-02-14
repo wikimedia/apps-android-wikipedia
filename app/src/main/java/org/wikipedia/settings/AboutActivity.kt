@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +33,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.CoroutineScope
@@ -397,21 +395,6 @@ fun LicenseTextWithHeader(
         LicenseLinkText(
             links = credits,
             textStyle = textStyle
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun AboutWikipediaImagePreview() {
-    BaseTheme {
-        AboutWikipediaScreen(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(WikipediaTheme.colors.paperColor),
-            versionName = BuildConfig.VERSION_NAME,
-            credits = listOf(),
-            onBackButtonClick = {}
         )
     }
 }
