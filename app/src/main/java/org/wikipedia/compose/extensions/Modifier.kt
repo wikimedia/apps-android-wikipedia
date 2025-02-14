@@ -51,7 +51,7 @@ fun Modifier.pulse(
 
 @Preview
 @Composable
-private fun PlusePreview() {
+private fun PreviewPulse() {
     BaseTheme {
         Scaffold(
             topBar = {
@@ -68,7 +68,7 @@ private fun PlusePreview() {
                     .padding(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 Text(
-                    text = "Test",
+                    text = "Pulse",
                     color = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier.pulse()
                 )
