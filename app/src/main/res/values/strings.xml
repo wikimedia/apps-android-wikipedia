@@ -1857,4 +1857,6 @@
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
+    <string name="about_screen_back_button_accessibility_text">Navigate up</string>
+    <string name="about_screen_globe_puzzle_accessibility_text">Globe featuring puzzle logo</string>
 </resources>
