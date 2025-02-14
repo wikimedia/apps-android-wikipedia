@@ -1,6 +1,7 @@
 package org.wikipedia.games.onthisday
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,7 +12,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,11 +32,13 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
@@ -46,7 +52,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment() {
+class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -57,6 +63,9 @@ class OnThisDayGameFinalFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            requireActivity().window.isNavigationBarContrastEnforced = true
+        }
 
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
 
@@ -83,6 +92,16 @@ class OnThisDayGameFinalFragment : Fragment() {
             val timeLeft = timeUntilNextDay()
             binding.nextGameText.text = getString(R.string.on_this_day_game_next_in, String.format(Locale.getDefault(), "%02d:%02d:%02d", timeLeft.toHoursPart(), timeLeft.toMinutesPart(), timeLeft.toSecondsPart()))
             handler.postDelayed(timeUpdateRunnable, 1000)
+        }
+
+        binding.root.setOnApplyWindowInsetsListener { view, insets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(insets, view)
+            val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            binding.shareButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = navBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
+            }
+            binding.resultArticlesList.updatePaddingRelative(bottom = navBarInsets.bottom)
+            insets
         }
 
         handler.post(timeUpdateRunnable)
@@ -195,7 +214,13 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         override fun onClick(v: View) {
             WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            (requireActivity() as OnThisDayGameActivity).openArticleBottomSheet(page) { updateBookmark() }
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
+        }
+    }
+
+    override fun onPageBookmarkChanged(page: PageSummary) {
+        (binding.resultArticlesList.adapter as? RecyclerViewAdapter)?.pages?.find { it.apiTitle == page.apiTitle }?.let {
+            binding.resultArticlesList.adapter?.notifyItemChanged(viewModel.getArticlesMentioned().indexOf(it))
         }
     }
 

@@ -20,22 +20,22 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
@@ -62,13 +62,16 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val cardAnimatorSetIn = AnimatorSet()
     private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var articleBottomSheet: OnThisDayGameArticleBottomSheet
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+        }
         callback = this
 
         setContentView(binding.root)
@@ -76,7 +79,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         mediaPlayer = MediaPlayer()
-        articleBottomSheet = OnThisDayGameArticleBottomSheet(this, binding, viewModel)
 
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
@@ -108,26 +110,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
 
-            var params = binding.currentQuestionContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+            binding.currentQuestionContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
+                leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+                rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            }
 
-            params = binding.fragmentContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
+            binding.bottomContent.updatePadding(bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom)
 
-            articleBottomSheet.onApplyWindowInsets(newStatusBarInsets, toolbarHeight)
-            binding.bottomSheetCoordinatorLayout.updatePadding(
-                top = articleBottomSheet.calculateBottomSheetTopPadding(newStatusBarInsets.top + newNavBarInsets.top),
-                bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom,
-                left = newStatusBarInsets.left + newNavBarInsets.left,
-                right = newStatusBarInsets.right + newNavBarInsets.right
-            )
-
+            binding.fragmentContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
+                leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+                rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            }
             windowInsets
         }
 
@@ -207,9 +202,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onBackPressed() {
-        if (articleBottomSheet.onBackPressed()) {
-            return
-        }
         if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
@@ -219,7 +211,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onFinish() {
-        if (viewModel.invokeSource == InvokeSource.NOTIFICATION) {
+        if (viewModel.invokeSource == Constants.InvokeSource.NOTIFICATION) {
             goToMainTab()
         } else {
             finish()
@@ -557,10 +549,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
-        articleBottomSheet.openArticleBottomSheet(pageSummary, updateBookmark)
-    }
-
     private fun playSound(soundName: String) {
         try {
             mediaPlayer.reset()
@@ -573,7 +561,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: InvokeSource, wikiSite: WikiSite): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
