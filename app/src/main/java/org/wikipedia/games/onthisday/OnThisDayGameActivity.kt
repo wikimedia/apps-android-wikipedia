@@ -17,45 +17,35 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.viewModels
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
-import androidx.core.widget.TextViewCompat
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
-import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import java.time.LocalDate
 import java.time.MonthDay
@@ -69,13 +59,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
-    private val goNextAnimatorSet = AnimatorSet()
-    private val cardAnimatorSet = AnimatorSet()
+    private val cardAnimatorSetIn = AnimatorSet()
+    private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
-    private var newStatusBarInsets: Insets? = null
-    private var newNavBarInsets: Insets? = null
-    private var toolbarHeight: Int = 0
-    private var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>? = null
+    private lateinit var articleBottomSheet: OnThisDayGameArticleBottomSheet
 
     @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,7 +75,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        mediaPlayer = MediaPlayer.create(this, R.raw.sound_logo)
+        mediaPlayer = MediaPlayer()
+        articleBottomSheet = OnThisDayGameArticleBottomSheet(this, binding, viewModel)
 
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
@@ -116,9 +104,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            this.newStatusBarInsets = newStatusBarInsets
-            this.newNavBarInsets = newNavBarInsets
-            toolbarHeight = DimenUtil.getToolbarHeightPx(this)
+            val toolbarHeight = DimenUtil.getToolbarHeightPx(this)
 
             binding.appBarLayout.updatePadding(top = newStatusBarInsets.top)
 
@@ -128,14 +114,15 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
-            params = binding.fragmentContainerFinish.layoutParams as ViewGroup.MarginLayoutParams
+            params = binding.fragmentContainer.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = toolbarHeight + newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
+            articleBottomSheet.onApplyWindowInsets(newStatusBarInsets, toolbarHeight)
             binding.bottomSheetCoordinatorLayout.updatePadding(
-                top = calculateBottomSheetTopPadding(newStatusBarInsets.top + newNavBarInsets.top),
+                top = articleBottomSheet.calculateBottomSheetTopPadding(newStatusBarInsets.top + newNavBarInsets.top),
                 bottom = newStatusBarInsets.bottom + newNavBarInsets.bottom,
                 left = newStatusBarInsets.left + newNavBarInsets.left,
                 right = newStatusBarInsets.right + newNavBarInsets.right
@@ -180,7 +167,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
+                    viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
                     showPauseDialog()
                     true
                 } else {
@@ -189,16 +178,21 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 }
             }
             R.id.menu_learn_more -> {
+                WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName())
                 UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true
             }
             R.id.menu_report_feature -> {
+                WikiGamesEvent.submit("report_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
                 FeedbackUtil.composeEmail(this,
                     subject = getString(R.string.on_this_day_game_report_email_subject),
                     body = getString(R.string.on_this_day_game_report_email_body))
                 true
             }
             R.id.menu_notifications -> {
+                WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName())
+
                 OnThisDayGameNotificationManager.handleNotificationClick(this)
                 true
             }
@@ -206,9 +200,14 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
+        }
+    }
+
     override fun onBackPressed() {
-        if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED) {
-            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
+        if (articleBottomSheet.onBackPressed()) {
             return
         }
         if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
@@ -220,10 +219,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onFinish() {
-        if (WikipediaApp.instance.haveMainActivity) {
-            finish()
-        } else {
+        if (viewModel.invokeSource == InvokeSource.NOTIFICATION) {
             goToMainTab()
+        } else {
+            finish()
         }
     }
 
@@ -236,40 +235,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun showPauseDialog() {
+        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName())
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
             .setIcon(R.drawable.ic_pause_filled_24)
             .setTitle(R.string.on_this_day_game_pause_title)
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
+                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
                 finish()
             }
-            .setNegativeButton(R.string.on_this_day_game_pause_negative, null)
-            .show()
-    }
-
-    @SuppressLint("RestrictedApi")
-    private fun calculateBottomSheetTopPadding(insets: Int): Int {
-        val collapsedPadding = toolbarHeight + insets
-        val expandedPadding = insets
-        val topPadding = when (bottomSheetBehavior?.state) {
-            BottomSheetBehavior.STATE_COLLAPSED -> collapsedPadding
-            BottomSheetBehavior.STATE_EXPANDED -> expandedPadding
-            BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {
-                // Calculate a proper padding during dragging/settling
-                val offsetFraction = if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_DRAGGING) {
-                    // Use the actual drag fraction to avoid jumps.
-                    val y = binding.bottomSheetCoordinatorLayout.y
-                    val expandedY = binding.bottomSheetCoordinatorLayout.height.toFloat()
-                    y / -expandedY + 1
-                } else {
-                    // During settling, use the last stable state and assume a linear transition.
-                    if (bottomSheetBehavior?.lastStableState == BottomSheetBehavior.STATE_EXPANDED) 0f else 1f
-                }
-                collapsedPadding * (1 - offsetFraction) + expandedPadding * offsetFraction
+            .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
+                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
             }
-            else -> collapsedPadding
-        }
-        return topPadding.toInt()
+            .show()
     }
 
     private fun updateOnLoading() {
@@ -292,8 +270,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
-        goNextAnimatorSet.cancel()
-
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -367,6 +343,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.setBackgroundResource(R.drawable.game_date_background_neutral)
 
         binding.centerContent.isVisible = false
+        binding.correctIncorrectText.text = null
         binding.currentQuestionContainer.isVisible = true
         supportInvalidateOptionsMenu()
     }
@@ -374,8 +351,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
+        binding.dateText.isVisible = false
+        binding.progressText.isVisible = false
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerStart, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -383,21 +363,30 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
+        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
+
         binding.progressText.isVisible = false
         binding.scoreText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
 
-        mediaPlayer.start()
+        playSound("sound_logo")
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainerFinish, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
-        animateQuestions()
+        if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
+            animateQuestionsOut {
+                updateGameState(gameState)
+                animateQuestionsIn()
+            }
+        } else {
+            updateGameState(gameState)
+            animateQuestionsIn()
+        }
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
@@ -418,7 +407,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.questionDate2.setTextColor(Color.WHITE)
             setCorrectIcon(binding.questionStatusIcon2)
         }
-
+        playSound("sound_completion")
         enqueueGoNext(gameState)
     }
 
@@ -444,6 +433,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate1.setTextColor(Color.WHITE)
         binding.questionDate2.setTextColor(Color.WHITE)
 
+        playSound("sound_error")
         enqueueGoNext(gameState)
     }
 
@@ -462,181 +452,128 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
         binding.questionDate1.isVisible = true
         binding.questionDate2.isVisible = true
+        binding.questionCard1.isEnabled = false
+        binding.questionCard2.isEnabled = false
 
-        binding.nextQuestionText.postDelayed({
-            if (!isDestroyed) {
-                animateGoNext(gameState)
-            }
-        }, 500)
+        binding.whichCameFirstText.isVisible = false
+        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
+        binding.nextQuestionText.isVisible = true
     }
 
-    fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
-        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-            return
-        }
-        binding.root.requestApplyInsets()
-        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
-            state = BottomSheetBehavior.STATE_EXPANDED
-        }
-        bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                binding.root.requestApplyInsets()
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    updateBookmark()
-                }
-            }
+    fun animateQuestionsIn() {
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        binding.dateText.isVisible = true
+        binding.progressText.isVisible = true
 
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                val topPadding = toolbarHeight + slideOffset * ((newStatusBarInsets?.top ?: 0) - toolbarHeight)
-                bottomSheet.updatePadding(
-                    top = topPadding.toInt()
-                )
-            }
-        })
-
-        val dialogBinding = binding.articleDialogContainer
-        dialogBinding.articleTitle.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        dialogBinding.closeButton.setOnClickListener {
-            bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-        dialogBinding.articleDescription.text = StringUtil.fromHtml(pageSummary.description)
-
-        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
-            dialogBinding.articleThumbnail.isInvisible = true
-            dialogBinding.articleSummaryContainer.isInvisible = false
-            dialogBinding.articleSummary.text = StringUtil.fromHtml(pageSummary.extractHtml)
-        } else {
-            dialogBinding.articleThumbnail.isInvisible = false
-            dialogBinding.articleSummaryContainer.isInvisible = true
-            ViewUtil.loadImage(
-                dialogBinding.articleThumbnail,
-                pageSummary.thumbnailUrl,
-                placeholderId = R.mipmap.launcher
-            )
-        }
-
-        val event = viewModel.getEventByPageTitle(pageSummary.apiTitle)
-        dialogBinding.relatedEventInfo.text = StringUtil.fromHtml(event.text)
-
-        val isCorrect = viewModel.getQuestionCorrectByPageTitle(pageSummary.apiTitle)
-        val answerIcon = if (isCorrect) R.drawable.check_circle_24px else R.drawable.ic_cancel_24px
-        val answerIconTintList = if (isCorrect) ResourceUtil.getThemedColorStateList(this, R.attr.success_color) else ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
-        val answerText = if (isCorrect) R.string.on_this_day_game_article_answer_correct_stats_message else R.string.on_this_day_game_article_answer_incorrect_stats_message
-        dialogBinding.answerStatus.setCompoundDrawablesRelativeWithIntrinsicBounds(answerIcon, 0, 0, 0)
-        TextViewCompat.setCompoundDrawableTintList(dialogBinding.answerStatus, answerIconTintList)
-        dialogBinding.answerStatus.text = getString(answerText)
-
-        val isSaved = viewModel.savedPages.contains(pageSummary)
-        val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-        dialogBinding.saveButton.setImageResource(bookmarkResource)
-        dialogBinding.saveButton.setOnClickListener {
-            onBookmarkIconClick(dialogBinding.saveButton, pageSummary)
-        }
-        dialogBinding.shareButton.setOnClickListener {
-            ShareUtil.shareText(this, pageSummary.getPageTitle(WikipediaApp.instance.wikiSite))
-        }
-        FeedbackUtil.setButtonTooltip(dialogBinding.shareButton, dialogBinding.saveButton)
-        dialogBinding.readArticleButton.setOnClickListener {
-            val entry = HistoryEntry(pageSummary.getPageTitle(WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
-            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-        }
-    }
-
-    private fun onBookmarkIconClick(view: ImageView, pageSummary: PageSummary) {
-        val pageTitle = pageSummary.getPageTitle(WikipediaApp.instance.wikiSite)
-        val isSaved = viewModel.savedPages.contains(pageSummary)
-        if (isSaved) {
-            LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(this@OnThisDayGameActivity, pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(this@OnThisDayGameActivity, page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                    }
-                }
-
-                override fun onRemoveRequest() {
-                    super.onRemoveRequest()
-                    viewModel.savedPages.remove(pageSummary)
-                    view.setImageResource(R.drawable.ic_bookmark_border_white_24dp)
-                }
-            }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
-        } else {
-            ReadingListBehaviorsUtil.addToDefaultList(this@OnThisDayGameActivity, pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-            viewModel.savedPages.add(pageSummary)
-            view.setImageResource(R.drawable.ic_bookmark_white_24dp)
-        }
-    }
-
-    fun animateQuestions() {
+        binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
+        val textA1 = ObjectAnimator.ofFloat(binding.whichCameFirstText, "alpha", 0f, 1f)
         val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 0f, 1f)
         val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", DimenUtil.dpToPx(400f), 0f)
         val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 0f, 1f)
 
         val duration = 750L
-        translationX1.setDuration(duration)
-        translationX1.interpolator = DecelerateInterpolator()
-        translationA1.setDuration(duration)
-        translationA1.interpolator = DecelerateInterpolator()
-        translationX2.setDuration(duration)
-        translationX2.startDelay = duration
-        translationX2.interpolator = DecelerateInterpolator()
-        translationA2.setDuration(duration)
-        translationA2.startDelay = duration
-        translationA2.interpolator = DecelerateInterpolator()
+        var delay = 500L
+        val interpolator = DecelerateInterpolator()
+        textA1.duration = duration
+        textA1.startDelay = delay
+        textA1.interpolator = interpolator
+        translationX1.duration = duration
+        delay += duration
+        translationX1.startDelay = delay
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
+        translationA1.startDelay = delay
+        delay += duration
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
+        translationX2.startDelay = delay
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
+        translationA2.startDelay = delay
+        translationA2.interpolator = interpolator
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
-        cardAnimatorSet.cancel()
-        cardAnimatorSet.playTogether(translationX1, translationA1, translationX2, translationA2)
-        cardAnimatorSet.doOnEnd {
+        cardAnimatorSetIn.cancel()
+        cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetIn.doOnEnd {
             binding.questionCard1.isEnabled = true
             binding.questionCard2.isEnabled = true
         }
-        cardAnimatorSet.start()
+        cardAnimatorSetIn.start()
     }
 
-    private fun animateGoNext(gameState: OnThisDayGameViewModel.GameState) {
-        binding.whichCameFirstText.isVisible = false
-        binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
-        binding.nextQuestionText.isVisible = true
+    fun animateQuestionsOut(onFinished: () -> Unit) {
+        binding.questionCard1.alpha = 1f
+        binding.questionCard2.alpha = 1f
+        binding.questionDate1.isInvisible = true
+        binding.questionDate2.isInvisible = true
+        binding.centerContent.isInvisible = true
 
-        val translationX = ObjectAnimator.ofFloat(binding.nextQuestionText, "translationX", 0f, DimenUtil.dpToPx(-8f), 0f)
+        val translationX1 = ObjectAnimator.ofFloat(binding.questionCard1, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA1 = ObjectAnimator.ofFloat(binding.questionCard1, "alpha", 1f, 0f)
+        val translationX2 = ObjectAnimator.ofFloat(binding.questionCard2, "translationX", 0f, DimenUtil.dpToPx(-400f))
+        val translationA2 = ObjectAnimator.ofFloat(binding.questionCard2, "alpha", 1f, 0f)
 
-        val duration = 1500L
-        translationX.setDuration(duration)
-        translationX.interpolator = AccelerateDecelerateInterpolator()
-        translationX.repeatCount = ObjectAnimator.INFINITE
+        val duration = 250L
+        val interpolator = AccelerateInterpolator()
+        translationX1.duration = duration
+        translationX1.interpolator = interpolator
+        translationA1.duration = duration
+        translationA1.interpolator = interpolator
+        translationX2.duration = duration
+        translationX2.startDelay = duration
+        translationX2.interpolator = interpolator
+        translationA2.duration = duration
+        translationA2.startDelay = duration
+        translationA2.interpolator = interpolator
 
-        goNextAnimatorSet.cancel()
-        goNextAnimatorSet.playTogether(translationX)
-        goNextAnimatorSet.start()
+        cardAnimatorSetOut.cancel()
+        cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
+        cardAnimatorSetOut.doOnEnd {
+            binding.root.post {
+                if (!isDestroyed) {
+                    onFinished()
+                }
+            }
+        }
+        cardAnimatorSetOut.start()
     }
 
     fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
-                ContextCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
+                ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
                     OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
                 }
-
-                else -> {
-                    requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
-                }
+                else -> requestPermissionLauncher.launch(permission)
             }
+        } else {
+            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
+        }
+    }
+
+    fun openArticleBottomSheet(pageSummary: PageSummary, updateBookmark: () -> Unit) {
+        articleBottomSheet.openArticleBottomSheet(pageSummary, updateBookmark)
+    }
+
+    private fun playSound(soundName: String) {
+        try {
+            mediaPlayer.reset()
+            mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
+        fun newIntent(context: Context, invokeSource: InvokeSource, wikiSite: WikiSite): Intent {
             val intent = Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
@@ -649,12 +586,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
             }
             return intent
-        }
-    }
-
-    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
-        if (isGranted) {
-            OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
 }

@@ -1933,12 +1933,11 @@
   <string name="on_this_day_game_pause_negative">استمر باللعب</string>
   <string name="on_this_day_game_pause_positive">فهمتها</string>
   <string name="on_this_day_game_feed_entry_card_heading">العاب ويكيبيديا</string>
-  <string name="on_this_day_game_feed_entry_card_title">ماذا جاء أولا؟</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">ماذا جاء أولا؟</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">خمن ما هو الحدث الذي حدث أولاً في هذا اليوم في التاريخ؟</string>
   <string name="on_this_day_game_result">لقد حصلت على %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">المباراة القادمة في %s</string>
   <string name="on_this_day_game_your_stats">إحصائياتك</string>
-  <string name="on_this_day_game_stats_played">الألعاب التي لعبت</string>
   <string name="on_this_day_game_stats_average_score">متوسط النتيجة</string>
   <string name="on_this_day_game_stats_streak">السلسلة الحالية</string>
   <string name="on_this_day_game_result_subtitle">المقالات المشار إليها في مباراة اليوم</string>
