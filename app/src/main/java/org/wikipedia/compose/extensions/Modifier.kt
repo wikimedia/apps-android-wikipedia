@@ -1,6 +1,7 @@
 package org.wikipedia.compose.extensions
 
-import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
@@ -27,7 +28,8 @@ fun Modifier.pulse(
     toScale: Float = 2.5f,
     durationMillis: Int = 1000,
     pivot: Float = 0.5f,
-    repeatCount: Int = 1
+    repeatCount: Int = 1,
+    easing: Easing = FastOutSlowInEasing
 ): Modifier = composed {
     val scale = remember { mutableFloatStateOf(fromScale) }
     val targetScale = rememberUpdatedState(toScale)
@@ -37,7 +39,7 @@ fun Modifier.pulse(
             animate(
                 initialValue = fromScale,
                 targetValue = targetScale.value,
-                animationSpec = tween(durationMillis, easing = LinearEasing)
+                animationSpec = tween(durationMillis, easing = easing)
             ) { value, _ ->
                 scale.floatValue = value
             }
@@ -45,7 +47,7 @@ fun Modifier.pulse(
             animate(
                 initialValue = targetScale.value,
                 targetValue = fromScale,
-                animationSpec = tween(durationMillis, easing = LinearEasing)
+                animationSpec = tween(durationMillis, easing = easing)
             ) { value, _ ->
                 scale.floatValue = value
             }
@@ -78,7 +80,10 @@ private fun PreviewPulse() {
                 Text(
                     text = "Pulse",
                     color = WikipediaTheme.colors.primaryColor,
-                    modifier = Modifier.pulse(repeatCount = 5)
+                    modifier = Modifier.pulse(
+                        repeatCount = 5,
+                        easing = FastOutSlowInEasing
+                    )
                 )
             }
         }
