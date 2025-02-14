@@ -1,6 +1,7 @@
 package org.wikipedia.games.onthisday
 
 import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -62,6 +63,9 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            requireActivity().window.isNavigationBarContrastEnforced = true
+        }
 
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
 
