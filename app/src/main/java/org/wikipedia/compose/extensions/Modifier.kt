@@ -48,7 +48,6 @@ fun Modifier.pulse(
     }
 }
 
-
 @Preview
 @Composable
 private fun PreviewPulse() {
