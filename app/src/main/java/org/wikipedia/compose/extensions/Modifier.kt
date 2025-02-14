@@ -1,16 +1,14 @@
 package org.wikipedia.compose.extensions
 
 import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
@@ -29,19 +27,30 @@ fun Modifier.pulse(
     toScale: Float = 2.5f,
     durationMillis: Int = 1000,
     pivot: Float = 0.5f,
+    repeatCount: Int = 1
 ): Modifier = composed {
     val scale = remember { mutableFloatStateOf(fromScale) }
     val targetScale = rememberUpdatedState(toScale)
-    val infiniteTransition = rememberInfiniteTransition()
 
-    scale.floatValue = infiniteTransition.animateFloat(
-        initialValue = fromScale,
-        targetValue = targetScale.value,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        )
-    ).value
+    LaunchedEffect(repeatCount) {
+        repeat(repeatCount) {
+            animate(
+                initialValue = fromScale,
+                targetValue = targetScale.value,
+                animationSpec = tween(durationMillis, easing = LinearEasing)
+            ) { value, _ ->
+                scale.floatValue = value
+            }
+
+            animate(
+                initialValue = targetScale.value,
+                targetValue = fromScale,
+                animationSpec = tween(durationMillis, easing = LinearEasing)
+            ) { value, _ ->
+                scale.floatValue = value
+            }
+        }
+    }
 
     scale(scale.floatValue, scale.floatValue).also {
         TransformOrigin(pivot, pivot)
@@ -69,7 +78,7 @@ private fun PreviewPulse() {
                 Text(
                     text = "Pulse",
                     color = WikipediaTheme.colors.primaryColor,
-                    modifier = Modifier.pulse()
+                    modifier = Modifier.pulse(repeatCount = 5)
                 )
             }
         }
