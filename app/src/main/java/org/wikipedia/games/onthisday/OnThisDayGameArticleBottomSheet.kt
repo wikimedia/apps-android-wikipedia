@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.os.BundleCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isInvisible
 import androidx.core.widget.TextViewCompat
@@ -14,9 +13,11 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.DialogOnThisDayGameArticleBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageActivity
@@ -32,6 +33,10 @@ import org.wikipedia.views.ViewUtil
 import kotlin.getValue
 
 class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment() {
+    fun interface Callback {
+        fun onPageBookmarkChanged(page: PageSummary)
+    }
+
     private var _binding: DialogOnThisDayGameArticleBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
@@ -39,7 +44,7 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageSummary = BundleCompat.getParcelable(requireArguments(), Constants.ARG_TITLE, PageSummary::class.java)!!
+        pageSummary = requireArguments().parcelable<PageSummary>(Constants.ARG_TITLE)!!
     }
 
     override fun onDestroyView() {
@@ -123,13 +128,19 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment() {
                     super.onRemoveRequest()
                     viewModel.savedPages.remove(pageSummary)
                     view.setImageResource(R.drawable.ic_bookmark_border_white_24dp)
+                    callback()?.onPageBookmarkChanged(pageSummary)
                 }
             }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
         } else {
             ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
             viewModel.savedPages.add(pageSummary)
             view.setImageResource(R.drawable.ic_bookmark_white_24dp)
+            callback()?.onPageBookmarkChanged(pageSummary)
         }
+    }
+
+    private fun callback(): Callback? {
+        return getCallback(this@OnThisDayGameArticleBottomSheet, Callback::class.java)
     }
 
     companion object {

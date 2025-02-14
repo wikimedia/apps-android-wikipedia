@@ -47,7 +47,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment() {
+class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -196,7 +196,13 @@ class OnThisDayGameFinalFragment : Fragment() {
 
         override fun onClick(v: View) {
             WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            ExclusiveBottomSheetPresenter.show(requireActivity().supportFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
+        }
+    }
+
+    override fun onPageBookmarkChanged(page: PageSummary) {
+        (binding.resultArticlesList.adapter as? RecyclerViewAdapter)?.pages?.find { it.apiTitle == page.apiTitle }?.let {
+            binding.resultArticlesList.adapter?.notifyItemChanged(viewModel.getArticlesMentioned().indexOf(it))
         }
     }
 
