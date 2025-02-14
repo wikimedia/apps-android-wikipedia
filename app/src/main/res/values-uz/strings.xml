@@ -941,8 +941,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Rasmga teg qoʻshmoq</string>
-  <string name="suggested_edits_snackbar_survey_text">Tahrirlash tajribangiz qanaqa? Iltimos, ilova ichidagi tahrirlash haqidagi soʻrovnomani toʻldiring.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ishtirok etmoq</string>
   <string name="suggested_edits_task_action_text_add">Qoʻshmoq</string>
   <string name="suggested_edits_task_action_text_translate">Tarjima qilish</string>
   <string name="suggested_edits_image_captions">Rasm nomi</string>

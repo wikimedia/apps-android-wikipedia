@@ -309,6 +309,7 @@ object UserTalkAliasData {
             "tg" to "Баҳси корбар",
             "th" to "คุยกับผู้ใช้",
             "ti" to "ምይይጥ ተጠቃሚ",
+            "tig" to "ህድግ መትነፈዓይ",
             "tk" to "Ulanyjy çekişme",
             "tl" to "Usapang tagagamit",
             "tly" to "Okoədəj nopegət",

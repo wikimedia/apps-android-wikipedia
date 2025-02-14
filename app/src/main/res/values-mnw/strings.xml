@@ -802,8 +802,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">စုတ် ပရူပရာ ဗီုရုပ်</string>
   <string name="suggested_edits_feed_card_translate_image_caption">စုတ် ပရူပရာ ဗီုရုပ် %s</string>
   <string name="suggested_edits_feed_card_add_image_tags">စုတ် ဗီုရုပ် အစာမ်</string>
-  <string name="suggested_edits_snackbar_survey_text">စပ်ကဵု ပလေဝ်ဒါန်လိက်တုဲ ပရေင်ဆဵုဂဗ မၞး နွံဗီုလဵုရော? ပဂုန်တုဲ ဗပေင် တင်လညာတ်မၞး ပ္ဍဲအရာမလ္ၚတ်တင်ဂၞင် ပရူအာပ် ပလေဝ်ဒါန်လိက်ဏအ်ညိ။</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ဗပေင် တင်ဂၞင်</string>
   <string name="suggested_edits_task_action_text_add">စုတ်</string>
   <string name="suggested_edits_task_action_text_translate">ကၠာဲ</string>
   <string name="suggested_edits_image_captions">ပရူပရာ ဗီု</string>

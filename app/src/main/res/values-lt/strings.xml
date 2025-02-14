@@ -810,8 +810,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Pridėti paveikslėlio antraštę</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Pridėti paveikslėlio antraštę (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Pridėti paveikslėlio žymes</string>
-  <string name="suggested_edits_snackbar_survey_text">Kokie jūsų keitimo patirtis? Prašome užpildyti trumpą apklausą apie keitimus su programėle.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Atlikti apklausą</string>
   <string name="suggested_edits_task_action_text_add">Pridėti</string>
   <string name="suggested_edits_task_action_text_translate">Versti</string>
   <string name="suggested_edits_image_captions">Paveikslėlių antraštės</string>

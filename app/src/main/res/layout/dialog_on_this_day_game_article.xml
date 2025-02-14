@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogScrollContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialogDetailContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_2dp_fill"/>
+
+        <TextView
+            android:id="@+id/articleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/H1.Article"
+            android:textColor="?attr/primary_color"
+            android:textAlignment="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="New Mexico"/>
+
+        <TextView
+            android:id="@+id/articleDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/List"
+            android:textColor="?attr/placeholder_color"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/articleTitle"
+            tools:text="U.S. state"/>
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/articleThumbnail"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_w_logo_circle"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="12dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/articleDescription"
+            app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All" />
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/articleSummaryContainer"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/articleDescription">
+
+            <TextView
+                android:id="@+id/articleSummary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="?attr/primary_color"
+                android:layout_margin="16dp"
+                android:ellipsize="end"
+                android:maxLines="8"
+                style="@style/P.Article"
+                tools:text="New Mexico[a] is a state in the Southwestern region of the United States."/>
+
+        </org.wikipedia.views.WikiCardView>
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/saveButtonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="24dp"
+            app:elevation="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
+            app:layout_constraintStart_toStartOf="@+id/articleThumbnail">
+
+            <ImageView
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/ic_bookmark_border_white_24dp"
+                android:contentDescription="@string/menu_page_add_to_default_list"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="?primary_color"/>
+
+        </org.wikipedia.views.WikiCardView>
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/shareButtonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="24dp"
+            app:elevation="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/articleThumbnail"
+            app:layout_constraintStart_toEndOf="@+id/saveButtonContainer" >
+
+            <ImageView
+                android:id="@+id/shareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                style="@style/RoundedCornerOverlay"
+                android:src="@drawable/ic_share"
+                android:contentDescription="@string/share_via"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="?primary_color"/>
+
+        </org.wikipedia.views.WikiCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/readArticleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:minHeight="48dp"
+            android:layout_gravity="bottom|end"
+            android:text="@string/on_this_day_game_article_read_button"
+            style="@style/App.Button"
+            app:backgroundTint="?attr/progressive_color"
+            app:icon="@drawable/ic_article_ltr_ooui"
+            app:iconTint="@android:color/white"
+            app:layout_constraintTop_toTopOf="@id/shareButtonContainer"
+            app:layout_constraintBottom_toBottomOf="@id/shareButtonContainer"
+            app:layout_constraintStart_toEndOf="@+id/shareButtonContainer" />
+
+        <TextView
+            android:id="@+id/relatedEventTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/H4"
+            android:text="@string/on_this_day_game_article_related_event_title"
+            android:textColor="?attr/primary_color"
+            android:layout_marginBottom="12dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@id/readArticleButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/relatedEventContainer"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            android:layout_margin="16dp"
+            app:elevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relatedEventTitle"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/relatedEventInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:ellipsize="end"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="New Mexico is admitted to the Union as the 47th U.S. state."/>
+
+                <TextView
+                    android:id="@+id/answerStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/List"
+                    android:text="@string/on_this_day_game_article_answer_correct_stats_message"
+                    android:textColor="?attr/placeholder_color"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/check_circle_24px"
+                    app:drawableTint="?attr/success_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </org.wikipedia.views.WikiCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

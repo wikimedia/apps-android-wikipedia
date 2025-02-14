@@ -47,6 +47,13 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun verifyFeedViewSize(expectedCount: Int) = apply {
+        verifyRecyclerViewItemCount(
+            viewId = R.id.feed_view,
+            expectedCount = expectedCount
+        )
+    }
+
     fun clickRandomArticle() = apply {
         // Random article card seen and saved to reading lists
         makeViewVisibleAndClick(

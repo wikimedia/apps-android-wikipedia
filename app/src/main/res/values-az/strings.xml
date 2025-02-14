@@ -11,6 +11,7 @@
 * Vesely35
 * Wertuose
 * Şeyx Şamil
+* Əkrəm
 * Əkrəm Cəfər
 -->
 <resources>
@@ -979,8 +980,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Şəkil başlığı əlavə et</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Şəkil başlığı əlavə et (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Şəkil etiketləri əlavə et</string>
-  <string name="suggested_edits_snackbar_survey_text">Redaktə təcrübəniz necə idi? Tətbiqdaxili redaktə ilə bağlı sorğunu doldurmaq üçün bir az vaxt ayırın.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Sorğuda iştirak edin</string>
   <string name="suggested_edits_task_action_text_add">Əlavə et</string>
   <string name="suggested_edits_task_action_text_translate">Tərcümə et</string>
   <string name="suggested_edits_image_captions">Şəkil başlıqları</string>
