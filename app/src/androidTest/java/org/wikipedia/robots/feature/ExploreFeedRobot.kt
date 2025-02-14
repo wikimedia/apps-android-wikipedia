@@ -48,7 +48,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun verifyFeedViewSize(expectedCount: Int) = apply {
-        verifyRecyclerViewItemCount(
+        list.verifyRecyclerViewItemCount(
             viewId = R.id.feed_view,
             expectedCount = expectedCount
         )
