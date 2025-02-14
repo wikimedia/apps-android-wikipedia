@@ -34,7 +34,8 @@ fun Snackbar(
                 }
             }
         },
-        modifier = modifier,
+        modifier = modifier
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         containerColor = WikipediaTheme.colors.borderColor
     ) {
         Text(

@@ -133,8 +133,6 @@ fun AboutWikipediaScreen(
                 hostState = snackbarHostState,
                 snackbar = {
                     Snackbar(
-                        modifier = Modifier
-                            .padding(horizontal = 16.dp),
                         message = it.visuals.message
                     )
                 }
