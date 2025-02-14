@@ -17,44 +17,44 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
 class ReadingListRobot : BaseRobot() {
     fun saveArticleToReadingList() = apply {
-        clickOnViewWithId(R.id.page_save)
+        click.onViewWithId(R.id.page_save)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun addToReadingList(context: Context) = apply {
-        clickOnViewWithText(context.getString(R.string.reading_list_add_to_list_button))
+        click.onViewWithText(context.getString(R.string.reading_list_add_to_list_button))
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun typeNameOfTheList(title: String, context: Context) = apply {
-        typeTextInView(viewId = R.id.text_input, title)
+        input.typeTextInView(viewId = R.id.text_input, title)
         delay(TestConfig.DELAY_MEDIUM)
-        if (isViewWithTextVisible(context.getString(R.string.reading_list_title_exists, title))) {
-            typeTextInView(viewId = R.id.text_input, "$title${Math.random()}")
+        if (verify.isViewWithTextVisible(context.getString(R.string.reading_list_title_exists, title))) {
+            input.typeTextInView(viewId = R.id.text_input, "$title${Math.random()}")
         }
     }
 
     fun saveTheList(context: Context) = apply {
-        clickOnViewWithText(context.getString(R.string.text_input_dialog_ok_button_text))
+        click.onViewWithText(context.getString(R.string.text_input_dialog_ok_button_text))
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun viewTheList(context: Context) = apply {
-        clickOnViewWithText(context.getString(R.string.reading_list_added_view_button))
+        click.onViewWithText(context.getString(R.string.reading_list_added_view_button))
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
-        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
     }
 
     fun clickOnGotIt() = apply {
-        clickOnViewWithText("Got it")
+        click.onViewWithText("Got it")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -111,13 +111,13 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun navigateUp() = apply {
-        clickOnDisplayedViewWithContentDescription("Navigate up")
+        click.onDisplayedViewWithContentDescription("Navigate up")
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickNoThanks(context: Context) = apply {
         try {
-            clickOnViewWithText(context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks))
+            click.onViewWithText(context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks))
             delay(TestConfig.DELAY_MEDIUM)
         } catch (e: Exception) {
             Log.e("ReadingListRobot: ", "${e.message}")
@@ -125,7 +125,7 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun clickCreateList() = apply {
-        clickOnViewWithId(R.id.create_button)
+        click.onViewWithId(R.id.create_button)
         delay(TestConfig.DELAY_MEDIUM)
     }
 

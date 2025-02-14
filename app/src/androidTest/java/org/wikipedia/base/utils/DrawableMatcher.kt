@@ -1,4 +1,4 @@
-package org.wikipedia.base
+package org.wikipedia.base.utils
 
 import android.content.res.Resources
 import android.view.View

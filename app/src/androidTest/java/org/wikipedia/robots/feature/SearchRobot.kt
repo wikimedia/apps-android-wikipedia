@@ -14,38 +14,38 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {
     fun tapSearchView() = apply {
         // Click the Search box
-        clickOnViewWithText("Search Wikipedia")
+        click.onViewWithText("Search Wikipedia")
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickSearchFromPageView() = apply {
-        clickOnViewWithId(viewId = R.id.page_toolbar_button_search)
+        click.onViewWithId(viewId = R.id.page_toolbar_button_search)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickSearchContainer() = apply {
         // Click the Search box
-        clickOnDisplayedView(R.id.search_container)
+        click.onDisplayedView(R.id.search_container)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickSearchInsideSearchFragment() = apply {
-        clickOnViewWithId(R.id.search_cab_view)
+        click.onViewWithId(R.id.search_cab_view)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun typeTextInView(searchTerm: String) = apply {
         // Type in our search term
-        typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
+        input.typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
 
         // Give the API plenty of time to return results
         delay(TestConfig.DELAY_LARGE)
@@ -53,15 +53,15 @@ class SearchRobot : BaseRobot() {
 
     fun verifySearchResult(expectedTitle: String) = apply {
         // Make sure one of the results matches the title that we expect
-        checkWithTextIsDisplayed(R.id.page_list_item_title, expectedTitle)
+        verify.withTextIsDisplayed(R.id.page_list_item_title, expectedTitle)
     }
 
     fun verifyHistoryArticle(articleTitle: String) = apply {
-        checkWithTextIsDisplayed(R.id.page_list_item_title, articleTitle)
+        verify.withTextIsDisplayed(R.id.page_list_item_title, articleTitle)
     }
 
     fun clickFilterHistoryButton() = apply {
-        clickOnViewWithId(R.id.history_filter)
+        click.onViewWithId(R.id.history_filter)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -73,46 +73,46 @@ class SearchRobot : BaseRobot() {
     }
 
     fun verifySearchTermIsCleared() = apply {
-        checkViewWithIdAndText(viewId = androidx.appcompat.R.id.search_src_text, text = "")
+        verify.viewWithIdAndText(viewId = androidx.appcompat.R.id.search_src_text, text = "")
     }
 
     fun clickOnItemFromSearchList(position: Int) = apply {
-        clickOnItemInList(R.id.search_results_list, position)
+        list.clickOnItemInList(R.id.search_results_list, position)
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun longClickOnItemFromSearchList(position: Int) = apply {
-        longClickOnItemInList(R.id.search_results_list, position)
+        list.longClickOnItemInList(R.id.search_results_list, position)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyRecentSearchesAppears() = apply {
-        checkViewWithTextDisplayed("Recent searches:")
+        verify.viewWithTextDisplayed("Recent searches:")
     }
 
     fun navigateUp() = apply {
-        clickOnDisplayedViewWithContentDescription("Navigate up")
+        click.onDisplayedViewWithContentDescription("Navigate up")
     }
 
     fun checkLanguageAvailability(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
-        checkViewWithIdAndText(viewId = R.id.language_label, text = language)
+        verify.viewWithIdAndText(viewId = R.id.language_label, text = language)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickLanguage(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
-        clicksOnDisplayedViewWithText(viewId = R.id.language_label, text = language)
+        click.onDisplayedViewWithText(viewId = R.id.language_label, text = language)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun checkSearchListItemHasRTLDirection() = apply {
-        checkRTLDirectionOfRecyclerViewItem(R.id.search_results_list)
+        verify.rTLDirectionOfRecyclerViewItem(R.id.search_results_list)
     }
 
     fun clickSave(action: ((isSaved: Boolean) -> Unit)? = null) = apply {
         try {
-            clickOnViewWithText("Save")
+            click.onViewWithText("Save")
             delay(TestConfig.DELAY_SHORT)
             action?.invoke(true)
         } catch (e: Exception) {
@@ -154,18 +154,18 @@ class SearchRobot : BaseRobot() {
     }
 
     fun clickOnItemFromHistoryList(position: Int) = apply {
-        clickOnItemInList(R.id.history_list, position)
+        list.clickOnItemInList(R.id.history_list, position)
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun longClickOnItemFromHistoryList(position: Int) = apply {
-        longClickOnItemInList(R.id.history_list, position)
+        list.longClickOnItemInList(R.id.history_list, position)
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun assertColorOfTitleInTheSearchList(position: Int, theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
-        assertColorForChildItemInAList(
+        verify.assertColorForChildItemInAList(
             listId = R.id.search_results_list,
             childItemId = R.id.page_list_item_title,
             position = position,
@@ -175,7 +175,7 @@ class SearchRobot : BaseRobot() {
 
     fun assertColorOfTitleInTheHistoryList(position: Int, theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
-        assertColorForChildItemInAList(
+        verify.assertColorForChildItemInAList(
             listId = R.id.history_list,
             childItemId = R.id.page_list_item_title,
             position = position,
