@@ -1672,8 +1672,7 @@
   <string name="on_this_day_game_next">다음 질문</string>
   <string name="on_this_day_game_finish">최종 결과</string>
   <string name="on_this_day_game_nav_title">게임</string>
-  <string name="on_this_day_game_encourage1">축하합니다!</string>
-  <string name="on_this_day_game_share_back_button">돌아가기</string>
+  <string name="on_this_day_game_share">친구와 공유하기</string>
   <string name="on_this_day_game_pause_positive">알겠습니다</string>
   <string name="on_this_day_game_feed_entry_card_heading">위키백과 게임</string>
   <string name="on_this_day_game_result">%2$d점 중 %1$d점을 받았습니다.</string>
