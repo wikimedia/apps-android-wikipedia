@@ -489,6 +489,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
+        cardAnimatorSetIn.removeAllListeners()
         cardAnimatorSetIn.cancel()
         cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetIn.doOnEnd {
