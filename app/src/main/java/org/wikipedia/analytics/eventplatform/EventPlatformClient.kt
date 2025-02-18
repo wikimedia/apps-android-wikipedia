@@ -73,7 +73,9 @@ object EventPlatformClient {
      */
     fun submit(event: Event) {
         if (STREAM_CONFIGS.isEmpty()) {
+            // We haven't gotten stream configs yet, so queue up the event in our initial queue.
             synchronized(INITIAL_QUEUE) {
+                // We want the queue to work as a circular buffer, so if it's full, remove the oldest item.
                 if (INITIAL_QUEUE.size >= Prefs.analyticsQueueSize) {
                     INITIAL_QUEUE.removeAt(0)
                 }
@@ -93,6 +95,7 @@ object EventPlatformClient {
 
     fun flushCachedEvents() {
         if (STREAM_CONFIGS.isNotEmpty()) {
+            // If we have events left over in our initial queue, submit them now, so they'll be send in this pass.
             synchronized(INITIAL_QUEUE) {
                 if (INITIAL_QUEUE.isNotEmpty()) {
                     INITIAL_QUEUE.forEach {
