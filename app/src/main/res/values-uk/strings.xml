@@ -1818,14 +1818,6 @@
   <string name="on_this_day_game_experiment_chip_text">Експеримент</string>
   <string name="on_this_day_game_nav_title">Ігри</string>
   <string name="on_this_day_game_share">Поділитися з друзями</string>
-  <string name="on_this_day_game_encourage0">Хай щастить завтра!</string>
-  <string name="on_this_day_game_encourage1">Вітаємо!</string>
-  <string name="on_this_day_game_encourage2">Чудова робота!</string>
-  <string name="on_this_day_game_encourage3">Відмінно!</string>
-  <string name="on_this_day_game_share_title">Мої правильні відповіді у WikiDate Detective сьогодні — %1$d з %2$d</string>
-  <string name="on_this_day_game_share_subtitle">Тематика:</string>
-  <string name="on_this_day_game_share_footer">Грайте протягом обмеженого часу лише в програмці Вікіпедії для Android</string>
-  <string name="on_this_day_game_share_back_button">Повернутися</string>
   <string name="on_this_day_game_pause_title">Призупинити гру?</string>
   <string name="on_this_day_game_pause_body">Ваш прогрес буде збережено. Ви можете знайти гру у своїй стрічці.</string>
   <string name="on_this_day_game_pause_negative">Продовжити грати</string>

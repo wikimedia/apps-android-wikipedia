@@ -1471,11 +1471,6 @@
   <string name="on_this_day_game_experiment_chip_text">ਤਜਰਬਾ</string>
   <string name="on_this_day_game_nav_title">ਖੇਡਾਂ</string>
   <string name="on_this_day_game_share">ਦੋਸਤਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ</string>
-  <string name="on_this_day_game_encourage1">ਵਧਾਈਆਂ!</string>
-  <string name="on_this_day_game_encourage2">ਬਹੁਤ ਵਧੀਆ!</string>
-  <string name="on_this_day_game_encourage3">ਸ਼ਾਨਦਾਰ!</string>
-  <string name="on_this_day_game_share_subtitle">ਵਿਸ਼ੇ ਸ਼ਾਮਲ ਹਨ:</string>
-  <string name="on_this_day_game_share_back_button">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="on_this_day_game_pause_title">ਖੇਡ ਨੂੰ ਰੋਕਣਾ ਹੈ?</string>
   <string name="on_this_day_game_pause_negative">ਖੇਡਦੇ ਰਹੋ</string>
   <string name="on_this_day_game_pause_positive">ਸਮਝ ਲਿਆ</string>
