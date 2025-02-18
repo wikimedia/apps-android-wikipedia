@@ -7,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.CoroutineScope
@@ -47,7 +47,6 @@ import org.wikipedia.compose.components.LicenseLinkText
 import org.wikipedia.compose.components.LinkTextData
 import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
-import org.wikipedia.compose.components.verticalColumnScrollbar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
@@ -169,39 +168,32 @@ fun AboutScreenContent(
     scope: CoroutineScope,
     context: Context
 ) {
-    val scrollState = rememberScrollState()
-    Box(modifier = modifier.fillMaxSize()) {
-        Column(
+    Column(
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        AboutWikipediaHeader(
             modifier = Modifier
-                .verticalColumnScrollbar(
-                    scrollState = scrollState,
-                    showScrollBarTrack = false
-                ) // Apply the scrollbar first
-                .verticalScroll(scrollState) // Then apply the scrolling behavior
+                .fillMaxWidth()
+                .padding(top = 30.dp, bottom = 16.dp),
+            versionName = versionName,
+            snackbarHostState = snackbarHostState,
+            scope = scope,
+            context = context
+        )
+        AboutScreenBody(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 20.dp)
                 .padding(horizontal = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            AboutWikipediaHeader(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 30.dp, bottom = 16.dp),
-                versionName = versionName,
-                snackbarHostState = snackbarHostState,
-                scope = scope,
-                context = context
-            )
-            AboutScreenBody(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 20.dp)
-                    .padding(horizontal = 16.dp),
-                credits = credits
-            )
-            AboutScreenFooter(
-                modifier = Modifier
-                    .padding(top = 24.dp, bottom = 16.dp)
-            )
-        }
+            credits = credits
+        )
+        AboutScreenFooter(
+            modifier = Modifier
+                .padding(top = 24.dp, bottom = 16.dp)
+        )
     }
 }
 
@@ -278,7 +270,7 @@ fun AboutWikipediaImage(
                     },
                 ),
             painter = painterResource(R.drawable.w_nav_mark),
-            contentDescription = null,
+            contentDescription = stringResource(R.string.about_screen_logo_accessibility_text),
         )
         Image(
             modifier = Modifier
@@ -406,6 +398,20 @@ fun LicenseTextWithHeader(
         LicenseLinkText(
             links = credits,
             textStyle = textStyle
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AboutScreenPreview() {
+    BaseTheme {
+        AboutWikipediaScreen(
+            modifier = Modifier
+                .fillMaxSize(),
+            versionName = "version name",
+            credits = listOf(),
+            onBackButtonClick = {}
         )
     }
 }
