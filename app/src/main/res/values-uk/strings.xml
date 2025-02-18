@@ -1795,6 +1795,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Дуже незадоволений/а</string>
   <string name="survey_dialog_cancel">Скасувати</string>
   <string name="survey_dialog_submit">Надіслати</string>
+  <string name="survey_dialog_next">Далі</string>
+  <string name="survey_dialog_general_yes">Так</string>
+  <string name="survey_dialog_general_no">Ні</string>
+  <string name="survey_dialog_general_maybe">Можливо</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
   <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
   <string name="on_this_day_game_entry_dialog_title">Знайомтеся</string>
@@ -1811,6 +1815,9 @@
   <string name="on_this_day_game_point">+1 бал</string>
   <string name="on_this_day_game_next">Наступне запитання</string>
   <string name="on_this_day_game_finish">Остаточний результат</string>
+  <string name="on_this_day_game_experiment_chip_text">Експеримент</string>
+  <string name="on_this_day_game_nav_title">Ігри</string>
+  <string name="on_this_day_game_share">Поділитися з друзями</string>
   <string name="on_this_day_game_pause_title">Призупинити гру?</string>
   <string name="on_this_day_game_pause_body">Ваш прогрес буде збережено. Ви можете знайти гру у своїй стрічці.</string>
   <string name="on_this_day_game_pause_negative">Продовжити грати</string>
@@ -1821,10 +1828,16 @@
   <string name="on_this_day_game_result">Ваш рахунок — %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Наступна гра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
-  <string name="on_this_day_game_stats_played">Зіграні ігри</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Зіграна гра</item>
+    <item quantity="few">Зіграні ігри</item>
+    <item quantity="many">Зіграні ігри</item>
+    <item quantity="other">Зіграні ігри</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Середній рахунок</string>
   <string name="on_this_day_game_stats_streak">Поточна серія</string>
   <string name="on_this_day_game_result_subtitle">Статті, використані у сьогоднішній грі</string>
+  <string name="on_this_day_game_completed_message">Дякуємо за гру. Нова гра «Що було першим?» доступна у стрічці щодня.</string>
   <string name="on_this_day_game_menu_notifications">Ігрові сповіщення</string>
   <string name="on_this_day_game_menu_info">Дізнатися більше</string>
   <string name="on_this_day_game_menu_feedback">Проблема з функцією</string>
@@ -1848,4 +1861,6 @@
   <string name="on_this_day_game_report_email_body">У мене виникла проблема з функцією ігор Вікіпедії:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
   <string name="on_this_day_game_notification_undo">Скасувати</string>
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
+  <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
+  <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
 </resources>

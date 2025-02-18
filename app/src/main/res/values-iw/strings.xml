@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* A100Star
 * Amire80
 * Cooltey
 * Dbrant
@@ -1794,6 +1795,10 @@
   <string name="survey_dialog_option_very_unsatisfied">מאוד לא מרוצה</string>
   <string name="survey_dialog_cancel">ביטול</string>
   <string name="survey_dialog_submit">שליחה</string>
+  <string name="survey_dialog_next">הבא</string>
+  <string name="survey_dialog_general_yes">כן</string>
+  <string name="survey_dialog_general_no">לא</string>
+  <string name="survey_dialog_general_maybe">אולי</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
   <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
@@ -1810,6 +1815,9 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
+  <string name="on_this_day_game_experiment_chip_text">ניסיוני</string>
+  <string name="on_this_day_game_nav_title">משחקים</string>
+  <string name="on_this_day_game_share">שתפו עם חברים</string>
   <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
   <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
   <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
@@ -1820,10 +1828,11 @@
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
   <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
-  <string name="on_this_day_game_stats_played">מספר המשחקים</string>
+  <string name="on_this_day_game_stats_games_played">{{PLURAL|one=משחק ששוחק|two=משחקים ששוחקו)}</string>
   <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
   <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
   <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
+  <string name="on_this_day_game_completed_message">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בפיד של Explore.</string>
   <string name="on_this_day_game_menu_notifications">התראות משחק</string>
   <string name="on_this_day_game_menu_info">מידע נוסף</string>
   <string name="on_this_day_game_menu_feedback">בעיה עם תכונה</string>
@@ -1847,4 +1856,6 @@
   <string name="on_this_day_game_report_email_body">נתקלתי בבעיה בתכונת משחקי ויקיפדיה:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
   <string name="on_this_day_game_notification_undo">ביטול</string>
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
+  <string name="on_this_day_game_survey_q1">עד כמה הייתם מרוצים מהמשחק הזה?</string>
+  <string name="on_this_day_game_survey_q2">האם אתה מעוניינים לשחק במשחקי ויקיפדיה שונים?</string>
 </resources>

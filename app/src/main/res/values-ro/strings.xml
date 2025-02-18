@@ -18,6 +18,7 @@
 * Rapiteanu
 * SHaran (WMF)
 * Strainu
+* Trotinel Iftode
 * WebSourceContentRO
 * Wintereu
 -->
@@ -1379,4 +1380,11 @@
   <string name="survey_dialog_option_unsatisfied">Nemulțumit</string>
   <string name="survey_dialog_option_very_satisfied">Foarte mulțumit</string>
   <string name="survey_dialog_option_very_unsatisfied">Foarte nemulțumit</string>
+  <string name="survey_dialog_next">Următorul</string>
+  <string name="survey_dialog_general_yes">Da</string>
+  <string name="survey_dialog_general_no">Nu</string>
+  <string name="survey_dialog_general_maybe">Pot fi</string>
+  <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
+  <string name="on_this_day_game_survey_q1">Cât de mulțumit ai fost de acest joc?</string>
+  <string name="on_this_day_game_survey_q2">Ați fi interesat să jucați diferite jocuri Wikipedia?</string>
 </resources>

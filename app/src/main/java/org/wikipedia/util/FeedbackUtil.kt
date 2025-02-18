@@ -16,6 +16,8 @@ import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
 import org.wikipedia.R
@@ -248,6 +250,12 @@ object FeedbackUtil {
     }
 
     private fun findBestView(activity: Activity): View {
+        // If the activity is currently displaying a bottom sheet, use that as the anchor view.
+        getTopmostBottomSheetFragment(activity)?.let {
+            return it.requireView()
+        }
+
+        // Otherwise, use the appropriate view for the activity.
         val viewId = when (activity) {
             is MainActivity -> R.id.fragment_main_coordinator
             is PageActivity -> R.id.fragment_page_coordinator
@@ -259,5 +267,26 @@ object FeedbackUtil {
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)
+    }
+
+    private fun getTopmostBottomSheetFragment(activity: Activity): BottomSheetDialogFragment? {
+        (activity as? FragmentActivity)?.supportFragmentManager?.fragments?.forEach {
+            getTopmostBottomSheetFragment(it)?.let { fragment ->
+                return fragment
+            }
+        }
+        return null
+    }
+
+    private fun getTopmostBottomSheetFragment(fragment: Fragment): BottomSheetDialogFragment? {
+        if (fragment is BottomSheetDialogFragment && fragment.view != null) {
+            return fragment
+        }
+        fragment.childFragmentManager.fragments.forEach {
+            if (getTopmostBottomSheetFragment(it) != null) {
+                return it as BottomSheetDialogFragment
+            }
+        }
+        return null
     }
 }

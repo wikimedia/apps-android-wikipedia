@@ -1692,6 +1692,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Mycket missnöjd</string>
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Skicka</string>
+  <string name="survey_dialog_next">Nästa</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nej</string>
+  <string name="survey_dialog_general_maybe">Kanske</string>
   <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
   <string name="survey_dialog_submitted_snackbar">Återkopplingen har skickats in. Tack!</string>
   <string name="on_this_day_game_entry_dialog_title">Introducerar</string>
@@ -1708,6 +1712,9 @@
   <string name="on_this_day_game_point">+1 poäng</string>
   <string name="on_this_day_game_next">Nästa fråga</string>
   <string name="on_this_day_game_finish">Slutresultat</string>
+  <string name="on_this_day_game_experiment_chip_text">Experiment</string>
+  <string name="on_this_day_game_nav_title">Spel</string>
+  <string name="on_this_day_game_share">Dela med vänner</string>
   <string name="on_this_day_game_pause_title">Pausa spelet?</string>
   <string name="on_this_day_game_pause_body">Dina framsteg kommer sparas för dagen. Du hittar spelet i ditt Utforska-flöde.</string>
   <string name="on_this_day_game_pause_negative">Fortsätt spela</string>
@@ -1718,14 +1725,18 @@
   <string name="on_this_day_game_result">Du fick %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Nästa spel om %s</string>
   <string name="on_this_day_game_your_stats">Din statistik</string>
-  <string name="on_this_day_game_stats_played">Spelade spel</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Spelat spel</item>
+    <item quantity="other">Spelade spel</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Genomsnittligt betyg</string>
   <string name="on_this_day_game_stats_streak">Nuvarande svit</string>
   <string name="on_this_day_game_result_subtitle">Artiklar som refereras till i dagens spel</string>
+  <string name="on_this_day_game_completed_message">Tack för att du spelar. Ett nytt spel av \"Vilket kom först?\" är tillgänglig dagligen på flödet Utforska.</string>
   <string name="on_this_day_game_menu_notifications">Spelaviseringar</string>
   <string name="on_this_day_game_menu_info">Ta reda på mer</string>
   <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
-  <string name="on_this_day_game_share_text">Jag spelar \"Vad kom först?\" ett dagligt triviaspel i Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_share_text">Jag spelar \"Vilket kom först?\" ett dagligt triviaspel i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_article_read_button">Läs artikeln</string>
   <string name="on_this_day_game_article_related_event_title">Evenemang som rör den här artikeln</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Du svarade rätt på frågan</string>
@@ -1740,9 +1751,11 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Behåll dem avstängda</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Spelaviseringar av.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Spelaviseringar på.</string>
-  <string name="on_this_day_game_notification_text">Dagens omgång av \"Vad kom först?\" är redo.</string>
+  <string name="on_this_day_game_notification_text">Dagens omgång av \"Vilket kom först?\" är redo.</string>
   <string name="on_this_day_game_report_email_subject">Felanmäl - Wikipedia-spel</string>
   <string name="on_this_day_game_report_email_body">Jag har stött på ett problem med Wikipedias spelfunktion:\n- [Beskriv det specifika problemet]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="on_this_day_game_notification_undo">Ångra</string>
-  <string name="on_this_day_game_share_link_message">Jag spelar \"Vad kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
+  <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
 </resources>
