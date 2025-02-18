@@ -7,8 +7,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -45,6 +47,7 @@ import org.wikipedia.compose.components.LicenseLinkText
 import org.wikipedia.compose.components.LinkTextData
 import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.compose.components.verticalColumnScrollbar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
@@ -166,31 +169,39 @@ fun AboutScreenContent(
     scope: CoroutineScope,
     context: Context
 ) {
-    Column(
-        modifier = modifier
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AboutWikipediaHeader(
+    val scrollState = rememberScrollState()
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(
             modifier = Modifier
-                .padding(top = 30.dp, bottom = 16.dp),
-            versionName = versionName,
-            snackbarHostState = snackbarHostState,
-            scope = scope,
-            context = context
-        )
-        AboutScreenBody(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 20.dp)
+                .verticalColumnScrollbar(
+                    scrollState = scrollState,
+                    showScrollBarTrack = false
+                ) // Apply the scrollbar first
+                .verticalScroll(scrollState) // Then apply the scrolling behavior
                 .padding(horizontal = 16.dp),
-            credits = credits
-        )
-
-        AboutScreenFooter(
-            modifier = Modifier
-                .padding(top = 24.dp, bottom = 16.dp)
-        )
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            AboutWikipediaHeader(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 30.dp, bottom = 16.dp),
+                versionName = versionName,
+                snackbarHostState = snackbarHostState,
+                scope = scope,
+                context = context
+            )
+            AboutScreenBody(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 20.dp)
+                    .padding(horizontal = 16.dp),
+                credits = credits
+            )
+            AboutScreenFooter(
+                modifier = Modifier
+                    .padding(top = 24.dp, bottom = 16.dp)
+            )
+        }
     }
 }
 
