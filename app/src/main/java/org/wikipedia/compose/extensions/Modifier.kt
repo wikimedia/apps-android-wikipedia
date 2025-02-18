@@ -28,29 +28,26 @@ fun Modifier.pulse(
     toScale: Float = 2.5f,
     durationMillis: Int = 1000,
     pivot: Float = 0.5f,
-    repeatCount: Int = 1,
     easing: Easing = FastOutSlowInEasing
 ): Modifier = composed {
     val scale = remember { mutableFloatStateOf(fromScale) }
     val targetScale = rememberUpdatedState(toScale)
 
-    LaunchedEffect(repeatCount) {
-        repeat(repeatCount) {
-            animate(
-                initialValue = fromScale,
-                targetValue = targetScale.value,
-                animationSpec = tween(durationMillis, easing = easing)
-            ) { value, _ ->
-                scale.floatValue = value
-            }
+    LaunchedEffect(Unit) {
+        animate(
+            initialValue = fromScale,
+            targetValue = targetScale.value,
+            animationSpec = tween(durationMillis, easing = easing)
+        ) { value, _ ->
+            scale.floatValue = value
+        }
 
-            animate(
-                initialValue = targetScale.value,
-                targetValue = fromScale,
-                animationSpec = tween(durationMillis, easing = easing)
-            ) { value, _ ->
-                scale.floatValue = value
-            }
+        animate(
+            initialValue = targetScale.value,
+            targetValue = fromScale,
+            animationSpec = tween(durationMillis, easing = easing)
+        ) { value, _ ->
+            scale.floatValue = value
         }
     }
 
@@ -81,7 +78,6 @@ private fun PreviewPulse() {
                     text = "Pulse",
                     color = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier.pulse(
-                        repeatCount = 5,
                         easing = FastOutSlowInEasing
                     )
                 )
