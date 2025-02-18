@@ -1912,6 +1912,10 @@
   <string name="survey_dialog_option_very_unsatisfied">غير راض جدا</string>
   <string name="survey_dialog_cancel">إلغاء</string>
   <string name="survey_dialog_submit">إرسال</string>
+  <string name="survey_dialog_next">التالي</string>
+  <string name="survey_dialog_general_yes">نعم</string>
+  <string name="survey_dialog_general_no">لا</string>
+  <string name="survey_dialog_general_maybe">ربما</string>
   <string name="survey_dialog_input_hint">ملاحظات إضافية</string>
   <string name="survey_dialog_submitted_snackbar">تم إرسال التعليقات. شكرا لك!</string>
   <string name="on_this_day_game_entry_dialog_title">مقدمة</string>
@@ -1928,19 +1932,31 @@
   <string name="on_this_day_game_point">+1 نقطة</string>
   <string name="on_this_day_game_next">السؤال التالي</string>
   <string name="on_this_day_game_finish">النتائج النهائية</string>
+  <string name="on_this_day_game_experiment_chip_text">تجريبي</string>
+  <string name="on_this_day_game_nav_title">ألعاب</string>
+  <string name="on_this_day_game_share">شارك مع الأصدقاء</string>
   <string name="on_this_day_game_pause_title">إيقاف اللعبة مؤقتًا؟</string>
   <string name="on_this_day_game_pause_body">سيتم حفظ تقدمك لهذا اليوم. يمكنك العثور على اللعبة في موجز Explore الخاص بك.</string>
   <string name="on_this_day_game_pause_negative">استمر باللعب</string>
   <string name="on_this_day_game_pause_positive">فهمتها</string>
   <string name="on_this_day_game_feed_entry_card_heading">العاب ويكيبيديا</string>
-  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">ماذا جاء أولا؟</string>
+  <string name="on_this_day_game_feed_entry_card_title">أيهما جاء أولا؟</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">خمن ما هو الحدث الذي حدث أولاً في هذا اليوم في التاريخ؟</string>
   <string name="on_this_day_game_result">لقد حصلت على %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">المباراة القادمة في %s</string>
   <string name="on_this_day_game_your_stats">إحصائياتك</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="zero">لا لعبة</item>
+    <item quantity="one">لعبة لعبت</item>
+    <item quantity="two">لعبتان لعبتا</item>
+    <item quantity="few">ألعاب قليلة لعبت</item>
+    <item quantity="many">ألعاب كثيرة لعبت</item>
+    <item quantity="other">الألعاب التي لعبت</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">متوسط النتيجة</string>
   <string name="on_this_day_game_stats_streak">السلسلة الحالية</string>
   <string name="on_this_day_game_result_subtitle">المقالات المشار إليها في مباراة اليوم</string>
+  <string name="on_this_day_game_completed_message">شكرًا لك على اللعب. تتوفر لعبة جديدة بعنوان \"أيهما جاء أولاً؟\" يوميًا على موجز Explore.</string>
   <string name="on_this_day_game_menu_notifications">إشعارات اللعبة</string>
   <string name="on_this_day_game_menu_info">يتعلم أكثر</string>
   <string name="on_this_day_game_menu_feedback">مشكلة مع الميزة</string>
@@ -1964,4 +1980,6 @@
   <string name="on_this_day_game_report_email_body">لقد واجهت مشكلة مع ميزة ألعاب ويكيبيديا:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="on_this_day_game_notification_undo">رجوع</string>
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
+  <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
+  <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
 </resources>
