@@ -898,6 +898,7 @@
   <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tippen an Tricker beim Änneren</string>
   <string name="suggested_edits_help_page_link_text">Hëllefssäit fir d\'Ännerungsvirschléi</string>
+  <string name="suggested_edits_edit_streak_label_text">Deeg um Stéck mat Ännerungen</string>
   <string name="suggested_edits_views_label_text">Opriff</string>
   <string name="suggested_edits_quality_label_text">Ännerungsqualitéit</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
@@ -1470,6 +1471,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Ganz onzefridden</string>
   <string name="survey_dialog_cancel">Ofbriechen</string>
   <string name="survey_dialog_submit">Schécken</string>
+  <string name="survey_dialog_next">Nächst</string>
+  <string name="survey_dialog_general_yes">Jo</string>
+  <string name="survey_dialog_general_no">Neen</string>
+  <string name="survey_dialog_general_maybe">Villäicht</string>
   <string name="survey_dialog_input_hint">Zousätzleche Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback ofgeschéckt. Merci!</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia Spiller</string>
@@ -1486,14 +1491,11 @@
   <string name="on_this_day_game_experiment_chip_text">Experiment</string>
   <string name="on_this_day_game_nav_title">Spiller</string>
   <string name="on_this_day_game_share">Mat Kolleegen deelen</string>
-  <string name="on_this_day_game_encourage1">Gléckwonsch!</string>
-  <string name="on_this_day_game_encourage3">Exzellent!</string>
-  <string name="on_this_day_game_share_back_button">Zréck goen</string>
   <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
   <string name="on_this_day_game_pause_negative">Spillt weider</string>
   <string name="on_this_day_game_pause_positive">Verstanen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia Spiller</string>
-  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">Wat koum als éischt?</string>
+  <string name="on_this_day_game_feed_entry_card_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum</string>
   <string name="on_this_day_game_next_in">Nächst Spill an %s</string>
   <string name="on_this_day_game_your_stats">Är Statistiken</string>
@@ -1502,6 +1504,7 @@
     <item quantity="other">Spiller gespillt</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">Duerchschnëttlech Punktzuel</string>
+  <string name="on_this_day_game_stats_streak">Aktuelle Laf</string>
   <string name="on_this_day_game_menu_notifications">Spillnotifikatiounen</string>
   <string name="on_this_day_game_menu_info">Méi gewuer ginn</string>
   <string name="on_this_day_game_menu_feedback">Problem mat der Funktioun</string>
@@ -1517,4 +1520,6 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Spillnotifikatiounen aktivéiert.</string>
   <string name="on_this_day_game_report_email_subject">Ausgabebericht - Wikipedia Spiller</string>
   <string name="on_this_day_game_notification_undo">Réckgängeg maachen</string>
+  <string name="on_this_day_game_survey_q1">Wéi zefridde waart Dir mat dësem Spill?</string>
+  <string name="on_this_day_game_survey_q2">Wier Dir interesséiert fir nach aner Wikipedia-Spiller ze spillen?</string>
 </resources>

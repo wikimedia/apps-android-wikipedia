@@ -1714,14 +1714,6 @@
   <string name="on_this_day_game_experiment_chip_text">Kokeellinen</string>
   <string name="on_this_day_game_nav_title">Pelit</string>
   <string name="on_this_day_game_share">Jaa ystäville</string>
-  <string name="on_this_day_game_encourage0">Parempaa onnea huomenna!</string>
-  <string name="on_this_day_game_encourage1">Onnittelut!</string>
-  <string name="on_this_day_game_encourage2">Hienoa työtä!</string>
-  <string name="on_this_day_game_encourage3">Erinomaista!</string>
-  <string name="on_this_day_game_share_title">Sait tänään %1$d / %2$d pistettä WikiDate Detective -pelissä</string>
-  <string name="on_this_day_game_share_subtitle">Mukana olleet aiheet:</string>
-  <string name="on_this_day_game_share_footer">Pelattavissa vain rajoitetun ajan ainoastaan Wikipedian Android-sovelluksessa</string>
-  <string name="on_this_day_game_share_back_button">Takaisin</string>
   <string name="on_this_day_game_pause_title">Keskeytetäänkö peli?</string>
   <string name="on_this_day_game_pause_body">Edistymisesi tallennetaan tämän päivän ajaksi. Löydät pelin Tutki-syötteestäsi.</string>
   <string name="on_this_day_game_pause_negative">Jatka pelaamista</string>

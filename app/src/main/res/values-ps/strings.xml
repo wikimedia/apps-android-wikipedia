@@ -138,7 +138,7 @@
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
   <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
   <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
-  <string name="create_account_email_error">ناسمه برېښليک پته</string>
+  <string name="create_account_email_error">ناسمه برېښليک‌پته</string>
   <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>

@@ -1679,6 +1679,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Многу незадоволен</string>
   <string name="survey_dialog_cancel">Откажи</string>
   <string name="survey_dialog_submit">Поднеси</string>
+  <string name="survey_dialog_next">Следно</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Не</string>
+  <string name="survey_dialog_general_maybe">Можеби</string>
   <string name="survey_dialog_input_hint">Дополнително мислење</string>
   <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено. Ви благодариме!</string>
   <string name="on_this_day_game_entry_dialog_title">Ви претставуваме</string>
@@ -1695,19 +1699,27 @@
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следно прашање</string>
   <string name="on_this_day_game_finish">Конечен исход</string>
+  <string name="on_this_day_game_experiment_chip_text">Пробно</string>
+  <string name="on_this_day_game_nav_title">Игри</string>
+  <string name="on_this_day_game_share">Сподели со пријатели</string>
   <string name="on_this_day_game_pause_title">Да се паузира играта?</string>
   <string name="on_this_day_game_pause_body">Напредокот постигнат денес ќе биде зачуван. Играта ќе ја најдете во вашиот тековник „Истражи“.</string>
   <string name="on_this_day_game_pause_negative">Продолжи со играње</string>
   <string name="on_this_day_game_pause_positive">Јасно</string>
   <string name="on_this_day_game_feed_entry_card_heading">Википедиини игри</string>
-  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">Што се случило попрво?</string>
+  <string name="on_this_day_game_feed_entry_card_title">Што се случило попрво?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
   <string name="on_this_day_game_result">Освоивте %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Следна игра за %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Играна игра</item>
+    <item quantity="other">Играни игри</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
   <string name="on_this_day_game_stats_streak">Тековна седенка</string>
   <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
+  <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот Истражи.</string>
   <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
   <string name="on_this_day_game_menu_info">Дознајте повеќе</string>
   <string name="on_this_day_game_menu_feedback">Проблем со функцијата</string>
@@ -1731,4 +1743,6 @@
   <string name="on_this_day_game_report_email_body">Наидов на проблем со функцијата Википедиини игри:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
   <string name="on_this_day_game_notification_undo">Врати</string>
   <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
+  <string name="on_this_day_game_survey_q1">Колку сте задоволни од оваа игра?</string>
+  <string name="on_this_day_game_survey_q2">Дали сте заинтересирани да играте други Википедиини игри?</string>
 </resources>
