@@ -202,7 +202,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onBackPressed() {
-        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+        if (viewModel.gameState.value !is Resource.Loading &&
+            viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
         }
