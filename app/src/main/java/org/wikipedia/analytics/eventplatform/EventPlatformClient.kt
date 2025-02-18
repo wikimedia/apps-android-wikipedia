@@ -26,6 +26,11 @@ object EventPlatformClient {
      */
     private val STREAM_CONFIGS = ConcurrentHashMap<String, StreamConfig>()
 
+    /**
+     * List of events that will be queued before the first time that stream configs are fetched.
+     */
+    private val INITIAL_QUEUE = mutableListOf<Event>()
+
     /*
      * When ENABLED is false, items can be enqueued but not dequeued.
      * Timers will not be set for enqueued items.
@@ -67,6 +72,19 @@ object EventPlatformClient {
      * @param event event
      */
     fun submit(event: Event) {
+        if (STREAM_CONFIGS.isEmpty()) {
+            synchronized(INITIAL_QUEUE) {
+                if (INITIAL_QUEUE.size >= Prefs.analyticsQueueSize) {
+                    INITIAL_QUEUE.removeAt(0)
+                }
+                INITIAL_QUEUE.add(event)
+            }
+            return
+        }
+        doSubmit(event)
+    }
+
+    private fun doSubmit(event: Event) {
         if (!SamplingController.isInSample(event)) {
             return
         }
@@ -74,6 +92,16 @@ object EventPlatformClient {
     }
 
     fun flushCachedEvents() {
+        if (STREAM_CONFIGS.isNotEmpty()) {
+            synchronized(INITIAL_QUEUE) {
+                if (INITIAL_QUEUE.isNotEmpty()) {
+                    INITIAL_QUEUE.forEach {
+                        doSubmit(it)
+                    }
+                    INITIAL_QUEUE.clear()
+                }
+            }
+        }
         OutputBuffer.sendAllScheduled()
     }
 
