@@ -292,7 +292,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionText1.text = event1.text
         layoutTextViewForEllipsize(binding.questionText1)
 
-        val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
+        val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
         if (thumbnailUrl1.isNullOrEmpty()) {
             binding.questionThumbnail1.isVisible = false
         } else {
@@ -305,7 +305,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionText2.text = event2.text
         layoutTextViewForEllipsize(binding.questionText2)
 
-        val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
+        val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
         if (thumbnailUrl2.isNullOrEmpty()) {
             binding.questionThumbnail2.isVisible = false
         } else {
@@ -419,10 +419,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.nextQuestionText.isVisible = false
         binding.centerContent.isVisible = true
         if (!binding.questionThumbnail1.isVisible) {
-            binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = binding.questionStatusIcon1.height + DimenUtil.roundedDpToPx(8f) }
+            binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(40f) }
         }
         if (!binding.questionThumbnail2.isVisible) {
-            binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = binding.questionStatusIcon2.height + DimenUtil.roundedDpToPx(8f) }
+            binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(40f) }
         }
     }
 
