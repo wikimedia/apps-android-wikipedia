@@ -29,10 +29,11 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.AllowSnackbarOverBottomSheet
 import org.wikipedia.views.ViewUtil
 import kotlin.getValue
 
-class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment() {
+class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), AllowSnackbarOverBottomSheet {
     fun interface Callback {
         fun onPageBookmarkChanged(page: PageSummary)
     }
