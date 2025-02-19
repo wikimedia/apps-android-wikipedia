@@ -196,8 +196,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value is GameStarted) {
-            "game_start"
         } else if (_gameState.value is Resource.Loading) {
             "game_loading"
         } else {

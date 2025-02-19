@@ -162,15 +162,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
-                    viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                    showPauseDialog()
-                    true
-                } else {
-                    onFinish()
-                    true
-                }
+                onBackPressed()
+                true
             }
             R.id.menu_learn_more -> {
                 WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName())
@@ -202,13 +195,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onBackPressed() {
+        WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
         if (viewModel.gameState.value !is Resource.Loading &&
+            !isOnboardingFragmentVisible() &&
             viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
         }
         super.onBackPressed()
         onFinish()
+    }
+
+    private fun isOnboardingFragmentVisible(): Boolean {
+        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameOnboardingFragment
     }
 
     private fun onFinish() {
@@ -490,6 +489,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
+        cardAnimatorSetIn.removeAllListeners()
         cardAnimatorSetIn.cancel()
         cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetIn.doOnEnd {
@@ -524,6 +524,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         translationA2.startDelay = duration
         translationA2.interpolator = interpolator
 
+        cardAnimatorSetOut.removeAllListeners()
         cardAnimatorSetOut.cancel()
         cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetOut.doOnEnd {
