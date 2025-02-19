@@ -1,3 +1,5 @@
+package org.wikipedia.base.base
+
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
