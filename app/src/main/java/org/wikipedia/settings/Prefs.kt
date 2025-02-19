@@ -89,13 +89,13 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_config, "").orEmpty().ifEmpty { "{}" }
         set(json) = PrefsIoUtil.setString(R.string.preference_key_remote_config, json)
 
-    // TODO: remove on 2025-10-01
+    // TODO: remove on 2026-02-01
     var tabs
         get() = JsonUtil.decodeFromString<List<Tab>>(PrefsIoUtil.getString(R.string.preference_key_tabs, null))
             ?: emptyList()
         set(tabs) = PrefsIoUtil.setString(R.string.preference_key_tabs, JsonUtil.encodeToString(tabs))
 
-    // TODO: remove on 2025-10-01
+    // TODO: remove on 2026-08-01
     fun clearTabs() {
         PrefsIoUtil.remove(R.string.preference_key_tabs)
     }

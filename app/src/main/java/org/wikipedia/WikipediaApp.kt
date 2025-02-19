@@ -268,14 +268,16 @@ class WikipediaApp : Application() {
         return result
     }
 
-    // TODO: remove on 2025-10-01
+    // TODO: remove on 2026-02-01
     private suspend fun migrateTabsToDatabase() {
         withContext(Dispatchers.IO) {
-            if (Prefs.tabs.isEmpty()) {
+            if (Prefs.tabs.isEmpty() || AppDatabase.instance.tabDao().hasTabs()) {
                 return@withContext
             }
             AppDatabase.instance.tabDao().insertTabs(Prefs.tabs)
-            Prefs.clearTabs()
+
+            // TODO: enable this on 2026-02-01
+            // Prefs.clearTabs()
         }
     }
 
