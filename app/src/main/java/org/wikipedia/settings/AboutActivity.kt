@@ -170,8 +170,7 @@ fun AboutScreenContent(
 ) {
     Column(
         modifier = modifier
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp),
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         AboutWikipediaHeader(
