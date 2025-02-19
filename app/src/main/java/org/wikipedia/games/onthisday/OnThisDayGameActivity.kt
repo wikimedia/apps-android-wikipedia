@@ -20,6 +20,7 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
@@ -287,40 +288,28 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionCard2.tag = event2
 
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
-        binding.questionText1.maxLines = Integer.MAX_VALUE
+        binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText1.text = event1.text
-        binding.questionText1.post {
-            if (!isDestroyed) {
-                // this seems to be the only way to properly ellipsize the text in its layout.
-                if (binding.questionText1.lineHeight > 0) {
-                    binding.questionText1.maxLines = (binding.questionText1.measuredHeight / binding.questionText1.lineHeight)
-                }
-            }
-        }
+        layoutTextViewForEllipsize(binding.questionText1)
 
         val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl1.isNullOrEmpty()) {
-            binding.questionThumbnail1.setImageResource(R.mipmap.launcher)
+            binding.questionThumbnail1.isVisible = false
         } else {
+            binding.questionThumbnail1.isVisible = true
             ViewUtil.loadImage(binding.questionThumbnail1, thumbnailUrl1, placeholderId = R.mipmap.launcher)
         }
 
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
-        binding.questionText2.maxLines = Integer.MAX_VALUE
+        binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText2.text = event2.text
-        binding.questionText2.post {
-            if (!isDestroyed) {
-                // this seems to be the only way to properly ellipsize the text in its layout.
-                if (binding.questionText2.lineHeight > 0) {
-                    binding.questionText2.maxLines = (binding.questionText2.measuredHeight / binding.questionText2.lineHeight)
-                }
-            }
-        }
+        layoutTextViewForEllipsize(binding.questionText2)
 
         val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
         if (thumbnailUrl2.isNullOrEmpty()) {
-            binding.questionThumbnail2.setImageResource(R.mipmap.launcher)
+            binding.questionThumbnail2.isVisible = false
         } else {
+            binding.questionThumbnail2.isVisible = true
             ViewUtil.loadImage(binding.questionThumbnail2, thumbnailUrl2, placeholderId = R.mipmap.launcher)
         }
 
@@ -384,11 +373,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.isVisible = false
+        updateQuestionEndLayout()
         binding.correctIncorrectText.setText(R.string.on_this_day_game_correct)
         binding.pointsText.isVisible = true
-        binding.nextQuestionText.isVisible = false
-        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -406,10 +393,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.isVisible = false
+        updateQuestionEndLayout()
         binding.correctIncorrectText.setText(R.string.on_this_day_game_incorrect)
-        binding.nextQuestionText.isVisible = false
-        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -427,6 +412,30 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         playSound("sound_error")
         enqueueGoNext(gameState)
+    }
+
+    private fun updateQuestionEndLayout() {
+        binding.whichCameFirstText.isVisible = false
+        binding.nextQuestionText.isVisible = false
+        binding.centerContent.isVisible = true
+        if (!binding.questionThumbnail1.isVisible) {
+            binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = binding.questionStatusIcon1.height + DimenUtil.roundedDpToPx(8f) }
+        }
+        if (!binding.questionThumbnail2.isVisible) {
+            binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = binding.questionStatusIcon2.height + DimenUtil.roundedDpToPx(8f) }
+        }
+    }
+
+    private fun layoutTextViewForEllipsize(textView: TextView) {
+        textView.maxLines = Int.MAX_VALUE
+        textView.post {
+            if (!isDestroyed) {
+                // this seems to be the only way to properly ellipsize the text in its layout.
+                if (textView.lineHeight > 0) {
+                    textView.maxLines = (textView.measuredHeight / textView.lineHeight)
+                }
+            }
+        }
     }
 
     private fun setCorrectIcon(view: ImageView) {
