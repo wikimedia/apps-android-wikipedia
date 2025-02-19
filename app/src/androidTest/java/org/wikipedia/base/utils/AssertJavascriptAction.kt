@@ -1,4 +1,4 @@
-package org.wikipedia.base
+package org.wikipedia.base.utils
 
 import android.view.View
 import android.webkit.ValueCallback

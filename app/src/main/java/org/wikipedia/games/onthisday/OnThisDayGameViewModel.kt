@@ -229,6 +229,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return currentState.answerState[if (index >= 0) index / 2 else 0]
     }
 
+    fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
+        return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
+    }
+
     private fun composeQuestionState(index: Int): QuestionState {
         return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
