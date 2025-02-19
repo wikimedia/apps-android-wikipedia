@@ -142,8 +142,8 @@ object FeedbackUtil {
         return snackbar
     }
 
-    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        return makeSnackbar(findBestView(activity), text, duration, wikiSite)
+    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite, ignoreBottomSheet: Boolean = false): Snackbar {
+        return makeSnackbar(findBestView(activity, ignoreBottomSheet), text, duration, wikiSite)
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
@@ -249,10 +249,12 @@ object FeedbackUtil {
         }
     }
 
-    private fun findBestView(activity: Activity): View {
+    private fun findBestView(activity: Activity, ignoreBottomSheet: Boolean = false): View {
         // If the activity is currently displaying a bottom sheet, use that as the anchor view.
-        getTopmostBottomSheetFragment(activity)?.let {
-            return it.requireView()
+        if (!ignoreBottomSheet) {
+            getTopmostBottomSheetFragment(activity)?.let {
+                return it.requireView()
+            }
         }
 
         // Otherwise, use the appropriate view for the activity.

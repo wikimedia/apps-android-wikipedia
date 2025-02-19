@@ -67,7 +67,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
                     when (it) {
                         is Resource.Success -> {
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                                viewModel.pageTitle.displayText, getString(it.data.stringId))).show()
+                                viewModel.pageTitle.displayText, getString(it.data.stringId)), ignoreBottomSheet = true).show()
                             callback()?.onExpiryChanged(it.data)
                             dismiss()
                         }

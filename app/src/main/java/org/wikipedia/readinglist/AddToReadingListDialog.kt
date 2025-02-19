@@ -105,7 +105,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             if (readingLists.size >= Constants.MAX_READING_LISTS_LIMIT) {
                 val message = getString(R.string.reading_lists_limit_message)
                 dismiss()
-                makeSnackbar(requireActivity(), message).show()
+                makeSnackbar(requireActivity(), message, ignoreBottomSheet = true).show()
             } else {
                 showCreateListDialog()
             }
@@ -124,7 +124,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
         if (readingList.pages.size + titles!!.size > Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
             val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
-            makeSnackbar(requireActivity(), message).show()
+            makeSnackbar(requireActivity(), message, ignoreBottomSheet = true).show()
             dismiss()
             return
         }
@@ -143,13 +143,13 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             } else {
                 if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
             }
-            showViewListSnackBar(readingList, message)
+            showViewListSnackBar(readingList, message, true)
             dismiss()
         }
     }
 
-    fun showViewListSnackBar(list: ReadingList, message: String) {
-        makeSnackbar(requireActivity(), message)
+    fun showViewListSnackBar(list: ReadingList, message: String, ignoreBottomSheet: Boolean) {
+        makeSnackbar(requireActivity(), message, ignoreBottomSheet = ignoreBottomSheet)
                 .setAction(R.string.reading_list_added_view_button) { v -> v.context.startActivity(ReadingListActivity.newIntent(v.context, list)) }.show()
     }
 

@@ -49,7 +49,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                 val movedTitlesList = withContext(Dispatchers.IO) {
                     AppDatabase.instance.readingListPageDao().movePagesToListAndDeleteSourcePages(it, readingList, titles)
                 }
-                showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title))
+                showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title), true)
                 dismiss()
             }
         }
