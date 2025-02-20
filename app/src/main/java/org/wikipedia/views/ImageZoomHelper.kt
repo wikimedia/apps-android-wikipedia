@@ -290,7 +290,7 @@ class ImageZoomHelper(activity: Activity) {
             private set
 
         private fun getIntTag(view: View): Int {
-            return if (view.tag == null) 0 else view.tag as Int
+            return if (view.tag == null || view.tag !is Int) 0 else view.tag as Int
         }
 
         fun setViewZoomable(view: View) {
