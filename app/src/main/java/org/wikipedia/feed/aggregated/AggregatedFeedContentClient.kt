@@ -140,7 +140,7 @@ class AggregatedFeedContentClient {
 
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
-            val date = DateUtil.getUtcRequestDateFor(age)
+            val (year, month, day) = DateUtil.getYearMonthAndDayForAge(age)
             aggregatedClient.clientJob = coroutineScope.launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
@@ -152,7 +152,7 @@ class AggregatedFeedContentClient {
                     async {
                         val wikiSite = WikiSite.forLanguageCode(langCode)
                         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
-                        var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+                        var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(year, month, day)
 
                         feedContentResponse.randomOnThisDayEvent = feedContentResponse.onthisday?.random()
 
