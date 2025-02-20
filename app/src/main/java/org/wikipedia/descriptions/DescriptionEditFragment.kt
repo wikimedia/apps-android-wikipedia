@@ -27,6 +27,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
@@ -190,7 +192,7 @@ class DescriptionEditFragment : Fragment() {
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
                                             hasEditErrorCode -> {
-                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false, viewModel.pageTitle.wikiSite)
                                             }
                                             hasCaptchaResponse -> {
                                                 binding.fragmentDescriptionEditView.showProgressBar(false)
@@ -198,14 +200,14 @@ class DescriptionEditFragment : Fragment() {
                                                 captchaHandler.handleCaptcha(null, CaptchaResult(captchaId))
                                             }
                                             hasSpamBlacklistResponse -> {
-                                                editFailed(MwException(MwServiceError(code, info)), false)
+                                                editFailed(MwException(MwServiceError(code, info)), false, viewModel.pageTitle.wikiSite)
                                             }
                                             else -> {
-                                                editFailed(IOException("Received unrecognized edit response"), true)
+                                                editFailed(IOException("Received unrecognized edit response"), true, viewModel.pageTitle.wikiSite)
                                             }
                                         }
                                     } ?: run {
-                                        editFailed(IOException("An unknown error occurred."), true)
+                                        editFailed(IOException("An unknown error occurred."), true, viewModel.pageTitle.wikiSite)
                                     }
                                 } else {
                                     (it.data as EntityPostResponse).run {
@@ -224,7 +226,7 @@ class DescriptionEditFragment : Fragment() {
                             }
                             is Resource.Error -> {
                                 if (viewModel.shouldWriteToLocalWiki()) {
-                                    editFailed(it.throwable, true)
+                                    editFailed(it.throwable, true, viewModel.pageTitle.wikiSite)
                                 } else {
                                     if (it.throwable is MwException) {
                                         val error = it.throwable.error
@@ -257,7 +259,8 @@ class DescriptionEditFragment : Fragment() {
                                 requireView().post(successRunnable)
                             }
                             is Resource.Error -> {
-                                editFailed(it.throwable, true)
+                                val wikiSite = if (viewModel.shouldWriteToLocalWiki()) viewModel.pageTitle.wikiSite else WikiSite(Service.WIKIDATA_URL)
+                                editFailed(it.throwable, true, wikiSite)
                             }
                         }
                     }
@@ -408,9 +411,9 @@ class DescriptionEditFragment : Fragment() {
         return if (tags.isEmpty()) null else tags.joinToString(",")
     }
 
-    private fun editFailed(caught: Throwable, logError: Boolean) {
+    private fun editFailed(caught: Throwable, logError: Boolean, wikiSite: WikiSite = WikiSite(Service.WIKIDATA_URL)) {
         binding.fragmentDescriptionEditView.setSaveState(false)
-        FeedbackUtil.showError(requireActivity(), caught)
+        FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
             EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
