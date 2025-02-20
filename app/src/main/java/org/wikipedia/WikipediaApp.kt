@@ -9,8 +9,11 @@ import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -147,7 +150,12 @@ class WikipediaApp : Application() {
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
 
-        initTabs()
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            initTabs()
+        }
+
         enableWebViewDebugging()
         registerActivityLifecycleCallbacks(activityLifecycleHandler)
         registerComponentCallbacks(activityLifecycleHandler)
@@ -207,15 +215,6 @@ class WikipediaApp : Application() {
         // TODO: send exception to custom crash reporting system
     }
 
-    fun commitTabState() {
-        if (tabList.isEmpty()) {
-            Prefs.clearTabs()
-            initTabs()
-        } else {
-            Prefs.tabs = tabList
-        }
-    }
-
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
@@ -269,12 +268,42 @@ class WikipediaApp : Application() {
         return result
     }
 
-    private fun initTabs() {
-        if (Prefs.hasTabs) {
-            tabList.addAll(Prefs.tabs)
+    // TODO: remove on 2026-02-01
+    private suspend fun migrateTabsToDatabase() {
+        withContext(Dispatchers.IO) {
+            if (Prefs.tabs.isEmpty() || AppDatabase.instance.tabDao().hasTabs()) {
+                return@withContext
+            }
+            AppDatabase.instance.tabDao().insertTabs(Prefs.tabs)
+
+            // TODO: enable this on 2026-02-01
+            // Prefs.clearTabs()
         }
-        if (tabList.isEmpty()) {
-            tabList.add(Tab())
+    }
+
+    private suspend fun initTabs() {
+        withContext(Dispatchers.IO) {
+            migrateTabsToDatabase()
+            if (AppDatabase.instance.tabDao().hasTabs()) {
+                tabList.addAll(AppDatabase.instance.tabDao().getTabs())
+            }
+            if (tabList.isEmpty()) {
+                tabList.add(Tab())
+            }
+        }
+    }
+
+    fun commitTabState() {
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            if (tabList.isEmpty()) {
+                AppDatabase.instance.tabDao().deleteAll()
+                initTabs()
+            } else {
+                AppDatabase.instance.tabDao().deleteAll()
+                AppDatabase.instance.tabDao().insertTabs(tabList)
+            }
         }
     }
 
