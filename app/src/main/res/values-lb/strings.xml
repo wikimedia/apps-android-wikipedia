@@ -1488,8 +1488,6 @@
   <string name="on_this_day_game_point">+ 1 Punkt</string>
   <string name="on_this_day_game_next">Nächst Fro</string>
   <string name="on_this_day_game_finish">Endresultat</string>
-  <string name="on_this_day_game_experiment_chip_text">Experiment</string>
-  <string name="on_this_day_game_nav_title">Spiller</string>
   <string name="on_this_day_game_share">Mat Kolleegen deelen</string>
   <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
   <string name="on_this_day_game_pause_negative">Spillt weider</string>
@@ -1522,4 +1520,5 @@
   <string name="on_this_day_game_notification_undo">Réckgängeg maachen</string>
   <string name="on_this_day_game_survey_q1">Wéi zefridde waart Dir mat dësem Spill?</string>
   <string name="on_this_day_game_survey_q2">Wier Dir interesséiert fir nach aner Wikipedia-Spiller ze spillen?</string>
+  <string name="back_button_content_description">Zréck goen</string>
 </resources>
