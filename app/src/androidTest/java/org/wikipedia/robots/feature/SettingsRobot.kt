@@ -27,6 +27,10 @@ import org.wikipedia.base.base.BaseRobot
 
 class SettingsRobot : BaseRobot() {
 
+    fun verifyTitle() = apply {
+        verify.viewWithTextDisplayed("Settings")
+    }
+
     fun clickExploreFeedSettingItem() = apply {
         // Click on `Explore feed` option
         onView(
