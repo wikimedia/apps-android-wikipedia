@@ -192,7 +192,7 @@ class DescriptionEditFragment : Fragment() {
                                                 ImageRecommendationsEvent.logEditSuccess(viewModel.action, viewModel.pageTitle.wikiSite.languageCode, newRevId)
                                             }
                                             hasEditErrorCode -> {
-                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false, viewModel.pageTitle.wikiSite)
+                                                editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                             }
                                             hasCaptchaResponse -> {
                                                 binding.fragmentDescriptionEditView.showProgressBar(false)
@@ -200,14 +200,14 @@ class DescriptionEditFragment : Fragment() {
                                                 captchaHandler.handleCaptcha(null, CaptchaResult(captchaId))
                                             }
                                             hasSpamBlacklistResponse -> {
-                                                editFailed(MwException(MwServiceError(code, info)), false, viewModel.pageTitle.wikiSite)
+                                                editFailed(MwException(MwServiceError(code, info)), false)
                                             }
                                             else -> {
-                                                editFailed(IOException("Received unrecognized edit response"), true, viewModel.pageTitle.wikiSite)
+                                                editFailed(IOException("Received unrecognized edit response"), true)
                                             }
                                         }
                                     } ?: run {
-                                        editFailed(IOException("An unknown error occurred."), true, viewModel.pageTitle.wikiSite)
+                                        editFailed(IOException("An unknown error occurred."), true)
                                     }
                                 } else {
                                     (it.data as EntityPostResponse).run {
@@ -225,22 +225,18 @@ class DescriptionEditFragment : Fragment() {
                                 }
                             }
                             is Resource.Error -> {
-                                if (viewModel.shouldWriteToLocalWiki()) {
-                                    editFailed(it.throwable, true, viewModel.pageTitle.wikiSite)
+                                if (viewModel.shouldWriteToLocalWiki() || it.throwable !is MwException) {
+                                    editFailed(it.throwable, true)
                                 } else {
-                                    if (it.throwable is MwException) {
-                                        val error = it.throwable.error
-                                        if (error.badLoginState() || error.badToken()) {
-                                            viewModel.postDescription(
-                                                currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
-                                                editComment = getEditComment(),
-                                                editTags = getEditTags(),
-                                                captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                                                captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
-                                            )
-                                        } else {
-                                            editFailed(it.throwable, true)
-                                        }
+                                    val error = it.throwable.error
+                                    if (error.badLoginState() || error.badToken()) {
+                                        viewModel.postDescription(
+                                            currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
+                                            editComment = getEditComment(),
+                                            editTags = getEditTags(),
+                                            captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
+                                            captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+                                        )
                                     } else {
                                         editFailed(it.throwable, true)
                                     }
@@ -259,8 +255,7 @@ class DescriptionEditFragment : Fragment() {
                                 requireView().post(successRunnable)
                             }
                             is Resource.Error -> {
-                                val wikiSite = if (viewModel.shouldWriteToLocalWiki()) viewModel.pageTitle.wikiSite else WikiSite(Service.WIKIDATA_URL)
-                                editFailed(it.throwable, true, wikiSite)
+                                editFailed(it.throwable, true)
                             }
                         }
                     }
@@ -411,8 +406,13 @@ class DescriptionEditFragment : Fragment() {
         return if (tags.isEmpty()) null else tags.joinToString(",")
     }
 
-    private fun editFailed(caught: Throwable, logError: Boolean, wikiSite: WikiSite = WikiSite(Service.WIKIDATA_URL)) {
+    private fun editFailed(caught: Throwable, logError: Boolean) {
         binding.fragmentDescriptionEditView.setSaveState(false)
+        val wikiSite = if (viewModel.shouldWriteToLocalWiki()) {
+            viewModel.pageTitle.wikiSite
+        } else {
+            WikiSite(Service.WIKIDATA_URL)
+        }
         FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
