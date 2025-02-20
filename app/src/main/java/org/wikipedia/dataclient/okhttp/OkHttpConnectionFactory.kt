@@ -30,6 +30,7 @@ object OkHttpConnectionFactory {
                 .cookieJar(SharedPreferenceCookieManager.instance)
                 .cache(NET_CACHE)
                 .readTimeout(20, TimeUnit.SECONDS)
+                .dns(WikimediaDns)
                 .addInterceptor(UnsuccessfulResponseInterceptor())
                 .addNetworkInterceptor(CacheControlInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())
@@ -38,6 +39,10 @@ object OkHttpConnectionFactory {
                 .addInterceptor(TestStubInterceptor())
                 .addInterceptor(TitleEncodeInterceptor())
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel))
+
+        if (Prefs.isCensorshipCircumventionEnabled) {
+            builder.install(OkHttpSSLSocketFactory)
+        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             val certFactory = CertificateFactory.getInstance("X.509")

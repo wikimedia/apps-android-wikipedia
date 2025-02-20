@@ -203,6 +203,7 @@ dependencies {
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
+    implementation libs.okhttp3.dnsoverhttps
     implementation libs.retrofit
     implementation libs.commons.lang3
     implementation libs.jsoup
