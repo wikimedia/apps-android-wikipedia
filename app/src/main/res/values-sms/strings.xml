@@ -76,6 +76,8 @@
   <string name="dialog_message_edit_failed">Muuttâs ij oʹnnstam!</string>
   <string name="dialog_message_edit_failed_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="dialog_message_edit_failed_cancel">Jõõsk</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Jaukkâd</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Jõõsk</string>
   <string name="menu_show_toc">Siiskâžlooǥǥtõs</string>
   <string name="search_no_results_found">Ij käunnʼjam ni mii</string>
   <string name="search_reading_list_no_results">Lookkâmliistâst \"%s\" ij käunnʼjam ni mii</string>
@@ -417,5 +419,6 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>
   <string name="places_toggle_buttons_map">Mäddkartt</string>
+  <string name="places_toggle_buttons_list">Listt</string>
   <string name="survey_dialog_submit">Vuõlttâd</string>
 </resources>

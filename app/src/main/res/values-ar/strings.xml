@@ -1932,8 +1932,6 @@
   <string name="on_this_day_game_point">+1 نقطة</string>
   <string name="on_this_day_game_next">السؤال التالي</string>
   <string name="on_this_day_game_finish">النتائج النهائية</string>
-  <string name="on_this_day_game_experiment_chip_text">تجريبي</string>
-  <string name="on_this_day_game_nav_title">ألعاب</string>
   <string name="on_this_day_game_share">شارك مع الأصدقاء</string>
   <string name="on_this_day_game_pause_title">إيقاف اللعبة مؤقتًا؟</string>
   <string name="on_this_day_game_pause_body">سيتم حفظ تقدمك لهذا اليوم. يمكنك العثور على اللعبة في موجز Explore الخاص بك.</string>
@@ -1960,7 +1958,6 @@
   <string name="on_this_day_game_menu_notifications">إشعارات اللعبة</string>
   <string name="on_this_day_game_menu_info">يتعلم أكثر</string>
   <string name="on_this_day_game_menu_feedback">مشكلة مع الميزة</string>
-  <string name="on_this_day_game_share_text">ألعب لعبة \"ما الذي جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_article_read_button">اقرأ المقال</string>
   <string name="on_this_day_game_article_related_event_title">حدث مرتبط بهذه المقالة</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">لقد حصلت على هذا السؤال بشكل صحيح</string>
@@ -1982,4 +1979,6 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
+  <string name="back_button_content_description">رجوع</string>
+  <string name="about_screen_logo_accessibility_text">شعار لغز ويكيبيديا</string>
 </resources>
