@@ -9,17 +9,21 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withChild
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.google.android.material.imageview.ShapeableImageView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.hasItem
 import org.wikipedia.R
 import org.wikipedia.TestConstants
 import org.wikipedia.TestConstants.SUGGESTED_EDITS
@@ -29,6 +33,7 @@ import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
 import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.ColorAssertions
+import org.wikipedia.base.utils.matchesAtPosition
 import org.wikipedia.theme.Theme
 
 class ExploreFeedRobot : BaseRobot() {
@@ -119,7 +124,10 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
-        verify.viewDoesNotExist(viewId = R.id.articleImage)
+        list.verifyItemDoesNotExistAtPosition(
+            recyclerViewId = R.id.feed_view,
+            itemId = R.id.articleImage
+        )
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -258,8 +266,11 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        onView(withId(R.id.view_list_card_list))
-            .check { view, _ ->
+        onView(allOf(
+            withId(R.id.view_list_card_list),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )).check { view, _ ->
                 val recyclerView = view as RecyclerView
                 val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
                     ?: throw AssertionError("No viewHolder found at position 0")
