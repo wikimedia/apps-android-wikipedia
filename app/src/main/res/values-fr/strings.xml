@@ -1763,8 +1763,6 @@
   <string name="on_this_day_game_point">+1 point</string>
   <string name="on_this_day_game_next">Question suivante</string>
   <string name="on_this_day_game_finish">Résultats finaux</string>
-  <string name="on_this_day_game_experiment_chip_text">Expérimental</string>
-  <string name="on_this_day_game_nav_title">Jeux</string>
   <string name="on_this_day_game_share">Partager avec des amis</string>
   <string name="on_this_day_game_pause_title">Mettre le jeu en pause ?</string>
   <string name="on_this_day_game_pause_body">Votre progression sera sauvegardée pour la journée. Vous pouvez retrouver le jeu dans votre fil d\'actualité Explorer.</string>
@@ -1787,7 +1785,6 @@
   <string name="on_this_day_game_menu_notifications">Notifications de jeu</string>
   <string name="on_this_day_game_menu_info">En savoir plus</string>
   <string name="on_this_day_game_menu_feedback">Problème avec la fonctionnalité</string>
-  <string name="on_this_day_game_share_text">Je joue à « Qu\'est-ce qui est arrivé en premier ? » un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_article_read_button">Lire l’article</string>
   <string name="on_this_day_game_article_related_event_title">Événement lié à cet article</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Vous avez répondu correctement à cette question</string>

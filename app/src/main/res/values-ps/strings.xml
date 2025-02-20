@@ -5,6 +5,7 @@
 * Amjad Khan
 * Baloch Khan
 * MuratTheTurkish
+* شاه زمان پټان
 -->
 <resources>
   <string name="app_name_prod">ويکيپېډيا</string>
@@ -111,7 +112,7 @@
   <string name="title_captcha">کېپچا ورکړئ</string>
   <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
   <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
-  <string name="login_username_hint">کارن‌نوم</string>
+  <string name="login_username_hint">کارننوم</string>
   <string name="login_password_hint">پټنوم</string>
   <string name="account_creation_password_hint">پټنوم</string>
   <string name="onboarding_card_login">ننوتل</string>
@@ -128,11 +129,11 @@
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="logout_dialog_cancel_button_text">ناگارل</string>
-  <string name="logged_out_in_background_title">ووتلۍ</string>
+  <string name="logged_out_in_background_title">ووت</string>
   <string name="logged_out_in_background_login">ننوتل</string>
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="create_account_username_hint">کارن‌نوم</string>
+  <string name="create_account_username_hint">کارننوم</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
   <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
