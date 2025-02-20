@@ -1699,8 +1699,6 @@
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следно прашање</string>
   <string name="on_this_day_game_finish">Конечен исход</string>
-  <string name="on_this_day_game_experiment_chip_text">Пробно</string>
-  <string name="on_this_day_game_nav_title">Игри</string>
   <string name="on_this_day_game_share">Сподели со пријатели</string>
   <string name="on_this_day_game_pause_title">Да се паузира играта?</string>
   <string name="on_this_day_game_pause_body">Напредокот постигнат денес ќе биде зачуван. Играта ќе ја најдете во вашиот тековник „Истражи“.</string>
@@ -1723,7 +1721,6 @@
   <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
   <string name="on_this_day_game_menu_info">Дознајте повеќе</string>
   <string name="on_this_day_game_menu_feedback">Проблем со функцијата</string>
-  <string name="on_this_day_game_share_text">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
   <string name="on_this_day_game_article_read_button">Прочитајте ја статијата</string>
   <string name="on_this_day_game_article_related_event_title">Настан поврзан со статијава</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Точно одговоривте на прашањево</string>
@@ -1745,4 +1742,6 @@
   <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
   <string name="on_this_day_game_survey_q1">Колку сте задоволни од оваа игра?</string>
   <string name="on_this_day_game_survey_q2">Дали сте заинтересирани да играте други Википедиини игри?</string>
+  <string name="back_button_content_description">Назад</string>
+  <string name="about_screen_logo_accessibility_text">Википедиино лого со топка-сложувалка</string>
 </resources>
