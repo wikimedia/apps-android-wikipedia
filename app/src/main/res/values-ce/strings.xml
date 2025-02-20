@@ -87,12 +87,12 @@
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Шина-факторан аутентификацин код</string>
-  <string name="onboarding_card_login">ЧугӀо</string>
+  <string name="onboarding_card_login">Чувала</string>
   <string name="page_editing_login">ЧугӀо</string>
   <string name="reading_lists_sync_login">ЧугӀо</string>
   <string name="create_account_login">ЧугӀо</string>
-  <string name="menu_login">ЧугӀо</string>
-  <string name="login_activity_title">ЧугӀо</string>
+  <string name="menu_login">Чувала</string>
+  <string name="login_activity_title">Чувала</string>
   <string name="login_in_progress_dialog_message">Системин чудахар…</string>
   <string name="login_success_toast">Чудовлар кхиамца кхочушдина!</string>
   <string name="reset_password_title">ДӀахӀоттайе пароль</string>

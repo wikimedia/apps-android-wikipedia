@@ -1733,7 +1733,6 @@
   <string name="on_this_day_game_menu_notifications">Powiadomienia o codziennej grze</string>
   <string name="on_this_day_game_menu_info">Dowiedz się więcej</string>
   <string name="on_this_day_game_menu_feedback">Problem z funkcją</string>
-  <string name="on_this_day_game_share_text">Gram w „Co było pierwsze?”, codzienną grę z ciekawostkami w aplikacji Wikipedia na Androida. Dołącz do mnie: %s</string>
   <string name="on_this_day_game_article_read_button">Przeczytaj artykuł</string>
   <string name="on_this_day_game_article_related_event_title">Wydarzenie związane z tym artykułem</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Dobrze odpowiedziałeś na to pytanie</string>
