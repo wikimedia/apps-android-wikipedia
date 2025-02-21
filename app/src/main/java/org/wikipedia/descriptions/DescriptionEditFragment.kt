@@ -35,7 +35,6 @@ import org.wikipedia.edit.EditTags
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -86,9 +85,6 @@ class DescriptionEditFragment : Fragment() {
         }
         if (!AccountUtil.isLoggedIn) {
             Prefs.incrementTotalAnonDescriptionsEdited()
-        }
-        if (viewModel.invokeSource == InvokeSource.SUGGESTED_EDITS) {
-            SuggestedEditsSurvey.onEditSuccess()
         }
         Prefs.lastDescriptionEditTime = Date().time
         Prefs.isSuggestedEditsReactivationPassStageOne = false

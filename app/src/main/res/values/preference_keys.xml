@@ -7,7 +7,6 @@
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
-    <string name="preference_key_app_icon">AppIcon</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_font_family">fontFamily</string>
     <string name="preference_key_app_channel">channel</string>
@@ -71,6 +70,7 @@
     <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>
     <string name="preference_key_feed_cards_lang_disabled">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled">feedCustomizeOnboardingCardEnabled</string>
+    <string name="preference_key_feed_yir_onboarding_card_enabled">feedYirOnboardingCardEnabled</string>
     <string name="preference_key_add_articles">addArticles</string>
     <string name="preference_key_add_reading_lists">addReadingLists</string>
     <string name="preference_key_delete_reading_lists">deleteReadingLists</string>
@@ -91,9 +91,6 @@
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
-    <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
-    <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
-    <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
@@ -102,6 +99,7 @@
     <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
     <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
     <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
+    <string name="preference_key_suggested_edits_override_contribution">suggestedEditsOverrideContribution</string>
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
     <string name="preference_key_suggested_edits_reactivation_pass_stage_one">suggestedEditsReactivationPassStageOne</string>
     <string name="preference_key_suggested_edits_reactivation_test">suggestedEditsReactivationTest</string>
@@ -143,9 +141,6 @@
     <string name="preference_key_import_reading_lists_new_install_dialog_shown">importReadingListsNewInstallDialogShown</string>
     <string name="preference_key_import_reading_lists_dialog_shown">importReadingListsDialogShown</string>
     <string name="preference_key_receive_reading_lists_data">receiveReadingListsData</string>
-    <string name="preference_key_suggested_reading_lists_data">suggestedReadingListsData</string>
-    <string name="preference_key_suggested_reading_list_dialog_shown">suggestedReadingListDialogShown</string>
-    <string name="preference_key_suggested_content_survey_shown">suggestedContentSurveyShown</string>
     <string name="preference_key_edit_syntax_highlight">editSyntaxHighlight</string>
     <string name="preference_key_edit_monospace_font">editMonospaceFont</string>
     <string name="preference_key_edit_line_numbers">editLineNumbers</string>
@@ -172,11 +167,14 @@
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
+    <string name="preference_key_otd_game_state">otdGameState</string>
+    <string name="preference_key_otd_game_history">otdGameHistory</string>
+    <string name="preference_key_otd_game_last_visit_date">otdGameLastVisitDate</string>
+    <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
+    <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
+    <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
+    <string name="preference_key_otd_notification_state">otdNotificationState</string>
+    <string name="preference_key_otd_game_survey_shown">otdGameSurveyShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
-    <string name="preference_key_donor_history_saved">hasDonorHistorySaved</string>
-    <string name="preference_key_is_recurring_donor">isRecurringDonor</string>
-    <string name="preference_key_is_donor">isDonor</string>
-    <string name="preference_key_contributions_dashboard_survey_dialog_shown">contributionsDashboardSurveyDialogShown</string>
-    <string name="preference_key_contributions_dashboard_entry_dialog_shown">contributionsDashboardEntryDialogShown</string>
-    <string name="preference_key_current_selected_app_icon">currentSelectedAppIcon</string>
+    <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
 </resources>

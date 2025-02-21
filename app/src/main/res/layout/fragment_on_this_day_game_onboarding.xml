@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/progressive_color"
+    android:fitsSystemWindows="true"
+    android:gravity="center_horizontal"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dateText"
+        style="@style/P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/paper_color"
+        android:textAlignment="center"
+        android:layout_marginTop="48dp"
+        tools:text="January 1, 2025"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="32dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_today_24px"
+            app:tint="?attr/paper_color"
+            android:contentDescription="@string/on_this_day_game_title"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            style="@style/H1.Article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="?attr/paper_color"
+            android:textAlignment="center"
+            android:text="@string/on_this_day_game_title"/>
+
+        <TextView
+            style="@style/P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/paper_color"
+            android:textAlignment="center"
+            android:text="@string/on_this_day_game_splash_message"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"/>
+
+        <Button
+            android:id="@+id/playGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_this_day_game_dialog_button"
+            android:textColor="?attr/progressive_color"
+            android:paddingStart="64dp"
+            android:paddingEnd="64dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="?attr/paper_color"/>
+
+    </LinearLayout>
+
+</LinearLayout>

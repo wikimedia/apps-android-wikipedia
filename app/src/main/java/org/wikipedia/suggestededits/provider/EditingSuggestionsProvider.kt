@@ -94,7 +94,7 @@ object EditingSuggestionsProvider {
                     }
                 }
 
-                pageSummary = ServiceFactory.getRest(wiki).getPageSummary(null, title)
+                pageSummary = ServiceFactory.getRest(wiki).getPageSummary(title)
             } finally {
                 mutex.release()
             }
@@ -154,14 +154,14 @@ object EditingSuggestionsProvider {
 
                 titles?.let {
                     val sourcePageSummary = async {
-                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(null, it.first.prefixedText).apply {
+                        ServiceFactory.getRest(it.first.wikiSite).getPageSummary(it.first.prefixedText).apply {
                             if (description.isNullOrEmpty()) {
                                 description = it.first.description
                             }
                         }
                     }
                     val targetPageSummary = async {
-                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(null, it.second.prefixedText)
+                        ServiceFactory.getRest(it.second.wikiSite).getPageSummary(it.second.prefixedText)
                     }
                     pair = sourcePageSummary.await() to targetPageSummary.await()
                 }
@@ -324,7 +324,14 @@ object EditingSuggestionsProvider {
                         // TODO: make use of continuation parameter?
                         response.query?.pages?.forEach { page ->
                             if (page.thumbUrl().isNullOrEmpty() && page.growthimagesuggestiondata?.get(0)?.images?.get(0) != null) {
-                                articlesWithImageRecommendationsCache.addFirst(page)
+                                if (articlesWithImageRecommendationsCacheLang == "de") {
+                                    // In the case of dewiki, make sure the image is CC-licensed:
+                                    if (page.growthimagesuggestiondata[0].images[0].metadata?.license.orEmpty().lowercase().contains("cc")) {
+                                        articlesWithImageRecommendationsCache.addFirst(page)
+                                    }
+                                } else {
+                                    articlesWithImageRecommendationsCache.addFirst(page)
+                                }
                             }
                         }
                     }

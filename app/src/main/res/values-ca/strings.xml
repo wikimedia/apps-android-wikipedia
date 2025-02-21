@@ -967,8 +967,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda a la imatge</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda a la imatge (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Afegeix etiquetes d\'imatge</string>
-  <string name="suggested_edits_snackbar_survey_text">Com ha estat la vostra experiència editant-hi? Dediqueu un moment a omplir l\'enquesta d\'edició amb l\'aplicació.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
   <string name="suggested_edits_task_action_text_add">Afegeix</string>
   <string name="suggested_edits_task_action_text_translate">Tradueix</string>
   <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
@@ -1586,5 +1584,5 @@
   <string name="survey_dialog_option_unsatisfied">Insatisfet</string>
   <string name="survey_dialog_cancel">Cancel·la</string>
   <string name="survey_dialog_submit">Tramet</string>
-  <string name="survey_dialog_submitted_snackbar">S\'han tramès els comentaris.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">S\'han tramès els comentaris.</string>
 </resources>

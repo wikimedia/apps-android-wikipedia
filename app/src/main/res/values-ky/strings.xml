@@ -157,7 +157,7 @@
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
-  <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясына ылайык жеткиликтүү.</string>
+  <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясы боюнча жеткиликтүү.</string>
   <string name="article_menu_bar_language_button">Тил</string>
   <string name="article_menu_bar_search_button">Издөө</string>
   <string name="article_header_edit_hint">Түзөтүү...</string>

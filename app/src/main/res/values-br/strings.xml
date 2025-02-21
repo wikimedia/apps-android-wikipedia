@@ -28,6 +28,7 @@
   <string name="nav_item_suggested_edits">Kemmoù</string>
   <string name="nav_item_more">Muioc\'h</string>
   <string name="nav_item_search">Klask</string>
+  <string name="nav_item_contribute">Kemer perzh</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="card_offline_error_retry">Klask en-dro</string>
@@ -43,6 +44,7 @@
   <string name="history_item_delete_undo">Dizober</string>
   <string name="notification_archive_undo">Dizober</string>
   <string name="app_settings">Arventennoù an arload</string>
+  <string name="search_tab_tooltip">Pouezit war an arlun adarre evit kregiñ da skrivañ ur ger klask war-eeun.</string>
   <string name="history_list_title">Roll istor</string>
   <string name="image_content_description">Skeudenn: %s</string>
   <string name="page_content_description">Pajenn : %s</string>
@@ -62,8 +64,9 @@
   <string name="page_edit_history_filter_by">Silañ dre</string>
   <string name="page_edit_history_filter_by_all">An holl kemmoù (%s)</string>
   <string name="page_edit_history_filter_by_user">Kemmoù implijerien (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Kemmoù tud dizanv (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Kemmoù dizanv (%s)</string>
   <string name="page_edit_history_filter_by_bot">Kemmoù robotoù (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Muzulioù eus %1$s da %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d c\'hemm abaoe %2$s</item>
     <item quantity="two">%1$d gemm abaoe %2$s</item>
@@ -106,6 +109,7 @@
   <string name="menu_page_recently_viewed">Gweladennet nevez zo</string>
   <string name="menu_page_archive">Diell</string>
   <string name="menu_long_press_open_page">Digeriñ</string>
+  <string name="menu_long_press_open_in_places">Digeriñ e Lec’hioù</string>
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
   <string name="menu_text_select_define">Termenañ</string>
@@ -250,7 +254,7 @@
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
-  <string name="about_app_license" fuzzy="true">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Kod mammenn a c\'haller kaout e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; hervez doareoù-implijout &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Dindan doareoù-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; emañ an endalc’h nemet pa vez spisaet re all.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
@@ -920,7 +924,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ouzhpennañ alc\'hwez ar skeudenn</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ouzhpennañ alc\'hwez ar skeudenn (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ouzhpennañ tikedennoù skeudenn</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Kemer perzh er sontadeg</string>
   <string name="suggested_edits_task_action_text_add">Ouzhpennañ</string>
   <string name="suggested_edits_task_action_text_translate">Treiñ</string>
   <string name="suggested_edits_image_captions">Alc\'hwezioù ar skeudenn</string>
@@ -993,7 +996,7 @@
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Ket</string>
   <string name="image_recommendation_notsure">N\'on ket sur</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Perak pas ?</string>
+  <string name="image_recommendation_reject_title">Abeg nac\'hañ</string>
   <string name="image_recommendation_reject_offensive">Tagus eo ar skeudenn</string>
   <string name="image_recommendation_reject_low_quality">Skeudenn a galite izel</string>
   <string name="image_recommendation_reject_other">All</string>

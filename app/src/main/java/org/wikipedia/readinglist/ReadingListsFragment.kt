@@ -24,23 +24,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.ABTest
-import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
-import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -63,7 +57,6 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -75,8 +68,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
-import org.wikipedia.views.SurveyDialog
-import java.util.concurrent.TimeUnit
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -95,9 +86,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var recentPreviewSavedReadingList: ReadingList? = null
     private var shouldShowImportedSnackbar = false
 
-    private var suggestedReadingList: ReadingList? = null
-    private val suggestedReadingListAdapter = SuggestedReadingListAdapter()
-
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
             it.data?.data?.let { uri ->
@@ -115,7 +103,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         _binding = FragmentReadingListsBinding.inflate(inflater, container, false)
         binding.searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = ConcatAdapter(suggestedReadingListAdapter, adapter)
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
@@ -170,10 +158,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
-        if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3) {
-            RabbitHolesEvent.submit("impression", "reading_list")
-        }
 
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
@@ -248,7 +232,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun selectListClick() {
             beginMultiSelect()
             adapter.notifyDataSetChanged()
-            suggestedReadingListAdapter.notifyDataSetChanged()
         }
 
         override fun refreshClick() {
@@ -318,10 +301,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -330,15 +309,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 lists.removeAt(0)
             }
 
-            lifecycleScope.launch {
-                suggestedReadingList = null
-                if (RabbitHolesAnalyticsHelper.rabbitHolesEnabled &&
-                    RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3 && !Prefs.suggestedReadingListsData.isNullOrEmpty()) {
-                    Prefs.suggestedReadingListsData?.let { json ->
-                        suggestedReadingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = false)
-                    }
-                }
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
+            lifecycleScope.launch {
                 // Asynchronous update of lists affects the multiselect process
                 if (!isTagType(actionMode)) {
                     displayedLists = lists
@@ -349,7 +325,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 } else {
                     result.dispatchUpdatesTo(adapter)
                 }
-                suggestedReadingListAdapter.notifyDataSetChanged()
 
                 recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
                     .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
@@ -383,7 +358,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
             setUpEmptyContainer()
-            setEmptyContainerVisibility(displayedLists.isEmpty() && !binding.onboardingView.isVisible && suggestedReadingListAdapter.itemCount == 0)
+            setEmptyContainerVisibility(displayedLists.isEmpty() && !binding.onboardingView.isVisible)
         } else {
             binding.searchEmptyView.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
             setEmptyContainerVisibility(false)
@@ -415,45 +390,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         sortListsBy(position)
     }
 
-    private inner class SuggestedReadingListAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
-        override fun getItemCount(): Int {
-            return if (suggestedReadingList != null && !selectMode && actionMode == null) 1 else 0
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            return ReadingListItemHolder(ReadingListItemView(requireContext()))
-        }
-
-        override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            if (holder is ReadingListItemHolder && suggestedReadingList != null) {
-                holder.bindItem(suggestedReadingList!!, true)
-            }
-        }
-
-        override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
-            super.onViewAttachedToWindow(holder)
-            if (holder is ReadingListItemHolder) {
-                holder.view.callback = readingListItemCallback
-            }
-        }
-
-        override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
-            if (holder is ReadingListItemHolder) {
-                holder.view.callback = null
-            }
-            super.onViewDetachedFromWindow(holder)
-        }
-    }
-
     private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
-        fun bindItem(readingList: ReadingList, isSuggested: Boolean = false) {
+        fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode,
-                newImport = readingList.id == recentPreviewSavedReadingList?.id, isSuggested = isSuggested)
+                newImport = readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
-            if (isSuggested) {
-                view.saveClickListener = View.OnClickListener {
-                    startActivity(ReadingListActivity.newIntent(requireActivity(), true, suggestedList = true, suggestedListSave = true))
-                }
+            view.saveClickListener = View.OnClickListener {
+                startActivity(ReadingListActivity.newIntent(requireActivity(), true))
             }
         }
 
@@ -536,11 +479,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
-                if (readingList == suggestedReadingList) {
-                    startActivity(ReadingListActivity.newIntent(requireActivity(), true, suggestedList = true))
-                } else {
-                    startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
-                }
+                startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
 
@@ -687,7 +626,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), androidx.appcompat.R.attr.colorError)
             deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
-            suggestedReadingListAdapter.notifyDataSetChanged()
             return true
         }
 
@@ -795,7 +733,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             }
-            suggestedReadingListAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -848,28 +785,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             shouldShowImportedSnackbar = false
             Prefs.receiveReadingListsData = null
             Prefs.readingListRecentReceivedId = -1L
-            maybeShowRabbitHolesSurvey()
-        }
-    }
-
-    private fun maybeShowRabbitHolesSurvey() {
-        if (Prefs.suggestedContentSurveyShown) {
-            return
-        }
-        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
-            if (!Prefs.suggestedContentSurveyShown) {
-                Prefs.suggestedContentSurveyShown = true
-                SurveyDialog.showFeedbackOptionsDialog(
-                    requireActivity(),
-                    titleId = R.string.rabbit_holes_survey_dialog_title,
-                    messageId = R.string.rabbit_holes_survey_dialog_body,
-                    snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
-                    invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
-                )
-            }
         }
     }
 

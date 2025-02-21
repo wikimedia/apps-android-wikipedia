@@ -879,8 +879,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_add_image_tags">عڪس جا ٽيڪ وجهو</string>
-  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجهو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
@@ -1499,5 +1497,5 @@
   <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
   <string name="survey_dialog_cancel">رد ڪريو</string>
   <string name="survey_dialog_submit">اماڻيو</string>
-  <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">موٽ اماڻجي وئي.</string>
 </resources>

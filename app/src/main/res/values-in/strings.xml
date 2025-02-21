@@ -56,6 +56,7 @@
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="nav_item_search">Cari</string>
+  <string name="nav_item_contribute">Berkontribusi</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="card_offline_error_retry">Coba lagi</string>
@@ -91,7 +92,7 @@
   <string name="page_edit_history_filter_by">Saring berdasarkan</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Suntingan pengguna tidak terdaftar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -948,8 +949,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Tambahkan takarir gambar</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Tambahkan takarir gambar (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Tambah tag gambar</string>
-  <string name="suggested_edits_snackbar_survey_text">Bagaimana pengalaman menyunting Anda? Silakan luangkan waktu sejenak untuk mengisi survei tentang penyuntingan dalam aplikasi.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ikuti Survei</string>
   <string name="suggested_edits_task_action_text_add">Tambahkan</string>
   <string name="suggested_edits_task_action_text_translate">Terjemahkan</string>
   <string name="suggested_edits_image_captions">Takarir gambar</string>
@@ -1571,5 +1570,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak puas</string>
   <string name="survey_dialog_cancel">Batal</string>
   <string name="survey_dialog_submit">Kirim</string>
-  <string name="survey_dialog_submitted_snackbar">Umpan balik dikirimkan.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Umpan balik dikirimkan.</string>
 </resources>

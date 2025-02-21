@@ -978,8 +978,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Рәсемгә тасуирлама өҫтәгеҙ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Рәсемгә тасуирлама өҫтәгеҙ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Рәсемгә тамғалар өҫтәгеҙ</string>
-  <string name="suggested_edits_snackbar_survey_text">Мөхәррирләү тәжрибәгеҙ ниндәй ине? Зинһар, ҡушымтала мөхәррирләү анкетаһын тултырыу өсөн бер минут бүлегеҙ.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Һорауламала ҡатнашыу</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
   <string name="suggested_edits_task_action_text_translate">Тәржемә итергә</string>
   <string name="suggested_edits_image_captions">Рәсем тасуирламаһы</string>
@@ -1615,5 +1613,5 @@
   <string name="survey_dialog_option_neutral">Нейтраль</string>
   <string name="survey_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
   <string name="survey_dialog_submit">Тәҡдим итергә</string>
-  <string name="survey_dialog_submitted_snackbar">Фекер ебәрелде.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Фекер ебәрелде.</string>
 </resources>

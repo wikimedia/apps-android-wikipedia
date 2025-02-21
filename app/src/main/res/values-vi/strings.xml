@@ -983,8 +983,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Thêm chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Gắn thẻ cho hình ảnh</string>
-  <string name="suggested_edits_snackbar_survey_text">Kinh nghiệm sửa đổi của bạn như thế nào? Vui lòng dành một chút thời gian để điền vào bản khảo sát về sửa đổi trong ứng dụng.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Thực hiện khảo sát</string>
   <string name="suggested_edits_task_action_text_add">Thêm</string>
   <string name="suggested_edits_task_action_text_translate">Dịch</string>
   <string name="suggested_edits_image_captions">Chú thích hình ảnh</string>
@@ -1511,28 +1509,4 @@
   <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
   <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
   <string name="places_title">Địa điểm</string>
-  <string name="donor_history_title">Lịch sử nhà hảo tâm</string>
-  <string name="donor_history_save_button">Lưu</string>
-  <string name="donor_history_update_donor_status_donor">Nhà hảo tâm</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Không phải nhà hảo tâm</string>
-  <string name="donor_history_last_donated">Lần quyên góp gần nhất</string>
-  <string name="donor_history_last_donated_date_picker_label">Nhập ngày</string>
-  <string name="donor_history_donate_button">Quyên góp cho Quỹ Wikimedia</string>
-  <string name="contributions_dashboard_survey_dialog_message">Bản cập nhật này cho bảng điều khiển là tính năng thử nghiệm. Bạn có muốn cải thiện hay xóa tính năng này không?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Không có ý kiến</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Để lại phản hồi</string>
-  <string name="contributions_dashboard_donation_dialog_title">Cảm ơn bạn đã ủng hộ kho tri thức mở</string>
-  <string name="contributions_dashboard_donation_dialog_message">Bạn là một phần của 2%% đã chọn hỗ trợ nguồn tài nguyên mà hàng triệu người đang dựa vào. Để thể hiện lòng biết ơn của chúng tôi, bảng điều khiển đóng góp của bạn đã được cập nhật để ghi nhận trạng thái của bạn là người quyên góp. Bạn có muốn xem bản cập nhật không?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Thôi</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Có, đưa tôi qua đó</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">Bảng điều khiển đóng góp của bạn đã được cập nhật</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">Bảng điều khiển đóng góp hiện hiển thị thông tin chi tiết về trạng thái người quyên góp của bạn. Bạn có muốn xem lại tính năng thử nghiệm này không?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Thôi</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Có, đưa tôi qua đó</string>
-  <string name="contributions_dashboard_badge_donor">Nhà hảo tâm</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Trở thành nhà hảo tâm</string>
-  <string name="contributions_dashboard_badge_update">Cập nhật trạng thái quyên góp</string>
-  <string name="contributions_dashboard_app_icon_title">Biểu tượng ứng dụng</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Lợi ích cho người quyên góp</string>
-  <string name="contributions_dashboard_logged_out_user">Người dùng đã đăng xuất</string>
 </resources>

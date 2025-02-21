@@ -50,6 +50,10 @@ class ConfigureViewModel() : ViewModel() {
             if (isLimitedToDomains(result.featuredPicture)) {
                 addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.langCodesSupported, result.featuredPicture)
             }
+            FeedContentType.WIKI_GAMES.langCodesSupported.clear()
+            if (isLimitedToDomains(result.games)) {
+                FeedContentType.WIKI_GAMES.langCodesSupported.addAll(result.games)
+            }
             FeedContentType.saveState()
             _uiState.value = Resource.Success(true)
         }
