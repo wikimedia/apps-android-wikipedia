@@ -101,6 +101,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.nextQuestionText.setOnClickListener {
             viewModel.submitCurrentResponse(0)
+            binding.nextQuestionText.isVisible = false
         }
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
