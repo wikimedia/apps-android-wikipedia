@@ -1,6 +1,7 @@
 package org.wikipedia.settings
 
 import android.location.Location
+import kotlinx.datetime.Instant
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -366,9 +367,12 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_first_time_sync, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_first_time_sync, value)
 
-    var remoteNotificationsSeenTime
-        get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
-        set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)
+    var remoteNotificationsSeenTime: Instant
+        get() {
+            val timestamp = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "")!!
+            return if (timestamp.isEmpty()) Instant.fromEpochMilliseconds(0) else Instant.parse(timestamp)
+        }
+        set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime.toString())
 
     var showHistoryOfflineArticlesToast
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_history_offline_articles_toast, true)
