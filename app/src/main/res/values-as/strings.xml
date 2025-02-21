@@ -665,7 +665,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
   <string name="suggested_edits_feed_card_add_image_caption">ছবিৰ কেপশ্যন যোগ কৰক</string>
   <string name="suggested_edits_feed_card_translate_image_caption">কেপশ্যন যোগ কৰক (%s)</string>
-  <string name="suggested_edits_snackbar_survey_action_text">জৰীপত অংশ লওক</string>
   <string name="suggested_edits_task_action_text_add">যোগ কৰক</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ কৰক</string>
   <string name="suggested_edits_image_captions">চিত্ৰৰ কেপ্‌চন</string>

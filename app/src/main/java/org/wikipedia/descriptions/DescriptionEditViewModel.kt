@@ -61,7 +61,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }) {
             _loadPageSummaryState.value = Resource.Loading()
             editingAllowed = false
-            val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(null, pageTitle.prefixedText) }
+            val summaryResponse = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText) }
             val infoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0) }
 
             val editError = infoResponse.await().query?.firstPage()?.getErrorForAction("edit")
@@ -145,8 +145,8 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             var revision = -1L
             while (revision < newRevision && retry < 10) {
                 delay(2000)
-                val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
-                revision = pageSummaryResponse.body()?.revision ?: -1L
+                val pageSummary = ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                revision = pageSummary.revision
                 retry++
             }
             _waitForRevisionState.value = Resource.Success(true)
@@ -204,12 +204,16 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val error = errorForAction.first()
             throw MwException(error)
         }
-        val siteInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getSiteInfo()
 
-        // TODO: need to revisit this logic
-        val languageCode = if (siteInfoResponse.query?.siteInfo?.lang != null &&
-            siteInfoResponse.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) siteInfoResponse.query?.siteInfo?.lang.orEmpty()
-        else pageTitle.wikiSite.languageCode
+        var languageCode = pageTitle.wikiSite.languageCode
+        if (action != DescriptionEditActivity.Action.ADD_CAPTION &&
+            action != DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+            ServiceFactory.get(pageTitle.wikiSite).getSiteInfo().query?.siteInfo?.lang?.let {
+                if (it.isNotEmpty() && it != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
+                    languageCode = it
+                }
+            }
+        }
 
         return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
             action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {

@@ -132,6 +132,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         setHintText()
         description = originalDescription
         setReviewHeaderText(false)
+        binding.viewDescriptionEditTextLayout.counterMaxLength = resources.getInteger(if (pageTitle.wikiSite.languageCode == "en") R.integer.description_max_chars_en else R.integer.description_max_chars)
     }
 
     private fun setVoiceInput() {
@@ -229,7 +230,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         pageSummaryForEdit = if (isTranslationEdit) targetSummary!! else sourceSummary
         binding.viewDescriptionEditPageSummaryContainer.visibility = VISIBLE
         binding.viewDescriptionEditPageSummaryLabel.text = getLabelText(sourceSummary.lang)
-        binding.viewDescriptionEditPageSummary.text = StringUtil.strip(StringUtil.removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml))
+        binding.viewDescriptionEditPageSummary.text = StringUtil.removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml).trim()
         if (binding.viewDescriptionEditPageSummary.text.toString().isEmpty() || action == DescriptionEditActivity.Action.ADD_CAPTION &&
             !sourceSummary.pageTitle.description.isNullOrEmpty()) {
             binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
@@ -333,6 +334,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             (listOf(".", ",", "!", "?").filter { text.endsWith(it) }).isNotEmpty()) {
             isTextValid = false
             setError(context.getString(R.string.description_ends_with_punctuation))
+        } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
+            setWarning(context.getString(R.string.description_too_long))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
             LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode)) {
             setWarning(context.getString(R.string.description_starts_with_article))

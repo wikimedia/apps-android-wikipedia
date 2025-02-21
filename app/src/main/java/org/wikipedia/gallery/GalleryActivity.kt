@@ -155,8 +155,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             params.gravity = Gravity.CENTER
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
-                force = false, listener = null)
+            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {
@@ -560,7 +559,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
         if (!descriptionStr.isNullOrEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
-            binding.descriptionText.text = StringUtil.strip(descriptionStr)
+            binding.descriptionText.text = descriptionStr.trim()
         } else {
             binding.descriptionContainer.visibility = View.GONE
         }
@@ -640,7 +639,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         const val EXTRA_FILENAME = "filename"
         const val EXTRA_REVISION = "revision"
 
-        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long? = null): Intent {
             return Intent(context, GalleryActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wiki)
                 .putExtra(Constants.ARG_TITLE, pageTitle)

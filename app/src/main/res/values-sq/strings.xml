@@ -4,6 +4,7 @@
 * Bjakupi
 * Eraldkerciku
 * GretaDoci
+* INNERLMNT
 * Kosovastar
 * Liridon
 * Olsi
@@ -15,6 +16,9 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Prapa</string>
+  <string name="page_tabs_back">Prapa</string>
+  <string name="nav_item_forward">Përpara</string>
   <string name="search_hint">Kërko në Wikipedia</string>
   <string name="nav_item_more">Më shumë</string>
   <string name="nav_item_search">Kërko</string>

@@ -18,6 +18,8 @@
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
 
+        <item name="materialCardViewStyle">@style/CardViewStyle</item>
+
         <item name="alertDialogTheme">@style/PreferenceDialogTheme</item>
         <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
 
@@ -187,6 +189,10 @@
         <item name="android:textColor">?attr/primary_color</item>
     </style>
 
+    <style name="H4.Label">
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="H5">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
@@ -351,6 +357,10 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="CardViewStyle" parent="@style/Base.Widget.Material3.CardView">
+        <item name="cardBackgroundColor">?attr/paper_color</item>
+    </style>
+
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>
@@ -503,8 +513,8 @@
     </style>
 
     <style name="ImageViewDefault.ReadingListThumbnail">
-        <item name="android:layout_width">28dp</item>
-        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
     </style>
 
     <style name="RoundedCornerOverlay">
@@ -539,19 +549,6 @@
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.FilledBox">
-        <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:textColorHint">?attr/placeholder_color</item>
-        <item name="boxBackgroundColor">?attr/background_color</item>
-        <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
-        <item name="hintTextColor">?attr/progressive_color</item>
-        <item name="helperTextTextColor">?attr/placeholder_color</item>
-        <item name="counterTextColor">?attr/placeholder_color</item>
-        <item name="errorTextColor">?attr/destructive_color</item>
-        <item name="boxStrokeErrorColor">?attr/destructive_color</item>
-        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
-    </style>
-
-    <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
         <item name="android:textColor">?attr/primary_color</item>
         <item name="android:textColorHint">?attr/placeholder_color</item>
         <item name="boxBackgroundColor">?attr/background_color</item>

@@ -11,7 +11,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +22,7 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
@@ -68,7 +68,7 @@ class SearchResultsFragment : Fragment() {
                 launch {
                     viewModel.searchResultsFlow.collectLatest {
                         binding.searchResultsList.visibility = View.VISIBLE
-                        searchResultsAdapter.submitData(it)
+                        searchResultsAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -160,7 +160,7 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class SearchResultsAdapter : PagingDataAdapter<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
+    private inner class SearchResultsAdapter : PagingDataAdapterPatched<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
             return SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
         }

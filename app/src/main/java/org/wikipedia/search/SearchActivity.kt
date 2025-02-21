@@ -25,7 +25,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val QUERY_EXTRA = "query"
         const val EXTRA_RETURN_LINK = "returnLink"
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
-        const val RESULT_LINK_SUCCESS = 1
+        const val RESULT_LINK_SUCCESS = 97
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
             return Intent(context, SearchActivity::class.java)

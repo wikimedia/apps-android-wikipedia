@@ -30,6 +30,7 @@
 * Mirzali
 * MrSchipunov
 * MuratTheTurkish
+* Nabbegat
 * Okkerem
 * Oyuncu
 * Rapsar
@@ -145,7 +146,7 @@
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
-  <string name="menu_edit_article">Makaleyi düzenle</string>
+  <string name="menu_edit_article">Maddeyi düzenle</string>
   <string name="last_updated_text">Son güncelleme: %s</string>
   <string name="talk_page_link_text">Tartışma sayfasını görüntüle</string>
   <string name="edit_history_link_text">Düzenleme geçmişini görüntüle</string>
@@ -994,8 +995,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Resim etiketleri ekle</string>
-  <string name="suggested_edits_snackbar_survey_text">Düzenleme deneyiminiz nasıldı? Lütfen uygulama içi düzenleme ile ilgili anketi doldurmak için bir dakikanızı ayırın.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Anketi Doldur</string>
   <string name="suggested_edits_task_action_text_add">Ekle</string>
   <string name="suggested_edits_task_action_text_translate">Çevir</string>
   <string name="suggested_edits_image_captions">Resim başlıkları</string>
@@ -1469,7 +1468,7 @@
   <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
   <string name="category_tab_articles">Makaleler</string>
   <string name="category_tab_subcategories">alt kategoriler</string>
-  <string name="category_empty">kategoride makale bulunamadı.</string>
+  <string name="category_empty">Bu kategoride madde bulunamadı.</string>
   <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
   <string name="search_namespaces">Ad alanları</string>
   <string name="revision_initial_none">Yok (bu ilk sürümdür)</string>
@@ -1646,13 +1645,6 @@
   <string name="places_card_title">Yakındaki yerler</string>
   <string name="places_card_action">Yakındaki daha fazla yer</string>
   <string name="places_card_distance_unknown">Bilinmeyen mesafe</string>
-  <string name="donor_history_save_button">Kaydet</string>
-  <string name="contributions_dashboard_app_icon_title">Uygulama simgesi</string>
-  <string name="contributions_dashboard_tab_update_button">Güncelle</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Geçici bir özel simgenin kilidini açtınız. Uygulama simgesi altındaki ayarlarınızdan bu simgeye geçebilirsiniz. Simgenizi şimdi güncellemek ister misiniz?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Hayır, teşekkürler</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Evet, beni Ayarlar\'a götür</string>
-  <string name="contributions_dashboard_app_icon_updated">Uygulama simgesi güncellendi</string>
   <string name="survey_dialog_title">Bu özelliği geliştirmemize yardımcı olun</string>
   <string name="survey_dialog_message">Bu özellikten mutlu musunuz?</string>
   <string name="survey_dialog_option_satisfied">Mutlu</string>
@@ -1662,5 +1654,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Çok mutsuz</string>
   <string name="survey_dialog_cancel">İptal</string>
   <string name="survey_dialog_submit">Gönder</string>
-  <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Geri bildirim gönderildi.</string>
 </resources>

@@ -4,6 +4,7 @@
 * AVrana
 * Alvarenga
 * Anaclaudiaml
+* Aquila Leite
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
@@ -25,6 +26,7 @@
 * HenriqueCrang
 * Iohanen
 * Isabelle Belato
+* JPLSilva
 * Lc97
 * Lowvy
 * Luk3
@@ -58,14 +60,15 @@
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
-  <string name="search_hint_voice_search">Pesquisa por entrada de voz</string>
+  <string name="search_hint_voice_search">Busca por voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
   <string name="nav_item_search">Pesquisar</string>
+  <string name="nav_item_contribute">Contribuir</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
-  <string name="page_error_retry">Atualizar</string>
+  <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
   <string name="storage_access_error_retry">Tentar novamente</string>
   <string name="article_load_error_retry">Tentar novamente</string>
@@ -86,20 +89,20 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
+  <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todas as guias abertas. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Compartilhar via</string>
   <string name="image_share_via">Compartilhar via</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
-  <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
+  <string name="page_edit_history_activity_title">Histórico de revisão: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Pesquisar ou filtrar edições</string>
-  <string name="page_edit_history_filter_by">Filtrar por</string>
+  <string name="page_edit_history_filter_by">Filtrar por:</string>
   <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
   <string name="page_edit_history_filter_by_user">Edições do usuário (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edições anônimas (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições não registradas (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -122,7 +125,7 @@
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
   <string name="menu_page_edit_history">Histórico de edições</string>
   <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
-  <string name="menu_page_watched">Vigiada</string>
+  <string name="menu_page_watched">Vigilantes</string>
   <string name="edit_section_find_in_page">Encontrar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -464,8 +467,26 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personalize sua barra de ferramentas</string>
   <string name="error_blocked_footer_no_blocker">Você pode entrar em contato com um &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="temp_account_not_logged_in">Não tem entrado</string>
+  <string name="temp_account_anon_ip_dialog_body">Quando você fizer uma edição, seu endereço IP será associado às suas edições.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Faça login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;crie uma conta&lt;/a&gt; para receber crédito por edições futuras e acessar outros recursos.</string>
+  <string name="temp_account_anon_dialog_body">Quando você fizer uma edição, uma &lt;b&gt;conta temporária&lt;/b&gt; será criada para proteger sua privacidade. &lt;a href=\"%1$s\"&gt;Saiba mais&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Faça login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;crie uma conta&lt;/a&gt; para receber crédito por edições futuras e acessar outros recursos.</string>
+  <string name="temp_account_temp_dialog_body">Sua edição será atribuída a %1$s. Seu endereço IP ficará visível para os administradores.&lt;br /&gt;&lt;br /&gt;Se você &lt;a href=\"https://#login\"&gt;fizer login&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;criar uma conta&lt;/a&gt;, suas edições serão atribuídas a um nome que você escolher, entre outros benefícios.</string>
   <string name="temp_account_dialog_ok">Entendi</string>
   <string name="temp_account_using_title">Você está usando uma conta temporária</string>
+  <string name="temp_account_dialog_discard">Descartar alterações e fazer login</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">A conta temporária %1$s foi criada após sua edição ser publicada. Ela expirará em %2$d dia.</item>
+    <item quantity="other">A conta temporária %1$s foi criada após sua edição ser publicada. Ela expirará em %2$d dias.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">A conta expirará em %d dia.</item>
+    <item quantity="other">A conta expirará em %d dias.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Você não está logado.&lt;/b&gt; Assim que você fizer uma edição, seu endereço IP será associado às suas edições.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Você não está logado.&lt;/b&gt; Assim que você fizer uma edição, uma conta temporária será criada para proteger sua privacidade. &lt;a href=\"%1$s\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Você está usando uma conta temporária.&lt;/b&gt; Sua edição será atribuída a %1$s. &lt;a href=\"%2$s\"&gt;Saiba mais&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Você está atualmente usando uma conta temporária.&lt;/b&gt; As edições feitas com a conta temporária %1$s não serão transferidas para sua conta permanente quando você fizer login. Faça login ou crie uma conta para receber crédito para o seu nome de usuário, entre outros benefícios.</string>
+  <string name="temp_account_end_session">Encerrar sessão</string>
+  <string name="temp_account_end_session_confirm">Isso fará você sair da sua conta temporária. Deseja continuar?</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -859,6 +880,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Você atingiu a parte inferior do feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ir para configurações</string>
   <string name="top_read_activity_title">Mais lidos em %s</string>
   <string name="tabs_activity_title">Etiquetas</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
@@ -988,8 +1010,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adicionar marcações de imagem</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi sua experiência de edição? Reserve um momento para preencher a pesquisa sobre edição no aplicativo.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Responder a pesquisa</string>
   <string name="suggested_edits_task_action_text_add">Adicionar</string>
   <string name="suggested_edits_task_action_text_translate">Traduzir</string>
   <string name="suggested_edits_image_captions">Legendas da imagem</string>
@@ -1165,6 +1185,7 @@
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continue lendo</string>
   <string name="app_shortcuts_search">Pesquisar</string>
+  <string name="app_shortcuts_places">Lugares</string>
   <string name="on_this_day_card_title">Neste dia</string>
   <string name="more_events_text">Mais neste dia</string>
   <string name="events_count_text">%1$s eventos de %2$s–%3$d</string>
@@ -1256,9 +1277,12 @@
   <string name="insert_media_insert_button">Inserir</string>
   <string name="templates_search_hint">Procurar predefinições</string>
   <string name="templates_insert_button">Inserir</string>
+  <string name="templates_param_suggested_value">por exemplo, %s</string>
   <string name="templates_param_optional_hint">%s (Opcional)</string>
   <string name="templates_param_suggested_hint">%s (Sugerido)</string>
   <string name="templates_learn_more_link">Saiba mais</string>
+  <string name="templates_description_incomplete">As predefinições são criadas pelos usuários e podem não ter descrições completas.</string>
+  <string name="templates_description_empty">A predefinição \"%s\" ainda não tem uma descrição.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / juntar-se à Wikipédia</string>
   <string name="main_tooltip_text">Olá %s, Você sabia que todos podem editar a Wikipédia?</string>
@@ -1498,6 +1522,7 @@
   <string name="talk_templates_new_message_dialog_hint">Título da mensagem</string>
   <string name="talk_templates_new_message_dialog_save">Salvar</string>
   <string name="talk_templates_new_message_dialog_cancel">Cancelar</string>
+  <string name="talk_templates_new_message_dialog_exists">A predefinição \"%s\" já existe.</string>
   <string name="talk_templates_new_message_saved">A mensagem foi salvada</string>
   <string name="talk_templates_edit_message_dialog_title">Editar mensagem</string>
   <string name="talk_templates_edit_message_dialog_save">Salvar</string>
@@ -1605,5 +1630,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
   <string name="survey_dialog_cancel">Cancelar</string>
   <string name="survey_dialog_submit">Enviar</string>
-  <string name="survey_dialog_submitted_snackbar">Comentário enviado.</string>
+  <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
 </resources>

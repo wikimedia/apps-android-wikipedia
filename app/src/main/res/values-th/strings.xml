@@ -812,8 +812,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">เพิ่มคำบรรยายภาพ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">เพิ่มคำบรรยายภาพ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">เพิ่มป้ายกำกับภาพ</string>
-  <string name="suggested_edits_snackbar_survey_text">ประสบการณ์ในการแก้ไขของคุณเป็นอย่างไรบ้าง โปรดสละเวลาสักครู่เพื่อทำแบบสอบถามเกี่ยวกับการแก้ไขจากภายในแอป</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ทำแบบสำรวจ</string>
   <string name="suggested_edits_task_action_text_add">เพิ่ม</string>
   <string name="suggested_edits_task_action_text_translate">แปล</string>
   <string name="suggested_edits_image_captions">คำบรรยายภาพ</string>

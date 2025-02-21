@@ -923,8 +923,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">paahi enfuo caption</string>
   <string name="suggested_edits_feed_card_translate_image_caption">paahi enfuo caption (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">paahi enfuo tags</string>
-  <string name="suggested_edits_snackbar_survey_text">Wola ka fo maale eŋ yelnyɛrre wuo? Sɔroo de vuo fĩĩ fore a yelpeɛre kyaare app poɔ maale eŋ.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">De peɛhibo</string>
   <string name="suggested_edits_task_action_text_add">Paahi</string>
   <string name="suggested_edits_task_action_text_translate">Leɛre</string>
   <string name="suggested_edits_image_captions">Enfuo Caption</string>
@@ -1468,5 +1466,5 @@
   <string name="survey_dialog_option_neutral">Ba be a kaŋazaa</string>
   <string name="survey_dialog_option_unsatisfied">Ba sege</string>
   <string name="survey_dialog_submit">Tere</string>
-  <string name="survey_dialog_submitted_snackbar">Leɛ teroo toɔlɛɛ la.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Leɛ teroo toɔlɛɛ la.</string>
 </resources>

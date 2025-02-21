@@ -1060,8 +1060,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
-  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
@@ -1110,6 +1108,12 @@
     <item quantity="few">Вклад</item>
     <item quantity="many">Вклад</item>
     <item quantity="other">Вклад</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Правка</item>
+    <item quantity="few">Правки</item>
+    <item quantity="many">Правок</item>
+    <item quantity="other">Правки</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d день</item>
@@ -1713,33 +1717,6 @@
   <string name="places_card_action">Больше мест поблизости</string>
   <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
   <string name="places_card_distance_unknown">Расстояние неизвестно</string>
-  <string name="donor_history_title">История донора</string>
-  <string name="donor_history_save_button">Сохранить</string>
-  <string name="donor_history_update_donor_status_donor">Донор</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Не донор</string>
-  <string name="donor_history_last_donated">Последнее пожертвование</string>
-  <string name="donor_history_last_donated_date_picker_title">Выберите дату</string>
-  <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
-  <string name="donor_history_last_donated_never">Никогда</string>
-  <string name="donor_history_recurring_donor">Постоянный донор</string>
-  <string name="donor_history_donate_button">Пожертвовать в Фонд Викимедиа</string>
-  <string name="donor_history_about_this_experiment">Об этом эксперименте</string>
-  <string name="donor_history_updated_message_snackbar">История донора обновлена</string>
-  <string name="contributions_dashboard_survey_dialog_title">Помогите улучшить панель пожертвований</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Нет мнения</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
-  <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_entry_dialog_title">Изучите новые дополнения к панели вклада</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_badge_donor">Донор</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
-  <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
-  <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
-  <string name="contributions_dashboard_tab_update_button">Обновить</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
-  <string name="contributions_dashboard_app_icon_updated">Значок приложения обновлён</string>
   <string name="survey_dialog_title">Помогите нам улучшить эту функцию</string>
   <string name="survey_dialog_message">Вы довольны этой функцией?</string>
   <string name="survey_dialog_option_satisfied">Доволен</string>
@@ -1749,6 +1726,9 @@
   <string name="survey_dialog_option_very_unsatisfied">Очень неудовлетворен</string>
   <string name="survey_dialog_cancel">Отмена</string>
   <string name="survey_dialog_submit">Отправить</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Нет</string>
   <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
-  <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Обратная связь отправлена.</string>
+  <string name="on_this_day_game_next">Следующий вопрос</string>
 </resources>

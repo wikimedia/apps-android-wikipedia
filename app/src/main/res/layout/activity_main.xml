@@ -11,8 +11,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize">
 
         <ImageView
             android:id="@+id/main_toolbar_wordmark"
@@ -23,48 +22,6 @@
             android:visibility="gone"
             app:srcCompat="@drawable/feed_header_wordmark"
             app:tint="?attr/primary_color" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize">
-
-            <androidx.constraintlayout.helper.widget.Flow
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginEnd="12dp"
-                app:flow_horizontalGap="12dp"
-                app:flow_verticalGap="8dp"
-                app:flow_wrapMode="chain"
-                app:flow_horizontalAlign="start"
-                app:flow_horizontalBias="0"
-                app:flow_firstHorizontalBias="0"
-                app:flow_horizontalStyle="packed"
-                app:constraint_referenced_ids="toolbarTitle,donorBadge" />
-
-            <TextView
-                android:id="@+id/toolbarTitle"
-                style="@style/H1.AppBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/primary_color"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Lorem ipsum foooooooo"/>
-
-            <org.wikipedia.views.DonorBadgeView
-                android:id="@+id/donorBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
