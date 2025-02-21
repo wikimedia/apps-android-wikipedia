@@ -327,8 +327,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>) {
-        setToolbarTitle(pageTitle)
-
         if (binding.talkRecyclerView.adapter == null) {
             binding.talkRecyclerView.adapter = concatAdapter.apply {
                 addAdapter(0, headerAdapter)
@@ -356,7 +354,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
             }
             if (threadTopic != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic!!.name, threadTopic!!.id, threadItem?.id, viewModel.currentSearchQuery, invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadTopic.name, threadTopic.id, threadItem?.id, viewModel.currentSearchQuery, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
@@ -378,6 +376,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
         binding.talkProgressBar.isVisible = false
         invalidateOptionsMenu()
+        setToolbarTitle(pageTitle)
     }
 
     private fun updateOnError(t: Throwable) {
