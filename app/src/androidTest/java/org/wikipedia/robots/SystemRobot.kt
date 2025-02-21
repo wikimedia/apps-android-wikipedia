@@ -78,4 +78,8 @@ class SystemRobot : BaseRobot() {
         system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
         delay(TestConfig.DELAY_SHORT)
     }
+
+    fun pressBack() = apply {
+        goBack()
+    }
 }
