@@ -160,7 +160,7 @@ class TalkTemplatesFragment : Fragment() {
                 }
                 touchCallback.swipeableEnabled = tab.position == 0
                 updateAndNotifyAdapter()
-                showToolbarEditButton(tab.position == 0)
+                updateToolbarEditButton()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -177,8 +177,8 @@ class TalkTemplatesFragment : Fragment() {
         }
     }
 
-    private fun showToolbarEditButton(visible: Boolean) {
-        binding.toolBarEditButton.isVisible = visible
+    private fun updateToolbarEditButton() {
+        binding.toolBarEditButton.isVisible = binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty()
     }
 
     private fun setToolbarTitle() {
@@ -213,7 +213,7 @@ class TalkTemplatesFragment : Fragment() {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
         updateEmptyState()
-        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        updateToolbarEditButton()
         adapter.notifyDataSetChanged()
     }
 
@@ -239,7 +239,7 @@ class TalkTemplatesFragment : Fragment() {
 
     private fun onSuccess() {
         setRecyclerView()
-        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        updateToolbarEditButton()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
         if (binding.talkTemplatesEmptyContainer.isVisible) {
