@@ -143,7 +143,7 @@ interface ReadingListPageDao {
         )
     }
 
-    fun findPageForSearchQueryInAnyList(searchQuery: String): SearchResults {
+    fun findPageForSearchQueryInAnyList(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
@@ -152,7 +152,7 @@ interface ReadingListPageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val pages = findPageBySearchTerm("%$normalizedQuery%")
-                .filter { StringUtil.fromHtml(it.accentInvariantTitle).contains(normalizedQuery, true) }
+                .filter { wikiSite.languageCode == it.lang && StringUtil.fromHtml(it.accentInvariantTitle).contains(normalizedQuery, true) }
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {
