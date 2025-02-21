@@ -12,6 +12,7 @@ import org.wikipedia.base.TestConfig.SEARCH_TERM
 import org.wikipedia.base.TestConfig.SEARCH_TERM2
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
@@ -28,9 +29,12 @@ class SearchTest : BaseTest<MainActivity>(
     private val searchRobot = SearchRobot()
     private val bottomNavRobot = BottomNavRobot()
     private val dialogRobot = DialogRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun startSearchTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         homeScreenRobot
             .clickSearchContainer()
         searchRobot
