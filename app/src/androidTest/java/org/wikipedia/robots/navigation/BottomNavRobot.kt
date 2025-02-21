@@ -9,8 +9,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
 class BottomNavRobot : BaseRobot() {
     fun navigateToExploreFeed() = apply {
@@ -67,7 +67,7 @@ class BottomNavRobot : BaseRobot() {
 
     fun clickLoginMenuItem() = apply {
         try {
-            clickOnViewWithId(R.id.main_drawer_login_button)
+            click.onViewWithId(R.id.main_drawer_login_button)
             delay(TestConfig.DELAY_MEDIUM)
         } catch (e: Exception) {
             Log.e("BottomNavRobotError:", "User logged in.")
@@ -75,7 +75,7 @@ class BottomNavRobot : BaseRobot() {
     }
 
     fun gotoWatchList() = apply {
-        clickOnViewWithId(R.id.main_drawer_watchlist_container)
+        click.onViewWithId(R.id.main_drawer_watchlist_container)
         delay(TestConfig.DELAY_SHORT)
     }
 

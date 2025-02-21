@@ -1060,8 +1060,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
-  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
@@ -1728,6 +1726,9 @@
   <string name="survey_dialog_option_very_unsatisfied">Очень неудовлетворен</string>
   <string name="survey_dialog_cancel">Отмена</string>
   <string name="survey_dialog_submit">Отправить</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Нет</string>
   <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Обратная связь отправлена.</string>
+  <string name="on_this_day_game_next">Следующий вопрос</string>
 </resources>

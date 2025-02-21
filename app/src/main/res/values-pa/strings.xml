@@ -136,6 +136,10 @@
   <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪੰਨੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
+  <string name="dialog_confirm_delete_donation_history_title">ਮਿਟਾਉਣ ਦੀ ਤਸਦੀਕ ਕਰੋ</string>
+  <string name="dialog_confirm_delete_donation_history_message">ਇਹ ਸਿਰਫ਼ ਇਸ ਜੰਤਰ ਤੋਂ ਕੀਤੇ ਦਾਨ ਉੱਤੇ ਲਾਗੂ ਹੋਵੇਗਾ।</string>
+  <string name="dialog_confirm_delete_donation_history_delete">ਮਿਟਾਓ</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>
   <string name="search_no_results_found">ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਲੱਭਿਆ</string>
   <string name="search_reading_list_no_results">\"%s\" ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
@@ -437,6 +441,7 @@
   <string name="temp_account_anon_edit_status">&lt;b&gt;ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।&lt;/b&gt; ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਨਿੱਜਤਾ ਦੀ ਰੱਖਿਆ ਲਈ ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਅਸਥਾਈ ਖਾਤਾ ਬਣਾਇਆ ਜਾਵੇਗਾ। &lt;a href=\"%1$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;ਤੁਸੀਂ ਇੱਕ ਅਸਥਾਈ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।&lt;/b&gt; ਤੁਹਾਡਾ ਸੋਧ %1$s ਨਾਲ ਸਬੰਧਿਤ ਹੋਵੇਗਾ। &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt; ।</string>
   <string name="temp_account_login_status">&lt;b&gt;ਤੁਸੀਂ ਇਸ ਵੇਲੇ ਇੱਕ ਆਰਜ਼ੀ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ। &lt;/b&gt; ਜਦੋਂ ਤੁਸੀਂ ਦਾਖ਼ਲ ਹੁੰਦੇ ਹੋ ਤਾਂ ਅਸਥਾਈ ਖਾਤੇ %1$s ਨਾਲ ਕੀਤੇ ਗਏ ਸੋਧ ਤੁਹਾਡੇ ਸਥਾਈ ਖਾਤੇ ਵਿੱਚ ਨਹੀਂ ਜਾਣਗੇ। ਹੋਰ ਲਾਭਾਂ ਦੇ ਨਾਲ-ਨਾਲ ਆਪਣੇ ਵਰਤੋਂਕਾਰ ਨਾਂ \'ਤੇ ਸਿਹਰਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਦਾਖ਼ਲ ਹੋਵੋ ਜਾਂ ਖਾਤਾ ਬਣਾਓ।</string>
+  <string name="temp_account_end_session">ਅਜਲਾਸ ਖਤਮ ਕਰੋ</string>
   <string name="temp_account_end_session_confirm">ਇਹ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਅਸਥਾਈ ਖਾਤੇ ਤੋਂ ਬਾਹਰ ਕੱਢ ਦੇਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
   <string name="crash_report_relaunch_or_quit">ਸਾਨੂੰ ਅਫਸੋਸ ਹੈ, ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਿੱਚ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ ਅਤੇ ਇਸਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।\n\nਕੀ ਤੁਸੀਂ ਮੁੜ ਸ਼ੁਰੂ ਕਰਨਾ ਜਾਂ ਛੱਡਣਾ ਚਾਹੋਗੇ?</string>
@@ -466,6 +471,7 @@
   <string name="theme_category_editing">ਸੁਧਾਈ</string>
   <string name="editing_syntax_highlight_label">ਵਾਕ-ਵਿਉਂਤ ਉਜਾਗਰ ਕਰੋ</string>
   <string name="editing_line_numbers_label">ਲਕੀਰ ਨੰਬਰ ਵਿਖਾਓ</string>
+  <string name="editing_typing_suggestions">ਟਾਈਪ ਕਰਨ ਦੇ ਸੁਝਾਅ ਵਿਖਾਓ</string>
   <string name="nav_item_saved">ਸੰਭਾਲਿਆ</string>
   <string name="reading_list_save_to">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਸਾਂਭੋ</string>
   <string name="reading_list_move_to">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਲਿਜਾਓ</string>
@@ -884,8 +890,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ ਜੋੜੋ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ ਜੋੜੋ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ਚਿੱਤਰ ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ</string>
-  <string name="suggested_edits_snackbar_survey_text">ਸੋਧ ਦਾ ਤਜਰਬਾ ਕਿਵੇਂ ਰਿਹਾ? ਕਿਰਪਾ ਕਰਕੇ ਐਪ-ਅੰਦਰ(in-app) ਸੋਧ ਬਾਰੇ ਸਰਵੇਖਣ ਨੂੰ ਭਰਨ ਲਈ ਕੁਝ ਸਮਾਂ ਕੱਢੋ।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ਸਰਵੇਖਣ ਲਵੋ</string>
   <string name="suggested_edits_task_action_text_add">ਜੋੜੋ</string>
   <string name="suggested_edits_task_action_text_translate">ਤਰਜਮਾ ਕਰੋ</string>
   <string name="suggested_edits_image_captions">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ</string>
@@ -1265,6 +1269,9 @@
   <string name="watchlist_filter_watchlist_activity_unseen">ਅਣਦੇਖੀਆਂ ਤਬਦੀਲੀਆਂ</string>
   <string name="watchlist_filter_watchlist_activity_seen">ਤਬਦੀਲੀਆਂ ਵੇਖੀਆਂ</string>
   <string name="watchlist_filter_contribution_quality_header">ਯੋਗਦਾਨ ਗੁਣਵੱਤਾ ਦੀ ਭਵਿੱਖਬਾਣੀ</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">ਸਮੱਸਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">ਸਮੱਸਿਆਵਾਂ ਹੋਣ ਦੀ ਸੰਭਾਵਨਾ ਹੈ।</string>
+  <string name="watchlist_filter_contribution_quality_bad">ਸਮੱਸਿਆਵਾਂ ਹੋਣ ਦੀ ਬਹੁਤ ਸੰਭਾਵਨਾ ਹੈ।</string>
   <string name="watchlist_filter_user_status_unregistered">ਨਾ-ਦਰਜ ਕੀਤਾ</string>
   <string name="watchlist_filter_user_status_registered">ਦਰਜ ਕੀਤਾ</string>
   <string name="watchlist_filter_user_status_newcomers">ਨਵੇਂ ਆਏ</string>
@@ -1458,6 +1465,35 @@
   <string name="survey_dialog_option_very_unsatisfied">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
   <string name="survey_dialog_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="survey_dialog_submit">ਹਵਾਲੇ ਕਰੋ</string>
+  <string name="survey_dialog_next">ਅਗਲਾ</string>
+  <string name="survey_dialog_general_yes">ਹਾਂ</string>
+  <string name="survey_dialog_general_no">ਨਹੀਂ</string>
+  <string name="survey_dialog_general_maybe">ਸ਼ਾਇਦ</string>
   <string name="survey_dialog_input_hint">ਵਾਧੂ ਸੁਝਾਅ</string>
   <string name="survey_dialog_submitted_snackbar">ਸੁਝਾਅ ਜਮ੍ਹਾਂ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਧੰਨਵਾਦ!</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
+  <string name="on_this_day_game_entry_dialog_button">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
+  <string name="on_this_day_game_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
+  <string name="on_this_day_game_dialog_button">ਖੇਡੋ</string>
+  <string name="on_this_day_game_splash_message">ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਕਿ ਇਤਿਹਾਸ ਵਿੱਚ ਇਸ ਦਿਨ ਕਿਹੜੀ ਘਟਨਾ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਰੀ ਸੀ।</string>
+  <string name="on_this_day_game_correct">ਸਹੀ!</string>
+  <string name="on_this_day_game_incorrect">ਗਲਤ!</string>
+  <string name="on_this_day_game_next">ਅਗਲਾ ਸਵਾਲ</string>
+  <string name="on_this_day_game_finish">ਅੰਤਮ ਨਤੀਜੇ</string>
+  <string name="on_this_day_game_share">ਦੋਸਤਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="on_this_day_game_pause_title">ਖੇਡ ਨੂੰ ਰੋਕਣਾ ਹੈ?</string>
+  <string name="on_this_day_game_pause_negative">ਖੇਡਦੇ ਰਹੋ</string>
+  <string name="on_this_day_game_pause_positive">ਸਮਝ ਲਿਆ</string>
+  <string name="on_this_day_game_feed_entry_card_heading">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
+  <string name="on_this_day_game_feed_entry_card_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਕਿ ਇਤਿਹਾਸ ਵਿੱਚ ਇਸ ਦਿਨ ਕਿਹੜੀ ਘਟਨਾ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਰੀ ਸੀ।</string>
+  <string name="on_this_day_game_your_stats">ਤੁਹਾਡੇ ਅੰਕੜੇ</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">ਖੇਡ ਖੇਡੀ ਗਈ</item>
+    <item quantity="other">ਖੇਡੀਆਂ ਗਈਆਂ ਖੇਡਾਂ</item>
+  </plurals>
+  <string name="on_this_day_game_menu_info">ਹੋਰ ਸਿੱਖੋ</string>
+  <string name="on_this_day_game_menu_feedback">ਵਿਸ਼ੇਸ਼ਤਾ ਨਾਲ ਸਮੱਸਿਆ</string>
+  <string name="on_this_day_game_article_read_button">ਲੇਖ ਪੜ੍ਹੋ</string>
+  <string name="back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
 </resources>

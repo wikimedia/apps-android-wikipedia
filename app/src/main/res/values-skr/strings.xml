@@ -2,6 +2,7 @@
 <!-- Authors:
 * Dbrant
 * Saraiki
+* Umar Shahid
 -->
 <resources>
   <string name="app_name_prod">وکیپیڈیا</string>
@@ -415,6 +416,7 @@
   <string name="description_edit_add_image_caption">تصویر عنوان شامل کرو</string>
   <string name="description_edit_cancel_hint">منسوخ</string>
   <string name="description_edit_help_about_wikidata">وکیڈیٹا بارے</string>
+  <string name="description_too_long">تفصیل کوں مختصر رکھݨ دی کوشش کرو تاں جو صارف مضمون دے موضوع کوں ہک نظر وچ سمجھ سڳے</string>
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_keep_it_short">ایں کوں مختصر رکھو</string>
@@ -450,7 +452,6 @@
   <string name="suggested_edits_image_preview_dialog_more_info">ٻیاں معلومات</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروے کرو</string>
   <string name="suggested_edits_task_action_text_add">شامل کرو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمہ کرو</string>
   <string name="suggested_edits_image_captions">تصویر کیپشن</string>
@@ -715,5 +716,26 @@
   <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
   <string name="survey_dialog_option_very_satisfied">ݙاڈھا تسلی بخش</string>
   <string name="survey_dialog_submit">جمع کرواؤ</string>
+  <string name="survey_dialog_next">اڳلا</string>
+  <string name="survey_dialog_general_no">کو</string>
   <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
+  <string name="on_this_day_game_dialog_button">چلاؤ</string>
+  <string name="on_this_day_game_next">اڳلا سوال</string>
+  <string name="on_this_day_game_pause_title">کِھیݙ کوں روکو؟</string>
+  <string name="on_this_day_game_pause_body">تُہاݙی اَڳوتری کوں ݙینہہ کیتے محفوظ کیتا ویسی۔ تساں گیم کوں اپݨی ایکسپلور فیڈ تے ڳول سڳدو۔</string>
+  <string name="on_this_day_game_pause_positive">سمجھ ڳئے</string>
+  <string name="on_this_day_game_menu_notifications">گیم دیاں اطلاعات</string>
+  <string name="on_this_day_game_menu_info">مزید ڄاݨو</string>
+  <string name="on_this_day_game_menu_feedback">خصوصیت دے نال ڳنڈھ</string>
+  <string name="on_this_day_game_article_read_button">مضمون پڑھو</string>
+  <string name="on_this_day_game_article_related_event_title">ایں مضمون کنوں متعلق واقعہ۔</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">تہاکوں ایہ سوال غلط مِلیا</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">جے تساں پُش اطلاعات کوں بند کر ݙیندو، تاں  تُہاکوں ہر روز ہک یاد دہانی موصول کائنا تھیسی جݙݨ کوئی نویں گیم کھیݙݨ کیتے دستیاب تھیسی۔</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">گیم دیاں اطلاعات  آن کرو؟</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">جݙݨ کوئی نویں گیم کھیݙݨ کیتے دستیاب تھیندی ہے تاں گیم دیاں اطلاعات روزانہ تُہاکوں آگاہ کریندی ہِن۔</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">اُنہاں کوں بند کر ݙیوو</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">جیا، انہاں کوں آن کرو</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
+  <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
+  <string name="on_this_day_game_notification_undo">واپس</string>
 </resources>
