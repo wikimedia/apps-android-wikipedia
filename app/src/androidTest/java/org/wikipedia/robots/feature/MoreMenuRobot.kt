@@ -1,8 +1,18 @@
 package org.wikipedia.robots.feature
 
 import BaseRobot
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasData
+import org.hamcrest.Matchers.allOf
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.base.TestConfig
 
 class MoreMenuRobot : BaseRobot() {
 
@@ -45,6 +55,7 @@ class MoreMenuRobot : BaseRobot() {
 
     fun clickTalk() = apply {
         click.onViewWithId(R.id.main_drawer_talk_container)
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickWatchList() = apply {
@@ -53,17 +64,36 @@ class MoreMenuRobot : BaseRobot() {
 
     fun verifyPlacesIsAccessible() = apply {
         verify.viewExists(R.id.mapViewButton)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyUserContributionIsAccessible() = apply {
         verify.viewExists(R.id.user_contrib_recycler)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyUserTalkIsAccessible() = apply {
         verify.viewExists(R.id.talkNewTopicButton)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyWatchListIsAccessible() = apply {
         verify.viewExists(R.id.watchlistRecyclerView)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun verifyDonateFlowIsAccessible(context: Context) = apply {
+
+        try {
+            val customTabIntentMatcher = allOf(
+                hasAction(Intent.ACTION_VIEW),
+                hasData(context.getString(R.string.donate_url,
+                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+            )
+            intended(customTabIntentMatcher)
+        } catch (e: AssertionError) {
+            Log.e("MoreMenuRobotDonate: ", "no google pay")
+            verify.viewExists(R.id.gPayTitle)
+        }
     }
 }

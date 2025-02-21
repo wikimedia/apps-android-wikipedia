@@ -80,5 +80,12 @@ class MoreMenuTest : BaseTest<MainActivity>(
         moreMenuRobot
             .clickWatchList()
             .verifyWatchListIsAccessible()
+        settingsRobot
+            .pressBack()
+        bottomNavRobot
+            .navigateToMoreMenu()
+        moreMenuRobot
+            .clickDonate()
+            .verifyDonateFlowIsAccessible(context)
     }
 }
