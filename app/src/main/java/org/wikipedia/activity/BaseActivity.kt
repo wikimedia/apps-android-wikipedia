@@ -37,6 +37,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.games.onthisday.OnThisDayGameFinalFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
@@ -48,7 +49,6 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -69,12 +69,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private val requestDonateActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
-            if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
-                ContributionsDashboardHelper.showDonationCompletedDialog(this)
-                Prefs.contributionsDashboardEntryDialogShown = true
-            } else {
-                FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
-            }
+            FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
         }
     }
 
@@ -216,6 +211,13 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         }
         return super.dispatchTouchEvent(event)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && data?.hasExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED) == true) {
+            OnThisDayGameFinalFragment.maybeShowOnThisDayGameEndContent(this)
+        }
     }
 
     protected fun setStatusBarColor(@ColorInt color: Int) {

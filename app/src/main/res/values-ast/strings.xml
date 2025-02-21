@@ -649,8 +649,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Pies d\'imáxenes</string>

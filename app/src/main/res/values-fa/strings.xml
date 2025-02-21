@@ -239,7 +239,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
   <string name="create_account_button">ایجاد حساب</string>
   <string name="create_account_name_unavailable">نام کاربری «%s» در دسترس نیست. لطفاً نام دیگری را انتخاب کنید.</string>
-  <string name="create_account_ip_block_message">متاسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
+  <string name="create_account_ip_block_message">متأسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
@@ -984,8 +984,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">افزودن برنگاشت تصویر</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">افزودن برچسب‌های تصویر</string>
-  <string name="suggested_edits_snackbar_survey_text">تجربهٔ ویرایش شما چطور بود؟ لطفاً برای پاسخ دادن به یک نظرسنجی دربارهٔ ویرایش با استفاده از اپلیکیشین چند دقیقه زمان بگذارید.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">شرکت در آمارگیری</string>
   <string name="suggested_edits_task_action_text_add">افزودن</string>
   <string name="suggested_edits_task_action_text_translate">ترجمه</string>
   <string name="suggested_edits_image_captions">توضیحات تصویر</string>
@@ -1575,5 +1573,20 @@
   <string name="survey_dialog_option_unsatisfied">ناراضی</string>
   <string name="survey_dialog_cancel">لغو</string>
   <string name="survey_dialog_submit">ارسال</string>
+  <string name="survey_dialog_next">بعدی</string>
+  <string name="survey_dialog_general_yes">بله</string>
+  <string name="survey_dialog_general_no">خیر</string>
+  <string name="survey_dialog_general_maybe">شاید</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">بازخورد ارسال شد.</string>
+  <string name="on_this_day_game_share">اشتراک‌گذاری با دوستان</string>
+  <string name="on_this_day_game_pause_title">بازی متوقف شود؟</string>
+  <string name="on_this_day_game_pause_body">پیشرفت شما برای امروز ذخیره خواهد شد. بازی را می‌توانید در خوراک مشاهدهٔ خود بیابید.</string>
+  <string name="on_this_day_game_pause_negative">ادامه دادن به بازی</string>
+  <string name="on_this_day_game_pause_positive">گرفتم</string>
+  <string name="on_this_day_game_stats_average_score">میانگین امتیاز</string>
+  <string name="on_this_day_game_menu_info">اطلاعات بیشتر</string>
+  <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
+  <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
+  <string name="on_this_day_game_survey_q1">این بازی چقدر شما را راضی کرد؟</string>
+  <string name="on_this_day_game_survey_q2">آیا به انجام بازی‌های ویکی‌پدیایی دیگر علاقه دارید؟</string>
 </resources>

@@ -1048,8 +1048,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Дадаць подпіс выяве</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Дадаць подпіс выявы (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Дадаць тэгі выявам</string>
-  <string name="suggested_edits_snackbar_survey_text">Якім быў ваш досвед рэдагавання? Калі ласка, знайдзіце час, каб запоўніць апытанне пра рэдагаванне ў дадатку.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Прайсці апытанне</string>
   <string name="suggested_edits_task_action_text_add">Дадаць</string>
   <string name="suggested_edits_task_action_text_translate">Перакласці</string>
   <string name="suggested_edits_image_captions">Подпісы выяў</string>

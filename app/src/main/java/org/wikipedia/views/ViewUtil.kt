@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.core.graphics.contains
 import androidx.core.view.allViews
 import androidx.core.view.children
@@ -34,24 +35,26 @@ import org.wikipedia.util.WhiteBackgroundTransformation
 
 object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
-    private val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(48f)))
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?) {
         loadImage(view, url, roundedCorners = true)
     }
 
-    fun loadImage(view: ImageView, url: String?, circleShape: Boolean = false, roundedCorners: Boolean = false, force: Boolean = false,
-                  listener: RequestListener<Drawable?>? = null) {
-        val placeholder = getPlaceholderDrawable(view.context)
+    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, force: Boolean = false,
+                  @DrawableRes placeholderId: Int? = null, listener: RequestListener<Drawable?>? = null) {
         var builder = Glide.with(view)
                 .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
-                .placeholder(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
-                .error(placeholder)
+
+        if (placeholderId != null) {
+            builder = builder.placeholder(placeholderId).error(placeholderId)
+        } else {
+            val placeholder = getPlaceholderDrawable(view.context)
+            builder = builder.placeholder(placeholder).error(placeholder)
+        }
+
         builder = if (roundedCorners) {
             builder.transform(CENTER_CROP_ROUNDED_CORNERS)
-        } else if (circleShape) {
-            builder.transform(CENTER_CROP_CIRCLE)
         } else {
             builder.transform(WhiteBackgroundTransformation())
         }

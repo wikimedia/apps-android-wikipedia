@@ -78,7 +78,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
-    private var revision: Long = 0
     private val viewModel: LinkPreviewViewModel by viewModels()
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
@@ -136,13 +135,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
         var options: ActivityOptionsCompat? = null
         view.drawable?.let {
-            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
+            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
             options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         requestGalleryLauncher.launch(GalleryActivity.newIntent(requireContext(), viewModel.pageTitle,
-            imageName, viewModel.pageTitle.wikiSite, revision), options)
+            imageName, viewModel.pageTitle.wikiSite), options)
     }
 
     private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -237,8 +236,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             viewModel.historyEntry.source
         )
         linkPreviewInteraction?.logLinkClick()
-
-        revision = summary.revision
 
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
         if (viewModel.fromPlaces) {
@@ -374,7 +371,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
-        viewModel.loadGallery(revision)
+        viewModel.loadGallery()
         setPreviewContents(contents)
     }
 

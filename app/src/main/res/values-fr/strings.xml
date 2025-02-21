@@ -55,6 +55,7 @@
 * Oujon
 * Oupsa
 * Papawy
+* Pyb
 * Seb35
 * SleaY
 * Tacsipacsi
@@ -68,6 +69,7 @@
 * Wladek92
 * Wnagxsi
 * Zarisi
+* ꠢꠣꠍꠘ ꠞꠣꠎꠣ
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -191,6 +193,10 @@
   <string name="dialog_message_leaving_edit">Vos modifications n’ont pas encore été publiées. Êtes-vous sûr de vouloir quitter cette page ?</string>
   <string name="dialog_message_leaving_edit_leave">Quitter</string>
   <string name="dialog_message_leaving_edit_stay">Rester</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmer la suppression</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ceci ne s’appliquera qu’aux dons effectués à partir de cet appareil.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Supprimer</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annuler</string>
   <string name="menu_show_toc">Sommaire</string>
   <string name="search_no_results_found">Aucun résultat trouvé</string>
   <string name="search_reading_list_no_results">Aucun résultat trouvé dans « %s »</string>
@@ -475,6 +481,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
+  <string name="preference_title_delete_local_donation_history">Supprimer l’historique local des dons</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Correspondre au thème du système</string>
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
@@ -889,7 +896,7 @@
   <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
-  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimedia Commons</string>
+  <string name="feed_item_type_featured_image">Image remarquable du jour de Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
@@ -941,6 +948,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Descriptions_d\'articles</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="description_too_short">Le texte est trop court.</string>
+  <string name="description_too_long">Essayez de garder les descriptions courtes afin que les utilisateurs puissent comprendre les articles au premier coup d’œil</string>
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
@@ -1039,8 +1047,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ajouter des balises d’image</string>
-  <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
   <string name="suggested_edits_task_action_text_add">Ajouter</string>
   <string name="suggested_edits_task_action_text_translate">Traduire</string>
   <string name="suggested_edits_image_captions">Légende des images</string>
@@ -1713,6 +1719,7 @@
   <string name="donate_gpay_help_other_ways">Autres moyens de donner</string>
   <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="donate_gpay_help_tax">Informations sur les conditions de déductibilité fiscale</string>
+  <string name="donation_history_deleted_message_snackbar">Historique des donateurs supprimé</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
@@ -1727,62 +1734,6 @@
   <string name="places_card_distance_suffix">situé à %s</string>
   <string name="places_card_distance_unknown">Distance inconnue</string>
   <string name="places_empty_message_snackbar">Il n\'y a pas d\'articles à proximité. Essayez de dézoomer ou de déplacer la carte.</string>
-  <string name="donor_history_title">Historique du donateur</string>
-  <string name="donor_history_save_button">Sauvegarder</string>
-  <string name="donor_history_update_donor_status_default">Mettre à jour le statut de donateur</string>
-  <string name="donor_history_update_donor_status_donor">Donateur</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Non donateur</string>
-  <string name="donor_history_last_donated">Dernier don</string>
-  <string name="donor_history_last_donated_hint">Ajouter la date du dernier don</string>
-  <string name="donor_history_last_donated_date_picker_title">Sélectionner une date</string>
-  <string name="donor_history_last_donated_date_picker_label">Entrer une date</string>
-  <string name="donor_history_last_donated_never">Jamais</string>
-  <string name="donor_history_recurring_donor">Donateur récurrent</string>
-  <string name="donor_history_donate_button">Faire un don à la Fondation Wikimédia</string>
-  <string name="donor_history_about_this_experiment">À propos de cette expérimentation</string>
-  <string name="donor_history_updated_message_snackbar">Historique du donateur mis à jour</string>
-  <string name="contributions_dashboard_survey_dialog_title">Aidez-nous à améliorer le tableau de bord des contributions</string>
-  <string name="contributions_dashboard_survey_dialog_message">Cette mise à jour du tableau de bord est une fonctionnalité en cours de test. Souhaitez-vous que cette fonctionnalité soit améliorée ou supprimée ?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Pas d\'avis</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Partager votre avis</string>
-  <string name="contributions_dashboard_donation_dialog_title">Merci de soutenir la connaissance libre</string>
-  <string name="contributions_dashboard_donation_dialog_message">Vous faites partie des 2%% de personnes qui ont choisi de soutenir la ressource dont dépendent des millions de personnes. Votre tableau de bord des contributions a été mis à jour et reconnaît désormais votre statut de donateur. Souhaitez-vous voir cette mise à jour expérimentale ?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Oui, je souhaite m\'y rendre</string>
-  <string name="contributions_dashboard_entry_dialog_title">Découvrez les nouveautés du tableau de bord des contributions</string>
-  <string name="contributions_dashboard_entry_dialog_message">Le tableau de bord des contributions affiche désormais le statut des donateurs. Voulez-vous évaluer cette fonctionnalité expérimentale ?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Oui, je souhaite le faire</string>
-  <string name="contributions_dashboard_badge_donor">Donateur</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Devenir donateur</string>
-  <string name="contributions_dashboard_badge_update">Mettre à jour le statut de donateur</string>
-  <string name="contributions_dashboard_app_icon_title">Icône de l\'application</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Avantage du donateur</string>
-  <string name="contributions_dashboard_logged_out_user">Utilisateur déconnecté</string>
-  <string name="contributions_dashboard_tab_last_donated">Dernier don</string>
-  <string name="contributions_dashboard_tab_update_button">Mettre à jour</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Merci d\'être un donateur.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Vous avez débloqué une icône personnalisée temporaire. Vous pouvez sélectionner cette icône dans vos paramètres, sous « Icône de l\'application ». Souhaitez-vous mettre à jour votre icône maintenant ?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Non, merci</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Oui, aller dans Paramètres</string>
-  <string name="contributions_dashboard_app_icon_updated">Icône de l\'application mise à jour</string>
-  <string name="recent_searches_title">Recherches récentes</string>
-  <string name="recent_searches_related_to_reading">En rapport avec ce que vous lisez</string>
-  <string name="rabbit_holes_experiment">Expérimental</string>
-  <string name="rabbit_holes_experiment_about">À propos de cette expérimentation</string>
-  <string name="rabbit_holes_survey_dialog_title">Aidez-nous à améliorer les \"contenus sans fin\" (rabbit holes)</string>
-  <string name="rabbit_holes_survey_dialog_body">Êtes-vous satisfait de ce résultat de recherche recommandé ?</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">Aidez-nous à améliorer les listes de lectures recommandées</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">Êtes-vous satisfait de cette liste de lectures recommandées ?</string>
-  <string name="suggested_reading_list_title">Établie à partir de vos consultations antérieures</string>
-  <string name="suggested_reading_list_description">Suggérée à cause de votre lecture de \"%s\"</string>
-  <string name="suggested_reading_list_description_multi">Inspirée par %1$s et %2$s</string>
-  <string name="suggested_reading_list_later_snackbar">Si vous souhaitez consulter votre liste de lecture ultérieurement, accédez à l’onglet Enregistré sur l’écran d’accueil.</string>
-  <string name="suggested_reading_list_dialog_title">Vous avez une nouvelle liste de lectures suggérées.</string>
-  <string name="suggested_reading_list_dialog_body">Il s\'agit d\'une fonctionnalité expérimentale. Le contenu est basé sur votre historique de lecture récent. Voulez-vous découvrir cette nouvelle liste de lecture ?</string>
-  <string name="suggested_reading_list_dialog_positive">Essayez-le maintenant</string>
-  <string name="suggested_reading_list_dialog_negative">Peut-être plus tard</string>
-  <string name="suggested_reading_list_back_cancel">Consultez votre liste de lectures suggérées à tout moment dans l’onglet Enregistré sur l’écran d’accueil.</string>
   <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
   <string name="survey_dialog_option_satisfied">Satisfait</string>
@@ -1792,6 +1743,67 @@
   <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
   <string name="survey_dialog_cancel">Annuler</string>
   <string name="survey_dialog_submit">Soumettre</string>
+  <string name="survey_dialog_next">Suivant</string>
+  <string name="survey_dialog_general_yes">Oui</string>
+  <string name="survey_dialog_general_no">Non</string>
+  <string name="survey_dialog_general_maybe">Peut être</string>
   <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
   <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
+  <string name="on_this_day_game_entry_dialog_title">Présentation</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
+  <string name="on_this_day_game_entry_dialog_button">Jouez au jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles sur le fil Explorer.</string>
+  <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_dialog_button">Lecture</string>
+  <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
+  <string name="on_this_day_game_progress">%1$d sur %2$d</string>
+  <string name="on_this_day_game_score">Score : %d</string>
+  <string name="on_this_day_game_correct">Correct !</string>
+  <string name="on_this_day_game_incorrect">Incorrecte !</string>
+  <string name="on_this_day_game_point">+1 point</string>
+  <string name="on_this_day_game_next">Question suivante</string>
+  <string name="on_this_day_game_finish">Résultats finaux</string>
+  <string name="on_this_day_game_share">Partager avec des amis</string>
+  <string name="on_this_day_game_pause_title">Mettre le jeu en pause ?</string>
+  <string name="on_this_day_game_pause_body">Votre progression sera sauvegardée pour la journée. Vous pouvez retrouver le jeu dans votre fil d\'actualité Explorer.</string>
+  <string name="on_this_day_game_pause_negative">Continuer à jouer</string>
+  <string name="on_this_day_game_pause_positive">Compris !</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Jeux de Wikipédia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
+  <string name="on_this_day_game_result">Vous avez marqué %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Prochain match dans %s</string>
+  <string name="on_this_day_game_your_stats">Vos statistiques</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Partie jouée</item>
+    <item quantity="other">Parties jouées</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Pointage moyen</string>
+  <string name="on_this_day_game_stats_streak">Série actuelle</string>
+  <string name="on_this_day_game_result_subtitle">Articles référencés dans le jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_completed_message">Merci d\'avoir joué. Un nouveau jeu « Qui est arrivé en premier ? » est disponible quotidiennement sur le fil d\'actualité Explore.</string>
+  <string name="on_this_day_game_menu_notifications">Notifications de jeu</string>
+  <string name="on_this_day_game_menu_info">En savoir plus</string>
+  <string name="on_this_day_game_menu_feedback">Problème avec la fonctionnalité</string>
+  <string name="on_this_day_game_article_read_button">Lire l’article</string>
+  <string name="on_this_day_game_article_related_event_title">Événement lié à cet article</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Vous avez répondu correctement à cette question</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Vous avez mal répondu à cette question</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Désactiver les notifications de jeu ?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si vous désactivez les notifications push, vous ne recevrez plus de rappel quotidien lorsqu\'un nouveau jeu est disponible.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Activer les notifications de jeu ?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Les notifications de jeu vous alertent quotidiennement lorsqu\'un nouveau jeu est disponible.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Non, garde-les allumés</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Éteignez-les</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Oui, allumez-les</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Gardez-les à l\'écart</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notifications de jeu désactivées.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notifications de jeu activées.</string>
+  <string name="on_this_day_game_notification_text">Le jeu d\'aujourd\'hui « Qui est arrivé en premier ? » est prêt à être joué.</string>
+  <string name="on_this_day_game_report_email_subject">Rapport de problème - Wikipédia</string>
+  <string name="on_this_day_game_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de jeux de Wikipédia : \n- [Décrire le problème spécifique] \n\nLe comportement que j\'aimerais voir est : \n- [Décrire la solution proposée]</string>
+  <string name="on_this_day_game_notification_undo">Annuler</string>
+  <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
+  <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
+  <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
 </resources>

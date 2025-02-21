@@ -1,6 +1,7 @@
 package org.wikipedia.robots.screen
 
 import android.app.Activity
+import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -10,13 +11,19 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
 class HomeScreenRobot : BaseRobot() {
 
+    fun clickSearchContainer() = apply {
+        // Click the Search box
+        click.onDisplayedView(R.id.search_container)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun navigateToNotifications() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
+        click.onDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
         delay(TestConfig.DELAY_LARGE)
     }
 
@@ -45,12 +52,22 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun dismissTooltip(activity: Activity) = apply {
-        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun dismissFeedCustomization() = apply {
-        clicksOnDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
+        try {
+            click.onDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
+            delay(TestConfig.DELAY_SHORT)
+        } catch (e: Exception) {
+            Log.d("HomeScreenRobot", "no view because the device has no internet")
+        }
+    }
+
+    fun verifyIfSnackBarAppears() = apply {
+        onView(withId(com.google.android.material.R.id.snackbar_text))
+            .check(matches(isDisplayed()))
         delay(TestConfig.DELAY_SHORT)
     }
 }

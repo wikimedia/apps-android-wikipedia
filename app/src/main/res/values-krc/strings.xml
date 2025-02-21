@@ -960,8 +960,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурат тюб джазыу къош</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурат тюб джазыу къош (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурат теглени къош</string>
-  <string name="suggested_edits_snackbar_survey_text">Тюзетиу сынамыгъыз къалай эди? Тилейбиз, къошакъны ичиндеги тюзетиу бла байламлы анкетаны толтурур ючюн такъикъагъызны айырыгъыз.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Соруугъа къошул</string>
   <string name="suggested_edits_task_action_text_add">Къош</string>
   <string name="suggested_edits_task_action_text_translate">Кёчюр</string>
   <string name="suggested_edits_image_captions">Сурат тюб джазыула</string>

@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Chimes
 * Cookai1205
 * Cwek
 * Davidzdh
@@ -197,6 +198,10 @@
   <string name="dialog_message_leaving_edit">您的修改还没有发布。您确定要离开本页吗？</string>
   <string name="dialog_message_leaving_edit_leave">离开</string>
   <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_confirm_delete_donation_history_title">确认删除</string>
+  <string name="dialog_confirm_delete_donation_history_message">这仅适用于从此设备进行的捐赠。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">删除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">取消</string>
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
@@ -481,6 +486,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">在夜间主题下调暗图像</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载离线可用的条目而不是始终加载条目的最新版本来节省数据使用量</string>
+  <string name="preference_title_delete_local_donation_history">删除本地捐赠记录</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
@@ -1037,8 +1043,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
-  <string name="suggested_edits_snackbar_survey_text">您的编辑体验如何？请花点时间填写一下关于应用内编辑的调查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图像说明</string>
@@ -1708,6 +1712,7 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
+  <string name="donation_history_deleted_message_snackbar">捐赠者历史已删除</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>
@@ -1722,62 +1727,6 @@
   <string name="places_card_distance_suffix">距离%s</string>
   <string name="places_card_distance_unknown">未知距离</string>
   <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
-  <string name="donor_history_title">捐款者历史</string>
-  <string name="donor_history_save_button">保存</string>
-  <string name="donor_history_update_donor_status_default">更新捐款者状态</string>
-  <string name="donor_history_update_donor_status_donor">捐款者</string>
-  <string name="donor_history_update_donor_status_not_a_donor">非捐款者</string>
-  <string name="donor_history_last_donated">上一次捐款</string>
-  <string name="donor_history_last_donated_hint">添加上次捐款日期</string>
-  <string name="donor_history_last_donated_date_picker_title">选择日期</string>
-  <string name="donor_history_last_donated_date_picker_label">输入日期</string>
-  <string name="donor_history_last_donated_never">从不</string>
-  <string name="donor_history_recurring_donor">定期捐款者</string>
-  <string name="donor_history_donate_button">向维基媒体基金会捐款</string>
-  <string name="donor_history_about_this_experiment">关于此实验功能</string>
-  <string name="donor_history_updated_message_snackbar">已更新捐款者历史</string>
-  <string name="contributions_dashboard_survey_dialog_title">帮助改进贡献面板</string>
-  <string name="contributions_dashboard_survey_dialog_message">此次面板更新为测试功能。您希望改进或删除此功能吗？</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">无意见</string>
-  <string name="contributions_dashboard_survey_dialog_ok">分享反馈</string>
-  <string name="contributions_dashboard_donation_dialog_title">感谢您支持自由知识</string>
-  <string name="contributions_dashboard_donation_dialog_message">您是选择支持数百万人所依赖的资源的2%%的一部分。为了表达我们的感激之情，您的捐款面板已更新，以识别您的捐赠者身份。您想查看更新吗？</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">不用了，谢谢</string>
-  <string name="contributions_dashboard_donation_dialog_ok">是的，让我查看</string>
-  <string name="contributions_dashboard_entry_dialog_title">探索贡献面板的新增功能</string>
-  <string name="contributions_dashboard_entry_dialog_message">捐款面板现在显示捐赠者状态。想要查看此实验性功能吗？</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">不用了，谢谢</string>
-  <string name="contributions_dashboard_entry_dialog_ok">是的，让我查看</string>
-  <string name="contributions_dashboard_badge_donor">捐款者</string>
-  <string name="contributions_dashboard_badge_become_a_donor">成为捐款者</string>
-  <string name="contributions_dashboard_badge_update">更新捐款者状态</string>
-  <string name="contributions_dashboard_app_icon_title">应用程序图标</string>
-  <string name="contributions_dashboard_app_icon_subtitle">捐款者利益</string>
-  <string name="contributions_dashboard_logged_out_user">用户登出</string>
-  <string name="contributions_dashboard_tab_last_donated">上一次捐款</string>
-  <string name="contributions_dashboard_tab_update_button">更新</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">感谢您成为捐款者。</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">您已解锁临时自定义图标。您可以通过“应用图标”下的设置切换到此图标。您想立即更新您的图标吗？</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">不用了，谢谢</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">是的，带我到设置</string>
-  <string name="contributions_dashboard_app_icon_updated">应用程序图标已更新</string>
-  <string name="recent_searches_title">最近搜索</string>
-  <string name="recent_searches_related_to_reading">与你正在阅读的内容相关</string>
-  <string name="rabbit_holes_experiment">实验功能</string>
-  <string name="rabbit_holes_experiment_about">关于此实验功能</string>
-  <string name="rabbit_holes_survey_dialog_title">帮助改善兔子洞</string>
-  <string name="rabbit_holes_survey_dialog_body">您对这个推荐搜索结果满意吗？</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">帮助改进推荐阅读列表</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">您对这份推荐阅读清单满意吗？</string>
-  <string name="suggested_reading_list_title">根据您的阅览历史</string>
-  <string name="suggested_reading_list_description">灵感来自“ %s ”</string>
-  <string name="suggested_reading_list_description_multi">受到%1$s和%2$s的启发</string>
-  <string name="suggested_reading_list_later_snackbar">如果您想稍后访问您的阅览列表，请转到主屏幕上的“已保存”选项卡。</string>
-  <string name="suggested_reading_list_dialog_title">您有一份新的推荐阅览列表。</string>
-  <string name="suggested_reading_list_dialog_body">这是一项实验性功能。内容基于您最近的阅览历史。您想查看这个新的阅读列表吗？</string>
-  <string name="suggested_reading_list_dialog_positive">立即试用</string>
-  <string name="suggested_reading_list_dialog_negative">以后再说</string>
-  <string name="suggested_reading_list_back_cancel">可随时在主屏幕的“已保存”选项卡中查看推荐阅览列表。</string>
   <string name="survey_dialog_title">帮助我们改进此功能</string>
   <string name="survey_dialog_message">您对该功能满意吗？</string>
   <string name="survey_dialog_option_satisfied">满意</string>
