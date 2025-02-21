@@ -162,7 +162,6 @@ class ListActions {
             .check(hasItemCount(expectedCount))
     }
 
-
     fun verifyItemDoesNotExistAtPosition(
         recyclerViewId: Int,
         itemId: Int
@@ -247,7 +246,6 @@ class ListActions {
             }
         return foundPosition
     }
-
 }
 
 class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) :

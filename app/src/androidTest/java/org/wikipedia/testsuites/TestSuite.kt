@@ -10,14 +10,14 @@ import org.wikipedia.tests.SuggestedEditScreenTest
 
 @RunWith(Suite::class)
 @SuiteClasses(
-    //OnboardingTest::class,
+    OnboardingTest::class,
     SuggestedEditScreenTest::class,
     SettingsTestSuite::class,
-//    ExploreFeedTestSuite::class,
-//    SearchTest::class,
-//    SuggestedEditScreenTest::class,
-//    SettingsTestSuite::class,
-//    DeepLinkingTest::class,
-//    ArticlesTestSuite::class
+    ExploreFeedTestSuite::class,
+    SearchTest::class,
+    SuggestedEditScreenTest::class,
+    SettingsTestSuite::class,
+    DeepLinkingTest::class,
+    ArticlesTestSuite::class
 )
 class TestSuite
