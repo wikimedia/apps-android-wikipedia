@@ -60,6 +60,7 @@ class FeedScreenTest : BaseTest<MainActivity>(
             .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
             .scrollToItem(title = TOP_READ_ARTICLES, verticalOffset = 400)
             .assertTopReadTitleColor(theme = Theme.DARK)
+            // @TODO: error here
             .clickTopReadArticle()
             .scrollToItem(title = PICTURE_OF_DAY)
             .clickPictureOfTheDay()

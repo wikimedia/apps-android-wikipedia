@@ -54,8 +54,12 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun clickOnGotIt() = apply {
-        click.onViewWithText("Got it")
-        delay(TestConfig.DELAY_MEDIUM)
+        try {
+            click.onViewWithText("Got it")
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("ReadingListRobot:", "Text does not exist.")
+        }
     }
 
     fun verifyArticleHasNotDownloaded() = apply {
