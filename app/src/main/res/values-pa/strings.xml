@@ -1329,7 +1329,7 @@
   <string name="user_contrib_menu_label">ਯੋਗਦਾਨ</string>
   <string name="user_contrib_filter_activity_title">ਯੋਗਦਾਨਾਂ ਨੂੰ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="action_item_view_on_map">ਨਕਸ਼ੇ \'ਤੇ ਵੇਖੋ</string>
-  <string name="shareable_reading_lists_import_dialog_title">ਸਾਂਝੀ ਪਡ਼੍ਹੀ ਸੂਚੀ ਨੂੰ ਦਰਾਮਦ ਕਰੋ</string>
+  <string name="shareable_reading_lists_import_dialog_title">ਸਾਂਝੀ ਪੜੀ ਸੂਚੀ ਨੂੰ ਦਰਾਮਦ ਕਰੋ</string>
   <string name="shareable_reading_lists_import_dialog_content">ਤੁਸੀਂ ਉਸ ਸੂਚੀ ਦਾ ਨਾਮ ਕਿਵੇਂ ਦੇਣਾ ਚਾਹੋਗੇ ਜੋ ਤੁਹਾਡੇ ਨਾਲ ਸਾਂਝੀ ਕੀਤੀ ਗਈ ਹੈ?</string>
   <string name="shareable_reading_lists_new_indicator">* ਨਵਾਂ *</string>
   <string name="shareable_reading_lists_new_install_dialog_title">ਇੱਕ ਪਡ਼੍ਹਨ ਦੀ ਸੂਚੀ ਤੁਹਾਡੇ ਨਾਲ ਸਾਂਝੀ ਕੀਤੀ ਗਈ ਹੈ।</string>
@@ -1443,6 +1443,7 @@
   <string name="donate_gpay_help_problems">ਦਾਨ ਕਰਨ ਵਿੱਚ ਸਮੱਸਿਆਵਾਂ?</string>
   <string name="donate_gpay_help_other_ways">ਦੇਣ ਦੇ ਹੋਰ ਤਰੀਕੇ</string>
   <string name="donate_gpay_help_faq">ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸੁਆਲ</string>
+  <string name="donation_history_deleted_message_snackbar">ਦਾਨੀ ਇਤਿਹਾਸ ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="places_title">ਥਾਂਵਾਂ</string>
   <string name="places_permissions_denied">ਨਕਸ਼ੇ ਉੱਤੇ ਤੁਹਾਡਾ ਟਿਕਾਣਾ ਦੇਖਣ ਲਈ ਟਿਕਾਣੇ ਦੀ ਆਗਿਆ ਦੀ ਲੋਡ਼ ਹੁੰਦੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="places_search_hint">ਥਾਵਾਂ ਲੱਭੋ</string>
@@ -1471,6 +1472,7 @@
   <string name="survey_dialog_general_maybe">ਸ਼ਾਇਦ</string>
   <string name="survey_dialog_input_hint">ਵਾਧੂ ਸੁਝਾਅ</string>
   <string name="survey_dialog_submitted_snackbar">ਸੁਝਾਅ ਜਮ੍ਹਾਂ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਧੰਨਵਾਦ!</string>
+  <string name="on_this_day_game_entry_dialog_title">ਪੇਸ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਏ</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_entry_dialog_button">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
   <string name="on_this_day_game_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
@@ -1495,5 +1497,15 @@
   <string name="on_this_day_game_menu_info">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="on_this_day_game_menu_feedback">ਵਿਸ਼ੇਸ਼ਤਾ ਨਾਲ ਸਮੱਸਿਆ</string>
   <string name="on_this_day_game_article_read_button">ਲੇਖ ਪੜ੍ਹੋ</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">ਤੁਸੀਂ ਇਹ ਸਵਾਲ ਸਹੀ ਸਮਝਿਆ ਹੈ</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">ਤੁਸੀਂ ਇਹ ਸਵਾਲ ਗਲਤ ਸਮਝਿਆ ਹੈ।</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">ਕੀ ਖੇਡ ਸੂਚਨਾਵਾਂ ਬੰਦ ਕਰਨੀਆਂ ਹਨ?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">ਕੀ ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਕਰਨੀਆਂ ਹਨ?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">ਨਹੀਂ, ਉਹਨਾਂ ਨੂੰ ਚਾਲੂ ਰੱਖੋ।</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">ਉਹਨਾਂ ਨੂੰ ਬੰਦ ਕਰੋ</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">ਹਾਂ, ਉਹਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">ਉਹਨਾਂ ਨੂੰ ਬੰਦ ਰੱਖੋ</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਬੰਦ ਹਨ।</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਹਨ।</string>
   <string name="back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
 </resources>
