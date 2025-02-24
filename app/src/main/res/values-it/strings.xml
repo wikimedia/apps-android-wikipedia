@@ -35,6 +35,7 @@
 * Nastoshka
 * Nemo bis
 * Nivit
+* PPenloglou-WMF
 * Peg60
 * Pierpao
 * Redredsonia
@@ -930,6 +931,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Il testo è troppo breve.</string>
+  <string name="description_too_long">Cerca di mantenere le descrizioni brevi in modo che gli utenti possano comprendere a colpo d\'occhio l\'argomento della voce</string>
   <string name="description_ends_with_punctuation">Il testo non deve terminare con il punto.</string>
   <string name="description_starts_with_article">Evita di iniziare con articoli come \"un\" o \"il\".</string>
   <string name="description_starts_with_uppercase">Inizia con una lettera minuscola a meno che la prima parola non sia un sostantivo proprio.</string>
@@ -1194,7 +1196,7 @@
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>
-  <string name="onboarding_maybe_later">Forse più tardi</string>
+  <string name="onboarding_maybe_later">Forse in seguito</string>
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
   <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
@@ -1682,7 +1684,7 @@
   <string name="email_report_patroller_tasks_subject">Segnala un problema - Funzione di verifica delle modifiche</string>
   <string name="email_report_patroller_tasks_body">Ho riscontrato un problema con la funzione Verifica delle modifiche:\n- [Descrivi il problema specifico]\n\nIl comportamento che vorrei vedere è:\n- [Descrivi la soluzione proposta]\n\n[Schermate o collegamenti]</string>
   <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
-  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità ci aiuta a sostenere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
   <string name="donate_gpay_dialog_title">Donare con Google Pay?</string>
@@ -1690,9 +1692,9 @@
   <string name="donate_gpay_dialog_pay_button">Dona con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Altro metodo di pagamento</string>
   <string name="donate_gpay_activity_title">Seleziona un importo</string>
-  <string name="donate_gpay_check_transaction_fee">Aggiungerò generosamente %s per coprire le commissioni di transazione, così potrai trattenere il 100%% della mia donazione.</string>
-  <string name="donate_gpay_check_recurring">Rendila una donazione mensile ricorrente.</string>
-  <string name="donate_gpay_check_send_email">Sì, la Wikimedia Foundation può mandarmi delle email occasionali.</string>
+  <string name="donate_gpay_check_transaction_fee">Voglio generosamente aggiungere %s per coprire le spese di transazione così potete tenere il 100%% della mia donazione.</string>
+  <string name="donate_gpay_check_recurring">Imposta questa donazione come mensile.</string>
+  <string name="donate_gpay_check_send_email">Sì, la Wikimedia Foundation può inviarmi e-mail di tanto in tanto.</string>
   <string name="donate_gpay_minimum_amount">Si prega di selezionare un importo (minimo %s)</string>
   <string name="donate_gpay_maximum_amount">Non possiamo accettare donazioni oltre %s tramite la nostra app. Si prega di contattare lo staff per le donazioni importanti all\'indirizzo benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Grazie!&lt;/b&gt; La tua generosità verso Wikipedia significa molto per noi.</string>
@@ -1730,8 +1732,63 @@
   <string name="survey_dialog_general_maybe">Forse</string>
   <string name="survey_dialog_input_hint">Feedback aggiuntivo</string>
   <string name="survey_dialog_submitted_snackbar">Commento inviato. Grazie!</string>
+  <string name="on_this_day_game_entry_dialog_title">Introduzione</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Giochi di Wikipedia</string>
+  <string name="on_this_day_game_entry_dialog_button">Gioca al gioco di oggi</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">I giochi di Wikipedia sono disponibili nel feed Esplora.</string>
+  <string name="on_this_day_game_title">Chi è arrivato prima?</string>
+  <string name="on_this_day_game_dialog_button">Gioca</string>
+  <string name="on_this_day_game_splash_message">Indovinate quale evento si è verificato per primo in questo giorno della storia.</string>
+  <string name="on_this_day_game_progress">%1$d di %2$d</string>
+  <string name="on_this_day_game_score">Punteggio: %d</string>
+  <string name="on_this_day_game_correct">Corretto!</string>
+  <string name="on_this_day_game_incorrect">Sbagliato!</string>
+  <string name="on_this_day_game_point">+1 punto</string>
+  <string name="on_this_day_game_next">Domanda successiva</string>
+  <string name="on_this_day_game_finish">Risultato finale</string>
+  <string name="on_this_day_game_share">Condividi con gli amici</string>
+  <string name="on_this_day_game_pause_title">Mettere in pausa il gioco?</string>
+  <string name="on_this_day_game_pause_body">I tuoi progressi saranno salvati per la giornata. Puoi trovare il gioco nel tuo feed Esplora.</string>
+  <string name="on_this_day_game_pause_negative">Continua a giocare</string>
   <string name="on_this_day_game_pause_positive">Capito</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Giochi di Wikipedia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Chi è arrivato prima?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Indovinate quale evento si è verificato per primo in questo giorno della storia.</string>
+  <string name="on_this_day_game_result">Hai ottenuto %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Prossima partita in %s</string>
+  <string name="on_this_day_game_your_stats">Le tue statistiche</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Partita giocata</item>
+    <item quantity="other">Partite giocate</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Media dei punteggi</string>
+  <string name="on_this_day_game_stats_streak">Serie attuale</string>
+  <string name="on_this_day_game_result_subtitle">Voci a cui si fa riferimento nel gioco di oggi</string>
+  <string name="on_this_day_game_completed_message">Grazie per aver giocato. Ogni giorno è disponibile una nuova partita di \"Chi è arrivato prima?\" sul feed Esplora.</string>
+  <string name="on_this_day_game_menu_notifications">Notifiche di gioco</string>
+  <string name="on_this_day_game_menu_info">Ulteriori informazioni</string>
+  <string name="on_this_day_game_menu_feedback">Problema con la funzionalità</string>
+  <string name="on_this_day_game_article_read_button">Leggi la voce</string>
+  <string name="on_this_day_game_article_related_event_title">Evento correlato a questa voce</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Hai risposto correttamente a questa domanda</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Hai risposto male a questa domanda</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Disattivare le notifiche di gioco?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Se disattivi le notifiche push, non riceverai più un promemoria ogni giorno quando è disponibile un nuovo gioco.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Attivare le notifiche push?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Le notifiche di gioco ti avvisano ogni giorno quando è disponibile un nuovo gioco.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">No, tienili accesi</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Spegnili</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Sì, accendili</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Tienili spenti</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notifiche di gioco disattivate.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notifiche di gioco attivate.</string>
+  <string name="on_this_day_game_notification_text">Il gioco odierno \"Chi è arrivato prima?\" è pronto per essere giocato.</string>
+  <string name="on_this_day_game_report_email_subject">Segnalazione di problemi - Giochi di Wikipedia</string>
+  <string name="on_this_day_game_report_email_body">Ho riscontrato un problema con la funzione Giochi di Wikipedia:\n- [Descrivi il problema specifico]\n\nIl comportamento che vorrei vedere è:\n- [Descrivi la soluzione proposta]</string>
   <string name="on_this_day_game_notification_undo">Annulla</string>
+  <string name="on_this_day_game_share_link_message">Sto giocando a \"Chi è arrivato prima?\", un quiz giornaliero sull\'app Android di Wikipedia %s</string>
   <string name="on_this_day_game_survey_q1">Quanto sei soddisfatto di questo gioco?</string>
   <string name="on_this_day_game_survey_q2">Ti piacerebbe provare diversi giochi di Wikipedia?</string>
+  <string name="back_button_content_description">Torna indietro</string>
+  <string name="about_screen_logo_accessibility_text">Logo del globo puzzle di Wikipedia</string>
 </resources>
