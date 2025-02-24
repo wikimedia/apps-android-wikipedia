@@ -1755,4 +1755,6 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
+  <string name="back_button_content_description">Gå tillbaka</string>
+  <string name="about_screen_logo_accessibility_text">Wikipedias pusselglob-logotyp</string>
 </resources>
