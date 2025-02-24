@@ -1747,7 +1747,7 @@
   <string name="donate_gpay_dialog_pay_button">Donirajte z Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Drug način plačila</string>
   <string name="donate_gpay_activity_title">Izberite znesek</string>
-  <string name="donate_gpay_check_transaction_fee" fuzzy="true">Velikodušno želim dodati 1 $ za kritje stroškov transakcije, da boste lahko obdržali 100 %% moje donacije.</string>
+  <string name="donate_gpay_check_transaction_fee" fuzzy="true">Velikodušno želim dodati %s za kritje stroškov transakcije, da boste lahko obdržali 100 %% moje donacije.</string>
   <string name="donate_gpay_check_recurring">Naj bo to mesečna ponavljajoča se donacija.</string>
   <string name="donate_gpay_check_send_email">Da, Fundacija Wikimedia mi lahko občasno pošlje e-pošto.</string>
   <string name="donate_gpay_minimum_amount">Prosimo, izberite znesek (najmanj %s)</string>
