@@ -198,9 +198,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             "game_end"
         } else if (_gameState.value is Resource.Loading) {
             "game_loading"
-        } else {
+        } else if (::currentState.isInitialized.not()) {
+            "game_loading"
+        } else
             "game_play_" + (currentState.currentQuestionIndex + 1)
-        }
     }
 
     fun resetCurrentDayState() {
