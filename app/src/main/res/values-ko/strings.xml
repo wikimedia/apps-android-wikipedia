@@ -1706,4 +1706,5 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">게임 알림이 켜졌습니다.</string>
   <string name="on_this_day_game_report_email_subject">문제 보고 - 위키백과 게임</string>
   <string name="on_this_day_game_notification_undo">실행 취소</string>
+  <string name="back_button_content_description">돌아가기</string>
 </resources>
