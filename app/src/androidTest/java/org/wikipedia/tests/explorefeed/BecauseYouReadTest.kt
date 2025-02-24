@@ -36,7 +36,6 @@ class BecauseYouReadTest : BaseTest<MainActivity>(
             .stayOnFeaturedArticleFor(milliseconds = 30000)
             .pressBack()
             .swipeToRefresh()
-            // @TODO: error here,
             .scrollToItem(title = BECAUSE_YOU_READ)
             .clickBecauseYouReadArticle()
             .pressBack()
