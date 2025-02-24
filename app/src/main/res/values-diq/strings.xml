@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1917 Ekim Devrimi
 * Dbrant
+* GolyatGeri
 * Gorizon
 * Gırd
 * Kumkumuk
@@ -489,7 +490,7 @@
   <string name="description_edit_translate_image_caption">Bınnuştey resımi açarnê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_help_title">Zang:Şınasiya meqaley</string>
-  <string name="description_edit_help_about_wikidata">Heqê Wikidata</string>
+  <string name="description_edit_help_about_wikidata">Heqê Wikidayıt</string>
   <string name="description_edit_success_saved">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_snackbar">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Şınastiya meqaley çapneyê  (%s)</string>

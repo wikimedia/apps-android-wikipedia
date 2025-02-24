@@ -36,6 +36,7 @@
 * Mellogabi03
 * Mordecool
 * MuratTheTurkish
+* PPenloglou-WMF
 * Peter Fernando
 * Ppena
 * Re demz
@@ -1615,8 +1616,15 @@
   <string name="email_report_image_recommendations_body">Encontrei um problema com a funcionalidade \"Recomendações de imagens\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]</string>
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
-  <string name="donation_campaign_maybe_later_snackbar">Iremos lembrá-lo novamente amanhã.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Vamos exibir outro lembrete amanhã.</string>
+  <string name="donation_campaign_donated_snackbar">Obrigado, prezado(a) apoiador(a)! Sua generosidade ajuda a manter a Wikipédia e seus projetos irmãos prosperando.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
+  <string name="menu_single_webview_open_external">Abrir no navegador do sistema</string>
+  <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
+  <string name="donate_gpay_activity_title">Escolha um valor</string>
+  <string name="donate_gpay_check_transaction_fee">Gostaria de acrescentar %s para cobrir as taxas operacionais para que vocês possam receber 100%% da minha doação.</string>
+  <string name="donate_gpay_check_recurring">Fazer uma doação mensal recorrente.</string>
+  <string name="donate_gpay_check_send_email">Sim, a Wikimedia Foundation pode me mandar um e-mail ocasionalmente.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
   <string name="places_search_hint">Procurar lugares</string>
