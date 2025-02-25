@@ -94,6 +94,8 @@
   <string name="menu_save_changes">Almostit nubástusâid</string>
   <string name="dialog_message_edit_failed_retry">Keččâl uđđâsist</string>
   <string name="dialog_message_edit_failed_cancel">Jooskâ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Siho</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Jooskâ</string>
   <string name="menu_show_toc">Siskáldâslisto</string>
   <string name="search_no_results_found">Iä uuccâmpuátuseh</string>
   <string name="edit_section_captcha_request_an_account_message">Jieh-uv uáini kove? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Táátu tubdâlduv&lt;/a&gt;</string>
@@ -288,6 +290,7 @@
   <string name="suggested_edits_task_multilingual_positive">Lasseet kielâid</string>
   <string name="suggested_edits_image_caption_summary_title_image">Kove</string>
   <string name="suggested_edits_image_caption_summary_title_source">Käldee</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Liiseens</string>
   <string name="suggested_edits_feed_card_add_description_button">Lasseet artikkâl kuvvim</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lasseet artikkâl kuvvim (%s)</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kovetekstâ (%s)</string>
@@ -308,12 +311,14 @@
   <string name="suggested_edits_image_tags_published_list">Almostittum kilgoleh</string>
   <string name="suggested_edits_image_tags_search">Uusâ kilgolijd</string>
   <string name="suggested_edits_image_tags_add_tag">Lasseet kilgool</string>
+  <string name="suggested_edits_disabled_title">Meddâlistum kiävtust</string>
   <string name="suggested_edits_last_edited">Majemustáá nubástittum</string>
   <string name="suggested_edits_last_edited_never">Ij kuássin</string>
   <string name="suggested_edits_contribution_language_label">Kielâ</string>
   <string name="suggested_edits_contribution_date_time_label">Peivimeeri / Äigi</string>
   <string name="suggested_edits_contribution_image_label">Kove</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Čáládât siisâ / seervâ Wikipedian</string>
+  <string name="image_recommendation_reject_submit">Vuolgât</string>
   <string name="file_page_activity_title">Tiätuvuárkkásijđo</string>
   <string name="file_page_add_image_caption_button">Lasseet koveteevstâ</string>
   <string name="file_page_add_image_tags_button">Lasseet kovekilgolijd</string>
@@ -388,4 +393,6 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
   <string name="places_toggle_buttons_map">Kárttá</string>
+  <string name="places_toggle_buttons_list">Listo</string>
+  <string name="survey_dialog_submit">Vuolgât</string>
 </resources>

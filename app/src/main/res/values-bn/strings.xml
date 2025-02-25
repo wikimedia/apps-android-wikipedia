@@ -823,8 +823,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ছবির ক্যাপশন যোগ করুন</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ছবিতে ট্যাগ যোগ করুন</string>
-  <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_add">যোগ করুন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
   <string name="suggested_edits_image_captions">ছবির ক্যাপশন</string>
@@ -1203,36 +1201,6 @@
   <string name="places_toggle_buttons_map">মানচিত্র</string>
   <string name="places_toggle_buttons_list">তালিকা</string>
   <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
-  <string name="donor_history_title">দাতার ইতিহাস</string>
-  <string name="donor_history_save_button">সংরক্ষণ করুন</string>
-  <string name="donor_history_update_donor_status_default">দাতার অবস্থা হালনাগাদ করুন</string>
-  <string name="donor_history_update_donor_status_donor">দাতা</string>
-  <string name="donor_history_update_donor_status_not_a_donor">দাতা নয়</string>
-  <string name="donor_history_last_donated">শেষ দান</string>
-  <string name="donor_history_last_donated_hint">শেষ দানের তারিখ যোগ করুন</string>
-  <string name="donor_history_last_donated_date_picker_title">তারিখ নির্বাচন করুন</string>
-  <string name="donor_history_last_donated_date_picker_label">তারিখ লিখুন</string>
-  <string name="donor_history_recurring_donor">পুনরাবৃত্ত দাতা</string>
-  <string name="donor_history_donate_button">উইকিমিডিয়া ফাউন্ডেশনে দান করুন</string>
-  <string name="donor_history_about_this_experiment">এই পরীক্ষা সম্পর্কে</string>
-  <string name="donor_history_updated_message_snackbar">দাতার ইতিহাস আপডেট করা হয়েছে</string>
-  <string name="contributions_dashboard_survey_dialog_title">অবদানের ড্যাশবোর্ড উন্নত করতে সহায়তা করুন</string>
-  <string name="contributions_dashboard_survey_dialog_message">ড্যাশবোর্ডের এই আপডেটটি একটি পরীক্ষামূলক বৈশিষ্ট্য। আপনি কি এই বৈশিষ্ট্যটি উন্নত বা সরানো দেখতে চান?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">কোন মতামত নেই</string>
-  <string name="contributions_dashboard_survey_dialog_ok">মতামত শেয়ার করুন</string>
-  <string name="contributions_dashboard_donation_dialog_title">বিনামূল্যে জ্ঞানকে সমর্থন করার জন্য আপনাকে ধন্যবাদ</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">না, ধন্যবাদ</string>
-  <string name="contributions_dashboard_donation_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">আপনার অবদান ড্যাশবোর্ড আপডেট করা হয়েছে</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">অবদান ড্যাশবোর্ড এখন আপনার দাতার অবস্থা সম্পর্কে বিশদ বিবরণ প্রদর্শন করে। এই পরীক্ষামূলক বৈশিষ্ট্য পর্যালোচনা করতে চান?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">না, ধন্যবাদ</string>
-  <string name="contributions_dashboard_entry_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
-  <string name="contributions_dashboard_badge_donor">দাতা</string>
-  <string name="contributions_dashboard_badge_become_a_donor">দাতা হোন</string>
-  <string name="contributions_dashboard_badge_update">দাতার অবস্থা হালনাগাদ করুন</string>
-  <string name="contributions_dashboard_app_icon_title">অ্যাপ আইকন</string>
-  <string name="contributions_dashboard_app_icon_subtitle">দাতার সুবিধা</string>
-  <string name="contributions_dashboard_logged_out_user">লগ আউট ব্যবহারকারী</string>
   <string name="survey_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
   <string name="survey_dialog_option_satisfied">সন্তুষ্ট</string>
   <string name="survey_dialog_option_neutral">নিরপেক্ষ</string>
@@ -1240,5 +1208,11 @@
   <string name="survey_dialog_option_very_satisfied">খুবই সন্তুষ্ট</string>
   <string name="survey_dialog_option_very_unsatisfied">খুবই অসন্তুষ্ট</string>
   <string name="survey_dialog_submit">জমা দিন</string>
+  <string name="survey_dialog_next">পরবর্তী</string>
+  <string name="survey_dialog_general_no">না</string>
   <string name="survey_dialog_submitted_snackbar">প্রতিক্রিয়া জমা দেওয়া হয়েছে। ধন্যবাদ!</string>
+  <string name="on_this_day_game_score">স্কোর: %d</string>
+  <string name="on_this_day_game_correct">সঠিক!</string>
+  <string name="on_this_day_game_point">+১ পয়েন্ট</string>
+  <string name="back_button_content_description">ফিরে যান</string>
 </resources>

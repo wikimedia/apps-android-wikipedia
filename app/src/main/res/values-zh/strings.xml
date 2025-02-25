@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Chimes
 * Cookai1205
 * Cwek
 * Davidzdh
@@ -45,6 +46,7 @@
 * SolidBlock
 * SomeyaMako
 * StarrySky
+* TFX202X
 * TianyinLee
 * Tonylianlong
 * Tr jason
@@ -52,6 +54,7 @@
 * Viztor
 * VulpesVulpes825
 * WQL
+* WiiUf
 * Winston Sung
 * Wsxy162
 * XinuGod
@@ -195,6 +198,10 @@
   <string name="dialog_message_leaving_edit">您的修改还没有发布。您确定要离开本页吗？</string>
   <string name="dialog_message_leaving_edit_leave">离开</string>
   <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_confirm_delete_donation_history_title">确认删除</string>
+  <string name="dialog_confirm_delete_donation_history_message">这仅适用于从此设备进行的捐赠。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">删除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">取消</string>
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
@@ -278,7 +285,7 @@
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
   <string name="preference_title_download_reading_list_articles">下载阅读列表的条目</string>
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
-  <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
+  <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科账号“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表吗？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
@@ -479,6 +486,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">在夜间主题下调暗图像</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载离线可用的条目而不是始终加载条目的最新版本来节省数据使用量</string>
+  <string name="preference_title_delete_local_donation_history">删除本地捐赠记录</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
@@ -1035,8 +1043,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
-  <string name="suggested_edits_snackbar_survey_text">您的编辑体验如何？请花点时间填写一下关于应用内编辑的调查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图像说明</string>
@@ -1706,6 +1712,7 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
+  <string name="donation_history_deleted_message_snackbar">捐赠者历史已删除</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>
@@ -1717,24 +1724,9 @@
   <string name="places_card_action">更多附近地点</string>
   <string name="places_card_enable_location_card_message">地点功能使用地图来探索维基百科</string>
   <string name="places_card_enable_location_card_button">启用位置</string>
+  <string name="places_card_distance_suffix">距离%s</string>
   <string name="places_card_distance_unknown">未知距离</string>
   <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
-  <string name="donor_history_title">捐款者历史</string>
-  <string name="donor_history_save_button">保存</string>
-  <string name="donor_history_update_donor_status_default">更新捐款者状态</string>
-  <string name="donor_history_update_donor_status_donor">捐款者</string>
-  <string name="donor_history_update_donor_status_not_a_donor">非捐款者</string>
-  <string name="donor_history_last_donated">上一次捐款</string>
-  <string name="donor_history_last_donated_hint">添加上次捐款日期</string>
-  <string name="donor_history_last_donated_date_picker_title">选择日期</string>
-  <string name="donor_history_last_donated_date_picker_label">输入日期</string>
-  <string name="donor_history_recurring_donor">定期捐款者</string>
-  <string name="donor_history_donate_button">向维基媒体基金会捐款</string>
-  <string name="donor_history_about_this_experiment">关于此实验功能</string>
-  <string name="donor_history_updated_message_snackbar">已更新捐款者历史</string>
-  <string name="contributions_dashboard_survey_dialog_title">帮助改进贡献面板</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">无意见</string>
-  <string name="contributions_dashboard_survey_dialog_ok">分享反馈</string>
   <string name="survey_dialog_title">帮助我们改进此功能</string>
   <string name="survey_dialog_message">您对该功能满意吗？</string>
   <string name="survey_dialog_option_satisfied">满意</string>
@@ -1745,5 +1737,5 @@
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
-  <string name="survey_dialog_submitted_snackbar">已提交反馈。</string>
+  <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
 </resources>

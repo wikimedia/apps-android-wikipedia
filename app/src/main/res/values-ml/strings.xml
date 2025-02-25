@@ -4,6 +4,7 @@
 * Akbarali
 * Jameela P.
 * Jinoytommanjaly
+* Naveen Sankar
 * Path slopu
 * Praveenp
 * Ranjithsiji
@@ -511,4 +512,24 @@
   <string name="text_input_dialog_ok_button_text">ശരി</string>
   <string name="text_input_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="custom_date_picker_dialog_cancel_button_text">റദ്ദാക്കുക</string>
+  <string name="on_this_day_game_entry_dialog_title">പരിചയപ്പെടുത്തുന്നു</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">വിക്കിപീഡിയാ കളികൾ</string>
+  <string name="on_this_day_game_entry_dialog_button">ഇന്നത്തെ കളി കളിക്കുക</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Explore feed-ൽ വിക്കിപീഡിയാ കളികൾ ലഭ്യമാണ്.</string>
+  <string name="on_this_day_game_title">എന്താണ് ആദ്യം വന്നത് ?</string>
+  <string name="on_this_day_game_dialog_button">കളിക്കുക</string>
+  <string name="on_this_day_game_score">സ്കോർ: %d</string>
+  <string name="on_this_day_game_correct">ശരി !</string>
+  <string name="on_this_day_game_incorrect">തെറ്റ് !</string>
+  <string name="on_this_day_game_point">+1 പോയിൻ്റ്</string>
+  <string name="on_this_day_game_next">അടുത്ത ചോദ്യം</string>
+  <string name="on_this_day_game_finish">അന്തിമ ഫലങ്ങൾ</string>
+  <string name="on_this_day_game_feed_entry_card_heading">വിക്കിപീഡിയാ കളികൾ</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">എന്താണ് ആദ്യം വന്നത് ?</string>
+  <string name="on_this_day_game_result">നിങ്ങൾ %1$d/%2$d സ്കോർ ചെയ്തു.</string>
+  <string name="on_this_day_game_next_in">%s-ൽ അടുത്ത കളി</string>
+  <string name="on_this_day_game_your_stats">നിങ്ങളുടെ സ്ഥിതിവിവരക്കണക്കുകൾ</string>
+  <string name="on_this_day_game_stats_average_score">ശരാശരി സ്കോർ</string>
+  <string name="on_this_day_game_stats_streak">നിലവിലെ സ്ട്രീക്ക്</string>
+  <string name="on_this_day_game_result_subtitle">ഇന്നത്തെ കളിയിൽ പരാമർശിച്ച ലേഖനങ്ങൾ</string>
 </resources>

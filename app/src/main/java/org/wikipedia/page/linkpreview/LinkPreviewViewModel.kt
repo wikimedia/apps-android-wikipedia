@@ -76,19 +76,20 @@ class LinkPreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    fun loadGallery(revision: Long) {
-        if (Prefs.isImageDownloadEnabled) {
+    fun loadGallery() {
+        if (Prefs.isImageDownloadEnabled && !pageTitle.isFilePage) {
             viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.w("Failed to fetch gallery collection.", throwable)
             }) {
                 val mediaList = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getMediaList(pageTitle.prefixedText, revision)
+                    .getMediaList(pageTitle.prefixedText)
                 val maxImages = 10
                 val items = mediaList.getItems("image", "video").asReversed()
                 val titleList =
                     items.filter { it.showInGallery }.map { it.title }.take(maxImages)
-                if (titleList.isEmpty()) _uiState.value = LinkPreviewViewState.Completed
-                else {
+                if (titleList.isEmpty()) {
+                    _uiState.value = LinkPreviewViewState.Completed
+                } else {
                     val response = ServiceFactory.get(
                         pageTitle.wikiSite
                     ).getImageInfo(

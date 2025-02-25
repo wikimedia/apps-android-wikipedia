@@ -5,11 +5,13 @@
 * Anamdas
 * AnupamM
 * Bhatakati aatma
+* Bunnypranav
 * Cooltey
 * Dbrant
 * DreamRimmer
 * Kaartic
 * Mgaved
+* Mithun 477
 * MuratTheTurkish
 * NehalDaveND
 * Nilesh shukla
@@ -52,6 +54,7 @@
   <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_more">और</string>
   <string name="nav_item_search">खोजें</string>
+  <string name="nav_item_contribute">योगदान दें</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="card_offline_error_retry">पुनः प्रयास करें</string>
@@ -87,7 +90,7 @@
   <string name="page_edit_history_filter_by">छाँटने के मानदंड</string>
   <string name="page_edit_history_filter_by_all">सभी संपादन (%s)</string>
   <string name="page_edit_history_filter_by_user">सदस्य द्वारा संपादन (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">गुमनाम संपादन (%s)</string>
+  <string name="page_edit_history_filter_by_anon">अपंजीकृत संपादन (%s)</string>
   <string name="page_edit_history_filter_by_bot">बॉट्स द्वारा संपादन (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s से %2$s तक मेट्रिक्स</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -126,6 +129,7 @@
   <string name="menu_page_recently_viewed">हाल ही में देखे हुए</string>
   <string name="menu_page_archive">पुरालेख</string>
   <string name="menu_long_press_open_page">खोलें</string>
+  <string name="menu_long_press_open_in_places">प्लेसिस में खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नए टैब में खोलें</string>
   <string name="menu_long_press_copy_page">कड़ी के पते की प्रतिलिपि बनाएँ</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
@@ -139,8 +143,8 @@
   <string name="map_view_link_text">नक्शे पर देखें</string>
   <string name="other_languages_indication_text">किसी दूसरी भाषा में पढ़ें</string>
   <string name="language_count_link_text">दूसरी %d भाषाओं में उपलब्ध</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे। संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
+  <string name="edit_save_action_license_logged_in">प्रकाशित करके, आप &lt;a href=\"%1$s\"&gt; उपयोग की शर्तें &lt;/a&gt; से सहमत होते हैं, और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; लाइसेंस के तहत अपरिवर्तनीय रूप से जारी करने के लिए सहमत होते हैं।</string>
+  <string name="edit_save_action_license_anon">प्रकाशित करके, आप &lt;a href=\"%1$s\"&gt; उपयोग की शर्तें &lt;/a&gt; से सहमत होते हैं, और अपने योगदान को &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; लाइसेंस के तहत अपरिवर्तनीय रूप से जारी करने के लिए सहमत होते हैं। संपादन आपके डिवाइस के आईपी पते के लिए जिम्मेदार ठहराए जाएंगे। यदि आप &lt;a href=\"https://#login\"&gt;लॉग इन&lt;/a&gt; करते हैं, तो आपको अधिक गोपनीयता मिलेगी।</string>
   <string name="edit_anon_warning">संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
   <string name="preference_title_language">विकिपीडिया की भाषाएँ</string>
   <string name="langlinks_filter_hint">खोजें</string>
@@ -150,12 +154,17 @@
   <string name="langlinks_your_wikipedia_languages">आपकी विकिपीडिया भाषाएँ</string>
   <string name="menu_save_changes">बदलाव प्रकाशित करें</string>
   <string name="edit_saved_successfully">सम्पादन प्रकाशित किया गया!</string>
+  <string name="stub_article_edit_saved_successfully">संपादन प्रकाशित हो गया है! परिवर्तनों को दिखने में समय लग सकता है।</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल रहा!</string>
   <string name="dialog_message_edit_failed_retry">पुनः प्रयास करें</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करें</string>
   <string name="dialog_message_leaving_edit">आपके बदलाव अभी प्रकाशित नहीं किए गए हैं। क्या आप पृष्ठ से जाना चाहते हैं?</string>
   <string name="dialog_message_leaving_edit_leave">जाएँ</string>
   <string name="dialog_message_leaving_edit_stay">रुकें</string>
+  <string name="dialog_confirm_delete_donation_history_title">हटाने की पुष्टि करें</string>
+  <string name="dialog_confirm_delete_donation_history_message">यह केवल इस डिवाइस से किए गए दानों पर लागू होगा।</string>
+  <string name="dialog_confirm_delete_donation_history_delete">हटाएं</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">रद्द करें</string>
   <string name="menu_show_toc">विषयसूची</string>
   <string name="search_no_results_found">कोई परिणाम नहीं मिला</string>
   <string name="search_reading_list_no_results">\"%s\" में कोई परिणाम नहीं मिला</string>
@@ -192,6 +201,9 @@
   <string name="logged_out_in_background_dialog">आपको विकिपीडिया से लॉग-आउट कर दिया गया है। क्या आप फिर से लॉग-इन करना चाहेंगे?</string>
   <string name="logged_out_in_background_login">लॉग-इन करें</string>
   <string name="logged_out_in_background_cancel">रद्द करें</string>
+  <string name="account_vanish_request_title">खाता हटाएं</string>
+  <string name="account_vanish_request_confirm_title">खाता हटाने की चेतावनी</string>
+  <string name="account_vanish_request_confirm">वैनिशिंग एक &lt;b&gt;अंतिम उपाय&lt;/b&gt; है और इसे &lt;b&gt;केवल तब उपयोग करना चाहिए जब आप हमेशा के लिए संपादन करना बंद करना चाहते हैं&lt;/b&gt; और साथ ही अपने पिछले संबंधों को यथासंभव छिपाना चाहते हैं।&lt;br/&gt;&lt;br/&gt;विकिपीडिया पर खाता हटाने की प्रक्रिया आपके खाते का नाम बदलकर की जाती है ताकि अन्य लोग आपके योगदान को पहचान न सकें, इसे खाता वैनिशिंग कहा जाता है। &lt;b&gt;वैनिशिंग पूर्ण गोपनीयता की गारंटी नहीं देता है और न ही परियोजनाओं में किए गए योगदान को हटाता है&lt;/b&gt;।</string>
   <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
   <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
   <string name="history_offline_articles_toast">इतिहास में कुछ लेख ऑफ़ाइल उपलब्ध न भी हो सकते हैं।</string>
@@ -261,15 +273,15 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
+  <string name="about_app_license">स्रोत कोड &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; के तहत उपलब्ध है। जब तक अन्यथा निर्दिष्ट न हो, सामग्री &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; के तहत उपलब्ध है।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया संस्थान&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
@@ -285,6 +297,9 @@
   <string name="edit_undo">पूर्ववत करें</string>
   <string name="edit_redo">पुनः करें</string>
   <string name="edit_rollback">वापिस लें</string>
+  <string name="edit_warn">चेतावनी</string>
+  <string name="edit_damage">क्षति %s</string>
+  <string name="edit_intent">इरादा %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s बाइट</item>
     <item quantity="other">%s बाइट्स</item>
@@ -297,6 +312,7 @@
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="edit_summary_added_short_description">संक्षिप्त विवरण जोड़ा गया</string>
+  <string name="edit_summary_updated_short_description">संक्षिप्त विवरण अद्यतन किया गया</string>
   <string name="edit_conflict_title">संपादन अंतर्विरोध</string>
   <string name="edit_conflict_message">इस पेज को पहले ही किसी अन्य यूज़र के द्वारा संपादित किया जा चुका है और आपके संपादन के साथ परस्पर-विरोध हो रहा है। कृपया अपने संपादन को कॉपी कर ले, वापस जाएं और पेज रिफ्रेश कर पुनः संपादन का प्रयास करें।</string>
   <string name="edit_notices">नोटिस संपादित करें</string>
@@ -331,6 +347,8 @@
   <string name="widget_name_featured_page">विकिपीडिया का मुख्य पेज</string>
   <string name="widget_title_featured_page">आज का मुख्य पेज</string>
   <string name="widget_name_search">विकिपीडिया खोज</string>
+  <string name="widget_description_search">विकिपीडिया खोजने का सबसे तेज़ तरीका</string>
+  <string name="widget_description_featured_page">विकिपीडिया द्वारा प्रदान किए गए सर्वश्रेष्ठ लेख</string>
   <string name="wiktionary_no_definitions_found">कोई परिभाषाएं नहीं मिलीं।</string>
   <string name="alpha_update_notification_title">नवीन आरम्भिक अपडेट उपलब्ध</string>
   <string name="alpha_update_notification_text">डाउनलोड करने के लिए दबाये रखें</string>
@@ -390,6 +408,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
+  <string name="redirected_from_snackbar">%s से पुनर्निर्देशित</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_customize_explore_feed">फीड में खोजें</string>
@@ -416,6 +435,7 @@
   <string name="link_preview_dialog_save_button">सहेजें</string>
   <string name="link_preview_dialog_saved_button">सेव किया गया</string>
   <string name="link_preview_dialog_share_button">शेयर करें</string>
+  <string name="link_preview_stub_placeholder_text">यह लेख एक स्टब है, जिसका अर्थ है कि इसमें पूर्वावलोकन दिखाने के लिए पर्याप्त सामग्री नहीं है। हालाँकि, आप इसे बदल सकते हैं।</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
@@ -425,6 +445,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
+  <string name="preference_title_delete_local_donation_history">स्थानीय दान इतिहास हटाएं</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">सिस्टम थीम जैसा</string>
   <string name="page_footer_license_text">उपलब्ध सामग्री $1 के अधीन है जब तक अलग से उल्लेख ना किया गया हो।</string>
   <string name="empty_tab_title">नया टैब</string>
@@ -438,7 +459,13 @@
   <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपने टूलबार में परिवर्तन करें</string>
   <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="temp_account_not_logged_in">आप लॉग इन नहीं हैं</string>
+  <string name="temp_account_anon_ip_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपका आईपी पता आपके संपादनों से जुड़ जाएगा।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
+  <string name="temp_account_anon_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपकी गोपनीयता की सुरक्षा के लिए एक &lt;b&gt;अस्थायी खाता&lt;/b&gt; बनाया जाएगा। &lt;a href=\"%1$s\"&gt;अधिक जानें&lt;/a&gt;।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
+  <string name="temp_account_temp_dialog_body">आपके संपादन का श्रेय %1$s को दिया जाएगा। आपका आईपी पता प्रशासकों को दिखाई देगा।&lt;br /&gt;&lt;br /&gt; यदि आप &lt;a href=\"https://#login\"&gt;लॉग इन करते हैं&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाते हैं&lt;/a&gt; , तो आपके संपादन अन्य लाभों के साथ-साथ आपके द्वारा चुने गए नाम से भी जुड़ेंगे।</string>
   <string name="temp_account_dialog_ok">समझ गया</string>
+  <string name="temp_account_using_title">आप एक अस्थायी खाते का उपयोग कर रहे हैं</string>
+  <string name="temp_account_dialog_discard">परिवर्तन छोड़ें और लॉग इन करें</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
@@ -810,7 +837,7 @@
   <string name="view_static_card_save_button_label">सहेजें</string>
   <string name="feed_configure_activity_title">फ़ीड को अनुकूलित करें</string>
   <string name="feed_configure_menu_reset">डिफ़ॉल्ट दृश्य पुनर्स्थापित करें</string>
-  <string name="feed_configure_menu_select_all">सभी दिखाएं</string>
+  <string name="feed_configure_menu_select_all">सभी दिखाएँ</string>
   <string name="feed_configure_menu_deselect_all">सभी छिपाएं</string>
   <string name="feed_configure_language_warning">ध्यान दें कि सभी प्रकार के कार्ड सभी विकिपीडिया भाषाओं में उपलब्ध नहीं हैं। सेटिंग्स में अपनी चुनी हुई भाषाओं को संपादित करें।</string>
   <string name="feed_item_type_news">समसामयिक घटनाओं के बारे में लेख</string>
@@ -958,8 +985,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">चित्र कैप्शन जोड़ें</string>
   <string name="suggested_edits_feed_card_translate_image_caption">चित्र कैप्शन जोड़ें ( %s )</string>
   <string name="suggested_edits_feed_card_add_image_tags">चित्र टैग जोड़ें</string>
-  <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
   <string name="suggested_edits_task_action_text_add">जोड़ें</string>
   <string name="suggested_edits_task_action_text_translate">अनुवाद करें</string>
   <string name="suggested_edits_image_captions">चित्र के कैप्शन</string>
@@ -1450,11 +1475,6 @@
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
   <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
-  <string name="donor_history_save_button">सहेजें</string>
-  <string name="donor_history_last_donated_date_picker_title">तिथि चुनें</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">नहीं, धन्यवाद</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">नहीं, धन्यवाद</string>
-  <string name="suggested_reading_list_dialog_negative">शायद बाद में</string>
   <string name="survey_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
   <string name="survey_dialog_option_satisfied">संतुष्ट</string>
   <string name="survey_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
@@ -1462,5 +1482,6 @@
   <string name="survey_dialog_option_very_satisfied">बहुत संतुष्ट</string>
   <string name="survey_dialog_option_very_unsatisfied">बहुत असंतुष्ट</string>
   <string name="survey_dialog_submit">जमा करें</string>
-  <string name="survey_dialog_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="back_button_content_description">वापस जाएँ</string>
 </resources>

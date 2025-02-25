@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiSwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshLayout"
@@ -25,272 +24,33 @@
                     android:id="@+id/errorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="32dp"
                     android:layout_gravity="center"
+                    android:layout_margin="32dp"
                     android:visibility="gone"
-                    tools:visibility="visible"/>
+                    tools:visibility="visible" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <org.wikipedia.views.WikiCardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-                        android:layout_marginTop="8dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:id="@+id/contributionsContainer"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:paddingStart="16dp"
-                                android:paddingTop="12dp"
-                                android:paddingEnd="16dp"
-                                android:paddingBottom="12dp"
-                                android:orientation="vertical"
-                                android:visibility="gone">
-
-                                <org.wikipedia.views.SuggestedEditsStatsView
-                                    android:id="@+id/editsCountStatsView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:minHeight="48dp" />
-
-                                <org.wikipedia.views.SuggestedEditsStatsView
-                                    android:id="@+id/pageViewStatsView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:minHeight="48dp" />
-
-                                <org.wikipedia.views.SuggestedEditsStatsView
-                                    android:id="@+id/editStreakStatsView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:minHeight="48dp" />
-
-                                <org.wikipedia.views.SuggestedEditsStatsView
-                                    android:id="@+id/editQualityStatsView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:minHeight="48dp" />
-
-                            </LinearLayout>
-
-                            <View
-                                android:id="@+id/statsDivider"
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginHorizontal="16dp"
-                                android:background="?attr/list_divider"
-                                android:visibility="gone"/>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/donorHistoryContainer"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:minHeight="60dp"
-                                android:paddingVertical="16dp"
-                                android:paddingStart="16dp"
-                                android:paddingEnd="8dp"
-                                android:background="?attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:visibility="gone">
-
-                                <ImageView
-                                    android:id="@+id/lastDonatedIcon"
-                                    android:layout_width="@dimen/suggested_edits_icon_size"
-                                    android:layout_height="@dimen/suggested_edits_icon_size"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@id/lastDonatedLabel"
-                                    app:layout_constraintBottom_toBottomOf="@id/lastDonatedLabel"
-                                    android:contentDescription="@null"
-                                    android:src="@drawable/outline_volunteer_activism_24"
-                                    app:tint="?attr/progressive_color" />
-
-                                <ImageView
-                                    android:id="@+id/lastDonatedChevron"
-                                    android:layout_width="@dimen/suggested_edits_icon_size"
-                                    android:layout_height="@dimen/suggested_edits_icon_size"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="@id/lastDonatedLabel"
-                                    app:layout_constraintBottom_toBottomOf="@id/lastDonatedLabel"
-                                    android:contentDescription="@null"
-                                    android:src="@drawable/ic_chevron_forward_white_24dp"
-                                    app:tint="?attr/primary_color" />
-
-                                <androidx.constraintlayout.helper.widget.Flow
-                                    android:id="@+id/lastDonatedFlow"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    app:layout_constraintStart_toEndOf="@id/lastDonatedIcon"
-                                    app:layout_constraintEnd_toStartOf="@id/lastDonatedChevron"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_marginStart="24dp"
-                                    android:layout_marginEnd="4dp"
-                                    app:flow_wrapMode="chain"
-                                    app:flow_horizontalBias="0"
-                                    app:flow_horizontalGap="8dp"
-                                    app:flow_verticalGap="8dp"
-                                    app:flow_horizontalAlign="start"
-                                    app:flow_horizontalStyle="spread_inside"
-                                    app:constraint_referenced_ids="lastDonatedLabel,donorHistoryStatus,donorHistoryUpdateButton"
-                                    />
-
-                                <TextView
-                                    android:id="@+id/lastDonatedLabel"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:textSize="16sp"
-                                    android:textColor="?attr/primary_color"
-                                    android:text="@string/contributions_dashboard_tab_last_donated"/>
-
-                                <TextView
-                                    android:id="@+id/donorHistoryStatus"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:visibility="visible"
-                                    android:textSize="16sp"
-                                    android:textColor="?attr/primary_color"
-                                    android:textStyle="bold" />
-
-                                <Button
-                                    android:id="@+id/donorHistoryUpdateButton"
-                                    style="@style/App.Button.Secondary"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/contributions_dashboard_tab_update_button"
-                                    android:textColor="?attr/progressive_color"
-                                    android:visibility="gone"
-                                    app:icon="@drawable/round_app_registration_24" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </LinearLayout>
-
-                    </org.wikipedia.views.WikiCardView>
+                    <include
+                        android:id="@+id/layoutContributionsContainer"
+                        layout="@layout/suggested_edits_tasks_contribution_container" />
 
                     <org.wikipedia.views.MessageCardView
                         android:id="@+id/messageCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:layout_marginVertical="16dp"
                         android:visibility="gone" />
 
-                    <LinearLayout
-                        android:id="@+id/tasksContainer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/contributeSubtitleView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="32dp"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginStart="@dimen/activity_horizontal_margin"
-                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                            android:text="@string/suggested_edits_label"
-                            android:textColor="?attr/primary_color"
-                            android:textSize="20sp"
-                            android:textStyle="bold"/>
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/tasksRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
-                        <org.wikipedia.views.WikiCardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/activity_horizontal_margin"
-                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                            android:layout_marginTop="24dp"
-                            android:layout_marginBottom="24dp">
-
-                            <LinearLayout
-                                android:id="@+id/learnMoreCard"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="16dp"
-                                android:paddingEnd="16dp"
-                                android:paddingTop="16dp"
-                                android:paddingBottom="8dp"
-                                android:orientation="vertical"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:background="?attr/selectableItemBackground">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"
-                                    android:textColor="?attr/primary_color"
-                                    android:text="@string/suggested_edits_what_is_title"/>
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:textSize="16sp"
-                                    android:lineSpacingExtra="8sp"
-                                    android:textColor="?attr/secondary_color"
-                                    android:text="@string/suggested_edits_what_is_text"/>
-
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/learnMoreButton"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/App.Button.Secondary"
-                                    android:text="@string/suggested_edits_learn_more"
-                                    android:layout_marginTop="6dp"
-                                    app:icon="@drawable/ic_open_in_new_black_24px"/>
-
-                            </LinearLayout>
-
-                        </org.wikipedia.views.WikiCardView>
-
-                        <!-- TODO: remove. -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/showIPBlockedMessage"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:textColor="?attr/progressive_color"
-                                android:textSize="@dimen/bottom_nav_label_text_size"
-                                android:text="IPBlocked" />
-
-                            <TextView
-                                android:id="@+id/showOnboardingMessage"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:textColor="?attr/progressive_color"
-                                android:textSize="@dimen/bottom_nav_label_text_size"
-                                android:text="Onboarding" />
-                        </LinearLayout>
-
-                    </LinearLayout>
+                    <include
+                        android:id="@+id/layoutTasksContainer"
+                        layout="@layout/suggested_edits_tasks_container"
+                        />
 
                 </LinearLayout>
 

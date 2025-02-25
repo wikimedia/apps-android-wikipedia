@@ -29,10 +29,6 @@
             android:defaultValue="0"
             android:title="@string/preference_title_app_theme"
             android:summary="@string/preference_summary_color_theme" />
-        <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_app_icon"
-            android:defaultValue="0"
-            android:title="@string/contributions_dashboard_app_icon_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_sync"
@@ -62,5 +58,10 @@
             android:defaultValue="false"
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_delete_local_donation_history"
+            android:defaultValue="0"
+            app:isPreferenceVisible="false"
+            android:title="@string/preference_title_delete_local_donation_history" />
     </PreferenceCategory>
 </PreferenceScreen>

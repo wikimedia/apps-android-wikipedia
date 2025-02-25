@@ -774,7 +774,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">ကြည့်ရန်</string>
   <string name="suggested_edits_feed_card_add_image_caption">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန် (%s)</string>
-  <string name="suggested_edits_snackbar_survey_action_text">စစ်တမ်း လုပ်ရန်</string>
   <string name="suggested_edits_task_action_text_add">ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_action_text_translate">ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_image_captions">ရုပ်ပုံ ပုံစာများ</string>
@@ -1059,5 +1058,5 @@
   <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
   <string name="survey_dialog_cancel">မလုပ်တော့ပါ</string>
   <string name="survey_dialog_submit">ထည့်သွင်းရန်</string>
-  <string name="survey_dialog_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
 </resources>

@@ -622,8 +622,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Көрүү</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ойуу аатын эбии</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ойуу аатын эбии (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Уларытан көрдүҥ дуо?\nУларытыы хаамыыта хайдаҕын туһунан ыйытыыларга хоруйдаан суруйарыҥ буоллар, наһаа махтаныа этибит.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ыйытыыларга хоруйдааһын</string>
   <string name="suggested_edits_task_action_text_add">Эбэргэ</string>
   <string name="suggested_edits_task_action_text_translate">Тылбаастаа</string>
   <string name="suggested_edits_image_captions" fuzzy="true">Ойуу туһунан</string>

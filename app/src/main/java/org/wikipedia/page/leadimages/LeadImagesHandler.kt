@@ -226,7 +226,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     val wiki = language?.run { WikiSite.forLanguageCode(this) } ?: it.wikiSite
                     val hitInfo = JavaScriptActionHandler.ImageHitInfo(pageHeaderView.imageView.left.toFloat(),
                         pageHeaderView.imageView.top.toFloat(), leadImageWidth.toFloat(), leadImageHeight.toFloat(),
-                        leadImageUrl!!, true)
+                        leadImageUrl!!)
                     GalleryActivity.setTransitionInfo(hitInfo)
                     val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
                     callback?.onPageRequestGallery(it, filename, wiki, parentFragment.revision, true, options)

@@ -110,6 +110,7 @@
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
   <string name="nav_item_search">Buscar</string>
+  <string name="nav_item_contribute">Contribuir</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -728,6 +729,10 @@
   <string name="reading_lists_import_failure_message">La importación de listas de lectura fracaso</string>
   <string name="reading_lists_export_select_lists_message">Seleccione la o las listas para exportar</string>
   <string name="reading_lists_export_completed_message">Lista(s) de lectura exportadas</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Error en la exportación de la lista de lectura</item>
+    <item quantity="other">Error en la exportación de listas de lectura</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">Lista compartida</string>
   <string name="reading_lists_preview_save_button">Guardar</string>
   <string name="reading_lists_preview_save_dialog_title">Guardar lista</string>
@@ -861,6 +866,7 @@
   <string name="notifications_all_wikis_text">Todas las wikis</string>
   <string name="notifications_all_types_text">Todos los tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discusión de %s</string>
+  <string name="notifications_offline_disable_message">La función no está disponible sin conexión.</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>
@@ -908,6 +914,7 @@
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_item_type_suggested_edits">Sugerencias para añadir contenido a Wikipedia</string>
+  <string name="feed_item_type_places">Artículos cercanos basados en la ubicación actual</string>
   <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Aceptar</string>
@@ -917,6 +924,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
+  <string name="feed_language_variants_removal_dialog_title">Seleccione una variante de idioma regional para una mejor experiencia de lectura</string>
   <string name="feed_language_variants_removal_dialog_save">Guardar</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Por favor actualiza sus idiomas secundarios</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Ir a configuraciones</string>
@@ -1045,8 +1053,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Añadir etiquetas de imagen</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Cómo ha sido tu experiencia editando? Por favor dedícanos un momento para completar la encuesta sobre edición in-app.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Añadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Leyendas de imágenes</string>
@@ -1410,7 +1416,8 @@
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">¿Confirmas que quieres deshacer esta edición?</string>
   <string name="revision_undo_message">Deshacer significa revertir los efectos de una o más ediciones.</string>
-  <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
+  <string name="revision_undo_summary_hint">Resumen (opcional)</string>
+  <string name="revision_undo_reason">Comparte el motivo de la reversión</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="revision_rollback_success">Ediciones revertidas.</string>
   <string name="revision_compare_button">Comparar</string>
@@ -1565,7 +1572,7 @@
   <string name="patroller_saved_message_body_copy_vio">Su edición reciente parece incluir material protegido por derechos de autor sin permiso. Asegúrese de que todo el contenido cumpla con las políticas de [[Wikipedia:Copyrights|copyright]]para evitar su eliminación.</string>
   <string name="patroller_saved_message_body_edit_summary">Hola, {{{nombre de usuario}}}, parece que eliminaste contenido de Wikipedia sin dejar un resumen de edición. Deje un resumen de edición cada vez que agregue o elimine contenido en Wikipedia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hola, {{{username}}}, parece que eliminaste contenido sin comentarlo en la página de discusión del artículo. Tenga en cuenta que Wikipedia no tiene censura y el contenido no se debe eliminar porque sea controvertido. Si cree que la información es inexacta, llegue a un consenso en la página de discusión del artículo.</string>
-  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
+  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensaje</string>
   <string name="talk_warn_saved_messages_usage_instruction">Utilice un mensaje de ejemplo a continuación para personalizar, enviar y guardar sus mensajes.</string>
   <string name="patroller_saved_message_body_art_imp">Hola {{{username}}}. ¡Tu artículo es un gran comienzo! Para hacerlo aún mejor, planteese agregar más referencias a fuentes confiables. Esto ayuda a verificar la información y mejora la calidad del artículo. Consulte las pautas de Wikipedia sobre [[Wikipedia:Reliable_sources|fuentes confiables]] para obtener más detalles.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>

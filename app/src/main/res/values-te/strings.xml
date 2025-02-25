@@ -833,8 +833,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="suggested_edits_feed_card_translate_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">బొమ్మకు ట్యాగులు చేర్చండి</string>
-  <string name="suggested_edits_snackbar_survey_text">మీ దిద్దుబాటు అనుభవం ఎలా ఉంది? కొద్ది క్షణాలు సమయం తీసుకుని, ఈ యాప్‌లో దిద్దుబాట్లు చెయ్యడంపై సర్వే ఫారం నింపండి.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">సర్వేలో పాల్గొనండి</string>
   <string name="suggested_edits_task_action_text_add">చేర్చండి</string>
   <string name="suggested_edits_task_action_text_translate">అనువదించండి</string>
   <string name="suggested_edits_image_captions">బొమ్మ వ్యాఖ్యలు</string>
@@ -1062,7 +1060,7 @@
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
-  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
+  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించు</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
   <string name="watchlist_details_watch_label">వీక్షించు</string>
   <string name="watchlist_details_next_edit">తరువాతి దిద్దుబాటు</string>

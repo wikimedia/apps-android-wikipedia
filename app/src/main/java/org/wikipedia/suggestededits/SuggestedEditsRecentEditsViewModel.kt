@@ -35,7 +35,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     val wikiSite get() = WikiSite.forLanguageCode(langCode)
     var currentQuery = ""
     var actionModeActive = false
-    var recentEditsSource: RecentEditsPagingSource? = null
 
     private val cachedUserInfo = mutableListOf<UserInfo>()
     private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
@@ -43,8 +42,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private val pageSize = 50
 
     val recentEditsFlow = Pager(PagingConfig(pageSize = pageSize, initialLoadSize = pageSize), pagingSourceFactory = {
-        recentEditsSource = RecentEditsPagingSource()
-        recentEditsSource!!
+        RecentEditsPagingSource()
     }).flow.map { pagingData ->
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {

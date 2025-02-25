@@ -38,13 +38,11 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     var currentQuery = ""
     var actionModeActive = false
 
-    var userContribSource: UserContribPagingSource? = null
     private val cachedContribs = mutableListOf<UserContribution>()
     private var cachedContinueKey: String? = null
 
     val userContribFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
-        userContribSource = UserContribPagingSource()
-        userContribSource!!
+        UserContribPagingSource()
     }).flow.map { pagingData ->
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
