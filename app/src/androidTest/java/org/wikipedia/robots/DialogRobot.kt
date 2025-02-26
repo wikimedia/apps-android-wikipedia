@@ -23,4 +23,8 @@ class DialogRobot : BaseRobot() {
             context.getString(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks),
             errorString = "Cannot click")
     }
+
+    fun click(string: String) = apply {
+        click.ifDialogShown(string, "Cannot click")
+    }
 }

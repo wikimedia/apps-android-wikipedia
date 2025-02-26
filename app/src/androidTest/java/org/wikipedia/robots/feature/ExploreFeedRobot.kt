@@ -119,7 +119,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
-        verify.viewDoesNotExist(viewId = R.id.articleImage)
+        verify.viewWithIdIsNotVisible(viewId = R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 

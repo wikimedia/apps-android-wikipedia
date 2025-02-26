@@ -163,7 +163,7 @@ class SettingsRobot : BaseRobot() {
     }
 
     fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
-        verify.textDoesNotExist(context.getString(R.string.feed_empty_message))
+        verify.textIsNotVisible(context.getString(R.string.feed_empty_message))
         delay(TestConfig.DELAY_SHORT)
     }
 

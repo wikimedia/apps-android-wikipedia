@@ -22,7 +22,7 @@ import org.wikipedia.base.base.BaseRobot
 
 class ReadingListRobot : BaseRobot() {
 
-    fun clickOnList(position: Int) = apply {
+    fun clickOnReadingLists(position: Int) = apply {
         list.clickOnItemInList(
             listId = R.id.recycler_view,
             position
@@ -30,16 +30,42 @@ class ReadingListRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickOnList(title: String) = apply {
+    fun clickOnReadingLists(title: String) = apply {
         list.scrollToRecyclerView(
             recyclerViewId = R.id.recycler_view,
             title = title,
             textViewId = R.id.item_title,
             action = {
-                click.onViewWithId(R.id.item_title)
+                click.onDisplayedViewWithText(
+                    viewId = R.id.item_title,
+                    text = title
+                )
             }
         )
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickOnReadingListItem(position: Int) = apply {
+        list.clickOnItemInList(
+            listId = R.id.reading_list_recycler_view,
+            position = position
+        )
+    }
+
+    fun longClickReadingLists(position: Int) = apply {
+        list.longClickOnItemInList(
+            listId = R.id.recycler_view,
+            position = position
+        )
+    }
+
+    fun deleteList(context: Context) {
+        click.onViewWithText(context.getString(R.string.reading_list_menu_delete))
+    }
+
+    fun removeArticleList(listName: String) = apply {
+        click.onViewWithText("Remove from $listName")
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun saveArticleToReadingList() = apply {
@@ -81,6 +107,14 @@ class ReadingListRobot : BaseRobot() {
 
     fun verifySavedArticleExists(title: String) = apply {
         verify.viewWithTextDisplayed(title)
+    }
+
+    fun verifySavedArticleDoesNotExists(title: String) = apply {
+        verify.viewWithTextDoesNotExist(title)
+    }
+
+    fun verifyListDoesNotExist(title: String) = apply {
+        verify.viewWithTextDoesNotExist(title)
     }
 
     fun verifyArticleHasNotDownloaded() = apply {

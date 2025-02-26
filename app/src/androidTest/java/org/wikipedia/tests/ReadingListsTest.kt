@@ -30,7 +30,7 @@ class ReadingListsTest : BaseTest<MainActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         // 1. saved article should be in the "Saved" reading list
-        search("watermelon")
+        search(SEARCH_QUERY_WATERMELON)
         readingListRobot
             .saveArticleToReadingList()
             .pressBack()
@@ -39,17 +39,17 @@ class ReadingListsTest : BaseTest<MainActivity>(
         bottomNavRobot
             .navigateToSavedPage()
         readingListRobot
-            .clickOnList("Saved")
-            .verifySavedArticleExists("Watermelon")
+            .clickOnReadingLists(LIST_NAME_SAVED)
+            .verifySavedArticleExists(SEARCH_QUERY_WATERMELON)
             .pressBack()
         bottomNavRobot
             .navigateToExploreFeed()
         // 2. article saved to a custom list should be in the custom list in the reading list
-        search("lemon")
+        search(SEARCH_QUERY_LEMON)
         readingListRobot
             .saveArticleToReadingList()
             .addToReadingList(context)
-            .typeNameOfTheList("new", context)
+            .typeNameOfTheList(LIST_NAME_NEW, context)
             .saveTheList(context)
             .pressBack()
             .pressBack()
@@ -59,11 +59,35 @@ class ReadingListsTest : BaseTest<MainActivity>(
         bottomNavRobot
             .navigateToSavedPage()
         readingListRobot
-            .clickOnList("new")
-            .verifySavedArticleExists("lemon")
-
-        // 3. can delete lists
-        // 4. unsaved article should not be in the "Saved" or "custom list" in the reading list
+            .clickOnReadingLists(LIST_NAME_NEW)
+            .verifySavedArticleExists(SEARCH_QUERY_LEMON)
+            .pressBack()
+         // 3. unsaved article should not be in the "Saved" or "custom list" in the reading list
+        bottomNavRobot
+            .navigateToSavedPage()
+        readingListRobot
+            .clickOnReadingLists(LIST_NAME_SAVED)
+            .clickOnReadingListItem(1)
+            .saveArticleToReadingList()
+            .removeArticleList(LIST_NAME_SAVED)
+            .pressBack()
+            .verifySavedArticleDoesNotExists(SEARCH_QUERY_WATERMELON)
+            .pressBack()
+            .clickOnReadingLists(LIST_NAME_NEW)
+            .clickOnReadingListItem(1)
+            .saveArticleToReadingList()
+            .removeArticleList(LIST_NAME_NEW)
+            .pressBack()
+            .verifySavedArticleDoesNotExists(SEARCH_QUERY_LEMON)
+            .pressBack()
+        // 4. can delete lists
+        readingListRobot
+            .longClickReadingLists(1)
+            .deleteList(context)
+        dialogRobot
+            .click("OK")
+        readingListRobot
+            .verifyListDoesNotExist(LIST_NAME_NEW)
     }
 
     private fun search(title: String) {
@@ -71,5 +95,12 @@ class ReadingListsTest : BaseTest<MainActivity>(
             .tapSearchView()
             .typeTextInView(title)
             .clickOnItemFromSearchList(0)
+    }
+
+    companion object {
+        private const val LIST_NAME_SAVED = "Saved"
+        private const val LIST_NAME_NEW = "new"
+        private const val SEARCH_QUERY_WATERMELON = "Watermelon"
+        private const val SEARCH_QUERY_LEMON = "Lemon"
     }
 }
