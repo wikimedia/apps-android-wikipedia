@@ -200,17 +200,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             "game_loading"
         } else if (_gameState.value == null || ::currentState.isInitialized.not()) {
             "unknown"
-        } else
+        } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
-    }
-
-    fun resetCurrentDayState() {
-        currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
-        persistState()
-    }
-
-    fun getCurrentGameState(): GameState {
-        return currentState
+        }
     }
 
     fun getArticlesMentioned(): List<PageSummary> {
