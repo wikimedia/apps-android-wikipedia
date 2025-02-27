@@ -12,11 +12,11 @@ Taal ondersteun - Skakel eenvoudig na lees van enige taal-ondersteunde Wikipedia
 
 Skakel voorskoue - Tik op 'n artikel om dit te voorskou, sonder om jou plek in wat jy tans lees verloor. Druk en hou 'n skakel om dit te open in 'n nuwe oortjie, sodat jy om te hou die huidige artikel lees sonder om jou plek te verloor en oorskakel na die nuwe oortjie wanneer jy gereed is.
 
-Inhoudsopgawe - vee links op enige artikel om die inhoudsopgawe op te roep, waarmee jy  maklik kan spring na artikel seksies.
+Inhoudsopgawe - vee links op enige artikel om die inhoudsopgawe op te roep, waarmee jy maklik kan spring na artikel seksies.
 
 Lees lyste - Organiseer die artikels wat jy lees in lyste, wat jy kan lees tot selfs wanneer jy aflyn is. Skep soveel lyste soos jy wil, gee hulle individuele name en beskrywings en vul hulle in met artikels uit enige taal wiki.
 
-Foto galery - Tik op 'n foto om die beeld te vertoon in volskerm  hoë resolusie, met opsies om te vee om bykomende foto te blaai.
+Foto galery - Tik op 'n foto om die beeld te vertoon in volskerm hoë resolusie, met opsies om te vee om bykomende foto te blaai.
 
 Definisies van Wiktionary - Tik-en-hou beklemtoon 'n woord, en tik dan die "Definieer"-knoppie om te sien 'n definisie van die woord vanuit Wiktionary.
 

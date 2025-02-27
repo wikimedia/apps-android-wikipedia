@@ -1,3 +1,39 @@
 Den officielle Wikipedia Android-app er designet til at hjælpe dig med at finde, opdage og udforske viden. Afgør et væddemål med en ven ved at lave en hurtig søgning via appen, eller dyk ned i udvalgte artikler, billeder, anbefalede artikler og meget mere via udforskningsfeedet. Med mere end 39 millioner artikler på næsten 300 sprog er din foretrukne gratis online-encyklopædi nu lige ved hånden.
 
 Funktioner:
+
+Udforsk-feed – Det nye ‘udforsk-feed’ tilbyder anbefalet og konstant opdateret Wikipedia-indhold direkte på startskærmen, herunder populære artikler, aktuelle hændelser, læseforslag og meget mere.
+
+Stemmeintegreret søgning – Find nemt det, du leder efter, med et fremtrædende søgefelt øverst i appen, herunder stemmeaktiveret søgning på din enhed.
+
+I nærheden – Lær mere om omgivelserne ved at vælge punkter på et interaktivt kort og se artikler relateret til din nuværende og nærliggende placering.
+
+Sprogunderstøttelse – Skift nemt til enhver sprogunderstøttet Wikipedia ved enten at ændre sproget for den aktuelle artikel eller dit foretrukne søgesprog, mens du søger.
+
+Linkforhåndsvisninger – Tryk på en artikel for at se en forhåndsvisning uden at miste din plads i det, du er ved at læse. Tryk og hold på et link for at åbne det i en ny fane, så du fortsat kan læse artiklen og skifte til den nye fane, når du er klar.
+
+Indholdsoversigt – stryg til venstre på enhver artikel for at åbne indholdsoversigten og nemt springe til artikelafsnit.
+
+Læselister – Organiser de artikler, du gennemser, i læselister, så du kan tilgå dem, selv når du er offline. Opret så mange lister, du vil, giv dem navne og beskrivelser, og fyld dem med artikler fra enhver sprogwiki.
+
+Billedgalleri – Tryk på et billede for at se det i fuld skærm i høj opløsning med mulighed for at stryge for at se flere billeder.
+
+Definitioner fra Wiktionary – Tryk og hold for at fremhæve et ord, og tryk derefter på knappen "Definer" for at se en definition fra Wiktionary.
+
+Wikipedia Zero – Tilgå Wikipedia til Android uden dataafgifter for deltagende mobiloperatører. (Link til deltagende operatører.)
+
+Send os din feedback om appen! Tryk på "Indstillinger" i menuen -> "Om Wikipedia-appen" -> "Send app-feedback".
+
+Koden er 100% open source. Hvis du har erfaring med Java og Android SDK, så ser vi frem til dine bidrag! https://github.com/wikimedia/apps-android-wikipedia
+
+Ved at bruge denne app accepterer du automatisk overførsel af nedbrudsrapporter til en tredjepartsudbyder. Hvis du vil deaktivere denne funktion, bedes du gå til "Indstillinger" og slå "Send nedbrudsrapporter" fra under sektionen Privatliv. Forklaring af tilladelserne, appen skal bruge: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privatlivspolitik: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Privatlivspolitik for tredjepartsudbydere af nedbrudsrapporter: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Brugsbetingelser: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Om Wikimedia Foundation
+
+Wikimedia Foundation er den nonprofit-organisation, der støtter Wikipedia og de andre Wikimedia-projekter. Wikimedia Foundation er en velgørenhedsorganisation primært finansieret af donationer. For flere oplysninger, besøg venligst vores hjemmeside: https://wikimediafoundation.org/wiki/Home.
