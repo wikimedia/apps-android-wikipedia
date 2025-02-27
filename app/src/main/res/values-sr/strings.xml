@@ -1660,6 +1660,10 @@
   <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Одговор је тачан</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Одговор није тачан</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Нека их укљученим</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Искључи их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да укључији их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
   <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
   <string name="back_button_content_description">Назад</string>
