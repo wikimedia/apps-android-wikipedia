@@ -47,11 +47,6 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         pageSummary = requireArguments().parcelable<PageSummary>(Constants.ARG_TITLE)!!
     }
 
-    override fun onPause() {
-        super.onPause()
-        dismiss()
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
