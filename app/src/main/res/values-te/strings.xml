@@ -560,7 +560,7 @@
   <string name="notification_syncing_resume_button">కొనసాగించు</string>
   <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
   <string name="notification_syncing_reading_list_channel_title">చదివే జాబితాలను సింకు చేస్తున్నాం</string>
-  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడాం పురోగతిలో ఉంది</string>
+  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడం పురోగతిలో ఉంది</string>
   <string name="notification_many_unread">మీకు %d చదవని గమనింపు లున్నాయి</string>
   <plurals name="notification_channel_name">
     <item quantity="one">వ్యాసాన్ని దించుతున్నాం</item>
