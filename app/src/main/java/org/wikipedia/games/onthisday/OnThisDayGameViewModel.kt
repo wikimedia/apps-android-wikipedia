@@ -29,7 +29,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
@@ -48,7 +48,19 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     init {
         Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+        loadSavedState()
         loadGameState()
+    }
+
+    private fun loadSavedState() {
+        savedStateHandle.get<String>(KEY_CURRENT_STATE)?.let { json ->
+            currentState = JsonUtil.decodeFromString(json) ?: GameState(currentQuestionState = composeQuestionState(0))
+        }
+
+        savedStateHandle.get<String>(KEY_EVENTS)?.let { json ->
+            val eventList = JsonUtil.decodeFromString<List<OnThisDay.Event>>(json)
+            events.addAll(eventList ?: emptyList())
+        }
     }
 
     fun loadGameState() {
@@ -135,7 +147,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     _gameState.postValue(CurrentQuestion(currentState))
                 }
             }
-
             persistState()
         }
     }
@@ -235,6 +246,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val langToState = totalState.langToState.toMutableMap()
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
+        savedStateHandle[KEY_CURRENT_STATE] = JsonUtil.encodeToString(currentState)
+        savedStateHandle[KEY_EVENTS] = JsonUtil.encodeToString(events)
     }
 
     @Serializable
@@ -281,6 +294,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class GameEnded(val data: GameState, val history: GameHistory) : Resource<GameState>()
 
     companion object {
+        const val KEY_CURRENT_STATE = "currentState"
+        const val KEY_EVENTS = "events"
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
