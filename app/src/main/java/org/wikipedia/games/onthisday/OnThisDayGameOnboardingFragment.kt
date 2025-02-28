@@ -17,7 +17,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -54,7 +53,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             }
         }
 
-        fun maybeShowOnThisDayGameDialog(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
+        fun maybeShowOnThisDayGameDialog(activity: Activity) {
+            val wikiSite = WikipediaApp.instance.wikiSite
             if (!Prefs.otdEntryDialogShown && OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
