@@ -28,10 +28,6 @@ object ReadingListsReceiveHelper {
 
     fun getEmptyDescription(context: Context) = DateUtil.getTimeAndDateString(context, Date())
 
-    suspend fun receiveReadingLists(context: Context, json: String, encoded: Boolean): ReadingList {
-        return receiveReadingLists(getEmptyTitle(context), getEmptyDescription(context), json, encoded)
-    }
-
     suspend fun receiveReadingLists(emptyTitle: String, emptyDescription: String, json: String, encoded: Boolean): ReadingList {
         val readingListData = getExportedReadingLists(json, encoded)
         val listTitle = readingListData?.name.orEmpty().ifEmpty { emptyTitle }

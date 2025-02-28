@@ -122,7 +122,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         when (resource) {
                             is Resource.Success -> {
                                 binding.readingListSwipeRefresh.isRefreshing = false
-                                readingList = resource.data.readingList
+                                readingList = resource.data
                                 readingList?.let {
                                     binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                                 }

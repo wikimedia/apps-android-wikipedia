@@ -13,7 +13,7 @@ import org.wikipedia.util.Resource
 
 class ReadingListFragmentViewModel : ViewModel() {
 
-    private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingListWrapper>>()
+    private val _updateListByIdFlow = MutableSharedFlow<Resource<ReadingList>>()
     val updateListByIdFlow = _updateListByIdFlow.asSharedFlow()
 
     private val _updateListFlow = MutableSharedFlow<Resource<ReadingList>>()
@@ -26,7 +26,11 @@ class ReadingListFragmentViewModel : ViewModel() {
              }
         }) {
              val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
-             _updateListByIdFlow.emit(Resource.Success(ReadingListWrapper(list)))
+             if (list == null) {
+                 _updateListByIdFlow.emit(Resource.Error(Throwable("No reading list found with id: $readingListId")))
+             } else {
+                 _updateListByIdFlow.emit(Resource.Success(list))
+             }
         }
     }
 
@@ -43,6 +47,4 @@ class ReadingListFragmentViewModel : ViewModel() {
             }
         }
     }
-
-    class ReadingListWrapper(val readingList: ReadingList?)
 }
