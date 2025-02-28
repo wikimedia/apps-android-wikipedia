@@ -31,7 +31,6 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.AllowSnackbarOverBottomSheet
 import org.wikipedia.views.ViewUtil
-import kotlin.getValue
 
 class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), AllowSnackbarOverBottomSheet {
     fun interface Callback {
@@ -46,6 +45,11 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageSummary = requireArguments().parcelable<PageSummary>(Constants.ARG_TITLE)!!
+    }
+
+    override fun onPause() {
+        super.onPause()
+        dismiss()
     }
 
     override fun onDestroyView() {
