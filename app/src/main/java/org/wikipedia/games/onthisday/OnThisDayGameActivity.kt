@@ -15,6 +15,7 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
@@ -64,7 +65,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -97,6 +98,29 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
                 viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
             }
+        }
+
+        // Add long-press listeners to the cards
+        binding.questionCard1.setOnLongClickListener {
+            showFullCardText(binding.questionText1, binding.questionThumbnail1)
+            true
+        }
+        binding.questionCard1.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                hideFullCardText(binding.questionText1, binding.questionThumbnail1)
+            }
+            false
+        }
+
+        binding.questionCard2.setOnLongClickListener {
+            showFullCardText(binding.questionText2, binding.questionThumbnail2)
+            true
+        }
+        binding.questionCard2.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                hideFullCardText(binding.questionText2, binding.questionThumbnail2)
+            }
+            false
         }
 
         binding.nextQuestionText.setOnClickListener {
@@ -449,6 +473,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         view.setImageResource(R.drawable.ic_cancel_24px)
         view.imageTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
         view.isVisible = true
+    }
+
+
+    private fun showFullCardText(textView: TextView, imageView: ImageView) {
+        imageView.isVisible = false
+        textView.maxLines = Int.MAX_VALUE
+    }
+
+    private fun hideFullCardText(textView: TextView, imageView: ImageView) {
+        imageView.isVisible = true
+        layoutTextViewForEllipsize(textView)
     }
 
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
