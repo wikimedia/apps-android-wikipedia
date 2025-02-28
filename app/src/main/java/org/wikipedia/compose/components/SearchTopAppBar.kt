@@ -42,7 +42,9 @@ fun SearchTopAppBar(
                 },
                 colors = OutlinedTextFieldDefaults.colors(
                     unfocusedBorderColor = Color.Transparent,
-                    focusedBorderColor = Color.Transparent
+                    focusedBorderColor = Color.Transparent,
+                    focusedTextColor = WikipediaTheme.colors.primaryColor,
+                    cursorColor = WikipediaTheme.colors.primaryColor
                 )
             )
         },
@@ -50,7 +52,8 @@ fun SearchTopAppBar(
             IconButton(onClick = onBackButtonClick) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor
                 )
             }
         },

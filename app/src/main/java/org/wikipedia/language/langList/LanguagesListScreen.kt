@@ -1,10 +1,14 @@
 package org.wikipedia.language.langList
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.CircularProgressIndicator
@@ -18,14 +22,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.SearchTopAppBar
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -72,7 +78,10 @@ fun LanguagesListScreen(
                         searchQuery = it
                         onSearchQueryChange(it)
                     },
-                    onBackButtonClick = { isSearchActive = false }
+                    onBackButtonClick = {
+                        isSearchActive = false
+                        onSearchQueryChange("")
+                    }
                 )
             } else {
                 WikiTopAppBar(
@@ -86,7 +95,8 @@ fun LanguagesListScreen(
                             content = {
                                 Icon(
                                     imageVector = Icons.Outlined.Search,
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    tint = WikipediaTheme.colors.primaryColor
                                 )
                             }
                         )
@@ -103,6 +113,15 @@ fun LanguagesListScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
+        if (languages.isEmpty()) {
+            SearchEmptyView(
+                modifier = Modifier
+                    .fillMaxSize(),
+                emptyTexTitle = context.getString(R.string.search_no_results_found)
+            )
+            return@Scaffold
+        }
+
         LazyColumn(
             modifier = modifier
                 .fillMaxSize()
@@ -175,15 +194,33 @@ fun LanguageListItemView(
     }
 }
 
-@Preview
 @Composable
-private fun LanguagesListScreenPreview() {
-    BaseTheme {
-        LanguagesListScreen(
-            modifier = Modifier,
-            languages = listOf(),
-            onBackButtonClick = {},
-            onSearchQueryChange = {}
+fun SearchEmptyView(
+    modifier: Modifier = Modifier,
+    emptyTexTitle: String
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            modifier = Modifier
+                .size(96.dp)
+                .clip(CircleShape)
+                .background(ComposeColors.White)
+                .padding(20.dp),
+            imageVector = Icons.Outlined.Search,
+            tint = ComposeColors.Gray500,
+            contentDescription = null
+        )
+        Text(
+            modifier = Modifier
+                .padding(top = 24.dp),
+            text = emptyTexTitle,
+            style = WikipediaTheme.typography.p.copy(
+                color = WikipediaTheme.colors.primaryColor
+            )
         )
     }
 }
