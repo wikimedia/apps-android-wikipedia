@@ -3,7 +3,6 @@ package org.wikipedia.language.langList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +15,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.util.log.L
 
-class LanguagesViewModel: ViewModel() {
+class LanguagesViewModel : ViewModel() {
 
     data class LanguageListItem(
         val code: String,
@@ -68,7 +67,6 @@ class LanguagesViewModel: ViewModel() {
     private fun fetchSiteMatrix() {
         viewModelScope.launch(handler) {
             try {
-                delay(5000)
                 val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)
                 _siteInfoList.value = sites
@@ -78,10 +76,7 @@ class LanguagesViewModel: ViewModel() {
 
                 // update the list
                 updateSearchTerm(_uiState.value.searchTerm, siteInfoAvailable = true)
-
-            } catch (e: Exception) {
-
-            }
+            } catch (e: Exception) { }
         }
     }
 
@@ -121,7 +116,6 @@ class LanguagesViewModel: ViewModel() {
 
         return results
     }
-
 
     private fun addFilteredLanguageListItems(
         filter: String,
