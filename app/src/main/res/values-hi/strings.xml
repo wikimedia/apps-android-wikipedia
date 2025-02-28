@@ -466,6 +466,20 @@
   <string name="temp_account_dialog_ok">समझ गया</string>
   <string name="temp_account_using_title">आप एक अस्थायी खाते का उपयोग कर रहे हैं</string>
   <string name="temp_account_dialog_discard">परिवर्तन छोड़ें और लॉग इन करें</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">आपके संपादन प्रकाशित होने के बाद अस्थायी खाता %1$s बनाया गया था। यह %2$d दिन में समाप्त हो जाएगा।</item>
+    <item quantity="other">आपके संपादन प्रकाशित होने के बाद अस्थायी खाता %1$s बनाया गया था। यह %2$d दिनों में समाप्त हो जाएगा।</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">खाता %d दिन में समाप्त हो जाएगा।</item>
+    <item quantity="other">खाता %d दिनों में समाप्त हो जाएगा।</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;आप लॉग इन नहीं हैं।&lt;/b&gt; जैसे ही आप कोई संपादन करते हैं, आपका आईपी पता आपके संपादनों से जुड़ जाएगा।</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;आप लॉग इन नहीं हैं।&lt;/b&gt; जैसे ही आप कोई संपादन करते हैं, आपकी गोपनीयता की सुरक्षा के लिए एक अस्थायी खाता बनाया जाएगा। &lt;a href=\"%1$s\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;आप एक अस्थायी खाते का उपयोग कर रहे हैं।&lt;/b&gt; आपके संपादन का श्रेय %1$s को दिया जाएगा। &lt;a href=\"%2$s\"&gt;अधिक जानें&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;आप वर्तमान में एक अस्थायी खाते का उपयोग कर रहे हैं।&lt;/b&gt; अस्थायी खाते %1$s के साथ किए गए संपादन आपके स्थायी खाते में स्थानांतरित नहीं होंगे जब आप लॉग इन करेंगे। अपने उपयोगकर्ता नाम को श्रेय देने और अन्य लाभ प्राप्त करने के लिए लॉग इन करें या खाता बनाएं।</string>
+  <string name="temp_account_end_session">सत्र समाप्त करें</string>
+  <string name="temp_account_end_session_confirm">यह आपको अस्थायी खाते से लॉग आउट कर देगा। क्या आप जारी रखना चाहते हैं?</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
@@ -799,7 +813,7 @@
   <string name="notifications_wiki_filter_header">विकी छलनी</string>
   <string name="notifications_type_filter_header">प्रकार छलनी</string>
   <string name="notifications_all_wikis_text">सभी विकी</string>
-  <string name="notifications_all_types_text" fuzzy="true">सभी प्रकार\"</string>
+  <string name="notifications_all_types_text">सभी प्रकार</string>
   <string name="notifications_menu_user_talk_page">%s का वार्ता पृष्ठ</string>
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
@@ -849,6 +863,7 @@
   <string name="feed_item_type_main_page">दैनिक विशेष रुप से प्रदर्शित सामग्री के साथ विकिपीडिया का मुख्य पृष्ठ</string>
   <string name="feed_item_type_randomizer">पढ़ने के लिए कोई भी लेख उत्पन्न करें</string>
   <string name="feed_item_type_suggested_edits">विकिपीडिया पर सामग्री जोड़ने के सुझाव</string>
+  <string name="feed_item_type_places">वर्तमान स्थान के आधार पर निकटवर्ती लेख</string>
   <string name="feed_empty_message">आपके एक्सप्लोर फ़ीड में कुछ भी नहीं है</string>
   <string name="feed_configure_onboarding_action">अनुकूलित करें</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ठीक है</string>
@@ -858,7 +873,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द करें</string>
   <string name="feed_accessibility_card_text">आप फ़ीड की अंत तक पहुंच गए हैं।</string>
   <string name="feed_accessibility_card_load_more_button">और लोड करें</string>
+  <string name="feed_language_variants_removal_dialog_title">एक बेहतर पठन अनुभव के लिए एक क्षेत्रीय भाषा प्रकार चुनें</string>
+  <string name="feed_language_variants_removal_dialog_message">आप वर्तमान में एक असमर्थित सामान्य चीनी भाषा प्रकार को अपनी प्राथमिक विकिपीडिया भाषा के रूप में उपयोग कर रहे हैं</string>
   <string name="feed_language_variants_removal_dialog_save">सहेजें</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">कृपया अपनी द्वितीयक भाषाएं अद्यतन करें</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">आप वर्तमान में एक असमर्थित सामान्य चीनी भाषा प्रकार को द्वितीयक भाषा के रूप में उपयोग कर रहे हैं। कृपया एक नई द्वितीयक भाषा चुनने या अपनी भाषा सूची की पुष्टि करने के लिए अपनी सेटिंग्स पर जाएं।</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">सेटिंग्स पर जाएं</string>
   <string name="top_read_activity_title">%s को सबसे सर्वाधिक पठित</string>
   <string name="tabs_activity_title">टैब्स</string>
   <string name="description_edit_text_hint">लेख वर्णन</string>
@@ -888,9 +908,10 @@
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
   <string name="description_edit_image_caption_learn_more">चित्र कैप्शन के बारे में और जानें</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">पाठ बहुत छोटा है।</string>
+  <string name="description_too_long">विवरण को संक्षिप्त रखने का प्रयास करें ताकि सदस्य लेख के विषय को एक नज़र में समझ सकें</string>
   <string name="description_ends_with_punctuation">पाठ विराम चिह्न के साथ समाप्त नहीं होना चाहिए।</string>
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
@@ -928,6 +949,9 @@
   <string name="suggested_edits_describe_articles">लेखों का वर्णन करें</string>
   <string name="suggested_edits_caption_images">चित्र को कैप्शन करें</string>
   <string name="suggested_edits_tag_images">चित्र टैग करें</string>
+  <string name="suggested_edits_edit_patrol">संपादन गश्त</string>
+  <string name="suggested_edits_edit_patrol_hint">हाल के संपादनों की समीक्षा करें और निर्धारित करें कि वे रचनात्मक हैं या नहीं।</string>
+  <string name="suggested_edits_edit_patrol_review">समीक्षा करें</string>
   <string name="suggested_edits_review_description">लेख विवरण की समीक्षा करें</string>
   <string name="suggested_edits_add_description_button">विवरण जोड़ें</string>
   <string name="suggested_edits_edit_description_button">विवरण संपादित करें</string>
@@ -1033,6 +1057,10 @@
     <item quantity="one">1 योगदान</item>
     <item quantity="other"> योगदान</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">संपादन</item>
+    <item quantity="other">संपादन</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d दिन</item>
     <item quantity="other">%d दिन</item>
@@ -1103,8 +1131,9 @@
   <string name="image_recommendation_tutorial">अनुशिक्षण</string>
   <string name="image_recommendation_accept">हाँ</string>
   <string name="image_recommendation_reject">नहीं</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">क्यों नहीं?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">आपका उत्तर आनेवाले सजेशंस में सुधार कर सकता है|</string>
+  <string name="image_recommendation_notsure">अनिश्चित</string>
+  <string name="image_recommendation_reject_title">अस्वीकृति का कारण</string>
+  <string name="image_recommendation_reject_subtitle">अस्वीकृति का कारण गुमनाम है और भविष्य में छवि सुझावों को बेहतर बनाएगा।</string>
   <string name="image_recommendation_reject_not_relevant">ईमेज रिलेवेंट नहीं है</string>
   <string name="image_recommendation_reject_no_info">डिसाइड करने के लिए यह जानकारी काफी नहीं है</string>
   <string name="image_recommendation_reject_offensive">ईमेज ऑफेंसिव है</string>
@@ -1112,6 +1141,7 @@
   <string name="image_recommendation_reject_dont_know">मुझे इस विषय के बारे में जानकारी नहीं है</string>
   <string name="image_recommendation_reject_other">अन्य</string>
   <string name="image_recommendation_reject_submit">जमा करें</string>
+  <string name="image_recommendation_tooltip_main">सुझाए गए संपादन में लेखों में लुप्त छवियाँ जोड़ें</string>
   <string name="image_recommendation_onboarding_1">पिक्चर्स लोगों को समझने में सहायता करतीं हैं, लेकिन बहुत आर्टिकल्स में पिक्चर्स नहीं होते हैं</string>
   <string name="image_recommendation_onboarding_2">आप डिसाइड करेगें यदि एक सजेस्टेड इमेज एक विकिपीडिया आर्टिकल में होना चाहिए या नहीं|</string>
   <string name="image_recommendation_onboarding_3">सजेशंस मशीन जेनरेटेड होते हैं और उनको स्वीकार या अस्वीकार करने के लिए आपको आपके जजमेंट का इस्तेमाल करना पड़ेगा</string>
@@ -1121,8 +1151,12 @@
   <string name="image_recommendation_tooltip_3">डिसाइड करें यदि ईमेज रीडर्स को यह टॉपिक अच्छे से समझने में मदद करती है या नहीं|</string>
   <string name="image_recommendation_tooltip_next">अगला</string>
   <string name="image_recommendation_tooltip_warning">इस आर्टिकल को समझने और इसकी ईमेज जाँचने के किए इस आर्टिकल को रिव्यू करें</string>
+  <string name="image_recommendation_depleted">क्षमा करें, इस समय और कोई सुझाई गई छवियाँ उपलब्ध नहीं हैं। कृपया अन्य &lt;a href=\"#\"&gt;सुझाए गए संपादन&lt;/a&gt; देखें या बाद में वापस आएँ।</string>
+  <string name="suggested_edits_report_feature">सुविधा के साथ समस्या</string>
+  <string name="suggested_edits_report_feature_subject">सुझाए गए संपादन में समस्या</string>
   <string name="edit_summary_added_image">एड किया हुआ इमेज</string>
   <string name="edit_summary_added_caption">एड किया हुआ कैप्शन</string>
+  <string name="edit_summary_added_image_and_caption">छवि और कैप्शन जोड़ा गया</string>
   <string name="edit_published_view">देखें</string>
   <string name="file_page_activity_title">फ़ाइल पृष्ठ</string>
   <string name="file_page_add_image_caption_button">चित्र कैप्शन जोड़ें</string>
@@ -1146,6 +1180,8 @@
   <string name="onboarding_explore_text">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
   <string name="onboarding_reading_list_sync_title">सिंक के साथ पठन सूचियां</string>
   <string name="onboarding_reading_list_sync_text_v2">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">डेटा और गोपनीयता</string>
+  <string name="onboarding_data_privacy_text">हमारा मानना है कि मुक्त ज्ञान आंदोलन में भाग लेने के लिए आपको व्यक्तिगत जानकारी प्रदान करने की आवश्यकता नहीं होनी चाहिए। इस ऐप के लिए एकत्र किया गया उपयोग डेटा गुमनाम है। हमारी &lt;a href=\"#privacy\"&gt;गोपनीयता नीति&lt;/a&gt; और &lt;a href=\"#termsOfUse\"&gt;उपयोग की शर्तों&lt;/a&gt; के बारे में अधिक जानें।</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_got_it">समझ गया</string>
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
@@ -1154,6 +1190,7 @@
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
+  <string name="app_shortcuts_places">स्थान</string>
   <string name="on_this_day_card_title">इस दिन</string>
   <string name="more_events_text">इस दिन पर अधिक</string>
   <string name="events_count_text">%1$s घटनाक्रम %2$s से  - %3$d तक</string>
@@ -1213,15 +1250,16 @@
   <string name="wikitext_template">साँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
   <string name="wikitext_preview_link">कड़ी पूर्वावलोकन</string>
+  <string name="wikitext_mention_user">सदस्य का उल्लेख करें</string>
   <string name="insert_media_title">मीडिया जोड़ें</string>
   <string name="insert_media_search_description">विकिमीडिया कॉमन्स से एक चित्र चुनें</string>
   <string name="insert_media_search_hint">मीडिया खोजें</string>
-  <string name="insert_media_settings" fuzzy="true">मीडिया सेटिंग्स</string>
+  <string name="insert_media_settings">छवि विवरण जोड़ें</string>
   <string name="insert_media_settings_uploaded_image">चित्र अपलोड किया गया</string>
-  <string name="insert_media_settings_caption" fuzzy="true">कैप्शन</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">लेबल जो सभी सदस्य को आयटम के पास दिखता है</string>
+  <string name="insert_media_settings_caption">छवि का कैप्शन</string>
+  <string name="insert_media_settings_caption_description">लेख में दिखाई देने वाला छवि लेबल</string>
   <string name="insert_media_settings_alternative_text">वैकल्पिक टेक्स्ट</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">उन पाठकों के लिए टेक्स्ट विवरण जो चित्र नहीं देख सकते</string>
+  <string name="insert_media_settings_alternative_text_description">दृष्टिबाधित पाठकों के लिए विवरण</string>
   <string name="insert_media_advanced_settings">उन्नत विकल्प</string>
   <string name="insert_media_advanced_settings_wrap_image">चित्र के आस-पास टेक्स्ट को रैप करें</string>
   <string name="insert_media_advanced_settings_image_position">चित्र का स्थान</string>
@@ -1242,6 +1280,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">ऊँचाई</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">पिक्सेल</string>
   <string name="insert_media_insert_button">जोड़ें</string>
+  <string name="templates_search_hint">साँचा खोजें</string>
+  <string name="templates_insert_button">डालें</string>
+  <string name="templates_param_suggested_value">जैसे %s</string>
+  <string name="templates_param_optional_hint">%s (वैकल्पिक)</string>
+  <string name="templates_param_suggested_hint">%s (सुझाए गए)</string>
+  <string name="templates_learn_more_link">अधिक जानिए</string>
+  <string name="templates_description_incomplete">टेम्पलेट्स सदस्यों द्वारा बनाए गए हैं और इनमें पूर्ण विवरण का अभाव हो सकता है।</string>
+  <string name="templates_description_empty">\"%s\" टेम्पलेट में अभी तक कोई विवरण नहीं है.</string>
+  <string name="templates_description_missing_data">इस टेम्पलेट में &lt;a href=\"%1$s\"&gt;टेम्पलेटडेटा&lt;/a&gt; का अभाव है, और इसके पैरामीटर्स &lt;a href=\"%2$s\"&gt;स्वचालित रूप से जनरेट किए गए&lt;/a&gt; हैं। परिणामस्वरूप, टेम्पलेट और इसके पैरामीटर्स में विवरण का अभाव है।</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">लॉग इन करें / विकिपीडिया से जुड़ें</string>
   <string name="main_tooltip_text">नमस्ते %s , क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
@@ -1257,6 +1304,18 @@
   <string name="talk_user_title">वार्ता: %s</string>
   <string name="talk_new_topic">नया विषय</string>
   <string name="talk_new_topic_submitted">विषय पोस्ट किया गया।</string>
+  <string name="talk_warn">चेतावनी</string>
+  <string name="talk_warn_save_dialog_title">परिवर्तन सहेजें?</string>
+  <string name="talk_warn_save_dialog_message">एक नए संदेश के रूप में सहेजें</string>
+  <string name="talk_warn_save_dialog_existing_new_message">सूची में एक नए संदेश के रूप में सहेजें</string>
+  <string name="talk_warn_save_dialog_existing_update_message">मौजूदा संदेश अद्यतन करें</string>
+  <string name="talk_warn_save_dialog_hint">संदेश शीर्षक</string>
+  <string name="talk_warn_save_dialog_publish">प्रकाशित करें</string>
+  <string name="talk_warn_save_dialog_cancel">रद्द करें</string>
+  <string name="talk_warn_save_dialog_dont_save">सहेजें नहीं</string>
+  <string name="talk_warn_submitted">संपादक के वार्ता पृष्ठ पर संदेश प्रकाशित किया गया</string>
+  <string name="talk_warn_submitted_and_saved">संदेश सहेजा गया और संपादक के वार्ता पृष्ठ पर प्रकाशित किया गया</string>
+  <string name="talk_warn_saved_messages">सहेजे गए संदेश</string>
   <string name="talk_page_empty">यह वार्ता पृष्ठ खाली है।</string>
   <string name="talk_page_empty_title">बातचीत यहीं से शुरू होती है</string>
   <string name="talk_page_empty_content">वार्ता पृष्ठ वे होते हैं जहां लोग चर्चा करते हैं कि विकिपीडिया सामग्री को सर्वोत्तम कैसे बनाया जाए। विकिपीडिया के समुदाय से जुड़ने और सहयोग करने के लिए एक नया चर्चा विषय जोड़कर शुरुआत करें।</string>
@@ -1267,6 +1326,7 @@
   <string name="talk_message_hint">संदेश लिखें</string>
   <string name="talk_message_empty">संदेश खाली नहीं हो सकता।</string>
   <string name="talk_subject_empty">विषय खाली नहीं हो सकता.</string>
+  <string name="talk_subject_duplicate">विषय का नाम पहले से मौजूद है। कोई दूसरा नाम कोशिश करें।</string>
   <string name="talk_response_submitted">उत्तर पोस्ट किया गया।</string>
   <string name="talk_snackbar_undo">पूर्ववत करें</string>
   <string name="talk_last_modified">&lt;b&gt;%1$s हाल में&lt;/b&gt;%2$s के द्वारा संपादित</string>
@@ -1342,8 +1402,10 @@
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>
   <string name="revision_diff_paragraph_added">अनुच्छेद जोड़ा गया</string>
   <string name="revision_diff_paragraph_removed">पैराग्राफ हटा दिया गया</string>
-  <string name="revision_undo_title" fuzzy="true">संपादन पूर्ववत करें</string>
-  <string name="revision_undo_message" fuzzy="true">यह, यहां दिखाए गए लेख के संपादन परिवर्तनों को पूर्ववत कर देगा।</string>
+  <string name="revision_diff_protected">इस संशोधन में किए गए परिवर्तन सार्वजनिक रूप से उपलब्ध नहीं हैं।</string>
+  <string name="revision_undo_title">क्या आप वाकई इस संपादन को पूर्ववत करना चाहते हैं?</string>
+  <string name="revision_undo_message">पूर्ववत करने का अर्थ है एक या अधिक संपादनों के प्रभावों को वापस लेना।</string>
+  <string name="revision_undo_summary_hint">सारांश (वैकल्पिक)</string>
   <string name="revision_undo_reason" fuzzy="true">जारी रखने के लिए, कृपया इस संपादन को पूर्ववत करने का एक कारण प्रदान करें:</string>
   <string name="revision_undo_success">संशोधन पूर्ववत किया गया था।</string>
   <string name="revision_rollback_dialog_title">क्या आप वाकई संपादनों को रोलबैक करना चाहते हैं?</string>
@@ -1457,9 +1519,23 @@
   <string name="reading_list_share_menu_label">साझा करें…</string>
   <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
   <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
+  <string name="talk_templates_new_message_subject_hint">विषय</string>
+  <string name="talk_templates_new_message_compose_hint">संदेश लिखें</string>
+  <string name="talk_templates_new_message_save">सहेजें</string>
+  <string name="talk_templates_new_message_dialog_title">बदलाव सहेजें</string>
+  <string name="talk_templates_new_message_dialog_description">शीर्षक जोड़ें और संदेश सहेजें।</string>
+  <string name="talk_templates_new_message_dialog_hint">संदेश शीर्षक</string>
+  <string name="talk_templates_new_message_dialog_save">सहेजें</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द करें</string>
+  <string name="talk_templates_new_message_dialog_exists">टेम्पलेट \" %s \" पहले से मौजूद है|</string>
+  <string name="talk_templates_edit_message_dialog_save">सहेजें</string>
+  <string name="talk_templates_edit_message_dialog_delete">मिटाएँ</string>
   <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
+  <string name="talk_templates_your_messages_tab_title">आपके संदेश</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">टैग्स: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">सदस्य की जानकारी</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">धन्यवाद</string>
   <string name="patroller_onboarding_two_talk_title">वार्ता</string>
   <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
   <string name="talk_templates_menu_edit_title">सम्पादन</string>
@@ -1482,6 +1558,12 @@
   <string name="survey_dialog_option_very_satisfied">बहुत संतुष्ट</string>
   <string name="survey_dialog_option_very_unsatisfied">बहुत असंतुष्ट</string>
   <string name="survey_dialog_submit">जमा करें</string>
+  <string name="survey_dialog_general_yes">हाँ</string>
+  <string name="survey_dialog_general_no">नहीं</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">खेल सूचनाएं चालू करें?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
   <string name="back_button_content_description">वापस जाएँ</string>
 </resources>
