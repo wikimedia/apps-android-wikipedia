@@ -22,6 +22,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
+import org.wikipedia.language.langList.ComposeLanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
@@ -192,7 +193,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
             } else if (holder is FooterViewHolder) {
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
-                    Intent(requireActivity(), LanguagesListActivity::class.java).let {
+                    Intent(requireActivity(), ComposeLanguagesListActivity::class.java).let {
                         startActivityForResult(it, Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                         actionMode?.finish()
                     }

@@ -28,7 +28,7 @@ class LanguagesListViewModel : ViewModel() {
     val siteListData = MutableLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
 
     init {
-        fetchData()
+        //fetchData()
     }
 
     private fun fetchData() {

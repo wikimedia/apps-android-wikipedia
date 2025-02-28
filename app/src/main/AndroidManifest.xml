@@ -161,6 +161,8 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
+            android:name=".language.langList.ComposeLanguagesListActivity"/>
+        <activity
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />

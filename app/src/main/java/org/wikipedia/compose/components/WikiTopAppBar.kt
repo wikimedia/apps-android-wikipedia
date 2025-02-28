@@ -1,5 +1,6 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,7 +25,8 @@ fun WikiTopAppBar(
     onNavigationClick: (() -> Unit),
     titleStyle: TextStyle = WikipediaTheme.typography.h1.copy(lineHeight = 24.sp),
     elevation: Dp = 0.dp,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     val navigationIcon = Icons.AutoMirrored.Filled.ArrowBack
     val backgroundColor = WikipediaTheme.colors.paperColor
@@ -49,6 +51,7 @@ fun WikiTopAppBar(
             containerColor = backgroundColor,
             titleContentColor = WikipediaTheme.colors.primaryColor
         ),
+        actions = actions,
         modifier = modifier.shadow(elevation = elevation)
     )
 }
