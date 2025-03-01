@@ -45,7 +45,7 @@
                 tools:text="What came first?"/>
 
             <TextView
-                style="@style/P.Article"
+                style="@style/P"
                 android:id="@+id/viewWikiGamesCardSubTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

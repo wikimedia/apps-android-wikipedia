@@ -11,10 +11,6 @@ class WikiGamesCardClient() : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        if (age != 0) {
-            cb.success(emptyList())
-            return
-        }
         val availableLanguages = (if (FeedContentType.WIKI_GAMES.langCodesSupported.isNotEmpty()) FeedContentType.WIKI_GAMES.langCodesSupported else OnThisDayGameViewModel.LANG_CODES_SUPPORTED)
             .filter { !FeedContentType.WIKI_GAMES.langCodesDisabled.contains(it) }
             .filter { langCode ->

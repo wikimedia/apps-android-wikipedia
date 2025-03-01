@@ -196,20 +196,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value is GameStarted) {
-            "game_start"
+        } else if (_gameState.value is Resource.Loading) {
+            "game_loading"
+        } else if (_gameState.value == null || ::currentState.isInitialized.not()) {
+            "unknown"
         } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
         }
-    }
-
-    fun resetCurrentDayState() {
-        currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
-        persistState()
-    }
-
-    fun getCurrentGameState(): GameState {
-        return currentState
     }
 
     fun getArticlesMentioned(): List<PageSummary> {
@@ -227,6 +220,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getQuestionCorrectByPageTitle(pageTitle: String): Boolean {
         val index = events.indexOfFirst { it.pages.any { pageSummary -> pageSummary.apiTitle == pageTitle || pageSummary.displayTitle == pageTitle } }
         return currentState.answerState[if (index >= 0) index / 2 else 0]
+    }
+
+    fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
+        return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
     private fun composeQuestionState(index: Int): QuestionState {

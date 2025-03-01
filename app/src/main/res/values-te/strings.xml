@@ -560,7 +560,7 @@
   <string name="notification_syncing_resume_button">కొనసాగించు</string>
   <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
   <string name="notification_syncing_reading_list_channel_title">చదివే జాబితాలను సింకు చేస్తున్నాం</string>
-  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడాం పురోగతిలో ఉంది</string>
+  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడం పురోగతిలో ఉంది</string>
   <string name="notification_many_unread">మీకు %d చదవని గమనింపు లున్నాయి</string>
   <plurals name="notification_channel_name">
     <item quantity="one">వ్యాసాన్ని దించుతున్నాం</item>
@@ -1060,7 +1060,7 @@
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
-  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
+  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించు</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
   <string name="watchlist_details_watch_label">వీక్షించు</string>
   <string name="watchlist_details_next_edit">తరువాతి దిద్దుబాటు</string>

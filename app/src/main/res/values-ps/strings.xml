@@ -5,6 +5,7 @@
 * Amjad Khan
 * Baloch Khan
 * MuratTheTurkish
+* شاه زمان پټان
 -->
 <resources>
   <string name="app_name_prod">ويکيپېډيا</string>
@@ -128,7 +129,7 @@
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="logout_dialog_cancel_button_text">ناگارل</string>
-  <string name="logged_out_in_background_title">ووتلۍ</string>
+  <string name="logged_out_in_background_title">ووتلی</string>
   <string name="logged_out_in_background_login">ننوتل</string>
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
@@ -138,7 +139,7 @@
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
   <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
   <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
-  <string name="create_account_email_error">ناسمه برېښليک پته</string>
+  <string name="create_account_email_error">ناسمه برېښليک‌پته</string>
   <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>

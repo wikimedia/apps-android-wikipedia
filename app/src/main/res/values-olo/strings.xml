@@ -4,6 +4,7 @@
 * Envlh
 * Ilja.mos
 * Mashoi7
+* Perunahillo
 -->
 <resources>
   <string name="app_name_prod">Wikipedii</string>
@@ -20,6 +21,7 @@
   <string name="nav_item_suggested_edits">Kohendukset</string>
   <string name="nav_item_more">Ozuta enämbi</string>
   <string name="nav_item_search">Eči</string>
+  <string name="nav_item_contribute">Avvuta</string>
   <string name="error_network_error">Yhtevytty internettah ei sua muvvostua</string>
   <string name="page_error_retry">Opi uvvessah</string>
   <string name="card_offline_error_retry">Opi uvvessah</string>
@@ -31,13 +33,27 @@
   <string name="error_next">Ielleh</string>
   <string name="menu_clear_all_history">Pyhki histourii</string>
   <string name="history_item_deleted">%s poistettu histouriespäi</string>
+  <string name="history_items_deleted">%d artiklua pyhkitty histouriespäi</string>
   <string name="history_item_delete_undo">Hylgiä</string>
   <string name="notification_archive_undo">Hylgiä</string>
   <string name="app_settings">Sovelduksen azetukset</string>
+  <string name="history_list_title">Histourii</string>
+  <string name="image_content_description">Kuva: %s</string>
+  <string name="page_content_description">Sivu: %s</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pyhkie histourii?</string>
   <string name="dialog_message_clear_history">Tämä hävittäy kai livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
+  <string name="dialog_message_clear_history_yes">Muga</string>
+  <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Jagua</string>
+  <string name="image_share_via">Jua palvelus</string>
   <string name="search_redirect_from">Siirretty sivus \"%s\"</string>
+  <string name="page_edit_history_activity_title">Muutoshistourii: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;p&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tyhjy editoinduyhtehvedo</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Eči libo filtruiče editoihuksii</string>
+  <string name="page_edit_history_filter_by">Filtruiče</string>
+  <string name="page_edit_history_filter_by_all">Kai editoihukset (%s)</string>
   <string name="menu_page_show_tabs">Ozuta liittehet</string>
   <string name="menu_page_other_languages">Luve toizil kielil</string>
   <string name="menu_page_find_in_page" fuzzy="true">Eči täl sivul</string>
@@ -77,6 +93,7 @@
   <string name="login_activity_title" fuzzy="true">Kirjuttai Wikipedieh</string>
   <string name="login_in_progress_dialog_message">Sistiemah kirjuttamine...</string>
   <string name="login_success_toast" fuzzy="true">Kirjutittos sistiemah!</string>
+  <string name="reset_password_title">Kirjuta peittosana</string>
   <string name="preference_title_logout">Kirjuttai ullos</string>
   <string name="toast_logout_complete">Ulloskirjutannuhes</string>
   <string name="history_empty_title" fuzzy="true">Ei jälgimäzii sivuloi!</string>

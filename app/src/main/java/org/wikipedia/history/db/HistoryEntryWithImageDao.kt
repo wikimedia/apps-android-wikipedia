@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.RewriteQueriesToDropUnusedColumns
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
@@ -26,7 +27,7 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
 
-    fun findHistoryItem(searchQuery: String): SearchResults {
+    fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
@@ -35,7 +36,7 @@ interface HistoryEntryWithImageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
-                .filter { StringUtil.fromHtml(it.displayTitle).contains(normalizedQuery, true) }
+                .filter { wikiSite.languageCode == it.lang && StringUtil.fromHtml(it.displayTitle).contains(normalizedQuery, true) }
 
         return if (entries.isEmpty()) SearchResults()
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())

@@ -135,12 +135,17 @@
   <string name="langlinks_your_wikipedia_languages">Vaše jazyky</string>
   <string name="menu_save_changes">Uverejniť zmeny</string>
   <string name="edit_saved_successfully">Úprava bola zverejnená!</string>
+  <string name="stub_article_edit_saved_successfully">Edit publikovaný! Zmeny sa môžu objaviť časom.</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
   <string name="dialog_message_leaving_edit">Vaše úpravy ešte neboli uverejnené. Prajete si opustiť túto stránku bez uloženia úprav?</string>
   <string name="dialog_message_leaving_edit_leave">Opustiť</string>
   <string name="dialog_message_leaving_edit_stay">Zostať</string>
+  <string name="dialog_confirm_delete_donation_history_title">Potvrďte vymazanie</string>
+  <string name="dialog_confirm_delete_donation_history_message">Toto platí len pre dary z tohto zariadenia.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Vymazať</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Zrušiť</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Neboli nájdené žiadne výsledky</string>
   <string name="search_reading_list_no_results">V zozname \"%s\" neboli nájdené žiadne výsledky</string>
@@ -286,6 +291,7 @@
   <string name="edit_summary_tag_links">Pridané odkazy</string>
   <string name="edit_summary_tag_other">Iná úprava</string>
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
+  <string name="edit_summary_added_short_description">Pridaný krátky popis</string>
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
   <string name="edit_notices">Editačné poznámky</string>
@@ -813,6 +819,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušiť</string>
   <string name="feed_accessibility_card_text">Dostali ste sa na koniec kanálu Objaviť.</string>
   <string name="feed_accessibility_card_load_more_button">Načítať ďalšie</string>
+  <string name="feed_language_variants_removal_dialog_save">Uložiť</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Prosím, aktualizujte svoje sekundárne jazyky</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Momentálne používate nepodporovaný generický variant čínštiny ako sekundárny jazyk. Prejdite do nastavení a vyberte nový sekundárny jazyk alebo potvrďte zoznam jazykov.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Prejdite do Nastavenia</string>
   <string name="top_read_activity_title">Najviac čítaní dňa %s</string>
   <string name="tabs_activity_title">Záložky</string>
   <string name="description_edit_text_hint">Popis článku</string>
@@ -997,7 +1007,7 @@
   <string name="suggested_edits_ip_blocked_title">Adresa IP zablokovaná</string>
   <string name="suggested_edits_last_edited">Posledná úprava</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nové</string>
+  <string name="suggested_edits_task_new">Nové</string>
   <string name="suggested_edits_cc0_notice">Publikovaním súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto so zverejnením tohto príspevku pod &lt;a href=\"%2$s\"&gt;licenciou CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhované úpravy</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ďakujeme, že upravujete Wikipédiu! Pokojne pokračujte tam, kde ste skončili.</string>
@@ -1053,8 +1063,17 @@
     <item quantity="many">Pridali ste %d znakov</item>
     <item quantity="other">Pridali ste %d znakov</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Trénovať obrázkový algoritmus</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Rozhodnúť či odporúčaný obrázok zlepší článok.</string>
+  <string name="suggested_edits_image_recommendations_task_title">Obrázky článku</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Pridajte navrhované obrázky do článkov Wikipédie, aby ste lepšie porozumeli.</string>
+  <string name="image_recommendation_tutorial">Návod</string>
+  <string name="image_recommendation_accept">Áno</string>
+  <string name="image_recommendation_reject">Nie</string>
+  <string name="image_recommendation_reject_other">Iné</string>
+  <string name="image_recommendation_tooltip_next">Ďalej</string>
+  <string name="edit_summary_added_image">Pridaný obrázok</string>
+  <string name="edit_summary_added_caption">Pridaný titulok</string>
+  <string name="edit_summary_added_image_and_caption">Pridané obrázok a titulky</string>
+  <string name="edit_published_view">Zobraziť</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>

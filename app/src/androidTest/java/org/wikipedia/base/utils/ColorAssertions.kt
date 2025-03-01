@@ -1,4 +1,4 @@
-package org.wikipedia.base
+package org.wikipedia.base.utils
 
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView

@@ -1416,7 +1416,8 @@
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">¿Confirmas que quieres deshacer esta edición?</string>
   <string name="revision_undo_message">Deshacer significa revertir los efectos de una o más ediciones.</string>
-  <string name="revision_undo_reason">Comparte el motivo de la reversión:</string>
+  <string name="revision_undo_summary_hint">Resumen (opcional)</string>
+  <string name="revision_undo_reason">Comparte el motivo de la reversión</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="revision_rollback_success">Ediciones revertidas.</string>
   <string name="revision_compare_button">Comparar</string>
@@ -1571,7 +1572,7 @@
   <string name="patroller_saved_message_body_copy_vio">Su edición reciente parece incluir material protegido por derechos de autor sin permiso. Asegúrese de que todo el contenido cumpla con las políticas de [[Wikipedia:Copyrights|copyright]]para evitar su eliminación.</string>
   <string name="patroller_saved_message_body_edit_summary">Hola, {{{nombre de usuario}}}, parece que eliminaste contenido de Wikipedia sin dejar un resumen de edición. Deje un resumen de edición cada vez que agregue o elimine contenido en Wikipedia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hola, {{{username}}}, parece que eliminaste contenido sin comentarlo en la página de discusión del artículo. Tenga en cuenta que Wikipedia no tiene censura y el contenido no se debe eliminar porque sea controvertido. Si cree que la información es inexacta, llegue a un consenso en la página de discusión del artículo.</string>
-  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
+  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensaje</string>
   <string name="talk_warn_saved_messages_usage_instruction">Utilice un mensaje de ejemplo a continuación para personalizar, enviar y guardar sus mensajes.</string>
   <string name="patroller_saved_message_body_art_imp">Hola {{{username}}}. ¡Tu artículo es un gran comienzo! Para hacerlo aún mejor, planteese agregar más referencias a fuentes confiables. Esto ayuda a verificar la información y mejora la calidad del artículo. Consulte las pautas de Wikipedia sobre [[Wikipedia:Reliable_sources|fuentes confiables]] para obtener más detalles.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
