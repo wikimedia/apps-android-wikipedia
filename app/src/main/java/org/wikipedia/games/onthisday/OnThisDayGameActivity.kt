@@ -63,6 +63,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private val cardAnimatorSetIn = AnimatorSet()
     private val cardAnimatorSetOut = AnimatorSet()
+    private var cardLongPressed = false
     private lateinit var mediaPlayer: MediaPlayer
 
     @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
@@ -102,23 +103,25 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         // Add long-press listeners to the cards
         binding.questionCard1.setOnLongClickListener {
-            showFullCardText(binding.questionText1, binding.questionThumbnail1)
+            showFullCardText(binding.questionText1, binding.questionThumbnail1, true)
+            cardLongPressed = true
             true
         }
         binding.questionCard1.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                hideFullCardText(binding.questionText1, binding.questionThumbnail1)
+            if (event.action == MotionEvent.ACTION_UP && cardLongPressed) {
+                showFullCardText(binding.questionText1, binding.questionThumbnail1, false)
             }
             false
         }
 
         binding.questionCard2.setOnLongClickListener {
-            showFullCardText(binding.questionText2, binding.questionThumbnail2)
+            showFullCardText(binding.questionText2, binding.questionThumbnail2, true)
+            cardLongPressed = true
             true
         }
         binding.questionCard2.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                hideFullCardText(binding.questionText2, binding.questionThumbnail2)
+            if (event.action == MotionEvent.ACTION_UP && cardLongPressed) {
+                showFullCardText(binding.questionText2, binding.questionThumbnail2, false)
             }
             false
         }
@@ -318,6 +321,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         layoutTextViewForEllipsize(binding.questionText1)
 
         val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
+        binding.questionThumbnail1.tag = thumbnailUrl1.isNullOrEmpty()
         if (thumbnailUrl1.isNullOrEmpty()) {
             binding.questionThumbnail1.isVisible = false
         } else {
@@ -331,6 +335,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         layoutTextViewForEllipsize(binding.questionText2)
 
         val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
+        binding.questionThumbnail2.tag = thumbnailUrl2.isNullOrEmpty()
         if (thumbnailUrl2.isNullOrEmpty()) {
             binding.questionThumbnail2.isVisible = false
         } else {
@@ -451,16 +456,22 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    private fun layoutTextViewForEllipsize(textView: TextView) {
+    private fun layoutTextViewForEllipsize(textView: TextView, ellipsize: Boolean = true) {
         textView.maxLines = Int.MAX_VALUE
         textView.post {
-            if (!isDestroyed) {
+            if (!isDestroyed && ellipsize) {
                 // this seems to be the only way to properly ellipsize the text in its layout.
                 if (textView.lineHeight > 0) {
                     textView.maxLines = (textView.measuredHeight / textView.lineHeight)
                 }
             }
         }
+    }
+
+    private fun showFullCardText(textView: TextView, imageView: ImageView, showFullText: Boolean) {
+        imageView.isVisible = !showFullText && !(imageView.tag as Boolean)
+        layoutTextViewForEllipsize(textView, !showFullText)
+        cardLongPressed = showFullText
     }
 
     private fun setCorrectIcon(view: ImageView) {
@@ -473,17 +484,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         view.setImageResource(R.drawable.ic_cancel_24px)
         view.imageTintList = ResourceUtil.getThemedColorStateList(this, R.attr.destructive_color)
         view.isVisible = true
-    }
-
-
-    private fun showFullCardText(textView: TextView, imageView: ImageView) {
-        imageView.isVisible = false
-        textView.maxLines = Int.MAX_VALUE
-    }
-
-    private fun hideFullCardText(textView: TextView, imageView: ImageView) {
-        imageView.isVisible = true
-        layoutTextViewForEllipsize(textView)
     }
 
     private fun enqueueGoNext(gameState: OnThisDayGameViewModel.GameState) {
