@@ -60,14 +60,28 @@
   <string name="menu_page_show_tabs">Кыбытыктары көрдөр</string>
   <string name="menu_page_other_languages">Атын тылынан</string>
   <string name="menu_page_find_in_page" fuzzy="true">Бу сирэйгэ булуу</string>
+  <string name="menu_page_watch">Кэтээ</string>
+  <string name="menu_page_unwatch">Кэтээмэ</string>
+  <string name="menu_page_view_talk">Ырытар сири көрүү</string>
+  <string name="menu_page_talk_page">Ырытар сирэй</string>
+  <string name="menu_page_view_edit_history">Уларытыы устуоруйатын көр</string>
+  <string name="menu_page_edit_history">Уларытыы устуоруйата</string>
+  <string name="menu_page_remove_from_watchlist">Кэтэбил испииһэгиттэн сот</string>
+  <string name="menu_page_watched">Кэтиир сирэйдэр испииһэктэригэр баар</string>
   <string name="edit_section_find_in_page">Бу сирэйгэ булуу</string>
   <string name="menu_page_font_and_theme">Бичигэ уонна тас көстүүтэ</string>
   <string name="menu_page_add_to_list">Ааҕар тиһиликкэ киллэр</string>
+  <string name="menu_page_add_to_default_list">Бигэргэт</string>
   <string name="feed_card_add_to_list">Ааҕар испииһэккэ киллэр</string>
+  <string name="feed_card_add_to_default_list">Бигэргэт</string>
   <string name="menu_page_share">Сигэни тарҕатыы</string>
+  <string name="menu_article_share">Ыстатыйан тарҕат</string>
+  <string name="menu_page_article_share">Тарҕат</string>
   <string name="menu_page_open_a_new_tab">Саҥа кыбытыгы арый</string>
+  <string name="menu_page_new_tab">Саҥа кыбытык</string>
   <string name="menu_page_reading_lists">Ааҕыы испииһэгэ</string>
   <string name="menu_page_recently_viewed">Соторутааҕыта көрүллүбүт</string>
+  <string name="menu_page_archive">Архыып</string>
   <string name="menu_long_press_open_page">Арый</string>
   <string name="menu_long_press_open_in_new_tab">Саҥа кыбытыкка арый</string>
   <string name="menu_long_press_copy_page">Сигэ аадырыһын хатылаа</string>
@@ -75,6 +89,7 @@
   <string name="on_this_day_page_share">Тарҕат</string>
   <string name="reading_list_page_share">Тарҕатыы</string>
   <string name="menu_text_select_edit_here">Маны көннөр</string>
+  <string name="menu_edit_article">Ыстатыйаны уларыт</string>
   <string name="last_updated_text">Тиһэх саҥардыы: %s</string>
   <string name="talk_page_link_text">Кэпсэтэр сири көрүү</string>
   <string name="edit_history_link_text">Уларытыы сурунаала</string>
@@ -91,12 +106,16 @@
   <string name="langlinks_your_wikipedia_languages">Бикипиэдьийэҥ омугун тыла</string>
   <string name="menu_save_changes">Уларытыылары бигэргэтии</string>
   <string name="edit_saved_successfully">Уларытыыҥ бигэргэннэ!</string>
+  <string name="stub_article_edit_saved_successfully">Уларытыыҥ киирдэ! Көстүөр диэри төһө эрэ кэм ааһыан сөп.</string>
   <string name="dialog_message_edit_failed">Уларытыы алҕаһа!</string>
   <string name="dialog_message_edit_failed_retry">Хатылаа</string>
   <string name="dialog_message_edit_failed_cancel">Салҕаама</string>
   <string name="dialog_message_leaving_edit">Уларытыыгын бигэргэппэтэххин. Сирэйтэн кырдьык тахсаары гынаҕын дуо?</string>
   <string name="dialog_message_leaving_edit_leave">Таҕыс</string>
   <string name="dialog_message_leaving_edit_stay">Хаал</string>
+  <string name="dialog_confirm_delete_donation_history_title">Сотууну бигэргэт</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Сот</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Салҕаама</string>
   <string name="menu_show_toc">Иһинээҕитэ</string>
   <string name="search_no_results_found">Туох да көстүбэтэ</string>
   <string name="search_reading_list_no_results">Манна \"%s\" туох да көстүбэтэ</string>
@@ -118,9 +137,9 @@
   <string name="reading_lists_sync_login">Киирии</string>
   <string name="create_account_login">Киир</string>
   <string name="menu_login">Киирии</string>
-  <string name="login_activity_title" fuzzy="true">Бикипиэдьийэҕэ киирии</string>
+  <string name="login_activity_title">Бикипиэдьийэҕэ киирии</string>
   <string name="login_in_progress_dialog_message">Киирии...</string>
-  <string name="login_success_toast" fuzzy="true">Этэҥҥэ киирдиҥ!</string>
+  <string name="login_success_toast">Этэҥҥэ киирдиҥ!</string>
   <string name="reset_password_title">Аһарыккын суруй</string>
   <string name="reset_password_description">Быстах кэмҥэ туттуллар аһарыгынан киирдиҥ.\nТүмүктүүргэ саҥа аһарыгы суруйуохтааххын.</string>
   <string name="reset_password_hint">Саҥа аһарык</string>
@@ -133,6 +152,8 @@
   <string name="logged_out_in_background_dialog">Бикипиэдьийэҕэ бэлиэ-ааккыттан тахсыбыккын. Төттөрү киирэҕин дуо?</string>
   <string name="logged_out_in_background_login">Киирии</string>
   <string name="logged_out_in_background_cancel">Салҕаама</string>
+  <string name="account_vanish_request_title">Бэлиэ ааты сот</string>
+  <string name="account_vanish_request_confirm_title">Бэлиэ ааты сотуу сэрэтиитэ</string>
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
   <string name="history_offline_articles_toast">Ситимҥэ холбоммотох буоллаххына, устуоруйа сорох сирэйдэрэ кыайан арыллыа суохтарын сөп.</string>
@@ -149,10 +170,11 @@
   <string name="dialog_create_account_checking_progress">Тургутуу</string>
   <string name="create_account_email_hint">Э-почта (булгуччута суох)</string>
   <string name="create_account_password_repeat_hint">Аһарыгы хатылаа</string>
+  <string name="create_account_password_is_username">Аһарык бэлиэ ааты кытта сөп түбэһиэ суохтаах</string>
   <string name="create_account_passwords_mismatch_error">Аһарыктарыҥ сөп түбэспэтилэр</string>
   <string name="create_account_email_error">Э-почтаҥ алҕастаах</string>
   <string name="create_account_username_error">Бэлиэ-аакка туһаныллыбат бэлиэлэр туран хаалбыттар</string>
-  <string name="create_account_password_error" fuzzy="true">Табыллыбат аhaрык</string>
+  <string name="create_account_password_error">Аhaрык аҕыстан ордук тамҕаттан туруохтаах</string>
   <string name="create_account_generic_error">Бэлиэтэнэр сатаммат</string>
   <string name="create_account_next">Аныгыскы</string>
   <string name="email_recommendation_dialog_title">Электрон аадырыһа суох бэлиэтэнэҕин дуо?</string>
@@ -166,6 +188,7 @@
   <string name="create_account_ip_block_help_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Хаачччахтааһын сиэрэ</string>
   <string name="create_account_ip_block_details">Сиһилии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
+  <string name="preferences_account_heading">Бэлиэ аат</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
   <string name="send_feedback">Дьибилгэт туһунан санааҕын ыыт</string>
   <string name="create_account_account_created_toast">Бэлиэтэнниҥ!</string>
@@ -181,6 +204,7 @@
   <string name="preference_title_auto_upload_crash_reports">Охтуу отчуоттарын ыытар буол</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо биһиги саахал туһунан тута билиэ этибит уонна алҕаһы түргэнник көннөрүө этибит.</string>
   <string name="editing_error_spamblacklist">Хааччахтаммыт дэмиэннэргэ сигэммиккин (%s). Бука диэн ону сотон баран хатылаан көр.</string>
+  <string name="history_filter_list_hint">Сиидэ устуоруйата</string>
   <string name="error_can_not_process_link">Бу сигэни көрдөрөр табыллыбата</string>
   <string name="page_protected_autoconfirmed">Бу сирэй сорҕото хатанна.</string>
   <string name="page_protected_sysop">Бу сирэй толору хатанна</string>
@@ -188,6 +212,7 @@
   <string name="page_protected_can_not_edit">Эн билигин бу сирэйи уларытар кыаҕыҥ суох эбит.</string>
   <string name="page_protected_can_not_edit_anon">Бу сирэй ааты эппэккэ уларытыллар кыаҕа суох эбит.</string>
   <string name="page_protected_can_not_edit_title">Бу сирэй хатанан турар</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Кэтэбил испииһэгэр киллэр</string>
   <string name="settings_item_preferences">Туруоруулар</string>
   <string name="settings_activity_title">Туруоруулар</string>
   <string name="about_description">Бикипиэдьийэ дьибилгэтин туһунан</string>
@@ -219,6 +244,9 @@
   <string name="edit_preview">Хайдах буолара</string>
   <string name="edit_undo">Төттөрү</string>
   <string name="edit_redo">Хатылаа</string>
+  <string name="edit_rollback">Төннөр</string>
+  <string name="edit_warn">Сэрэтии</string>
+  <string name="edit_damage">Хоромньу %s</string>
   <string name="edit_zoom_in">Чугаһатыы</string>
   <string name="edit_zoom_out">Кыччатыы</string>
   <string name="edit_summary_tag_typo">Сыыһата көннөрүлүннэ</string>
@@ -226,8 +254,12 @@
   <string name="edit_summary_tag_links">Сигэлэр киирдилэр</string>
   <string name="edit_summary_tag_other">Атын</string>
   <string name="edit_summary_tag_other_hint">Тупсарыыҥ атын ньымалара</string>
+  <string name="edit_summary_added_short_description">Кылгас ойуулааһын эбилиннэ</string>
+  <string name="edit_summary_updated_short_description">Кылгас ойуулааһын уларытылынна</string>
   <string name="edit_conflict_title">Уларытыы утарсыыта</string>
   <string name="edit_conflict_message">Атын киһи Эйигин кытта тэҥҥэ уларыппыт буолан харсыы үөскээтэ. Бэйэҥ уларытыыгын хатылаан ыл, төнүн, сирэйи саҥарт, онтон уларытыыгын хос киллэр.</string>
+  <string name="edit_notices">Уларытыы биллэриилэрэ</string>
+  <string name="edit_notices_please_read">Бука диэн, уларытыаҥ иннинэ аах</string>
   <string name="find_next">Салгыы көрдөө</string>
   <string name="find_previous">Эрдэтээҥини бул</string>
   <string name="find_first_occurence">Бу бастакы сөп түбэһии</string>
