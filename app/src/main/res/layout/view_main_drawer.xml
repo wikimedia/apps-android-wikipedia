@@ -201,6 +201,27 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/main_drawer_yearInReview_container"
+                style="@style/SideDrawerMenuItem">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/baseline_event_repeat_24"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/year_in_review" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
