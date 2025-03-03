@@ -79,7 +79,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (DeviceUtil.assertAppContext(this, true)) {
+        if (!DeviceUtil.assertAppContext(this, true)) {
             finish()
             return
         }
