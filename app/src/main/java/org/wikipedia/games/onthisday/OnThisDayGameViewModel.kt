@@ -37,7 +37,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
 
+    // TODO: initialize the state earlier in the loading process, so that the state is nonnull
+    // when the ViewModel is created, instead of only after the first loadGameState() call.
     private lateinit var currentState: GameState
+
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
     val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
@@ -196,20 +199,11 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value is GameStarted) {
-            "game_start"
+        } else if (_gameState.value == null || ::currentState.isInitialized.not() || _gameState.value is Resource.Loading) {
+            "game_loading"
         } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
         }
-    }
-
-    fun resetCurrentDayState() {
-        currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
-        persistState()
-    }
-
-    fun getCurrentGameState(): GameState {
-        return currentState
     }
 
     fun getArticlesMentioned(): List<PageSummary> {
@@ -227,6 +221,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getQuestionCorrectByPageTitle(pageTitle: String): Boolean {
         val index = events.indexOfFirst { it.pages.any { pageSummary -> pageSummary.apiTitle == pageTitle || pageSummary.displayTitle == pageTitle } }
         return currentState.answerState[if (index >= 0) index / 2 else 0]
+    }
+
+    fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
+        return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
     private fun composeQuestionState(index: Int): QuestionState {

@@ -1712,17 +1712,7 @@
   <string name="on_this_day_game_point">+1 poäng</string>
   <string name="on_this_day_game_next">Nästa fråga</string>
   <string name="on_this_day_game_finish">Slutresultat</string>
-  <string name="on_this_day_game_experiment_chip_text">Experiment</string>
-  <string name="on_this_day_game_nav_title">Spel</string>
   <string name="on_this_day_game_share">Dela med vänner</string>
-  <string name="on_this_day_game_encourage0">Bättre lycka imorgon!</string>
-  <string name="on_this_day_game_encourage1">Grattis!</string>
-  <string name="on_this_day_game_encourage2">Bra jobbat!</string>
-  <string name="on_this_day_game_encourage3">Utmärkt!</string>
-  <string name="on_this_day_game_share_title">Jag fick %1$d poäng av %2$d på WikiDate Detective idag</string>
-  <string name="on_this_day_game_share_subtitle">Inkluderade ämnen:</string>
-  <string name="on_this_day_game_share_footer">Spela endast under en begränsad tid i Wikipedias Android-app</string>
-  <string name="on_this_day_game_share_back_button">Gå tillbaka</string>
   <string name="on_this_day_game_pause_title">Pausa spelet?</string>
   <string name="on_this_day_game_pause_body">Dina framsteg kommer sparas för dagen. Du hittar spelet i ditt Utforska-flöde.</string>
   <string name="on_this_day_game_pause_negative">Fortsätt spela</string>
@@ -1744,7 +1734,6 @@
   <string name="on_this_day_game_menu_notifications">Spelaviseringar</string>
   <string name="on_this_day_game_menu_info">Ta reda på mer</string>
   <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
-  <string name="on_this_day_game_share_text">Jag spelar \"Vilket kom först?\" ett dagligt triviaspel i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_article_read_button">Läs artikeln</string>
   <string name="on_this_day_game_article_related_event_title">Evenemang som rör den här artikeln</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Du svarade rätt på frågan</string>
@@ -1766,4 +1755,6 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
+  <string name="back_button_content_description">Gå tillbaka</string>
+  <string name="about_screen_logo_accessibility_text">Wikipedias pusselglob-logotyp</string>
 </resources>

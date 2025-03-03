@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import android.content.Context
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
@@ -12,8 +13,8 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
 class LoginRobot : BaseRobot() {
 
@@ -36,8 +37,15 @@ class LoginRobot : BaseRobot() {
         }
     }
 
+    fun logOutUser(context: Context) = apply {
+        click.onViewWithId(R.id.main_drawer_settings_container)
+        SettingsRobot()
+            .clickLogOut(context)
+        click.onViewWithText("Log out")
+    }
+
     private fun clickLoginButton() = apply {
-        clicksOnDisplayedViewWithText(viewId = R.id.create_account_login_button, text = "Log in")
+        click.onDisplayedViewWithText(viewId = R.id.create_account_login_button, text = "Log in")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -57,12 +65,12 @@ class LoginRobot : BaseRobot() {
     }
 
     private fun loginUser() = apply {
-        scrollToViewAndClick(R.id.login_button)
+        scroll.toViewAndClick(R.id.login_button)
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun verifyLoginFailed() = apply {
-        checkViewExists(com.google.android.material.R.id.snackbar_text)
+        verify.viewExists(com.google.android.material.R.id.snackbar_text)
         delay(TestConfig.DELAY_SHORT)
     }
 

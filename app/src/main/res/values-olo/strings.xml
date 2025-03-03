@@ -4,6 +4,7 @@
 * Envlh
 * Ilja.mos
 * Mashoi7
+* Perunahillo
 -->
 <resources>
   <string name="app_name_prod">Wikipedii</string>
@@ -20,6 +21,7 @@
   <string name="nav_item_suggested_edits">Kohendukset</string>
   <string name="nav_item_more">Ozuta enämbi</string>
   <string name="nav_item_search">Eči</string>
+  <string name="nav_item_contribute">Avvuta</string>
   <string name="error_network_error">Yhtevytty internettah ei sua muvvostua</string>
   <string name="page_error_retry">Opi uvvessah</string>
   <string name="card_offline_error_retry">Opi uvvessah</string>
@@ -31,39 +33,84 @@
   <string name="error_next">Ielleh</string>
   <string name="menu_clear_all_history">Pyhki histourii</string>
   <string name="history_item_deleted">%s poistettu histouriespäi</string>
+  <string name="history_items_deleted">%d artiklua pyhkitty histouriespäi</string>
   <string name="history_item_delete_undo">Hylgiä</string>
   <string name="notification_archive_undo">Hylgiä</string>
   <string name="app_settings">Sovelduksen azetukset</string>
+  <string name="history_list_title">Histourii</string>
+  <string name="image_content_description">Kuva: %s</string>
+  <string name="page_content_description">Sivu: %s</string>
+  <string name="wikimedia_commons">Wikimedii Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pyhkie histourii?</string>
   <string name="dialog_message_clear_history">Tämä hävittäy kai livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
+  <string name="dialog_message_clear_history_yes">Muga</string>
+  <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Jagua</string>
+  <string name="image_share_via">Jua palvelus</string>
   <string name="search_redirect_from">Siirretty sivus \"%s\"</string>
+  <string name="page_edit_history_activity_title">Muutoshistourii: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;p&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tyhjy editoinduyhtehvedo</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Eči libo filtruiče editoihuksii</string>
+  <string name="page_edit_history_filter_by">Filtruiče</string>
+  <string name="page_edit_history_filter_by_all">Kai editoihukset (%s)</string>
+  <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Botat (%s)</string>
   <string name="menu_page_show_tabs">Ozuta liittehet</string>
   <string name="menu_page_other_languages">Luve toizil kielil</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Eči täl sivul</string>
+  <string name="menu_page_find_in_page">Eči täl artiklal</string>
+  <string name="menu_page_add_to_watchlist">Ližiä valvondulistah</string>
+  <string name="menu_page_watch">Tarkaile</string>
+  <string name="menu_page_unwatch">Lope tarkailu</string>
+  <string name="menu_page_view_talk">Ozuta paginsivu</string>
+  <string name="menu_page_talk_page">Paginsivu</string>
+  <string name="menu_page_view_edit_history">Ozuta editoihushistourii</string>
+  <string name="menu_page_edit_history">Editoihushistourii</string>
+  <string name="menu_page_remove_from_watchlist">Ota iäre valvondulistaspäi</string>
+  <string name="edit_section_find_in_page">Eči täl sivul</string>
   <string name="menu_page_font_and_theme">Kirjaimien kogo da muodo</string>
+  <string name="menu_page_add_to_list">Ližiä luvendulistah</string>
+  <string name="menu_page_add_to_default_list">Tallenda</string>
+  <string name="feed_card_add_to_list">Ližiä luvendulistah</string>
+  <string name="feed_card_add_to_default_list">Tallenda</string>
   <string name="menu_page_share">Jua linki</string>
+  <string name="menu_article_share">Jua artikla</string>
+  <string name="menu_page_article_share">Jua</string>
+  <string name="menu_page_open_a_new_tab">Avua uuzi välilehti</string>
+  <string name="menu_page_new_tab">Uuzi välilehti</string>
+  <string name="menu_page_reading_lists">Luvendulistat</string>
+  <string name="menu_page_archive">Arhiivu</string>
   <string name="menu_long_press_open_page">Avua</string>
   <string name="menu_long_press_open_in_new_tab">Avua uvves välilehtes</string>
   <string name="menu_long_press_copy_page">Kopiiruiče linkin adressi</string>
   <string name="menu_text_select_define">Merkičys</string>
+  <string name="on_this_day_page_share">Jua</string>
+  <string name="reading_list_page_share">Jua</string>
   <string name="menu_text_select_edit_here">Kohendele täs</string>
+  <string name="menu_edit_article">Editoiče artiklua</string>
   <string name="last_updated_text">Jälgimäine päivitys %s</string>
-  <string name="talk_page_link_text" fuzzy="true">Pagin</string>
+  <string name="talk_page_link_text">Ozuta paginsivu</string>
+  <string name="edit_history_link_text">Ozuta editoihushistourii</string>
+  <string name="map_view_link_text">Ozuta kartal</string>
+  <string name="other_languages_indication_text">Luve toizel kielel</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
-  <string name="preference_title_language" fuzzy="true">Wikipedien kieli</string>
+  <string name="preference_title_language">Wikipedien kielet</string>
   <string name="langlinks_filter_hint">Eči</string>
   <string name="langlinks_empty">Tädä sivuu ei ole toizil kielil</string>
-  <string name="langlinks_no_match" fuzzy="true">Ečittävii kielii ei löydynyh</string>
+  <string name="langlinks_no_match">Kielii ei löydynyh</string>
   <string name="langlinks_activity_title">Toizet kielet</string>
-  <string name="menu_save_changes" fuzzy="true">Tallenda muutokset</string>
-  <string name="edit_saved_successfully" fuzzy="true">Kohendus on tallendettu!</string>
+  <string name="langlinks_your_wikipedia_languages">Omat Wikipedii-kielet</string>
+  <string name="menu_save_changes">Julgua muutokset</string>
+  <string name="edit_saved_successfully">Kohendus jullattu!</string>
   <string name="dialog_message_edit_failed">Haireh kohendukses!</string>
   <string name="dialog_message_edit_failed_retry">Opi uvvessah</string>
   <string name="dialog_message_edit_failed_cancel">Hylgiä</string>
   <string name="dialog_message_leaving_edit" fuzzy="true">Sinun muutoksii ei vie tallendettu. Oletgo varmu, gu tahtot poistuo sivulpäi?</string>
   <string name="dialog_message_leaving_edit_leave">Poistuo</string>
   <string name="dialog_message_leaving_edit_stay">Jiäjä</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Ota iäre</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Hylgiä</string>
   <string name="menu_show_toc">Sizällysluvettelo</string>
   <string name="search_no_results_found">Ei löydynyh tuloksii</string>
   <string name="edit_section_captcha_message">Kirjuta ual olijat sanat spaman vältämizeh.</string>
@@ -73,15 +120,23 @@
   <string name="nav_item_login">Kirjuttai Wikipedieh</string>
   <string name="login_username_hint">Käyttäinimi</string>
   <string name="login_password_hint">Salasana</string>
+  <string name="account_creation_password_hint">Peittosana</string>
   <string name="menu_login">Kirjuttai</string>
   <string name="login_activity_title" fuzzy="true">Kirjuttai Wikipedieh</string>
   <string name="login_in_progress_dialog_message">Sistiemah kirjuttamine...</string>
   <string name="login_success_toast" fuzzy="true">Kirjutittos sistiemah!</string>
+  <string name="reset_password_title">Kirjuta peittosana</string>
+  <string name="reset_password_hint">Uuzi peittosana:</string>
   <string name="preference_title_logout">Kirjuttai ullos</string>
   <string name="toast_logout_complete">Ulloskirjutannuhes</string>
+  <string name="logout_dialog_cancel_button_text">Hylgiä</string>
+  <string name="logged_out_in_background_title">Ulloskirjutannuhes</string>
+  <string name="logged_out_in_background_cancel">Hylgiä</string>
   <string name="history_empty_title" fuzzy="true">Ei jälgimäzii sivuloi!</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;I&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäinimi</string>
+  <string name="login_dont_have_account">Eigo sinul ole käyttäjäntunnustu?</string>
+  <string name="login_forgot_password">Unohtitgo oman peittosanan?</string>
   <string name="create_account_activity_title">Luaji tili</string>
   <string name="dialog_create_account_checking_progress">Tarkistus</string>
   <string name="create_account_email_hint">Sähköpoštu (omatahtoine)</string>
@@ -90,8 +145,11 @@
   <string name="create_account_email_error">Sähköpoštuadressu ei päi</string>
   <string name="create_account_generic_error">Ei voinuh luadie tilii</string>
   <string name="create_account_next">Tulii</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Azeta sähköpoštuadressi</string>
   <string name="create_account_button">Luaji tili</string>
+  <string name="create_account_ip_block_details">Tarkukohtat</string>
   <string name="preferences_general_heading">Yleine</string>
+  <string name="preferences_account_heading">Käyttäi</string>
   <string name="wikipedia_app_faq">Wikipedii-sobevutuksen PKK</string>
   <string name="send_feedback">Sano oma mieli</string>
   <string name="create_account_account_created_toast">Tili luajittu!</string>

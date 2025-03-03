@@ -149,7 +149,7 @@
   <string name="search_reading_list_no_results">Нису пронађени резултати на листи „%s”</string>
   <string name="search_reading_lists_no_results">Нису пронађени резултати на листама за читање</string>
   <string name="search_history_no_results">Нису пронађени резултати у историји</string>
-  <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог непожељног садржаја, унесите речи које су приказане испод</string>
+  <string name="edit_section_captcha_message">Да бисте помогли у заштити против аутоматизованог нежељеног садржаја, унесите речи које су приказане испод</string>
   <string name="edit_section_captcha_request_an_account_message">Не видите слику? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Затражите налог&lt;/a&gt;.</string>
   <string name="edit_section_captcha_hint">Поновите речи изнад</string>
   <string name="title_captcha">Унесите CAPTCHA текст</string>
@@ -1631,6 +1631,10 @@
   <string name="survey_dialog_option_very_unsatisfied">Веома незадовољан</string>
   <string name="survey_dialog_cancel">Откажи</string>
   <string name="survey_dialog_submit">Пошаљи</string>
+  <string name="survey_dialog_next">Следеће</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Не</string>
+  <string name="survey_dialog_general_maybe">Можда</string>
   <string name="survey_dialog_input_hint">Додатне повратне информације</string>
   <string name="survey_dialog_submitted_snackbar">Повратне информације послате.</string>
   <string name="on_this_day_game_entry_dialog_title">Представљамо</string>
@@ -1643,6 +1647,7 @@
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следеће питање</string>
   <string name="on_this_day_game_finish">Коначни резултат</string>
+  <string name="on_this_day_game_share">Подели са пријатељима</string>
   <string name="on_this_day_game_pause_title">Паузирање игрице?</string>
   <string name="on_this_day_game_pause_negative">Настави играње</string>
   <string name="on_this_day_game_pause_positive">Разумео</string>
@@ -1655,5 +1660,11 @@
   <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Одговор је тачан</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Одговор није тачан</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Нека их укљученим</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Искључи их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да укључији их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
+  <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
+  <string name="back_button_content_description">Назад</string>
 </resources>

@@ -156,6 +156,7 @@
   <string name="dialog_message_leaving_edit_leave">떠나기</string>
   <string name="dialog_message_leaving_edit_stay">머물기</string>
   <string name="dialog_confirm_delete_donation_history_title">삭제 확인</string>
+  <string name="dialog_confirm_delete_donation_history_message">이 장치를 통해 이루어진 기부에만 적용됩니다.</string>
   <string name="dialog_confirm_delete_donation_history_delete">삭제</string>
   <string name="dialog_confirm_delete_donation_history_cancel">취소</string>
   <string name="menu_show_toc">목차</string>
@@ -439,6 +440,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">영상 어둡게 하기(어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용량을 줄입니다.</string>
+  <string name="preference_title_delete_local_donation_history">로컬 기부 내역 삭제</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
@@ -888,6 +890,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
+  <string name="description_too_long">사용자가 문서의 주제를 바로 이해할 수 있도록 설명은 간결하게 작성하십시오</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
   <string name="description_starts_with_lowercase">소문자로 시작하지 마세요.</string>
@@ -1589,6 +1592,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">기능을 어떻게 개선할 수 있나요?</string>
   <string name="patroller_diff_menu_edit_history_title">문서 편집 역사</string>
   <string name="patroller_diff_feedback_dialog_input_hint">피드백</string>
+  <string name="patroller_diff_feedback_tooltip">오버플로 메뉴를 탭하여 \'기능에 문제가 있습니다\'에서 언제든지 피드백을 제출할 수 있습니다.</string>
   <string name="patroller_saved_message_title_vandalism">문서 훼손 경고</string>
   <string name="patroller_saved_message_title_editing_tests">편집 테스트</string>
   <string name="patroller_saved_message_title_npov">중립적 시각</string>
@@ -1602,9 +1606,15 @@
   <string name="patroller_saved_message_body_vandalism">안녕하세요, {{{username}}}님. 귀하의 [{{{diffLink}}}|최근 기여] 중 하나 이상이 건설적이지 않은 것으로 간주되어 되돌렸음을 알려드립니다. 제가 실수했다고 생각되거나 질문이 있으면 [[User talk:{{{senderUserName}}}|제 토론 문서]]에 메시지를 남겨주세요. 계속하여 훼손을 할 경우 제한을 받을 수 있습니다.</string>
   <string name="patroller_saved_message_body_editing_tests">안녕하세요 {{{username}}}님, 귀하가 위키백과에서 편집하는 방법을 배우는 데 관심을 가지게 되어 기쁩니다. 귀하가 한 편집 테스트는 효과가 있었습니다. 하지만 이 프로젝트의 목표는 모든 사람이 참조할 수 있는 신뢰할 수 있고 완전한 백과사전을 만드는 것임을 명심해야 합니다. 귀하의 편집은 콘텐츠에 영향을 미쳤으므로 제거되었습니다.\n위키백과의 편집 방법을 배우고 싶다면, [[위키백과:연습장|연습장]]을 이용하세요. 특정 문서에 대한 의견이 있으시다면, 문서의 토론 문서에서 논의할 수 있습니다.</string>
   <string name="patroller_saved_message_body_npov">안녕하세요. {{{username}}}, 여러분이 이바지한 몇 가지 기여는 이 위키백과의 [[위키백과:중립적 시각|중립적 시각]] 정책에 따라야 하는 중립성을 충족시키지 않습니다. 이 이유로 일부 내용을 수정하거나 제거하였다. 일부 견해를 나타내는 문장이나 장을 수정하여, 백과사전에 기대되는 것에 따라 보다 중립적이고 객관적인 텍스트를 사용하여 그를 대체하십시오.</string>
+  <string name="patroller_saved_message_body_auto_trans">안녕하세요, {{{username}}}님. 귀하가 한 기여 중 일부는 기계 번역일 가능성이 있으므로 틀로 수정되거나 표시되었습니다. 문서에 개선 사항이 없으면 삭제될 수 있습니다.\n\n이 모든 정보에도 불구하고 여전히 질문이 있는 경우 [[User talk:{{{senderUserName}}}|저의 토론 문서]]에 메시지를 남겨주세요. 이 작은 사건에 좌절하지 마세요. 귀하의 기여는 위키백과에 매우 중요합니다.</string>
+  <string name="patroller_saved_message_body_coi_rem">안녕하세요, {{{username}}}님. 위키백과에서의 귀하의 협력에 감사드립니다. 하지만 귀하가 [[위키백과:이해관계의 충돌|이해관계의 충돌]]에 처해 있는 것 같습니다. 이해관계의 충돌은 위키백과의 중립성과 신뢰성이라는 목표와 특정 편집자, 개인, 단체 또는 회사의 특정 목표가 양립할 수 없는 경우를 말합니다.\n\n일반 이름공간의 모든 기여는 이 위키백과의 콘텐츠 기준([[위키백과:위키백과에 대한 오해|위키백과에 대한 오해]]), 백과사전적 품질([[위키백과:확인 가능|검증 가능성]]과 [[위키백과:독자 연구 금지|독자 연구 금지]]), 편집 방법([[위키백과:중립적 시각|중립적 시각]]), 콘텐츠의 적법성([[위키백과:저작권|저작권]]) 정책의 적용을 받습니다. 모든 게시자는 콘텐츠를 만들고 평가할 때 이러한 정책을 준수하고 다른 게시자의 행동을 존중하고 선의로 여겨 이러한 정책이 준수되도록 해야 합니다.\n\n이해관계의 충돌에 따라 편집하는 경우 해당 정책을 특별히 주의해서 적용해야 합니다. 그렇지 않으면 사용자 계정이 개인 용도로 간주되어 차단될 수 있습니다. 질문이 있으면 저의 토론 문서에서 언제든지 문의하세요.</string>
+  <string name="patroller_saved_message_body_final_warning">수차례의 비생산적인 편집을 했기 때문에 이번이 마지막 경고입니다. 위키백과를 다시 훼손하면 편집이 차단됩니다.</string>
+  <string name="patroller_saved_message_body_copy_vio">최근 편집 내용에 허가 없이 저작권이 있는 자료가 포함된 것으로 보입니다. 삭제를 피하려면 모든 콘텐츠가 이 위키백과의 [[위키백과:저작권|저작권]] 정책을 준수하는지 확인하세요.</string>
   <string name="patroller_saved_message_body_edit_summary">안녕하세요. {{{username}}}, 편집 요약을 남기지 않고 위키백과의 내용을 삭제한 것으로 보입니다. 위키백과에 콘텐츠를 추가하거나 제거할 때마다 편집 요약을 남겨주세요.</string>
   <string name="patroller_saved_message_body_do_not_censor">안녕하세요, {{{username}}}님. 문서 토론 페이지에서 논의 없이 내용을 삭제하신 것 같습니다. 위키백과는 검열을 받지 않으며 논란의 여지가 있다는 이유로 내용을 삭제해서는 안 됩니다. 정보가 부정확하다고 생각되면 문서 토론 페이지에서 총의를 수립해 주세요.</string>
   <string name="talk_warn_learn_more_label">메시지 플레이스홀더에 관해 알아보기</string>
+  <string name="talk_warn_saved_messages_usage_instruction">아래의 예제 메시지를 사용하여 메시지를 사용자에 맞게 구성하고 보내고 저장하세요.</string>
+  <string name="patroller_saved_message_body_art_imp">안녕하세요, {{{username}}}님. 귀하의 글은 좋은 시작입니다! 더욱 좋게 만들려면 신뢰할 수 있는 출처에 대한 참조를 더 추가하는 것을 고려하세요. 이렇게 하면 정보를 검증하고 문서의 품질을 향상시키는 데 도움이 됩니다. 자세한 내용은 [[위키백과:신뢰할 수 있는 출처|신뢰할 수 있는 출처]]에 대한 이 위키백과의 지침을 확인하세요.</string>
   <string name="talk_templates_menu_edit_title">편집</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
@@ -1632,6 +1642,7 @@
   <string name="donate_gpay_help_other_ways">다른 기부 방법</string>
   <string name="donate_gpay_help_faq">자주 묻는 질문</string>
   <string name="donate_gpay_help_tax">세금 공제 정보</string>
+  <string name="donation_history_deleted_message_snackbar">기부자 역사가 삭제되었습니다</string>
   <string name="places_title">장소</string>
   <string name="places_permissions_denied">지도에서 내 위치를 보려면 위치 권한이 필요합니다. 다시 시도해 주십시오.</string>
   <string name="places_search_hint">장소 검색</string>
@@ -1661,6 +1672,7 @@
   <string name="survey_dialog_general_maybe">아마도</string>
   <string name="survey_dialog_input_hint">추가 피드백</string>
   <string name="survey_dialog_submitted_snackbar">의견이 제출되었습니다. 고맙습니다!</string>
+  <string name="on_this_day_game_entry_dialog_title">소개</string>
   <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
   <string name="on_this_day_game_entry_dialog_button">오늘의 게임 플레이</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
@@ -1671,15 +1683,38 @@
   <string name="on_this_day_game_point">+1점</string>
   <string name="on_this_day_game_next">다음 질문</string>
   <string name="on_this_day_game_finish">최종 결과</string>
-  <string name="on_this_day_game_nav_title">게임</string>
-  <string name="on_this_day_game_encourage1">축하합니다!</string>
-  <string name="on_this_day_game_share_back_button">돌아가기</string>
+  <string name="on_this_day_game_share">친구와 공유하기</string>
+  <string name="on_this_day_game_pause_title">게임을 일시 중지하시겠습니까?</string>
+  <string name="on_this_day_game_pause_negative">계속 플레이합니다</string>
   <string name="on_this_day_game_pause_positive">알겠습니다</string>
   <string name="on_this_day_game_feed_entry_card_heading">위키백과 게임</string>
   <string name="on_this_day_game_result">%2$d점 중 %1$d점을 받았습니다.</string>
   <string name="on_this_day_game_next_in">다음 게임 (%s)</string>
+  <string name="on_this_day_game_your_stats">내 통계</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="other">플레이한 게임</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">평균 점수</string>
+  <string name="on_this_day_game_result_subtitle">오늘의 게임에서 참조된 문서</string>
+  <string name="on_this_day_game_menu_notifications">게임 알림</string>
   <string name="on_this_day_game_menu_info">더 알아보기</string>
+  <string name="on_this_day_game_menu_feedback">기능에 문제가 있습니다</string>
+  <string name="on_this_day_game_article_read_button">문서 읽기</string>
+  <string name="on_this_day_game_article_related_event_title">본 문서와 관련된 이벤트</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">당신은 이 질문을 맞혔습니다</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">당신은 이 질문을 틀렸습니다</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">게임 알림을 끄시겠습니까?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">게임 알림을 켜시겠습니까?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">게임 알림 기능은 매일 새로운 게임이 플레이 가능할 때 알려줍니다.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">아니요, 켠 상태로 유지합니다</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">끈 상태로 유지합니다</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">예, 켠 상태로 유지합니다</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">끈 상태로 유지합니다</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">게임 알림이 꺼졌습니다.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">게임 알림이 켜졌습니다.</string>
+  <string name="on_this_day_game_report_email_subject">문제 보고 - 위키백과 게임</string>
   <string name="on_this_day_game_notification_undo">실행 취소</string>
+  <string name="on_this_day_game_survey_q1">이 게임에 얼마나 만족하셨나요?</string>
+  <string name="on_this_day_game_survey_q2">다양한 위키백과 게임을 해보고 싶으신가요?</string>
+  <string name="back_button_content_description">돌아가기</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* A100Star
 * Amire80
 * Cooltey
 * Dbrant
@@ -195,7 +196,7 @@
   <string name="logged_out_in_background_cancel">ביטול</string>
   <string name="account_vanish_request_title">העלמת החשבון שלך</string>
   <string name="account_vanish_request_confirm_title">אזהרת העלמת חשבון</string>
-  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לתמיד&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה מתבצעת על ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לנצח&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה נעשית על־ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -1794,6 +1795,10 @@
   <string name="survey_dialog_option_very_unsatisfied">מאוד לא מרוצה</string>
   <string name="survey_dialog_cancel">ביטול</string>
   <string name="survey_dialog_submit">שליחה</string>
+  <string name="survey_dialog_next">הבא</string>
+  <string name="survey_dialog_general_yes">כן</string>
+  <string name="survey_dialog_general_no">לא</string>
+  <string name="survey_dialog_general_maybe">אולי</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
   <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
@@ -1810,23 +1815,25 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
+  <string name="on_this_day_game_share">לשתף עם חברים</string>
   <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
   <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
   <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
   <string name="on_this_day_game_pause_positive">הבנתי</string>
   <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
-  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">מה היה קודם?</string>
+  <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
   <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
+  <string name="on_this_day_game_stats_games_played">{{PLURAL|one=משחק ששוחק|two=משחקים ששוחקו|many=משחקים ששוחקו|other=משחקים ששוחקו)}</string>
   <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
   <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
   <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
+  <string name="on_this_day_game_completed_message">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
   <string name="on_this_day_game_menu_notifications">התראות משחק</string>
   <string name="on_this_day_game_menu_info">מידע נוסף</string>
   <string name="on_this_day_game_menu_feedback">בעיה עם תכונה</string>
-  <string name="on_this_day_game_share_text">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
   <string name="on_this_day_game_article_read_button">לקרוא את הערך</string>
   <string name="on_this_day_game_article_related_event_title">אירוע שקשור לערך הזה</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">ענית את השאלה הזאת נכון</string>
@@ -1846,4 +1853,6 @@
   <string name="on_this_day_game_report_email_body">נתקלתי בבעיה בתכונת משחקי ויקיפדיה:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
   <string name="on_this_day_game_notification_undo">ביטול</string>
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
+  <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
+  <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
 </resources>

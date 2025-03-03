@@ -31,7 +31,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "game_play", slideName = "game_start")
         return binding.root
     }
 
@@ -39,7 +39,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.playGameButton.setOnClickListener {
-            WikiGamesEvent.submit("play_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
             requireActivity().supportFragmentManager.popBackStack()
             (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
         }
@@ -54,8 +54,12 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             }
         }
 
-        fun maybeShowOnThisDayGameDialog(activity: Activity, wikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
-            if (!Prefs.otdEntryDialogShown && OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
+        fun maybeShowOnThisDayGameDialog(activity: Activity, invokeSource: Constants.InvokeSource, articleWikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
+            val wikiSite = WikipediaApp.instance.wikiSite
+            // Both of the primary language and the article language should be in the supported languages list.
+            if (!Prefs.otdEntryDialogShown &&
+                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
+                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
@@ -65,7 +69,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     .show()
                 dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                     WikiGamesEvent.submit("enter_click", "game_modal")
-                    activity.startActivityForResult(OnThisDayGameActivity.newIntent(activity, InvokeSource.PAGE_ACTIVITY, wikiSite), 0)
+                    activity.startActivityForResult(OnThisDayGameActivity.newIntent(activity, invokeSource, wikiSite), 0)
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {

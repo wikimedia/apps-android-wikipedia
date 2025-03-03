@@ -15,11 +15,13 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
@@ -63,7 +65,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -98,8 +100,34 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
         }
 
+        // Add long-press listeners to the cards
+        binding.questionCard1.setOnLongClickListener {
+            showFullCardText(binding.questionText1, binding.questionThumbnail1, true)
+            binding.questionText1.tag = true
+            true
+        }
+        binding.questionCard1.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText1.tag as? Boolean) == true) {
+                showFullCardText(binding.questionText1, binding.questionThumbnail1, false)
+            }
+            false
+        }
+
+        binding.questionCard2.setOnLongClickListener {
+            showFullCardText(binding.questionText2, binding.questionThumbnail2, true)
+            binding.questionText2.tag = true
+            true
+        }
+        binding.questionCard2.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText2.tag as? Boolean) == true) {
+                showFullCardText(binding.questionText2, binding.questionThumbnail2, false)
+            }
+            false
+        }
+
         binding.nextQuestionText.setOnClickListener {
             viewModel.submitCurrentResponse(0)
+            binding.nextQuestionText.isVisible = false
         }
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
@@ -162,15 +190,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
-                if (viewModel.gameState.value !is OnThisDayGameViewModel.GameStarted &&
-                    viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                    showPauseDialog()
-                    true
-                } else {
-                    onFinish()
-                    true
-                }
+                onBackPressed()
+                true
             }
             R.id.menu_learn_more -> {
                 WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName())
@@ -202,12 +223,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onBackPressed() {
-        if (viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+        WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
+        if (viewModel.gameState.value !is Resource.Loading &&
+            !isOnboardingFragmentVisible() &&
+            viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
         }
         super.onBackPressed()
         onFinish()
+    }
+
+    private fun isOnboardingFragmentVisible(): Boolean {
+        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameOnboardingFragment
     }
 
     private fun onFinish() {
@@ -287,40 +315,30 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionCard2.tag = event2
 
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
-        binding.questionText1.maxLines = Integer.MAX_VALUE
+        binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText1.text = event1.text
-        binding.questionText1.post {
-            if (!isDestroyed) {
-                // this seems to be the only way to properly ellipsize the text in its layout.
-                if (binding.questionText1.lineHeight > 0) {
-                    binding.questionText1.maxLines = (binding.questionText1.measuredHeight / binding.questionText1.lineHeight)
-                }
-            }
-        }
+        layoutTextViewForEllipsize(binding.questionText1)
 
-        val thumbnailUrl1 = event1.pages.firstOrNull()?.thumbnailUrl
+        val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
+        binding.questionThumbnail1.tag = thumbnailUrl1.isNullOrEmpty()
         if (thumbnailUrl1.isNullOrEmpty()) {
-            binding.questionThumbnail1.setImageResource(R.mipmap.launcher)
+            binding.questionThumbnail1.isVisible = false
         } else {
+            binding.questionThumbnail1.isVisible = true
             ViewUtil.loadImage(binding.questionThumbnail1, thumbnailUrl1, placeholderId = R.mipmap.launcher)
         }
 
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
-        binding.questionText2.maxLines = Integer.MAX_VALUE
+        binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText2.text = event2.text
-        binding.questionText2.post {
-            if (!isDestroyed) {
-                // this seems to be the only way to properly ellipsize the text in its layout.
-                if (binding.questionText2.lineHeight > 0) {
-                    binding.questionText2.maxLines = (binding.questionText2.measuredHeight / binding.questionText2.lineHeight)
-                }
-            }
-        }
+        layoutTextViewForEllipsize(binding.questionText2)
 
-        val thumbnailUrl2 = event2.pages.firstOrNull()?.thumbnailUrl
+        val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
+        binding.questionThumbnail2.tag = thumbnailUrl2.isNullOrEmpty()
         if (thumbnailUrl2.isNullOrEmpty()) {
-            binding.questionThumbnail2.setImageResource(R.mipmap.launcher)
+            binding.questionThumbnail2.isVisible = false
         } else {
+            binding.questionThumbnail2.isVisible = true
             ViewUtil.loadImage(binding.questionThumbnail2, thumbnailUrl2, placeholderId = R.mipmap.launcher)
         }
 
@@ -384,11 +402,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.isVisible = false
+        updateQuestionEndLayout()
         binding.correctIncorrectText.setText(R.string.on_this_day_game_correct)
         binding.pointsText.isVisible = true
-        binding.nextQuestionText.isVisible = false
-        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -406,10 +422,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
         updateGameState(gameState)
 
-        binding.whichCameFirstText.isVisible = false
+        updateQuestionEndLayout()
         binding.correctIncorrectText.setText(R.string.on_this_day_game_incorrect)
-        binding.nextQuestionText.isVisible = false
-        binding.centerContent.isVisible = true
 
         if (gameState.currentQuestionState.event1.year < gameState.currentQuestionState.event2.year) {
             binding.questionDate1.setBackgroundResource(R.drawable.game_date_background_correct)
@@ -427,6 +441,35 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         playSound("sound_error")
         enqueueGoNext(gameState)
+    }
+
+    private fun updateQuestionEndLayout() {
+        binding.whichCameFirstText.isVisible = false
+        binding.nextQuestionText.isVisible = false
+        binding.centerContent.isVisible = true
+        if (!binding.questionThumbnail1.isVisible) {
+            binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(40f) }
+        }
+        if (!binding.questionThumbnail2.isVisible) {
+            binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = DimenUtil.roundedDpToPx(40f) }
+        }
+    }
+
+    private fun layoutTextViewForEllipsize(textView: TextView, ellipsize: Boolean = true) {
+        textView.maxLines = Int.MAX_VALUE
+        textView.post {
+            if (!isDestroyed && ellipsize) {
+                // this seems to be the only way to properly ellipsize the text in its layout.
+                if (textView.lineHeight > 0) {
+                    textView.maxLines = (textView.measuredHeight / textView.lineHeight)
+                }
+            }
+        }
+    }
+
+    private fun showFullCardText(textView: TextView, imageView: ImageView, showFullText: Boolean) {
+        imageView.isVisible = !showFullText && (imageView.tag as? Boolean) == false
+        layoutTextViewForEllipsize(textView, !showFullText)
     }
 
     private fun setCorrectIcon(view: ImageView) {
@@ -489,6 +532,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
+        cardAnimatorSetIn.removeAllListeners()
         cardAnimatorSetIn.cancel()
         cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetIn.doOnEnd {
@@ -523,6 +567,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         translationA2.startDelay = duration
         translationA2.interpolator = interpolator
 
+        cardAnimatorSetOut.removeAllListeners()
         cardAnimatorSetOut.cancel()
         cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetOut.doOnEnd {

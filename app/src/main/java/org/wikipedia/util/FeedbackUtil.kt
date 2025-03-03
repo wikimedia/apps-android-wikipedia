@@ -35,6 +35,7 @@ import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.log.L
+import org.wikipedia.views.AllowSnackbarOverBottomSheet
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
@@ -250,7 +251,8 @@ object FeedbackUtil {
     }
 
     private fun findBestView(activity: Activity): View {
-        // If the activity is currently displaying a bottom sheet, use that as the anchor view.
+        // If the activity is currently displaying a bottom sheet over which we allow a snackbar,
+        // use the bottom sheet's view as the anchor for the snackbar.
         getTopmostBottomSheetFragment(activity)?.let {
             return it.requireView()
         }
@@ -279,7 +281,7 @@ object FeedbackUtil {
     }
 
     private fun getTopmostBottomSheetFragment(fragment: Fragment): BottomSheetDialogFragment? {
-        if (fragment is BottomSheetDialogFragment && fragment.view != null) {
+        if (fragment is BottomSheetDialogFragment && fragment is AllowSnackbarOverBottomSheet && fragment.view != null) {
             return fragment
         }
         fragment.childFragmentManager.fragments.forEach {

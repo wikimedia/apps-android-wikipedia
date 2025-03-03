@@ -25,6 +25,7 @@
 * ManuelFranz
 * McDutchie
 * Metalhead64
+* Mike is Michi
 * Mirzali
 * MrBenjo
 * MuratTheTurkish
@@ -1661,6 +1662,7 @@
   <string name="donate_gpay_maximum_amount">Wir können über unsere App keine Spenden annehmen, die höher als %s sind. Bitte wende dich an unser Teammitglied für Großspenden unter benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Danke!&lt;/b&gt; Deine Großzügigkeit gegenüber Wikipedia bedeutet uns so viel.</string>
   <string name="donate_gpay_help_problems">Probleme beim Spenden?</string>
+  <string name="donate_gpay_help_other_ways">Andere Möglichkeiten zu spenden</string>
   <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
   <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
   <string name="places_title">Orte</string>
@@ -1679,5 +1681,67 @@
   <string name="survey_dialog_option_very_unsatisfied">Sehr unzufrieden</string>
   <string name="survey_dialog_cancel">Abbrechen</string>
   <string name="survey_dialog_submit">Speichern</string>
+  <string name="survey_dialog_next">Nächste</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nein</string>
+  <string name="survey_dialog_general_maybe">Vielleicht</string>
+  <string name="survey_dialog_input_hint">Zusätzliches Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback gesendet. Danke!</string>
+  <string name="on_this_day_game_entry_dialog_title">Wir präsentieren</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
+  <string name="on_this_day_game_entry_dialog_button">Heutiges Spiel spielen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiele sind im Entdecken-Feed verfügbar.</string>
+  <string name="on_this_day_game_title">Was war zuerst?</string>
+  <string name="on_this_day_game_dialog_button">Spielen</string>
+  <string name="on_this_day_game_splash_message">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
+  <string name="on_this_day_game_progress">%1$d von %2$d</string>
+  <string name="on_this_day_game_score">Punktzahl: %d</string>
+  <string name="on_this_day_game_correct">Richtig!</string>
+  <string name="on_this_day_game_incorrect">Falsch!</string>
+  <string name="on_this_day_game_point">+1 Punkt</string>
+  <string name="on_this_day_game_next">Nächste Frage</string>
+  <string name="on_this_day_game_finish">Endergebnisse</string>
+  <string name="on_this_day_game_share">Mit Freunden teilen</string>
+  <string name="on_this_day_game_pause_title">Spiel pausieren?</string>
+  <string name="on_this_day_game_pause_body">Ihr Fortschritt wird für den Tag gespeichert. Sie können das Spiel in Ihrem Entdecken-Feed finden.</string>
+  <string name="on_this_day_game_pause_negative">Weiterspielen</string>
+  <string name="on_this_day_game_pause_positive">Verstanden</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiele</string>
+  <string name="on_this_day_game_feed_entry_card_title">Was war zuerst?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
+  <string name="on_this_day_game_result">Sie haben %1$d von %2$d erzielt.</string>
+  <string name="on_this_day_game_next_in">Nächstes Spiel in %s</string>
+  <string name="on_this_day_game_your_stats">Ihre Statistiken</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Spiel gespielt</item>
+    <item quantity="other">Spiele gespielt</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Durchschnitts-Punktzahl</string>
+  <string name="on_this_day_game_stats_streak">Gegenwärtige Serie</string>
+  <string name="on_this_day_game_result_subtitle">Im heutigen Spiel referenzierte Artikel</string>
+  <string name="on_this_day_game_completed_message">Danke fürs Spielen. Ein neues \"Was war zuerst?\"-Spiel steht täglich im Entdecken-Feed bereit</string>
+  <string name="on_this_day_game_menu_notifications">Spielbenachrichtigungen</string>
+  <string name="on_this_day_game_menu_info">Mehr erfahren</string>
+  <string name="on_this_day_game_menu_feedback">Problem mit der Funktion</string>
+  <string name="on_this_day_game_article_read_button">Artikel lesen</string>
+  <string name="on_this_day_game_article_related_event_title">Mit diesem Artikel verbundenes Ereignis</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Sie haben diese Frage richtig beantwortet</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Sie haben diese Frage falsch beantwortet</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Spielbenachrichtigungen deaktivieren?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Wenn Sie Push-Benachrichtigungen deaktivieren, erhalten Sie nicht mehr jeden Tag eine Erinnerung, wenn ein neues Spiel bereitsteht.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Spielbenachrichtigungen aktivieren?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Spielbenachrichtigungen informieren Sie täglich per Push-Benachrichtigung, wenn ein neues Spiel bereitsteht.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nein, aktiviert lassen</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Deaktivieren</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ja, aktivieren</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Deaktiviert lassen</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spielbenachrichtigungen aus.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spielbenachrichtigungen an.</string>
+  <string name="on_this_day_game_notification_text">Das heutige „Was war zuerst da?“-Spiel ist bereit.</string>
+  <string name="on_this_day_game_report_email_subject">Problembericht – Wikipedia-Spiele</string>
+  <string name="on_this_day_game_report_email_body">Ich habe ein Problem mit der Funktion „Wikipedia-Spiele“ festgestellt:\n- [Beschreiben Sie das spezifische Problem]\n\nDas Verhalten, das ich gerne sehen würde, ist:\n- [Beschreiben Sie die vorgeschlagene Lösung]</string>
+  <string name="on_this_day_game_notification_undo">Widerrufen</string>
+  <string name="on_this_day_game_share_link_message">Ich spiele „Was war zuerst da?“, ein tägliches Quiz-Spiel in der Wikipedia-Android-App %s</string>
+  <string name="on_this_day_game_survey_q1">Wie zufrieden waren Sie mit diesem Spiel?</string>
+  <string name="on_this_day_game_survey_q2">Hätten Sie Interesse, andere Wikipedia-Spiele zu spielen?</string>
 </resources>
