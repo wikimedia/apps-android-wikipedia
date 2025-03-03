@@ -58,5 +58,9 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
             .clickImageTags()
             .pressBack()
             .clickSuggestedEdits()
+        navRobot
+            .navigateToMoreMenu()
+        loginRobot
+            .logOutUser(context)
     }
 }
