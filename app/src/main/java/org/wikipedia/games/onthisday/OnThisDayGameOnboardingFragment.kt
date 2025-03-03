@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -53,9 +54,12 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             }
         }
 
-        fun maybeShowOnThisDayGameDialog(activity: Activity) {
+        fun maybeShowOnThisDayGameDialog(activity: Activity, invokeSource: Constants.InvokeSource, articleWikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
             val wikiSite = WikipediaApp.instance.wikiSite
-            if (!Prefs.otdEntryDialogShown && OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode)) {
+            // Both of the primary language and the article language should be in the supported languages list.
+            if (!Prefs.otdEntryDialogShown &&
+                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
+                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)
@@ -65,7 +69,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     .show()
                 dialogView.findViewById<Button>(R.id.playGameButton).setOnClickListener {
                     WikiGamesEvent.submit("enter_click", "game_modal")
-                    activity.startActivityForResult(OnThisDayGameActivity.newIntent(activity, InvokeSource.PAGE_ACTIVITY, wikiSite), 0)
+                    activity.startActivityForResult(OnThisDayGameActivity.newIntent(activity, invokeSource, wikiSite), 0)
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
