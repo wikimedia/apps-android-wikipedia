@@ -127,17 +127,17 @@ class LanguagesViewModel : ViewModel() {
         var first = true
         for (code in codes) {
             val localizedName = StringUtils.stripAccents(
-                WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code).orEmpty()
+                WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty()
             )
 
-            // Only attempt to get canonical name if site is available
+            // Only attempt to get canonical name if the site is available
             val canonicalName = if (siteInfoAvailable) {
                 StringUtils.stripAccents(getCanonicalName(code))
             } else ""
 
             if (filter.isEmpty() || code.contains(filter, true) ||
                 localizedName.contains(filter, true) ||
-                (canonicalName.isNotEmpty() && canonicalName.contains(filter, true))) {
+                canonicalName.contains(filter, true)) {
 
                 if (first) {
                     results.add(
@@ -152,7 +152,6 @@ class LanguagesViewModel : ViewModel() {
                 results.add(
                     LanguageListItem(
                         code = code,
-                        localizedName = localizedName,
                         canonicalName = canonicalName
                     )
                 )
@@ -162,6 +161,6 @@ class LanguagesViewModel : ViewModel() {
 
     private fun getCanonicalName(code: String): String {
         return _siteInfoList.value.find { it.code == code }?.localname.orEmpty()
-            .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty() }
+            .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code).orEmpty() }
     }
 }

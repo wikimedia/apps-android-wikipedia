@@ -1,9 +1,14 @@
 package org.wikipedia.language.langList
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,9 +18,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -31,17 +36,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
-import org.wikipedia.compose.components.SearchTopAppBar
-import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.StringUtil
 
 @Composable
 fun LanguagesListParentScreen(
     modifier: Modifier = Modifier,
     vieModel: LanguagesViewModel = viewModel(),
-    onBackButtonClick: () -> Unit
+    onBackButtonClick: () -> Unit,
+    onListItemClick: (code: String) -> Unit,
+    onLanguageSearched: (Boolean) -> Unit,
 ) {
     val uiState = vieModel.uiState.collectAsState().value
     BaseTheme {
@@ -52,7 +60,9 @@ fun LanguagesListParentScreen(
             onBackButtonClick = onBackButtonClick,
             onSearchQueryChange = { query ->
                 vieModel.updateSearchTerm(query)
-            }
+            },
+            onListItemClick = onListItemClick,
+            onLanguageSearched = onLanguageSearched
         )
     }
 }
@@ -64,45 +74,24 @@ fun LanguagesListScreen(
     isSiteInfoLoaded: Boolean = false,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
+    onListItemClick: (code: String) -> Unit,
+    onLanguageSearched: (Boolean) -> Unit,
 ) {
-    var isSearchActive by remember { mutableStateOf(false) }
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
-
     Scaffold(
         topBar = {
-            if (isSearchActive) {
-                SearchTopAppBar(
-                    searchQuery = searchQuery,
-                    onSearchQueryChange = {
-                        searchQuery = it
-                        onSearchQueryChange(it)
-                    },
-                    onBackButtonClick = {
-                        isSearchActive = false
-                        onSearchQueryChange("")
-                    }
-                )
-            } else {
-                WikiTopAppBar(
-                    title = context.getString(R.string.languages_list_activity_title),
-                    onNavigationClick = onBackButtonClick,
-                    actions = {
-                        IconButton(
-                            onClick = {
-                                isSearchActive = true
-                            },
-                            content = {
-                                Icon(
-                                    imageVector = Icons.Outlined.Search,
-                                    contentDescription = null,
-                                    tint = WikipediaTheme.colors.primaryColor
-                                )
-                            }
-                        )
-                    }
-                )
-            }
+            WikiTopAppBarWithSearch(
+                appBarTitle = context.getString(R.string.languages_list_activity_title),
+                placeHolderTitle = "Search language",
+                searchQuery = searchQuery,
+                onBackButtonClick = onBackButtonClick,
+                onSearchQueryChange = { value ->
+                    onLanguageSearched(true)
+                    searchQuery = value
+                    onSearchQueryChange(value)
+                }
+            )
         },
         floatingActionButton = {
             if (!isSiteInfoLoaded) {
@@ -125,24 +114,32 @@ fun LanguagesListScreen(
         LazyColumn(
             modifier = modifier
                 .fillMaxSize()
-                .padding(paddingValues)
+                .padding(paddingValues),
         ) {
             items(languages) { languageItem ->
                 if (languageItem.isHeader) {
                     ListHeader(
                         modifier = Modifier
-                            .padding(
-                                start = 16.dp,
-                                top = 8.dp,
-                                end = 16.dp
-                            ),
+                            .height(56.dp)
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                            .padding(bottom = 4.dp),
                         title = languageItem.headerText
                     )
                 } else {
+                    val localizedLanguageName = StringUtil.capitalize(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageItem.code).orEmpty()) ?: ""
                     LanguageListItemView(
                         modifier = Modifier
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = ripple(bounded = true),
+                                onClick = {
+                                    onListItemClick(languageItem.code)
+                                }
+                            )
+                            .fillMaxWidth()
                             .padding(16.dp),
-                        localizedLanguageName = languageItem.localizedName,
+                        localizedLanguageName = localizedLanguageName,
                         subtitle = languageItem.canonicalName
                     )
                 }
@@ -159,11 +156,16 @@ fun ListHeader(
         color = WikipediaTheme.colors.primaryColor,
     )
 ) {
-    Text(
-        modifier = modifier,
-        text = title,
-        style = titleStyle,
-    )
+    Box(
+        modifier = modifier
+    ) {
+        Text(
+            modifier = Modifier
+                .align(Alignment.CenterStart),
+            text = title,
+            style = titleStyle,
+        )
+    }
 }
 
 @Composable
@@ -173,13 +175,13 @@ fun LanguageListItemView(
     subtitle: String? = null
 ) {
     Column(
-        modifier = modifier
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
     ) {
         Text(
             text = localizedLanguageName,
             style = WikipediaTheme.typography.h3.copy(
                 color = WikipediaTheme.colors.primaryColor,
-                textAlign = TextAlign.Center
             )
         )
         if (subtitle != null) {

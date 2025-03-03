@@ -25,6 +25,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun SearchTopAppBar(
     modifier: Modifier = Modifier,
     searchQuery: String,
+    placeHolderTitle: String,
     onSearchQueryChange: (String) -> Unit,
     onBackButtonClick: () -> Unit
 ) {
@@ -38,7 +39,7 @@ fun SearchTopAppBar(
                 value = searchQuery,
                 onValueChange = onSearchQueryChange,
                 placeholder = {
-                    Text("Search for a language")
+                    Text(placeHolderTitle)
                 },
                 colors = OutlinedTextFieldDefaults.colors(
                     unfocusedBorderColor = Color.Transparent,

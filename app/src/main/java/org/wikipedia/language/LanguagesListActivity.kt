@@ -203,8 +203,7 @@ class LanguagesListActivity : BaseActivity() {
     private inner class LanguagesListItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
             val languageCode = listItem.code
-            val test = StringUtil.capitalize(app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty())
-            itemView.findViewById<TextView>(R.id.localized_language_name).text = test
+            itemView.findViewById<TextView>(R.id.localized_language_name).text = StringUtil.capitalize(app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty())
             val canonicalName = viewModel.getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
                 itemView.findViewById<TextView>(R.id.language_subtitle).text =
