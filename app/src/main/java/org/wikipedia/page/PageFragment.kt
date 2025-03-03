@@ -74,6 +74,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -692,6 +693,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    private fun maybeShowOnThisDayGameDialog() {
+        // Both of the primary language and the article language should be in the supported languages list.
+        if (OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(model.title?.wikiSite?.languageCode)) {
+            OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity())
+        }
+    }
+
     private fun showFindReferenceInPage(referenceAnchor: String,
                                         backLinksList: List<String?>,
                                         referenceText: String) {
@@ -930,7 +938,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(), model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
+        maybeShowOnThisDayGameDialog()
 
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
