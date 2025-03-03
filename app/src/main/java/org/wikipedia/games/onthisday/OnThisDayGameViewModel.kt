@@ -37,7 +37,10 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
 
+    // TODO: initialize the state earlier in the loading process, so that the state is nonnull
+    // when the ViewModel is created, instead of only after the first loadGameState() call.
     private lateinit var currentState: GameState
+
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
     val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
@@ -207,10 +210,8 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value is Resource.Loading) {
+        } else if (_gameState.value == null || ::currentState.isInitialized.not() || _gameState.value is Resource.Loading) {
             "game_loading"
-        } else if (_gameState.value == null || ::currentState.isInitialized.not()) {
-            "unknown"
         } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
         }
