@@ -95,10 +95,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
     }
 
-    init {
-        L.d("yes")
-    }
-
     lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
