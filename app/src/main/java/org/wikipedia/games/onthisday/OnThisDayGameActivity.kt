@@ -63,7 +63,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private val cardAnimatorSetIn = AnimatorSet()
     private val cardAnimatorSetOut = AnimatorSet()
-    private var cardLongPressed = false
     private lateinit var mediaPlayer: MediaPlayer
 
     @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
@@ -104,11 +103,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         // Add long-press listeners to the cards
         binding.questionCard1.setOnLongClickListener {
             showFullCardText(binding.questionText1, binding.questionThumbnail1, true)
-            cardLongPressed = true
+            binding.questionText1.tag = true
             true
         }
         binding.questionCard1.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP && cardLongPressed) {
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText1.tag as? Boolean) == true) {
                 showFullCardText(binding.questionText1, binding.questionThumbnail1, false)
             }
             false
@@ -116,11 +115,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard2.setOnLongClickListener {
             showFullCardText(binding.questionText2, binding.questionThumbnail2, true)
-            cardLongPressed = true
+            binding.questionText2.tag = true
             true
         }
         binding.questionCard2.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP && cardLongPressed) {
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText2.tag as? Boolean) == true) {
                 showFullCardText(binding.questionText2, binding.questionThumbnail2, false)
             }
             false
@@ -469,9 +468,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun showFullCardText(textView: TextView, imageView: ImageView, showFullText: Boolean) {
-        imageView.isVisible = !showFullText && !(imageView.tag as Boolean)
+        imageView.isVisible = !showFullText && (imageView.tag as? Boolean) == false
         layoutTextViewForEllipsize(textView, !showFullText)
-        cardLongPressed = showFullText
     }
 
     private fun setCorrectIcon(view: ImageView) {
