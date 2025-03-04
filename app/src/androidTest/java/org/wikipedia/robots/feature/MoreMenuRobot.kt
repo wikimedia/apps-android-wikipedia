@@ -30,7 +30,7 @@ class MoreMenuRobot : BaseRobot() {
         verify.viewExists(R.id.main_drawer_contribs_container)
         verify.viewExists(R.id.main_drawer_talk_container)
         verify.viewExists(R.id.main_drawer_watchlist_container)
-        verify.viewDoesNotExist(R.id.main_drawer_login_button)
+        verify.viewWithIdIsNotVisible(R.id.main_drawer_login_button)
     }
 
     fun clickPlaces() = apply {
