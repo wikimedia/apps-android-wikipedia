@@ -55,6 +55,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -69,6 +70,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import java.util.Date
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -366,8 +368,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                val emptyTitle = ReadingListsReceiveHelper.getEmptyTitle(requireContext())
-                val emptyDescription = ReadingListsReceiveHelper.getEmptyDescription(requireContext())
+                val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
+                val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
                 viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
             } else {
                 update()

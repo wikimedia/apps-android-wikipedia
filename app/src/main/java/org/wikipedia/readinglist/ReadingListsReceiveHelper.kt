@@ -1,13 +1,10 @@
-
 package org.wikipedia.readinglist
 
-import android.content.Context
 import android.util.Base64
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.int
-import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -17,16 +14,10 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.readinglist.ReadingListsShareHelper.ExportedReadingListPage
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 object ReadingListsReceiveHelper {
-
-    fun getEmptyTitle(context: Context) = context.getString(R.string.reading_lists_preview_header_title)
-
-    fun getEmptyDescription(context: Context) = DateUtil.getTimeAndDateString(context, Date())
 
     suspend fun receiveReadingLists(emptyTitle: String, emptyDescription: String, json: String, encoded: Boolean): ReadingList {
         val readingListData = getExportedReadingLists(json, encoded)
