@@ -42,7 +42,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.StringUtil
 
@@ -55,19 +54,17 @@ fun LanguagesListParentScreen(
     onLanguageSearched: (Boolean) -> Unit,
 ) {
     val uiState = vieModel.uiState.collectAsState().value
-    BaseTheme {
-        LanguagesListScreen(
-            modifier = modifier,
-            languages = uiState.languagesItems,
-            isSiteInfoLoaded = uiState.isSiteInfoLoaded,
-            onBackButtonClick = onBackButtonClick,
-            onSearchQueryChange = { query ->
-                vieModel.updateSearchTerm(query)
-            },
-            onListItemClick = onListItemClick,
-            onLanguageSearched = onLanguageSearched
-        )
-    }
+    LanguagesListScreen(
+        modifier = modifier,
+        languages = uiState.languagesItems,
+        isSiteInfoLoaded = uiState.isSiteInfoLoaded,
+        onBackButtonClick = onBackButtonClick,
+        onSearchQueryChange = { query ->
+            vieModel.updateSearchTerm(query)
+        },
+        onListItemClick = onListItemClick,
+        onLanguageSearched = onLanguageSearched
+    )
 }
 
 @Composable
@@ -89,6 +86,7 @@ fun LanguagesListScreen(
     val isKeyboardVisible = imeHeight > 0.dp
 
     Scaffold(
+        modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.languages_list_activity_title),
@@ -113,7 +111,7 @@ fun LanguagesListScreen(
     ) { paddingValues ->
         if (languages.isEmpty()) {
             Box(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxSize()
                     .padding(paddingValues)
                     // Add bottom padding when keyboard is visible

@@ -3,8 +3,11 @@ package org.wikipedia.language.addLanguagesList
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 
@@ -13,26 +16,30 @@ class AddLanguagesListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            LanguagesListParentScreen(
-                onBackButtonClick = {
-                    finish()
-                },
-                onListItemClick = { languageCode ->
-                    val interactionsCount = 1
-                    val app = WikipediaApp.instance
-                    if (languageCode != app.appOrSystemLanguageCode) {
-                        app.languageState.addAppLanguageCode(languageCode)
+            BaseTheme {
+                LanguagesListParentScreen(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    onBackButtonClick = {
+                        finish()
+                    },
+                    onListItemClick = { languageCode ->
+                        val interactionsCount = 1
+                        val app = WikipediaApp.instance
+                        if (languageCode != app.appOrSystemLanguageCode) {
+                            app.languageState.addAppLanguageCode(languageCode)
+                        }
+                        val returnIntent = Intent()
+                        returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
+                        returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
+                        setResult(RESULT_OK, returnIntent)
+                        finish()
+                    },
+                    onLanguageSearched = {
+                        isLanguageSearched = it
                     }
-                    val returnIntent = Intent()
-                    returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
-                    returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
-                    setResult(RESULT_OK, returnIntent)
-                    finish()
-                },
-                onLanguageSearched = {
-                    isLanguageSearched = it
-                }
-            )
+                )
+            }
         }
     }
 
