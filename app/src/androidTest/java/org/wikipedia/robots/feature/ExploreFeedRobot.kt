@@ -13,6 +13,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -258,8 +259,11 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        onView(withId(R.id.view_list_card_list))
-            .check { view, _ ->
+        onView(allOf(
+            withId(R.id.view_list_card_list),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )).check { view, _ ->
                 val recyclerView = view as RecyclerView
                 val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
                     ?: throw AssertionError("No viewHolder found at position 0")
