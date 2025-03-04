@@ -112,7 +112,7 @@
   <string name="title_captcha">کېپچا ورکړئ</string>
   <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
   <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
-  <string name="login_username_hint">کارننوم</string>
+  <string name="login_username_hint">کارن‌نوم</string>
   <string name="login_password_hint">پټنوم</string>
   <string name="account_creation_password_hint">پټنوم</string>
   <string name="onboarding_card_login">ننوتل</string>
@@ -129,11 +129,11 @@
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="logout_dialog_cancel_button_text">ناگارل</string>
-  <string name="logged_out_in_background_title">ووت</string>
+  <string name="logged_out_in_background_title">ووتلی</string>
   <string name="logged_out_in_background_login">ننوتل</string>
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="create_account_username_hint">کارننوم</string>
+  <string name="create_account_username_hint">کارن‌نوم</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
   <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
@@ -229,7 +229,7 @@
   <string name="article_menu_bar_save_button">خوندي کول</string>
   <string name="article_menu_bar_language_button">ژبه</string>
   <string name="article_menu_bar_search_button">پلټل</string>
-  <string name="article_menu_bar_theme_button">پوښۍ</string>
+  <string name="article_menu_bar_theme_button">شاليد</string>
   <string name="article_menu_bar_contents_button">منځپانگې</string>
   <string name="article_header_edit_hint">سمول…</string>
   <string name="color_theme_select">شازمکه</string>
@@ -237,7 +237,7 @@
   <string name="color_theme_dark">تياره</string>
   <string name="color_theme_black">تور</string>
   <string name="color_theme_sepia">قهوه‌يي</string>
-  <string name="color_theme_test_title">د متن نمونه</string>
+  <string name="color_theme_test_title">ليک‌بېلگه</string>
   <string name="text_style_title">ليکبڼه</string>
   <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
   <string name="reading_list_create_new">نوی جوړول</string>
@@ -263,7 +263,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ناگارل</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ننوتل</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ښه</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">امستنې</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">اوڼنې</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ښه</string>
   <string name="reading_list_delete_dialog_ok_button_text">ښه</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ناگارل</string>
@@ -299,7 +299,7 @@
   <string name="description_edit_cancel_hint">ناگارل</string>
   <string name="description_edit_help_about_wikidata">د ويکيډاټا په اړه</string>
   <string name="description_edit_success_done">وشو</string>
-  <string name="description_edit_success_did_you_know">آيا په دې پوهېدلې؟</string>
+  <string name="description_edit_success_did_you_know">ايا پوهېدې؟</string>
   <string name="suggested_edits_menu_info">مالومات</string>
   <string name="remove_language_dialog_cancel_button_text">ناگارل</string>
   <string name="remove_language_dialog_ok_button_text">ښه</string>

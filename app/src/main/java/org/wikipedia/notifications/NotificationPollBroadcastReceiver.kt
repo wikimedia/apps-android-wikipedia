@@ -30,6 +30,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -37,6 +38,10 @@ import java.util.concurrent.TimeUnit
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (!DeviceUtil.assertAppContext(context, true)) {
+            return
+        }
+
         when {
             Intent.ACTION_BOOT_COMPLETED == intent.action -> {
                 // To test the BOOT_COMPLETED intent:

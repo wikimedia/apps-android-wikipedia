@@ -15,6 +15,7 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
@@ -64,7 +65,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
 
-    @SuppressLint("SourceLockedOrientationActivity")
+    @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -99,8 +100,34 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
         }
 
+        // Add long-press listeners to the cards
+        binding.questionCard1.setOnLongClickListener {
+            showFullCardText(binding.questionText1, binding.questionThumbnail1, true)
+            binding.questionText1.tag = true
+            true
+        }
+        binding.questionCard1.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText1.tag as? Boolean) == true) {
+                showFullCardText(binding.questionText1, binding.questionThumbnail1, false)
+            }
+            false
+        }
+
+        binding.questionCard2.setOnLongClickListener {
+            showFullCardText(binding.questionText2, binding.questionThumbnail2, true)
+            binding.questionText2.tag = true
+            true
+        }
+        binding.questionCard2.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP && (binding.questionText2.tag as? Boolean) == true) {
+                showFullCardText(binding.questionText2, binding.questionThumbnail2, false)
+            }
+            false
+        }
+
         binding.nextQuestionText.setOnClickListener {
             viewModel.submitCurrentResponse(0)
+            binding.nextQuestionText.isVisible = false
         }
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
@@ -293,6 +320,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         layoutTextViewForEllipsize(binding.questionText1)
 
         val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
+        binding.questionThumbnail1.tag = thumbnailUrl1.isNullOrEmpty()
         if (thumbnailUrl1.isNullOrEmpty()) {
             binding.questionThumbnail1.isVisible = false
         } else {
@@ -306,6 +334,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         layoutTextViewForEllipsize(binding.questionText2)
 
         val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
+        binding.questionThumbnail2.tag = thumbnailUrl2.isNullOrEmpty()
         if (thumbnailUrl2.isNullOrEmpty()) {
             binding.questionThumbnail2.isVisible = false
         } else {
@@ -426,16 +455,21 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    private fun layoutTextViewForEllipsize(textView: TextView) {
+    private fun layoutTextViewForEllipsize(textView: TextView, ellipsize: Boolean = true) {
         textView.maxLines = Int.MAX_VALUE
         textView.post {
-            if (!isDestroyed) {
+            if (!isDestroyed && ellipsize) {
                 // this seems to be the only way to properly ellipsize the text in its layout.
                 if (textView.lineHeight > 0) {
                     textView.maxLines = (textView.measuredHeight / textView.lineHeight)
                 }
             }
         }
+    }
+
+    private fun showFullCardText(textView: TextView, imageView: ImageView, showFullText: Boolean) {
+        imageView.isVisible = !showFullText && (imageView.tag as? Boolean) == false
+        layoutTextViewForEllipsize(textView, !showFullText)
     }
 
     private fun setCorrectIcon(view: ImageView) {

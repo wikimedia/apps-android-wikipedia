@@ -496,6 +496,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onLongClick(v: View): Boolean {
+            if (actionMode != null) {
+                return false
+            }
             beginMultiSelect()
             toggleSelectItem(container, itemPosition)
             return true
