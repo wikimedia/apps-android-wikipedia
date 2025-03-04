@@ -40,7 +40,7 @@ class ShowImageTest : BaseTest<MainActivity>(
             .pressBack()
             .scrollToItem(title = "Featured article")
             .verifyFeaturedArticleImageIsNotVisible()
-            .scrollToItem(title = "Top read", verticalOffset = 350)
+            .scrollToItem(title = "Top read")
             .verifyTopReadArticleIsGreyedOut(theme = Theme.LIGHT)
     }
 }
