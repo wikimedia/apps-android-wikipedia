@@ -6,9 +6,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -31,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -79,6 +82,12 @@ fun LanguagesListScreen(
 ) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
+
+    // Handle IME (keyboard) insets
+    val windowInsets = WindowInsets.ime
+    val imeHeight = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
+    val isKeyboardVisible = imeHeight > 0.dp
+
     Scaffold(
         topBar = {
             WikiTopAppBarWithSearch(
@@ -103,11 +112,21 @@ fun LanguagesListScreen(
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
         if (languages.isEmpty()) {
-            SearchEmptyView(
+            Box(
                 modifier = Modifier
-                    .fillMaxSize(),
-                emptyTexTitle = context.getString(R.string.search_no_results_found)
-            )
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    // Add bottom padding when keyboard is visible
+                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                SearchEmptyView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                )
+            }
+
             return@Scaffold
         }
 
@@ -213,7 +232,7 @@ fun SearchEmptyView(
                 .background(ComposeColors.White)
                 .padding(20.dp),
             imageVector = Icons.Outlined.Search,
-            tint = ComposeColors.Gray500,
+            tint = WikipediaTheme.colors.placeholderColor,
             contentDescription = null
         )
         Text(
@@ -221,7 +240,7 @@ fun SearchEmptyView(
                 .padding(top = 24.dp),
             text = emptyTexTitle,
             style = WikipediaTheme.typography.p.copy(
-                color = WikipediaTheme.colors.primaryColor
+                color = WikipediaTheme.colors.placeholderColor
             )
         )
     }

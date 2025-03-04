@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -73,6 +74,23 @@ fun WikiTopAppBarWithSearch(
                         onBackButtonClick = {
                             onSearchQueryChange("")
                             currentState = TopAppBarState.NORMAL
+                        },
+                        actions = {
+                            if (searchQuery.isNotEmpty()) {
+                                IconButton(
+                                    onClick = {
+                                        onSearchQueryChange("")
+                                        currentState = TopAppBarState.NORMAL
+                                    },
+                                    content = {
+                                        Icon(
+                                            imageVector = Icons.Outlined.Clear,
+                                            contentDescription = null,
+                                            tint = WikipediaTheme.colors.placeholderColor
+                                        )
+                                    }
+                                )
+                            }
                         }
                     )
                 }

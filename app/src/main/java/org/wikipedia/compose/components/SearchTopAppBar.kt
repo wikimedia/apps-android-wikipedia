@@ -1,5 +1,6 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -27,7 +28,8 @@ fun SearchTopAppBar(
     searchQuery: String,
     placeHolderTitle: String,
     onSearchQueryChange: (String) -> Unit,
-    onBackButtonClick: () -> Unit
+    onBackButtonClick: () -> Unit,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     val focusRequester = remember { FocusRequester() }
     TopAppBar(
@@ -58,6 +60,7 @@ fun SearchTopAppBar(
                 )
             }
         },
+        actions = actions,
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = WikipediaTheme.colors.paperColor,
             titleContentColor = WikipediaTheme.colors.primaryColor
