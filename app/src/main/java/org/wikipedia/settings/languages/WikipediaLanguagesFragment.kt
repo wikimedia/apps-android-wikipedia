@@ -21,8 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.language.LanguagesListActivity
-import org.wikipedia.language.langList.ComposeLanguagesListActivity
+import org.wikipedia.language.addLanguagesList.AddLanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
@@ -60,7 +59,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == Activity.RESULT_OK) {
             interactionsCount += data!!.getIntExtra(ADD_LANGUAGE_INTERACTIONS, 0)
-            isLanguageSearched = isLanguageSearched || data.getBooleanExtra(LanguagesListActivity.LANGUAGE_SEARCHED, false)
+            isLanguageSearched = isLanguageSearched || data.getBooleanExtra(AddLanguagesListActivity.LANGUAGE_SEARCHED, false)
             prepareWikipediaLanguagesList()
             requireActivity().invalidateOptionsMenu()
             adapter.notifyDataSetChanged()
@@ -193,7 +192,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
             } else if (holder is FooterViewHolder) {
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
-                    Intent(requireActivity(), ComposeLanguagesListActivity::class.java).let {
+                    Intent(requireActivity(), AddLanguagesListActivity::class.java).let {
                         startActivityForResult(it, Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                         actionMode?.finish()
                     }

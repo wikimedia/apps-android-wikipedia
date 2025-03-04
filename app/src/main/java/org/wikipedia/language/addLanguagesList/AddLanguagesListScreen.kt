@@ -1,4 +1,4 @@
-package org.wikipedia.language.langList
+package org.wikipedia.language.addLanguagesList
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -46,7 +46,7 @@ import org.wikipedia.util.StringUtil
 @Composable
 fun LanguagesListParentScreen(
     modifier: Modifier = Modifier,
-    vieModel: LanguagesViewModel = viewModel(),
+    vieModel: AddLanguagesViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
     onListItemClick: (code: String) -> Unit,
     onLanguageSearched: (Boolean) -> Unit,
@@ -70,7 +70,7 @@ fun LanguagesListParentScreen(
 @Composable
 fun LanguagesListScreen(
     modifier: Modifier = Modifier,
-    languages: List<LanguagesViewModel.LanguageListItem>,
+    languages: List<AddLanguagesViewModel.LanguageListItem>,
     isSiteInfoLoaded: Boolean = false,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,

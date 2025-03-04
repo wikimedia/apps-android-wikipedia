@@ -1,4 +1,4 @@
-package org.wikipedia.language.langList
+package org.wikipedia.language.addLanguagesList
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 
-class ComposeLanguagesListActivity : BaseActivity() {
+class AddLanguagesListActivity : BaseActivity() {
     private var isLanguageSearched: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

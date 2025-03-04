@@ -1,4 +1,4 @@
-package org.wikipedia.language.langList
+package org.wikipedia.language.addLanguagesList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +15,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.util.log.L
 
-class LanguagesViewModel : ViewModel() {
+class AddLanguagesViewModel : ViewModel() {
 
     data class LanguageListItem(
         val code: String,

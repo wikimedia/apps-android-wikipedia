@@ -156,12 +156,7 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".language.LanguagesListActivity"
-            android:label="@string/languages_list_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
-        <activity
-            android:name=".language.langList.ComposeLanguagesListActivity"
+            android:name=".language.addLanguagesList.AddLanguagesListActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
             android:name=".suggestededits.SuggestionsActivity"
