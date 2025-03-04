@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.language.LanguagesListActivity.Companion.LANGUAGE_SEARCHED
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 
@@ -43,5 +42,9 @@ class ComposeLanguagesListActivity : BaseActivity() {
         returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
         setResult(RESULT_OK, returnIntent)
         super.onBackPressed()
+    }
+
+    companion object {
+        const val LANGUAGE_SEARCHED = "language_searched"
     }
 }

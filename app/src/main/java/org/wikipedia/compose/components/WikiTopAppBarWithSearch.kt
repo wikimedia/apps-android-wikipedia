@@ -23,6 +23,14 @@ enum class TopAppBarState {
     NORMAL
 }
 
+/**
+ * @param appBarTitle the title to be displayed in the top app bar
+ * @param placeHolderTitle the placeholder title displayed on the search app bar
+ * @param searchQuery the query text to be shown in the input field.
+ * @param onSearchQueryChange the callback that is triggered when the users updates the text.
+ * An updated text comes as a parameter of the callback
+ * @param onBackButtonClick the callback that is triggered when user taps the back arrow
+ */
 @Composable
 fun WikiTopAppBarWithSearch(
     appBarTitle: String,

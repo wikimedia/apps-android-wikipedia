@@ -83,7 +83,7 @@ fun LanguagesListScreen(
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.languages_list_activity_title),
-                placeHolderTitle = "Search language",
+                placeHolderTitle = context.getString(R.string.search_hint_search_languages),
                 searchQuery = searchQuery,
                 onBackButtonClick = onBackButtonClick,
                 onSearchQueryChange = { value ->
