@@ -1775,5 +1775,5 @@
   <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
   <string name="back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
-  <string name="year_in_review">Text label for the Year in Review Icon.</string>
+  <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
 </resources>
