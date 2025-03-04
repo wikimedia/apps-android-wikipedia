@@ -397,7 +397,7 @@
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
     <string name="nav_item_donate">Donate</string>
-    <string name="year_in_review">Year In Review</string>
+    <string name="nav_item_year_in_review">Year In Review</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
