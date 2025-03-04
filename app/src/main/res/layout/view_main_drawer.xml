@@ -202,7 +202,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/main_drawer_yearInReview_container"
+                android:id="@+id/main_drawer_year_in_review_container"
                 style="@style/SideDrawerMenuItem">
 
                 <ImageView
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_weight="1"
-                    android:text="@string/year_in_review" />
+                    android:text="@string/nav_item_year_in_review" />
 
             </LinearLayout>
 
