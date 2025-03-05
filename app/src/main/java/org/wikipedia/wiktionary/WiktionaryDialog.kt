@@ -4,6 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -12,6 +36,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.databinding.DialogWiktionaryBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionWithExamplesBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionsListBinding
@@ -20,6 +45,7 @@ import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
+import org.wikipedia.R
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
@@ -56,6 +82,102 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 }
             }
+        }
+    }
+
+    @Composable
+    fun WiktionaryDialogContent(
+        title: String,
+        thumbnail: Painter? = null,
+        showNoDefinitions: Boolean = false,
+        showProgress: Boolean = false,
+        definitionsContent: @Composable () -> Unit
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp)
+        ) {
+            // Thumbnail and Title Row
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 48.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                thumbnail?.let {
+                    Image(
+                        painter = it,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(24.dp)
+                            .padding(end = 12.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                }
+
+                Text(
+                    text = title,
+                    color = WikipediaTheme.colors.primaryColor,
+                    fontSize = 20.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f)
+                )
+            }
+
+            // Divider
+            HorizontalDivider(
+                color = WikipediaTheme.colors.borderColor,
+                thickness = 0.5.dp,
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            // No definitions found text
+            if (showNoDefinitions) {
+                Text(
+                    text = "No definitions found", // Replace with string resource
+                    color = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+            }
+
+            // Definitions content
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp)
+            ) {
+                definitionsContent()
+            }
+        }
+
+        // Progress indicator overlay
+        if (showProgress) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }
+    }
+
+    @Preview
+    @Composable
+    fun WiktionaryDialogPreview() {
+        WiktionaryDialogContent(
+            title = "Lorem ipsum",
+            thumbnail = painterResource(id = R.drawable.ic_define),
+            showNoDefinitions = false,
+            showProgress = false
+        ) {
+            // Add your definitions content here
+            Text("Definitions go here")
         }
     }
 
