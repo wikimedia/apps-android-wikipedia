@@ -11,15 +11,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TestScreen(){
+fun TestScreen() {
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
-    ){
+    ) {
         Text(
             text = "Hello World",
             fontSize = 30.sp,
-            modifier = Modifier.align(alignment=Alignment.CenterHorizontally)
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
         )
     }
 }

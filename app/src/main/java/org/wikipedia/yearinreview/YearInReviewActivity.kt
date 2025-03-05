@@ -7,17 +7,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-class YearInReviewActivity: ComponentActivity() {
+class YearInReviewActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent{
+        setContent {
 
             val navigationController = rememberNavController()
 
             NavHost(
                 navController = navigationController, startDestination = "testscreen"
-            ){
+            ) {
                 composable("testscreen"){
                     TestScreen()
                 }
