@@ -52,7 +52,12 @@ class ListActions {
             )
     }
 
-    fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
+    fun clickOnItemInList(textViewId: Int) {
+        onView(withId(textViewId))
+            .perform(click())
+    }
+
+        fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
         onView(withId(listId))
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -114,7 +119,8 @@ class ListActions {
         recyclerViewId: Int = R.id.feed_view,
         title: String,
         textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
+        verticalOffset: Int = 200,
+        action: (() -> Unit)? = null
     ) = apply {
         var currentOccurrence = 0
         onView(withId(recyclerViewId))
@@ -155,6 +161,7 @@ class ListActions {
                     })
                 }
             }
+        action?.invoke()
     }
 
     fun verifyRecyclerViewItemCount(@IdRes viewId: Int, expectedCount: Int) {

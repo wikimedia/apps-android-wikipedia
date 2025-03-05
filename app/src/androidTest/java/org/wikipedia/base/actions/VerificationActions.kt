@@ -5,6 +5,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
@@ -27,7 +28,7 @@ class VerificationActions {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }
 
-    fun viewDoesNotExist(@IdRes viewId: Int) {
+    fun viewWithIdIsNotVisible(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(not(isDisplayed())))
     }
 
@@ -35,8 +36,18 @@ class VerificationActions {
         onView(withText(text)).check(matches(isDisplayed()))
     }
 
-    fun textDoesNotExist(text: String) {
+    fun textIsNotVisible(text: String) {
         onView(withText(text)).check(matches(not(isDisplayed())))
+    }
+
+    fun viewWithIdDoesNotExist(@IdRes viewId: Int) {
+        onView(withId(viewId))
+            .check(doesNotExist())
+    }
+
+    fun viewWithTextDoesNotExist(title: String) {
+        onView(withText(title))
+            .check(doesNotExist())
     }
 
     fun viewWithIdDisplayed(@IdRes viewId: Int) {
