@@ -29,7 +29,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _gameState = MutableLiveData<Resource<GameState>>()
     val gameState: LiveData<Resource<GameState>> get() = _gameState
@@ -37,9 +37,7 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
 
-    // TODO: initialize the state earlier in the loading process, so that the state is nonnull
-    // when the ViewModel is created, instead of only after the first loadGameState() call.
-    private lateinit var currentState: GameState
+    private var currentState: GameState = updateCurrentState()
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
     val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
@@ -51,19 +49,7 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
 
     init {
         Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
-        loadSavedState()
         loadGameState()
-    }
-
-    private fun loadSavedState() {
-        savedStateHandle.get<String>(KEY_CURRENT_STATE)?.let { json ->
-            currentState = JsonUtil.decodeFromString(json) ?: GameState(currentQuestionState = composeQuestionState(0))
-        }
-
-        savedStateHandle.get<String>(KEY_EVENTS)?.let { json ->
-            val eventList = JsonUtil.decodeFromString<List<OnThisDay.Event>>(json)
-            events.addAll(eventList ?: emptyList())
-        }
     }
 
     fun loadGameState() {
@@ -109,12 +95,7 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
                 }
             }
 
-            val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
-            totalState.langToState[wikiSite.languageCode]?.let {
-                currentState = it
-            } ?: run {
-                currentState = GameState(currentQuestionState = composeQuestionState(0))
-            }
+            currentState = updateCurrentState()
 
             savedPages.clear()
             getArticlesMentioned().forEach { pageSummary ->
@@ -210,7 +191,7 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value == null || ::currentState.isInitialized.not() || _gameState.value is Resource.Loading) {
+        } else if (_gameState.value == null || _gameState.value is Resource.Loading) {
             "game_loading"
         } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
@@ -247,8 +228,13 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
         val langToState = totalState.langToState.toMutableMap()
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
-        savedStateHandle[KEY_CURRENT_STATE] = JsonUtil.encodeToString(currentState)
-        savedStateHandle[KEY_EVENTS] = JsonUtil.encodeToString(events)
+    }
+
+    private fun updateCurrentState(): GameState {
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+        return totalState.langToState[wikiSite.languageCode] ?: run {
+            GameState(currentQuestionState = composeQuestionState(0))
+        }
     }
 
     @Serializable
@@ -295,8 +281,6 @@ class OnThisDayGameViewModel(private val savedStateHandle: SavedStateHandle) : V
     class GameEnded(val data: GameState, val history: GameHistory) : Resource<GameState>()
 
     companion object {
-        const val KEY_CURRENT_STATE = "currentState"
-        const val KEY_EVENTS = "events"
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
