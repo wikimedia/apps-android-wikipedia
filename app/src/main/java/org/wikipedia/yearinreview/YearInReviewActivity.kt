@@ -18,7 +18,7 @@ class YearInReviewActivity : ComponentActivity() {
             NavHost(
                 navController = navigationController, startDestination = "testscreen"
             ) {
-                composable("testscreen"){
+                composable("testscreen") {
                     TestScreen()
                 }
             }
