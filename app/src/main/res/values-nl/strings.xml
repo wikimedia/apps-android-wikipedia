@@ -218,7 +218,7 @@
   <string name="login_join_wikipedia">Account aanmaken bij Wikipedia</string>
   <string name="login_forgot_password">Wachtwoord vergeten?</string>
   <string name="create_account_already_have">Heeft u al een account?</string>
-  <string name="create_account_activity_title">Een account aanmaken</string>
+  <string name="create_account_activity_title">Account aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
@@ -234,7 +234,7 @@
   <string name="email_recommendation_message">Aanbevolen omdat een e-mailadres nodig is voor accountherstel.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Doorgaan zonder e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Een e-mailadres toevoegen</string>
-  <string name="create_account_button">Registreren</string>
+  <string name="create_account_button">Account aanmaken</string>
   <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_message">Sorry, uw IP-adres is op dit moment geblokkeerd voor het aanmaken van nieuwe accounts.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
