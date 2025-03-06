@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import org.wikipedia.compose.theme.BaseTheme
 
 class YearInReviewActivity : ComponentActivity() {
 
@@ -19,7 +20,7 @@ class YearInReviewActivity : ComponentActivity() {
                 navController = navigationController, startDestination = "testscreen"
             ) {
                 composable("testscreen") {
-                    TestScreen()
+                    BaseTheme(content = { TestScreen() })
                 }
             }
         }

@@ -376,7 +376,7 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
-            android:name=".yearinreview.YearInReviewActivity" android:exported="true"/>
+            android:name=".yearinreview.YearInReviewActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
