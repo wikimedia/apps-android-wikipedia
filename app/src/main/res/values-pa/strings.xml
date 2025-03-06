@@ -133,7 +133,7 @@
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
-  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪੰਨੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਛਾਪਿਆ ਨਹੀਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
   <string name="dialog_confirm_delete_donation_history_title">ਮਿਟਾਉਣ ਦੀ ਤਸਦੀਕ ਕਰੋ</string>
@@ -234,8 +234,8 @@
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: %s</string>
-  <string name="page_protected_can_not_edit">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਵਿਸ਼ੇਸ਼ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
-  <string name="page_protected_can_not_edit_anon">ਮਾਫ਼ ਕਰਨਾ, ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਸੰਪਾਦਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</string>
+  <string name="page_protected_can_not_edit">ਮੁਆਫ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਕੋਲ ਇਸ ਸਮੇਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਸੋਧਣ ਲਈ ਲੋੜੀਂਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
+  <string name="page_protected_can_not_edit_anon">ਮੁਆਫ ਕਰਨਾ, ਇਸ ਸਮੇਂ ਇਸ ਵਰਕੇ ਨੂੰ ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਸੋਧਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਐ।</string>
   <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ਨਿਗਰਾਨੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="settings_item_preferences">ਤਰਜੀਹਾਂ</string>
@@ -927,6 +927,7 @@
   <string name="suggested_edits_what_is_title">ਸੁਝਾਏ ਗਏ ਸੋਧ ਕੀ ਹਨ?</string>
   <string name="suggested_edits_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="suggested_edits_paused_title">ਰੋਕਿਆ ਗਿਆ</string>
+  <string name="suggested_edits_disabled_title">ਅਸਮਰੱਥ</string>
   <string name="suggested_edits_ip_blocked_title">IP ਤੇ ਪਾਬੰਦੀ ਲਾਈ ਗਈ</string>
   <string name="suggested_edits_last_edited">ਆਖਰੀ ਸੋਧ</string>
   <string name="suggested_edits_last_edited_never">ਕਦੇ ਨਹੀਂ</string>
@@ -1050,6 +1051,7 @@
     <item quantity="one">ਪਿਛਲੇ ਸਾਲ</item>
     <item quantity="other">%d ਸਾਲ ਪਹਿਲਾਂ</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">ਤੁਸੀਂ ਵੱਕਤ ਵਿੱਚੋਂ ਲੰਘੇ 🚀</string>
   <string name="on_this_day_back_to_future">ਭਵਿੱਖ ਵੱਲ ਵਾਪਸ ਜਾਓ</string>
   <string name="languages_list_activity_title">ਭਾਸ਼ਾ ਜੋੜੋ</string>
   <string name="languages_list_suggested_text">ਸੁਝਾਏ ਗਏ</string>
@@ -1087,6 +1089,7 @@
   <string name="wikitext_small">ਛੋਟੀ ਲਿਖਤ</string>
   <string name="wikitext_code">ਕੋਡ</string>
   <string name="wikitext_link">ਕੜੀ ਜੋੜੋ</string>
+  <string name="wikitext_formatting">ਤਰਤੀਬ ਵਿੱਚ</string>
   <string name="wikitext_headings">ਸਿਰਨਾਵੇਂ</string>
   <string name="wikitext_insert_media">ਮੀਡੀਆ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="wikitext_numbered_list">ਗਿਣਤੀਦਾਇਕ ਸੂਚੀ</string>
