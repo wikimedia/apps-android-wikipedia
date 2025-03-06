@@ -40,7 +40,6 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -67,6 +66,7 @@ import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
+import org.wikipedia.watchlist.WatchlistViewModel
 
 class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private lateinit var binding: ActivityTalkTopicsBinding
@@ -210,7 +210,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     viewModel.actionState.collect {
                         when (it) {
                             is TalkTopicsViewModel.ActionState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                            is TalkTopicsViewModel.ActionState.DoWatch -> updateOnWatch()
+                            is TalkTopicsViewModel.ActionState.DoWatch -> updateOnWatch(it.message)
                             is TalkTopicsViewModel.ActionState.OnError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
                         }
                     }
@@ -408,8 +408,8 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, viewModel.pageTitle, null, null, TALK_TOPICS_ACTIVITY, undoneSubject, undoneBody))
     }
 
-    private fun updateOnWatch() {
-        showWatchlistSnackbar()
+    private fun updateOnWatch(message: String) {
+        WatchlistViewModel.showWatchlistSnackbar(this, viewModel.pageTitle, viewModel.isWatched, message)
         invalidateOptionsMenu()
     }
 
@@ -442,21 +442,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private fun goToPage() {
         val entry = HistoryEntry(getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-    }
-
-    private fun showWatchlistSnackbar() {
-        if (!viewModel.isWatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
-        } else if (viewModel.isWatched) {
-            val snackbar = FeedbackUtil.makeSnackbar(this,
-                getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    viewModel.pageTitle.displayText,
-                    getString(WatchlistExpiry.NEVER.stringId)))
-            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
-            }
-            snackbar.show()
-        }
     }
 
     private fun updateConcatAdapter() {
