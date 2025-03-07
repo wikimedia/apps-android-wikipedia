@@ -37,9 +37,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val invokeSource = savedStateHandle.get<Constants.InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
     val wikiSite = savedStateHandle.get<WikiSite>(Constants.ARG_WIKISITE)!!
 
-    // TODO: initialize the state earlier in the loading process, so that the state is nonnull
-    // when the ViewModel is created, instead of only after the first loadGameState() call.
-    private lateinit var currentState: GameState
+    private var currentState: GameState = updateCurrentState()
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
     val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
@@ -97,12 +95,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
-            totalState.langToState[wikiSite.languageCode]?.let {
-                currentState = it
-            } ?: run {
-                currentState = GameState(currentQuestionState = composeQuestionState(0))
-            }
+            currentState = updateCurrentState()
 
             savedPages.clear()
             getArticlesMentioned().forEach { pageSummary ->
@@ -138,7 +131,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     _gameState.postValue(CurrentQuestion(currentState))
                 }
             }
-
             persistState()
         }
     }
@@ -199,7 +191,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getCurrentScreenName(): String {
         return if (_gameState.value is GameEnded) {
             "game_end"
-        } else if (_gameState.value == null || ::currentState.isInitialized.not() || _gameState.value is Resource.Loading) {
+        } else if (_gameState.value == null || _gameState.value is Resource.Loading) {
             "game_loading"
         } else {
             "game_play_" + (currentState.currentQuestionIndex + 1)
@@ -236,6 +228,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val langToState = totalState.langToState.toMutableMap()
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
+    }
+
+    private fun updateCurrentState(): GameState {
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+        return totalState.langToState[wikiSite.languageCode] ?: run {
+            GameState(currentQuestionState = composeQuestionState(0))
+        }
     }
 
     @Serializable
