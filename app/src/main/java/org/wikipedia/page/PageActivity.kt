@@ -60,6 +60,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
+import org.wikipedia.language.composelanglinks.ComposeLangLinksActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
@@ -471,7 +472,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestLangLinks(title: PageTitle) {
-        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
+        requestHandleIntentLauncher.launch(ComposeLangLinksActivity.newIntent(this, title))
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
