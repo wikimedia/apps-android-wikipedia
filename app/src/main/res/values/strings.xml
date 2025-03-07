@@ -1474,14 +1474,12 @@
     <string name="revision_compare_two_only">Only two revisions can be selected.</string>
 
     <!-- Watchlist -->
-    <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
     <string name="watchlist_page_add_to_watchlist_snackbar_action">Change</string>
     <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanently</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">for 1 week</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">for 1 month</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">for 3 months</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">for 6 months</string>
-    <string name="watchlist_page_removed_from_watchlist_snackbar">%s and its talk page have been removed from your watchlist.</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 week</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 month</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 months</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 months</string>
     <string name="watchlist_expiry_dialog_title">Select Watchlist time period</string>
     <string name="watchlist_expiry_dialog_permanent">Permanent</string>
     <string name="watchlist_expiry_dialog_one_week">1 week</string>
