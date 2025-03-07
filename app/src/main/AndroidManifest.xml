@@ -155,6 +155,7 @@
             android:label="@string/langlinks_activity_title"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity android:name=".language.composelanglinks.ComposeLangLinksActivity"/>
         <activity
             android:name=".language.LanguagesListActivity"
             android:label="@string/languages_list_activity_title"
