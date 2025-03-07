@@ -28,6 +28,9 @@ class ComposeLangLinksActivity : BaseActivity() {
                         setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
                         DeviceUtil.hideSoftKeyboard(this)
                         finish()
+                    },
+                    onBackButtonClick = {
+                        finish()
                     }
                 )
             }

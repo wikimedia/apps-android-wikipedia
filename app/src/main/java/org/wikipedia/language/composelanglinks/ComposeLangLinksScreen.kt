@@ -15,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,14 +38,23 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun ComposeLangLinksParentScreen(
     modifier: Modifier = Modifier,
     viewModel: ComposeLangLinksViewModel = viewModel(),
-    onLanguageSelected: (ComposeLangLinksViewModel.LangLinksItem) -> Unit
+    onLanguageSelected: (ComposeLangLinksViewModel.LangLinksItem) -> Unit,
+    onBackButtonClick: () -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsState()
     ComposeLangLinksScreen(
+        modifier = modifier,
         isLoading = uiState.isLoading,
         isSiteInfoLoaded = uiState.isSiteInfoLoaded,
         langLinksItem = uiState.langLinksItems,
-        onLanguageSelected = onLanguageSelected
+        onLanguageSelected = onLanguageSelected,
+        onBackButtonClick = onBackButtonClick,
+        onFetchLanguageVariant = { langCode, prefixedText ->
+            viewModel.fetchLangVariantLinks(langCode, prefixedText)
+        },
+        onSearchQueryChange = {
+            viewModel.onSearchQueryChange(it)
+        }
     )
 }
 
@@ -54,8 +64,11 @@ fun ComposeLangLinksScreen(
     isLoading: Boolean = true,
     isSiteInfoLoaded: Boolean = true,
     langLinksItem: List<ComposeLangLinksViewModel.LangLinksItem>,
-    onLanguageSelected: (ComposeLangLinksViewModel.LangLinksItem) -> Unit
-) {
+    onLanguageSelected: (ComposeLangLinksViewModel.LangLinksItem) -> Unit,
+    onBackButtonClick: () -> Unit,
+    onFetchLanguageVariant: (String, String) -> Unit,
+    onSearchQueryChange: (String) -> Unit,
+    ) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
     Scaffold(
@@ -64,8 +77,11 @@ fun ComposeLangLinksScreen(
                 appBarTitle = context.getString(R.string.langlinks_activity_title),
                 placeHolderTitle = "",
                 searchQuery = searchQuery,
-                onSearchQueryChange = {},
-                onBackButtonClick = {}
+                onSearchQueryChange = {
+                    searchQuery = it
+                    onSearchQueryChange(it)
+                },
+                onBackButtonClick = onBackButtonClick
             )
         },
         floatingActionButton = {
@@ -78,7 +94,7 @@ fun ComposeLangLinksScreen(
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
         LazyColumn(
-            modifier = Modifier
+            modifier = modifier
                 .padding(paddingValues)
         ) {
             items(langLinksItem) { item ->
@@ -92,6 +108,11 @@ fun ComposeLangLinksScreen(
                         title = "All languages",
                     )
                 } else {
+                    if (item.canFetchLanguageVariant) {
+                        LaunchedEffect(item.languageCode) {
+                            onFetchLanguageVariant(item.languageCode, item.pageTitle?.prefixedText.orEmpty())
+                        }
+                    }
                     LangLinksItemView(
                         modifier = Modifier
                             .fillMaxWidth()

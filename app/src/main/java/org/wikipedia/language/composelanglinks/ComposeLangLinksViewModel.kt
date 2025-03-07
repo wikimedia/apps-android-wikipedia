@@ -17,7 +17,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.language.LangLinksViewModel.Companion.addVariantEntriesIfNeeded
+import org.wikipedia.language.AppLanguageState
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
@@ -34,12 +34,15 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         var canonicalName: String? = null,
         val subtitle: String = "",
         val headerText: String = "",
-        val isHeader: Boolean = false
+        val isHeader: Boolean = false,
+        val canFetchLanguageVariant: Boolean = false
     )
 
     data class LangLinksUiState(
         val searchTerm: String = "",
+        val isSearchActive: Boolean = false,
         val langLinksItems: List<LangLinksItem> = emptyList(),
+        val filteredItems: List<LangLinksItem> = emptyList(),
         val isLoading: Boolean = false,
         val isSiteInfoLoaded: Boolean = false,
         val error: Throwable? = null,
@@ -48,6 +51,7 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     private val _siteInfoList = MutableStateFlow<List<SiteMatrix.SiteInfo>>(emptyList())
     private val _originalLanguageEntries = MutableStateFlow<List<PageTitle>>(emptyList())
     private val _appLanguageEntries = MutableStateFlow<List<PageTitle>>(emptyList())
+    private val _variantLangToUpdate = MutableStateFlow<MutableSet<String>>(mutableSetOf())
 
     private val _uiState = MutableStateFlow(LangLinksUiState())
     val uiState: StateFlow<LangLinksUiState> = _uiState.asStateFlow()
@@ -81,6 +85,11 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
             _appLanguageEntries.value = appLangEntries
 
+            // create variant languages to update
+            _variantLangToUpdate.value = langLinks
+                .mapNotNull { app.languageState.getDefaultLanguageCode(it.wikiSite.languageCode) }
+                .toMutableSet()
+
             updateLanguageItems()
         }
     }
@@ -99,13 +108,34 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
+    fun onSearchQueryChange(searchQuery: String) {
+        updateLanguageItems(searchQuery)
+    }
+
+    fun fetchLangVariantLinks(langCode: String, title: String) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.update { it.copy(error = throwable) }
+        }) {
+            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+            response.query?.firstPage()?.varianttitles?.let { variantMap ->
+                val currentItems = _originalLanguageEntries.value.toMutableList()
+                currentItems.forEach { item ->
+                    variantMap[item.wikiSite.languageCode]?.let { text ->
+                        item.displayText = text
+                    }
+                }
+                _originalLanguageEntries.value = currentItems
+                updateLanguageItems()
+            }
+        }
+    }
+
     private fun getCanonicalName(code: String): String? {
-        println("orange --> ${_siteInfoList.value.size}")
         return _siteInfoList.value.find { it.code == code }?.localname.orEmpty()
             .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
     }
 
-    private fun updateLanguageItems() {
+    private fun updateLanguageItems(searchTerm: String = "") {
         val appLangEntries = _appLanguageEntries.value
         val originalEntries = _originalLanguageEntries.value
 
@@ -114,29 +144,39 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
 
         val items = mutableListOf<LangLinksItem>()
-        // not searching
 
-        // Add app languages section if available, usually after user select article in different
-        // language
-        if (appLangEntries.isNotEmpty()) {
-            items.add(
-                LangLinksItem(
-                    isHeader = true,
-                    headerText = app.getString(R.string.langlinks_your_wikipedia_languages)
+        if (searchTerm.isNotEmpty()) {
+            val filteredItems = originalEntries.filter { entry ->
+                val languageCode = entry.wikiSite.languageCode
+                val canonicalName = getCanonicalName(languageCode) ?: app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
+                val localizedName = app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty()
+                canonicalName.contains(searchTerm, true) || localizedName.contains(searchTerm, true)
+            }
+            items.addAll(filteredItems.map { createLangLinksItem(it) })
+        } else {
+            // not searching
+            // Add app languages section if available, usually after user select article in different
+            // language
+            if (appLangEntries.isNotEmpty()) {
+                items.add(
+                    LangLinksItem(
+                        isHeader = true,
+                        headerText = app.getString(R.string.langlinks_your_wikipedia_languages)
+                    )
                 )
-            )
-            items.addAll(appLangEntries.map { createLangLinksItem(it, true) })
-        }
+                items.addAll(appLangEntries.map { createLangLinksItem(it) })
+            }
 
-        // Add all languages section if available
-        if (nonDuplicateEntries.isNotEmpty()) {
-            items.add(
-                LangLinksItem(
-                    isHeader = true,
-                    headerText = app.getString(R.string.languages_list_all_text)
+            // Add all languages section if available
+            if (nonDuplicateEntries.isNotEmpty()) {
+                items.add(
+                    LangLinksItem(
+                        isHeader = true,
+                        headerText = app.getString(R.string.languages_list_all_text)
+                    )
                 )
-            )
-            items.addAll(nonDuplicateEntries.map { createLangLinksItem(it, false) })
+                items.addAll(nonDuplicateEntries.map { createLangLinksItem(it) })
+            }
         }
 
         _uiState.update {
@@ -147,7 +187,7 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
-    private fun createLangLinksItem(pageTitle: PageTitle, isAppLanguage: Boolean): LangLinksItem {
+    private fun createLangLinksItem(pageTitle: PageTitle): LangLinksItem {
         val languageCode = pageTitle.wikiSite.languageCode
         val localizedName =
             StringUtil.capitalize(app.languageState.getAppLanguageLocalizedName(languageCode)) ?: languageCode
@@ -159,8 +199,18 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             articleName = articleName,
             languageCode = languageCode,
             localizedName = localizedName,
-            canonicalName = canonicalName
+            canonicalName = canonicalName,
+            canFetchLanguageVariant = canFetchLanguageLinksVariant(pageTitle)
         )
+    }
+
+    private fun canFetchLanguageLinksVariant(pageTitle: PageTitle): Boolean {
+        val langCode = app.languageState.getDefaultLanguageCode(pageTitle.wikiSite.languageCode)
+        if (langCode != null && _variantLangToUpdate.value.contains(langCode)) {
+            _variantLangToUpdate.value.remove(langCode)
+            return true
+        }
+        return false
     }
 
     private fun updateLanguageEntriesSupported(languageEntries: MutableList<PageTitle>) {
@@ -194,6 +244,29 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                     val entry = entries.removeAt(i)
                     entries.add(addIndex++, entry)
                     break
+                }
+            }
+        }
+    }
+
+    companion object {
+        fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
+            val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
+            if (parentLanguageCode != null) {
+                val languageVariants = language.getLanguageVariants(parentLanguageCode)
+                if (languageVariants != null) {
+                    for (languageCode in languageVariants) {
+                        // Do not add zh-hant and zh-hans to the list
+                        if (listOf(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
+                                AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE).contains(languageCode)) {
+                            continue
+                        }
+                        if (!title.wikiSite.languageCode.contains(languageCode)) {
+                            val pageTitle = PageTitle(if (title.isMainPage) MainPageNameData.valueFor(languageCode) else title.prefixedText, WikiSite.forLanguageCode(languageCode))
+                            pageTitle.displayText = title.displayText
+                            languageEntries.add(pageTitle)
+                        }
+                    }
                 }
             }
         }
