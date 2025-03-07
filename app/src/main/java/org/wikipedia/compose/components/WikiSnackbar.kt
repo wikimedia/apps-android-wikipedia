@@ -34,13 +34,15 @@ fun Snackbar(
                 }
             }
         },
-        modifier = modifier.padding(16.dp)
+        modifier = modifier
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        containerColor = WikipediaTheme.colors.borderColor
     ) {
         Text(
             text = message,
             style = WikipediaTheme.typography.h3.copy(
                 color = WikipediaTheme.colors.primaryColor,
-                letterSpacing = 0.sp
+                letterSpacing = 0.sp,
             ),
             maxLines = 10,
             overflow = TextOverflow.Ellipsis,

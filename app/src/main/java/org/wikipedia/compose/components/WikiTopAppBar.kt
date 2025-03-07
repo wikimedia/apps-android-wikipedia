@@ -12,10 +12,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,7 +46,7 @@ fun WikiTopAppBar(
                 Icon(
                     imageVector = navigationIcon,
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
+                    contentDescription = stringResource(R.string.back_button_content_description)
                 )
             }
         },

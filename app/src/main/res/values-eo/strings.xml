@@ -66,7 +66,9 @@
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page" fuzzy="true">Trovi en la paĝo</string>
+  <string name="menu_page_view_talk">Montri diskutpaĝon</string>
   <string name="menu_page_talk_page">Diskutopaĝo</string>
+  <string name="menu_page_view_edit_history">Montri redakto-historion</string>
   <string name="menu_page_edit_history">Historio de redaktoj</string>
   <string name="edit_section_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
@@ -138,7 +140,7 @@
   <string name="menu_login">Ensaluti</string>
   <string name="login_activity_title">Ensaluti</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
-  <string name="login_success_toast" fuzzy="true">Ensaluto sukcesis!</string>
+  <string name="login_success_toast">Ensalutis!</string>
   <string name="reset_password_title">Ŝanĝu vian pasvorton</string>
   <string name="reset_password_description">Vi ensalutis per provizora pasvorto. Por fini vian ensalutadon, agordu novan pasvorton ĉi tie.</string>
   <string name="reset_password_hint">Nova pasvorto</string>
@@ -360,6 +362,7 @@
   <string name="multi_select_items_selected">%d elektita</string>
   <string name="error_message_generic">Eraro okazis</string>
   <string name="view_link_preview_error_button_dismiss">Rezigni</string>
+  <string name="link_preview_dialog_read_button">Legi</string>
   <string name="link_preview_dialog_save_button">Konservi</string>
   <string name="link_preview_dialog_saved_button">Konservita</string>
   <string name="link_preview_dialog_share_button">Kunhavigi</string>
@@ -508,6 +511,7 @@
   <string name="reading_list_activity_title">Legolistoj: %s</string>
   <string name="reading_lists_action_menu_export_lists">Elporti</string>
   <string name="reading_lists_preview_save_button">Konservi</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Nuligi</string>
   <string name="user_option_sync_label">Preferoj</string>
   <string name="notification_reverted_title">Malfarita redakto</string>
   <string name="notification_channel_description">Progreso de elŝutado</string>
@@ -560,6 +564,7 @@
   <string name="notifications_mark_unread">Marki kiel nelegitan</string>
   <string name="notifications_mark_all_as_read">Marki kiel legitan</string>
   <string name="notifications_direct_reply_action">Respondi</string>
+  <string name="notifications_mark_all_as_read_message">%d markita(j) kiel legita(j)</string>
   <string name="preference_title_notification_poll">Aktivigi la sciigojn</string>
   <string name="preference_summary_notification_poll">Permesi la aplikaĵon uzi datenon por fone kontroli novajn sciigojn</string>
   <string name="preference_category_notification_types">Specoj de enaplikaĵaoj sciigoj</string>
