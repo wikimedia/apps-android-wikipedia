@@ -172,7 +172,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     @Composable
-    private fun BuildUsageItems(usageList: List<RbDefinition.Usage>) {
+    fun BuildUsageItems(usageList: List<RbDefinition.Usage>) {
         Column {
             usageList.forEach {
                 UsageItem(it)
@@ -194,11 +194,14 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 modifier = Modifier.padding(bottom = 4.dp)
             )
 
-            usage.definitions.forEachIndexed { index, definition ->
-                DefinitionWithExamples(
-                    definition = definition,
-                    count = index + 1
-                )
+            var index = 0
+            usage.definitions.forEach {
+                if (it.definition.isNotEmpty()) {
+                    DefinitionWithExamples(
+                        definition = it,
+                        count = ++index
+                    )
+                }
             }
         }
     }
