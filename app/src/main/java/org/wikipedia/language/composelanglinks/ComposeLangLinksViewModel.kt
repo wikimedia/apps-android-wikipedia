@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -61,7 +60,7 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         fetchSiteInfo()
     }
 
-    private fun fetchLangLinks() {
+    fun fetchLangLinks() {
         _uiState.update { it.copy(isLoading = true) }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
            _uiState.update {
@@ -99,7 +98,6 @@ class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
            _uiState.update { it.copy(error = throwable, isSiteInfoLoaded = false) }
         }) {
-            delay(5000)
             val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
             val sites = SiteMatrix.getSites(siteMatrix)
             _siteInfoList.value = sites
