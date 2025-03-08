@@ -20,6 +20,7 @@ import org.wikipedia.util.StringUtil
 @Composable
 fun HtmlText(
     html: String,
+    modifier: Modifier = Modifier,
     linkStyle: TextLinkStyles = TextLinkStyles(
         style = SpanStyle(
             color = WikipediaTheme.colors.progressiveColor,
@@ -29,8 +30,7 @@ fun HtmlText(
     normalStyle: TextStyle = TextStyle(
         color = WikipediaTheme.colors.secondaryColor,
         fontSize = 14.sp
-    ),
-    modifier: Modifier = Modifier
+    )
 ) {
     Text(
         modifier = modifier,

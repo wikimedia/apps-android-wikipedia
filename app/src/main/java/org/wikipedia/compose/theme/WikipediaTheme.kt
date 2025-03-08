@@ -14,6 +14,7 @@ fun BaseTheme(
     content: @Composable () -> Unit
 ) {
     val appTheme by remember { mutableStateOf(currentTheme) }
+
     val wikipediaColorSystem = when (appTheme) {
         Theme.LIGHT -> LightColors
         Theme.DARK -> DarkColors
