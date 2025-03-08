@@ -39,7 +39,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
@@ -211,7 +210,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             AnnotatedHtmlText(
                 html = StringUtil.fromHtml("$count. ${definition.definition}"),
                 onLinkClick = { url ->
-                    // TODO
+                    maybeShowNewDialogForLink(url)
                 }
             )
 
@@ -220,14 +219,14 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     html = StringUtil.fromHtml(example),
                     modifier = Modifier.padding(start = 16.dp, top = 2.dp),
                     onLinkClick = { url ->
-                        // TODO
+                        maybeShowNewDialogForLink(url)
                     }
                 )
             }
         }
     }
 
-    private val linkMovementMethod = LinkMovementMethodExt { url: String ->
+    private fun maybeShowNewDialogForLink(url: String) {
         if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
             dismiss()
             showNewDialogForLink(url)
