@@ -91,8 +91,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp)
+                .heightIn(max = 600.dp)
         ) {
-            // Thumbnail and Title Row
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -103,7 +103,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     painter = painterResource(id = R.drawable.ic_define),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(24.dp)
+                        .size(36.dp)
                         .padding(end = 12.dp),
                     contentScale = ContentScale.Fit
                 )
@@ -120,23 +120,20 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 )
             }
 
-            // Divider
             HorizontalDivider(
                 color = WikipediaTheme.colors.borderColor,
                 thickness = 0.5.dp,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            // No definitions found text
             if (showNoDefinitions) {
                 Text(
-                    text = "No definitions found", // Replace with string resource
+                    text = "No definitions found",
                     color = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier.padding(top = 16.dp)
                 )
             }
 
-            // Definitions content
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -146,7 +143,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             }
         }
 
-        // Progress indicator overlay
         if (showProgress) {
             Box(
                 modifier = Modifier
@@ -166,7 +162,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             showNoDefinitions = false,
             showProgress = false
         ) {
-            // Add your definitions content here
             Text("Definitions go here")
         }
     }
