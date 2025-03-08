@@ -209,7 +209,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 .padding(start = 16.dp, top = 4.dp)
         ) {
             AnnotatedHtmlText(
-                html = StringUtil.fromHtml("$count. ${definition.definition}").toString(),
+                html = StringUtil.fromHtml("$count. ${definition.definition}"),
                 onLinkClick = { url ->
                     // TODO
                 }
@@ -217,7 +217,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
             definition.examples?.forEach { example ->
                 AnnotatedHtmlText(
-                    html = StringUtil.fromHtml(example).toString(),
+                    html = StringUtil.fromHtml(example),
                     modifier = Modifier.padding(start = 16.dp, top = 2.dp),
                     onLinkClick = { url ->
                         // TODO

@@ -1,5 +1,6 @@
 package org.wikipedia.compose.components
 
+import android.text.Spanned
 import android.text.style.URLSpan
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.material3.Text
@@ -15,7 +16,6 @@ import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.util.StringUtil
 
 @Composable
 fun HtmlText(
@@ -45,11 +45,11 @@ fun HtmlText(
 
 @Composable
 fun AnnotatedHtmlText(
-    html: String,
+    html: Spanned,
     modifier: Modifier = Modifier,
     onLinkClick: (String) -> Unit
 ) {
-    val spanned = StringUtil.fromHtml(html)
+    val spanned = html
     val annotatedString = buildAnnotatedString {
         append(spanned.toString())
         spanned.getSpans(0, spanned.length, URLSpan::class.java).forEach { span ->
