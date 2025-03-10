@@ -79,4 +79,3 @@ fun AnnotatedHtmlText(
         fontSize = 14.sp
     )
 }
-
