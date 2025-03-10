@@ -1,5 +1,7 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,6 +25,14 @@ class YearInReviewActivity : ComponentActivity() {
                     BaseTheme(content = { TestScreen() })
                 }
             }
+        }
+    }
+
+    companion object {
+
+        fun newIntent(context: Context): Intent {
+
+            return Intent(context, YearInReviewActivity::class.java)
         }
     }
 }

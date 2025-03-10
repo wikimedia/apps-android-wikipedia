@@ -28,6 +28,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun watchlistClick()
         fun contribsClick()
         fun donateClick(campaignId: String? = null)
+        fun yearInReviewClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -80,6 +81,11 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             callback()?.donateClick()
+            dismiss()
+        }
+
+        binding.mainDrawerYearInReviewContainer.setOnClickListener {
+            callback()?.yearInReviewClick()
             dismiss()
         }
 
