@@ -112,6 +112,7 @@ import org.wikipedia.views.PageActionOverflowView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
+import org.wikipedia.watchlist.WatchlistViewModel
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
@@ -649,22 +650,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         leadImagesHandler.hide()
         bridge.loadBlankPage()
         webView.visibility = View.INVISIBLE
-    }
-
-    @Suppress("KotlinConstantConditions")
-    private fun showWatchlistSnackbar() {
-        title?.let {
-            if (!model.isWatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (model.isWatched) {
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { _ ->
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(it, WatchlistExpiry.NEVER))
-                }
-                snackbar.show()
-            }
-        }
     }
 
     fun updateWatchlistExpiry(expiry: WatchlistExpiry) {
@@ -1236,20 +1221,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateWatchlist() {
         title?.let {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                FeedbackUtil.showError(requireActivity(), throwable)
                 L.d(throwable)
             }) {
-                val token = ServiceFactory.get(it.wikiSite).getWatchToken().query?.watchToken() ?: throw RuntimeException("Received empty watch token.")
-                val watch = ServiceFactory.get(it.wikiSite).watch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, token)
-                watch.getFirst()?.let { firstWatch ->
-                    if (model.isWatched) {
-                        WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
-                    } else {
-                        WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
-                    }
-                    model.isWatched = firstWatch.watched
-                    updateWatchlistExpiry(WatchlistExpiry.NEVER)
-                    showWatchlistSnackbar()
-                }
+                val pair = WatchlistViewModel.watchPageTitle(this, it, model.isWatched, WatchlistExpiry.NEVER, model.isWatched, it.namespace().talk())
+                model.isWatched = pair.first
+                updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                WatchlistViewModel.showWatchlistSnackbar(requireActivity() as AppCompatActivity, it, pair.first, pair.second)
                 updateQuickActionsAndMenuOptions()
             }
         }
