@@ -2,11 +2,11 @@ package org.wikipedia.compose.components
 
 import android.text.Spanned
 import android.text.style.URLSpan
-import androidx.compose.foundation.clickable
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
@@ -53,14 +53,19 @@ fun AnnotatedHtmlText(
         html.getSpans(0, html.length, URLSpan::class.java).forEach { span ->
             val start = html.getSpanStart(span)
             val end = html.getSpanEnd(span)
+            val url = span.url
             addStyle(
                 style = SpanStyle(color = WikipediaTheme.colors.progressiveColor),
                 start = start,
                 end = end
             )
-            addStringAnnotation(
-                tag = "URL",
-                annotation = span.url,
+            addLink(
+                url = LinkAnnotation.Url(
+                    url = url,
+                    linkInteractionListener = {
+                        onLinkClick(url)
+                    }
+                ),
                 start = start,
                 end = end
             )
@@ -69,18 +74,7 @@ fun AnnotatedHtmlText(
 
     Text(
         text = annotatedString,
-        modifier = modifier.then(
-            Modifier.clickable {
-                // TODO: This is a workaround to get the offset of the click
-//                annotatedString.getStringAnnotations(
-//                    tag = "URL",
-//                    start = offset,
-//                    end = offset
-//                ).firstOrNull()?.let { annotation ->
-//                    onLinkClick(annotation.item)
-//                }
-            }
-        ),
+        modifier = modifier,
         color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
     )
