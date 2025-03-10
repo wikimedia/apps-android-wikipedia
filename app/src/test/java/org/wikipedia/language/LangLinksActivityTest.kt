@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.language.composelanglinks.LangLinksViewModel
 import org.wikipedia.page.PageTitle
 
 @RunWith(RobolectricTestRunner::class)

@@ -13,13 +13,12 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.language.LangLinksActivity.Companion.ACTIVITY_RESULT_LANGLINK_SELECT
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 
-class ComposeLangLinksActivity : BaseActivity() {
-    private val viewModel: ComposeLangLinksViewModel by viewModels()
+class LangLinksActivity : BaseActivity() {
+    private val viewModel: LangLinksViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +62,9 @@ class ComposeLangLinksActivity : BaseActivity() {
     }
 
     companion object {
+        const val ACTIVITY_RESULT_LANGLINK_SELECT = 1
         fun newIntent(context: Context, title: PageTitle): Intent {
-            return Intent(context, ComposeLangLinksActivity::class.java)
+            return Intent(context, LangLinksActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, title)
         }
     }

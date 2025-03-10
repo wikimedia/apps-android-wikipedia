@@ -21,7 +21,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 
-class ComposeLangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     private val app = WikipediaApp.instance
 
