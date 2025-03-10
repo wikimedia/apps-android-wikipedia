@@ -29,13 +29,11 @@ class HistoryEntry(
     var namespace: String = "",
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
-    var timeSpentSec: Int = 0,
-    var description: String = ""
+    var prevId: Int = -1,
 ) : Parcelable {
-    constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
+    constructor(title: PageTitle, source: Int, timestamp: Date = Date()) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
-        timestamp = timestamp, source = source, timeSpentSec = timeSpentSec,
-        description = title.description.orEmpty()) {
+        timestamp = timestamp, source = source) {
         pageTitle = title
     }
 
@@ -48,7 +46,6 @@ class HistoryEntry(
         if (pageTitle == null) {
             pageTitle = PageTitle(namespace, apiTitle, WikiSite(authority, lang)).also {
                 it.displayText = displayTitle
-                it.description = description
             }
         }
         return pageTitle!!

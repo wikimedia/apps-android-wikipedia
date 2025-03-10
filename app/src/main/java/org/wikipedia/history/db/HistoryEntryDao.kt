@@ -14,6 +14,9 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
+    @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
+    suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
+
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
@@ -32,17 +35,11 @@ interface HistoryEntryDao {
     }
 
     @Transaction
-    suspend fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
-        val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)
+    suspend fun upsertWithNewTitle(entry: HistoryEntry) {
+        val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle, entry.timestamp.time)
         if (curEntry != null) {
-            curEntry.timeSpentSec += timeSpent
-            curEntry.source = entry.source
-            curEntry.timestamp = entry.timestamp
-            curEntry.description = entry.description
+            curEntry.displayTitle = entry.displayTitle
             insertEntry(curEntry)
-        } else {
-            entry.timeSpentSec += timeSpent
-            insertEntry(entry)
         }
     }
 }

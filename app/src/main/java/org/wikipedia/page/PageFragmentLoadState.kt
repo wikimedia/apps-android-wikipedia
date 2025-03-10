@@ -3,6 +3,7 @@ package org.wikipedia.page
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -19,7 +20,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
@@ -38,13 +38,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    fun load(pushBackStack: Boolean) {
+    fun load(pushBackStack: Boolean, isRefresh: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
-        pageLoad()
+        pageLoad(isRefresh)
     }
 
     fun loadFromBackStack(isRefresh: Boolean = false) {
@@ -113,12 +113,19 @@ class PageFragmentLoadState(private var model: PageViewModel,
         fragment.onPageLoadError(caught)
     }
 
-    private fun pageLoad() {
+    private fun pageLoad(isRefresh: Boolean) {
         model.title?.let { title ->
             fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e("Page details network error: ", throwable)
                 commonSectionFetchOnCatch(throwable)
             }) {
+                if (!isRefresh) {
+                    //TODO: insert HistoryEntry into db
+                    model.curEntry?.let {
+                        AppDatabase.instance.historyEntryDao().insertEntry(it)
+                    }
+                }
+
                 model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
                 fragment.updateQuickActionsAndMenuOptions()
@@ -221,26 +228,32 @@ class PageFragmentLoadState(private var model: PageViewModel,
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()
             }
+            title.thumbUrl = pageSummary?.thumbnailUrl
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
-
-            // Update our history entry, in case the Title was changed (i.e. normalized)
-            model.curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp).apply {
-                    referrer = it.referrer
-                }
-            }
 
             // Update our tab list to prevent ZH variants issue.
             WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
 
-            // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
+            // Update our history entry, in case the Title was changed (i.e. normalized)
+            model.curEntry?.let {
+                val entry = HistoryEntry(
+                    title,
+                    it.source,
+                    timestamp = it.timestamp
+                ).apply {
+                    referrer = it.referrer
+                }
+                model.curEntry = entry
 
-            fragment.lifecycleScope.launch {
-                AppDatabase.instance.pageImagesDao().insertPageImage(pageImage)
+                MainScope().launch {
+                    // Upsert this history entry in the DB
+                    AppDatabase.instance.historyEntryDao().upsertWithNewTitle(entry)
+
+                    // Update metadata in the DB
+                    AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
+                }
             }
-            title.thumbUrl = pageImage.imageName
         }
     }
 }

@@ -31,7 +31,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 26
+const val DATABASE_VERSION = 27
 
 @Database(
     entities = [
@@ -184,10 +184,32 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
             }
         }
+        val MIGRATION_26_27 = object : Migration(26, 27) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Copy current HistoryEntry table to a temporary table with new structure
+                database.execSQL("CREATE TABLE `HistoryEntry_new` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
+
+                database.execSQL("INSERT INTO HistoryEntry_new (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry")
+
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
+
+                // copy "description" field from the HistoryEntry table to PageImage table
+                database.execSQL("UPDATE PageImage SET description = (SELECT description FROM HistoryEntry WHERE PageImage.lang = HistoryEntry.lang AND PageImage.namespace = HistoryEntry.namespace AND PageImage.apiTitle = HistoryEntry.apiTitle)")
+                // copy "timeSpentSec" field from the HistoryEntry table to PageImage table
+                database.execSQL("UPDATE PageImage SET timeSpentSec = (SELECT timeSpentSec FROM HistoryEntry WHERE PageImage.lang = HistoryEntry.lang AND PageImage.namespace = HistoryEntry.namespace AND PageImage.apiTitle = HistoryEntry.apiTitle)")
+
+                database.execSQL("DROP TABLE HistoryEntry")
+                database.execSQL("ALTER TABLE HistoryEntry_new RENAME TO HistoryEntry")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
-                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26)
+                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
+                    MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()
