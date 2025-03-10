@@ -266,8 +266,8 @@
   <string name="edit_damage">Domajo %s</string>
   <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s bicoko*</item>
-    <item quantity="other">%s bicoki*</item>
+    <item quantity="one">%s bicoko</item>
+    <item quantity="other">%s bicoki</item>
   </plurals>
   <string name="edit_zoom_in">Augmentez la videbleso</string>
   <string name="edit_zoom_out">Diminutez la videbleso</string>
