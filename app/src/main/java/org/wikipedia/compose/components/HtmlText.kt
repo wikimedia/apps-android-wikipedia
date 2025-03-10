@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -49,13 +48,11 @@ fun AnnotatedHtmlText(
     modifier: Modifier = Modifier,
     onLinkClick: (String) -> Unit
 ) {
-    val uriHandler = LocalUriHandler.current
-    val spanned = html
     val annotatedString = buildAnnotatedString {
-        append(spanned.toString())
-        spanned.getSpans(0, spanned.length, URLSpan::class.java).forEach { span ->
-            val start = spanned.getSpanStart(span)
-            val end = spanned.getSpanEnd(span)
+        append(html.toString())
+        html.getSpans(0, html.length, URLSpan::class.java).forEach { span ->
+            val start = html.getSpanStart(span)
+            val end = html.getSpanEnd(span)
             addStyle(
                 style = SpanStyle(color = WikipediaTheme.colors.progressiveColor),
                 start = start,
@@ -73,14 +70,15 @@ fun AnnotatedHtmlText(
     Text(
         text = annotatedString,
         modifier = modifier.then(
-            Modifier.clickable { offset ->
-                annotatedString.getStringAnnotations(
-                    tag = "URL",
-                    start = offset,
-                    end = offset
-                ).firstOrNull()?.let { annotation ->
-                    onLinkClick(annotation.item)
-                }
+            Modifier.clickable {
+                // TODO: This is a workaround to get the offset of the click
+//                annotatedString.getStringAnnotations(
+//                    tag = "URL",
+//                    start = offset,
+//                    end = offset
+//                ).firstOrNull()?.let { annotation ->
+//                    onLinkClick(annotation.item)
+//                }
             }
         ),
         color = WikipediaTheme.colors.primaryColor,
