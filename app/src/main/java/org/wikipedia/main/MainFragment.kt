@@ -473,7 +473,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun yearInReviewClick() {
-        startActivity(YearInReviewActivity.newIntent(requireActivity(), AccountUtil.userName))
+        startActivity(YearInReviewActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {

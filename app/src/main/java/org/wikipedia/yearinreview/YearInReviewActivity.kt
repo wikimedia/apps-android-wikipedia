@@ -30,12 +30,9 @@ class YearInReviewActivity : ComponentActivity() {
 
     companion object {
 
-        const val INTENT_EXTRA_USER_NAME = "userName"
-
-        fun newIntent(context: Context, userName: String): Intent {
+        fun newIntent(context: Context): Intent {
 
             return Intent(context, YearInReviewActivity::class.java)
-                .putExtra(INTENT_EXTRA_USER_NAME, userName)
         }
     }
 }
