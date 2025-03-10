@@ -33,8 +33,7 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         var canonicalName: String? = null,
         val subtitle: String = "",
         val headerText: String = "",
-        val isHeader: Boolean = false,
-        val canFetchLanguageVariant: Boolean = false
+        val isHeader: Boolean = false
     )
 
     data class LangLinksUiState(
@@ -198,11 +197,11 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             languageCode = languageCode,
             localizedName = localizedName,
             canonicalName = canonicalName,
-            canFetchLanguageVariant = canFetchLanguageLinksVariant(pageTitle)
         )
     }
 
-    private fun canFetchLanguageLinksVariant(pageTitle: PageTitle): Boolean {
+    fun canFetchLanguageLinksVariant(pageTitle: PageTitle?): Boolean {
+        if (pageTitle == null) return false
         val langCode = app.languageState.getDefaultLanguageCode(pageTitle.wikiSite.languageCode)
         if (langCode != null && _variantLangToUpdate.value.contains(langCode)) {
             _variantLangToUpdate.value.remove(langCode)

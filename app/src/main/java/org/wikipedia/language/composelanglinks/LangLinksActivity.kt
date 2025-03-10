@@ -42,8 +42,10 @@ class LangLinksActivity : BaseActivity() {
                     onBackButtonClick = {
                         finish()
                     },
-                    onFetchLanguageVariant = { langCode, prefixedText ->
-                        viewModel.fetchLangVariantLinks(langCode, prefixedText)
+                    onFetchLanguageVariant = { langCode, prefixedText, pageTitle ->
+                        if (viewModel.canFetchLanguageLinksVariant(pageTitle)) {
+                            viewModel.fetchLangVariantLinks(langCode, prefixedText)
+                        }
                     },
                     onSearchQueryChange = {
                         viewModel.onSearchQueryChange(it)

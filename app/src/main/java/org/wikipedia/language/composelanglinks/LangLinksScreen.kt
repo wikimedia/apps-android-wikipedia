@@ -45,6 +45,7 @@ import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.page.PageTitle
 
 @Composable
 fun ComposeLangLinksScreen(
@@ -56,7 +57,7 @@ fun ComposeLangLinksScreen(
     error: Throwable? = null,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
-    onFetchLanguageVariant: (String, String) -> Unit,
+    onFetchLanguageVariant: (String, String, PageTitle?) -> Unit,
     onSearchQueryChange: (String) -> Unit,
     ) {
     val context = LocalContext.current
@@ -139,12 +140,10 @@ fun ComposeLangLinksScreen(
                         title = "All languages",
                     )
                 } else {
-                    if (item.canFetchLanguageVariant) {
-                        LaunchedEffect(item.languageCode) {
-                            println("orange --> variant called")
-                            onFetchLanguageVariant(item.languageCode, item.pageTitle?.prefixedText.orEmpty())
-                        }
+                    LaunchedEffect(item.languageCode) {
+                        onFetchLanguageVariant(item.languageCode, item.pageTitle?.prefixedText.orEmpty(), item.pageTitle)
                     }
+
                     LangLinksItemView(
                         modifier = Modifier
                             .fillMaxWidth()
