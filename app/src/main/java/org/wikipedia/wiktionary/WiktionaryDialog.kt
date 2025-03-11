@@ -25,6 +25,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -126,7 +127,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
             if (showNoDefinitions) {
                 Text(
-                    text = "No definitions found",
+                    text = stringResource(R.string.wiktionary_no_definitions_found),
                     color = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier.padding(top = 16.dp)
                 )
@@ -223,7 +224,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             showNoDefinitions = false,
             showProgress = false
         ) {
-            Text("Definitions go here")
+            Text(stringResource(R.string.wiktionary_no_definitions_found))
         }
     }
 
