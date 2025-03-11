@@ -215,7 +215,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-
     @Preview
     @Composable
     fun WiktionaryDialogPreview() {
