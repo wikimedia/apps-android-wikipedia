@@ -159,23 +159,23 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     fun BuildUsageItems(usageList: List<RbDefinition.Usage>) {
         Column {
             usageList.forEach {
-                UsageItem(it)
+                DefinitionList(it)
             }
         }
     }
 
     @Composable
-    fun UsageItem(usage: RbDefinition.Usage) {
+    fun DefinitionList(usage: RbDefinition.Usage) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(bottom = 8.dp)
         ) {
             Text(
                 text = usage.partOfSpeech,
-                fontSize = 16.sp,
-                color = WikipediaTheme.colors.secondaryColor,
-                modifier = Modifier.padding(bottom = 4.dp)
+                fontSize = 14.sp,
+                color = WikipediaTheme.colors.placeholderColor,
+                modifier = Modifier.padding(vertical = 4.dp)
             )
 
             var index = 0
@@ -195,7 +195,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, top = 4.dp)
+                .padding(vertical = 4.dp)
         ) {
             AnnotatedHtmlText(
                 html = StringUtil.fromHtml("$count. ${definition.definition}"),
@@ -207,7 +207,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             definition.examples?.forEach { example ->
                 AnnotatedHtmlText(
                     html = StringUtil.fromHtml(example),
-                    modifier = Modifier.padding(start = 16.dp, top = 2.dp),
+                    modifier = Modifier
+                        .padding(start = 16.dp, end = 16.dp, bottom = 2.dp),
                     onLinkClick = { url ->
                         maybeShowNewDialogForLink(url)
                     }
