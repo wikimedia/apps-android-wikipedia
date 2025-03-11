@@ -8,7 +8,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -24,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -90,7 +90,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp)
-                .heightIn(max = 600.dp)
         ) {
             Row(
                 modifier = Modifier
@@ -137,6 +136,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 4.dp)
+                    .heightIn(min = dimensionResource(R.dimen.bottomSheetPeekHeight))
             ) {
                 definitionsContent()
             }
@@ -145,23 +145,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         if (showProgress) {
             Box(
                 modifier = Modifier
-                    .fillMaxSize(),
+                    .fillMaxWidth()
+                    .padding(top = 64.dp),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator()
             }
-        }
-    }
-
-    @Preview
-    @Composable
-    fun WiktionaryDialogPreview() {
-        WiktionaryDialogContent(
-            title = "Lorem ipsum",
-            showNoDefinitions = false,
-            showProgress = false
-        ) {
-            Text("Definitions go here")
         }
     }
 
@@ -223,6 +212,19 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 )
             }
+        }
+    }
+
+
+    @Preview
+    @Composable
+    fun WiktionaryDialogPreview() {
+        WiktionaryDialogContent(
+            title = "Lorem ipsum",
+            showNoDefinitions = false,
+            showProgress = false
+        ) {
+            Text("Definitions go here")
         }
     }
 
