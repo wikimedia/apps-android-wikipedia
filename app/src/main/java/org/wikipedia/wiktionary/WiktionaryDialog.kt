@@ -93,6 +93,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp)
+                .heightIn(min = dimensionResource(R.dimen.bottomSheetPeekHeight))
         ) {
             Row(
                 modifier = Modifier
@@ -139,7 +140,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 4.dp)
-                    .heightIn(min = dimensionResource(R.dimen.bottomSheetPeekHeight))
             ) {
                 definitionsContent()
             }
@@ -149,10 +149,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 64.dp),
+                    .padding(top = 128.dp),
                 contentAlignment = Alignment.Center
             ) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(
+                    color = WikipediaTheme.colors.progressiveColor,
+                )
             }
         }
     }
