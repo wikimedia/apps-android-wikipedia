@@ -27,7 +27,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,12 +41,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
 import org.wikipedia.R
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.LightColors
-import org.wikipedia.compose.theme.LocalWikipediaColor
-import org.wikipedia.compose.theme.LocalWikipediaTypography
 import org.wikipedia.compose.theme.Typography
-import org.wikipedia.compose.theme.WikipediaColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,19 +54,20 @@ fun YearInReviewScreenScaffold(
     val scrollState = rememberScrollState()
 
     Scaffold(
+        containerColor = LightColors.paperColor,
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
                     Icon(
                         painter = painterResource(R.drawable.ic_wikipedia_b),
-                        contentDescription = "wiki icon"
+                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = { TODO() }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                            contentDescription = null
+                            contentDescription = stringResource(R.string.year_in_review_navigate_left)
                         )
                     }
                 },
@@ -79,7 +75,7 @@ fun YearInReviewScreenScaffold(
                     IconButton(onClick = { TODO() }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_share),
-                            contentDescription = null
+                            contentDescription = stringResource(R.string.year_in_review_share_icon)
                         )
                     }
                 }
@@ -100,7 +96,7 @@ fun MainBottomBar(){
         modifier = Modifier.border(
             width = 1.dp,
             shape = RectangleShape,
-            color = Color.LightGray
+            color = LightColors.inactiveColor
         ),
         containerColor = Color.Transparent,
         content = {
@@ -118,7 +114,7 @@ fun MainBottomBar(){
 
                     Icon(
                         painter = painterResource(R.drawable.ic_hear_red_24),
-                        contentDescription = "Heart Icon",
+                        contentDescription = stringResource(R.string.year_in_review_heart_icon),
                         tint = Color.Unspecified
                     )
 
@@ -131,7 +127,7 @@ fun MainBottomBar(){
                 IconButton(onClick = { TODO() }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                        contentDescription = "navigate forward"
+                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
                     )
                 }
             }
@@ -142,7 +138,7 @@ fun MainBottomBar(){
 @Composable
 fun GetStartedBottomBar(){
     BottomAppBar(
-        containerColor = Color.Transparent,
+        containerColor = LightColors.paperColor,
         content = {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -160,7 +156,10 @@ fun GetStartedBottomBar(){
                         .height(42.dp),
                     onClick = { TODO() }
                 ){
-                    Text("Learn More")
+                    Text(
+                        text = stringResource(R.string.year_in_review_learn_more),
+                        style = Typography.h3,
+                        )
                 }
 
                 Button(
@@ -173,7 +172,9 @@ fun GetStartedBottomBar(){
                         .height(42.dp),
                     onClick = {TODO ()}
                 ){
-                    Text("Get Started")
+                    Text(
+                        text = stringResource(R.string.year_in_review_get_started),
+                        style = Typography.h3)
                 }
             }
         }
