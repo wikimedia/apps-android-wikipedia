@@ -161,6 +161,14 @@ object JavaScriptActionHandler {
                 "})"
     }
 
+    fun handleMathImageDimming(): String {
+        return "(function() {" +
+                "let style = document.createElement('style');" +
+                "style.innerHTML = 'img.mwe-math-fallback-image-inline { opacity: 1; } ';" +
+                "document.head.appendChild(style);" +
+                "})();"
+    }
+
     fun appendReadMode(model: PageViewModel): String {
         if (model.page == null) {
             return ""
