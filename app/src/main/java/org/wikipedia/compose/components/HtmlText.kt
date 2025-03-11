@@ -45,8 +45,8 @@ fun HtmlText(
 @Composable
 fun AnnotatedHtmlText(
     html: Spanned,
-    modifier: Modifier = Modifier,
-    onLinkClick: (String) -> Unit
+    onLinkClick: (String) -> Unit,
+    content: @Composable (AnnotatedString) -> Unit
 ) {
     val annotatedString = buildAnnotatedString {
         append(html.toString())
@@ -71,11 +71,5 @@ fun AnnotatedHtmlText(
             )
         }
     }
-
-    Text(
-        text = annotatedString,
-        modifier = modifier,
-        color = WikipediaTheme.colors.primaryColor,
-        fontSize = 14.sp
-    )
+    content(annotatedString)
 }

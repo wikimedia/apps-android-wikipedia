@@ -202,17 +202,32 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 onLinkClick = { url ->
                     maybeShowNewDialogForLink(url)
                 }
-            )
+            ) {
+                Text(
+                    text = it,
+                    fontSize = 14.sp,
+                    color = WikipediaTheme.colors.primaryColor,
+                    lineHeight = 14.sp * 1.3f,
+                    modifier = Modifier.padding(vertical = 4.dp)
+                )
+            }
 
             definition.examples?.forEach { example ->
                 AnnotatedHtmlText(
                     html = StringUtil.fromHtml(example),
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp, bottom = 2.dp),
                     onLinkClick = { url ->
                         maybeShowNewDialogForLink(url)
                     }
-                )
+                ) {
+                    Text(
+                        text = it,
+                        fontSize = 14.sp,
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = 14.sp * 1.3f,
+                        modifier = Modifier
+                            .padding(start = 16.dp, end = 16.dp, bottom = 2.dp)
+                    )
+                }
             }
         }
     }
