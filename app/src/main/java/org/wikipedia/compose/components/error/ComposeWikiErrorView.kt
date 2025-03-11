@@ -32,7 +32,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
@@ -81,7 +80,7 @@ fun ComposeWikiErrorView(
             modifier = Modifier
                 .size(72.dp),
             painter = painterResource(errorType.icon),
-            colorFilter = ColorFilter.tint(color = ComposeColors.Gray500),
+            colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor),
             contentDescription = null
         )
         Spacer(
@@ -104,7 +103,7 @@ fun ComposeWikiErrorView(
                     textAlign = TextAlign.Center,
                     fontSize = 16.sp,
                     lineHeight = 19.2.sp,
-                    color = ComposeColors.Gray500
+                    color = WikipediaTheme.colors.placeholderColor
                 )
             )
         }
@@ -138,7 +137,7 @@ fun ComposeWikiErrorView(
                 modifier = Modifier
                     .padding(horizontal = 16.dp),
                 text = footerErrorMessage,
-                color = ComposeColors.Gray500,
+                color = WikipediaTheme.colors.placeholderColor,
                 fontSize = 14.sp
             )
         }
