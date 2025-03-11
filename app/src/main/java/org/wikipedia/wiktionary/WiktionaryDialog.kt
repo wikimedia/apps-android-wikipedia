@@ -26,6 +26,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -222,6 +223,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     Text(
                         text = it,
                         fontSize = 14.sp,
+                        fontStyle = FontStyle.Italic,
                         color = WikipediaTheme.colors.primaryColor,
                         lineHeight = 14.sp * 1.3f,
                         modifier = Modifier
