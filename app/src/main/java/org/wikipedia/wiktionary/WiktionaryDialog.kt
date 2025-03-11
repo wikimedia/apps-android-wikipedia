@@ -98,7 +98,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 48.dp),
+                    .heightIn(min = 64.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
