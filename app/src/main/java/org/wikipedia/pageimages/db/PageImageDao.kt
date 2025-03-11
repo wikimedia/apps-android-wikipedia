@@ -23,7 +23,7 @@ interface PageImageDao {
 
     @Transaction
     suspend fun upsertForTimeSpent(entry: HistoryEntry, timeSpent: Int) {
-        val items = findItemsBy(entry.namespace, entry.lang, entry.apiTitle)
+        val items = findItemsBy(entry.lang, entry.namespace, entry.apiTitle)
         if (items.isNotEmpty()) {
             items.forEach {
                 it.timeSpentSec += timeSpent
@@ -37,7 +37,7 @@ interface PageImageDao {
 
     @Transaction
     suspend fun upsertForMetadata(entry: HistoryEntry, imageName: String?, description: String?, geoLat: Double?, geoLon: Double?) {
-        val items = findItemsBy(entry.namespace, entry.lang, entry.apiTitle)
+        val items = findItemsBy(entry.lang, entry.namespace, entry.apiTitle)
         if (items.isNotEmpty()) {
             items.forEach {
                 it.imageName = imageName

@@ -120,7 +120,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 commonSectionFetchOnCatch(throwable)
             }) {
                 if (!isRefresh) {
-                    //TODO: insert HistoryEntry into db
                     model.curEntry?.let {
                         AppDatabase.instance.historyEntryDao().insertEntry(it)
                     }
