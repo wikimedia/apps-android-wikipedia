@@ -199,7 +199,6 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 4.dp)
         ) {
             AnnotatedHtmlText(
                 html = StringUtil.fromHtml("$count. ${definition.definition}"),
@@ -212,7 +211,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                         text = it,
                         fontSize = 14.sp,
                         color = WikipediaTheme.colors.primaryColor,
-                        lineHeight = 14.sp * 1.3f,
+                        lineHeight = 14.sp * 1.5f,
                         modifier = Modifier.padding(vertical = 4.dp)
                     )
                 }
@@ -231,9 +230,9 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                             fontSize = 14.sp,
                             fontStyle = FontStyle.Italic,
                             color = WikipediaTheme.colors.primaryColor,
-                            lineHeight = 14.sp * 1.3f,
+                            lineHeight = 14.sp * 1.5f,
                             modifier = Modifier
-                                .padding(start = 16.dp, end = 16.dp, bottom = 2.dp)
+                                .padding(start = 16.dp, end = 16.dp)
                         )
                     }
                 }
