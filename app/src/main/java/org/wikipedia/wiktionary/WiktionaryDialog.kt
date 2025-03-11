@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
@@ -204,13 +205,15 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                     maybeShowNewDialogForLink(url)
                 }
             ) {
-                Text(
-                    text = it,
-                    fontSize = 14.sp,
-                    color = WikipediaTheme.colors.primaryColor,
-                    lineHeight = 14.sp * 1.3f,
-                    modifier = Modifier.padding(vertical = 4.dp)
-                )
+                SelectionContainer {
+                    Text(
+                        text = it,
+                        fontSize = 14.sp,
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = 14.sp * 1.3f,
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+                }
             }
 
             definition.examples?.forEach { example ->
@@ -220,15 +223,17 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                         maybeShowNewDialogForLink(url)
                     }
                 ) {
-                    Text(
-                        text = it,
-                        fontSize = 14.sp,
-                        fontStyle = FontStyle.Italic,
-                        color = WikipediaTheme.colors.primaryColor,
-                        lineHeight = 14.sp * 1.3f,
-                        modifier = Modifier
-                            .padding(start = 16.dp, end = 16.dp, bottom = 2.dp)
-                    )
+                    SelectionContainer {
+                        Text(
+                            text = it,
+                            fontSize = 14.sp,
+                            fontStyle = FontStyle.Italic,
+                            color = WikipediaTheme.colors.primaryColor,
+                            lineHeight = 14.sp * 1.3f,
+                            modifier = Modifier
+                                .padding(start = 16.dp, end = 16.dp, bottom = 2.dp)
+                        )
+                    }
                 }
             }
         }
