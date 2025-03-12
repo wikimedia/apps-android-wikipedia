@@ -280,10 +280,6 @@ dependencies {
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
-
-    // For running Gifs
-    implementation(libs.accompanist.drawablepainter)
-    implementation "com.github.bumptech.glide:compose:1.0.0-beta01"
 }
 
 private setSigningConfigKey(config, Properties props) {
