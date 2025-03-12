@@ -87,14 +87,13 @@ fun YearInReviewScreenScaffold(
         },
 
         bottomBar = customBottomBar,
-    )  { innerPadding ->
-
-            screenContent(innerPadding, scrollState)
+    ) { innerPadding ->
+        screenContent(innerPadding, scrollState)
     }
 }
 
 @Composable
-fun MainBottomBar(){
+fun MainBottomBar() {
 
     BottomAppBar(
         modifier = Modifier.border(
@@ -108,13 +107,14 @@ fun MainBottomBar(){
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
-            ){
-                Row(modifier = Modifier
-                    .clickable(onClick = { TODO() })
-                    .padding(start = 15.dp),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .clickable(onClick = { TODO() })
+                        .padding(start = 15.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ){
+                ) {
 
                     Icon(
                         painter = painterResource(R.drawable.ic_hear_red_24),
@@ -140,7 +140,7 @@ fun MainBottomBar(){
 }
 
 @Composable
-fun GetStartedBottomBar(){
+fun GetStartedBottomBar() {
     BottomAppBar(
         containerColor = LightColors.paperColor,
         content = {
@@ -159,7 +159,7 @@ fun GetStartedBottomBar(){
                         .width(152.dp)
                         .height(42.dp),
                     onClick = { TODO() }
-                ){
+                ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
                         style = WikipediaTheme.typography.button
@@ -174,8 +174,8 @@ fun GetStartedBottomBar(){
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = {TODO ()}
-                ){
+                    onClick = { TODO () }
+                ) {
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
                         style = WikipediaTheme.typography.button
@@ -190,7 +190,7 @@ fun GetStartedBottomBar(){
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     scrollState: ScrollState
-){
+) {
     val context = LocalContext.current
 
     Column(
@@ -203,10 +203,10 @@ fun YearInReviewScreenContent(
             verticalAlignment = Alignment.Top,
             modifier = Modifier
                 .fillMaxWidth()
-        ){
+        ) {
             AndroidView(
                 factory = {
-                    ImageView(context).apply{
+                    ImageView(context).apply {
                         Glide.with(context)
                             .asGif()
                             .load(R.drawable.year_in_review_block_10_resize)
@@ -226,12 +226,12 @@ fun YearInReviewScreenContent(
         Column(
             modifier = Modifier
                 .padding(horizontal = 20.dp)
-        ){
+        ) {
 
             Row(horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-            ){
+            ) {
                 Text(
                     modifier = Modifier
                         .padding(top = 10.dp)
@@ -242,7 +242,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = {TODO ()}) {
+                    onClick = { TODO () } ) {
                     Icon(
                         painter = painterResource(R.drawable.ic_info_outline_black_24dp),
                         contentDescription = stringResource(R.string.year_in_review_information_icon)
@@ -264,7 +264,8 @@ fun YearInReviewScreenContent(
 
 @Preview
 @Composable
-fun ViewScaffold1(){
+fun ViewScaffold1() {
+
     YearInReviewScreenScaffold(
         customBottomBar = { MainBottomBar() },
         screenContent = { innerPadding, scrollState ->
@@ -277,7 +278,8 @@ fun ViewScaffold1(){
 
 @Preview
 @Composable
-fun ViewScaffold2(){
+fun ViewScaffold2() {
+
     YearInReviewScreenScaffold(
         customBottomBar = { GetStartedBottomBar() },
         screenContent = { innerPadding, scrollState ->
