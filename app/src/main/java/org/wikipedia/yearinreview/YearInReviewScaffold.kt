@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-
 import android.widget.ImageView
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.border
@@ -16,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
@@ -27,11 +27,14 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -43,6 +46,7 @@ import com.bumptech.glide.Glide
 import org.wikipedia.R
 import org.wikipedia.compose.theme.LightColors
 import org.wikipedia.compose.theme.Typography
+import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,9 +58,11 @@ fun YearInReviewScreenScaffold(
     val scrollState = rememberScrollState()
 
     Scaffold(
-        containerColor = LightColors.paperColor,
+        containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
             CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = WikipediaTheme.colors.paperColor),
                 title = {
                     Icon(
                         painter = painterResource(R.drawable.ic_wikipedia_b),
@@ -85,7 +91,7 @@ fun YearInReviewScreenScaffold(
         bottomBar = customBottomBar,
     )  { innerPadding ->
 
-        screenContent(innerPadding, scrollState)
+            screenContent(innerPadding, scrollState)
     }
 }
 
@@ -96,7 +102,7 @@ fun MainBottomBar(){
         modifier = Modifier.border(
             width = 1.dp,
             shape = RectangleShape,
-            color = LightColors.inactiveColor
+            color = WikipediaTheme.colors.borderColor
         ),
         containerColor = Color.Transparent,
         content = {
@@ -118,9 +124,9 @@ fun MainBottomBar(){
                         tint = Color.Unspecified
                     )
 
-                    Text(text = stringResource(R.string.nav_item_donate),
-                        style = Typography.h3,
-                        color = LightColors.destructiveColor
+                    Text(text = stringResource(R.string.year_in_review_donate),
+                        style = WikipediaTheme.typography.h3,
+                        color = WikipediaTheme.colors.destructiveColor
                     )
                 }
 
@@ -149,8 +155,8 @@ fun GetStartedBottomBar(){
             ){
                 OutlinedButton(
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = LightColors.paperColor,
-                        contentColor = LightColors.progressiveColor),
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        contentColor = WikipediaTheme.colors.progressiveColor),
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
@@ -158,14 +164,14 @@ fun GetStartedBottomBar(){
                 ){
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
-                        style = Typography.h3,
+                        style = Typography.button,
                         )
                 }
 
                 Button(
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = LightColors.progressiveColor,
-                        contentColor = LightColors.paperColor
+                        containerColor = WikipediaTheme.colors.progressiveColor,
+                        contentColor = WikipediaTheme.colors.paperColor
                     ),
                     modifier = Modifier
                         .width(152.dp)
@@ -174,7 +180,7 @@ fun GetStartedBottomBar(){
                 ){
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
-                        style = Typography.h3)
+                        style = Typography.button)
                 }
             }
         }
@@ -192,7 +198,8 @@ fun YearInReviewScreenContent(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .padding(innerPadding)
-    ){
+            .verticalScroll(scrollState)
+    ) {
         Row(
             verticalAlignment = Alignment.Top,
             modifier = Modifier
@@ -210,13 +217,16 @@ fun YearInReviewScreenContent(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(1f)
+                    .clip(RoundedCornerShape(16.dp))
+                    .aspectRatio(
+                        ratio = 3f / 2f,
+                        matchHeightConstraintsFirst = true)
             )
         }
 
-        Column(modifier = Modifier
-            .padding(horizontal = 20.dp)
-            .verticalScroll(scrollState)
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
         ){
 
             Row(horizontalArrangement = Arrangement.SpaceBetween,
@@ -228,7 +238,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = "You edit Wikipedia 150 times",
+                    text = "You edited Wikipedia 150 times",
                     fontSize = 30.sp
                 )
 
@@ -236,7 +246,7 @@ fun YearInReviewScreenContent(
                     onClick = {TODO ()}) {
                     Icon(
                         painter = painterResource(R.drawable.ic_info_outline_black_24dp),
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.year_in_review_information_icon)
                     )
                 }
             }

@@ -1866,5 +1866,7 @@
     <string name="year_in_review_share_icon">Share Icon</string>
     <string name="year_in_review_heart_icon">Heart Icon</string>
     <string name="year_in_review_navigate_right">Navigate Right</string>
+    <string name="year_in_review_donate">Donate</string>
+    <string name="year_in_review_information_icon">Information Icon</string>
 
 </resources>
