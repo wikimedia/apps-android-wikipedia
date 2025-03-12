@@ -1776,4 +1776,13 @@
   <string name="back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
   <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
+  <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
+  <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
+  <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
+  <string name="year_in_review_navigate_left">Content description of the navigation left icon for the Year in Review Scaffold.</string>
+  <string name="year_in_review_share_icon">Content description of the share icon for the Year in Review screen scaffold.</string>
+  <string name="year_in_review_heart_icon">Content description of the heart icon for the Year in Review screen scaffold.</string>
+  <string name="year_in_review_navigate_right">Content description of the navigate right icon for the Year in Review screen scaffold.</string>
+  <string name="year_in_review_donate">Clickable Donate string for the Year in Review screen scaffold.</string>
+  <string name="year_in_review_information_icon">Content description of the information icon for the Year in Review screen scaffold.</string>
 </resources>

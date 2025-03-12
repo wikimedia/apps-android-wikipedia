@@ -34,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -45,7 +44,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
 import org.wikipedia.R
 import org.wikipedia.compose.theme.LightColors
-import org.wikipedia.compose.theme.Typography
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -164,8 +162,8 @@ fun GetStartedBottomBar(){
                 ){
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
-                        style = Typography.button,
-                        )
+                        style = WikipediaTheme.typography.button
+                    )
                 }
 
                 Button(
@@ -180,7 +178,8 @@ fun GetStartedBottomBar(){
                 ){
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
-                        style = Typography.button)
+                        style = WikipediaTheme.typography.button
+                    )
                 }
             }
         }
@@ -255,6 +254,7 @@ fun YearInReviewScreenContent(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
+
                 fontSize = 20.sp,
                 text = "This year, Wikipedia was edited at an average rate of 342 times per minute. Articles are collaboratively created and improved using reliable sources. All of us have knowledge to share, learn how to participate."
             )
