@@ -212,7 +212,7 @@ class WatchlistViewModel : ViewModel() {
             }
             val messageCall = scope.async {
                 val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${WikipediaApp.instance.getString(expiry.stringId)}",
-                    pageTitle.wikiSite.languageCode)
+                    WikipediaApp.instance.appOrSystemLanguageCode)
                     .query?.allmessages?.firstOrNull { it.name == whichMessage }?.content.orEmpty()
                 ServiceFactory.get(pageTitle.wikiSite).parseText(unparsedMessage)
             }
