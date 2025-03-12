@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,7 +38,7 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.compose.components.AnnotatedHtmlText
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.restbase.RbDefinition
@@ -200,41 +201,34 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            AnnotatedHtmlText(
-                html = StringUtil.fromHtml("$count. ${definition.definition}"),
-                onLinkClick = { url ->
-                    maybeShowNewDialogForLink(url)
-                }
-            ) {
-                SelectionContainer {
-                    Text(
-                        text = it,
-                        fontSize = 14.sp,
+            SelectionContainer {
+                HtmlText(
+                    html = "$count. ${definition.definition}",
+                    modifier = Modifier.padding(vertical = 4.dp),
+                    normalStyle = TextStyle(
                         color = WikipediaTheme.colors.primaryColor,
-                        lineHeight = 14.sp * 1.5f,
-                        modifier = Modifier.padding(vertical = 4.dp)
-                    )
-                }
-            }
-
-            definition.examples?.forEach { example ->
-                AnnotatedHtmlText(
-                    html = StringUtil.fromHtml(example),
+                        fontSize = 14.sp,
+                    ),
                     onLinkClick = { url ->
                         maybeShowNewDialogForLink(url)
                     }
-                ) {
-                    SelectionContainer {
-                        Text(
-                            text = it,
-                            fontSize = 14.sp,
-                            fontStyle = FontStyle.Italic,
+                )
+            }
+
+            definition.examples?.forEach { example ->
+                SelectionContainer {
+                    HtmlText(
+                        html = example,
+                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 4.dp),
+                        normalStyle = TextStyle(
                             color = WikipediaTheme.colors.primaryColor,
-                            lineHeight = 14.sp * 1.5f,
-                            modifier = Modifier
-                                .padding(start = 16.dp, end = 16.dp)
-                        )
-                    }
+                            fontSize = 14.sp,
+                            fontStyle = FontStyle.Italic
+                        ),
+                        onLinkClick = { url ->
+                            maybeShowNewDialogForLink(url)
+                        }
+                    )
                 }
             }
         }
