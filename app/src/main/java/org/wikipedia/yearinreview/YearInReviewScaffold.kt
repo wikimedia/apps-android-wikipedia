@@ -280,6 +280,7 @@ fun ViewScaffold1() {
 @Preview
 @Composable
 fun ViewScaffold2() {
+
     BaseTheme {
         YearInReviewScreenScaffold(
             customBottomBar = { GetStartedBottomBar() },
@@ -290,5 +291,4 @@ fun ViewScaffold2() {
             }
         )
     }
-
 }
