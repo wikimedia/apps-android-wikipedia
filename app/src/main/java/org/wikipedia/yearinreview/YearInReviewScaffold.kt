@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
 import org.wikipedia.R
-import org.wikipedia.compose.theme.LightColors
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -101,7 +101,7 @@ fun MainBottomBar() {
             shape = RectangleShape,
             color = WikipediaTheme.colors.borderColor
         ),
-        containerColor = Color.Transparent,
+        containerColor = WikipediaTheme.colors.paperColor,
         content = {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -142,7 +142,7 @@ fun MainBottomBar() {
 @Composable
 fun GetStartedBottomBar() {
     BottomAppBar(
-        containerColor = LightColors.paperColor,
+        containerColor = WikipediaTheme.colors.paperColor,
         content = {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -266,26 +266,29 @@ fun YearInReviewScreenContent(
 @Composable
 fun ViewScaffold1() {
 
-    YearInReviewScreenScaffold(
+    BaseTheme { YearInReviewScreenScaffold(
         customBottomBar = { MainBottomBar() },
         screenContent = { innerPadding, scrollState ->
             YearInReviewScreenContent(
                 innerPadding = innerPadding,
                 scrollState = scrollState)
-        }
-    )
+            }
+        )
+    }
 }
 
 @Preview
 @Composable
 fun ViewScaffold2() {
+    BaseTheme {
+        YearInReviewScreenScaffold(
+            customBottomBar = { GetStartedBottomBar() },
+            screenContent = { innerPadding, scrollState ->
+                YearInReviewScreenContent(
+                    innerPadding = innerPadding,
+                    scrollState = scrollState)
+            }
+        )
+    }
 
-    YearInReviewScreenScaffold(
-        customBottomBar = { GetStartedBottomBar() },
-        screenContent = { innerPadding, scrollState ->
-            YearInReviewScreenContent(
-                innerPadding = innerPadding,
-                scrollState = scrollState)
-        }
-    )
 }
