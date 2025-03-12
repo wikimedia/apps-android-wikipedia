@@ -6,10 +6,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 @Composable
 fun Snackbar(
@@ -22,8 +23,7 @@ fun Snackbar(
         action = {
             if (actionLabel != null && onActionClick != null) {
                 TextButton(
-                    onClick = onActionClick,
-                    modifier = Modifier.padding(end = 8.dp)
+                    onClick = onActionClick
                 ) {
                     Text(
                         text = actionLabel,
@@ -38,16 +38,26 @@ fun Snackbar(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         containerColor = WikipediaTheme.colors.borderColor
     ) {
-        Text(
+        HtmlText(
             text = message,
             style = WikipediaTheme.typography.h3.copy(
-                color = WikipediaTheme.colors.primaryColor,
-                letterSpacing = 0.sp,
+                color = WikipediaTheme.colors.primaryColor
             ),
             maxLines = 10,
-            overflow = TextOverflow.Ellipsis,
             modifier = Modifier
-                .padding(top = 0.dp, bottom = 0.dp, start = 0.dp, end = 8.dp)
+                .padding(top = 0.dp, bottom = 0.dp, start = 0.dp, end = 0.dp)
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun SnackbarPreview() {
+    BaseTheme(currentTheme = Theme.DARK) {
+        Snackbar(
+            message = "This is an <strong>example</strong> Snackbar (with <a href=\"#foo\">html</a>)!",
+            actionLabel = "Click here!",
+            onActionClick = {}
         )
     }
 }
