@@ -38,11 +38,13 @@ interface HistoryEntryDao {
     suspend fun upsert(entry: HistoryEntry) {
         val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle, entry.timestamp.time)
         if (curEntry != null) {
-            // If this entry already exists, it implies that the page was refreshed.
-            // Just for good measure, make sure the display title is up to date.
+            // If this entry already exists, it implies that the page was refreshed, so it's OK not to
+            // create a new db entry. But just for good measure, lets update the displayTitle anyway,
+            // since it might have changed.
             curEntry.displayTitle = entry.displayTitle
             insertEntry(curEntry)
         } else {
+            // This is definitely a new visit to this page, so create a new db entry.
             insertEntry(entry)
         }
     }
