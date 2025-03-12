@@ -186,7 +186,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             renderGalleryState(it)
                         }
                         is LinkPreviewViewState.Watch -> {
-                            WatchlistViewModel.showWatchlistSnackbar(requireActivity() as BaseActivity, viewModel.pageTitle, it.data.first, it.data.second)
+                            WatchlistViewModel.showWatchlistSnackbar(requireActivity() as BaseActivity, requireActivity().supportFragmentManager, viewModel.pageTitle, it.data.first, it.data.second)
                             dismiss()
                         }
                         is LinkPreviewViewState.Completed -> {

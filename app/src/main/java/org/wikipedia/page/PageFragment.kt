@@ -1227,7 +1227,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val pair = WatchlistViewModel.watchPageTitle(this, it, model.isWatched, WatchlistExpiry.NEVER, model.isWatched, it.namespace().talk())
                 model.isWatched = pair.first
                 updateWatchlistExpiry(WatchlistExpiry.NEVER)
-                WatchlistViewModel.showWatchlistSnackbar(requireActivity() as AppCompatActivity, it, pair.first, pair.second)
+                WatchlistViewModel.showWatchlistSnackbar(requireActivity() as AppCompatActivity, childFragmentManager, it, pair.first, pair.second)
                 updateQuickActionsAndMenuOptions()
             }
         }

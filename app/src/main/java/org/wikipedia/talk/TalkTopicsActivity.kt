@@ -409,7 +409,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnWatch(message: String) {
-        WatchlistViewModel.showWatchlistSnackbar(this, viewModel.pageTitle, viewModel.isWatched, message)
+        WatchlistViewModel.showWatchlistSnackbar(this, supportFragmentManager, viewModel.pageTitle, viewModel.isWatched, message)
         invalidateOptionsMenu()
     }
 

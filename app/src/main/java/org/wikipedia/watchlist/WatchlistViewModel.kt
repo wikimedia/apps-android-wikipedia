@@ -1,6 +1,7 @@
 package org.wikipedia.watchlist
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -191,14 +192,17 @@ class WatchlistViewModel : ViewModel() {
                 }
             }
 
-            val whichMessage = if (unwatch) {
-                if (isTalkPage == true) "removedwatchtext-talk" else "removedwatchtext"
+            var whichMessage = if (unwatch) {
+                "removedwatchtext"
             } else {
                 if (expiry == WatchlistExpiry.NEVER) {
-                    if (isTalkPage == true) "addedwatchindefinitelytext-talk" else "addedwatchindefinitelytext"
+                    "addedwatchindefinitelytext"
                 } else {
-                    if (isTalkPage == true) "addedwatchexpirytext-talk" else "addedwatchexpirytext"
+                    "addedwatchexpirytext"
                 }
+            }
+            if (isTalkPage == true) {
+                whichMessage += "-talk"
             }
 
             val watchCall = scope.async {
@@ -207,7 +211,8 @@ class WatchlistViewModel : ViewModel() {
                     .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
             }
             val messageCall = scope.async {
-                val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${WikipediaApp.instance.getString(expiry.stringId)}")
+                val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${WikipediaApp.instance.getString(expiry.stringId)}",
+                    pageTitle.wikiSite.languageCode)
                     .query?.allmessages?.firstOrNull { it.name == whichMessage }?.content.orEmpty()
                 ServiceFactory.get(pageTitle.wikiSite).parseText(unparsedMessage)
             }
@@ -226,13 +231,13 @@ class WatchlistViewModel : ViewModel() {
             return watchObj.watched to message
         }
 
-        fun showWatchlistSnackbar(activity: AppCompatActivity, pageTitle: PageTitle, isWatched: Boolean, message: String) {
+        fun showWatchlistSnackbar(activity: AppCompatActivity, fragmentManager: FragmentManager, pageTitle: PageTitle, isWatched: Boolean, message: String) {
             if (!isWatched) {
                 FeedbackUtil.showMessage(activity, message)
             } else {
                 FeedbackUtil.makeSnackbar(activity, message)
                     .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
+                        ExclusiveBottomSheetPresenter.show(fragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
                     }
                     .show()
             }
