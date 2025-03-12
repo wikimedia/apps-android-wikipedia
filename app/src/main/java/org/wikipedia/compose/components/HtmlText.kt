@@ -15,10 +15,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.fromHtml
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import org.wikipedia.compose.extensions.composeFromHtml
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 @Composable
 fun HtmlText(
@@ -37,7 +40,7 @@ fun HtmlText(
 ) {
     Text(
         modifier = modifier,
-        text = AnnotatedString.fromHtml(
+        text = AnnotatedString.composeFromHtml(
             htmlString = html,
             linkStyles = linkStyle
         ),
@@ -76,12 +79,17 @@ fun AnnotatedHtmlText(
                         end = end
                     )
                 }
+
                 is StyleSpan -> {
                     addStyle(
                         style = when (span.style) {
                             Typeface.BOLD -> SpanStyle(fontWeight = FontWeight.Bold)
                             Typeface.ITALIC -> SpanStyle(fontStyle = FontStyle.Italic)
-                            Typeface.BOLD_ITALIC -> SpanStyle(fontWeight = FontWeight.Bold, fontStyle = FontStyle.Italic)
+                            Typeface.BOLD_ITALIC -> SpanStyle(
+                                fontWeight = FontWeight.Bold,
+                                fontStyle = FontStyle.Italic
+                            )
+
                             else -> SpanStyle()
                         },
                         start = start,
@@ -92,4 +100,14 @@ fun AnnotatedHtmlText(
         }
     }
     content(annotatedString)
+}
+
+@Preview
+@Composable
+private fun HtmlTextPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HtmlText("This is an <em>example</em> of <strong>text</strong><br />with " +
+                "<a href=\"#foo\">html</a>, with nonstandard stuff<br />like <code>monospace</code>" +
+                " and <sup>superscript</sup>, too!")
+    }
 }
