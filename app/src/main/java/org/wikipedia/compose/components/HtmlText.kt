@@ -7,12 +7,12 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import org.wikipedia.compose.extensions.composeFromHtml
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -37,7 +37,7 @@ fun HtmlText(
 ) {
     Text(
         modifier = modifier,
-        text = AnnotatedString.fromHtml(
+        text = AnnotatedString.composeFromHtml(
             htmlString = text,
             linkStyles = linkStyle
         ),
@@ -52,6 +52,8 @@ fun HtmlText(
 @Composable
 private fun HtmlTextPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        HtmlText("This is an <em>example</em> of <strong>text</strong><br />with <a href=\"#foo\">html</a>!")
+        HtmlText("This is an <em>example</em> of <strong>text</strong><br />with " +
+                "<a href=\"#foo\">html</a>, with nonstandard stuff<br />like <code>monospace</code>" +
+                " and <sup>superscript</sup>, too!")
     }
 }

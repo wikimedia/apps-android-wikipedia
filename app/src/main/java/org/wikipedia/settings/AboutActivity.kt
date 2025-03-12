@@ -49,6 +49,7 @@ import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
@@ -404,7 +405,7 @@ fun LicenseTextWithHeader(
 @Preview
 @Composable
 private fun AboutScreenPreview() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         AboutWikipediaScreen(
             modifier = Modifier
                 .fillMaxSize(),
