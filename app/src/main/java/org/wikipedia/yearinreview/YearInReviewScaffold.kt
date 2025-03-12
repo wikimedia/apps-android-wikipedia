@@ -150,7 +150,7 @@ fun GetStartedBottomBar() {
                     .fillMaxWidth()
                     .height(50.dp)
                     .padding(start = 10.dp, end = 10.dp)
-            ){
+            ) {
                 OutlinedButton(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.paperColor,
@@ -174,7 +174,7 @@ fun GetStartedBottomBar() {
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { TODO () }
+                    onClick = { TODO() }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
@@ -242,7 +242,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = { TODO () } ) {
+                    onClick = { TODO() }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_info_outline_black_24dp),
                         contentDescription = stringResource(R.string.year_in_review_information_icon)
