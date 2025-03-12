@@ -17,7 +17,13 @@ class HistoryViewModel : ViewModel() {
         historyItems.postValue(Resource.Error(throwable))
     }
 
+    private var allHistoryItems: List<Any> = emptyList()
+
     var searchQuery: String? = null
+        set(value) {
+            field = value
+            filterItems()
+        }
 
     val historyItems = MutableLiveData(Resource<List<Any>>())
     val deleteHistoryItemsAction = SingleLiveData<Resource<Boolean>>()
@@ -32,10 +38,36 @@ class HistoryViewModel : ViewModel() {
         }
     }
 
+    private fun filterItems() {
+        if (searchQuery.isNullOrEmpty()) {
+            historyItems.postValue(Resource.Success(allHistoryItems))
+        } else {
+            val query = searchQuery.orEmpty().lowercase()
+            // Group all items by their headers
+            val groupedItems = mutableMapOf<String, MutableList<HistoryEntry>>()
+            var currentHeader = ""
+
+            allHistoryItems.forEach { item ->
+                when (item) {
+                    is String -> currentHeader = item
+                    is HistoryEntry -> groupedItems.getOrPut(currentHeader) { mutableListOf() }.add(item)
+                }
+            }
+
+            // Filter entries and reconstruct the list with headers
+            val filtered = groupedItems.flatMap { (header, entries) ->
+                val filteredEntries = entries.filter { it.title.displayText.lowercase().contains(query) }
+                if (filteredEntries.isEmpty()) emptyList() else listOf(header) + filteredEntries
+            }
+
+            historyItems.postValue(Resource.Success(filtered))
+        }
+    }
+
     private suspend fun loadHistoryItems() {
         withContext(Dispatchers.IO) {
-            val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
-            historyItems.postValue(Resource.Success(items))
+            allHistoryItems = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
+            filterItems()
         }
     }
 
