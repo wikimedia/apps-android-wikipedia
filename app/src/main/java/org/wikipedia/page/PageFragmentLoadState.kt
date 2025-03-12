@@ -38,23 +38,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    fun load(pushBackStack: Boolean, isRefresh: Boolean) {
+    fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
-        pageLoad(isRefresh)
+        pageLoad()
     }
 
-    fun loadFromBackStack(isRefresh: Boolean = false) {
+    fun loadFromBackStack() {
         if (currentTab.backStack.isEmpty()) {
             return
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY, isRefresh)
+        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY)
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
@@ -113,18 +113,12 @@ class PageFragmentLoadState(private var model: PageViewModel,
         fragment.onPageLoadError(caught)
     }
 
-    private fun pageLoad(isRefresh: Boolean) {
+    private fun pageLoad() {
         model.title?.let { title ->
             fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e("Page details network error: ", throwable)
                 commonSectionFetchOnCatch(throwable)
             }) {
-                if (!isRefresh) {
-                    model.curEntry?.let {
-                        AppDatabase.instance.historyEntryDao().insertEntry(it)
-                    }
-                }
-
                 model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
                 fragment.updateQuickActionsAndMenuOptions()
@@ -246,8 +240,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 model.curEntry = entry
 
                 MainScope().launch {
-                    // Upsert this history entry in the DB
-                    AppDatabase.instance.historyEntryDao().upsertWithNewTitle(entry)
+                    // Insert and/or update this history entry in the DB
+                    AppDatabase.instance.historyEntryDao().upsert(entry)
 
                     // Update metadata in the DB
                     AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
