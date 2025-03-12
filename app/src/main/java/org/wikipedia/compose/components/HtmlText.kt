@@ -4,6 +4,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
@@ -18,6 +19,7 @@ import org.wikipedia.theme.Theme
 @Composable
 fun HtmlText(
     html: String,
+    modifier: Modifier = Modifier,
     linkStyle: TextLinkStyles = TextLinkStyles(
         style = SpanStyle(
             color = WikipediaTheme.colors.progressiveColor,
@@ -28,13 +30,14 @@ fun HtmlText(
         color = WikipediaTheme.colors.secondaryColor,
         fontSize = 14.sp
     ),
-    modifier: Modifier = Modifier
+    linkInteractionListener: LinkInteractionListener? = null
 ) {
     Text(
         modifier = modifier,
         text = AnnotatedString.composeFromHtml(
             htmlString = html,
-            linkStyles = linkStyle
+            linkStyles = linkStyle,
+            linkInteractionListener = linkInteractionListener
         ),
         style = normalStyle,
         lineHeight = 1.6.em
