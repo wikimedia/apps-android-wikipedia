@@ -4,7 +4,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
@@ -30,17 +30,14 @@ fun HtmlText(
         color = WikipediaTheme.colors.secondaryColor,
         fontSize = 14.sp
     ),
-    onLinkClick: ((String) -> Unit)? = null
+    linkInteractionListener: LinkInteractionListener? = null,
 ) {
     Text(
         modifier = modifier,
         text = AnnotatedString.composeFromHtml(
             htmlString = html,
             linkStyles = linkStyle,
-            linkInteractionListener = {
-                val url = (it as LinkAnnotation.Url).url
-                onLinkClick?.invoke(url)
-            }
+            linkInteractionListener = linkInteractionListener
         ),
         style = normalStyle,
         lineHeight = 1.6.em

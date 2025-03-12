@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
@@ -209,7 +210,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                         color = WikipediaTheme.colors.primaryColor,
                         fontSize = 14.sp,
                     ),
-                    onLinkClick = { url ->
+                    linkInteractionListener = {
+                        val url = (it as LinkAnnotation.Url).url
                         maybeShowNewDialogForLink(url)
                     }
                 )
@@ -225,7 +227,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                             fontSize = 14.sp,
                             fontStyle = FontStyle.Italic
                         ),
-                        onLinkClick = { url ->
+                        linkInteractionListener = {
+                            val url = (it as LinkAnnotation.Url).url
                             maybeShowNewDialogForLink(url)
                         }
                     )
