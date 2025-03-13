@@ -204,9 +204,9 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         ) {
             SelectionContainer {
                 HtmlText(
-                    html = "$count. ${definition.definition}",
+                    text = "$count. ${definition.definition}",
                     modifier = Modifier.padding(vertical = 4.dp),
-                    normalStyle = TextStyle(
+                    style = TextStyle(
                         color = WikipediaTheme.colors.primaryColor,
                         fontSize = 14.sp,
                     ),
@@ -220,9 +220,9 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
             definition.examples?.forEach { example ->
                 SelectionContainer {
                     HtmlText(
-                        html = example,
+                        text = example,
                         modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 4.dp),
-                        normalStyle = TextStyle(
+                        style = TextStyle(
                             color = WikipediaTheme.colors.primaryColor,
                             fontSize = 14.sp,
                             fontStyle = FontStyle.Italic

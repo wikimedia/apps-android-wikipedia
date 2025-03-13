@@ -49,6 +49,7 @@ import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
@@ -336,8 +337,8 @@ fun AboutScreenFooter(
             colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor)
         )
         HtmlText(
-            html = stringResource(R.string.about_wmf),
-            normalStyle = TextStyle(
+            text = stringResource(R.string.about_wmf),
+            style = TextStyle(
                 color = WikipediaTheme.colors.secondaryColor,
                 fontSize = 12.sp
             ),
@@ -372,7 +373,7 @@ fun LinkTextWithHeader(
             color = WikipediaTheme.colors.primaryColor
         )
         HtmlText(
-            html = html,
+            text = html,
             linkStyle = linkStyles
         )
     }
@@ -404,7 +405,7 @@ fun LicenseTextWithHeader(
 @Preview
 @Composable
 private fun AboutScreenPreview() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         AboutWikipediaScreen(
             modifier = Modifier
                 .fillMaxSize(),
