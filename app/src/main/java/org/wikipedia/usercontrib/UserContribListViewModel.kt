@@ -19,7 +19,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.Date
+import java.time.LocalDate
 
 class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val userContribStatsData = MutableLiveData<Resource<UserContribStats>>()
@@ -123,5 +123,5 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     open class UserContribItemModel
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
-    class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
+    class UserContribStats(val totalEdits: Int, val registrationDate: LocalDate, val projectName: String) : UserContribItemModel()
 }

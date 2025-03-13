@@ -17,7 +17,7 @@ import org.wikipedia.util.StringUtil
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.*
+import java.util.Date
 
 @Serializable
 class MwQueryResult {
