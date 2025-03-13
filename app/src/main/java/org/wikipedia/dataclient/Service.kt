@@ -163,7 +163,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
-    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&contentmodel=wikitext&disablelimitreport=1")
     suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")

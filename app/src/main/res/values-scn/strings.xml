@@ -376,7 +376,7 @@
   <string name="this_year">Ovannu</string>
   <plurals name="diff_years">
     <item quantity="one">Oggiallannu</item>
-    <item quantity="other">%d anni fa</item>
+    <item quantity="other">%d anni arrè</item>
   </plurals>
   <string name="languages_list_activity_title">Agghiunci na lingua</string>
   <string name="languages_list_suggested_text">Cunzigghiatu</string>
