@@ -4,6 +4,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
@@ -33,13 +34,15 @@ fun HtmlText(
     ),
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
-    lineHeight: TextUnit = 1.6.em
+    lineHeight: TextUnit = 1.6.em,
+    linkInteractionListener: LinkInteractionListener? = null
 ) {
     Text(
         modifier = modifier,
         text = AnnotatedString.composeFromHtml(
             htmlString = text,
-            linkStyles = linkStyle
+            linkStyles = linkStyle,
+            linkInteractionListener = linkInteractionListener
         ),
         lineHeight = lineHeight,
         style = style,
