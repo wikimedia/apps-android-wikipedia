@@ -8,7 +8,9 @@ import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.extensions.composeFromHtml
@@ -18,7 +20,7 @@ import org.wikipedia.theme.Theme
 
 @Composable
 fun HtmlText(
-    html: String,
+    text: String,
     modifier: Modifier = Modifier,
     linkStyle: TextLinkStyles = TextLinkStyles(
         style = SpanStyle(
@@ -26,21 +28,26 @@ fun HtmlText(
             fontSize = 14.sp
         )
     ),
-    normalStyle: TextStyle = TextStyle(
+    style: TextStyle = TextStyle(
         color = WikipediaTheme.colors.secondaryColor,
         fontSize = 14.sp
     ),
+    maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Ellipsis,
+    lineHeight: TextUnit = 1.6.em,
     linkInteractionListener: LinkInteractionListener? = null
 ) {
     Text(
         modifier = modifier,
         text = AnnotatedString.composeFromHtml(
-            htmlString = html,
+            htmlString = text,
             linkStyles = linkStyle,
             linkInteractionListener = linkInteractionListener
         ),
-        style = normalStyle,
-        lineHeight = 1.6.em
+        lineHeight = lineHeight,
+        style = style,
+        maxLines = maxLines,
+        overflow = overflow,
     )
 }
 

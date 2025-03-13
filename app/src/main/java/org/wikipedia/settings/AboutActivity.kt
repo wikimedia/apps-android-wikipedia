@@ -337,8 +337,8 @@ fun AboutScreenFooter(
             colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor)
         )
         HtmlText(
-            html = stringResource(R.string.about_wmf),
-            normalStyle = TextStyle(
+            text = stringResource(R.string.about_wmf),
+            style = TextStyle(
                 color = WikipediaTheme.colors.secondaryColor,
                 fontSize = 12.sp
             ),
@@ -373,7 +373,7 @@ fun LinkTextWithHeader(
             color = WikipediaTheme.colors.primaryColor
         )
         HtmlText(
-            html = html,
+            text = html,
             linkStyle = linkStyles
         )
     }
