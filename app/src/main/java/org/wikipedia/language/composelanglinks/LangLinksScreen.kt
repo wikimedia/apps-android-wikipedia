@@ -24,7 +24,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,10 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.fromHtml
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
@@ -45,19 +41,16 @@ import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.page.PageTitle
 
 @Composable
 fun ComposeLangLinksScreen(
     modifier: Modifier = Modifier,
     isLoading: Boolean = true,
-    isSiteInfoLoaded: Boolean = true,
     langLinksItem: List<LangLinksViewModel.LangLinksItem>,
     onLanguageSelected: (LangLinksViewModel.LangLinksItem) -> Unit,
     error: Throwable? = null,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
-    onFetchLanguageVariant: (String, String, PageTitle?) -> Unit,
     onSearchQueryChange: (String) -> Unit,
     ) {
     val context = LocalContext.current
@@ -78,13 +71,6 @@ fun ComposeLangLinksScreen(
                 },
                 onBackButtonClick = onBackButtonClick
             )
-        },
-        floatingActionButton = {
-            if (isLoading && isSiteInfoLoaded) {
-                CircularProgressIndicator(
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
@@ -116,11 +102,17 @@ fun ComposeLangLinksScreen(
                     .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
                 contentAlignment = Alignment.Center
             ) {
-                SearchEmptyView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    emptyTexTitle = context.getString(R.string.langlinks_no_match)
-                )
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                } else {
+                    SearchEmptyView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                    )
+                }
             }
             return@Scaffold
         }
@@ -140,10 +132,6 @@ fun ComposeLangLinksScreen(
                         title = "All languages",
                     )
                 } else {
-                    LaunchedEffect(item.languageCode) {
-                        onFetchLanguageVariant(item.languageCode, item.pageTitle?.prefixedText.orEmpty(), item.pageTitle)
-                    }
-
                     LangLinksItemView(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -192,9 +180,11 @@ fun LangLinksItemView(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
+            modifier = Modifier
+                .fillMaxWidth(),
             text = localizedLanguageName,
             style = WikipediaTheme.typography.h3.copy(
                 color = WikipediaTheme.colors.primaryColor,
@@ -202,18 +192,20 @@ fun LangLinksItemView(
         )
         if (!canonicalName.isNullOrEmpty()) {
             Text(
+                modifier = Modifier
+                    .fillMaxWidth(),
                 text = canonicalName,
                 style = WikipediaTheme.typography.list.copy(
-                    color = WikipediaTheme.colors.secondaryColor,
-                    textAlign = TextAlign.Center
+                    color = WikipediaTheme.colors.secondaryColor
                 )
             )
         }
         Text(
-            text = AnnotatedString.fromHtml(articleName),
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = articleName,
             style = WikipediaTheme.typography.list.copy(
-                color = WikipediaTheme.colors.secondaryColor,
-                textAlign = TextAlign.Center
+                color = WikipediaTheme.colors.secondaryColor
             )
         )
     }

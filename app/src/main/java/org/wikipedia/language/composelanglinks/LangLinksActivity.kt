@@ -27,7 +27,6 @@ class LangLinksActivity : BaseActivity() {
                 val uiState by viewModel.uiState.collectAsState()
                 ComposeLangLinksScreen(
                     isLoading = uiState.isLoading,
-                    isSiteInfoLoaded = uiState.isSiteInfoLoaded,
                     langLinksItem = uiState.langLinksItems,
                     error = uiState.error,
                     onLanguageSelected = { item ->
@@ -42,11 +41,6 @@ class LangLinksActivity : BaseActivity() {
                     onBackButtonClick = {
                         finish()
                     },
-                    onFetchLanguageVariant = { langCode, prefixedText, pageTitle ->
-                        if (viewModel.canFetchLanguageLinksVariant(pageTitle)) {
-                            viewModel.fetchLangVariantLinks(langCode, prefixedText)
-                        }
-                    },
                     onSearchQueryChange = {
                         viewModel.onSearchQueryChange(it)
                     },
@@ -55,7 +49,7 @@ class LangLinksActivity : BaseActivity() {
                             onBackPressed()
                         },
                         retryClickListener = {
-                            viewModel.fetchLangLinks()
+                            viewModel.fetchAllData()
                         }
                     )
                 )

@@ -4,11 +4,16 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -42,37 +47,34 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val langLinksItems: List<LangLinksItem> = emptyList(),
         val filteredItems: List<LangLinksItem> = emptyList(),
         val isLoading: Boolean = false,
-        val isSiteInfoLoaded: Boolean = false,
         val error: Throwable? = null,
     )
 
-    private val _siteInfoList = MutableStateFlow<List<SiteMatrix.SiteInfo>>(emptyList())
-    private val _originalLanguageEntries = MutableStateFlow<List<PageTitle>>(emptyList())
-    private val _appLanguageEntries = MutableStateFlow<List<PageTitle>>(emptyList())
-    private val _variantLangToUpdate = MutableStateFlow<MutableSet<String>>(mutableSetOf())
+    private var siteInfoList = listOf<SiteMatrix.SiteInfo>()
+    private var originalLanguageEntries = listOf<PageTitle>()
+    private var appLanguageEntries = listOf<PageTitle>()
+    private var variantLangToUpdate = mutableSetOf<String>()
 
     private val _uiState = MutableStateFlow(LangLinksUiState())
     val uiState: StateFlow<LangLinksUiState> = _uiState.asStateFlow()
 
     init {
-        fetchLangLinks()
-        fetchSiteInfo()
+        fetchAllData()
     }
 
-    fun fetchLangLinks() {
+    fun fetchAllData() {
         _uiState.update { it.copy(isLoading = true) }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-           _uiState.update {
-               it.copy(
+            _uiState.update {
+                it.copy(
                     error = throwable
-               )
-           }
+                )
+            }
         }) {
-            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-            val langLinks = response.query!!.langLinks().toMutableList()
+            val langLinks = fetchLangLinks()
             updateLanguageEntriesSupported(langLinks)
             sortLanguageEntriesByMru(langLinks)
-            _originalLanguageEntries.value = langLinks
+            originalLanguageEntries = langLinks
 
             val appLangEntries = langLinks.filter {
                 (it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
@@ -81,27 +83,38 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                                 app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE)) ||
                         app.languageState.appLanguageCodes.contains(it.wikiSite.languageCode)
             }
-            _appLanguageEntries.value = appLangEntries
+            appLanguageEntries = appLangEntries
+
+            siteInfoList = fetchSiteInfo()
 
             // create variant languages to update
-            _variantLangToUpdate.value = langLinks
+            variantLangToUpdate = langLinks
                 .mapNotNull { app.languageState.getDefaultLanguageCode(it.wikiSite.languageCode) }
                 .toMutableSet()
 
+            val variantFetchJobs = mutableListOf<Deferred<Unit>>()
+            val variantsToFetch = variantLangToUpdate.toList()
+            for (langCode in variantsToFetch) {
+                variantFetchJobs.add(async {
+                    fetchLangVariantLinks(langCode, pageTitle.prefixedText)
+                })
+            }
+            variantFetchJobs.awaitAll()
             updateLanguageItems()
         }
     }
 
-    private fun fetchSiteInfo() {
-        _uiState.update { it.copy(isSiteInfoLoaded = true) }
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-           _uiState.update { it.copy(error = throwable, isSiteInfoLoaded = false) }
-        }) {
+    private suspend fun fetchLangLinks(): MutableList<PageTitle> {
+        return withContext(Dispatchers.IO) {
+            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
+            response.query!!.langLinks().toMutableList()
+        }
+    }
+
+    private suspend fun fetchSiteInfo(): List<SiteMatrix.SiteInfo> {
+        return withContext(Dispatchers.IO) {
             val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-            val sites = SiteMatrix.getSites(siteMatrix)
-            _siteInfoList.value = sites
-            _uiState.update { it.copy(isSiteInfoLoaded = false) }
-            updateLanguageItems()
+            SiteMatrix.getSites(siteMatrix)
         }
     }
 
@@ -109,32 +122,32 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         updateLanguageItems(searchQuery)
     }
 
-    fun fetchLangVariantLinks(langCode: String, title: String) {
+    private fun fetchLangVariantLinks(langCode: String, title: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.update { it.copy(error = throwable) }
         }) {
             val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
             response.query?.firstPage()?.varianttitles?.let { variantMap ->
-                val currentItems = _originalLanguageEntries.value.toMutableList()
+                val currentItems = originalLanguageEntries.toMutableList()
                 currentItems.forEach { item ->
                     variantMap[item.wikiSite.languageCode]?.let { text ->
                         item.displayText = text
                     }
                 }
-                _originalLanguageEntries.value = currentItems
-                updateLanguageItems()
+                originalLanguageEntries = currentItems
             }
         }
     }
 
     private fun getCanonicalName(code: String): String? {
-        return _siteInfoList.value.find { it.code == code }?.localname.orEmpty()
+        return siteInfoList.find { it.code == code }?.localname.orEmpty()
             .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code) }
     }
 
     private fun updateLanguageItems(searchTerm: String = "") {
-        val appLangEntries = _appLanguageEntries.value
-        val originalEntries = _originalLanguageEntries.value
+        println("orange ==> updateLanguageItems")
+        val appLangEntries = appLanguageEntries
+        val originalEntries = originalLanguageEntries
 
         val nonDuplicateEntries = originalEntries.toMutableList().apply {
             removeAll(appLangEntries)
@@ -203,8 +216,8 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun canFetchLanguageLinksVariant(pageTitle: PageTitle?): Boolean {
         if (pageTitle == null) return false
         val langCode = app.languageState.getDefaultLanguageCode(pageTitle.wikiSite.languageCode)
-        if (langCode != null && _variantLangToUpdate.value.contains(langCode)) {
-            _variantLangToUpdate.value.remove(langCode)
+        if (langCode != null && variantLangToUpdate.contains(langCode)) {
+            variantLangToUpdate.remove(langCode)
             return true
         }
         return false
