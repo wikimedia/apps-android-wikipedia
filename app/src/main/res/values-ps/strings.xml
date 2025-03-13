@@ -57,6 +57,10 @@
   <string name="page_edit_history_search_or_filter_edits_hint">سمونونه پلټل يا چاڼول</string>
   <string name="page_edit_history_filter_by">چان کړی</string>
   <string name="page_edit_history_filter_by_all">ټول سمونونه(%s)</string>
+  <string name="page_edit_history_filter_by_user">(%s) کارن ونډې</string>
+  <string name="page_edit_history_filter_by_anon">(%s) ناراجستر شوي سمونونه</string>
+  <string name="page_edit_history_filter_by_bot">(%s) روباټ ونډې</string>
+  <string name="page_edit_history_metrics_content_description">له %1$s تر %2$s ميتريکه</string>
   <string name="menu_page_other_languages">ژبه بدلول</string>
   <string name="menu_page_find_in_page">په ليکنه کې موندل</string>
   <string name="menu_page_add_to_watchlist">کتنلړ کې ورگډول</string>
