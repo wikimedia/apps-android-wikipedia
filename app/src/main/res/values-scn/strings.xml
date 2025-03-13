@@ -17,9 +17,9 @@
   <string name="search_hint_voice_search">Arricerca vucali</string>
   <string name="search_hint_search_languages">Arricerca na lingua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Arricerca nti l\'elenchi</string>
-  <string name="nav_item_suggested_edits">Canciamenti</string>
+  <string name="nav_item_suggested_edits">Canci</string>
   <string name="nav_item_more">Àutri cosi</string>
-  <string name="nav_item_search">Arricerca</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">Nun fu pussìbbili cunnèttirisi a Internet.</string>
   <string name="page_error_retry">Ripruva</string>
   <string name="card_offline_error_retry">Ripruva</string>
@@ -376,7 +376,7 @@
   <string name="this_year">Ovannu</string>
   <plurals name="diff_years">
     <item quantity="one">Oggiallannu</item>
-    <item quantity="other">%d anni fa</item>
+    <item quantity="other">%d anni arrè</item>
   </plurals>
   <string name="languages_list_activity_title">Agghiunci na lingua</string>
   <string name="languages_list_suggested_text">Cunzigghiatu</string>
