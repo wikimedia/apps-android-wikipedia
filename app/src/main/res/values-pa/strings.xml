@@ -154,8 +154,8 @@
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="account_creation_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ</string>
-  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਖ ਗਤੀਵਿਧੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫਿਰ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
+  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੀ ਸਰਗਰਮੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="onboarding_card_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="page_editing_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="reading_lists_sync_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
@@ -182,7 +182,7 @@
   <string name="history_empty_title">ਕੋਈ ਹਾਲ ਹੀ ਵਿੱਚ ਵੇਖੇ ਲੇਖ ਨਹੀਂ</string>
   <string name="history_empty_message">ਇੱਥੇ ਜੋ ਤੁਸੀਂ ਪੜ੍ਹ ਚੁੱਕੇ ਹੋ ਉਸਨੂੰ ਟ੍ਰੈਕ ਕਰੋ।</string>
   <string name="history_offline_articles_toast">ਇਤਿਹਾਸ ਵਿੱਚ ਕੁਝ ਲੇਖ ਆਫ਼ਲਾਈਨ ਹੋਣ \'ਤੇ ਦੇਖਣਯੋਗ ਨਹੀਂ ਹੋ ਸਕਦੇ ਹਨ।</string>
-  <string name="search_empty_message">ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਮੁਫ਼ਤ ਵਿਸ਼ਵਕੋਸ਼ ਦੀ ਖੋਜ ਕਰੋ ਅਤੇ ਪੜ੍ਹੋ</string>
+  <string name="search_empty_message">ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਆਜ਼ਾਦ ਵਿਸ਼ਵਕੋਸ਼ ਦੀ ਖੋਜ ਕਰੋ ਅਤੇ ਪੜ੍ਹੋ</string>
   <string name="search_empty_message_multilingual_upgrade">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਖੋਜੋ</string>
   <string name="delete_selected_items">ਚੁਣੀਆਂ ਚੀਜ਼ਾਂ ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
@@ -466,7 +466,7 @@
   <string name="text_size_increase">ਅੱਖਰ ਦਾ ਆਕਾਰ ਵਧਾਓ</string>
   <string name="text_size_decrease">ਅੱਖਰ ਦਾ ਆਕਾਰ ਘਟਾਓ</string>
   <string name="text_size_percent_default">%s (ਮੁਢਲਾ)</string>
-  <string name="text_style_title">ਫੌਂਟ</string>
+  <string name="text_style_title">ਅੱਖਰ</string>
   <string name="theme_category_reading">ਪੜ੍ਹਨਾ</string>
   <string name="theme_category_editing">ਸੁਧਾਈ</string>
   <string name="editing_syntax_highlight_label">ਵਾਕ-ਵਿਉਂਤ ਉਜਾਗਰ ਕਰੋ</string>
@@ -1036,7 +1036,7 @@
   <string name="onboarding_got_it">ਸਮਝ ਲਿਆ</string>
   <string name="onboarding_multilingual_secondary_text">ਸਾਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ \'ਤੇ ਹੇਠ ਲਿਖੀਆਂ ਚੀਜ਼ਾਂ ਮਿਲੀਆਂ ਹਨ:</string>
   <string name="onboarding_multilingual_add_language_text">ਭਾਸ਼ਾਵਾਂ ਜੋੜੋ ਜਾਂ ਸੋਧੋ</string>
-  <string name="onboarding_welcome_title_v2">ਇਕ ਮੁਫ਼ਤ ਵਿਸ਼ਵਕੋਸ਼ ...300 ਤੋਂ ਵੱਧ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ</string>
+  <string name="onboarding_welcome_title_v2">ਇਕ ਆਜ਼ਾਦ ਵਿਸ਼ਵਕੋਸ਼ ...300 ਤੋਂ ਵੱਧ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ</string>
   <string name="app_shortcuts_random">ਬੇਤਰਤੀਬ</string>
   <string name="app_shortcuts_continue_reading">ਪੜ੍ਹਨਾ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="app_shortcuts_search">ਖੋਜ</string>
