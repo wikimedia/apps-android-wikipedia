@@ -29,6 +29,7 @@
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
   <string name="nav_item_search">گەڕان</string>
+  <string name="nav_item_contribute">بەشداری بکە</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
   <string name="card_offline_error_retry">ھەوڵداناوە</string>
@@ -64,7 +65,7 @@
   <string name="page_edit_history_filter_by">بیپاڵێوە بە</string>
   <string name="page_edit_history_filter_by_all">ھەموو دەستکارییەکان (%s)</string>
   <string name="page_edit_history_filter_by_user">دەستکارییەکانی یەکارھێنەر (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">دەستکارییەکانی بەکارھێنەری نەزانراو (%s)</string>
+  <string name="page_edit_history_filter_by_anon">دەستکارییە تۆمارنەکراوەکان (%s)</string>
   <string name="page_edit_history_filter_by_bot">دەستکارییەکانی بۆت (%s)</string>
   <string name="page_edit_history_metrics_content_description">پێوانەکان لە %1$s بۆ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -82,9 +83,9 @@
   <string name="menu_page_add_to_watchlist">خستنە سەر پێڕستی چاودێری</string>
   <string name="menu_page_watch">چاودێری بکە</string>
   <string name="menu_page_unwatch">لابردنی چاودێری</string>
-  <string name="menu_page_view_talk">بینینی پەڕەی وتووێژ</string>
+  <string name="menu_page_view_talk">پەڕەی وتووێژ ببینە</string>
   <string name="menu_page_talk_page">پەڕەی وتووێژ</string>
-  <string name="menu_page_view_edit_history">بینینی مێژووی دەستکاری</string>
+  <string name="menu_page_view_edit_history">مێژووی دەستکاری ببینە</string>
   <string name="menu_page_edit_history">مێژووی دەستکاری</string>
   <string name="menu_page_remove_from_watchlist">سڕینەوە لە پێڕستی چاودێری</string>
   <string name="menu_page_watched">تەماشاکراو</string>
@@ -97,13 +98,13 @@
   <string name="menu_page_share">ھاوبەشکردنی بەستەر</string>
   <string name="menu_article_share">وتارەکە بڵاو بکەرەوە</string>
   <string name="menu_page_article_share">ھاوبەشکردن</string>
-  <string name="menu_page_open_a_new_tab">کردنەوەی تابێکی نوێ</string>
+  <string name="menu_page_open_a_new_tab">تابێکی نوێ بکەوە</string>
   <string name="menu_page_new_tab">تابی نوێ</string>
   <string name="menu_page_reading_lists">پێڕستەکانی خوێندنەوە</string>
   <string name="menu_page_recently_viewed">لەم دواییە بینراوە</string>
   <string name="menu_page_archive">ئەرشیڤ</string>
   <string name="menu_long_press_open_page">بیکەرەوە</string>
-  <string name="menu_long_press_open_in_new_tab">کردنەوە لە تابێکی نوێ</string>
+  <string name="menu_long_press_open_in_new_tab">لە تابێکی نوێ بیکەوە</string>
   <string name="menu_long_press_copy_page">لەبەرگرتنەوەی ناونیشانی بەستەر</string>
   <string name="menu_text_select_define">پێناسەکردن</string>
   <string name="on_this_day_page_share">ھاوبەشکردن</string>
@@ -111,9 +112,9 @@
   <string name="menu_text_select_edit_here">دەستکاریی ئێرە</string>
   <string name="menu_edit_article">دەستکاریکردنی وتار</string>
   <string name="last_updated_text">دوایین نوێکردنەوە %s</string>
-  <string name="talk_page_link_text">بینینی پەڕەی وتووێژ</string>
-  <string name="edit_history_link_text">بینینی مێژووی دەستکاری</string>
-  <string name="map_view_link_text">بینین لەسەر نەخشە</string>
+  <string name="talk_page_link_text">پەڕەی وتووێژ ببینە</string>
+  <string name="edit_history_link_text">مێژووی دەستکاری ببینە</string>
+  <string name="map_view_link_text">لەسەر نەخشە ببینە</string>
   <string name="other_languages_indication_text">خوێندنەوە بە زمانێکی تر</string>
   <string name="language_count_link_text">بە %d زمانی دیکە بەردەستە</string>
   <string name="edit_save_action_license_logged_in">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;مەرجەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
@@ -127,12 +128,16 @@
   <string name="langlinks_your_wikipedia_languages">زمانەکانی ویکیپیدیاکەت</string>
   <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
   <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
+  <string name="stub_article_edit_saved_successfully">دەستکارییەکە بڵاو کرایەوە! لەوانەیە گۆڕانکارییەکان پێیان بچێ تا دەرکەون.</string>
   <string name="dialog_message_edit_failed">دەستکاری شکستی ھێنا!</string>
   <string name="dialog_message_edit_failed_retry">ھەوڵداناوە</string>
   <string name="dialog_message_edit_failed_cancel">ھەڵوەشاندنەوە</string>
   <string name="dialog_message_leaving_edit">ھێشتا گۆڕانکارییەکانت بڵاونەکراونەتەوە. دڵنیای کە دەتەوێت ئەم پەڕەیە جێبھێڵیت؟</string>
   <string name="dialog_message_leaving_edit_leave">جێھێشتن</string>
   <string name="dialog_message_leaving_edit_stay">مانەوە</string>
+  <string name="dialog_confirm_delete_donation_history_title">سڕینەوە پشتڕاست بکەرەوە</string>
+  <string name="dialog_confirm_delete_donation_history_delete">سڕینەوە</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ھەڵوەشاندنەوە</string>
   <string name="menu_show_toc">پێرستی ناوەرۆک</string>
   <string name="search_no_results_found">ھیچ ئەنجامێک نەدۆزرایەوە</string>
   <string name="search_reading_list_no_results">ھیچ ئەنجامێک نەدۆزرایەوە لە %s</string>
@@ -169,6 +174,8 @@
   <string name="logged_out_in_background_dialog">لە ویکیپیدیا چوویتە دەرەوە. دەتەوێت جارێکی تر بچیتە ژوورەوە؟</string>
   <string name="logged_out_in_background_login">بچۆ ژوورەوە</string>
   <string name="logged_out_in_background_cancel">ھەڵوەشاندنەوە</string>
+  <string name="account_vanish_request_title">ھەژمارەکە ون بکە</string>
+  <string name="account_vanish_request_confirm_title">ئاگادارکردنەوەی ونکردنی ھەژمار</string>
   <string name="history_empty_title">ھیچ وتاری بینراو نییە</string>
   <string name="history_empty_message">ڕێڕەوی ئەوەی لێرە خوێندووتەتەوە.</string>
   <string name="history_offline_articles_toast">ھەندێک وتارەکان لە مێژوو لەوانەیە نەتوانیت بیبینیت ئەو کاتەی کە دەرھێڵ بیت.</string>
@@ -240,8 +247,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتێبخانە بەکارھاتووەکان</string>
   <string name="about_contributors_heading">بەشداربووان</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;پەڕەی تیم&lt;/a&gt;</string>
@@ -264,6 +271,7 @@
   <string name="edit_undo">پووچەڵکردنەوە</string>
   <string name="edit_redo">کردنەوە</string>
   <string name="edit_rollback">گەڕاندنەوە</string>
+  <string name="edit_warn">ھۆشدار</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s بایت</item>
     <item quantity="other">%s بایت</item>
@@ -341,7 +349,7 @@
   <string name="gallery_uploader_unknown">بارکەر نەناسراوە</string>
   <string name="gallery_not_available_offline_snackbar">بینینی پێشەنگا بەردەست نییە لە دەرھێڵ.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">لێگەڕان</string>
-  <string name="menu_new_tab">تابێکی نوێ</string>
+  <string name="menu_new_tab">تابی نوێ</string>
   <string name="menu_close_all_tabs">داخستنی ھەموو تابەکان</string>
   <string name="close_all_tabs_confirm">دڵنیای کە دەتەوێت ھەموو تابەکان دابخەیت؟</string>
   <string name="close_all_tabs_confirm_yes">بەڵێ</string>
@@ -391,6 +399,9 @@
   <string name="multi_select_items_selected">%d دیاریکرا</string>
   <string name="error_message_generic">کێشەیەک دەرکەوت</string>
   <string name="view_link_preview_error_button_dismiss">لێگەڕان</string>
+  <string name="link_preview_dialog_read_button">خوێندنەوە</string>
+  <string name="link_preview_dialog_save_button">پاشەکەوت</string>
+  <string name="link_preview_dialog_saved_button">پاشەکەوت کرا</string>
   <string name="error_page_does_not_exist">ئەم پەڕەیە بوونی نییە</string>
   <string name="error_user_page_does_not_exist">ویکیپیدیا &lt;a href=\"%1$s\"&gt;پەڕەیەکی بەکارھێنەر&lt;/a&gt;ی نییە بەم ناوەوە. بە گشتی، ئەم پەڕەیە دەبێت لەلایەن &lt;b&gt;%2$s&lt;/b&gt;ەوە دروست بکرێت و دەستکاریی بکرێت. ئەگەر لە گوماندایت، تکایە دڵنیای بکەرەوە کە \"%3$s\" بوونی ھەیە.</string>
   <string name="view_wiki_error_message_offline">ئینتەرنێت نییە</string>
@@ -413,6 +424,10 @@
   <string name="error_blocked_footer">دەتوانیت پەیوەندی بە &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;ەوە یان &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکی ترەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
   <string name="theme_chooser_menu_item_short_tooltip">تووڵامرازەکەت ساز بکە</string>
   <string name="error_blocked_footer_no_blocker">دەتوانیت پەیوەندی بە &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;بەڕێوەبەر&lt;/a&gt;ێکەوە بکەیت بۆ وتووێژکردن لەسەر بەربەستکردنەکە.</string>
+  <string name="temp_account_not_logged_in">تۆ لە ژوورەوە نیت</string>
+  <string name="temp_account_dialog_ok">تێگەیشتم</string>
+  <string name="temp_account_using_title">تۆ ھەژمارێکی کاتی بە کار دەھێنیت</string>
+  <string name="temp_account_dialog_discard">دەستبەرداری گۆڕانکارییەکان بە و بچۆ ژوورەوە</string>
   <string name="crash_report_activity_title">ھەڵەی نەرمەواڵە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
@@ -455,7 +470,7 @@
   <string name="reading_list_article_moved_to_named">%1$s بۆ %2$s گوێزرایەوە.</string>
   <string name="reading_list_article_already_exists_message">ھەموو شتێک باشە! %1$s %2$sی تێدایە.</string>
   <string name="reading_list_articles_already_exist_message">هەموو باشن! %s پێشتر هەموو بابەتەکانی تێدایە.</string>
-  <string name="reading_list_added_view_button">بینینی پێڕست</string>
+  <string name="reading_list_added_view_button">پێڕست ببینە</string>
   <string name="reading_list_add_to_list_button">زیادکردن بۆ سەر پێڕست</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">١ وتار</item>
@@ -577,6 +592,7 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">بیسڕەوە</string>
   <string name="reading_list_activity_title">پێڕستی خوێندنەوە: %s</string>
   <string name="reading_list_notification_title">پێڕستی خوێندنەوە(کان) ھاوردە کرا(ن)</string>
+  <string name="reading_lists_action_menu_export_lists">هەناردن</string>
   <string name="reading_lists_preview_header_title">پێڕستە ھاوبەشەکان</string>
   <string name="reading_lists_preview_save_button">پاشەکەوتکردن</string>
   <string name="reading_lists_preview_save_dialog_title">پێڕست پاشەکەوت بکە</string>
@@ -684,14 +700,15 @@
   <string name="notifications_select_all_filters">ھەموو فیلتەرەکان دیاری بکە</string>
   <string name="notifications_tab_filter_all">ھەموو</string>
   <string name="notifications_tab_filter_mentions">بانگکردنەکان</string>
+  <string name="notifications_search_bar_hint">ئاگادارییەکان بگەڕێ یان بپاڵێوە</string>
   <string name="notifications_search_bar_filter_hint">پاڵێوەری ئاگادارکەرەوەکان</string>
   <string name="notifications_menu_mark_as_read">نیشانکردن وەک خوێندراوە</string>
   <string name="notifications_menu_mark_as_unread">نیشانکردن وەک نەخوێندراوە</string>
   <string name="notifications_swipe_action_read">خوێندراوە</string>
   <string name="notifications_swipe_action_unread">نەخوێندراوە</string>
   <string name="notifications_wiki_filter_header">پاڵێوەری ویکی</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">ھەموو ویکییەکان</string>
-  <string name="notifications_all_types_text" fuzzy="true">ھەموو جۆرەکان</string>
+  <string name="notifications_all_wikis_text">ھەموو ویکییەکان</string>
+  <string name="notifications_all_types_text">ھەموو جۆرەکان</string>
   <string name="notifications_menu_user_talk_page">پەڕەی وتووێژی %s</string>
   <string name="notifications_offline_disable_message">ئەم ئەرکە لەکاتی دەرھێڵدا بەردەست نییە.</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
@@ -745,6 +762,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">باشە</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
   <string name="feed_accessibility_card_load_more_button">زیاتر بزانە</string>
+  <string name="feed_language_variants_removal_dialog_save">پاشەکەوت</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">بڕۆ بۆ ڕێکخستنەکان</string>
   <string name="top_read_activity_title">پڕ خوێنەرترینی %s</string>
   <string name="tabs_activity_title">تابەکان</string>
   <string name="description_edit_text_hint">وەسفی وتار</string>
@@ -773,6 +792,7 @@
   <string name="description_edit_helper_text_lowercase_warning">زۆر جار بە پیتێکی بچووک دەست پێ دەکات</string>
   <string name="description_edit_voice_input_description">تێچووی دەنگی</string>
   <string name="description_edit_learn_more">زیاتر بزانە دەربارەی وەسفی وتارەکان</string>
+  <string name="description_edit_image_caption_learn_more">زیاتر لەسەر شڵۆڤەی وێنەکان فێر بە.</string>
   <string name="description_too_short">دەقەکە زۆر کورتە.</string>
   <string name="description_ends_with_punctuation">دەقەکە نابێت بە خاڵبەندی تەواو بێت.</string>
   <string name="description_starts_with_uppercase">بە پیتێکی بچووک دەست پێ بکە مەگەر وشەی یەکەم ناوێکی شیاو بێت.</string>
@@ -806,6 +826,7 @@
   <string name="suggested_edits_describe_articles">وتارەکان وەسف بکە</string>
   <string name="suggested_edits_caption_images">لێدوان بۆ وێنەکان دابنی</string>
   <string name="suggested_edits_tag_images">ناگی وێنەکان</string>
+  <string name="suggested_edits_edit_patrol_review">پێداچوونەوە</string>
   <string name="suggested_edits_review_description">پێداچوونەوەی وەسفی وتارەکان</string>
   <string name="suggested_edits_add_description_button">زیادکردنی وەسف</string>
   <string name="suggested_edits_edit_description_button">دەستکاریی وەسف</string>
@@ -907,7 +928,7 @@
   <string name="suggested_edits_ip_blocked_title">ئای پی بەربەست کراوە</string>
   <string name="suggested_edits_last_edited">کۆتا دەستکاری</string>
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
-  <string name="suggested_edits_task_new" fuzzy="true">نوێ</string>
+  <string name="suggested_edits_task_new">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">دەستکارییە پێشنیارکراوەکان</string>
   <string name="suggested_edits_reactivation_notification_stage_one">سپاس بۆ بەشداریکردنت لە ویکیپیدیا! بۆچی لە شوێنی پێشووت دەست پێ نەکەینەوە؟</string>
@@ -956,7 +977,22 @@
     <item quantity="one">%d کاراکتەرت زیاد کرد</item>
     <item quantity="other">%d کاراکتەرت زیاد کرد</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">وێنەکانی وتار</string>
+  <string name="image_recommendation_tutorial">فێرکاری</string>
+  <string name="image_recommendation_accept">بەڵێ</string>
+  <string name="image_recommendation_reject">نەخێر</string>
+  <string name="image_recommendation_notsure">دڵنیا نیم</string>
+  <string name="image_recommendation_reject_title">ھۆکاری ڕەتکردنەوە</string>
+  <string name="image_recommendation_reject_not_relevant">وێنەکە پەیوەندیدار نییە</string>
+  <string name="image_recommendation_reject_no_info">زانیارییەکی وا نییە تا بڕیار بدەم</string>
+  <string name="image_recommendation_reject_dont_know">لەم بابەتە نازانم</string>
   <string name="image_recommendation_reject_other">ھیتر</string>
+  <string name="image_recommendation_reject_submit">بینێرە</string>
+  <string name="image_recommendation_tooltip_next">دواتر</string>
+  <string name="edit_summary_added_image">وێنە زیاد کرا</string>
+  <string name="edit_summary_added_caption">شڵۆڤەی وێنە زیاد کرا</string>
+  <string name="edit_summary_added_image_and_caption">وێنە و شڵۆڤەکەی زیاد کرا</string>
+  <string name="edit_published_view">ببینە</string>
   <string name="file_page_activity_title">پەڕەی پەڕگە</string>
   <string name="file_page_add_image_caption_button">زیادکردنی شرۆڤەی وێنە</string>
   <string name="file_page_add_image_tags_button">زیادکردنی تاگەکانی وێنە</string>
@@ -985,6 +1021,7 @@
   <string name="app_shortcuts_random">بە ھەڵکەوت</string>
   <string name="app_shortcuts_continue_reading">بەردەوامبوون لە خوێندنەوە</string>
   <string name="app_shortcuts_search">بگەڕێ</string>
+  <string name="app_shortcuts_places">شوێنەکان</string>
   <string name="on_this_day_card_title">لەمڕۆژەدا</string>
   <string name="more_events_text">زیاتر لەمڕۆژەدا</string>
   <string name="events_count_text">%1$s ڕووداو لە %2$s–%3$d</string>
@@ -1042,7 +1079,8 @@
   <string name="wikitext_numbered_list">لیستی ژمارەکراو</string>
   <string name="wikitext_template">داڕێژە</string>
   <string name="wikitext_reference">سەرچاوە</string>
-  <string name="wikitext_preview_link">بینینی بەستەر</string>
+  <string name="wikitext_preview_link">پێشبینینی بەستەر</string>
+  <string name="wikitext_mention_user">بەکارھێنەرێک بانگ بکە</string>
   <string name="insert_media_title">تێخستنی میدیا</string>
   <string name="insert_media_search_description">پەڕگەیەک ھەڵبژێرە لە ویکیمیدیا کۆمنز</string>
   <string name="insert_media_search_hint">گەڕان بۆ میدیا</string>
@@ -1085,7 +1123,13 @@
   <string name="talk_user_title">وتووێژ: %s</string>
   <string name="talk_new_topic">بابەتی نوێ</string>
   <string name="talk_new_topic_submitted">بابەت بڵاوکرایەوە.</string>
+  <string name="talk_warn_save_dialog_publish">بڵاوی بکەوە</string>
+  <string name="talk_warn_save_dialog_cancel">ھەڵوەشاندنەوە</string>
+  <string name="talk_warn_save_dialog_dont_save">پاشەکەوت مەکە</string>
+  <string name="talk_warn_saved_messages">پەیامە پاشەکەوتکراوەکان</string>
   <string name="talk_page_empty">پەڕەی ئەم وتووێژە بەتاڵە.</string>
+  <string name="talk_page_empty_title">گفتوگۆکە لێرەوە دەست پێ دەکات</string>
+  <string name="talk_page_empty_content">پەڕەکانی وتووێژ ئەو شوێنانەن کە خەڵک وتووێژ لەسەر ئەوە دەکەن کە چۆن تا بتوانن ناوەڕۆکی ویکیپیدیا باشتر بکەن. بە زیادکردنی بابەتێکی نوێی وتووێژ دەست پێ بکە تا پەیوەندی بە کۆمەڵگەی ویکیپیدیاوانەکانەوە بکەیت و ھاوکارییان بکەیت.</string>
   <string name="talk_add_reply">وەڵامدانەوە</string>
   <string name="talk_no_subject">(ھیچ بابەتێک نییە)</string>
   <string name="talk_reply_subject">بابەت</string>
@@ -1107,6 +1151,7 @@
   <string name="talk_overflow_sort_date_published">ڕێکەوتی بڵاوکردنەوە</string>
   <string name="talk_overflow_sort_date_updated">ڕێکەوتی نوێکردنەوە</string>
   <string name="talk_overflow_sort_topic_name">ناوی بابەت</string>
+  <string name="talk_new_topic_exit_dialog_title">دڵنیای دەتەوێت بچیتە دەرەوە؟</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">وەڵام پیشان بدە</item>
     <item quantity="other">وەڵامەکان پیشان بدە (%d)</item>
@@ -1116,6 +1161,7 @@
     <item quantity="other">وەڵامەکان بشارەوە (%d)</item>
   </plurals>
   <string name="talk_list_item_overflow_subscribe">دواکەوتن</string>
+  <string name="talk_list_item_overflow_subscribed">بەشداریت کرد</string>
   <string name="talk_list_item_overflow_mark_as_read">نیشانکردن وەک خوێندراوە</string>
   <string name="talk_list_item_overflow_mark_as_unread">نیشانکردن وەک نەخوێندراوە</string>
   <string name="talk_list_item_overflow_share">ھاوبەشکردن</string>
@@ -1124,6 +1170,7 @@
   <string name="talk_list_item_user_icon_content_description">ئایکۆنی بەکارھێنەر</string>
   <string name="talk_list_item_swipe_mark_as_read">خوێندراوە</string>
   <string name="talk_list_item_swipe_mark_as_unread">نەخوێندراوە</string>
+  <string name="talk_login_to_subscribe_dialog_title">بچۆرە ژوورەوە تا بەشداری لە بابەتەکان بکەیت</string>
   <string name="talk_archived_title">ئەرشیڤی وتووێژ: %s</string>
   <string name="menu_option_share_talk_discussion">وتووێژ بڵاو بکەرەوە</string>
   <string name="menu_option_share_talk_page">پەڕەی وتووێژ بڵاو بکەرەوە</string>
@@ -1141,14 +1188,14 @@
   <string name="watchlist_details_next_edit">دەستکاریی دواتر</string>
   <string name="watchlist_details_prev_edit">دەستکاریی پێشوو</string>
   <string name="thank_label">سپاس</string>
-  <string name="view_user_page">بینینی پەڕەی بەکارھێنەر</string>
+  <string name="view_user_page">پەڕەی بەکارھێنەر ببینە</string>
   <string name="thank_dialog_title_text">بەئاشکرا\'سوپاس\'بنێرە</string>
   <string name="thank_dialog_text">\'ساپسکردن\' ڕێگەیەکی ئاسانە بۆ نیشاندانی پێزانین بۆ کاری دەستکاریکەرێک لە ویکیپیدیا. \'سپاسکردن\' ناتوانرێت بگەڕێندرێتەوە و ھەموو کەس دەتوانێت بیبینێت.</string>
   <string name="thank_dialog_positive_button_text">سپاس بکە</string>
   <string name="thank_dialog_negative_button_text">ھەڵوەشاندنەوە</string>
   <string name="thank_success_message">%s سپاسی لێ کرا 👍</string>
   <string name="menu_option_view_user_profile">پەڕەی بەکارھێنەر ببینە</string>
-  <string name="menu_option_view_user_talk">بینینی پەڕەی وتووێژ</string>
+  <string name="menu_option_view_user_talk">پەڕەی وتووێژ ببینە</string>
   <string name="menu_option_view_user_contributions">بەشدارییەکانی بەکارھێنەر ببینە</string>
   <string name="revision_diff_compare">پێداچوونەوەکان بەراورد بکە</string>
   <string name="revision_diff_compare_title">پێداچوونەوەکان بەراورد بکە: %s</string>
@@ -1160,9 +1207,10 @@
   <string name="revision_diff_line_removed">دێڕ سڕدرایەوە</string>
   <string name="revision_diff_paragraph_added">پەڕەگراف زیاد کرا</string>
   <string name="revision_diff_paragraph_removed">پەڕەگراف لابرا</string>
-  <string name="revision_undo_title" fuzzy="true">دەستکارییەکە پووچەڵ بکەوە</string>
-  <string name="revision_undo_message" fuzzy="true">ئەمە ئەو گۆڕانکارییانە ھەڵدەوەشێنێتەوە کە لەلایەن پێداچوونەوە(ەکان)ی ئەم وتارەی خوارەوە ئەنجام دراوە.</string>
-  <string name="revision_undo_reason" fuzzy="true">بۆ بەردەوامبوون، تکایە مەبەستێک دیاری بکە بۆ گەڕاندنەوەی ئەم دەستکارییە:</string>
+  <string name="revision_undo_title">دڵنیایت دەتەوێ ئەم دەستکارییە پووچەڵ بکەیتەوە؟</string>
+  <string name="revision_undo_message">پووچەڵکردنەوە بە مانای گەڕاندنەوەی کاریگەرییەکانی دەستکارییەک یان زیاتر دێت.</string>
+  <string name="revision_undo_summary_hint">کورتە (ئارەزوومەندانە)</string>
+  <string name="revision_undo_reason">ھۆکاری گەڕاندنەوەکە دابین بکە</string>
   <string name="revision_undo_success">دەستکارییەکە گەڕێندرایەوە</string>
   <string name="revision_rollback_dialog_title">ئایا دڵنیایت کە دەتەوێت دەستکارییەکان بگەڕێنیتەوە؟</string>
   <string name="revision_rollback_success">دەستکارییەکان گەڕێندرانەوە.</string>
@@ -1255,7 +1303,7 @@
   <string name="search_namespaces">بۆشاییناوەکان</string>
   <string name="revision_initial_none">ھیچ (ئەمە یەکەم پێداچوونەوەیە)</string>
   <string name="user_contrib_activity_title">بەشدارییەکانی %s</string>
-  <string name="archive_empty">ھیچ پەڕەیەکئ ئەرشیفکراو نەدۆزرایەوە.</string>
+  <string name="archive_empty">ھیچ پەڕەیەکی ئەرشیڤکراو نەدۆزرایەوە.</string>
   <string name="user_contrib_filter_ns">پاڵاوتن بە بۆشاییی ناو</string>
   <string name="user_contrib_filter_all">ھەموو بۆشاییی ناوەکان</string>
   <string name="user_contrib_filter_ns_header">پاڵێوەری بۆشاییی ناو</string>
@@ -1264,6 +1312,7 @@
   <string name="media_playback_error">ھەڵە لە لێدانی میدیا.</string>
   <string name="user_contrib_menu_label">بەشدارییەکان</string>
   <string name="user_contrib_filter_activity_title">بەشدارییەکان فلتەر بکە</string>
+  <string name="action_item_view_on_map">لەسەر نەخشە ببینە</string>
   <string name="shareable_reading_lists_import_dialog_title">پێڕستی خوێندنەوەی ھاوبەش ھاوردە بکە</string>
   <string name="shareable_reading_lists_import_dialog_content">حەز دەکەیت ناوی ئەو پێڕستە چی بێت کە لەگەڵتدا ھاوبەش کراوە؟</string>
   <string name="shareable_reading_lists_new_indicator">*نوێ*</string>
@@ -1274,7 +1323,89 @@
   <string name="reading_list_share_menu_label">ھاوبەشکردن…</string>
   <string name="reading_list_share_menu_tooltip">ئەم پێڕستی خوێندنەوەیە لەگەڵ کەسانی تردا ھاوبەش بکە</string>
   <string name="reading_list_share_message_v2">سڵاو! حەز دەکەم پێڕستی خوێندنەوەی ویکیپیدیاکەمت لەگەڵدا ھاوبەش بکەم:</string>
+  <string name="talk_templates_new_message_title">پەیامی نوێ</string>
+  <string name="talk_templates_new_message_subject_hint">بابەت</string>
+  <string name="talk_templates_new_message_save">پاشەکەوت</string>
+  <string name="talk_templates_new_message_dialog_title">گۆڕانکارییەکان پاشەکەوت بکە</string>
+  <string name="talk_templates_new_message_dialog_save">پاشەکەوت</string>
+  <string name="talk_templates_new_message_dialog_cancel">ھەڵوەشاندنەوە</string>
+  <string name="talk_templates_new_message_dialog_exists">داڕێژەی «%s» ئێستا ھەیە.</string>
+  <string name="talk_templates_new_message_saved">پەیامەکە پاشەکەوت کراوە</string>
+  <string name="talk_templates_edit_message_dialog_title">پەیامی دەستکاریکردن</string>
+  <string name="talk_templates_edit_message_dialog_save">پاشەکەوت</string>
+  <string name="talk_templates_edit_message_dialog_delete">سڕینەوە</string>
+  <string name="talk_templates_edit_message_updated">پەیامەکە نوێ کرایەوە</string>
+  <string name="talk_templates_menu_remove_message">پەیامەکە لابە</string>
+  <string name="talk_templates_your_messages_tab_title">پەیامەکانت</string>
+  <string name="patroller_tasks_edits_list_search_hint">دەستکارییەکان بگەڕێ یان بپاڵێوە</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">تاگەکان: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">ھیچ</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">پەڕەی بەکارھێنەر ببینە</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">پەڕەی وتووێژ ببینە</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">زانیاریی بەکارھێنەر</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">بەشدارییەکانی بەکارھێنەر ببینە</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">سپاس</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">زانیاریی بەکارھێنەر</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;ژمارەی دەستکاری: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">دای بخە</string>
+  <string name="patroller_tasks_filters_title">پاڵێوەرەکان</string>
+  <string name="patroller_tasks_filters_reset">ڕێکخستنەوە</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">ویکی</string>
+  <string name="patroller_tasks_filters_all_text">ھەمووی</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">تۆمارنەکراو</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">ئەو دەستکاریکەرانەی لە ژوورەوە نین</string>
+  <string name="patroller_tasks_filters_user_status_registered">تۆمارکراو</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">ئەو دەستکاریکەرانەی لە ژوورەوەن.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">تازەکاران</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">ئەو دەستکاریکەرە تۆمارکراوانەی کە کەمتر لە ١٠ دەستکاری لە ٤ ڕۆژی چالاکییان ھەیە.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">دوایین پێداچوونەوەکان</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">دوایین پێداچوونەوە</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">مرۆڤ (بۆت نییە)</string>
+  <string name="patroller_tasks_filters_significance_minor">دەستکارییە بچووکەکان</string>
+  <string name="patroller_tasks_filters_significance_edits">دەستکارییە نابچووکەکان</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">مێژووی دەستکاریکردنی وتار</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">بینین</string>
+  <string name="patroller_tasks_overflow_learn">زیاتر بزانە</string>
+  <string name="patroller_onboarding_two_thank_title">سپاس</string>
+  <string name="patroller_onboarding_two_watch_title">چاودێری بکە</string>
+  <string name="patroller_onboarding_two_talk_title">وتووێژ</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">چۆن دەتوانین تایبەتمەندییەکە باشتر بکەین؟</string>
+  <string name="patroller_diff_menu_edit_history_title">مێژووی دەستکاریکردنی وتار</string>
+  <string name="patroller_saved_message_title_vandalism">ئاگادارکردنەوەی خراپکاری</string>
+  <string name="patroller_saved_message_title_npov">بێلایەنیی ڕوانگە</string>
+  <string name="patroller_saved_message_title_auto_trans">وەرگێرانی خۆگەڕانە</string>
+  <string name="patroller_saved_message_title_final_warning">کۆتا ئاگاداکردنەوە</string>
+  <string name="patroller_saved_message_title_copy_vio">ئاگاداریی پێشێڵکردنی مافی لەبەرگرتنەوە</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">کورتەیەکی دەستکاری بەجێ بێڵە</string>
+  <string name="talk_templates_menu_edit_title">دەستکاری</string>
   <string name="data_opt_in_accept">پەسەندکردن</string>
   <string name="data_opt_in_reject">ڕەتکردنەوە</string>
   <string name="page_issues_title">کێشەکانی پەڕە</string>
+  <string name="donation_campaign_go_back_button">بگەڕێوە</string>
+  <string name="donate_gpay_check_send_email">بەڵێ، دامەزراوەی ویکیمیدیا دەتوانێت ناوەناوە ئیمەیڵێکم بۆ بنێرێت.</string>
+  <string name="places_title">شوێنەکان</string>
+  <string name="places_search_hint">شوێنەکان بگەڕێ</string>
+  <string name="places_toggle_buttons_map">نەخشە</string>
+  <string name="places_toggle_buttons_list">پێڕست</string>
+  <string name="places_card_title">شوێنە نزیکەکان</string>
+  <string name="places_card_action">شوێنگەلی نزیکی زیاتر</string>
+  <string name="survey_dialog_option_neutral">بێلایەن</string>
+  <string name="survey_dialog_cancel">ھەڵوەشاندنەوە</string>
+  <string name="survey_dialog_submit">بینێرە</string>
+  <string name="survey_dialog_next">دواتر</string>
+  <string name="survey_dialog_general_yes">بەڵێ</string>
+  <string name="survey_dialog_general_no">نەخێر</string>
+  <string name="survey_dialog_general_maybe">لەوانەیە</string>
+  <string name="on_this_day_game_correct">ڕاستە!</string>
+  <string name="on_this_day_game_incorrect">ھەڵەیە!</string>
+  <string name="on_this_day_game_point">+١ خاڵ</string>
+  <string name="on_this_day_game_next">پرسیاری دواتر</string>
+  <string name="on_this_day_game_finish">ئەنجامی کۆتایی</string>
+  <string name="on_this_day_game_share">لەگەڵ ھاوڕێیان بەشی بکە</string>
+  <string name="on_this_day_game_pause_positive">تێگەیشتم</string>
+  <string name="on_this_day_game_your_stats">ئامارەکانت</string>
+  <string name="on_this_day_game_article_read_button">وتارەکە بخوێنەوە</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">بەڵێ، دایان بگیرسێنە</string>
+  <string name="on_this_day_game_notification_undo">پووچەڵکردنەوە</string>
+  <string name="back_button_content_description">بگەڕێوە</string>
 </resources>
