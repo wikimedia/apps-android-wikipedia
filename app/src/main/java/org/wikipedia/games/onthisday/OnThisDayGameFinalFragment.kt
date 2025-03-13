@@ -67,8 +67,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
-
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
 
@@ -154,6 +152,8 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
+
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
