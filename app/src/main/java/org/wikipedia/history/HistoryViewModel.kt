@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
@@ -17,12 +19,16 @@ class HistoryViewModel : ViewModel() {
         historyItems.postValue(Resource.Error(throwable))
     }
 
-    private var allHistoryItems: List<Any> = emptyList()
+    private var searchJob: Job? = null
 
     var searchQuery: String? = null
         set(value) {
             field = value
-            filterItems()
+            searchJob?.cancel()
+            searchJob = viewModelScope.launch {
+                delay(500)
+                reloadHistoryItems()
+            }
         }
 
     val historyItems = MutableLiveData(Resource<List<Any>>())
@@ -38,36 +44,10 @@ class HistoryViewModel : ViewModel() {
         }
     }
 
-    private fun filterItems() {
-        if (searchQuery.isNullOrEmpty()) {
-            historyItems.postValue(Resource.Success(allHistoryItems))
-        } else {
-            val query = searchQuery.orEmpty().lowercase()
-            // Group all items by their headers
-            val groupedItems = mutableMapOf<String, MutableList<HistoryEntry>>()
-            var currentHeader = ""
-
-            allHistoryItems.forEach { item ->
-                when (item) {
-                    is String -> currentHeader = item
-                    is HistoryEntry -> groupedItems.getOrPut(currentHeader) { mutableListOf() }.add(item)
-                }
-            }
-
-            // Filter entries and reconstruct the list with headers
-            val filtered = groupedItems.flatMap { (header, entries) ->
-                val filteredEntries = entries.filter { it.title.displayText.lowercase().contains(query) }
-                if (filteredEntries.isEmpty()) emptyList() else listOf(header) + filteredEntries
-            }
-
-            historyItems.postValue(Resource.Success(filtered))
-        }
-    }
-
     private suspend fun loadHistoryItems() {
         withContext(Dispatchers.IO) {
-            allHistoryItems = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
-            filterItems()
+            val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
+            historyItems.postValue(Resource.Success(items))
         }
     }
 
@@ -92,5 +72,10 @@ class HistoryViewModel : ViewModel() {
             AppDatabase.instance.historyEntryDao().insert(entries)
             loadHistoryItems()
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        searchJob?.cancel()
     }
 }
