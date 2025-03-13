@@ -43,9 +43,7 @@ fun Snackbar(
             style = WikipediaTheme.typography.h3.copy(
                 color = WikipediaTheme.colors.primaryColor
             ),
-            maxLines = 10,
-            modifier = Modifier
-                .padding(top = 0.dp, bottom = 0.dp, start = 0.dp, end = 0.dp)
+            maxLines = 10
         )
     }
 }
