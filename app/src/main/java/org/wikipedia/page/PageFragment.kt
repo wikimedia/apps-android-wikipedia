@@ -34,6 +34,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
@@ -578,8 +579,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-                AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
+            MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
         }
     }
@@ -970,7 +971,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
-                pageFragmentLoadState.loadFromBackStack(isRefresh)
+                pageFragmentLoadState.loadFromBackStack()
             } else if (!title.fragment.isNullOrEmpty()) {
                 scrollToSection(title.fragment!!)
             }
