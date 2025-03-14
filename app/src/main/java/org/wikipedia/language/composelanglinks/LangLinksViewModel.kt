@@ -130,7 +130,6 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun updateLanguageItems(searchTerm: String = "") {
-        println("orange ==> updateLanguageItems")
         val appLangEntries = appLanguageEntries
         val originalEntries = originalLanguageEntries
 
