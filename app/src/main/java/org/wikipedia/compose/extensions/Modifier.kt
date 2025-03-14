@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 fun Modifier.pulse(
     fromScale: Float = 1f,
@@ -62,7 +63,7 @@ fun Modifier.pulse(
 @Preview
 @Composable
 private fun PreviewPulse() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         Scaffold(
             topBar = {
                 WikiTopAppBar(
