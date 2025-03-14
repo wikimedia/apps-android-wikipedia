@@ -187,7 +187,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
-    val historyEntry get() = model.curEntry
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -1348,7 +1347,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                     }
-                }).show(historyEntry)
+                }).show(model.curEntry)
             } else {
                 title?.run {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
