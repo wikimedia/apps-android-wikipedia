@@ -30,26 +30,6 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     private val app = WikipediaApp.instance
 
-    data class LangLinksItem(
-        val pageTitle: PageTitle? = null,
-        val articleName: String = "",
-        val languageCode: String = "",
-        val localizedName: String = "",
-        var canonicalName: String? = null,
-        val subtitle: String = "",
-        val headerText: String = "",
-        val isHeader: Boolean = false
-    )
-
-    data class LangLinksUiState(
-        val searchTerm: String = "",
-        val isSearchActive: Boolean = false,
-        val langLinksItems: List<LangLinksItem> = emptyList(),
-        val filteredItems: List<LangLinksItem> = emptyList(),
-        val isLoading: Boolean = false,
-        val error: Throwable? = null,
-    )
-
     private var siteInfoList = listOf<SiteMatrix.SiteInfo>()
     private var originalLanguageEntries = listOf<PageTitle>()
     private var appLanguageEntries = listOf<PageTitle>()
@@ -71,21 +51,15 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 )
             }
         }) {
-            val langLinks = fetchLangLinks()
-            updateLanguageEntriesSupported(langLinks)
-            sortLanguageEntriesByMru(langLinks)
+            val langLinksDeferred = async { fetchLangLinks() }
+            val siteInfoDeferred = async { fetchSiteInfo() }
+
+            val langLinks = langLinksDeferred.await()
+            siteInfoList = siteInfoDeferred.await()
+
+            precessLanguageEntries(langLinks)
             originalLanguageEntries = langLinks
-
-            val appLangEntries = langLinks.filter {
-                (it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                        app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE)) ||
-                        (it.wikiSite.languageCode == AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE &&
-                                app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE)) ||
-                        app.languageState.appLanguageCodes.contains(it.wikiSite.languageCode)
-            }
-            appLanguageEntries = appLangEntries
-
-            siteInfoList = fetchSiteInfo()
+            appLanguageEntries = filterAppLanguages(langLinks)
 
             // create variant languages to update
             variantLangToUpdate = langLinks
@@ -122,20 +96,31 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         updateLanguageItems(searchQuery)
     }
 
-    private fun fetchLangVariantLinks(langCode: String, title: String) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.update { it.copy(error = throwable) }
-        }) {
-            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
-            response.query?.firstPage()?.varianttitles?.let { variantMap ->
-                val currentItems = originalLanguageEntries.toMutableList()
-                currentItems.forEach { item ->
-                    variantMap[item.wikiSite.languageCode]?.let { text ->
-                        item.displayText = text
-                    }
+    private suspend fun fetchLangVariantLinks(langCode: String, title: String) {
+        val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+        response.query?.firstPage()?.varianttitles?.let { variantMap ->
+            val currentItems = originalLanguageEntries.toMutableList()
+            currentItems.forEach { item ->
+                variantMap[item.wikiSite.languageCode]?.let { text ->
+                    item.displayText = text
                 }
-                originalLanguageEntries = currentItems
             }
+            originalLanguageEntries = currentItems
+        }
+    }
+
+    private fun precessLanguageEntries(langLinks: MutableList<PageTitle>) {
+        updateLanguageEntriesSupported(langLinks)
+        sortLanguageEntriesByMru(langLinks)
+    }
+
+    private fun filterAppLanguages(entries: List<PageTitle>): List<PageTitle> {
+        return entries.filter {
+            (it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                    app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE)) ||
+                    (it.wikiSite.languageCode == AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE &&
+                            app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE)) ||
+                    app.languageState.appLanguageCodes.contains(it.wikiSite.languageCode)
         }
     }
 
@@ -281,4 +266,24 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
     }
+
+    data class LangLinksItem(
+        val pageTitle: PageTitle? = null,
+        val articleName: String = "",
+        val languageCode: String = "",
+        val localizedName: String = "",
+        var canonicalName: String? = null,
+        val subtitle: String = "",
+        val headerText: String = "",
+        val isHeader: Boolean = false
+    )
+
+    data class LangLinksUiState(
+        val searchTerm: String = "",
+        val isSearchActive: Boolean = false,
+        val langLinksItems: List<LangLinksItem> = emptyList(),
+        val filteredItems: List<LangLinksItem> = emptyList(),
+        val isLoading: Boolean = false,
+        val error: Throwable? = null,
+    )
 }

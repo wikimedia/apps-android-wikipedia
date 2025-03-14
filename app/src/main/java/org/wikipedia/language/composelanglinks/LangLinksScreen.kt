@@ -1,5 +1,6 @@
 package org.wikipedia.language.composelanglinks
 
+import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -55,10 +56,12 @@ fun ComposeLangLinksScreen(
     ) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
-    // Handle IME (keyboard) insets
-    val windowInsets = WindowInsets.ime
-    val imeHeight = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
-    val isKeyboardVisible = imeHeight > 0.dp
+    val (imeHeight, isKeyboardVisible) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+        // Handle IME (keyboard) insets
+        val windowInsets = WindowInsets.ime
+        val height = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
+        Pair(height, height > 0.dp)
+    } else Pair(0.dp, false)
     Scaffold(
         topBar = {
             WikiTopAppBarWithSearch(
