@@ -236,12 +236,15 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     timestamp = it.timestamp
                 ).apply {
                     referrer = it.referrer
+                    prevId = it.prevId
                 }
                 model.curEntry = entry
 
                 MainScope().launch {
                     // Insert and/or update this history entry in the DB
-                    AppDatabase.instance.historyEntryDao().upsert(entry)
+                    AppDatabase.instance.historyEntryDao().upsert(entry).run {
+                        model.curEntry?.id = this.toInt()
+                    }
 
                     // Update metadata in the DB
                     AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)

@@ -484,7 +484,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         dismissBottomSheet()
-        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
+        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK).apply {
+            prevId = model.curEntry?.id ?: -1
+        }
 
         if (title == model.title && !title.fragment.isNullOrEmpty()) {
             scrollToSection(title.fragment!!)
