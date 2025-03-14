@@ -132,7 +132,7 @@ fun ComposeLangLinksScreen(
                             .fillMaxWidth()
                             .padding(horizontal = 16.dp)
                             .padding(bottom = 4.dp),
-                        title = "All languages",
+                        title = item.headerText,
                     )
                 } else {
                     LangLinksItemView(
