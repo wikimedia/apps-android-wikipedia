@@ -21,7 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.language.addLanguagesList.AddLanguagesListActivity
+import org.wikipedia.language.addlanguages.AddLanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity

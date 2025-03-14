@@ -152,7 +152,8 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".language.addLanguagesList.AddLanguagesListActivity"
+            android:name=".language.addlanguages.AddLanguagesListActivity"
+            android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
             android:name=".suggestededits.SuggestionsActivity"

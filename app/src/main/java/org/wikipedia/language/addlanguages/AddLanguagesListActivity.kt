@@ -1,4 +1,4 @@
-package org.wikipedia.language.addLanguagesList
+package org.wikipedia.language.addlanguages
 
 import android.content.Intent
 import android.os.Bundle
@@ -24,13 +24,12 @@ class AddLanguagesListActivity : BaseActivity() {
                         finish()
                     },
                     onListItemClick = { languageCode ->
-                        val interactionsCount = 1
                         val app = WikipediaApp.instance
                         if (languageCode != app.appOrSystemLanguageCode) {
                             app.languageState.addAppLanguageCode(languageCode)
                         }
                         val returnIntent = Intent()
-                        returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
+                        returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, 1)
                         returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
                         setResult(RESULT_OK, returnIntent)
                         finish()

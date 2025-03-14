@@ -1,5 +1,6 @@
-package org.wikipedia.language.addLanguagesList
+package org.wikipedia.language.addlanguages
 
+import android.os.Build
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -40,7 +41,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.StringUtil
@@ -80,10 +80,12 @@ fun LanguagesListScreen(
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
 
-    // Handle IME (keyboard) insets
-    val windowInsets = WindowInsets.ime
-    val imeHeight = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
-    val isKeyboardVisible = imeHeight > 0.dp
+    val (imeHeight, isKeyboardVisible) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+        // Handle IME (keyboard) insets
+        val windowInsets = WindowInsets.ime
+        val height = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
+        Pair(height, height > 0.dp)
+    } else Pair(0.dp, false)
 
     Scaffold(
         modifier = modifier,
@@ -114,7 +116,7 @@ fun LanguagesListScreen(
                 modifier = modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    // Add bottom padding when keyboard is visible
+                    // Add bottom padding when keyboard is visible for android 15 and above
                     .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -227,7 +229,7 @@ fun SearchEmptyView(
             modifier = Modifier
                 .size(96.dp)
                 .clip(CircleShape)
-                .background(ComposeColors.White)
+                .background(WikipediaTheme.colors.paperColor)
                 .padding(20.dp),
             imageVector = Icons.Outlined.Search,
             tint = WikipediaTheme.colors.placeholderColor,

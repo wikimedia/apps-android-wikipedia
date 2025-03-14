@@ -1,4 +1,4 @@
-package org.wikipedia.language.addLanguagesList
+package org.wikipedia.language.addlanguages
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,22 +16,6 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.util.log.L
 
 class AddLanguagesViewModel : ViewModel() {
-
-    data class LanguageListItem(
-        val code: String,
-        val localizedName: String = "",
-        val canonicalName: String = "",
-        val headerText: String = "",
-        val isHeader: Boolean = false
-    )
-
-    data class LanguageListUiState(
-        val searchTerm: String = "",
-        val languagesItems: List<LanguageListItem> = emptyList(),
-        val error: String? = null,
-        val isSiteInfoLoaded: Boolean = false
-    )
-
     private val suggestedLanguageCodes = WikipediaApp.instance.languageState.remainingSuggestedLanguageCodes
     private val nonSuggestedLanguageCodes = WikipediaApp.instance.languageState.appMruLanguageCodes.filterNot {
         suggestedLanguageCodes.contains(it) || WikipediaApp.instance.languageState.appLanguageCodes.contains(it)
@@ -47,7 +31,7 @@ class AddLanguagesViewModel : ViewModel() {
         L.e(throwable)
         _uiState.update {
             it.copy(
-                error = throwable.localizedMessage ?: "An error occurred"
+                error = throwable.localizedMessage ?: WikipediaApp.instance.getString(R.string.error_message_generic)
             )
         }
     }
@@ -163,4 +147,19 @@ class AddLanguagesViewModel : ViewModel() {
         return _siteInfoList.value.find { it.code == code }?.localname.orEmpty()
             .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code).orEmpty() }
     }
+
+    data class LanguageListItem(
+        val code: String,
+        val localizedName: String = "",
+        val canonicalName: String = "",
+        val headerText: String = "",
+        val isHeader: Boolean = false
+    )
+
+    data class LanguageListUiState(
+        val searchTerm: String = "",
+        val languagesItems: List<LanguageListItem> = emptyList(),
+        val error: String? = null,
+        val isSiteInfoLoaded: Boolean = false
+    )
 }
