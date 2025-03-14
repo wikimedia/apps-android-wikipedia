@@ -1,7 +1,9 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,6 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,6 +43,8 @@ fun SearchTopAppBar(
             .focusRequester(focusRequester),
         title = {
             OutlinedTextField(
+                modifier = Modifier
+                    .padding(top = 2.dp),
                 value = searchQuery,
                 onValueChange = onSearchQueryChange,
                 placeholder = {
@@ -47,7 +54,10 @@ fun SearchTopAppBar(
                     unfocusedBorderColor = Color.Transparent,
                     focusedBorderColor = Color.Transparent,
                     focusedTextColor = WikipediaTheme.colors.primaryColor,
-                    cursorColor = WikipediaTheme.colors.primaryColor
+                    cursorColor = WikipediaTheme.colors.progressiveColor
+                ),
+                textStyle = TextStyle(
+                    fontSize = 14.sp
                 )
             )
         },
