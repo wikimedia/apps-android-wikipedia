@@ -14,7 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
@@ -29,6 +30,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,23 +39,25 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreenScaffold(
     customBottomBar: @Composable () -> Unit,
-    screenContent: @Composable (PaddingValues, ScrollState) -> Unit
+    screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
+    pagerState: PagerState,
+    scrollState: ScrollState,
+    contentData: List<YearInReviewScreenData>,
+    totalPages: Int
 ) {
-
-    val scrollState = rememberScrollState()
+    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -68,7 +72,9 @@ fun YearInReviewScreenScaffold(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { TODO() }) {
+                    IconButton(onClick = {
+                        coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
+                    }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                             contentDescription = stringResource(R.string.year_in_review_navigate_left)
@@ -88,12 +94,24 @@ fun YearInReviewScreenScaffold(
 
         bottomBar = customBottomBar,
     ) { innerPadding ->
-        screenContent(innerPadding, scrollState)
+
+        if (totalPages > 1) {
+            HorizontalPager(
+                verticalAlignment = Alignment.Top,
+                state = pagerState,
+                contentPadding = PaddingValues(0.dp),
+            ) { page ->
+
+                val pageData = contentData[page]
+
+                screenContent(innerPadding, scrollState, pageData)
+            }
+        } else { screenContent(innerPadding, scrollState, contentData[0]) }
     }
 }
 
 @Composable
-fun MainBottomBar() {
+fun MainBottomBar(onNavigationRightClick: () -> Unit) {
 
     BottomAppBar(
         modifier = Modifier.border(
@@ -128,7 +146,7 @@ fun MainBottomBar() {
                     )
                 }
 
-                IconButton(onClick = { TODO() }) {
+                IconButton(onClick = { onNavigationRightClick() }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
                         contentDescription = stringResource(R.string.year_in_review_navigate_right)
@@ -140,7 +158,9 @@ fun MainBottomBar() {
 }
 
 @Composable
-fun GetStartedBottomBar() {
+fun GetStartedBottomBar(
+    onGetStartedClick: ()-> Unit
+) {
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
         content = {
@@ -174,7 +194,7 @@ fun GetStartedBottomBar() {
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { TODO() }
+                    onClick = { onGetStartedClick() }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
@@ -189,12 +209,14 @@ fun GetStartedBottomBar() {
 @Composable
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
-    scrollState: ScrollState
+    scrollState: ScrollState,
+    screenData: YearInReviewScreenData,
 ) {
     val context = LocalContext.current
+    val gifAspectRatio = 3f/2f
 
     Column(
-        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.Top,
         modifier = Modifier
             .padding(innerPadding)
             .verticalScroll(scrollState)
@@ -209,17 +231,15 @@ fun YearInReviewScreenContent(
                     ImageView(context).apply {
                         Glide.with(context)
                             .asGif()
-                            .load(R.drawable.year_in_review_block_10_resize)
+                            .load(screenData.gifResource)
                             .centerCrop()
                             .into(this)
                     }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
+                    .aspectRatio(gifAspectRatio)
                     .clip(RoundedCornerShape(16.dp))
-                    .aspectRatio(
-                        ratio = 3f / 2f,
-                        matchHeightConstraintsFirst = true)
             )
         }
 
@@ -237,7 +257,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = "You edited Wikipedia 150 times",
+                    text = stringResource(screenData.headLineText),
                     fontSize = 30.sp
                 )
 
@@ -256,39 +276,8 @@ fun YearInReviewScreenContent(
                     .height(IntrinsicSize.Min),
 
                 fontSize = 20.sp,
-                text = "This year, Wikipedia was edited at an average rate of 342 times per minute. Articles are collaboratively created and improved using reliable sources. All of us have knowledge to share, learn how to participate."
+                text = stringResource(screenData.bodyText)
             )
         }
-    }
-}
-
-@Preview
-@Composable
-fun ViewScaffold1() {
-
-    BaseTheme { YearInReviewScreenScaffold(
-        customBottomBar = { MainBottomBar() },
-        screenContent = { innerPadding, scrollState ->
-            YearInReviewScreenContent(
-                innerPadding = innerPadding,
-                scrollState = scrollState)
-            }
-        )
-    }
-}
-
-@Preview
-@Composable
-fun ViewScaffold2() {
-
-    BaseTheme {
-        YearInReviewScreenScaffold(
-            customBottomBar = { GetStartedBottomBar() },
-            screenContent = { innerPadding, scrollState ->
-                YearInReviewScreenContent(
-                    innerPadding = innerPadding,
-                    scrollState = scrollState)
-            }
-        )
     }
 }
