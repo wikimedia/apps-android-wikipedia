@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -23,6 +24,7 @@ class FilePageViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val allowEdit = savedStateHandle[FilePageActivity.INTENT_EXTRA_ALLOW_EDIT] ?: true
     val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     var pageSummaryForEdit: PageSummaryForEdit? = null
+    var mediaInfo: ImageInfo? = null
 
     private val _uiState = MutableStateFlow(Resource<FilePage>())
     val uiState = _uiState.asStateFlow()
@@ -92,6 +94,8 @@ class FilePageViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     thumbnailWidth = imageInfo.thumbWidth,
                     thumbnailHeight = imageInfo.thumbHeight
                 )
+
+                mediaInfo = imageInfo
 
                 _uiState.value = Resource.Success(filePage)
             } ?: run {
