@@ -930,14 +930,12 @@
   <string name="thank_dialog_positive_button_text">Betankje stjoere</string>
   <string name="thank_dialog_negative_button_text">Annulearje</string>
   <string name="thank_success_message">Jo betankje foar %s is ferstjoerd 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en de oerlisside binne %2$s oan jo folchlist tafoege.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Feroarje</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">bliuwend</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">foar 1 wike</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">foar 1 moanne</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">foar 3 moanne</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">foar 6 moanne</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s en de oerlisside binne fan jo folchlist ôfhelle.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">foar 1 wike</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">foar 1 moanne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">foar 3 moanne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">foar 6 moanne</string>
   <string name="watchlist_expiry_dialog_title">Folchdoer selektearje</string>
   <string name="watchlist_expiry_dialog_permanent">Bliuwend</string>
   <string name="watchlist_expiry_dialog_one_week">1 wike</string>
