@@ -1,12 +1,16 @@
 package org.wikipedia.history.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
 import org.wikipedia.history.HistoryEntry
 
 @Dao
 interface HistoryEntryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEntry(entry: HistoryEntry)
+    suspend fun insertEntry(entry: HistoryEntry): Long
 
     @Query("SELECT * FROM HistoryEntry WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findEntryBySearchTerm(term: String): HistoryEntry?
@@ -35,9 +39,9 @@ interface HistoryEntryDao {
     }
 
     @Transaction
-    suspend fun upsert(entry: HistoryEntry) {
+    suspend fun upsert(entry: HistoryEntry): Long {
         val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle, entry.timestamp.time)
-        if (curEntry != null) {
+        return if (curEntry != null) {
             // If this entry already exists, it implies that the page was refreshed, so it's OK not to
             // create a new db entry. But just for good measure, lets update the displayTitle anyway,
             // since it might have changed.
