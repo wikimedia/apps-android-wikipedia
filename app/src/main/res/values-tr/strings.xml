@@ -1413,14 +1413,12 @@
   <string name="revision_rollback_success">Değişiklikler geri alındı.</string>
   <string name="revision_compare_button">Karşılaştır</string>
   <string name="revision_compare_two_only">Yalnızca iki sürüm seçilebilir</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftalık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aylık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aylık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aylık</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ve onun tartışma sayfası izleme listenizden kaldırıldı.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 haftalık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 aylık</string>
   <string name="watchlist_expiry_dialog_title">İzleme listesi dönemini seçin</string>
   <string name="watchlist_expiry_dialog_permanent">Kalıcı</string>
   <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
