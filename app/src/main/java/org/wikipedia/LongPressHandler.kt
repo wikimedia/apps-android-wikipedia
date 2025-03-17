@@ -27,11 +27,11 @@ class LongPressHandler(
     interface WebViewMenuCallback : LongPressMenu.Callback {
         val wikiSite: WikiSite?
         val referrer: String?
-        val historyEntryId: Int
+        val historyEntryId: Long
     }
 
     private var referrer: String? = null
-    private var prevId: Int = -1
+    private var prevId: Long = -1
     private var clickPositionX = 0f
     private var clickPositionY = 0f
 

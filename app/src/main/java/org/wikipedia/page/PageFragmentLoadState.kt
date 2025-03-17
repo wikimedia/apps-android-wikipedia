@@ -243,7 +243,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 MainScope().launch {
                     // Insert and/or update this history entry in the DB
                     AppDatabase.instance.historyEntryDao().upsert(entry).run {
-                        model.curEntry?.id = this.toInt()
+                        model.curEntry?.id = this
                     }
 
                     // Update metadata in the DB
