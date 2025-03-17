@@ -428,10 +428,10 @@
   <string name="menu_option_view_user_profile" fuzzy="true">Talìa la pàggina prufilu di l\'utenti</string>
   <string name="menu_option_view_user_talk">Talìa la pàggina di discussioni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pi 1 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pi 3 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pi 6 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pi 1 simana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pi 1 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pi 3 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pi 6 misi</string>
   <string name="watchlist_expiry_dialog_one_week">1 simana</string>
   <string name="watchlist_expiry_dialog_one_month">1 misi</string>
   <string name="watchlist_expiry_dialog_three_months">3 misi</string>
