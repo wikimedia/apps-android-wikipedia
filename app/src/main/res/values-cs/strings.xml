@@ -1377,14 +1377,12 @@
   <string name="revision_rollback_success">Editace byly vráceny.</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="revision_compare_two_only">Pouze dvě revize článku mohou být zvoleny.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trvale</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na týden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na měsíc</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na 3 měsíce</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na 6 měsíců</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Stránka „%s“ a její diskusní stránka byly vyřazeny ze stránek, které sledujete.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na týden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na měsíc</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na 3 měsíce</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na 6 měsíců</string>
   <string name="watchlist_expiry_dialog_title">Doba sledování stránky</string>
   <string name="watchlist_expiry_dialog_permanent">Trvale</string>
   <string name="watchlist_expiry_dialog_one_week">týden</string>

@@ -516,9 +516,9 @@
   <string name="menu_option_view_user_profile" fuzzy="true">Umaã puruçara mainãgawa sowa</string>
   <string name="menu_option_view_user_talk">Umaã murũgetaçawa sowa</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Usinimuka</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 yarika rupí</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 yarika rupí</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 yarika rupí</string>
   <string name="watchlist_expiry_dialog_one_month">1 yarika</string>
   <string name="watchlist_expiry_dialog_three_months">3 yarika</string>
   <string name="watchlist_expiry_dialog_six_months">6 yarika</string>
