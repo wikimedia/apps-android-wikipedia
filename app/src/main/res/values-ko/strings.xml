@@ -1378,14 +1378,12 @@
   <string name="revision_rollback_success">편집이 되돌려졌습니다.</string>
   <string name="revision_compare_button">비교</string>
   <string name="revision_compare_two_only">판 2개만 선택할 수 있습니다</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s 문서 및 토론 문서가 주시문서 목록 %2$s에 추가되었습니다.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">변경</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">영구적으로</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1주 간</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1개월 간</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3개월 간</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6개월 간</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s 및 토론 문서는 주시문서 목록에서 제거되었습니다.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1주 간</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1개월 간</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3개월 간</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6개월 간</string>
   <string name="watchlist_expiry_dialog_title">주시문서 목록 기간 선택</string>
   <string name="watchlist_expiry_dialog_permanent">영구</string>
   <string name="watchlist_expiry_dialog_one_week">1주</string>
