@@ -213,7 +213,7 @@ fun YearInReviewScreenContent(
     screenData: YearInReviewScreenData,
 ) {
     val context = LocalContext.current
-    val gifAspectRatio = 3f/2f
+    val gifAspectRatio = 3f / 2f
 
     Column(
         verticalArrangement = Arrangement.Top,
