@@ -137,7 +137,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
-        fun onPageRequestLangLinks(title: PageTitle)
+        fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
@@ -568,8 +568,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun startLangLinksActivity() {
+        val historyEntryId = model.curEntry?.id ?: -1
         model.title?.let {
-            callback()?.onPageRequestLangLinks(it)
+            callback()?.onPageRequestLangLinks(it, historyEntryId)
         }
     }
 
