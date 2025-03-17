@@ -86,9 +86,16 @@ interface HistoryEntryWithImageDao {
     }
 
     private fun toHistoryEntry(entryWithImage: HistoryEntryWithImage): HistoryEntry {
-        val entry = HistoryEntry(entryWithImage.authority, entryWithImage.lang, entryWithImage.apiTitle,
-            entryWithImage.displayTitle, 0, entryWithImage.namespace, entryWithImage.timestamp,
-            entryWithImage.source)
+        val entry = HistoryEntry(
+            authority = entryWithImage.authority,
+            lang = entryWithImage.lang,
+            apiTitle = entryWithImage.apiTitle,
+            displayTitle = entryWithImage.displayTitle,
+            id = 0,
+            namespace = entryWithImage.namespace,
+            timestamp = entryWithImage.timestamp,
+            source = entryWithImage.source
+        )
         entry.title.thumbUrl = entryWithImage.imageName
         entry.title.description = entryWithImage.description
 
