@@ -48,7 +48,7 @@ class YearInReviewActivity : ComponentActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreenScaffold(
-                            customBottomBar = { MainBottomBar (onNavigationRightClick = {
+                            customBottomBar = { MainBottomBar(onNavigationRightClick = {
                                 coroutineScope.launch {
                                     pagerState.scrollToPage(pagerState.currentPage + 1) } }) },
                             screenContent = { innerPadding, scrollState, contentData ->
