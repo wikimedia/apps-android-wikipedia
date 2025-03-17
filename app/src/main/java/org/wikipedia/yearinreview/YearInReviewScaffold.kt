@@ -45,7 +45,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.room.util.appendPlaceholders
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -288,7 +287,7 @@ fun YearInReviewScreenContent(
 
 @Preview
 @Composable
-fun PreviewScaffold(){
+fun PreviewScaffold() {
 
     val pagerState = rememberPagerState { 1 }
     val scrollState = rememberScrollState()
