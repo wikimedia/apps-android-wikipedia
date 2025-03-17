@@ -64,4 +64,15 @@ class WiktionaryViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private fun definitionsNotFound() {
         _uiState.value = Resource.Error(Throwable("Definitions not found."))
     }
+
+    fun getTermFromWikiLink(url: String): String {
+        val splitUrl = url.substringAfterLast('/').split('#')
+        // Remove link fragment
+        return if (splitUrl[0].endsWith(GLOSSARY_OF_TERMS) && splitUrl.size > 1) splitUrl[1] else splitUrl[0]
+    }
+
+    companion object {
+        // Try to get the correct definition from glossary terms: https://en.wiktionary.org/wiki/Appendix:Glossary
+        private const val GLOSSARY_OF_TERMS = ":Glossary"
+    }
 }
