@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-
 import org.wikipedia.R
 
 data class YearInReviewScreenData(
@@ -30,5 +29,3 @@ val editCountData = YearInReviewScreenData(
     bodyText = R.string.year_in_review_editcount_bodytext,
     fetchedData = null
 )
-
-

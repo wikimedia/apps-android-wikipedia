@@ -5,12 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.StringRes
-import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -51,7 +48,7 @@ class YearInReviewActivity : ComponentActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreenScaffold(
-                            customBottomBar = { MainBottomBar ( onNavigationRightClick = {
+                            customBottomBar = { MainBottomBar (onNavigationRightClick = {
                                 coroutineScope.launch {
                                     pagerState.scrollToPage(pagerState.currentPage + 1) } }) },
                             screenContent = { innerPadding, scrollState, contentData ->

@@ -159,7 +159,7 @@ fun MainBottomBar(onNavigationRightClick: () -> Unit) {
 
 @Composable
 fun GetStartedBottomBar(
-    onGetStartedClick: ()-> Unit
+    onGetStartedClick: () -> Unit
 ) {
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
