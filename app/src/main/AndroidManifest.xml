@@ -50,6 +50,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" android:required="false" />
+
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -434,6 +437,16 @@
             tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".page.tts.PlaybackService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true"
+            android:permission="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService"/>
             </intent-filter>
         </service>
 

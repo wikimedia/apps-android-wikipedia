@@ -16,6 +16,7 @@
         <item name="progressive_color">@color/blue300</item>
         <item name="success_color">@color/green600</item>
         <item name="destructive_color">@color/red500</item>
+        <item name="destructive_background">@color/red800</item>
         <item name="warning_color">@color/orange500</item>
         <item name="highlight_color">@color/yellow500_40</item>
         <item name="focus_color">@color/orange500_50</item>

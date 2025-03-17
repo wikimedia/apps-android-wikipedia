@@ -82,6 +82,11 @@ enum class PageActionItem constructor(val id: Int,
         override fun select(cb: Callback) {
             cb.onViewOnMapSelected()
         }
+    },
+    NARRATE(14, R.id.page_narrate, R.string.action_item_narrate, R.drawable.ic_volume_up, false) {
+        override fun select(cb: Callback) {
+            cb.onNarrateSelected()
+        }
     };
 
     abstract fun select(cb: Callback)
@@ -108,6 +113,7 @@ enum class PageActionItem constructor(val id: Int,
         fun onEditArticleSelected()
         fun onViewOnMapSelected()
         fun forwardClick()
+        fun onNarrateSelected()
     }
 
     companion object {

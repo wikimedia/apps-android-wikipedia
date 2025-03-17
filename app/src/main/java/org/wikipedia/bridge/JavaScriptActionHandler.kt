@@ -213,6 +213,27 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    fun getSpokenFileName(): String {
+        return "(function() {" +
+                "  let spokenDiv = document.querySelector('.spoken-wikipedia');" +
+                "  let spokenAudio = spokenDiv.querySelector('audio');" +
+                "  let spokenSources = spokenDiv.querySelectorAll('source');" +
+                "  return spokenSources[0].getAttribute('src');" +
+                "})();"
+    }
+
+    fun getSectionContents(): String {
+        return "(function() {" +
+                "  let sections = document.querySelectorAll('section');" +
+                "  let section = sections[0].cloneNode(true);" +
+                "  let elements = section.querySelectorAll('style,.IPA,.mw-ref,.hatnote,.pcs-collapse-table-container');" +
+                "  for (let i = 0; i < elements.length; i++) {" +
+                "    elements[i].remove();" +
+                "  }" +
+                "  return section.innerText;" +
+                "})();"
+    }
+
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
                        val src: String = "")

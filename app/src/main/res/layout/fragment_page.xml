@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.wikipedia.views.WikiSwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -41,9 +43,28 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/fragment_page_coordinator"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/nav_bar_height" />
+            android:layout_marginBottom="@dimen/nav_bar_height">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/speechButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:visibility="gone"
+                tools:visibility="visible"
+                style="@style/ThemeOverlay.Material3.FloatingActionButton.Primary"
+                app:shapeAppearanceOverlay="@style/FloatingActionButtonRounded"
+                app:icon="@drawable/ic_volume_up"
+                app:iconTint="@color/white"
+                app:backgroundTint="?attr/progressive_color"
+                app:rippleColor="?attr/addition_color"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@null"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <FrameLayout
             android:id="@+id/page_actions_tab_container"

@@ -11,6 +11,7 @@
     <attr name="progressive_color" format="color" />
     <attr name="success_color" format="color" />
     <attr name="destructive_color" format="color" />
+    <attr name="destructive_background" format="color" />
     <attr name="warning_color" format="color" />
     <attr name="highlight_color" format="color" />
     <attr name="focus_color" format="color" />

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.icu.text.BreakIterator
 import android.net.Uri
 import android.os.Bundle
 import android.view.ActionMode
@@ -25,6 +26,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.forEach
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -91,6 +93,9 @@ import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tts.NarrationPopupView
+import org.wikipedia.page.tts.PlaybackService
+import org.wikipedia.page.tts.Tts
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -105,6 +110,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -117,6 +123,7 @@ import org.wikipedia.watchlist.WatchlistViewModel
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.util.Locale
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -191,6 +198,29 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
+    val checkTtsServiceRunnable = TtsCheckRunnable()
+
+    inner class TtsCheckRunnable() : Runnable {
+        override fun run() {
+            if (!isAdded) {
+                return
+            }
+
+            if (PlaybackService.isRunning) {
+                if (!binding.speechButton.isVisible) {
+                    binding.speechButton.show()
+                }
+            } else {
+                if (binding.speechButton.isVisible) {
+                    binding.speechButton.hide()
+                }
+            }
+
+            binding.speechButton.postDelayed(checkTtsServiceRunnable, 1000)
+        }
+    }
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
@@ -226,6 +256,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
+        binding.speechButton.setOnClickListener {
+            Tts.currentPageTitle?.let { title ->
+                NarrationPopupView(requireActivity()).show(binding.speechButton, title)
+            }
+        }
+
         bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabContainer, null, Gravity.BOTTOM, updateElevation = false) { false }
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
@@ -251,6 +287,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
+
+        binding.speechButton.postDelayed(checkTtsServiceRunnable, 1000)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -1471,6 +1509,67 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
+        }
+
+        override fun onNarrateSelected() {
+            bridge.evaluate(JavaScriptActionHandler.getSpokenFileName()) { result ->
+                var spokenUrl = if (result == null || result == "null") "" else result
+                if (spokenUrl.length > 2 && spokenUrl.startsWith("\"") && spokenUrl.endsWith("\"")) {
+                    spokenUrl = spokenUrl.substring(1, spokenUrl.length - 1)
+                }
+                if (spokenUrl.isNotEmpty()) {
+                    speakFromUrl(UriUtil.resolveProtocolRelativeUrl(spokenUrl))
+                } else {
+                    speakFromTts()
+                }
+            }
+        }
+
+        private fun speakFromUrl(url: String) {
+            Tts.start(requireActivity(), title, url, listOf())
+        }
+
+        private fun speakFromTts() {
+            bridge.evaluate(JavaScriptActionHandler.getSectionContents()) { result ->
+                var text = if (result == null || result == "null") "" else result
+                if (text.length > 2 && text.startsWith("\"") && text.endsWith("\"")) {
+                    text = text.substring(1, text.length - 1)
+                }
+
+                // massage the text a bit further
+                text = text.replace("\\n", "\n").replace("\\\"", "\"").replace("\\'", "'")
+
+                text = StringUtil.fromHtml(title?.displayText)
+                    .toString() + "\n\n" + title?.description + "\n\n" + text
+
+
+                val sentences = mutableListOf<String>()
+                var sentence = ""
+
+                val iterator = BreakIterator.getSentenceInstance(Locale.getDefault())
+                iterator.setText(text)
+                var start: Int = iterator.first()
+                if (start != BreakIterator.DONE) {
+                    var end: Int = iterator.next()
+                    while (end != BreakIterator.DONE) {
+                        val chunk = text.substring(start, end)
+                        sentence += "$chunk "
+                        // sentences should be at least 32 characters long.
+                        // TODO: limit size of sentences to 1024 characters?
+                        if (sentence.length + chunk.length > 32) {
+                            sentences.add(sentence)
+                            sentence = ""
+                        }
+                        start = end
+                        end = iterator.next()
+                    }
+                }
+                if (sentence.isNotEmpty()) {
+                    sentences.add(sentence)
+                }
+
+                Tts.start(requireActivity(), title, "", sentences)
+            }
         }
     }
 

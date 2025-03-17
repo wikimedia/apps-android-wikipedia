@@ -65,6 +65,7 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.page.tts.Tts
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
