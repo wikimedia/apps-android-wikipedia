@@ -1868,5 +1868,11 @@
     <string name="year_in_review_navigate_right">Navigate Right</string>
     <string name="year_in_review_donate">Donate</string>
     <string name="year_in_review_information_icon">Information Icon</string>
+    <string name="year_in_review_getstarted_headline">Explore your Wikipedia Year in Review</string>
+    <string name="year_in_review_getstarted_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_readcount_headline">You read 350 articles this year</string>
+    <string name="year_in_review_readcount_bodytext">This year, you read 350 articles, including Climate change, Dogs, and Cats. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
+    <string name="year_in_review_editcount_headline">You edited Wikipedia 150 times</string>
+    <string name="year_in_review_editcount_bodytext">You edited Wikipedia 150 times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
 
 </resources>
