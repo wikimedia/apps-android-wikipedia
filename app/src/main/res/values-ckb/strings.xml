@@ -1216,14 +1216,12 @@
   <string name="revision_rollback_success">دەستکارییەکان گەڕێندرانەوە.</string>
   <string name="revision_compare_button">بەراوردکردن</string>
   <string name="revision_compare_two_only">تەنیا دەتواندرێت دوو پێداچوونەوە ھەڵببژێردرێت.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و پەڕەی وتووێژەکەی زیاد کران بۆ پێڕستی چاودێریت %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">گۆڕین</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بە ھەمیشەیی</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">بۆ ١ ھەفتە</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">بۆ ١ مانگ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">بۆ ٣ مانگ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">بۆ ٦ مانگ</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و پەڕەی وتووێژی لابراوە لە پێڕستی چاودێریەکەت.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">بۆ ١ ھەفتە</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">بۆ ١ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">بۆ ٣ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">بۆ ٦ مانگ</string>
   <string name="watchlist_expiry_dialog_title">کاتی پێڕستی چاودێری دیاریبکە</string>
   <string name="watchlist_expiry_dialog_permanent">ھەمیشەیی</string>
   <string name="watchlist_expiry_dialog_one_week">١ ھەفتە</string>

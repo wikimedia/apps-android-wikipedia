@@ -1477,14 +1477,12 @@
   <string name="revision_rollback_success">Совершён откат правок.</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="revision_compare_two_only">Можно выбрать только по две версии.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 неделю</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцев</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Статья %s и его страница обсуждений были удалены из вашего списка наблюдения.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">на 1 неделю</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">на 1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">на 3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">на 6 месяцев</string>
   <string name="watchlist_expiry_dialog_title">Выберите период времени, в течение которого следить за страницей</string>
   <string name="watchlist_expiry_dialog_permanent">Постоянно</string>
   <string name="watchlist_expiry_dialog_one_week">1 неделя</string>

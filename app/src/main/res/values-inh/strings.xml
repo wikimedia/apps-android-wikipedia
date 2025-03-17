@@ -1276,14 +1276,12 @@
   <string name="revision_rollback_success">Хувцамаш юхатеттад.</string>
   <string name="revision_compare_button">ВӀаший йиста</string>
   <string name="revision_compare_two_only">Ши кеп мара харжа йиш яц.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Доакъашхочун оагӀув а %1$s, цун къамаьл-оагӀув а, тӀатехай хьа зем-листама чу (%2$s).</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Хувца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">массаза а</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">цхьан кӀирá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">цхьан беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">кхаь беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ялх беттá</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s яха оагӀув а цун къамаьл-оагӀув а дӀаяьккхай хьа дешара листама чура.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">цхьан кӀирá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">цхьан беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">кхаь беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ялх беттá</string>
   <string name="watchlist_expiry_dialog_title">Зем бара ха хьахаржа</string>
   <string name="watchlist_expiry_dialog_permanent">Массехана</string>
   <string name="watchlist_expiry_dialog_one_week">1 кӀира</string>
