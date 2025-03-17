@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
@@ -39,9 +41,11 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.room.util.appendPlaceholders
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -280,4 +284,28 @@ fun YearInReviewScreenContent(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewScaffold(){
+
+    val pagerState = rememberPagerState { 1 }
+    val scrollState = rememberScrollState()
+    val content = listOf(readCountData)
+
+    YearInReviewScreenScaffold(
+        totalPages = 1,
+        pagerState = pagerState,
+        scrollState = scrollState,
+        contentData = content,
+        customBottomBar = { MainBottomBar(onNavigationRightClick = {}) },
+        screenContent = { innerPadding, scrollState, contentData ->
+            YearInReviewScreenContent(
+                innerPadding = innerPadding,
+                scrollState = scrollState,
+                screenData = contentData
+                )
+        }
+    )
 }
