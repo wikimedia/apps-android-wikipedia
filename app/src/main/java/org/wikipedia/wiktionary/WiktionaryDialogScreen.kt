@@ -36,18 +36,11 @@ import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-fun interface Callback {
-    fun onDialogLinkClick(url: String)
-}
-
-var dialogCallback: Callback? = null
-
 @Composable
 fun WiktionaryDialogScreen(
     viewModel: WiktionaryViewModel,
-    callback: Callback
+    onDialogLinkClick: (url: String) -> Unit
 ) {
-    dialogCallback = callback
     val uiState = viewModel.uiState.collectAsState().value
     WiktionaryDialogContent(
         title = StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(viewModel.selectedText)),
@@ -57,7 +50,7 @@ fun WiktionaryDialogScreen(
         if (uiState is Resource.Success) {
             Column {
                 uiState.data.forEach {
-                    DefinitionList(it)
+                    DefinitionList(it, onDialogLinkClick)
                 }
             }
         }
@@ -143,7 +136,10 @@ fun WiktionaryDialogContent(
 }
 
 @Composable
-fun DefinitionList(usage: RbDefinition.Usage) {
+fun DefinitionList(
+    usage: RbDefinition.Usage,
+    onDialogLinkClick: (url: String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -161,7 +157,8 @@ fun DefinitionList(usage: RbDefinition.Usage) {
             if (it.definition.isNotEmpty()) {
                 DefinitionWithExamples(
                     definition = it,
-                    count = ++index
+                    count = ++index,
+                    onDialogLinkClick = onDialogLinkClick
                 )
             }
         }
@@ -169,7 +166,11 @@ fun DefinitionList(usage: RbDefinition.Usage) {
 }
 
 @Composable
-fun DefinitionWithExamples(definition: RbDefinition.Definition, count: Int) {
+fun DefinitionWithExamples(
+    definition: RbDefinition.Definition,
+    count: Int,
+    onDialogLinkClick: (url: String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -184,7 +185,7 @@ fun DefinitionWithExamples(definition: RbDefinition.Definition, count: Int) {
                 ),
                 linkInteractionListener = {
                     val url = (it as LinkAnnotation.Url).url
-                    dialogCallback?.onDialogLinkClick(url)
+                    onDialogLinkClick(url)
                 }
             )
         }
@@ -201,7 +202,7 @@ fun DefinitionWithExamples(definition: RbDefinition.Definition, count: Int) {
                     ),
                     linkInteractionListener = {
                         val url = (it as LinkAnnotation.Url).url
-                        dialogCallback?.onDialogLinkClick(url)
+                        onDialogLinkClick(url)
                     }
                 )
             }
