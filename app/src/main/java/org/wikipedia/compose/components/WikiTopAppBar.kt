@@ -46,7 +46,7 @@ fun WikiTopAppBar(
                 Icon(
                     imageVector = navigationIcon,
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.back_button_content_description)
+                    contentDescription = stringResource(R.string.search_back_button_content_description)
                 )
             }
         },

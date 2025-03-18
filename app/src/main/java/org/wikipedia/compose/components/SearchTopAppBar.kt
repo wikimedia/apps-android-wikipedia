@@ -58,7 +58,7 @@ fun SearchTopAppBar(
                     cursorColor = WikipediaTheme.colors.progressiveColor
                 ),
                 textStyle = TextStyle(
-                    fontSize = 14.sp
+                    fontSize = 16.sp
                 )
             )
         },
@@ -66,7 +66,7 @@ fun SearchTopAppBar(
             IconButton(onClick = onBackButtonClick) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.back_button_content_description),
+                    contentDescription = stringResource(R.string.search_back_button_content_description),
                     tint = WikipediaTheme.colors.primaryColor
                 )
             }
