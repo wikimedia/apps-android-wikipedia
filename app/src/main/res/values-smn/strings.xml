@@ -206,6 +206,7 @@
   <string name="reading_list_menu_select">Valjii</string>
   <string name="reading_list_menu_rename">Mute luuhâmlisto noomâ/kuvvim</string>
   <string name="reading_list_action_menu_add_to_another_list">Lasseet nube liiston</string>
+  <string name="reading_list_name_sample">Muu luuhâmlisto</string>
   <string name="reading_list_name_hint">Luuhâmlisto nommâ</string>
   <string name="reading_list_select_item">Valjii</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Jooskâ</string>

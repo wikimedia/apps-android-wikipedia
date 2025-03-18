@@ -603,20 +603,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private val selectedListsCount get() = displayedLists.count { it is ReadingList && it.selected }
-
-    private val selectedLists: List<ReadingList>
-        get() {
-            return displayedLists.let {
-                displayedLists.filterIsInstance<ReadingList>()
-                    .filter { it.selected }
-                    .onEach { it.selected = false }
-            }
-        }
+    private val selectedLists
+        get() = displayedLists.filterIsInstance<ReadingList>().filter { it.selected }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
-        private val allSelected get() = selectedListsCount == displayedLists.count { it is ReadingList }
-        private val noneSelected get() = selectedListsCount == 0
+        private val allSelected get() = selectedLists.size == displayedLists.count { it is ReadingList }
+        private val noneSelected get() = selectedLists.isEmpty()
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
@@ -630,22 +622,23 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            mode.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
+            val listsSelected = selectedLists
+            val onlyDefaultSelected = listsSelected.size == 1 && listsSelected[0].isDefault
+            mode.title = if (listsSelected.isEmpty()) "" else getString(R.string.multi_select_items_selected, listsSelected.size)
             val fullOpacity = 255
             val halfOpacity = 80
-            val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
-            val isEnabled = selectedListsCount != 0
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
             val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
             exportItem.title = buildSpannedString {
-                color(ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)) {
+                color(ColorUtils.setAlphaComponent(exportItemTitleColor,
+                    if (listsSelected.isEmpty()) halfOpacity else fullOpacity)) {
                     append(exportItem.title)
                 }
             }
-            deleteItem.icon?.alpha = alpha
-            exportItem.isEnabled = isEnabled
-            deleteItem.isEnabled = isEnabled
+            deleteItem.icon?.alpha = if (listsSelected.isEmpty() || onlyDefaultSelected) halfOpacity else fullOpacity
+            exportItem.isEnabled = listsSelected.isNotEmpty()
+            deleteItem.isEnabled = listsSelected.isNotEmpty() && !onlyDefaultSelected
 
             val selectButton = menu.findItem(R.id.menu_select)
             selectButton.setIcon(when {
@@ -668,7 +661,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     return true
                 }
                 R.id.menu_export_selected -> {
-                    if (selectedListsCount == 0) {
+                    if (selectedLists.isEmpty()) {
                         Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
                             Toast.LENGTH_SHORT).show()
                         return true

@@ -540,10 +540,10 @@
   <string name="menu_option_user_contributions">ኣበርክቶታት %s</string>
   <string name="menu_option_edit_source">ኮድ ኣርትዕ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ብቐዋሚ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ን1 ሰሙን</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ን1 ወርሒ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ን3 ኣዋርሕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ን6 ኣዋርሕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">ን1 ሰሙን</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">ን1 ወርሒ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ን3 ኣዋርሕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ን6 ኣዋርሕ</string>
   <string name="watchlist_expiry_dialog_permanent">ቀዋሚ</string>
   <string name="watchlist_expiry_dialog_one_week">1 ሰሙን</string>
   <string name="watchlist_expiry_dialog_one_month">1 ወርሒ</string>

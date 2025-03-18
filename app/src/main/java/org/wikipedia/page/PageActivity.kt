@@ -98,7 +98,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
-    private var app = WikipediaApp.instance
+    private lateinit var app: WikipediaApp
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
@@ -182,6 +182,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!DeviceUtil.assertAppContext(this)) {
+            return
+        }
+
+        app = WikipediaApp.instance
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -465,8 +470,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
     }
 
-    override fun onPageRequestLangLinks(title: PageTitle) {
-        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
+    override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title, historyEntryId))
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
@@ -524,7 +529,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     // ...Except if the URL came as a result of a successful donation, in which case
                     // treat it differently:
                     if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
-                        CampaignCollection.addDonationResult(fromWeb = true)
+                        CampaignCollection.addDonationResult(fromWeb = true,
+                            amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
+                            currency = uri.getQueryParameter("currency") ?: "",
+                            recurring = uri.getQueryParameter("recurring") == "1")
                         // Check if the donation started from the app, but completed via web, in which case
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")

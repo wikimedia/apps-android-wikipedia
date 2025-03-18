@@ -1087,14 +1087,12 @@
   <string name="revision_undo_success">ఈ కూర్పును వెనక్కి తిప్పాం.</string>
   <string name="revision_compare_button">పోల్చిచూడు</string>
   <string name="revision_compare_two_only">రెండే కూర్పులను ఎంచుకోవచ్చు.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s నీ, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా %2$s లో చేర్చాం.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">మార్చు</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">శాశ్వతంగా</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 వారం పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 నెల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 నెలల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 నెలల పాటు</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ని, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా నుండి తీసేసాం.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 వారం పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 నెల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 నెలల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 నెలల పాటు</string>
   <string name="watchlist_expiry_dialog_title">వీక్షణ జాబితా వ్యవధిని ఎంచుకోండి</string>
   <string name="watchlist_expiry_dialog_permanent">శాశ్వతంగా</string>
   <string name="watchlist_expiry_dialog_one_week">1 వారం</string>

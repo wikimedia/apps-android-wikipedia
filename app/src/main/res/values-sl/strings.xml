@@ -1479,14 +1479,12 @@
   <string name="revision_rollback_success">Urejanje vrnjeno.</string>
   <string name="revision_compare_button">Primerjaj</string>
   <string name="revision_compare_two_only">Izberete lahko samo dve redakciji.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Na svoj spisek nadzorov ste dodali stran %1$s in njeno pogovorno stran; %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Spremeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">za 1 teden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">za 1 mesec</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">za 3 mesece</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">za 6 mesecev</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">S svojega spiska nadzorov ste odstranili stran %s in njeno pogovorno stran.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">za 1 teden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">za 1 mesec</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">za 3 mesece</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">za 6 mesecev</string>
   <string name="watchlist_expiry_dialog_title">Izberite čas spremljanja na spisku nadzorov</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">1 teden</string>

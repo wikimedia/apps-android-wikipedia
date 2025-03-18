@@ -804,14 +804,12 @@
   <string name="thank_success_message">আপোনাৰ \'ধন্যবাদ\' %s-লৈ প্ৰেৰণ কৰা হ\'ল 👍</string>
   <string name="menu_option_view_user_profile" fuzzy="true">ব্যৱহাৰকাৰীৰ প্ৰ\'ফাইল পৃষ্ঠা চাওক</string>
   <string name="menu_option_view_user_talk">আলোচনা পৃষ্ঠা চাওক</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন %2$s আপোনাৰ চোৱাসূচীত যোগ কৰা হৈছে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">সলাওক</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীকৈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাহৰ বাবে</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন আপোনাৰ চোৱাসূচীৰ পৰা আঁতৰোৱা হৈছে।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">১ সপ্তাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">১ মাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">৩ মাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">৬ মাহৰ বাবে</string>
   <string name="watchlist_expiry_dialog_title">চোৱাসূচীৰ সময়কাল বাছনি কৰক</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ী</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>

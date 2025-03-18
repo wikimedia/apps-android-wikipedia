@@ -1,7 +1,6 @@
 package org.wikipedia
 
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
 import android.view.MotionEvent
@@ -11,6 +10,7 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebView.HitTestResult
+import androidx.core.net.toUri
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
@@ -27,9 +27,11 @@ class LongPressHandler(
     interface WebViewMenuCallback : LongPressMenu.Callback {
         val wikiSite: WikiSite?
         val referrer: String?
+        val historyEntryId: Long
     }
 
     private var referrer: String? = null
+    private var prevId: Long = -1
     private var clickPositionX = 0f
     private var clickPositionY = 0f
 
@@ -43,7 +45,7 @@ class LongPressHandler(
             title = null
             val result = view.hitTestResult
             if (result.type == HitTestResult.SRC_ANCHOR_TYPE) {
-                val uri = Uri.parse(result.extra)
+                val uri = result.extra.orEmpty().toUri()
                 if (isValidPageLink(uri)) {
                     var wikiSite = WikiSite(uri)
                     // the following logic keeps the correct language code if the domain has multiple variants (e.g. zh).
@@ -54,6 +56,7 @@ class LongPressHandler(
                     }
                     title = PageTitle.titleForInternalLink(uri.path, wikiSite)
                     referrer = callback.referrer
+                    prevId = callback.historyEntryId
                     showPopupMenu(view, true)
                 }
             }
@@ -77,6 +80,7 @@ class LongPressHandler(
                 hideSoftKeyboard(view)
                 HistoryEntry(it, historySource).let { entry ->
                     entry.referrer = referrer
+                    entry.prevId = prevId
                     var anchorView = view
                     if (createAnchorView) {
                         val tempView = View(view.context)

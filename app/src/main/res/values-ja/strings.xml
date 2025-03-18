@@ -1407,14 +1407,12 @@
   <string name="revision_rollback_success">編集が差し戻されました</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$sとそのトークページをウォッチリストへ%2$s追加しました。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">恒久的に</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週間</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1か月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3か月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6か月</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%sとそのトークぺージをウォッチリストから除去しました。</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1週間</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6か月</string>
   <string name="watchlist_expiry_dialog_title">ウォッチリストの期間を選択してください</string>
   <string name="watchlist_expiry_dialog_permanent">恒久的</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>

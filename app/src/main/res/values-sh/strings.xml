@@ -365,7 +365,7 @@
   <string name="wikitext_formatting">Formatiranje</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Promijeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 sedmica</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 sedmica</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">1 sedmica</string>
   <string name="watchlist_filter_all">Sve</string>

@@ -12,6 +12,7 @@ import org.wikipedia.base.TestConfig.ARTICLE_TITLE_ESPANOL
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 
@@ -30,9 +31,12 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
     private val FIND_IN_ARTICLE_TEXT = "Hopf"
     private val pageRobot = PageRobot(context)
     private val searchRobot = SearchRobot()
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         pageRobot
             .saveArticleToReadingList()
             .confirmArticleSaved("Saved")

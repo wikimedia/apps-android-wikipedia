@@ -1369,14 +1369,12 @@
   <string name="revision_rollback_success">Sửa đổi đã được lùi.</string>
   <string name="revision_compare_button">So sánh</string>
   <string name="revision_compare_two_only">Chỉ được phép chọn hai phiên bản sửa đổi cùng một lúc.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s cùng trang thảo luận đã được thêm vào danh sách theo dõi của bạn %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 tuần</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 tháng</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 tháng</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 tháng</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s cùng trang thảo luận đã được xóa khỏi danh sách theo dõi của bạn.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 tuần</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 tháng</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 tháng</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 tháng</string>
   <string name="watchlist_expiry_dialog_title">Chọn khoảng thời gian trong danh sách theo dõi</string>
   <string name="watchlist_expiry_dialog_permanent">Vô hạn</string>
   <string name="watchlist_expiry_dialog_one_week">1 tuần</string>

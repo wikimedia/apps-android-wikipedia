@@ -43,7 +43,7 @@ class ParcelableTest {
     fun testPageImage() {
         val wiki = WikiSite.forLanguageCode("en")
         val title = PageTitle("Talk", "India", wiki)
-        val pageImage = PageImage(title, "Testing image")
+        val pageImage = PageImage(title, "Testing image", "Test description", 1.2, 3.4)
         TestParcelUtil.test(pageImage)
     }
 }

@@ -17,6 +17,7 @@ import org.wikipedia.tests.settings.ShowImageTest
 
 @RunWith(Suite::class)
 @SuiteClasses(
+    DownloadReadingListTest::class,
     ChangingLanguageTest::class,
     CustomizeExploreFeedTest::class,
     LinkPreviewTest::class,
@@ -25,7 +26,6 @@ import org.wikipedia.tests.settings.ShowImageTest
     FontSizeTest::class,
     FontChangeTest::class,
     ReadingFocusModeTest::class,
-    DownloadReadingListTest::class,
     ShowImageTest::class,
     AboutSettingsTest::class
 )

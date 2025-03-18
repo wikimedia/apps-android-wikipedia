@@ -1260,14 +1260,12 @@
   <string name="revision_rollback_success">Úpravy boli vrátené.</string>
   <string name="revision_compare_button">Porovnať</string>
   <string name="revision_compare_two_only">Vybrané môžu byť len dve revízie.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Stránka %1$s bola pridaná do Vášho zoznamu sledovaných %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmeniť</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">natrvalo</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na 1 týždeň</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na 1 mesiac</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na 3 mesiace</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na 6 mesiacov</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Stránka %s a jej diskusia bola z Vášho zoznamu sledovaných odstránená.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na 1 týždeň</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na 1 mesiac</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na 3 mesiace</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na 6 mesiacov</string>
   <string name="watchlist_expiry_dialog_title">Vybrať dobu sledovania</string>
   <string name="watchlist_expiry_dialog_permanent">Natrvalo</string>
   <string name="watchlist_expiry_dialog_one_week">1 týždeň</string>

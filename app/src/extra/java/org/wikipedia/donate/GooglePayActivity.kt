@@ -83,7 +83,11 @@ class GooglePayActivity : BaseActivity() {
                             }
                             is GooglePayViewModel.DonateSuccess -> {
                                 DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
-                                CampaignCollection.addDonationResult()
+                                CampaignCollection.addDonationResult(
+                                    amount = viewModel.finalAmount,
+                                    currency = viewModel.currencyCode,
+                                    recurring = binding.checkBoxRecurring.isChecked
+                                )
                                 setResult(RESULT_OK)
                                 finish()
                             }

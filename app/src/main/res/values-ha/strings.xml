@@ -1318,14 +1318,12 @@
   <string name="revision_rollback_success">An sake gyarawa.</string>
   <string name="revision_compare_button">Kwatanta</string>
   <string name="revision_compare_two_only">Za\'a iya zaɓar sake dubawa guda biyu kawai.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da shafin magana an kara su a cikin jerin masu kallo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canja</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dindindin</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na mako 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na wata 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na watanni 3</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na watanni 6</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">An cire %s da shafin magana daga jerin masu kallo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na mako 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na wata 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na watanni 3</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na watanni 6</string>
   <string name="watchlist_expiry_dialog_title">Zaɓin lokacin Watchlist</string>
   <string name="watchlist_expiry_dialog_permanent">Dindindin</string>
   <string name="watchlist_expiry_dialog_one_week">mako 1</string>

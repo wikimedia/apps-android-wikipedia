@@ -1415,14 +1415,12 @@
   <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
   <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">Text for the time period that exists for 1 week.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">Text for the time period that exists for 1 month.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Text for the time period that exists for 3 months.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Text for the time period that exists for 6 months.</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Message shown when the article is removed from Watchlist. The %s symbol will be replaced by the article title.</string>
   <string name="watchlist_expiry_dialog_title">Title of the bottom sheet that shows the available options of the time period.</string>
   <string name="watchlist_expiry_dialog_permanent">Label for the time period that exists permanently.</string>
   <string name="watchlist_expiry_dialog_one_week">Label for the time period that exists for 1 week.</string>
@@ -1774,4 +1772,5 @@
   <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
   <string name="back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
+  <string name="clear_query_accessibility_text">Accessibility text informing users that this action clears the query.</string>
 </resources>

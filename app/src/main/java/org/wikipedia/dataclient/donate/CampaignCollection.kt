@@ -48,8 +48,10 @@ object CampaignCollection {
         return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry}_${campaignId}_Android"
     }
 
-    fun addDonationResult(fromWeb: Boolean = false) {
-        Prefs.donationResults = Prefs.donationResults.plus(DonationResult(dateTime = LocalDateTime.now().toString(), fromWeb = fromWeb))
+    fun addDonationResult(fromWeb: Boolean = false, amount: Float, currency: String, recurring: Boolean) {
+        Prefs.donationResults = Prefs.donationResults.plus(DonationResult(
+            LocalDateTime.now().toString(), fromWeb, amount, currency, recurring
+        ))
     }
 
     @Serializable

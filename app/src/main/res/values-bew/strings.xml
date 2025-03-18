@@ -1306,14 +1306,12 @@
   <string name="revision_rollback_success">Permakan udah dibalikin.</string>
   <string name="revision_compare_button">Bandingin</string>
   <string name="revision_compare_two_only">Cuman dua perbaèkan nyang bisa dipilih.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s èn dia punya halaman kongko udah ditambahin ke lu punya daptar pantengan %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Robah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ajeg</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">bakal seminggu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">bakal sebulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">bakal 3 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">bakal 6 bulan</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s èn dia punya halaman kongko udah dibuang deri lu punya daptar pantengan.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">bakal seminggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">bakal sebulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">bakal 3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">bakal 6 bulan</string>
   <string name="watchlist_expiry_dialog_title">Pilih jangka waktu Daptar Pantengan</string>
   <string name="watchlist_expiry_dialog_permanent">Ajeg</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>

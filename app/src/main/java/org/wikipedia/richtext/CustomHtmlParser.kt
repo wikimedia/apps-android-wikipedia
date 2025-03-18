@@ -111,7 +111,6 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
         private var lastAClass = ""
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
-        private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -218,7 +217,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                     val spanStart = output.getSpanStart(span)
                     output.removeSpan(span)
                     output.insert(spanStart, "$count. ")
-                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize), spanStart, output.length, 0)
+                    output.setSpan(LeadingMarginSpan.Standard(DimenUtil.roundedDpToPx(16f)), spanStart, output.length, 0)
                 }
             }
         }
