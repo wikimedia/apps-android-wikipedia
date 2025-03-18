@@ -470,8 +470,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
     }
 
-    override fun onPageRequestLangLinks(title: PageTitle) {
-        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
+    override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title, historyEntryId))
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
