@@ -25,11 +25,11 @@ class HistoryEntry(
     var lang: String = "",
     var apiTitle: String = "",
     var displayTitle: String = "",
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
     var namespace: String = "",
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
-    var prevId: Int = -1,
+    var prevId: Long = -1,
 ) : Parcelable {
     constructor(title: PageTitle, source: Int, timestamp: Date = Date()) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,

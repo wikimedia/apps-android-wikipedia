@@ -17,6 +17,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
+import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
 enum class TopAppBarState {
@@ -41,7 +43,6 @@ fun WikiTopAppBarWithSearch(
     onBackButtonClick: () -> Unit,
 ) {
     var currentState by remember { mutableStateOf(TopAppBarState.NORMAL) }
-
     // Simple animation when switching states
     val enterTransition = fadeIn(
         animationSpec = tween(
@@ -80,12 +81,12 @@ fun WikiTopAppBarWithSearch(
                                 IconButton(
                                     onClick = {
                                         onSearchQueryChange("")
-                                        currentState = TopAppBarState.NORMAL
+                                        currentState = TopAppBarState.SEARCH
                                     },
                                     content = {
                                         Icon(
                                             imageVector = Icons.Outlined.Clear,
-                                            contentDescription = null,
+                                            contentDescription = stringResource(R.string.search_clear_query_content_description),
                                             tint = WikipediaTheme.colors.placeholderColor
                                         )
                                     }
@@ -106,7 +107,7 @@ fun WikiTopAppBarWithSearch(
                                 content = {
                                     Icon(
                                         imageVector = Icons.Outlined.Search,
-                                        contentDescription = null,
+                                        contentDescription = stringResource(R.string.search_icon_content_description),
                                         tint = WikipediaTheme.colors.primaryColor
                                     )
                                 }

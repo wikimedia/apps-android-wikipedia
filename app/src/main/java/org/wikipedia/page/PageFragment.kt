@@ -137,7 +137,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
-        fun onPageRequestLangLinks(title: PageTitle)
+        fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
@@ -187,7 +187,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
-    val historyEntry get() = model.curEntry
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -484,7 +483,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         dismissBottomSheet()
-        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
+        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK).apply {
+            prevId = model.curEntry?.id ?: -1
+        }
 
         if (title == model.title && !title.fragment.isNullOrEmpty()) {
             scrollToSection(title.fragment!!)
@@ -567,8 +568,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun startLangLinksActivity() {
+        val historyEntryId = model.curEntry?.id ?: -1
         model.title?.let {
-            callback()?.onPageRequestLangLinks(it)
+            callback()?.onPageRequestLangLinks(it, historyEntryId)
         }
     }
 
@@ -1346,7 +1348,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                     }
-                }).show(historyEntry)
+                }).show(model.curEntry)
             } else {
                 title?.run {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
