@@ -75,13 +75,12 @@ fun YearInReviewScreenScaffold(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        if(totalPages > 1 && pagerState.currentPage != 0) {
+                        if (totalPages > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.GetStarted.name)
                         }
-
                     }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
@@ -91,7 +90,7 @@ fun YearInReviewScreenScaffold(
                     }
                 },
                 actions = {
-                    if(totalPages > 1) {
+                    if (totalPages > 1) {
                         IconButton(onClick = { TODO() }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
@@ -161,7 +160,7 @@ fun MainBottomBar(
                         color = WikipediaTheme.colors.destructiveColor
                     )
                 }
-                if(pagerState.currentPage + 1 < totalPages){
+                if (pagerState.currentPage + 1 < totalPages) {
                     IconButton(onClick = { onNavigationRightClick() }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
