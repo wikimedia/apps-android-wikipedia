@@ -86,7 +86,7 @@ fun WikiTopAppBarWithSearch(
                                     content = {
                                         Icon(
                                             imageVector = Icons.Outlined.Clear,
-                                            contentDescription = stringResource(R.string.clear_query_accessibility_text),
+                                            contentDescription = stringResource(R.string.search_clear_query_content_description),
                                             tint = WikipediaTheme.colors.placeholderColor
                                         )
                                     }
@@ -107,7 +107,7 @@ fun WikiTopAppBarWithSearch(
                                 content = {
                                     Icon(
                                         imageVector = Icons.Outlined.Search,
-                                        contentDescription = stringResource(R.string.search_hint_search_languages),
+                                        contentDescription = stringResource(R.string.search_icon_content_description),
                                         tint = WikipediaTheme.colors.primaryColor
                                     )
                                 }
