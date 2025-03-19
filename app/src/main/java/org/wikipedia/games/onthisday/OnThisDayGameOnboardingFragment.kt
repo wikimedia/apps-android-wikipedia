@@ -48,7 +48,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     companion object {
-        private const val SHOW_ON_EXPLORE_FEED_ON_COUNT = 2
+        private const val SHOW_ON_EXPLORE_FEED_COUNT = 2
 
         fun newInstance(invokeSource: InvokeSource): OnThisDayGameOnboardingFragment {
             return OnThisDayGameOnboardingFragment().apply {
@@ -62,7 +62,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             if (!Prefs.otdEntryDialogShown &&
                 OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
                 OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode) &&
-                (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_ON_COUNT)) {
+                (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)

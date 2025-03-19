@@ -601,7 +601,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     companion object {
         // Actually shows on the 4th time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
-        private const val SHOW_EDITS_SNACKBAR_COUNT = 4
+        private const val SHOW_EDITS_SNACKBAR_COUNT = 3
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {
