@@ -37,6 +37,7 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LangLinksUiState())
     val uiState: StateFlow<LangLinksUiState> = _uiState.asStateFlow()
+    val historyEntryId = savedStateHandle.get<Long>(Constants.ARG_NUMBER) ?: -1
 
     init {
         fetchAllData()

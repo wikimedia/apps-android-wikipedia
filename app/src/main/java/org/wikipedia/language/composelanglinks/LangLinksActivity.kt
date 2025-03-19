@@ -33,7 +33,10 @@ class LangLinksActivity : BaseActivity() {
                         val pageTitle = item.pageTitle ?: return@ComposeLangLinksScreen
                         WikipediaApp.instance.languageState
                             .addMruLanguageCode(item.languageCode)
-                        val intent = PageActivity.newIntentForCurrentTab(this, HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK), pageTitle, false)
+                        val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK).apply {
+                            prevId = viewModel.historyEntryId
+                        }
+                        val intent = PageActivity.newIntentForCurrentTab(this, historyEntry, pageTitle, false)
                         setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
                         DeviceUtil.hideSoftKeyboard(this)
                         finish()
@@ -59,9 +62,10 @@ class LangLinksActivity : BaseActivity() {
 
     companion object {
         const val ACTIVITY_RESULT_LANGLINK_SELECT = 1
-        fun newIntent(context: Context, title: PageTitle): Intent {
+        fun newIntent(context: Context, title: PageTitle, historyEntryId: Long = -1): Intent {
             return Intent(context, LangLinksActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, title)
+                .putExtra(Constants.ARG_NUMBER, historyEntryId)
         }
     }
 }
