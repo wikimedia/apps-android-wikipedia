@@ -1714,5 +1714,5 @@
   <string name="on_this_day_game_notification_undo">실행 취소</string>
   <string name="on_this_day_game_survey_q1">이 게임에 얼마나 만족하셨나요?</string>
   <string name="on_this_day_game_survey_q2">다양한 위키백과 게임을 해보고 싶으신가요?</string>
-  <string name="back_button_content_description">돌아가기</string>
+  <string name="search_back_button_content_description">돌아가기</string>
 </resources>
