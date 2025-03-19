@@ -41,6 +41,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -51,6 +52,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun YearInReviewScreenScaffold(
     customBottomBar: @Composable () -> Unit,
     screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
+    navController: NavHostController,
     pagerState: PagerState,
     scrollState: ScrollState,
     contentData: List<YearInReviewScreenData>,
@@ -73,7 +75,13 @@ fun YearInReviewScreenScaffold(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
+                        if(totalPages > 1 && pagerState.currentPage != 0) {
+                            coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
+                        } else {
+                            navController.navigate(
+                                route = YearInReviewNavigation.GetStarted.name)
+                        }
+
                     }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
@@ -83,12 +91,14 @@ fun YearInReviewScreenScaffold(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { TODO() }) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_share),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_share_icon)
-                        )
+                    if(totalPages > 1) {
+                        IconButton(onClick = { TODO() }) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_share),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = stringResource(R.string.year_in_review_share_icon)
+                            )
+                        }
                     }
                 }
             )
@@ -113,7 +123,11 @@ fun YearInReviewScreenScaffold(
 }
 
 @Composable
-fun MainBottomBar(onNavigationRightClick: () -> Unit) {
+fun MainBottomBar(
+    onNavigationRightClick: () -> Unit,
+    pagerState: PagerState,
+    totalPages: Int
+) {
 
     BottomAppBar(
         modifier = Modifier.border(
@@ -147,13 +161,14 @@ fun MainBottomBar(onNavigationRightClick: () -> Unit) {
                         color = WikipediaTheme.colors.destructiveColor
                     )
                 }
-
-                IconButton(onClick = { onNavigationRightClick() }) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                    )
+                if(pagerState.currentPage + 1 < totalPages){
+                    IconButton(onClick = { onNavigationRightClick() }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                        )
+                    }
                 }
             }
         }

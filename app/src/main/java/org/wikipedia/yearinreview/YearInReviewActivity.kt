@@ -32,7 +32,20 @@ class YearInReviewActivity : ComponentActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.GetStarted.name) {
                         YearInReviewScreenScaffold(
-                            customBottomBar = { GetStartedBottomBar(onGetStartedClick = { navController.navigate(route = YearInReviewNavigation.ScreenDeck.name) }) },
+                            scrollState = scrollState,
+                            pagerState = pagerState,
+                            totalPages = getStartedList.size,
+                            contentData = getStartedList,
+                            navController = navController,
+                            customBottomBar = {
+                                GetStartedBottomBar(
+                                    onGetStartedClick = {
+                                        navController.navigate(
+                                            route = YearInReviewNavigation.ScreenDeck.name
+                                        )
+                                    }
+                                )
+                            },
                             screenContent = { innerPadding, scrollState, contentData ->
 
                                 YearInReviewScreenContent(
@@ -40,29 +53,31 @@ class YearInReviewActivity : ComponentActivity() {
                                     scrollState = scrollState,
                                     screenData = contentData)
                             },
-                            totalPages = getStartedList.size,
-                            pagerState = pagerState,
-                            contentData = getStartedList,
-                            scrollState = scrollState
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreenScaffold(
-                            customBottomBar = { MainBottomBar(onNavigationRightClick = {
-                                coroutineScope.launch {
-                                    pagerState.scrollToPage(pagerState.currentPage + 1) } }) },
+                            scrollState = scrollState,
+                            pagerState = pagerState,
+                            totalPages = personalizedScreenList.size,
+                            contentData = personalizedScreenList,
+                            navController = navController,
+                            customBottomBar = { MainBottomBar(
+                                onNavigationRightClick = {
+                                    coroutineScope.launch {
+                                        pagerState.scrollToPage(pagerState.currentPage + 1)
+                                    }
+                                },
+                                pagerState = pagerState,
+                                totalPages = personalizedScreenList.size) },
                             screenContent = { innerPadding, scrollState, contentData ->
 
-                                    YearInReviewScreenContent(
-                                        innerPadding = innerPadding,
-                                        scrollState = scrollState,
-                                        screenData = contentData
-                                    )
+                                YearInReviewScreenContent(
+                                    innerPadding = innerPadding,
+                                    scrollState = scrollState,
+                                    screenData = contentData
+                                )
                             },
-                            totalPages = personalizedScreenList.size,
-                            pagerState = pagerState,
-                            contentData = personalizedScreenList,
-                            scrollState = scrollState
                         )
                     }
                 }
