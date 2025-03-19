@@ -25,6 +25,7 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -34,13 +35,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
@@ -67,7 +66,8 @@ fun YearInReviewScreenScaffold(
                     containerColor = WikipediaTheme.colors.paperColor),
                 title = {
                     Icon(
-                        painter = painterResource(R.drawable.ic_wikipedia_b),
+                        painter = painterResource(R.drawable.ic_w_transparent),
+                        tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
                     )
                 },
@@ -77,6 +77,7 @@ fun YearInReviewScreenScaffold(
                     }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                            tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = stringResource(R.string.year_in_review_navigate_left)
                         )
                     }
@@ -85,6 +86,7 @@ fun YearInReviewScreenScaffold(
                     IconButton(onClick = { TODO() }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_share),
+                            tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = stringResource(R.string.year_in_review_share_icon)
                         )
                     }
@@ -135,9 +137,9 @@ fun MainBottomBar(onNavigationRightClick: () -> Unit) {
                 ) {
 
                     Icon(
-                        painter = painterResource(R.drawable.ic_hear_red_24),
+                        painter = painterResource(R.drawable.ic_heart_24),
+                        tint = WikipediaTheme.colors.destructiveColor,
                         contentDescription = stringResource(R.string.year_in_review_heart_icon),
-                        tint = Color.Unspecified
                     )
 
                     Text(text = stringResource(R.string.year_in_review_donate),
@@ -149,6 +151,7 @@ fun MainBottomBar(onNavigationRightClick: () -> Unit) {
                 IconButton(onClick = { onNavigationRightClick() }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = stringResource(R.string.year_in_review_navigate_right)
                     )
                 }
@@ -182,7 +185,7 @@ fun GetStartedBottomBar(
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
-                        style = WikipediaTheme.typography.button
+                        style = MaterialTheme.typography.labelLarge
                     )
                 }
 
@@ -198,7 +201,7 @@ fun GetStartedBottomBar(
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
-                        style = WikipediaTheme.typography.button
+                        style = MaterialTheme.typography.labelLarge
                     )
                 }
             }
@@ -258,13 +261,15 @@ fun YearInReviewScreenContent(
                         .height(IntrinsicSize.Min)
                         .weight(1f),
                     text = stringResource(screenData.headLineText),
-                    fontSize = 30.sp
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.headlineMedium
                 )
 
                 IconButton(
                     onClick = { TODO() }) {
                     Icon(
-                        painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                        painter = painterResource(R.drawable.baseline_info_24),
+                        tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = stringResource(R.string.year_in_review_information_icon)
                     )
                 }
@@ -274,9 +279,9 @@ fun YearInReviewScreenContent(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
-
-                fontSize = 20.sp,
-                text = stringResource(screenData.bodyText)
+                text = stringResource(screenData.bodyText),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.bodyLarge
             )
         }
     }
