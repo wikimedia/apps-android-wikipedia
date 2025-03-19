@@ -45,16 +45,11 @@ fun WiktionaryDialogScreen(
     WiktionaryDialogContent(
         title = StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(viewModel.selectedText)),
         showNoDefinitions = uiState is Resource.Error,
-        showProgress = uiState is Resource.Loading
-    ) {
-        if (uiState is Resource.Success) {
-            Column {
-                uiState.data.forEach {
-                    DefinitionList(it, onDialogLinkClick)
-                }
-            }
-        }
-    }
+        showProgress = uiState is Resource.Loading,
+        isSuccess = uiState is Resource.Success,
+        list = (uiState as Resource.Success).data,
+        onDialogLinkClick = onDialogLinkClick
+    )
 }
 
 @Composable
@@ -62,7 +57,9 @@ fun WiktionaryDialogContent(
     title: String,
     showNoDefinitions: Boolean = false,
     showProgress: Boolean = false,
-    definitionsContent: @Composable () -> Unit
+    isSuccess: Boolean = false,
+    list: List<RbDefinition.Usage>,
+    onDialogLinkClick: (url: String) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -117,7 +114,13 @@ fun WiktionaryDialogContent(
                 .fillMaxWidth()
                 .padding(vertical = 4.dp)
         ) {
-            definitionsContent()
+            if (isSuccess) {
+                Column {
+                    list.forEach {
+                        DefinitionList(it, onDialogLinkClick)
+                    }
+                }
+            }
         }
     }
 
@@ -216,8 +219,9 @@ fun WiktionaryDialogPreview() {
     WiktionaryDialogContent(
         title = "Lorem ipsum",
         showNoDefinitions = false,
-        showProgress = false
-    ) {
-        Text(stringResource(R.string.wiktionary_no_definitions_found))
-    }
+        showProgress = false,
+        isSuccess = true,
+        list = emptyList(),
+        onDialogLinkClick = {}
+    )
 }
