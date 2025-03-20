@@ -3,8 +3,10 @@ package org.wikipedia.feed.becauseyouread
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -29,7 +31,9 @@ class BecauseYouReadClient(
                 cb.success(emptyList())
             }
         ) {
-            val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            val entries = withContext(Dispatchers.IO) {
+                AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            }
             if (entries.size <= age) {
                 cb.success(emptyList())
             } else {
