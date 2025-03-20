@@ -19,7 +19,6 @@ import org.wikipedia.util.log.L
 
 class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
-    val historyEntryId = savedStateHandle.get<Long>(Constants.ARG_NUMBER) ?: -1
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()

@@ -1259,12 +1259,14 @@
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>
   <string name="revision_compare_button">ڀيٽيو</string>
   <string name="revision_compare_two_only">رڳو ٻہ ورجاءَ چونڊي سگهجن ٿا.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ھفتي لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 مھيني لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 مھينن لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 مھينن لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ھفتي لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 مھيني لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 مھينن لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 مھينن لاءِ</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ۽ ان جو بحث صفحو توھان جي نظر۾فھرست مان ڪڍيا ويا آھن.</string>
   <string name="watchlist_expiry_dialog_title">نظر۾فھرست جو عرصو چونڊيو</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">1 ھفتو</string>

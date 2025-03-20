@@ -15,6 +15,7 @@ class HistoryEntryTest {
     fun testPageTitlePropertiesAreStored() {
         val pageTitle = getPageTitle()
         val historyEntry = HistoryEntry(pageTitle, 0)
+        MatcherAssert.assertThat(historyEntry.description, Matchers.`is`(DESCRIPTION))
         MatcherAssert.assertThat(historyEntry.apiTitle, Matchers.`is`(TITLE))
         MatcherAssert.assertThat(historyEntry.displayTitle, Matchers.`is`(DISPLAY_TEXT))
         MatcherAssert.assertThat(historyEntry.namespace, Matchers.`is`(NAMESPACE))

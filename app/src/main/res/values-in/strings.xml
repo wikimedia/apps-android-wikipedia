@@ -1312,12 +1312,14 @@
   <string name="revision_rollback_success">Penyuntingan telah dibalikkan.</string>
   <string name="revision_compare_button">Bandingkan</string>
   <string name="revision_compare_two_only">Hanya dua revisi yang bisa dipilih.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s dan halaman pembicaraannya telah ditambahkan ke daftar pantauan Anda %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selamanya</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">untuk 1 minggu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">untuk 1 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">untuk 3 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">untuk 6 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">untuk 6 bulan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s dan halaman pembicaraannya telah dihapus dari daftar pantauan Anda.</string>
   <string name="watchlist_expiry_dialog_title">Pilih periode waktu Daftar Pantauan</string>
   <string name="watchlist_expiry_dialog_permanent">Selamanya</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>

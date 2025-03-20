@@ -1337,12 +1337,14 @@
   <string name="revision_rollback_success">Maliniŋnima maa labisiya.</string>
   <string name="revision_compare_button">zaŋmaɣisi</string>
   <string name="revision_compare_two_only">Teebu buyi ko ka a ni too dihi piigi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s mini di yɛltɔɣa yaɣili nyɛla din zaŋ pahi a ni yuuni yu-shɛŋa zuɣu %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Taɣima</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Kpalinkpaa</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">kamani bakɔi yini</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">kamani chiri yini</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">kamani chirili dibaata</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">kamani chirili dibaa ayɔbu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">kamani bakɔi yini</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">kamani chiri yini</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">kamani chirili dibaata</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">kamani chirili dibaa ayɔbu</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s mini di yɛltɔɣa yaɣili nyɛla din yihi a ni yuuni yu-shɛŋa ni.</string>
   <string name="watchlist_expiry_dialog_title">Dihi piigi yu-lihira saha tariga</string>
   <string name="watchlist_expiry_dialog_permanent">kpalinkpaa</string>
   <string name="watchlist_expiry_dialog_one_week">bakɔi yini</string>

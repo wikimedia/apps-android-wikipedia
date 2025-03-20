@@ -16,13 +16,11 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
-import java.time.LocalDate
-import java.util.Collections
-import kotlin.math.max
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 object AccountUtil {
     private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
-    private const val TEMP_ACCOUNT_EXPIRY_DAYS = 90
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -104,20 +102,19 @@ object AccountUtil {
         return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
     }
 
+    fun getUserNameExpiryFromCookie(): Long {
+        return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
+    }
+
     fun maybeShowTempAccountWelcome(activity: Activity) {
         if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
             Prefs.tempAccountWelcomeShown = true
             Prefs.tempAccountDialogShown = false
-            Prefs.tempAccountCreateDay = LocalDate.now().toEpochDay()
 
-            val expiryDays = tempAccountDaysLeft()
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
                 expiryDays, userName, expiryDays))
         }
-    }
-
-    fun tempAccountDaysLeft(): Int {
-        return max(TEMP_ACCOUNT_EXPIRY_DAYS - (LocalDate.now().toEpochDay() - Prefs.tempAccountCreateDay), 0).toInt()
     }
 
     fun isUserNameTemporary(userName: String): Boolean {

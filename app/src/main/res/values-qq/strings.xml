@@ -37,6 +37,7 @@
 * Tomato Cream
 * Trizek (WMF)
 * Verdy p
+* voyagerfan
 * Wladek92
 * Zoranzoki21
 -->
@@ -1772,10 +1773,8 @@
   <string name="on_this_day_game_share_link_message">Text message when users share the game link. The \"%s\" symbol is replaced with the game link.</string>
   <string name="on_this_day_game_survey_q1">The first question in a survey about the game feature.</string>
   <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
-  <string name="search_back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
+  <string name="back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
-  <string name="search_clear_query_content_description">Accessibility text informing users that this action clears the query.</string>
-  <string name="search_icon_content_description">Accessibility text informing users that this icon opens the search bar.</string>
   <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>

@@ -972,10 +972,10 @@
   <string name="revision_diff_to">Προς:</string>
   <string name="revision_diff_line_num">Γραμμή %d</string>
   <string name="revision_diff_paragraph_added">Προστέθηκε παράγραφος</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">για 1 εβδομάδα</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">για 1 μήνα</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">για 3 μήνες</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">για 6 μήνες</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">για 1 εβδομάδα</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">για 1 μήνα</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">για 3 μήνες</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">για 6 μήνες</string>
   <string name="watchlist_expiry_dialog_permanent">Μόνιμα</string>
   <string name="watchlist_expiry_dialog_one_week">1 εβδομάδα</string>
   <string name="watchlist_expiry_dialog_one_month">1 μήνα</string>

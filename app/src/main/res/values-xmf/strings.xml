@@ -484,7 +484,7 @@
   <string name="menu_option_view_user_talk">ხასჷლაშ სხუნუაშ ძირაფა</string>
   <string name="revision_diff_lines_from_to">ღოზეფი %1$d–%2$d</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">თირუა</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 თუთათ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თუთათ</string>
   <string name="watchlist_expiry_dialog_one_week">1 მარა</string>
   <string name="watchlist_expiry_dialog_one_month">1 თუთა</string>
   <string name="watchlist_expiry_dialog_three_months">3 თუთა</string>

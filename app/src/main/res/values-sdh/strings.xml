@@ -305,10 +305,10 @@
   <string name="revision_compare_button">بەراوردکردن</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">گووڕانن</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">وە هەمیشەیی</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">ئەڕا ١ ھەفتە</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">ئەڕا ١ مانگ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ئەڕا ٣ مانگ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ئەڕا ٦ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ئەڕا ١ ھەفتە</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ئەڕا ١ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ئەڕا ٣ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ئەڕا ٦ مانگ</string>
   <string name="watchlist_expiry_dialog_permanent">هەمیشەیی</string>
   <string name="watchlist_expiry_dialog_one_week">۱ هەفتە</string>
   <string name="watchlist_expiry_dialog_one_month">۱ مانگ</string>

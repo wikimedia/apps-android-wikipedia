@@ -992,10 +992,10 @@
   <string name="revision_compare_button">နှိုင်းယှဉ်ရန်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြောင်းလဲရန်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">အပြီးအပိုင်</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">၁ ပတ်အတွက်</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">၁လအတွက်</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">၃လအတွက်</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">၆လအတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">၁ ပတ်အတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">၁လအတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">၃လအတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">၆လအတွက်</string>
   <string name="watchlist_expiry_dialog_permanent">အပြီးအပိုင်</string>
   <string name="watchlist_expiry_dialog_one_week">၁ပတ်</string>
   <string name="watchlist_expiry_dialog_one_month">၁လ</string>

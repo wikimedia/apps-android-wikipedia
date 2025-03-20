@@ -218,7 +218,7 @@
   <string name="login_join_wikipedia">Account aanmaken bij Wikipedia</string>
   <string name="login_forgot_password">Wachtwoord vergeten?</string>
   <string name="create_account_already_have">Heeft u al een account?</string>
-  <string name="create_account_activity_title">Account aanmaken</string>
+  <string name="create_account_activity_title">Een account aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
@@ -234,7 +234,7 @@
   <string name="email_recommendation_message">Aanbevolen omdat een e-mailadres nodig is voor accountherstel.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Doorgaan zonder e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Een e-mailadres toevoegen</string>
-  <string name="create_account_button">Account aanmaken</string>
+  <string name="create_account_button">Registreren</string>
   <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_message">Sorry, uw IP-adres is op dit moment geblokkeerd voor het aanmaken van nieuwe accounts.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -1416,12 +1416,14 @@
   <string name="revision_rollback_success">Bewerkingen teruggedraaid.</string>
   <string name="revision_compare_button">Vergelijken</string>
   <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en de bijbehorende overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">voor 1 week</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">voor 1 maand</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">voor 3 maanden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">voor 6 maanden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">voor 1 week</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">voor 1 maand</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">voor 3 maanden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">voor 6 maanden</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s en de bijbehorende overlegpagina zijn verwijderd uit uw volglijst.</string>
   <string name="watchlist_expiry_dialog_title">Selecteer tijdsperiode voor Volglijst</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 week</string>

@@ -1126,12 +1126,14 @@
   <string name="thank_dialog_positive_button_text">Magpasalamat</string>
   <string name="thank_dialog_negative_button_text">Ikansela</string>
   <string name="thank_success_message">Nagpasalamat ka kay %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">Nailagay na ang %1$s at ang usapan nito sa binabantayan mo %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Baguhin</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">nang permanente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">nang 1 linggo</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">nang 1 buwan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">nang 3 buwan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">nang 6 na buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">nang 1 linggo</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">nang 1 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">nang 3 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">nang 6 na buwan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">Natanggal na sa binabantayan mo ang %s at ang usapan nito.</string>
   <string name="watchlist_expiry_dialog_title">Pumili ng oras ng pagbantay</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 linggo</string>

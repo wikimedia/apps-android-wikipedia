@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.theme.Theme
 
 @Composable
 fun AppButton(
@@ -157,10 +156,10 @@ fun ThemeColorCircularButton(
     }
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 private fun SepiaThemeColorButton() {
-    BaseTheme(currentTheme = Theme.LIGHT) {
+    BaseTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize(),

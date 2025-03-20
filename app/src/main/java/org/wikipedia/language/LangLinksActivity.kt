@@ -265,10 +265,7 @@ class LangLinksActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             app.languageState.addMruLanguageCode(pageTitle.wikiSite.languageCode)
-            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK).apply {
-                prevId = viewModel.historyEntryId
-            }
-            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, pageTitle, false)
+            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK), pageTitle, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
             DeviceUtil.hideSoftKeyboard(this@LangLinksActivity)
             finish()
@@ -280,10 +277,9 @@ class LangLinksActivity : BaseActivity() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
 
-        fun newIntent(context: Context, title: PageTitle, historyEntryId: Long = -1): Intent {
+        fun newIntent(context: Context, title: PageTitle): Intent {
             return Intent(context, LangLinksActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, title)
-                .putExtra(Constants.ARG_NUMBER, historyEntryId)
         }
     }
 }

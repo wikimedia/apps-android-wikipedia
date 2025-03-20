@@ -988,10 +988,10 @@
   <string name="revision_compare_button">เปรียบเทียบ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">เปลี่ยน</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ถาวร</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 สัปดาห์</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 เดือน</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 เดือน</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 สัปดาห์</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 เดือน</string>
   <string name="watchlist_expiry_dialog_one_week">1 สัปดาห์</string>
   <string name="watchlist_expiry_dialog_one_month">1 เดือน</string>
   <string name="watchlist_expiry_dialog_three_months">3 เดือน</string>

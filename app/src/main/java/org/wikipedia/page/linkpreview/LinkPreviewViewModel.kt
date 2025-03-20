@@ -9,6 +9,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -17,7 +18,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistViewModel
 
 class LinkPreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
@@ -107,12 +107,27 @@ class LinkPreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun watchOrUnwatch(unwatch: Boolean) {
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e("Failed to fetch watch status.", throwable)
+            L.w("Failed to fetch watch status.", throwable)
         }) {
-            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, WatchlistExpiry.NEVER, isWatched, pageTitle.namespace().talk())
-            isWatched = pair.first
-            _uiState.value = LinkPreviewViewState.Watch(pair)
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
+
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+            response.getFirst()?.let {
+                isWatched = it.watched
+                _uiState.value = LinkPreviewViewState.Watch(isWatched)
+            }
         }
     }
 }

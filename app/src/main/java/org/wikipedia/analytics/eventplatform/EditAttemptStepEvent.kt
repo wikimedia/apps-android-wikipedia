@@ -46,7 +46,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
                 WikipediaApp.instance.appInstallID, "", editorInterface,
                 INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0, getUserIdForWikiSite(pageTitle.wikiSite),
                 !AccountUtil.isLoggedIn, AccountUtil.isTemporaryAccount, 1, pageTitle.prefixedText,
-                pageTitle.namespace().code(), pageTitle.wikiSite.dbName())))
+                pageTitle.namespace().code())))
         }
 
         private fun getUserIdForWikiSite(wikiSite: WikiSite): Int {
@@ -70,5 +70,4 @@ class EditAttemptStepInteractionEvent(private val action: String,
                                       private val user_is_temp: Boolean,
                                       private val version: Int,
                                       private val page_title: String,
-                                      private val page_ns: Int,
-                                      private val wiki: String)
+                                      private val page_ns: Int)

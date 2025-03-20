@@ -1380,12 +1380,14 @@
   <string name="revision_rollback_success">Redaktələr geri qaytarıldı.</string>
   <string name="revision_compare_button">Müqayisə et</string>
   <string name="revision_compare_two_only">Yalnız iki düzəliş seçilə bilər.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s və onun müzakirə səhifəsi %2$s izləmə siyahınıza əlavə edildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Dəyiş</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">daimi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 həftə</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 ay</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ay</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 həftə</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ay</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s və onun müzakirə səhifəsi izləmə siyahınızdan silindi.</string>
   <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
   <string name="watchlist_expiry_dialog_permanent">Daimi</string>
   <string name="watchlist_expiry_dialog_one_week">1 həftə</string>

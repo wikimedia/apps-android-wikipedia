@@ -187,7 +187,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
         viewModel.watchResponse.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                showWatchlistSnackbar(it.data.second)
+                val firstWatch = it.data.getFirst()
+                if (firstWatch != null) {
+                    showWatchlistSnackbar()
+                }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -551,11 +554,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         )
     }
 
-    private fun showWatchlistSnackbar(message: String) {
+    private fun showWatchlistSnackbar() {
         updateWatchButton(false)
         if (!viewModel.isWatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
-            FeedbackUtil.makeSnackbar(requireActivity(), message)
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
                 .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
                         if (!isAdded) {
@@ -568,7 +571,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 .show()
         } else if (viewModel.isWatched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
-            FeedbackUtil.makeSnackbar(requireActivity(), message)
+            FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                            viewModel.pageTitle.displayText,
+                            getString(WatchlistExpiry.NEVER.stringId)))
                 .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
                 }

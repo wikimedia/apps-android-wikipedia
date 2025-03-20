@@ -1272,12 +1272,14 @@
   <string name="revision_rollback_success">Maale eŋ leɛ la.</string>
   <string name="revision_compare_button">Tag-lantaa kaa nyɛ</string>
   <string name="revision_compare_two_only">Boma ayi yoŋ la baŋ baŋ iri</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ane o yelyaga peegyi de paale la fo pɛll kaare %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">kyili</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Aŋ gɛrɛ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">a ko dagbuli yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">a ko kyuu yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">a ko kyuuri ata</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">a ko kyuuri ayɔɔbo</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">a ko dagbuli yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">a ko kyuu yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">a ko kyuuri ata</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">a ko kyuuri ayɔɔbo</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s o yelyaga peegyi iri yi la fo pɛll-kaare.</string>
   <string name="watchlist_expiry_dialog_title">Iri pɛll kaare vuo wagere</string>
   <string name="watchlist_expiry_dialog_permanent">Kpi maroo</string>
   <string name="watchlist_expiry_dialog_one_week">daagbuli yeni</string>

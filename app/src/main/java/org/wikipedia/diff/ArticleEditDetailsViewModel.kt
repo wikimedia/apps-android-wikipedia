@@ -10,6 +10,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -17,16 +18,15 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
+import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.edit.EditTags
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistViewModel
 
 class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val invokeSource = savedStateHandle.get<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
@@ -37,7 +37,7 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
     val diffText = MutableLiveData<Resource<DiffResponse>>()
     val singleRevisionText = MutableLiveData<Resource<Revision>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
-    val watchResponse = SingleLiveData<Resource<Pair<Boolean, String>>>()
+    val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
     val rollbackResponse = SingleLiveData<Resource<RollbackPostResponse>>()
 
@@ -54,7 +54,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
     var canGoForward = false
     var hasRollbackRights = false
     var isWatched = false
-    var ns = 0
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
@@ -80,7 +79,6 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
                 if (revisionToId < 0) {
                     revisionToId = page.lastrevid
                 }
-                ns = page.ns
                 isWatched = page.watched
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
@@ -197,9 +195,23 @@ class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewMode
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
-            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, WatchlistExpiry.NEVER, isWatched, Namespace.of(ns).talk())
-            isWatched = pair.first
-            watchResponse.postValue(Resource.Success(pair))
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+            }
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
+
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+
+            isWatched = response.getFirst()?.watched ?: false
+            watchResponse.postValue(Resource.Success(response))
         }
     }
 

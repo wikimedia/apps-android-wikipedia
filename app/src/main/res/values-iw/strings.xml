@@ -1494,12 +1494,14 @@
   <string name="revision_rollback_success">העריכות שוחזרו.</string>
   <string name="revision_compare_button">השוואה</string>
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">לשבוע</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">לחודש</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ל־3 חודשים</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ל־6 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">לשבוע</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">לחודש</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ל־3 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ל־6 חודשים</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">הדף %s ודף השיחה שלו הוסרו מרשימת המעקב שלך.</string>
   <string name="watchlist_expiry_dialog_title">נא לבחור את הזמן לשמירה ברשימת המעקב</string>
   <string name="watchlist_expiry_dialog_permanent">קבוע</string>
   <string name="watchlist_expiry_dialog_one_week">שבוע</string>
@@ -1853,6 +1855,4 @@
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
   <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
   <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
-  <string name="search_back_button_content_description">חזרה</string>
-  <string name="about_screen_logo_accessibility_text">סמול גלובוס הפאזל של ויקיפדיה</string>
 </resources>

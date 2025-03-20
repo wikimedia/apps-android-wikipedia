@@ -1016,10 +1016,10 @@
   <string name="revision_rollback_success">Dɛmisa lɛb din aan si\'em.</string>
   <string name="revision_compare_button">Makim gɔs</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Tiakim</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">Bakɔi yinne</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">Nwadig yinne</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">Nwadisa atan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">Nwadisa ayuobʋ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">Bakɔi yinne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">Nwadig yinne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Nwadisa atan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Nwadisa ayuobʋ</string>
   <string name="watchlist_expiry_dialog_one_week">Bakɔi yinne</string>
   <string name="watchlist_expiry_dialog_one_month">Nwadig yinne</string>
   <string name="watchlist_expiry_dialog_three_months">Nwadisa atan\'</string>

@@ -952,10 +952,10 @@
   <string name="thank_success_message">နာꩻ \'ငဝ်းကေꩻဇူꩻတင်ႏ\' နဝ်ꩻ ပသာထွူလဲဉ်း %s ထျꩻသွူ👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြောင်ꩻလုဲင်ႏ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">အွောန်ႏစွူတငါ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">၁ ပတ်တာႏ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">၁ လာတာႏ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">၃ လာတာႏ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">၆ လာတာႏ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">၁ ပတ်တာႏ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">၁ လာတာႏ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">၃ လာတာႏ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">၆ လာတာႏ</string>
   <string name="watchlist_expiry_dialog_title">လွိုက် ပွေားထွားစာႏရင်ꩻ အခိန်ႏ</string>
   <string name="watchlist_expiry_dialog_permanent">အွောန်ႏစွူတငါ</string>
   <string name="watchlist_expiry_dialog_one_week">၁ ပတ်</string>

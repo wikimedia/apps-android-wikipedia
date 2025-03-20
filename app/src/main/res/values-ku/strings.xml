@@ -929,10 +929,11 @@
   <string name="main_tooltip_watchlist_title">Lîsteya şopandinê</string>
   <string name="main_tooltip_watchlist_text">Gotar û rûpelên ku te berê li lîsteya xwe ya şopandinê zêde kiribû li menûya Bêhtir di bin &lt;b&gt;Lîsteya şopandinê&lt;/b&gt; de bibîne.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Biguhêre</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">ji bonî heftîkê</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">ji bonî heyvekê</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ji bonî 3 heyvan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ji bonî 6 heyvan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ji bonî heftîkê</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ji bonî heyvekê</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ji bonî 3 heyvan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ji bonî 6 heyvan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s û rûpela wê ya gotûbêjê ji lîsteya te ya şopandinê hatine jêbirin.</string>
   <string name="watchlist_expiry_dialog_one_week">heftîkek</string>
   <string name="watchlist_expiry_dialog_one_month">heyvek</string>
   <string name="watchlist_expiry_dialog_three_months">3 heyv</string>

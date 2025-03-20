@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
@@ -36,6 +37,7 @@ import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -53,7 +55,8 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import org.wikipedia.watchlist.WatchlistViewModel
+import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.util.Locale
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
@@ -186,7 +189,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             renderGalleryState(it)
                         }
                         is LinkPreviewViewState.Watch -> {
-                            WatchlistViewModel.showWatchlistSnackbar(requireActivity() as BaseActivity, requireActivity().supportFragmentManager, viewModel.pageTitle, it.data.first, it.data.second)
+                            showWatchlistSnackbar(requireActivity() as BaseActivity, viewModel.pageTitle)
                             dismiss()
                         }
                         is LinkPreviewViewState.Completed -> {
@@ -320,6 +323,21 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onDismiss() {
         dismiss()
+    }
+
+    private fun showWatchlistSnackbar(activity: AppCompatActivity, pageTitle: PageTitle) {
+        viewModel.pageTitle.let {
+            if (!viewModel.isWatched) {
+                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
+            } else if (viewModel.isWatched) {
+                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                getString(R.string.watchlist_page_add_to_watchlist_snackbar, it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
+                }
+                snackbar.show()
+            }
+        }
     }
 
     private fun doAddToList() {

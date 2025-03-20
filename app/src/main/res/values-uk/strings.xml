@@ -1494,12 +1494,14 @@
   <string name="revision_rollback_success">Редагування відкочено.</string>
   <string name="revision_compare_button">Порівняти</string>
   <string name="revision_compare_two_only">Можна вибрати лише дві версії.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">Сторінка %1$s та її сторінка обговорення додані до вашого списку спостереження %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Змінити</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">на постійно</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">на 1 тиждень</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">на 1 місяць</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">на 3 місяці</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">на 6 місяців</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 тиждень</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 місяць</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 місяці</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 місяців</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">Сторінка %s та її сторінка обговорення вилучені з вашого списку спостереження.</string>
   <string name="watchlist_expiry_dialog_title">Оберіть період, упродовж якого стежити за сторінкою</string>
   <string name="watchlist_expiry_dialog_permanent">Постійно</string>
   <string name="watchlist_expiry_dialog_one_week">1 тиждень</string>
@@ -1858,6 +1860,6 @@
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
   <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
-  <string name="search_back_button_content_description">Повернутися</string>
+  <string name="back_button_content_description">Повернутися</string>
   <string name="about_screen_logo_accessibility_text">Логотип пазла-глобуса Вікіпедії</string>
 </resources>

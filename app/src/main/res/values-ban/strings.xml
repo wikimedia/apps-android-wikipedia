@@ -836,10 +836,11 @@
   <string name="revision_diff_to">Antuk:</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Gentos</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selaminé</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">antuk 1 wuku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">antuk 1 sasih</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">antuk 3 sasih</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">antuk 6 sasih</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">antuk 1 wuku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">antuk 1 sasih</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">antuk 3 sasih</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">antuk 6 sasih</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s miwah kaca pabligbagan nyané sampun kausap saking lis pangawasan ragané.</string>
   <string name="watchlist_expiry_dialog_title">Pilih periode kala Lis Pangawasan</string>
   <string name="watchlist_expiry_dialog_permanent">Selaminé</string>
   <string name="watchlist_expiry_dialog_one_week">1 wuku</string>

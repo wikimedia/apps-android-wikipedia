@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
@@ -19,17 +17,7 @@ class HistoryViewModel : ViewModel() {
         historyItems.postValue(Resource.Error(throwable))
     }
 
-    private var searchJob: Job? = null
-
     var searchQuery: String? = null
-        set(value) {
-            field = value
-            searchJob?.cancel()
-            searchJob = viewModelScope.launch {
-                delay(500)
-                reloadHistoryItems()
-            }
-        }
 
     val historyItems = MutableLiveData(Resource<List<Any>>())
     val deleteHistoryItemsAction = SingleLiveData<Resource<Boolean>>()
@@ -72,10 +60,5 @@ class HistoryViewModel : ViewModel() {
             AppDatabase.instance.historyEntryDao().insert(entries)
             loadHistoryItems()
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        searchJob?.cancel()
     }
 }

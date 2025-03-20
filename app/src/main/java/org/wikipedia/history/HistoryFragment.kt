@@ -416,11 +416,13 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
         override fun onQueryChange(s: String) {
             viewModel.searchQuery = s.trim()
+            viewModel.reloadHistoryItems()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             viewModel.searchQuery = ""
+            viewModel.reloadHistoryItems()
             actionMode = null
             (requireParentFragment() as MainFragment).setBottomNavVisible(true)
         }

@@ -577,7 +577,7 @@
   <string name="reading_list_articles_added_to_named">Lasihuvvon %1$d artihkkala lohkanlistui %2$s</string>
   <string name="reading_list_articles_moved_to_named">Sirdojuvvon %1$d artihkkala lohkanlistui %2$s</string>
   <string name="reading_list_delete_confirm">Áiggutgo don duođaid %s sihkkut?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Sihko válljejuvvon listtu(id)?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Sihko válljejuvvon list(t)u(id)?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
     <item quantity="one">Leat go sihkar ahte áiggut sihkkut %d listtu?</item>
     <item quantity="two">Leat go sihkar ahte áiggut sihkkut %d listtuid?</item>
@@ -635,7 +635,7 @@
   <string name="reading_lists_action_menu_export_lists">Olggosfievrrit</string>
   <string name="reading_lists_import_file_picker_title">Vállje fiilla mii galgá sisafievrriduvvot</string>
   <string name="reading_lists_import_failure_message">Lohkanlisttuid sisafievrrideapmi ii menestuvvan</string>
-  <string name="reading_lists_export_select_lists_message">Vállje listtu(id) mat galget olggosfievrriduvvot</string>
+  <string name="reading_lists_export_select_lists_message">Vállje list(t)u(id) mat galget olggosfievrriduvvot</string>
   <string name="reading_lists_export_completed_message">Lohkanlist(t)u(t) olggosfievrriduvvon</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Lohkanlisttu olggosfievrrideapmi ii menestuvvan</item>
@@ -1383,12 +1383,14 @@
   <string name="revision_rollback_success">Rievdadusat máhcahuvvon.</string>
   <string name="revision_compare_button">Buohtastahtte</string>
   <string name="revision_compare_two_only">Dušše guokte revišuvnna sáhttet válljejuvvot.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ja daid ságastallansiidu lea lasihuvvon du čuovvunlistui %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Rievdat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Bissovaš</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 vahkku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 vahkku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mánu</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ja dat gullevaš ságastallansiidu lea sihkkojuvvon du čuovvunlisttus.</string>
   <string name="watchlist_expiry_dialog_title">Vállje áigodaga čuovvunlistui</string>
   <string name="watchlist_expiry_dialog_permanent">Bissovaš</string>
   <string name="watchlist_expiry_dialog_one_week">1 vahkku</string>

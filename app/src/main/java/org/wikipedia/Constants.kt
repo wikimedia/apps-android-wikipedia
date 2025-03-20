@@ -19,7 +19,6 @@ object Constants {
     const val ARG_WIKISITE = "wikiSite"
     const val ARG_TEXT = "text"
     const val ARG_BOOLEAN = "boolean"
-    const val ARG_NUMBER = "number"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"

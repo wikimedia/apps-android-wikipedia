@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -25,7 +26,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistViewModel
 
 class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boolean) : ViewModel() {
 
@@ -204,13 +204,28 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+        }
         viewModelScope.launch(actionHandler) {
-            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, expiry, isWatched, pageTitle.namespace().talk())
-            isWatched = pair.first
-            hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
-            // We have to send values to the object, even if we use the variables from ViewModel.
-            // Otherwise the status will not be updated in the activity since the values in the object remains the same.
-            actionState.value = ActionState.DoWatch(isWatched, pair.second, hasWatchlistExpiry)
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+            response.getFirst()?.let {
+                isWatched = it.watched
+                hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
+                // We have to send values to the object, even if we use the variables from ViewModel.
+                // Otherwise the status will not be updated in the activity since the values in the object remains the same.
+                actionState.value = ActionState.DoWatch(isWatched, hasWatchlistExpiry)
+            }
         }
     }
 
@@ -230,7 +245,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     open class ActionState {
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : ActionState()
-        data class DoWatch(val isWatched: Boolean, val message: String, val hasWatchlistExpiry: Boolean) : ActionState()
+        data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : ActionState()
         data class OnError(val throwable: Throwable) : ActionState()
     }
 }

@@ -67,7 +67,7 @@
   <string name="share_via">Падзяліцца праз</string>
   <string name="image_share_via">Падзяліцца праз</string>
   <string name="search_redirect_from">Перанакіравана з %s</string>
-  <string name="page_edit_history_activity_title">Гісторыя версій: %s</string>
+  <string name="page_edit_history_activity_title">Гісторыя версіяў: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Пустое тлумачэнне праўкі</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Пошук або фільтр правак</string>
@@ -1470,12 +1470,14 @@
   <string name="revision_rollback_success">Праўкі адхілены.</string>
   <string name="revision_compare_button">Параўнаць</string>
   <string name="revision_compare_two_only">Магчыма абраць толькі дзве версіі.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s і яго старонка размоў дададзены да вашага спісу назірання %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Змяніць</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">стала</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">на 1 тыдзень</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">на 1 месяц</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">на 3 месяца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">на 6 месяцаў</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 тыдзень</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцаў</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s і яго старонка размоў выдалены з вашага спісу назірання.</string>
   <string name="watchlist_expiry_dialog_title">Выберыце перыяд часу, на працягу якога сачыць за старонкай</string>
   <string name="watchlist_expiry_dialog_permanent">Стала</string>
   <string name="watchlist_expiry_dialog_one_week">1 тыдзень</string>

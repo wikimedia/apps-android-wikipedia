@@ -625,10 +625,10 @@
   <string name="revision_compare_button">موازنہ کرو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">وٹاؤ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">١ ہفتے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">١ مہینے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">٣ مہینیاں کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">٦ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">١ ہفتے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">١ مہینے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">٣ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">٦ مہینیاں کیتے</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">ہک ہفتہ</string>
   <string name="watchlist_expiry_dialog_one_month">ہک مہیناں</string>

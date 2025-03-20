@@ -397,6 +397,8 @@
   <string name="thank_dialog_text">‘Aguyje’ ha\'e mba\'e hasy\'ỹva ojehechauka hag̃ua ñemomba\'eguasu peteĩ haihára rembiapóre Vikipetãme. ‘Aguyje’ ndikatúi oñemboguevi ha opavave ikatu ohecha</string>
   <string name="thank_dialog_positive_button_text">Aguyjeǃ</string>
   <string name="thank_success_message">Reme\'ẽma \"Aguyje\" %s-pe guarã 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ha iñemongeta kuatia oike ne rembiapo ñangarekoha rysýipe %2$s.</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ha iñemongeta kuatia ojeipe\'a ne rembiapo ñangarekoha rysýigui.</string>
   <string name="watchlist_expiry_dialog_title">Eiporavo araka\'épa rehechase mba\'ekuéra ne rembiapo ñangarekoha rysýipe</string>
   <string name="watchlist_empty">Ndaipóri kuatia ne rembiapo ñangarekoha rysýipe.</string>
   <string name="watchlist_search">Eheka tembiapo ñangarekoha rysýipe</string>

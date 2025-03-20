@@ -618,10 +618,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_dialog_shown, value)
 
-    var tempAccountCreateDay
-        get() = PrefsIoUtil.getLong(R.string.preference_key_temp_account_create_day, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_temp_account_create_day, value)
-
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)

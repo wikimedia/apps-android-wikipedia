@@ -1399,12 +1399,14 @@
   <string name="revision_rollback_success">Redigeringar återställdes.</string>
   <string name="revision_compare_button">Jämför</string>
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">i 1 vecka</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">i 1 månad</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">i 3 månader</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">i 6 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 vecka</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 månad</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 månader</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s och dess diskussionssida har tagits bort från din bevakningslista.</string>
   <string name="watchlist_expiry_dialog_title">Välj period för bevakningslistan</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 vecka</string>
@@ -1753,6 +1755,6 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
-  <string name="search_back_button_content_description">Gå tillbaka</string>
+  <string name="back_button_content_description">Gå tillbaka</string>
   <string name="about_screen_logo_accessibility_text">Wikipedias pusselglob-logotyp</string>
 </resources>

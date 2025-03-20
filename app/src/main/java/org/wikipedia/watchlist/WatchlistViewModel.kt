@@ -1,29 +1,19 @@
 package org.wikipedia.watchlist
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.StringUtil
-import java.io.IOException
 import java.util.Calendar
 
 class WatchlistViewModel : ViewModel() {
@@ -179,68 +169,5 @@ class WatchlistViewModel : ViewModel() {
         val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
         val types = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.filter { includedTypesCodes.contains(it.id) }.map { it.value }
         return types.joinToString(separator = "|")
-    }
-
-    companion object {
-        suspend fun watchPageTitle(scope: CoroutineScope, pageTitle: PageTitle, unwatch: Boolean, expiry: WatchlistExpiry = WatchlistExpiry.NEVER,
-                                   isCurrentlyWatched: Boolean? = null, isTalkPage: Boolean? = null): Pair<Boolean, String> {
-            isCurrentlyWatched?.let {
-                if (it) {
-                    WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
-                } else {
-                    WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
-                }
-            }
-
-            var whichMessage = if (unwatch) {
-                "removedwatchtext"
-            } else {
-                if (expiry == WatchlistExpiry.NEVER) {
-                    "addedwatchindefinitelytext"
-                } else {
-                    "addedwatchexpirytext"
-                }
-            }
-            if (isTalkPage == true) {
-                whichMessage += "-talk"
-            }
-
-            val watchCall = scope.async {
-                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-                ServiceFactory.get(pageTitle.wikiSite)
-                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
-            }
-            val messageCall = scope.async {
-                val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${WikipediaApp.instance.getString(expiry.stringId)}",
-                    WikipediaApp.instance.appOrSystemLanguageCode)
-                    .query?.allmessages?.firstOrNull { it.name == whichMessage }?.content.orEmpty()
-                ServiceFactory.get(pageTitle.wikiSite).parseText(unparsedMessage)
-            }
-
-            val watchObj = watchCall.await().getFirst()
-            if (watchObj == null) {
-                throw IOException("Watch response is null.")
-            }
-            val message = StringUtil.fromHtml(messageCall.await().text).toString().trim()
-
-            if (unwatch) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
-            } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-            }
-            return watchObj.watched to message
-        }
-
-        fun showWatchlistSnackbar(activity: AppCompatActivity, fragmentManager: FragmentManager, pageTitle: PageTitle, isWatched: Boolean, message: String) {
-            if (!isWatched) {
-                FeedbackUtil.showMessage(activity, message)
-            } else {
-                FeedbackUtil.makeSnackbar(activity, message)
-                    .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        ExclusiveBottomSheetPresenter.show(fragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
-                    }
-                    .show()
-            }
-        }
     }
 }

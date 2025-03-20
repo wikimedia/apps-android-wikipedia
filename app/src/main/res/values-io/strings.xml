@@ -266,8 +266,8 @@
   <string name="edit_damage">Domajo %s</string>
   <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s bicoko</item>
-    <item quantity="other">%s bicoki</item>
+    <item quantity="one">%s bicoko*</item>
+    <item quantity="other">%s bicoki*</item>
   </plurals>
   <string name="edit_zoom_in">Augmentez la videbleso</string>
   <string name="edit_zoom_out">Diminutez la videbleso</string>
@@ -1191,12 +1191,14 @@
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua diskuto-pagino adjuntesis a vua surveyo-listo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifikar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanante</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">dum 1 semano</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">dum 1 monato</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">dum 3 monati</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">dum 6 monati</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">dum 1 semano</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">dum 1 monato</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">dum 3 monati</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">dum 6 monati</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e lua diskuto-pagino efacesis de vua surveyo-listo.</string>
   <string name="watchlist_expiry_dialog_title">Selektez periodo di tempo di la surveyo-listo</string>
   <string name="watchlist_expiry_dialog_permanent">Permananta</string>
   <string name="watchlist_expiry_dialog_one_week">1 semano</string>

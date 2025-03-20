@@ -1374,12 +1374,14 @@
   <string name="revision_rollback_success">Modificationes revertite.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Solmente duo versiones pote esser seligite.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e su pagina de discussion ha essite addite a tu observatorio %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pro 1 septimana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pro 1 mense</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pro 3 menses</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pro 6 menses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pro 1 septimana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pro 1 mense</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pro 3 menses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pro 6 menses</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e su pagina de discussion ha essite removite de tu observatorio.</string>
   <string name="watchlist_expiry_dialog_title">Selige le periodo de tempore del observatorio</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 septimana</string>

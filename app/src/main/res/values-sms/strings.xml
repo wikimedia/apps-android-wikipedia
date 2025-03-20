@@ -393,7 +393,9 @@
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da tõn saǥstõõllâmseeid lââʹzzteš tuu valvvâmliʹstte %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Muuʹtt</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s da tõn saǥstõõllâmseeid jaukkeeš tuu valvvâmliistâst.</string>
   <string name="watchlist_expiry_dialog_one_month">1 määnpââʹjj</string>
   <string name="watchlist_filter_all">Puk</string>
   <string name="watchlist_filter_talk">Saǥstõõllâmseidd</string>
