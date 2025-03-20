@@ -42,12 +42,13 @@ fun WiktionaryDialogScreen(
     onDialogLinkClick: (url: String) -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
+    val list = if (uiState is Resource.Success) uiState.data else emptyList()
     WiktionaryDialogContent(
         title = StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(viewModel.selectedText)),
         showNoDefinitions = uiState is Resource.Error,
         showProgress = uiState is Resource.Loading,
         isSuccess = uiState is Resource.Success,
-        list = (uiState as Resource.Success).data,
+        list = list,
         onDialogLinkClick = onDialogLinkClick
     )
 }
