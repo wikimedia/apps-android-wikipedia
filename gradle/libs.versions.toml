@@ -1,12 +1,10 @@
 [versions]
-accompanistDrawablepainter = "0.35.0-alpha"
 androidPluginAnnotationV9 = "3.0.2"
 androidSdk = "11.8.2"
 appcompat = "1.7.0"
 balloon = "1.6.12"
 browser = "1.8.0"
 commonsLang3 = "3.17.0"
-compose = "1.0.0-beta01"
 constraintlayout = "2.2.1"
 coreKtx = "1.15.0"
 desugar_jdk_libs = "2.1.5"
@@ -54,7 +52,6 @@ composeViewModel = "2.8.7"
 
 
 [libraries]
-accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanistDrawablepainter" }
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
 android-plugin-annotation-v9 = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "androidPluginAnnotationV9" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
@@ -71,7 +68,6 @@ com-google-android-gms-play-services-wallet2 = { module = "com.google.android.gm
 com-google-firebase-firebase-messaging-ktx3 = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebaseMessagingVersion" }
 com-google-mlkit-language-id = { module = "com.google.mlkit:language-id", version.ref = "mlKitVersion" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonsLang3" }
-compose = { module = "com.github.bumptech.glide:compose", version.ref = "compose" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
