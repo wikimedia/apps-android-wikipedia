@@ -1603,14 +1603,12 @@
   <string name="revision_rollback_success">تم إرجاع التعديلات.</string>
   <string name="revision_compare_button">مقارنة</string>
   <string name="revision_compare_two_only">يمكن اختيار فقط مراجعين اثنين</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">لمدة أسبوع واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">لمدة شهر واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">لمدة 3 أشهر</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">لمدة 6 أشهر</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">أُزيلت %s وصفحة نقاشها من قائمة مراقبتك.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">لمدة أسبوع واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">لمدة شهر واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">لمدة 3 أشهر</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">لمدة 6 أشهر</string>
   <string name="watchlist_expiry_dialog_title">حدّد الفترة الزمنية لقائمة المراقبة</string>
   <string name="watchlist_expiry_dialog_permanent">دائمًا</string>
   <string name="watchlist_expiry_dialog_one_week">أسبوع واحد</string>
@@ -1979,6 +1977,6 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
-  <string name="back_button_content_description">رجوع</string>
+  <string name="search_back_button_content_description">رجوع</string>
   <string name="about_screen_logo_accessibility_text">شعار لغز ويكيبيديا</string>
 </resources>

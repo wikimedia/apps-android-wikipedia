@@ -928,6 +928,7 @@
   <string name="description_edit_learn_more">Další informace o popisech článků</string>
   <string name="description_edit_image_caption_learn_more">Další informace o titulcích obrázků</string>
   <string name="description_too_short">Text je příliš krátký</string>
+  <string name="description_too_long">Snažte se psát krátké popisky ke článkům, aby uživatelé pochopili téma článku na první pohled</string>
   <string name="description_ends_with_punctuation">Text nesmí končit interpunkcí</string>
   <string name="description_starts_with_article">Na začátku nepoužívejte členy (v angličtině \"a\" nebo \"the\").</string>
   <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
@@ -956,6 +957,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Strojové návrhy</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Návrhy jsou generovány strojem, nikoliv dobrovolníky nebo nadací Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Přizpůsobit panel nástrojů</string>
+  <string name="customize_toolbar_shortcut_description_text">Přizpůsobte si dolní panel nástrojů pěti zkratkami, které vám přijdou nejvíce vhod</string>
   <string name="customize_toolbar_category_toolbar">Panel nástrojů</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
@@ -1375,14 +1377,12 @@
   <string name="revision_rollback_success">Editace byly vráceny.</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="revision_compare_two_only">Pouze dvě revize článku mohou být zvoleny.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trvale</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na týden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na měsíc</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na 3 měsíce</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na 6 měsíců</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Stránka „%s“ a její diskusní stránka byly vyřazeny ze stránek, které sledujete.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na týden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na měsíc</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na 3 měsíce</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na 6 měsíců</string>
   <string name="watchlist_expiry_dialog_title">Doba sledování stránky</string>
   <string name="watchlist_expiry_dialog_permanent">Trvale</string>
   <string name="watchlist_expiry_dialog_one_week">týden</string>
@@ -1486,7 +1486,11 @@
   <string name="talk_templates_menu_remove_message">Odebrat zprávu</string>
   <string name="talk_templates_your_messages_tab_title">Vaše zprávy</string>
   <string name="talk_templates_example_messages_tab_title">Vzorové zprávy</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Náhled uživatelské stránky</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Náhled diskuzní stránky uživatele</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informace o uživateli</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Náhled příspěvků uživatele</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Poděkovat</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Informace o uživateli</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Účet od: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Počet úprav: &lt;/b&gt; %s</string>
@@ -1501,6 +1505,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Přihlášení editoři.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nováčci</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrovaní editoři, kteří mají méně než 10 editací v posledních 4 dnech.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Zkušení wikipedisté</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Člověk (nikoliv bot)</string>
   <string name="patroller_tasks_filters_significance_header">Důležitost</string>
   <string name="patroller_tasks_filters_significance_minor">Malá editace</string>
@@ -1558,6 +1563,7 @@
   <string name="survey_dialog_general_no">Ne</string>
   <string name="survey_dialog_input_hint">Další zpětná vazba</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Hry na Wikipedii</string>
+  <string name="on_this_day_game_title">Co se stalo dříve?</string>
   <string name="on_this_day_game_dialog_button">Hrát</string>
   <string name="on_this_day_game_correct">Správně!</string>
   <string name="on_this_day_game_incorrect">Špatně!</string>
@@ -1566,13 +1572,17 @@
   <string name="on_this_day_game_finish">Konečné výsledky</string>
   <string name="on_this_day_game_share">Sdílejte výsledky se svými přáteli</string>
   <string name="on_this_day_game_pause_title">Chcete pozastavit hru?</string>
+  <string name="on_this_day_game_pause_negative">Pokračujte ve hraní</string>
   <string name="on_this_day_game_feed_entry_card_heading">Hry na Wikipedii</string>
+  <string name="on_this_day_game_your_stats">Vaše statistiky</string>
   <string name="on_this_day_game_stats_average_score">Průměrné skóre</string>
+  <string name="on_this_day_game_menu_notifications">Herní upozornění</string>
   <string name="on_this_day_game_menu_info">Další informace</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Na tuto otázku jste odpověděli správně</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Na tuto otázku jste odpověděli špatně</string>
   <string name="on_this_day_game_turn_off_notification_dialog_title">Chcete vypnout herní notifikace?</string>
   <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Pokud vypnete push notifikace na svém zařízení, nebude dále dostávat každodenní upomínku, když je uvedena nová hra</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Chcete zapnout herní upozornění?</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Herní notifikace vypnuté</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Herní notifikace zapnuté</string>
   <string name="on_this_day_game_notification_undo">Zpět</string>
