@@ -25,8 +25,8 @@ data class LinkTextData(
 @Composable
 fun LicenseLinkText(
     links: List<LinkTextData>,
-    textStyle: TextStyle = WikipediaTheme.typography.small,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    textStyle: TextStyle = WikipediaTheme.typography.small
 ) {
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
@@ -51,6 +51,7 @@ fun LicenseLinkText(
             ) {
                 append(linkTextData.text)
             }
+            append(" ")
         }
     }
 
