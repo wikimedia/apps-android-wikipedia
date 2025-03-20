@@ -1284,14 +1284,12 @@
   <string name="revision_rollback_success">Modificările au fost anulate.</string>
   <string name="revision_compare_button">Compară</string>
   <string name="revision_compare_two_only">Trebuie selectate doar două modificări</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s și pagina de discuție a sa au fost adăugate la lista de urmărire a dvs. %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pentru 1 săptămână</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pentru 1 lună</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pentru 3 luni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pentru 6 luni</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pentru 1 săptămână</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pentru 1 lună</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pentru 3 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pentru 6 luni</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
