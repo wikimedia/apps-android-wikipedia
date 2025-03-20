@@ -378,6 +378,9 @@
         <activity
             android:name=".yearinreview.YearInReviewActivity"/>
 
+        <activity
+            android:name=".yearinreview.YearInReviewActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
+
 import org.wikipedia.compose.theme.BaseTheme
 
 class YearInReviewActivity : ComponentActivity() {
@@ -80,6 +81,7 @@ class YearInReviewActivity : ComponentActivity() {
                             },
                         )
                     }
+
                 }
             }
         }
