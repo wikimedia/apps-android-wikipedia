@@ -3,6 +3,7 @@ package org.wikipedia.history
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Ignore
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
@@ -18,7 +19,9 @@ import java.util.Date
 @Serializable
 @Parcelize
 @TypeParceler<Date, DateParceler>()
-@Entity
+@Entity(
+    indices = [Index(value = ["lang", "namespace", "apiTitle"])]
+)
 class HistoryEntry(
     // TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
     var authority: String = "",
