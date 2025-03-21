@@ -54,39 +54,39 @@ import org.wikipedia.theme.Theme
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
         LinkTextData(
-            text = "Balloon ",
+            text = "Balloon",
             url = "https://github.com/skydoves/Balloon/blob/main/LICENSE/"
         ),
         LinkTextData(
-            text = "(license), ",
+            text = "(license),",
             asset = "licenses/Balloon"
         ),
         LinkTextData(
-            text = "Commons Lang ",
+            text = "Commons Lang",
             url = "https://www.apache.org/licenses/"
         ),
         LinkTextData(
-            text = "(license), ",
+            text = "(license),",
             asset = "licenses/CommonsLang3"
         ),
         LinkTextData(
-            text = "jsoup ",
+            text = "jsoup",
             url = "https://github.com/jhy/jsoup"
         ),
         LinkTextData(
-            text = "(license), ",
+            text = "(license),",
             asset = "licenses/jsoup"
         ),
         LinkTextData(
-            text = "OkHttp ",
+            text = "OkHttp",
             url = "https://square.github.io/okhttp/"
         ),
         LinkTextData(
-            text = "(license), ",
+            text = "(license),",
             asset = "licenses/OkHttp"
         ),
         LinkTextData(
-            text = "Retrofit ",
+            text = "Retrofit",
             url = "https://square.github.io/retrofit/"
         ),
         LinkTextData(
