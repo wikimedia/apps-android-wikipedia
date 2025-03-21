@@ -48,18 +48,21 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(invokeSource: Constants.InvokeSource): OnThisDayGameOnboardingFragment {
+        private const val SHOW_ON_EXPLORE_FEED_COUNT = 2
+
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameOnboardingFragment {
             return OnThisDayGameOnboardingFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
         }
 
-        fun maybeShowOnThisDayGameDialog(activity: Activity, invokeSource: Constants.InvokeSource, articleWikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
+        fun maybeShowOnThisDayGameDialog(activity: Activity, invokeSource: InvokeSource, articleWikiSite: WikiSite = WikipediaApp.instance.wikiSite) {
             val wikiSite = WikipediaApp.instance.wikiSite
             // Both of the primary language and the article language should be in the supported languages list.
             if (!Prefs.otdEntryDialogShown &&
                 OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
-                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode)) {
+                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode) &&
+                (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
                 val dialogView = activity.layoutInflater.inflate(R.layout.dialog_on_this_day_game, null)

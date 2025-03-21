@@ -1406,14 +1406,12 @@
   <string name="revision_rollback_success">Edições revertidas.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">por 1 semana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">por 1 mês</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Por 3 meses</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Por 6 meses</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e sua página de discussão foi removida de sua lista de páginas vigiadas.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">por 1 semana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">por 1 mês</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">Por 3 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">Por 6 meses</string>
   <string name="watchlist_expiry_dialog_title">Selecione o período da lista de páginas vigiadas</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semana</string>

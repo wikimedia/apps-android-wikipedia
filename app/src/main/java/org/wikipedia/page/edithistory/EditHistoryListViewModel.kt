@@ -57,7 +57,11 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
 
         pagingData.insertSeparators { before, after ->
-            if (before != null && after != null) { before.diffSize = before.size - after.size }
+            if (before != null && after != null) {
+                before.diffSize = before.size - after.size
+            } else if (before != null) {
+                before.diffSize = before.size
+            }
             null
         }.filter {
             when {

@@ -725,11 +725,9 @@
   <string name="thank_dialog_text">Zahvale su lagan način da nekom uredniku kažete da cijenite njegov rad na Wikipediji. Ne možete ih poništiti i javno su vidljive</string>
   <string name="thank_dialog_negative_button_text">Otkaži</string>
   <string name="thank_success_message">Zahvalili ste se korisniku/-ci %s 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i njena stranica za razgovor dodani su na Vaš spisak praćenja. Period praćenja: %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Promijeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 sedmica</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s i njena stranica za razgovor uklonjeni su s Vašeg spiska praćenja.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 sedmica</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">1 sedmica</string>
   <string name="watchlist_filter_all">Sve</string>
