@@ -31,7 +31,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 27
+const val DATABASE_VERSION = 28
 
 @Database(
     entities = [
@@ -209,11 +209,60 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("UPDATE PageImage SET timeSpentSec = COALESCE((SELECT timeSpentSec FROM HistoryEntry_old WHERE PageImage.lang = HistoryEntry_old.lang AND PageImage.namespace = HistoryEntry_old.namespace AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
             }
         }
+        val MIGRATION_27_28 = object : Migration(27, 28) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_old_lang_namespace_apiTitle ON HistoryEntry_old (lang, namespace, apiTitle)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
+            }
+        }
+        val MIGRATION_26_28 = object : Migration(26, 28) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Rename the existing HistoryEntry table, which we're preserving for now (in case
+                // things go wrong with migrations in the field).
+                database.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
+
+                // Create the "new" HistoryEntry table, which will match the new HistoryEntry structure.
+                database.execSQL("CREATE TABLE `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
+
+                // Create indexes on the new and old HistoryEntry table.
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_old_lang_namespace_apiTitle ON HistoryEntry_old (lang, namespace, apiTitle)")
+
+                // Copy everything from the old table to the new one, minus the columns that were removed.
+                database.execSQL("INSERT INTO HistoryEntry (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry_old")
+
+                // Add new columns to the PageImage table, will will now serve as a more general
+                // table for page metadata, not just the thumbnail.
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
+                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
+
+                // Create an index on the PageImage table.
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
+
+                // Copy the metadata from the removed columns in the old HistoryEntry table into the
+                // new columns in the PageImage table.
+                database.execSQL("UPDATE PageImage SET" +
+                        " description = (SELECT HistoryEntry_old.description" +
+                        "     FROM HistoryEntry_old" +
+                        "     WHERE PageImage.lang = HistoryEntry_old.lang" +
+                        "     AND PageImage.namespace = HistoryEntry_old.namespace" +
+                        "     AND PageImage.apiTitle = HistoryEntry_old.apiTitle)," +
+                        " timeSpentSec = COALESCE((SELECT HistoryEntry_old.timeSpentSec" +
+                        "     FROM HistoryEntry_old" +
+                        "     WHERE PageImage.lang = HistoryEntry_old.lang" +
+                        "     AND PageImage.namespace = HistoryEntry_old.namespace" +
+                        "     AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
-                    MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27)
+                    MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
+                    MIGRATION_26_28, MIGRATION_27_28)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()

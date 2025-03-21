@@ -2,11 +2,15 @@ package org.wikipedia.pageimages.db
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.Index
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.page.PageTitle
 
 @Parcelize
-@Entity(primaryKeys = ["lang", "namespace", "apiTitle"])
+@Entity(
+    primaryKeys = ["lang", "namespace", "apiTitle"],
+    indices = [Index(value = ["lang", "namespace", "apiTitle"])]
+)
 data class PageImage(
     val lang: String,
     val namespace: String,
