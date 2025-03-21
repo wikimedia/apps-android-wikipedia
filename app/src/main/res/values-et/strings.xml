@@ -127,5 +127,5 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Loobu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Loobu</string>
   <string name="notification_syncing_cancel_button">Loobu</string>
-  <string name="back_button_content_description">Mine tagasi</string>
+  <string name="search_back_button_content_description">Mine tagasi</string>
 </resources>

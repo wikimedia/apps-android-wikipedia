@@ -1853,6 +1853,6 @@
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
   <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
   <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
-  <string name="back_button_content_description">חזרה</string>
+  <string name="search_back_button_content_description">חזרה</string>
   <string name="about_screen_logo_accessibility_text">סמול גלובוס הפאזל של ויקיפדיה</string>
 </resources>

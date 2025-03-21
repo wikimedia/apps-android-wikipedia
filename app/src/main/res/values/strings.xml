@@ -12,6 +12,9 @@
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_languages">Search for a language</string>
+    <string name="search_back_button_content_description">Go back</string>
+    <string name="search_clear_query_content_description">Clear query</string>
+    <string name="search_icon_content_description">Search</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
@@ -1852,7 +1855,5 @@
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
-    <string name="back_button_content_description">Go back</string>
     <string name="about_screen_logo_accessibility_text">Wikipedia puzzle globe logo</string>
-    <string name="clear_query_accessibility_text">Clear query</string>
 </resources>
