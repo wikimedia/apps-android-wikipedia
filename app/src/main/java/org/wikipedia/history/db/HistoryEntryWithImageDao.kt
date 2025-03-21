@@ -60,18 +60,12 @@ interface HistoryEntryWithImageDao {
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            if (prevDay == 0) {
+            calendar.time = entry.timestamp
+            val curDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
+            if (prevDay == 0 || curDay != prevDay) {
                 list.add(getDateString(entry.timestamp))
-                calendar.time = entry.timestamp
-                prevDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
-            } else {
-                calendar.time = entry.timestamp
-                val curDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
-                if (curDay != prevDay) {
-                    list.add(getDateString(entry.timestamp))
-                }
-                prevDay = curDay
             }
+            prevDay = curDay
             list.add(toHistoryEntry(entry))
         }
         return list
