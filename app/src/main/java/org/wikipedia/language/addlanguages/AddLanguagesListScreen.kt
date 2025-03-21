@@ -25,7 +25,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -38,34 +37,13 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
+import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.StringUtil
-
-@Composable
-fun LanguagesListParentScreen(
-    modifier: Modifier = Modifier,
-    vieModel: AddLanguagesViewModel = viewModel(),
-    onBackButtonClick: () -> Unit,
-    onListItemClick: (code: String) -> Unit,
-    onLanguageSearched: (Boolean) -> Unit,
-) {
-    val uiState = vieModel.uiState.collectAsState().value
-    LanguagesListScreen(
-        modifier = modifier,
-        languages = uiState.languagesItems,
-        isSiteInfoLoaded = uiState.isSiteInfoLoaded,
-        onBackButtonClick = onBackButtonClick,
-        onSearchQueryChange = { query ->
-            vieModel.updateSearchTerm(query)
-        },
-        onListItemClick = onListItemClick,
-        onLanguageSearched = onLanguageSearched
-    )
-}
 
 @Composable
 fun LanguagesListScreen(
@@ -76,6 +54,8 @@ fun LanguagesListScreen(
     onSearchQueryChange: (String) -> Unit,
     onListItemClick: (code: String) -> Unit,
     onLanguageSearched: (Boolean) -> Unit,
+    error: Throwable? = null,
+    wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
@@ -103,7 +83,7 @@ fun LanguagesListScreen(
             )
         },
         floatingActionButton = {
-            if (!isSiteInfoLoaded) {
+            if (error == null && !isSiteInfoLoaded) {
                 CircularProgressIndicator(
                     color = WikipediaTheme.colors.progressiveColor
                 )
@@ -111,6 +91,24 @@ fun LanguagesListScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
+        if (error != null) {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    // Add bottom padding when keyboard is visible for android 15 and above
+                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                ComposeWikiErrorParentView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    caught = error,
+                    errorClickEvents = wikiErrorClickEvents
+                )
+            }
+            return@Scaffold
+        }
         if (languages.isEmpty()) {
             Box(
                 modifier = modifier

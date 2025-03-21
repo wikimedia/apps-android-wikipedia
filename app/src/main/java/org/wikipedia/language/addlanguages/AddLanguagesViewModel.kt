@@ -31,12 +31,17 @@ class AddLanguagesViewModel : ViewModel() {
         L.e(throwable)
         _uiState.update {
             it.copy(
-                error = throwable.localizedMessage ?: WikipediaApp.instance.getString(R.string.error_message_generic)
+                error = throwable,
+                isSiteInfoLoaded = false
             )
         }
     }
 
     init {
+      fetchAllData()
+    }
+
+    fun fetchAllData() {
         // immediately populate with locally available data
         populateInitialLanguageList()
 
@@ -50,17 +55,15 @@ class AddLanguagesViewModel : ViewModel() {
 
     private fun fetchSiteMatrix() {
         viewModelScope.launch(handler) {
-            try {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-                val sites = SiteMatrix.getSites(siteMatrix)
-                _siteInfoList.value = sites
+            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+            val sites = SiteMatrix.getSites(siteMatrix)
+            _siteInfoList.value = sites
 
-                // site is loaded so marking it
-                _uiState.update { it.copy(isSiteInfoLoaded = true) }
+            // site is loaded so marking it
+            _uiState.update { it.copy(isSiteInfoLoaded = true) }
 
-                // update the list
-                updateSearchTerm(_uiState.value.searchTerm, siteInfoAvailable = true)
-            } catch (e: Exception) { }
+            // update the list
+            updateSearchTerm(_uiState.value.searchTerm, siteInfoAvailable = true)
         }
     }
 
@@ -68,6 +71,7 @@ class AddLanguagesViewModel : ViewModel() {
         viewModelScope.launch {
             _uiState.update {
                 it.copy(
+                    error = null,
                     searchTerm = term,
                     languagesItems = getFilteredLanguageList(term, siteInfoAvailable),
                 )
@@ -159,7 +163,7 @@ class AddLanguagesViewModel : ViewModel() {
     data class LanguageListUiState(
         val searchTerm: String = "",
         val languagesItems: List<LanguageListItem> = emptyList(),
-        val error: String? = null,
+        val error: Throwable? = null,
         val isSiteInfoLoaded: Boolean = false
     )
 }
