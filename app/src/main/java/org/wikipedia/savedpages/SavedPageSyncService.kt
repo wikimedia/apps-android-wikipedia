@@ -185,7 +185,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                 // download thumbnail and lead image
                 if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
                     page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.thumbnailUrl.orEmpty())
-                    AppDatabase.instance.pageImagesDao().insertPageImageSync(PageImage(
+                    AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(
                         pageTitle,
                         page.thumbUrl.orEmpty(),
                         summaryResponse.description,

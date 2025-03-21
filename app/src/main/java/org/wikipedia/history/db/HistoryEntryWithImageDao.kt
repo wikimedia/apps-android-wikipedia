@@ -20,14 +20,14 @@ interface HistoryEntryWithImageDao {
     // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN(SELECT displayTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY displayTitle) LatestEntries ON HistoryEntry.displayTitle = LatestEntries.displayTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     @RewriteQueriesToDropUnusedColumns
-    fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
+    suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent ORDER BY timestamp DESC LIMIT :limit")
     @RewriteQueriesToDropUnusedColumns
-    fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
+    suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
 
-    fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
+    suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
@@ -42,11 +42,11 @@ interface HistoryEntryWithImageDao {
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
-    fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
+    suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
         return findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%").map { toHistoryEntry(it) }
     }
 
-    fun filterHistoryItems(searchQuery: String): List<Any> {
+    suspend fun filterHistoryItems(searchQuery: String): List<Any> {
         val list = mutableListOf<Any>()
         val entries = findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%")
 
@@ -72,7 +72,7 @@ interface HistoryEntryWithImageDao {
         return list
     }
 
-    fun findEntryForReadMore(age: Int, minTimeSpent: Int): List<HistoryEntry> {
+    suspend fun findEntryForReadMore(age: Int, minTimeSpent: Int): List<HistoryEntry> {
         val entries = findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
             HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, age + 1)
         return entries.map { toHistoryEntry(it) }
