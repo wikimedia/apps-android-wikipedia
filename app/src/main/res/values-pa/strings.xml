@@ -133,7 +133,7 @@
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
-  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪੰਨੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਛਾਪਿਆ ਨਹੀਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
   <string name="dialog_confirm_delete_donation_history_title">ਮਿਟਾਉਣ ਦੀ ਤਸਦੀਕ ਕਰੋ</string>
@@ -154,8 +154,8 @@
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="account_creation_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ</string>
-  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਖ ਗਤੀਵਿਧੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫਿਰ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
+  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੀ ਸਰਗਰਮੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="onboarding_card_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="page_editing_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="reading_lists_sync_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
@@ -182,7 +182,7 @@
   <string name="history_empty_title">ਕੋਈ ਹਾਲ ਹੀ ਵਿੱਚ ਵੇਖੇ ਲੇਖ ਨਹੀਂ</string>
   <string name="history_empty_message">ਇੱਥੇ ਜੋ ਤੁਸੀਂ ਪੜ੍ਹ ਚੁੱਕੇ ਹੋ ਉਸਨੂੰ ਟ੍ਰੈਕ ਕਰੋ।</string>
   <string name="history_offline_articles_toast">ਇਤਿਹਾਸ ਵਿੱਚ ਕੁਝ ਲੇਖ ਆਫ਼ਲਾਈਨ ਹੋਣ \'ਤੇ ਦੇਖਣਯੋਗ ਨਹੀਂ ਹੋ ਸਕਦੇ ਹਨ।</string>
-  <string name="search_empty_message">ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਮੁਫ਼ਤ ਵਿਸ਼ਵਕੋਸ਼ ਦੀ ਖੋਜ ਕਰੋ ਅਤੇ ਪੜ੍ਹੋ</string>
+  <string name="search_empty_message">ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਆਜ਼ਾਦ ਵਿਸ਼ਵਕੋਸ਼ ਦੀ ਖੋਜ ਕਰੋ ਅਤੇ ਪੜ੍ਹੋ</string>
   <string name="search_empty_message_multilingual_upgrade">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਖੋਜੋ</string>
   <string name="delete_selected_items">ਚੁਣੀਆਂ ਚੀਜ਼ਾਂ ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
@@ -234,8 +234,8 @@
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: %s</string>
-  <string name="page_protected_can_not_edit">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਵਿਸ਼ੇਸ਼ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
-  <string name="page_protected_can_not_edit_anon">ਮਾਫ਼ ਕਰਨਾ, ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਸੰਪਾਦਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</string>
+  <string name="page_protected_can_not_edit">ਮੁਆਫ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਕੋਲ ਇਸ ਸਮੇਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਸੋਧਣ ਲਈ ਲੋੜੀਂਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
+  <string name="page_protected_can_not_edit_anon">ਮੁਆਫ ਕਰਨਾ, ਇਸ ਸਮੇਂ ਇਸ ਵਰਕੇ ਨੂੰ ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਸੋਧਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਐ।</string>
   <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ਨਿਗਰਾਨੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="settings_item_preferences">ਤਰਜੀਹਾਂ</string>
@@ -466,7 +466,7 @@
   <string name="text_size_increase">ਅੱਖਰ ਦਾ ਆਕਾਰ ਵਧਾਓ</string>
   <string name="text_size_decrease">ਅੱਖਰ ਦਾ ਆਕਾਰ ਘਟਾਓ</string>
   <string name="text_size_percent_default">%s (ਮੁਢਲਾ)</string>
-  <string name="text_style_title">ਫੌਂਟ</string>
+  <string name="text_style_title">ਅੱਖਰ</string>
   <string name="theme_category_reading">ਪੜ੍ਹਨਾ</string>
   <string name="theme_category_editing">ਸੁਧਾਈ</string>
   <string name="editing_syntax_highlight_label">ਵਾਕ-ਵਿਉਂਤ ਉਜਾਗਰ ਕਰੋ</string>
@@ -927,6 +927,7 @@
   <string name="suggested_edits_what_is_title">ਸੁਝਾਏ ਗਏ ਸੋਧ ਕੀ ਹਨ?</string>
   <string name="suggested_edits_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="suggested_edits_paused_title">ਰੋਕਿਆ ਗਿਆ</string>
+  <string name="suggested_edits_disabled_title">ਅਸਮਰੱਥ</string>
   <string name="suggested_edits_ip_blocked_title">IP ਤੇ ਪਾਬੰਦੀ ਲਾਈ ਗਈ</string>
   <string name="suggested_edits_last_edited">ਆਖਰੀ ਸੋਧ</string>
   <string name="suggested_edits_last_edited_never">ਕਦੇ ਨਹੀਂ</string>
@@ -1035,7 +1036,7 @@
   <string name="onboarding_got_it">ਸਮਝ ਲਿਆ</string>
   <string name="onboarding_multilingual_secondary_text">ਸਾਨੂੰ ਤੁਹਾਡੀ ਜੰਤਰ \'ਤੇ ਹੇਠ ਲਿਖੀਆਂ ਚੀਜ਼ਾਂ ਮਿਲੀਆਂ ਹਨ:</string>
   <string name="onboarding_multilingual_add_language_text">ਭਾਸ਼ਾਵਾਂ ਜੋੜੋ ਜਾਂ ਸੋਧੋ</string>
-  <string name="onboarding_welcome_title_v2">ਇਕ ਮੁਫ਼ਤ ਵਿਸ਼ਵਕੋਸ਼ ...300 ਤੋਂ ਵੱਧ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ</string>
+  <string name="onboarding_welcome_title_v2">ਇਕ ਆਜ਼ਾਦ ਵਿਸ਼ਵਕੋਸ਼ ...300 ਤੋਂ ਵੱਧ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ</string>
   <string name="app_shortcuts_random">ਬੇਤਰਤੀਬ</string>
   <string name="app_shortcuts_continue_reading">ਪੜ੍ਹਨਾ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="app_shortcuts_search">ਖੋਜ</string>
@@ -1050,6 +1051,7 @@
     <item quantity="one">ਪਿਛਲੇ ਸਾਲ</item>
     <item quantity="other">%d ਸਾਲ ਪਹਿਲਾਂ</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">ਤੁਸੀਂ ਵੱਕਤ ਵਿੱਚੋਂ ਲੰਘੇ 🚀</string>
   <string name="on_this_day_back_to_future">ਭਵਿੱਖ ਵੱਲ ਵਾਪਸ ਜਾਓ</string>
   <string name="languages_list_activity_title">ਭਾਸ਼ਾ ਜੋੜੋ</string>
   <string name="languages_list_suggested_text">ਸੁਝਾਏ ਗਏ</string>
@@ -1087,6 +1089,7 @@
   <string name="wikitext_small">ਛੋਟੀ ਲਿਖਤ</string>
   <string name="wikitext_code">ਕੋਡ</string>
   <string name="wikitext_link">ਕੜੀ ਜੋੜੋ</string>
+  <string name="wikitext_formatting">ਤਰਤੀਬ ਵਿੱਚ</string>
   <string name="wikitext_headings">ਸਿਰਨਾਵੇਂ</string>
   <string name="wikitext_insert_media">ਮੀਡੀਆ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="wikitext_numbered_list">ਗਿਣਤੀਦਾਇਕ ਸੂਚੀ</string>
@@ -1245,10 +1248,10 @@
   <string name="revision_compare_two_only">ਸਿਰਫ਼ ਦੋ ਸੋਧਾਂ ਹੀ ਚੁਣੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ਬਦਲੋ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ਪੱਕੇ ਤੌਰ \'ਤੇ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ਹਫ਼ਤੇ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ਮਹੀਨੇ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ਮਹੀਨਿਆਂ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ਮਹੀਨਿਆਂ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ਹਫ਼ਤੇ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 ਮਹੀਨੇ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ਮਹੀਨਿਆਂ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ਮਹੀਨਿਆਂ ਲਈ</string>
   <string name="watchlist_expiry_dialog_title">ਨਿਗਰਾਨ-ਸੂਚੀ ਦਾ ਸਮਾਂ ਮਿਆਦ ਚੁਣੋ</string>
   <string name="watchlist_expiry_dialog_permanent">ਪੱਕਾ</string>
   <string name="watchlist_expiry_dialog_one_week">1 ਹਫ਼ਤਾ</string>
@@ -1510,5 +1513,5 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਹਨ।</string>
   <string name="on_this_day_game_report_email_subject">ਮੁੱਦੇ ਦੀ ਇਤਲਾਹ - ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_notification_undo">ਰੱਦ ਕਰੋ</string>
-  <string name="back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
+  <string name="search_back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
 </resources>

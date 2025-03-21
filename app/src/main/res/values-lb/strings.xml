@@ -1244,14 +1244,12 @@
   <string name="revision_rollback_success">Ännerung zréckgesat.</string>
   <string name="revision_compare_button">Vergläichen</string>
   <string name="revision_compare_two_only">Et kënnen nëmmen zwou Versiounen ausgewielt ginn.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">D\'Säit %1$s an hir Diskussiounssäit goufe %2$s op Är Iwwerwaachungslëscht gesat.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">fir 1 Mount</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">fir 3 Méint</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">fir 6 Méint</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">D\'Säit %s an hur Diskussiounssäit goufe vun Ärer Iwwerwaachungslëscht erofgeholl.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">fir 1 Woch</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">fir 1 Mount</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">fir 3 Méint</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">fir 6 Méint</string>
   <string name="watchlist_expiry_dialog_title">Wielt en Zäitraum fir d\'Iwwerwaachungslëscht</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 Woch</string>
@@ -1544,5 +1542,5 @@
   <string name="on_this_day_game_share_link_message">Ech spille „Wat koum als éischt?“, en deeglecht Quiz-Spill an der Wikipedia-Android-App %s</string>
   <string name="on_this_day_game_survey_q1">Wéi zefridde waart Dir mat dësem Spill?</string>
   <string name="on_this_day_game_survey_q2">Wier Dir interesséiert fir nach aner Wikipedia-Spiller ze spillen?</string>
-  <string name="back_button_content_description">Zréck goen</string>
+  <string name="search_back_button_content_description">Zréck goen</string>
 </resources>

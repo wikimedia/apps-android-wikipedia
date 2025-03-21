@@ -1400,14 +1400,12 @@
   <string name="revision_rollback_success">Redigeringer tilbakestilt.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 uke</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 måned</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 måneder</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 måneder</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og den tilhørende diskusjonssiden har blitt fjernet fra overvåkningslisten din.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">i 1 uke</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">i 1 måned</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">i 3 måneder</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">i 6 måneder</string>
   <string name="watchlist_expiry_dialog_title">Velg periode for overvåkningsliste</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 uke</string>
