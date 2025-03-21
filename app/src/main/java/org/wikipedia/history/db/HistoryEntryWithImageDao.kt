@@ -10,8 +10,10 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
@@ -49,25 +51,22 @@ interface HistoryEntryWithImageDao {
     suspend fun filterHistoryItems(searchQuery: String): List<Any> {
         val list = mutableListOf<Any>()
         val entries = findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%")
-
-        for (i in entries.indices) {
+        val calendar = Calendar.getInstance(TimeZone.getDefault())
+        var prevDay = 0
+        entries.forEach { entry ->
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            val curTime: String = getDateString(entries[i].timestamp)
-            val prevTime: String
-            if (i > 0) {
-                prevTime = getDateString(entries[i - 1].timestamp)
-                if (curTime != prevTime) {
-                    list.add(curTime)
-                }
-            } else {
-                list.add(curTime)
+            calendar.time = entry.timestamp
+            val curDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
+            if (prevDay == 0 || curDay != prevDay) {
+                list.add(getDateString(entry.timestamp))
             }
-            list.add(toHistoryEntry(entries[i]))
+            prevDay = curDay
+            list.add(toHistoryEntry(entry))
         }
         return list
     }
