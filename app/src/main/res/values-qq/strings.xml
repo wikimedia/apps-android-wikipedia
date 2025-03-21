@@ -37,6 +37,7 @@
 * Tomato Cream
 * Trizek (WMF)
 * Verdy p
+* voyagerfan
 * Wladek92
 * Zoranzoki21
 -->
@@ -1774,4 +1775,5 @@
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
   <string name="search_clear_query_content_description">Accessibility text informing users that this action clears the query.</string>
   <string name="search_icon_content_description">Accessibility text informing users that this icon opens the search bar.</string>
+  <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
 </resources>
