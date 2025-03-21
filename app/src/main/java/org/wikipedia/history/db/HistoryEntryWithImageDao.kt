@@ -52,25 +52,27 @@ interface HistoryEntryWithImageDao {
         val list = mutableListOf<Any>()
         val entries = findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%")
         val calendar = Calendar.getInstance(TimeZone.getDefault())
-        for (i in entries.indices) {
+        var prevDay = 0
+        entries.forEach { entry ->
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            if (i > 0) {
-                calendar.time = entries[i].timestamp
-                val day1 = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
-                calendar.time = entries[i - 1].timestamp
-                val day2 = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
-                if (day1 != day2) {
-                    list.add(getDateString(entries[i].timestamp))
-                }
+            if (prevDay == 0) {
+                list.add(getDateString(entry.timestamp))
+                calendar.time = entry.timestamp
+                prevDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
             } else {
-                list.add(getDateString(entries[i].timestamp))
+                calendar.time = entry.timestamp
+                val curDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
+                if (curDay != prevDay) {
+                    list.add(getDateString(entry.timestamp))
+                }
+                prevDay = curDay
             }
-            list.add(toHistoryEntry(entries[i]))
+            list.add(toHistoryEntry(entry))
         }
         return list
     }
