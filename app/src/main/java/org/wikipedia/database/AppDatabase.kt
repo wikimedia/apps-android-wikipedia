@@ -29,6 +29,7 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
+import org.wikipedia.util.log.L
 
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 28
@@ -217,6 +218,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_26_28 = object : Migration(26, 28) {
             override fun migrate(database: SupportSQLiteDatabase) {
+                L.d(">>> migration start")
                 // Rename the existing HistoryEntry table, which we're preserving for now (in case
                 // things go wrong with migrations in the field).
                 database.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
@@ -242,7 +244,7 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
 
                 // Copy the metadata from the removed columns in the old HistoryEntry table into the
-                // new columns in the PageImage table.
+                // new columns in the PageImage table, for PageImage rows that already exist.
                 database.execSQL("UPDATE PageImage SET" +
                         " description = (SELECT HistoryEntry_old.description" +
                         "     FROM HistoryEntry_old" +
@@ -254,6 +256,18 @@ abstract class AppDatabase : RoomDatabase() {
                         "     WHERE PageImage.lang = HistoryEntry_old.lang" +
                         "     AND PageImage.namespace = HistoryEntry_old.namespace" +
                         "     AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
+
+                // For PageImage rows that don't already exist (i.e. HistoryEntries that didn't have
+                // a thumbnail), insert them and copy the other metadata.
+                database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
+                        " SELECT he.lang, he.namespace, he.apiTitle, he.description, COALESCE(he.timeSpentSec, 0)" +
+                        " FROM HistoryEntry_old he" +
+                        " WHERE NOT EXISTS (SELECT 1 FROM PageImage pi" +
+                        "    WHERE pi.lang = he.lang AND" +
+                        "          pi.namespace = he.namespace AND" +
+                        "          pi.apiTitle = he.apiTitle)")
+
+                L.d(">>> migration end")
             }
         }
 
