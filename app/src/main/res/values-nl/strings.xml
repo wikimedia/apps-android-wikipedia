@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* ABPMAB
 * Aranka
 * Ciell
 * Cooltey
@@ -56,6 +57,9 @@
   <string name="search_hint">Zoeken in Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
+  <string name="search_back_button_content_description">Terug</string>
+  <string name="search_clear_query_content_description">Zoekopdracht wissen</string>
+  <string name="search_icon_content_description">Zoeken</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijsten</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
@@ -167,6 +171,10 @@
   <string name="dialog_message_leaving_edit">Uw wijzigingen zijn nog niet gepubliceerd. Weet u zeker dat u deze pagina wilt verlaten?</string>
   <string name="dialog_message_leaving_edit_leave">Verlaten</string>
   <string name="dialog_message_leaving_edit_stay">Blijven</string>
+  <string name="dialog_confirm_delete_donation_history_title">Bevestig verwijdering</string>
+  <string name="dialog_confirm_delete_donation_history_message">Dit geldt alleen voor donaties die via dit apparaat worden gedaan.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Verwijderen</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annuleren</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
   <string name="search_no_results_found">Geen resultaten gevonden</string>
   <string name="search_reading_list_no_results">Geen resultaten in “%s” gevonden</string>
@@ -451,6 +459,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
   <string name="preference_summary_prefer_offline_content">Mobiel dataverkeer besparen door offline beschikbare artikelen te laden in plaats van steeds de laatste versie op te halen</string>
+  <string name="preference_title_delete_local_donation_history">Lokale donatiegeschiedenis verwijderen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Gelijk aan systeemthema</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
@@ -916,6 +925,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
+  <string name="description_too_long">Probeer beschrijvingen kort te houden, zodat gebruikers het onderwerp van het artikel in één oogopslag kunnen begrijpen</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
@@ -1418,10 +1428,10 @@
   <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">voor 1 week</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">voor 1 maand</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">voor 3 maanden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">voor 6 maanden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 week</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 maand</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 maanden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 maanden</string>
   <string name="watchlist_expiry_dialog_title">Selecteer tijdsperiode voor Volglijst</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 week</string>
@@ -1683,6 +1693,7 @@
   <string name="donate_gpay_help_other_ways">Andere manieren om te geven</string>
   <string name="donate_gpay_help_faq">Veelgestelde vragen</string>
   <string name="donate_gpay_help_tax">Informatie over fiscale aftrekbaarheid</string>
+  <string name="donation_history_deleted_message_snackbar">Donateurgeschiedenis verwijderd</string>
   <string name="places_title">Plaatsen</string>
   <string name="places_permissions_denied">Locatietoestemming is vereist om uw locatie op de kaart te zien. Probeer het opnieuw.</string>
   <string name="places_search_hint">Plaatsen zoeken</string>
@@ -1706,6 +1717,68 @@
   <string name="survey_dialog_option_very_unsatisfied">Zeer ontevreden</string>
   <string name="survey_dialog_cancel">Annuleren</string>
   <string name="survey_dialog_submit">Opslaan</string>
+  <string name="survey_dialog_next">Volgende</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nee</string>
+  <string name="survey_dialog_general_maybe">Misschien</string>
   <string name="survey_dialog_input_hint">Aanvullende terugkoppeling</string>
   <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
+  <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
+  <string name="on_this_day_game_entry_dialog_button">Het spel van vandaag spelen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
+  <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
+  <string name="on_this_day_game_dialog_button">Spelen</string>
+  <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_progress">%1$d van %2$d</string>
+  <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_correct">Juist!</string>
+  <string name="on_this_day_game_incorrect">Onjuist!</string>
+  <string name="on_this_day_game_point">+1 punt</string>
+  <string name="on_this_day_game_next">Volgende vraag</string>
+  <string name="on_this_day_game_finish">Eindresultaten</string>
+  <string name="on_this_day_game_share">Met vrienden delen</string>
+  <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
+  <string name="on_this_day_game_pause_body">Je voortgang wordt voor de dag opgeslagen. Je kunt het spel vinden onder Verkennen.</string>
+  <string name="on_this_day_game_pause_negative">Doorspelen</string>
+  <string name="on_this_day_game_pause_positive">Begrepen</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
+  <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
+  <string name="on_this_day_game_next_in">Volgend spel in %s</string>
+  <string name="on_this_day_game_your_stats">Uw statistieken</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">spel gespeeld</item>
+    <item quantity="other">spellen gespeeld</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Gemiddelde score</string>
+  <string name="on_this_day_game_stats_streak">Huidige reeks</string>
+  <string name="on_this_day_game_result_subtitle">Artikelen waarnaar in het spel van vandaag wordt verwezen</string>
+  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden onder Verkennen.</string>
+  <string name="on_this_day_game_menu_notifications">Spelmeldingen</string>
+  <string name="on_this_day_game_menu_info">Meer lezen</string>
+  <string name="on_this_day_game_menu_feedback">Probleem met functie</string>
+  <string name="on_this_day_game_article_read_button">Artikel lezen</string>
+  <string name="on_this_day_game_article_related_event_title">Gebeurtenis met betrekking tot dit artikel</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">U hebt deze vraag goed beantwoord</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">U hebt deze vraag fout beantwoord</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Spelmeldingen uitschakelen?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Als u push-meldingen uitschakelt, ontvangt u geen dagelijkse herinnering meer wanneer er een nieuw spel is om te spelen.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Spelmeldingen inschakelen?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Met spelmeldingen krijgt u dagelijks een melding wanneer er een nieuw spel is om te spelen.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nee, laat ze aan</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Zet ze uit</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ja, zet ze aan</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Laat ze uit</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spelmeldingen uit.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spelmeldingen aan.</string>
+  <string name="on_this_day_game_notification_text">Het “Wat gebeurde er eerst?”-spel van vandaag is klaar om te spelen.</string>
+  <string name="on_this_day_game_report_email_subject">Probleemmelding – Wikipedia-spellen</string>
+  <string name="on_this_day_game_report_email_body">Ik ben een probleem tegengekomen met de functie Wikipedia-spellen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="on_this_day_game_notification_undo">Ongedaan maken</string>
+  <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
+  <string name="on_this_day_game_survey_q1">Hoe tevreden was u met dit spel?</string>
+  <string name="on_this_day_game_survey_q2">Zou u geïnteresseerd zijn in het spelen van andere Wikipedia-spellen?</string>
+  <string name="about_screen_logo_accessibility_text">Wikipedia-logo met puzzel en wereldbol</string>
 </resources>

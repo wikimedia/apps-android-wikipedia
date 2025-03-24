@@ -24,6 +24,7 @@
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
   <string name="search_hint_voice_search">ದನಿ ಇನ್‌ಪುಟ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
+  <string name="search_back_button_content_description">ಪಿರ ಪೋಲೆ</string>
   <string name="filter_hint_filter_my_lists_and_articles">ಎನ್ನ ಪಟ್ಟಿಲೆನ್ ಅರ್ತ್‌ದ್ ತೋಜಾಲ</string>
   <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_more">ನನಾತ್</string>
@@ -418,5 +419,4 @@
   <string name="preview_edit_summarize_edit_hint">ಈರ್ ಇ ಪುಟೊನ್ ವಾ ನಮೂಡೆಡ್ ಎಡ್ಡೆ ಮಲ್ತರ್?</string>
   <string name="patroller_saved_message_title_art_imp">ಲೇಕನ ಸುದಾರಣೆ ಸಲಹೆ</string>
   <string name="talk_templates_menu_edit_title">ಸಂಪೊಲಿಪುಲೆ</string>
-  <string name="search_back_button_content_description">ಪಿರ ಪೋಲೆ</string>
 </resources>
