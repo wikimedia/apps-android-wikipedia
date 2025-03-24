@@ -29,7 +29,6 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
-import org.wikipedia.util.log.L
 
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 28
@@ -218,7 +217,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_26_28 = object : Migration(26, 28) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                L.d(">>> migration start")
                 // Rename the existing HistoryEntry table, which we're preserving for now (in case
                 // things go wrong with migrations in the field).
                 database.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
@@ -266,8 +264,6 @@ abstract class AppDatabase : RoomDatabase() {
                         "    WHERE pi.lang = he.lang AND" +
                         "          pi.namespace = he.namespace AND" +
                         "          pi.apiTitle = he.apiTitle)")
-
-                L.d(">>> migration end")
             }
         }
 
