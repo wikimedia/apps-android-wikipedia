@@ -18,7 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -33,7 +35,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
 @Composable
@@ -42,13 +43,11 @@ fun WiktionaryDialogScreen(
     onDialogLinkClick: (url: String) -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
-    val list = if (uiState is Resource.Success) uiState.data else emptyList()
     WiktionaryDialogContent(
         title = StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(viewModel.selectedText)),
-        showNoDefinitions = uiState is Resource.Error,
-        showProgress = uiState is Resource.Loading,
-        isSuccess = uiState is Resource.Success,
-        list = list,
+        isLoading = uiState.isLoading,
+        error = uiState.error,
+        list = uiState.list,
         onDialogLinkClick = onDialogLinkClick
     )
 }
@@ -56,15 +55,15 @@ fun WiktionaryDialogScreen(
 @Composable
 fun WiktionaryDialogContent(
     title: String,
-    showNoDefinitions: Boolean = false,
-    showProgress: Boolean = false,
-    isSuccess: Boolean = false,
+    isLoading: Boolean = false,
+    error: Throwable? = null,
     list: List<RbDefinition.Usage>,
     onDialogLinkClick: (url: String) -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .nestedScroll(rememberNestedScrollInteropConnection())
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp)
             .heightIn(min = dimensionResource(R.dimen.bottomSheetPeekHeight))
@@ -102,12 +101,27 @@ fun WiktionaryDialogContent(
             modifier = Modifier.fillMaxWidth()
         )
 
-        if (showNoDefinitions) {
+        if (isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 128.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(
+                    color = WikipediaTheme.colors.progressiveColor,
+                )
+            }
+            return
+        }
+
+        if (error != null) {
             Text(
                 text = stringResource(R.string.wiktionary_no_definitions_found),
                 color = WikipediaTheme.colors.primaryColor,
                 modifier = Modifier.padding(top = 16.dp)
             )
+            return
         }
 
         Column(
@@ -115,26 +129,9 @@ fun WiktionaryDialogContent(
                 .fillMaxWidth()
                 .padding(vertical = 4.dp)
         ) {
-            if (isSuccess) {
-                Column {
-                    list.forEach {
-                        DefinitionList(it, onDialogLinkClick)
-                    }
-                }
+            list.forEach {
+                DefinitionList(it, onDialogLinkClick)
             }
-        }
-    }
-
-    if (showProgress) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 128.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            CircularProgressIndicator(
-                color = WikipediaTheme.colors.progressiveColor,
-            )
         }
     }
 }
@@ -219,9 +216,6 @@ fun DefinitionWithExamples(
 fun WiktionaryDialogPreview() {
     WiktionaryDialogContent(
         title = "Lorem ipsum",
-        showNoDefinitions = false,
-        showProgress = false,
-        isSuccess = true,
         list = emptyList(),
         onDialogLinkClick = {}
     )
