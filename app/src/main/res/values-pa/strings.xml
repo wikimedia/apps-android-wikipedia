@@ -24,6 +24,8 @@
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
+  <string name="search_back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
+  <string name="search_clear_query_content_description">ਪੁੱਛਗਿੱਛ ਸਾਫ਼ ਕਰੋ</string>
   <string name="filter_hint_filter_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="nav_item_suggested_edits">ਸੋਧਾਂ</string>
   <string name="nav_item_more">ਹੋਰ</string>
@@ -43,7 +45,7 @@
   <string name="history_items_deleted">%d ਲੇਖਾਂ ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_item_delete_undo">ਰੱਦ ਕਰੋ</string>
   <string name="notification_archive_undo">ਰੱਦ ਕਰੋ</string>
-  <string name="app_settings">ਐਪ ਦੀਆਂ ਸੈਟਿੰਗਾਂ</string>
+  <string name="app_settings">ਐਪ ਦੀਆਂ ਤਰਜੀਹਾਂ</string>
   <string name="search_tab_tooltip">ਖੋਜ ਸ਼ਬਦ ਨੂੰ ਸਿੱਧਾ ਟਾਈਪ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਈਕਾਨ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ।</string>
   <string name="history_list_title">ਅਤੀਤ</string>
   <string name="image_content_description">ਤਸਵੀਰ: %s</string>
@@ -1101,6 +1103,7 @@
   <string name="insert_media_search_description">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ ਤੋਂ ਇੱਕ ਫਾਇਲ ਚੁਣੋ</string>
   <string name="insert_media_search_hint">ਮੀਡੀਆ ਖੋਜੋ</string>
   <string name="insert_media_settings">ਚਿੱਤਰ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="insert_media_settings_uploaded_image">ਤਸਵੀਰ ਚੜ੍ਹਾਓ</string>
   <string name="insert_media_settings_caption">ਚਿੱਤਰ ਦੀ ਸੁਰਖੀ</string>
   <string name="insert_media_settings_alternative_text">ਬਦਲਵੀਂ ਲਿਖਤ</string>
   <string name="insert_media_settings_alternative_text_description">ਨੇਤਰਹੀਣ ਪਾਠਕਾਂ ਲਈ ਵਰਣਨ</string>
@@ -1248,10 +1251,10 @@
   <string name="revision_compare_two_only">ਸਿਰਫ਼ ਦੋ ਸੋਧਾਂ ਹੀ ਚੁਣੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ਬਦਲੋ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ਪੱਕੇ ਤੌਰ \'ਤੇ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ਹਫ਼ਤੇ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 ਮਹੀਨੇ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ਮਹੀਨਿਆਂ ਲਈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ਮਹੀਨਿਆਂ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ਹਫ਼ਤੇ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ਮਹੀਨੇ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ਮਹੀਨਿਆਂ ਲਈ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ਮਹੀਨਿਆਂ ਲਈ</string>
   <string name="watchlist_expiry_dialog_title">ਨਿਗਰਾਨ-ਸੂਚੀ ਦਾ ਸਮਾਂ ਮਿਆਦ ਚੁਣੋ</string>
   <string name="watchlist_expiry_dialog_permanent">ਪੱਕਾ</string>
   <string name="watchlist_expiry_dialog_one_week">1 ਹਫ਼ਤਾ</string>
@@ -1264,6 +1267,7 @@
   <string name="watchlist_filter_talk">ਗੱਲ-ਬਾਤ</string>
   <string name="watchlist_filter_pages">ਸਫ਼ੇ</string>
   <string name="watchlist_filter_other">ਹੋਰ</string>
+  <string name="watchlist_page_moved">ਥਾਂ-ਬਦਲੀ ਗਈ</string>
   <string name="watchlist_page_protected">ਸੁਰੱਖਿਅਤ ਕੀਤਾ</string>
   <string name="watchlist_page_deleted">ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="watchlist_filter_wiki_filter_header">ਵਿਕੀ</string>
@@ -1513,5 +1517,4 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਹਨ।</string>
   <string name="on_this_day_game_report_email_subject">ਮੁੱਦੇ ਦੀ ਇਤਲਾਹ - ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_notification_undo">ਰੱਦ ਕਰੋ</string>
-  <string name="search_back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
 </resources>

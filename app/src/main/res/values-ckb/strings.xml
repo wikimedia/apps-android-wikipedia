@@ -25,6 +25,7 @@
   <string name="search_hint">گەڕان بە ویکیپیدیا</string>
   <string name="search_hint_voice_search">گەڕان بە دەنگ</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
+  <string name="search_back_button_content_description">بگەڕێوە</string>
   <string name="filter_hint_filter_my_lists_and_articles">فلتەرکردنی پێڕستەکەم</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
@@ -1405,5 +1406,4 @@
   <string name="on_this_day_game_article_read_button">وتارەکە بخوێنەوە</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">بەڵێ، دایان بگیرسێنە</string>
   <string name="on_this_day_game_notification_undo">پووچەڵکردنەوە</string>
-  <string name="search_back_button_content_description">بگەڕێوە</string>
 </resources>

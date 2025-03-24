@@ -324,7 +324,7 @@
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
-  <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
+  <string name="preference_summary_show_images">Gweredekaat pe diweredekaat kargañ skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="preference_title_download_only_over_wifi">Pellgargañ gant ar Wi-Fi hepken</string>
   <string name="dialog_title_download_only_over_wifi">Kadarnaat ar pellgargañ en ur implijout ar roadennoù hezoug ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
