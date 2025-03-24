@@ -29,6 +29,7 @@
 * Mirzali
 * MrBenjo
 * MuratTheTurkish
+* NoPartyThisTime
 * Pittigrilli
 * Rummskartoffel
 * SHaran (WMF)
@@ -61,6 +62,7 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
+  <string name="search_icon_content_description">Suchen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meine Listen filtern</string>
   <string name="nav_item_suggested_edits">Bearbeitungen</string>
   <string name="nav_item_more">Mehr</string>

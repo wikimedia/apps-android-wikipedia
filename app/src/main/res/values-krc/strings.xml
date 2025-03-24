@@ -163,8 +163,8 @@
   <string name="logged_out_in_background_login">Кир</string>
   <string name="logged_out_in_background_cancel">Ызына ал</string>
   <string name="account_vanish_request_title">Хыйсабны джокъ эт</string>
-  <string name="account_vanish_request_confirm_title">Хыйсабны джокъ этиу эсгертиу</string>
-  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm_title">Хыйсаб сюртюуню эсгертиую</string>
+  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошумугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
   <string name="history_empty_title">Кёб болмай кёргюзюлген статьяла джокъдула</string>
   <string name="history_empty_message">Окъугъан статьяларыгъызны былайдан ызлагъыз.</string>
   <string name="history_offline_articles_toast">Тарихдеги бир къауум статьтяла, оффлайн халда кёрюрча тюлдюле.</string>

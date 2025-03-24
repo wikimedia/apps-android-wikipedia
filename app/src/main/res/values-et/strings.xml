@@ -17,6 +17,7 @@
   <string name="page_tabs_back">Tagasi</string>
   <string name="nav_item_forward">Edasi</string>
   <string name="search_hint">Otsi Vikipeediast</string>
+  <string name="search_back_button_content_description">Mine tagasi</string>
   <string name="error_network_error">Internetti ühendamine ei õnnestu.</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
@@ -127,5 +128,4 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Loobu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Loobu</string>
   <string name="notification_syncing_cancel_button">Loobu</string>
-  <string name="search_back_button_content_description">Mine tagasi</string>
 </resources>
