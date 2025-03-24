@@ -258,12 +258,14 @@ abstract class AppDatabase : RoomDatabase() {
                 // For PageImage rows that don't already exist (i.e. HistoryEntries that didn't have
                 // a thumbnail), insert them and copy the other metadata.
                 database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
-                        " SELECT he.lang, he.namespace, he.apiTitle, he.description, COALESCE(he.timeSpentSec, 0)" +
-                        " FROM HistoryEntry_old he" +
-                        " WHERE NOT EXISTS (SELECT 1 FROM PageImage pi" +
-                        "    WHERE pi.lang = he.lang AND" +
-                        "          pi.namespace = he.namespace AND" +
-                        "          pi.apiTitle = he.apiTitle)")
+                        " SELECT HistoryEntry_old.lang, HistoryEntry_old.namespace, HistoryEntry_old.apiTitle," +
+                        " HistoryEntry_old.description, COALESCE(HistoryEntry_old.timeSpentSec, 0)" +
+                        " FROM HistoryEntry_old" +
+                        " WHERE NOT EXISTS (SELECT 1 FROM PageImage" +
+                        "    WHERE PageImage.lang = HistoryEntry_old.lang AND" +
+                        "          PageImage.namespace = HistoryEntry_old.namespace AND" +
+                        "          PageImage.apiTitle = HistoryEntry_old.apiTitle)")
+
             }
         }
 
