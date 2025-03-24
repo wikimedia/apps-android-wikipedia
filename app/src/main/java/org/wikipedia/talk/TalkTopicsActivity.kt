@@ -79,6 +79,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var goToTopic = false
+    private var watchListModified = false
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -290,6 +291,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
             R.id.menu_watch -> {
                 if (AccountUtil.isLoggedIn) {
+                    watchListModified = true
                     viewModel.watchOrUnwatch(WatchlistExpiry.NEVER, viewModel.isWatched)
                 }
                 true
@@ -558,8 +560,21 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         }
     }
 
+    override fun onBackPressed() {
+        if (watchListModified) {
+            val resultIntent = Intent()
+            resultIntent.putExtra(EXTRA_WATCHLIST_STATUS, viewModel.isWatched)
+            resultIntent.putExtra(EXTRA_WATCHLIST_EXPIRY, viewModel.hasWatchlistExpiry)
+            setResult(RESULT_WATCHLIST_CHANGE, resultIntent)
+        }
+        super.onBackPressed()
+    }
+
     companion object {
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
+        const val RESULT_WATCHLIST_CHANGE = 1001
+        const val EXTRA_WATCHLIST_STATUS = "watchListStatus"
+        const val EXTRA_WATCHLIST_EXPIRY = "watchListExpiry"
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
