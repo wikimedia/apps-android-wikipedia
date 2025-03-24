@@ -1417,10 +1417,10 @@
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">變更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 週</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 個月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 個月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6個月</string>
   <string name="watchlist_expiry_dialog_title">選擇監視清單時間週期</string>
   <string name="watchlist_expiry_dialog_permanent">永久</string>
   <string name="watchlist_expiry_dialog_one_week">1 週</string>
