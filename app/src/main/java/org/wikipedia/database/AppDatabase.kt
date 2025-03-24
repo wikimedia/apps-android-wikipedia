@@ -265,7 +265,6 @@ abstract class AppDatabase : RoomDatabase() {
                         "    WHERE PageImage.lang = HistoryEntry_old.lang AND" +
                         "          PageImage.namespace = HistoryEntry_old.namespace AND" +
                         "          PageImage.apiTitle = HistoryEntry_old.apiTitle)")
-
             }
         }
 
