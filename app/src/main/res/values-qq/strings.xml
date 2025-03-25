@@ -1785,8 +1785,8 @@
   <string name="year_in_review_navigate_right">Content description of the navigate right icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_donate">Clickable Donate string for the Year in Review screen scaffold.</string>
   <string name="year_in_review_information_icon">Content description of the information icon for the Year in Review screen scaffold.</string>
-  <string name="year_in_review_getstarted_headline">Healine text for the year in review get started page</string>
-  <string name="year_in_review_getstarted_bodytext">Body text for the the year in review get started page</string>
+  <string name="year_in_review_get_started_headline">Healine text for the year in review get started page</string>
+  <string name="year_in_review_get_started_bodytext">Body text for the the year in review get started page</string>
   <string name="year_in_review_readcount_headline">Headline text for the year in review readcount page</string>
   <string name="year_in_review_readcount_bodytext">Body text for the year in review readcount page</string>
   <string name="year_in_review_editcount_headline">Headline text for the year in review editcount page</string>
