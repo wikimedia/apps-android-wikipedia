@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
@@ -54,11 +55,11 @@ fun YearInReviewScreen(
     screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
     pagerState: PagerState,
-    scrollState: ScrollState,
     contentData: List<YearInReviewScreenData>,
     totalPages: Int
 ) {
     val coroutineScope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,

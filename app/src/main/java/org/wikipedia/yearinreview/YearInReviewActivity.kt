@@ -24,7 +24,6 @@ class YearInReviewActivity : ComponentActivity() {
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
-                val scrollState = rememberScrollState()
                 val pagerState = rememberPagerState(pageCount = { personalizedScreenList.size })
 
                 NavHost(
@@ -32,7 +31,6 @@ class YearInReviewActivity : ComponentActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            scrollState = scrollState,
                             pagerState = pagerState,
                             totalPages = getStartedList.size,
                             contentData = getStartedList,
@@ -56,7 +54,6 @@ class YearInReviewActivity : ComponentActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreen(
-                            scrollState = scrollState,
                             pagerState = pagerState,
                             totalPages = personalizedScreenList.size,
                             contentData = personalizedScreenList,
