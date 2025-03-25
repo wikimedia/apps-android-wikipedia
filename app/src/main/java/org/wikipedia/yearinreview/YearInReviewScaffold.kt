@@ -248,7 +248,7 @@ fun YearInReviewScreenContent(
                     ImageView(context).apply {
                         Glide.with(context)
                             .asGif()
-                            .load(screenData.gifResource)
+                            .load(screenData.imageResource)
                             .centerCrop()
                             .into(this)
                     }
