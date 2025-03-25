@@ -274,7 +274,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = stringResource(screenData.headLineText),
+                    text = String.format(stringResource(screenData.headLineText), 350),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -293,7 +293,7 @@ fun YearInReviewScreenContent(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
-                text = stringResource(screenData.bodyText),
+                text = String.format(stringResource(screenData.bodyText), 350),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
