@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -24,14 +22,12 @@ class YearInReviewActivity : ComponentActivity() {
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
-                val pagerState = rememberPagerState(pageCount = { personalizedScreenList.size })
 
                 NavHost(
                     navController = navController, startDestination = YearInReviewNavigation.Onboarding.name
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            pagerState = pagerState,
                             totalPages = getStartedList.size,
                             contentData = getStartedList,
                             navController = navController,
@@ -54,11 +50,10 @@ class YearInReviewActivity : ComponentActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreen(
-                            pagerState = pagerState,
                             totalPages = personalizedScreenList.size,
                             contentData = personalizedScreenList,
                             navController = navController,
-                            customBottomBar = { MainBottomBar(
+                            customBottomBar = { pagerState -> MainBottomBar(
                                 onNavigationRightClick = {
                                     coroutineScope.launch {
                                         pagerState.scrollToPage(pagerState.currentPage + 1)

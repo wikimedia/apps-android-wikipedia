@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -51,15 +52,15 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
-    customBottomBar: @Composable () -> Unit,
+    customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
-    pagerState: PagerState,
     contentData: List<YearInReviewScreenData>,
     totalPages: Int
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    val pagerState = rememberPagerState(pageCount = { contentData.size })
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -104,7 +105,7 @@ fun YearInReviewScreen(
             )
         },
 
-        bottomBar = customBottomBar,
+        bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
 
         if (totalPages > 1) {
