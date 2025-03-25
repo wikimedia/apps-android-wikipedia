@@ -1,6 +1,6 @@
 package org.wikipedia.yearinreview
 
 enum class YearInReviewNavigation {
-    GetStarted,
+    Onboarding,
     ScreenDeck
 }

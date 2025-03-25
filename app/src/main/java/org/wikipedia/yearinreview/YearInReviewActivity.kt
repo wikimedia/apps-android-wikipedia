@@ -28,9 +28,9 @@ class YearInReviewActivity : ComponentActivity() {
                 val pagerState = rememberPagerState(pageCount = { personalizedScreenList.size })
 
                 NavHost(
-                    navController = navController, startDestination = YearInReviewNavigation.GetStarted.name
+                    navController = navController, startDestination = YearInReviewNavigation.Onboarding.name
                 ) {
-                    composable(route = YearInReviewNavigation.GetStarted.name) {
+                    composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreenScaffold(
                             scrollState = scrollState,
                             pagerState = pagerState,
@@ -47,7 +47,6 @@ class YearInReviewActivity : ComponentActivity() {
                                 )
                             },
                             screenContent = { innerPadding, scrollState, contentData ->
-
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     scrollState = scrollState,
@@ -71,7 +70,6 @@ class YearInReviewActivity : ComponentActivity() {
                                 pagerState = pagerState,
                                 totalPages = personalizedScreenList.size) },
                             screenContent = { innerPadding, scrollState, contentData ->
-
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     scrollState = scrollState,

@@ -79,7 +79,7 @@ fun YearInReviewScreenScaffold(
                             coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
                         } else {
                             navController.navigate(
-                                route = YearInReviewNavigation.GetStarted.name)
+                                route = YearInReviewNavigation.Onboarding.name)
                         }
                     }) {
                         Icon(
@@ -91,7 +91,7 @@ fun YearInReviewScreenScaffold(
                 },
                 actions = {
                     if (totalPages > 1) {
-                        IconButton(onClick = { TODO() }) {
+                        IconButton(onClick = { Unit }) { //To add click functionality later
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -143,7 +143,7 @@ fun MainBottomBar(
             ) {
                 Row(
                     modifier = Modifier
-                        .clickable(onClick = { TODO() })
+                        .clickable(onClick = { Unit })  //To add click functionality later
                         .padding(start = 15.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -195,7 +195,7 @@ fun GetStartedBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { TODO() }
+                    onClick = { Unit } //To add click functionality later
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -280,7 +280,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = { TODO() }) {
+                    onClick = { Unit }) { //To add click functionality later
                     Icon(
                         painter = painterResource(R.drawable.baseline_info_24),
                         tint = WikipediaTheme.colors.primaryColor,
