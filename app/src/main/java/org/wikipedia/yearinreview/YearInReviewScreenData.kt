@@ -11,21 +11,21 @@ data class YearInReviewScreenData(
 
 val getStartedData = YearInReviewScreenData(
     imageResource = R.drawable.year_in_review_block_10_resize,
-    headLineText = R.string.year_in_review_getstarted_headline,
-    bodyText = R.string.year_in_review_getstarted_bodytext,
+    headLineText = R.string.year_in_review_get_started_headline,
+    bodyText = R.string.year_in_review_get_started_bodytext,
     fetchedData = null
 )
 
 val readCountData = YearInReviewScreenData(
     imageResource = R.drawable.wyir_block_5_resize,
-    headLineText = R.string.year_in_review_readcount_headline,
-    bodyText = R.string.year_in_review_readcount_bodytext,
+    headLineText = R.string.year_in_review_read_count_headline,
+    bodyText = R.string.year_in_review_read_count_bodytext,
     fetchedData = null
 )
 
 val editCountData = YearInReviewScreenData(
     imageResource = R.drawable.wyir_bytes,
-    headLineText = R.string.year_in_review_editcount_headline,
-    bodyText = R.string.year_in_review_editcount_bodytext,
+    headLineText = R.string.year_in_review_edit_count_headline,
+    bodyText = R.string.year_in_review_edit_count_bodytext,
     fetchedData = null
 )
