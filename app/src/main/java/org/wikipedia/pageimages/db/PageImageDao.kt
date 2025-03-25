@@ -10,13 +10,10 @@ import org.wikipedia.history.HistoryEntry
 @Dao
 interface PageImageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPageImageSync(pageImage: PageImage)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPageImage(pageImage: PageImage)
 
     @Query("SELECT * FROM PageImage")
-    fun getAllPageImages(): List<PageImage>
+    suspend fun getAllPageImages(): List<PageImage>
 
     @Query("SELECT * FROM PageImage WHERE lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun findItemsBy(lang: String, namespace: String, apiTitle: String): List<PageImage>

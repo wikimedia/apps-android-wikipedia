@@ -104,12 +104,16 @@ object AccountUtil {
         return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
     }
 
+    fun maybeSetTempAccountDay() {
+        if (isTemporaryAccount && Prefs.tempAccountCreateDay == 0L) {
+            Prefs.tempAccountCreateDay = LocalDate.now().toEpochDay()
+        }
+    }
+
     fun maybeShowTempAccountWelcome(activity: Activity) {
         if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
             Prefs.tempAccountWelcomeShown = true
             Prefs.tempAccountDialogShown = false
-            Prefs.tempAccountCreateDay = LocalDate.now().toEpochDay()
-
             val expiryDays = tempAccountDaysLeft()
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
                 expiryDays, userName, expiryDays))
