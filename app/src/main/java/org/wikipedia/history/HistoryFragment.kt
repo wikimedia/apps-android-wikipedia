@@ -22,6 +22,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
@@ -90,6 +92,47 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 onPagesDeleted()
             }
         }
+
+        binding.showCategoriesDialog.setOnClickListener {
+            val groupData = viewModel.groupedTitles
+            val recyclerView = RecyclerView(requireContext()).apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL) // 2 columns, vertical stagger
+                adapter = ChipAdapter(groupData.toList()) // Convert groupData to a list
+            }
+
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Categories")
+                .setView(recyclerView)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }
+    }
+
+    class ChipAdapter(private val data: List<Pair<String, Int>>) :
+        RecyclerView.Adapter<ChipAdapter.ChipViewHolder>() {
+
+        inner class ChipViewHolder(val chip: Chip) : RecyclerView.ViewHolder(chip)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChipViewHolder {
+            val chip = Chip(parent.context).apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+            return ChipViewHolder(chip)
+        }
+
+        override fun onBindViewHolder(holder: ChipViewHolder, position: Int) {
+            val (title, count) = data[position]
+            holder.chip.text = "$title ($count)"
+        }
+
+        override fun getItemCount(): Int = data.size
     }
 
     private fun setUpScrollListener() {
