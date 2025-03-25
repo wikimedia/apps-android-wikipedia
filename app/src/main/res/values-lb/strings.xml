@@ -17,6 +17,8 @@
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
+  <string name="search_back_button_content_description">Zréck goen</string>
+  <string name="search_icon_content_description">Sichen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
   <string name="nav_item_suggested_edits">Ännerungen</string>
   <string name="nav_item_more">Méi</string>
@@ -83,9 +85,9 @@
   <string name="menu_page_watched">Iwwerwaacht</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
-  <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
+  <string name="menu_page_add_to_list">Op d\'Lieslëscht setzen</string>
   <string name="menu_page_add_to_default_list">Späicheren</string>
-  <string name="feed_card_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
+  <string name="feed_card_add_to_list">Op d\'Lieslëscht setzen</string>
   <string name="feed_card_add_to_default_list">Späicheren</string>
   <string name="menu_page_share">Link deelen</string>
   <string name="menu_article_share">Artikel deelen</string>
@@ -337,7 +339,7 @@
   <string name="unnamed_tab_closed">Tab zougemaach.</string>
   <string name="tab_item_closed">%s zougemaach.</string>
   <string name="all_tab_items_closed">All Tabs zougemaach.</string>
-  <string name="tool_tip_bookmark_icon_title">Op d\'Lieslëscht derbäisetzen</string>
+  <string name="tool_tip_bookmark_icon_title">Op d\'Lieslëscht setzen</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeechnes-Schnellzougrëff</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
@@ -349,9 +351,9 @@
   <string name="button_continue_to_talk_page">Diskussiounssäit opmaachen</string>
   <string name="button_continue_to_disambiguation">Änlech Säite weisen</string>
   <string name="link_preview_disambiguation_description">Dësen Titel bezitt sech op méi wéi eng Säit:</string>
-  <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
+  <string name="button_add_to_reading_list">Op d\'Lieslëscht setzen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede ginn, wann Dir offline sidd.</string>
-  <string name="page_offline_notice_add_to_reading_list">Hieeis: Setzt den Artikel op eng Lieslëscht an da gëtt en automatesch erofgelueden, soubal Dir erëm online sidd.</string>
+  <string name="page_offline_notice_add_to_reading_list">Hiweis: Setzt den Artikel op eng Lieslëscht an da gëtt en automatesch erofgelueden, soubal Dir erëm online sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel, déi de(n) %s gespäichert gouf.</string>
   <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
   <string name="button_get_directions">Richtunge kréien</string>
@@ -433,7 +435,7 @@
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
   <string name="reading_list_create_new">Neier uleeën</string>
-  <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
+  <string name="reading_list_title_exists">D\'Lieslëscht „%s“ gëtt et schonn.</string>
   <string name="reading_list_article_added_to_named">%1$s op %2$s gesat.</string>
   <string name="reading_list_article_added_to_default_list">%s gespäichert. Wëllt Dir en op eng Lëscht setzen?</string>
   <string name="reading_list_article_moved_to_named">%1$s op %2$s geréckelt.</string>
@@ -507,7 +509,7 @@
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht derbäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
-  <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
+  <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht setzen</string>
   <string name="reading_list_move_to_other_list">Op eng aner Lieslëscht réckelen</string>
   <string name="reading_list_move_from_to_other_list">Vu(n) %s op eng aner Lieslëscht réckelen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
@@ -535,10 +537,10 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Loggt Iech a fir datt Är Lieslëschten an Ärem Benotzerkont gespäichert kënne ginn.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Synchronisatioun vu Lieslëschten ass ausgeschalt</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchroniséiere vu Lieslëschten ass ausgeschalt</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Astellungen</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Synchronisatioun vu Lieslëschten aschalten?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Synchroniséiere vu Lieslëschten aschalten?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikelen, déi op Lieslëschte gespäichert goufen, kënne lo mat Ärem Wikipedia-Benotzerkont synchroniséiert ginn. &lt;a href=\"#faq\"&gt;Méi Informatiounen&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Net nach eng Kéier weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatioun aktivéieren</string>
@@ -606,7 +608,7 @@
   <string name="notification_syncing_resume_button">Virufueren</string>
   <string name="notification_syncing_cancel_button">Ofbriechen</string>
   <string name="notification_syncing_reading_list_channel_title">Lieslëschte synchroniséieren</string>
-  <string name="notification_syncing_reading_list_channel_description">Fortschrëtt vun der Synchronisatioun vu Lieslëschten</string>
+  <string name="notification_syncing_reading_list_channel_description">Fortschrëtt vum Synchroniséiere vun de Lieslëschten</string>
   <string name="notification_many_unread">Dir hutt %d net geliesen Notifikatiounen</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Artikel eroflueden</item>
@@ -820,6 +822,8 @@
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Computergeneréiert Virschléi</string>
   <string name="description_edit_tutorial_machine_suggestions_description">D\'Virschléi gi vun enger Maschinn generéiert, net vu Fräiwëllegen oder der Wikimedia Foundation</string>
+  <string name="customize_toolbar_title">Geschierläischt upassen</string>
+  <string name="customize_toolbar_category_toolbar">Geschierläischt</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
@@ -1240,18 +1244,16 @@
   <string name="revision_undo_summary_hint">Resumé (fakultativ)</string>
   <string name="revision_undo_reason">Gitt wgl. de Grond u fir dës Ännerung réckgängeg ze maachen</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
-  <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
-  <string name="revision_rollback_success">Ännerung zréckgesat.</string>
+  <string name="revision_rollback_dialog_title">Sidd Dir sécher, datt Dir dës Ännerungen zrécksetze wëllt?</string>
+  <string name="revision_rollback_success">Ännerungen zréckgesat.</string>
   <string name="revision_compare_button">Vergläichen</string>
   <string name="revision_compare_two_only">Et kënnen nëmmen zwou Versiounen ausgewielt ginn.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">D\'Säit %1$s an hir Diskussiounssäit goufe %2$s op Är Iwwerwaachungslëscht gesat.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">fir 1 Mount</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">fir 3 Méint</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">fir 6 Méint</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">D\'Säit %s an hur Diskussiounssäit goufe vun Ärer Iwwerwaachungslëscht erofgeholl.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 Woch</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 Mount</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 Méint</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 Méint</string>
   <string name="watchlist_expiry_dialog_title">Wielt en Zäitraum fir d\'Iwwerwaachungslëscht</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 Woch</string>
@@ -1544,5 +1546,4 @@
   <string name="on_this_day_game_share_link_message">Ech spille „Wat koum als éischt?“, en deeglecht Quiz-Spill an der Wikipedia-Android-App %s</string>
   <string name="on_this_day_game_survey_q1">Wéi zefridde waart Dir mat dësem Spill?</string>
   <string name="on_this_day_game_survey_q2">Wier Dir interesséiert fir nach aner Wikipedia-Spiller ze spillen?</string>
-  <string name="back_button_content_description">Zréck goen</string>
 </resources>

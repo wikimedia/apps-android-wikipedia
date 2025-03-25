@@ -85,8 +85,11 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     private fun layOutUsage(currentUsage: RbDefinition.Usage): View {
         val usageBinding = ItemWiktionaryDefinitionsListBinding.inflate(layoutInflater, binding.root, false)
         usageBinding.wiktionaryPartOfSpeech.text = currentUsage.partOfSpeech
-        for (i in currentUsage.definitions.indices) {
-            usageBinding.listWiktionaryDefinitionsWithExamples.addView(layOutDefinitionWithExamples(currentUsage.definitions[i], i + 1))
+        var index = 0
+        currentUsage.definitions.forEach {
+            if (it.definition.isNotEmpty()) {
+                usageBinding.listWiktionaryDefinitionsWithExamples.addView(layOutDefinitionWithExamples(it, ++index))
+            }
         }
         return usageBinding.root
     }

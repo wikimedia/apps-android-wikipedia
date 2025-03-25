@@ -241,7 +241,7 @@
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
   <string name="edit_how_page_improved">ನೀವು ಪುಟವನ್ನು ಹೇಗೆ ಉತ್ತಮಪಡಿಸಿದ್ದೀರಿ?</string>
   <string name="edit_next">ಮುಂದೆ</string>
-  <string name="edit_done">ಪ್ರಕಟಿಸು</string>
+  <string name="edit_done">ಪ್ರಕಟಿಸಿ</string>
   <string name="edit_preview">ಮುನ್ನೋಟ</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s ಬೈಟ್</item>
@@ -403,7 +403,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ರದ್ದು ಮಾಡು</string>
   <string name="tabs_activity_title">ಟ್ಯಾಬ್‌ಗಳು</string>
   <string name="description_edit_article_description_label">ಲೇಖನ</string>
-  <string name="description_edit_save">ಪ್ರಕಟಿಸು</string>
+  <string name="description_edit_save">ಪ್ರಕಟಿಸಿ</string>
   <string name="description_edit_read">ಓದು</string>
   <string name="description_edit_cancel_hint">ರದ್ದುಮಾಡಿ</string>
   <string name="description_too_short">ಪಠ್ಯ ತುಂಬಾ ಚಿಕ್ಕದಾಗಿದೆ.</string>

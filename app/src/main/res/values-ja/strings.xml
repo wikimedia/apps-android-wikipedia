@@ -75,6 +75,7 @@
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_languages">言語を検索</string>
+  <string name="search_back_button_content_description">戻る</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
@@ -1407,14 +1408,12 @@
   <string name="revision_rollback_success">編集が差し戻されました</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$sとそのトークページをウォッチリストへ%2$s追加しました。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">恒久的に</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週間</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1か月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3か月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6か月</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%sとそのトークぺージをウォッチリストから除去しました。</string>
   <string name="watchlist_expiry_dialog_title">ウォッチリストの期間を選択してください</string>
   <string name="watchlist_expiry_dialog_permanent">恒久的</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
@@ -1687,6 +1686,7 @@
   <string name="survey_dialog_general_no">いいえ</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
+  <string name="on_this_day_game_pause_positive">わかりました</string>
   <string name="on_this_day_game_menu_info">詳細</string>
   <string name="on_this_day_game_menu_feedback">機能の問題</string>
   <string name="on_this_day_game_article_read_button">記事を読む</string>

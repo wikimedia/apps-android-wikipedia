@@ -49,6 +49,7 @@
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কথা দ্বারা অনুসন্ধান</string>
   <string name="search_hint_search_languages">ভাষার জন্য অনুসন্ধান</string>
+  <string name="search_back_button_content_description">ফিরে যান</string>
   <string name="filter_hint_filter_my_lists_and_articles">আমার তালিকা ছাঁকুন</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
@@ -1118,11 +1119,10 @@
   <string name="revision_compare_two_only">শুধুমাত্র দুটি সংশোধন নির্বাচন করা যাবে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">পরিবর্তন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীভাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাসের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাসের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাসের জন্য</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ও এর আলাপ পাতা আপনার নজরতালিকা থেকে সরিয়ে ফেলা হয়েছে।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">১ সপ্তাহের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">১ মাসের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাস</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">৬ মাসের জন্য</string>
   <string name="watchlist_expiry_dialog_title">নজরতালিকার সময়কাল নির্বাচন করুন</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ীভাবে</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>
@@ -1214,5 +1214,4 @@
   <string name="on_this_day_game_score">স্কোর: %d</string>
   <string name="on_this_day_game_correct">সঠিক!</string>
   <string name="on_this_day_game_point">+১ পয়েন্ট</string>
-  <string name="back_button_content_description">ফিরে যান</string>
 </resources>

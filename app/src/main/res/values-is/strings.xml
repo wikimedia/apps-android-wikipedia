@@ -1298,14 +1298,12 @@
   <string name="revision_rollback_success">Breytingar afturkallaðar.</string>
   <string name="revision_compare_button">Bera saman</string>
   <string name="revision_compare_two_only">Aðeins er hægt að velja tvær útgáfur.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Síðunni %1$s og spjallsíðu hennar hefur verið bætt við á %2$s vaktlistann þinn.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Breyta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">endanlega</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">í 1 viku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">í 1 mánuð</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">í 3 mánuði</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">í 6 mánuði</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og spjallsíða hennar hafa verið fjarlægðar af vaktlistanum þínum.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">í 1 viku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">í 1 mánuð</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">í 3 mánuði</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">í 6 mánuði</string>
   <string name="watchlist_expiry_dialog_title">Veldu tímabil vaktlista</string>
   <string name="watchlist_expiry_dialog_permanent">Varanlegt</string>
   <string name="watchlist_expiry_dialog_one_week">1 vika</string>

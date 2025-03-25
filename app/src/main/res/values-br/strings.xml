@@ -324,7 +324,7 @@
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
-  <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
+  <string name="preference_summary_show_images">Gweredekaat pe diweredekaat kargañ skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="preference_title_download_only_over_wifi">Pellgargañ gant ar Wi-Fi hepken</string>
   <string name="dialog_title_download_only_over_wifi">Kadarnaat ar pellgargañ en ur implijout ar roadennoù hezoug ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
@@ -1184,10 +1184,10 @@
   <string name="revision_compare_button">Keñveriañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Kemmañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">da badout</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">evit 1 sizhunvezh</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">evit 1 mizvezh</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">evit 3 miz</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">evit 6 miz</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">evit 1 sizhunvezh</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">evit 1 mizvezh</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">evit 3 miz</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">evit 6 miz</string>
   <string name="watchlist_expiry_dialog_permanent">Da viken</string>
   <string name="watchlist_expiry_dialog_one_week">1 sizhunvezh</string>
   <string name="watchlist_expiry_dialog_one_month">1 mizvezh</string>

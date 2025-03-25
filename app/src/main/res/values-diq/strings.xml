@@ -644,6 +644,8 @@
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 hefte</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aşme</string>
   <string name="watchlist_filter_all">Pêro</string>
   <string name="watchlist_page_deleted">Esteriya</string>
   <string name="shareable_reading_lists_new_indicator">*newe*</string>

@@ -18,6 +18,8 @@
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_languages">Пребарување на јазик</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Исчисти барање</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
@@ -1386,14 +1388,12 @@
   <string name="revision_rollback_success">Уредувањата се отповикани.</string>
   <string name="revision_compare_button">Спореди</string>
   <string name="revision_compare_two_only">Можете да изберете само две преработки.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 недела</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеци</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и нејзината разговорна страница се отстранети од вашите набљудувања.</string>
   <string name="watchlist_expiry_dialog_title">Изберете временски период на Набљудуваните</string>
   <string name="watchlist_expiry_dialog_permanent">Трајно</string>
   <string name="watchlist_expiry_dialog_one_week">1 недела</string>
@@ -1742,6 +1742,5 @@
   <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
   <string name="on_this_day_game_survey_q1">Колку сте задоволни од оваа игра?</string>
   <string name="on_this_day_game_survey_q2">Дали сте заинтересирани да играте други Википедиини игри?</string>
-  <string name="back_button_content_description">Назад</string>
   <string name="about_screen_logo_accessibility_text">Википедиино лого со топка-сложувалка</string>
 </resources>

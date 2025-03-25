@@ -8,6 +8,7 @@
 * Pikne
 * Postituvi
 * Pyscowicz
+* Rivoz
 -->
 <resources>
   <string name="app_name_prod">Vikipeedia</string>
@@ -16,6 +17,7 @@
   <string name="page_tabs_back">Tagasi</string>
   <string name="nav_item_forward">Edasi</string>
   <string name="search_hint">Otsi Vikipeediast</string>
+  <string name="search_back_button_content_description">Mine tagasi</string>
   <string name="error_network_error">Internetti ühendamine ei õnnestu.</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
