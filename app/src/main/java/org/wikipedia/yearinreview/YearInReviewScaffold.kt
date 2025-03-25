@@ -49,7 +49,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun YearInReviewScreenScaffold(
+fun YearInReviewScreen(
     customBottomBar: @Composable () -> Unit,
     screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
     navController: NavHostController,

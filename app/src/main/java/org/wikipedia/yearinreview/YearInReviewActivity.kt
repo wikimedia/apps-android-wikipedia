@@ -31,7 +31,7 @@ class YearInReviewActivity : ComponentActivity() {
                     navController = navController, startDestination = YearInReviewNavigation.Onboarding.name
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
-                        YearInReviewScreenScaffold(
+                        YearInReviewScreen(
                             scrollState = scrollState,
                             pagerState = pagerState,
                             totalPages = getStartedList.size,
@@ -55,7 +55,7 @@ class YearInReviewActivity : ComponentActivity() {
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
-                        YearInReviewScreenScaffold(
+                        YearInReviewScreen(
                             scrollState = scrollState,
                             pagerState = pagerState,
                             totalPages = personalizedScreenList.size,
