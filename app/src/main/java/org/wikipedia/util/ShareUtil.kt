@@ -91,7 +91,6 @@ object ShareUtil {
     private fun processBitmapForSharing(context: Context, bmp: Bitmap,
                                         imageFileName: String): File? {
         val shareFolder = getClearShareFolder(context) ?: return null
-        shareFolder.mkdirs()
         val bytes = FileUtil.compressBmpToJpg(bmp)
         return FileUtil.writeToFile(bytes, File(shareFolder, cleanFileName(imageFileName)))
     }
@@ -120,10 +119,11 @@ object ShareUtil {
         Toast.makeText(context, R.string.error_can_not_process_link, Toast.LENGTH_LONG).show()
     }
 
-    private fun getClearShareFolder(context: Context): File? {
+    fun getClearShareFolder(context: Context): File? {
         return try {
-            File(getShareFolder(context), "share").also {
+            File(getCacheFolder(context), "share").also {
                 it.deleteRecursively()
+                it.mkdirs()
             }
         } catch (caught: Throwable) {
             L.e("Caught " + caught.message, caught)
@@ -131,7 +131,7 @@ object ShareUtil {
         }
     }
 
-    private fun getShareFolder(context: Context): File {
+    private fun getCacheFolder(context: Context): File {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) context.cacheDir
         else context.getExternalFilesDir(null)!!
     }
