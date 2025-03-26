@@ -18,7 +18,7 @@ class AppThemeRobot : BaseRobot() {
 
     fun switchOffMatchSystemTheme() = apply {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            verify.viewDoesNotExist(R.id.theme_chooser_match_system_theme_switch)
+            verify.viewWithIdIsNotVisible(R.id.theme_chooser_match_system_theme_switch)
         } else {
             scroll.toViewAndClick(R.id.theme_chooser_match_system_theme_switch)
         }
