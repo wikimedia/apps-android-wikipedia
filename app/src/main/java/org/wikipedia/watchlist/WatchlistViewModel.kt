@@ -221,7 +221,13 @@ class WatchlistViewModel : ViewModel() {
             if (watchObj == null) {
                 throw IOException("Watch response is null.")
             }
-            val message = StringUtil.fromHtml(messageCall.await().text).toString().trim()
+
+            val parsedMessage = StringUtil.fromHtml(messageCall.await().text).toString().trim()
+            val message = if (isTalkPage == true && pageTitle.namespace.isNotEmpty()) {
+                parsedMessage.replaceFirst("${pageTitle.namespace}:", "")
+            } else {
+                parsedMessage
+            }
 
             if (unwatch) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
