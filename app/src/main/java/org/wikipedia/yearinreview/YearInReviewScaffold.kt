@@ -60,7 +60,7 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
-    val pagerState = rememberPagerState(pageCount = { contentData.size })
+    val pagerState = rememberPagerState(pageCount = { totalPages })
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -93,7 +93,7 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (totalPages > 1) {
-                        IconButton(onClick = { Unit }) { //To add click functionality later
+                        IconButton(onClick = { Unit }) { // To add click functionality later
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -145,7 +145,7 @@ fun MainBottomBar(
             ) {
                 Row(
                     modifier = Modifier
-                        .clickable(onClick = { Unit })  //To add click functionality later
+                        .clickable(onClick = { Unit })  // To add click functionality later
                         .padding(start = 15.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -177,7 +177,7 @@ fun MainBottomBar(
 }
 
 @Composable
-fun GetStartedBottomBar(
+fun OnboardingBottomBar(
     onGetStartedClick: () -> Unit
 ) {
     BottomAppBar(
@@ -197,7 +197,7 @@ fun GetStartedBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { Unit } //To add click functionality later
+                    onClick = { Unit } // To add click functionality later
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -282,7 +282,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = { Unit }) { //To add click functionality later
+                    onClick = { Unit }) { // To add click functionality later
                     Icon(
                         painter = painterResource(R.drawable.baseline_info_24),
                         tint = WikipediaTheme.colors.primaryColor,

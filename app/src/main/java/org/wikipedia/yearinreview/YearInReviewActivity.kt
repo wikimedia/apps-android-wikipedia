@@ -32,7 +32,7 @@ class YearInReviewActivity : ComponentActivity() {
                             contentData = getStartedList,
                             navController = navController,
                             customBottomBar = {
-                                GetStartedBottomBar(
+                                OnboardingBottomBar(
                                     onGetStartedClick = {
                                         navController.navigate(
                                             route = YearInReviewNavigation.ScreenDeck.name
