@@ -259,7 +259,7 @@ abstract class AppDatabase : RoomDatabase() {
                 // a thumbnail), insert them and copy the other metadata.
                 database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
                         " SELECT lang, namespace, apiTitle, description, COALESCE(timeSpentSec, 0) as timeSpentSec FROM" +
-                        " (SELECT lang, namespace, apiTitle, description, COALESCE(timeSpentSec, 0) as timeSpentSec" +
+                        " (SELECT lang, namespace, apiTitle, description, MAX(COALESCE(timeSpentSec, 0)) as timeSpentSec" +
                         "     FROM HistoryEntry_old GROUP BY lang, namespace, apiTitle) AS HistoryUnique" +
                         " WHERE NOT EXISTS (SELECT 1 FROM PageImage" +
                         "     WHERE PageImage.lang = HistoryUnique.lang AND" +
