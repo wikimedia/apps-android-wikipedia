@@ -40,10 +40,9 @@ class YearInReviewActivity : ComponentActivity() {
                                     }
                                 )
                             },
-                            screenContent = { innerPadding, scrollState, contentData ->
+                            screenContent = { innerPadding, contentData ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    scrollState = scrollState,
                                     screenData = contentData)
                             },
                         )
@@ -61,10 +60,9 @@ class YearInReviewActivity : ComponentActivity() {
                                 },
                                 pagerState = pagerState,
                                 totalPages = personalizedScreenList.size) },
-                            screenContent = { innerPadding, scrollState, contentData ->
+                            screenContent = { innerPadding, contentData ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    scrollState = scrollState,
                                     screenData = contentData
                                 )
                             },

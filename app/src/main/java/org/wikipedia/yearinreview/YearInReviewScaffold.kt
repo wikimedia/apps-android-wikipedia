@@ -53,13 +53,12 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @Composable
 fun YearInReviewScreen(
     customBottomBar: @Composable (PagerState) -> Unit,
-    screenContent: @Composable (PaddingValues, ScrollState, YearInReviewScreenData) -> Unit,
+    screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>,
     totalPages: Int
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val scrollState = rememberScrollState()
     val pagerState = rememberPagerState(pageCount = { totalPages })
 
     Scaffold(
@@ -117,9 +116,9 @@ fun YearInReviewScreen(
 
                 val pageData = contentData[page]
 
-                screenContent(innerPadding, scrollState, pageData)
+                screenContent(innerPadding, pageData)
             }
-        } else { screenContent(innerPadding, scrollState, contentData[0]) }
+        } else { screenContent(innerPadding, contentData[0]) }
     }
 }
 
@@ -228,9 +227,9 @@ fun OnboardingBottomBar(
 @Composable
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
-    scrollState: ScrollState,
     screenData: YearInReviewScreenData,
 ) {
+    val scrollState = rememberScrollState()
     val context = LocalContext.current
     val gifAspectRatio = 3f / 2f
 
