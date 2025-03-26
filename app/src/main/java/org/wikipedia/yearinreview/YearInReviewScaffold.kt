@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.widget.ImageView
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -144,7 +143,7 @@ fun MainBottomBar(
             ) {
                 Row(
                     modifier = Modifier
-                        .clickable(onClick = { Unit })  // To add click functionality later
+                        .clickable(onClick = { Unit }) // To add click functionality later
                         .padding(start = 15.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
