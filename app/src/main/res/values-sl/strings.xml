@@ -21,6 +21,7 @@
   <string name="search_hint">Išči v Wikipediji</string>
   <string name="search_hint_voice_search">Iskanje z glasovnim vnosom</string>
   <string name="search_hint_search_languages">Poiščite jezik</string>
+  <string name="search_back_button_content_description">Nazaj</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
   <string name="nav_item_suggested_edits">Urejanja</string>
   <string name="nav_item_more">Več</string>
@@ -1844,6 +1845,5 @@
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">Kako zadovoljni ste bili s to igro?</string>
   <string name="on_this_day_game_survey_q2">Bi vas zanimalo igranje različnih iger Wikipedije?</string>
-  <string name="search_back_button_content_description">Nazaj</string>
   <string name="about_screen_logo_accessibility_text">Logotip globusa sestavljanke Wikipedije</string>
 </resources>

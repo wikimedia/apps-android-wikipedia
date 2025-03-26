@@ -290,7 +290,7 @@
         <activity
             android:name=".commons.FilePageActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".talk.TalkTopicsActivity"
