@@ -11,9 +11,9 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Category
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -54,14 +54,13 @@ class HistoryViewModel : ViewModel() {
     private suspend fun loadHistoryItems() {
         withContext(Dispatchers.IO) {
             val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
-            val lang = "en"
             val historyEntryItems = items.filterIsInstance<HistoryEntry>()
 
             val categories = mutableListOf<Category>()
             val deferredCategories = historyEntryItems.map { item ->
                 async {
                     try {
-                        val response = ServiceFactory.get(WikiSite.forLanguageCode(lang)).getCategoriesProps(item.apiTitle)
+                        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getCategoriesProps(item.apiTitle)
                         response.query?.firstPage()?.categoriesProps ?: emptyList()
                     } catch (e: Exception) {
                         // Handle exceptions appropriately, e.g., log, return emptyList, etc.
