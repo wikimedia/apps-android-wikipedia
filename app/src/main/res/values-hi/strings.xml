@@ -51,6 +51,7 @@
   <string name="search_hint_voice_search">ध्वनि इनपुट खोज</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="search_back_button_content_description">वापस जाएँ</string>
+  <string name="search_icon_content_description">खोजें</string>
   <string name="filter_hint_filter_my_lists_and_articles">मेरी सूचियों को छाँटें</string>
   <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_more">और</string>

@@ -20,6 +20,7 @@
   <string name="search_hint_search_languages">Пребарување на јазик</string>
   <string name="search_back_button_content_description">Назад</string>
   <string name="search_clear_query_content_description">Исчисти барање</string>
+  <string name="search_icon_content_description">Пребарување</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
