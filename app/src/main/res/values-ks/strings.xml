@@ -746,13 +746,12 @@
   <string name="revision_rollback_success">ایڑِٹ آیہِ واپس کرنہٕ</string>
   <string name="revision_compare_button">مُقابلہٕ کٕریٚو</string>
   <string name="revision_compare_two_only">صِرف یِن زٕ رِوِجنَن چُنٔنہٕ نہٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s تہٕ أمی سُنٛد بَحَث صَفہٕ چھُ آمُت جمع کرنہٕ تُہنٛدِس وُچھنٕچ فہرستس منٛز %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بَدلاو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">پوُرٕ پٲٹھی</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">أکِس ہَفتس کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">أکِس رؠتَس کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ترؠن رؠتَن کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">شؠن رؠتَن کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">أکِس ہَفتس کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">أکِس رؠتَس کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ترؠن رؠتَن کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">شؠن رؠتَن کھٲترٕ</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">اکھ ہَفتہٕ</string>
   <string name="watchlist_expiry_dialog_one_month">اکھ رؠتھ</string>

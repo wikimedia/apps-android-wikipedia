@@ -14,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
-import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogWatchlistExpiryBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -66,9 +65,8 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
                 viewModel.uiState.collect {
                     when (it) {
                         is Resource.Success -> {
-                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                                viewModel.pageTitle.displayText, getString(it.data.stringId))).show()
-                            callback()?.onExpiryChanged(it.data)
+                            FeedbackUtil.makeSnackbar(requireActivity(), it.data.message).show()
+                            callback()?.onExpiryChanged(it.data.expiry)
                             dismiss()
                         }
                         is Resource.Error -> {

@@ -50,6 +50,8 @@
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_voice_search">ध्वनि इनपुट खोज</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
+  <string name="search_back_button_content_description">वापस जाएँ</string>
+  <string name="search_icon_content_description">खोजें</string>
   <string name="filter_hint_filter_my_lists_and_articles">मेरी सूचियों को छाँटें</string>
   <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_more">और</string>
@@ -1412,14 +1414,12 @@
   <string name="revision_rollback_success">संपादन पूर्ववत किए गए।</string>
   <string name="revision_compare_button">तुलना करें</string>
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s और इसका वार्ता पृष्ठ आपकी ध्यानसूची %2$s में जोड़ दिया गया है।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">बदलें</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">स्थायी रूप से</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">एक सप्ताह के लिए</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 माह हेतु</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 माह हेतु</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 माह हेतु</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s और उसका वार्ता पृष्ठ आपकी ध्यानसूचीसे हटा दिया गया है।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">एक सप्ताह के लिए</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 माह हेतु</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 माह हेतु</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 माह हेतु</string>
   <string name="watchlist_expiry_dialog_title">ध्यानसूची समयावधि चुनें</string>
   <string name="watchlist_expiry_dialog_permanent">स्थाई</string>
   <string name="watchlist_expiry_dialog_one_week">1 सप्ताह</string>
@@ -1565,5 +1565,4 @@
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
-  <string name="back_button_content_description">वापस जाएँ</string>
 </resources>

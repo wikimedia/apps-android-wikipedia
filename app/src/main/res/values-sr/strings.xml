@@ -30,6 +30,8 @@
   <string name="search_hint">Претрага</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_languages">Претражи језике</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_icon_content_description">Претрага</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
@@ -1358,14 +1360,12 @@
   <string name="revision_rollback_success">Измене враћене.</string>
   <string name="revision_compare_button">Упореди</string>
   <string name="revision_compare_two_only">Могу се изабрати само две измене.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и пратећа страница за разговор су уклоњене са вашег списка надгледања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">недељу дана</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">месец дана</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и пратећа сзр су уклоњени са вашег списка надгледања.</string>
   <string name="watchlist_expiry_dialog_title">Одаберите период трајања надгледања</string>
   <string name="watchlist_expiry_dialog_permanent">Трајно</string>
   <string name="watchlist_expiry_dialog_one_week">недељу дана</string>
@@ -1666,5 +1666,4 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
   <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
-  <string name="back_button_content_description">Назад</string>
 </resources>

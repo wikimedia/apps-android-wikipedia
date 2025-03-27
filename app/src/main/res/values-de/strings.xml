@@ -29,6 +29,7 @@
 * Mirzali
 * MrBenjo
 * MuratTheTurkish
+* NoPartyThisTime
 * Pittigrilli
 * Rummskartoffel
 * SHaran (WMF)
@@ -61,6 +62,7 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
+  <string name="search_icon_content_description">Suchen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meine Listen filtern</string>
   <string name="nav_item_suggested_edits">Bearbeitungen</string>
   <string name="nav_item_more">Mehr</string>
@@ -1420,14 +1422,12 @@
   <string name="revision_rollback_success">Bearbeitungen rückgängig gemacht.</string>
   <string name="revision_compare_button">Vergleichen</string>
   <string name="revision_compare_two_only">Nur zwei Versionen können ausgewählt werden.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">für 1 Woche</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">für 1 Monat</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">für 3 Monate</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">für 6 Monate</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s und die Diskussionsseite wurde von deiner Beobachtungsliste entfernt.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">für 1 Woche</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">für 1 Monat</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">für 3 Monate</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">für 6 Monate</string>
   <string name="watchlist_expiry_dialog_title">Zeitraum auf der Beobachtungsliste auswählen</string>
   <string name="watchlist_expiry_dialog_permanent">Dauerhaft</string>
   <string name="watchlist_expiry_dialog_one_week">1 Woche</string>

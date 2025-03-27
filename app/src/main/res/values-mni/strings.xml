@@ -267,7 +267,7 @@
   <string name="thank_dialog_title_text">ꯃꯤꯌꯥꯝ ꯈꯪꯅ \'ꯊꯥꯒꯠꯄꯥ ꯋꯥꯍꯩ\' ꯊꯥꯈꯣ</string>
   <string name="thank_dialog_negative_button_text">ꯇꯣꯛꯊꯣꯛꯎ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ꯃꯇꯝꯆꯨꯞꯞꯒꯤ ꯑꯣꯢꯅ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ꯊꯥ ꯶ ꯀꯤ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ꯊꯥ ꯶ ꯀꯤ</string>
   <string name="watchlist_expiry_dialog_permanent">ꯃꯇꯝꯆꯨꯞꯄ</string>
   <string name="watchlist_expiry_dialog_one_week">ꯆꯩꯌꯣꯜ ꯱</string>
   <string name="watchlist_expiry_dialog_one_month">ꯊꯥ ꯱</string>

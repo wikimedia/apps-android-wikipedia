@@ -167,6 +167,7 @@ class LoginActivity : BaseActivity() {
         Prefs.readingListPagesDeletedIds = emptySet()
         Prefs.readingListsDeletedIds = emptySet()
         Prefs.tempAccountWelcomeShown = false
+        Prefs.tempAccountCreateDay = 0L
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false
