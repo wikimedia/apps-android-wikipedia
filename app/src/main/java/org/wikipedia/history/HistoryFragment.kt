@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -22,8 +24,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
@@ -40,6 +40,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
@@ -92,49 +93,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 onPagesDeleted()
             }
         }
-
-        binding.showCategoriesDialog.setOnClickListener {
-            val groupData = viewModel.groupedTitles
-            val recyclerView = RecyclerView(requireContext()).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL) // 2 columns, vertical stagger
-                adapter = ChipAdapter(groupData.toList()) // Convert groupData to a list
-            }
-
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Categories")
-                .setView(recyclerView)
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
-        }
     }
-
-    class ChipAdapter(private val data: List<Pair<String, Int>>) :
-        RecyclerView.Adapter<ChipAdapter.ChipViewHolder>() {
-
-        inner class ChipViewHolder(val chip: Chip) : RecyclerView.ViewHolder(chip)
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChipViewHolder {
-            val chip = Chip(parent.context).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-            }
-            return ChipViewHolder(chip)
-        }
-
-        override fun onBindViewHolder(holder: ChipViewHolder, position: Int) {
-            val (title, count) = data[position]
-            holder.chip.text = "$title ($count)"
-        }
-
-        override fun getItemCount(): Int = data.size
-    }
-
     private fun setUpScrollListener() {
         binding.historyList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -303,6 +262,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         init {
             val searchCardView = itemView.findViewById<WikiCardView>(R.id.search_card)
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
+            val categoriesDialogButton = itemView.findViewById<ImageView>(R.id.categories_dialog)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
@@ -324,6 +284,34 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 } else {
                     deleteSelectedPages()
                 }
+            }
+            categoriesDialogButton.setOnClickListener {
+                val groupData = viewModel.groupedTitles
+
+                var htmlContent = ""
+                groupData.forEach {
+                    htmlContent += "${it.first} <b> (${it.second})</b> <br>"
+                }
+
+                val textView = TextView(requireContext()).apply {
+                    text = StringUtil.fromHtml(htmlContent)
+                    textSize = 14f
+                }
+
+                val scrollView = ScrollView(requireContext()).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    setPadding(DimenUtil.roundedDpToPx(12f))
+                    addView(textView)
+                }
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.action_item_categories)
+                    .setView(scrollView)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
             }
             FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
