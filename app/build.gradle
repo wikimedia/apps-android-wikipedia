@@ -279,6 +279,8 @@ dependencies {
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
+    debugImplementation(libs.compose.debug.test)
+    debugImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {
