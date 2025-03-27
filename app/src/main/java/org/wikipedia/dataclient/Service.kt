@@ -172,7 +172,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=categories&gclshow=!hidden&gcllimit=100")
+    @GET(MW_API_PREFIX + "action=query&prop=categories&clshow=!hidden&cllimit=100")
     suspend fun getCategoriesProps(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&pilicense=any&generator=categorymembers&inprop=varianttitles|displaytitle&gcmprop=ids|title")
