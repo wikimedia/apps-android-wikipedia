@@ -242,7 +242,7 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
 
                 // Copy the metadata from the removed columns in the old HistoryEntry table into the
-                // new columns in the PageImage table.
+                // new columns in the PageImage table, for PageImage rows that already exist.
                 database.execSQL("UPDATE PageImage SET" +
                         " description = (SELECT HistoryEntry_old.description" +
                         "     FROM HistoryEntry_old" +
@@ -254,6 +254,17 @@ abstract class AppDatabase : RoomDatabase() {
                         "     WHERE PageImage.lang = HistoryEntry_old.lang" +
                         "     AND PageImage.namespace = HistoryEntry_old.namespace" +
                         "     AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
+
+                // For PageImage rows that don't already exist (i.e. HistoryEntries that didn't have
+                // a thumbnail), insert them and copy the other metadata.
+                database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
+                        " SELECT lang, namespace, apiTitle, description, COALESCE(timeSpentSec, 0) as timeSpentSec FROM" +
+                        " (SELECT lang, namespace, apiTitle, description, MAX(COALESCE(timeSpentSec, 0)) as timeSpentSec" +
+                        "     FROM HistoryEntry_old GROUP BY lang, namespace, apiTitle) AS HistoryUnique" +
+                        " WHERE NOT EXISTS (SELECT 1 FROM PageImage" +
+                        "     WHERE PageImage.lang = HistoryUnique.lang AND" +
+                        "         PageImage.namespace = HistoryUnique.namespace AND" +
+                        "         PageImage.apiTitle = HistoryUnique.apiTitle)")
             }
         }
 
