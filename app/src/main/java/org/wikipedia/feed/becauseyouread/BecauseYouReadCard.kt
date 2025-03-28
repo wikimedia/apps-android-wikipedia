@@ -11,7 +11,7 @@ class BecauseYouReadCard(val pageTitle: PageTitle,
                          itemCards: List<BecauseYouReadItemCard>) : ListCard<BecauseYouReadItemCard>(itemCards, pageTitle.wikiSite) {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(pageTitle, R.string.view_because_you_read_card_title)
+        return L10nUtil.getString(pageTitle, R.string.view_because_you_read_card_title)
     }
 
     override fun image(): Uri? {

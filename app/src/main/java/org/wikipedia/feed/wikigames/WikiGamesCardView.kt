@@ -10,7 +10,7 @@ import org.wikipedia.databinding.ViewWikiGamesCardBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.L10nUtil.getString
 import org.wikipedia.util.ResourceUtil
 
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context) {
@@ -44,16 +44,16 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 
     private fun setHeader(langCode: String, card: WikiGamesCard) {
         binding.viewWikiGamesCardHeader
-            .setTitle(L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_heading))
+            .setTitle(context.getString(langCode, R.string.on_this_day_game_feed_entry_card_heading))
             .setLangCode(langCode)
             .setCard(card)
     }
 
     private fun setTitle(langCode: String) {
-        binding.viewWikiGamesCardTitle.text = L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_title)
+        binding.viewWikiGamesCardTitle.text = context.getString(langCode, R.string.on_this_day_game_feed_entry_card_title)
     }
 
     private fun setSubTitle(langCode: String) {
-        binding.viewWikiGamesCardSubTitle.text = L10nUtil.getStringForArticleLanguage(langCode, R.string.on_this_day_game_feed_entry_card_subtitle)
+        binding.viewWikiGamesCardSubTitle.text = context.getString(langCode, R.string.on_this_day_game_feed_entry_card_subtitle)
     }
 }

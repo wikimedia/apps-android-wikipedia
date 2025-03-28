@@ -7,6 +7,8 @@ import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
+import org.wikipedia.util.L10nUtil.getResources
+import org.wikipedia.util.L10nUtil.getString
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
@@ -165,9 +167,9 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(cal.time, if (year < 0) "y GG" else "y")
     }
 
-    fun getYearDifferenceString(year: Int, languageCode: String): String {
+    fun getYearDifferenceString(context: Context, year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
-        val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.instance.resources
+        val targetResource = context.getResources(languageCode)
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
             when (diffInYears) {
@@ -177,7 +179,7 @@ object DateUtil {
                 else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
             }
         } else {
-            return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
+            return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
     }
