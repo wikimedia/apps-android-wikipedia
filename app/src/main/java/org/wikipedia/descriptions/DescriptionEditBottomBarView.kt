@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.databinding.ViewDescriptionEditReadArticleBarBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
@@ -26,7 +26,7 @@ class DescriptionEditBottomBarView constructor(context: Context, attrs: Attribut
     }
 
     fun setSummary(summaryForEdit: PageSummaryForEdit) {
-        setConditionalLayoutDirection(this, summaryForEdit.lang)
+        setLayoutDirectionByLang(summaryForEdit.lang)
         binding.viewArticleTitle.text = StringUtil.fromHtml(StringUtil.removeNamespace(summaryForEdit.displayTitle))
         if (summaryForEdit.thumbnailUrl.isNullOrEmpty()) {
             binding.viewImageThumbnail.visibility = GONE
