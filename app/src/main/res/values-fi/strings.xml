@@ -47,6 +47,9 @@
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_voice_search">Äänihaku</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
+  <string name="search_back_button_content_description">Takaisin</string>
+  <string name="search_clear_query_content_description">Tyhjennä kysely</string>
+  <string name="search_icon_content_description">Haku</string>
   <string name="filter_hint_filter_my_lists_and_articles">Suodata listani</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
@@ -1411,10 +1414,10 @@
   <string name="revision_compare_two_only">Vain kaksi versiota voidaan valita.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">yhdeksi viikoksi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">yhdeksi kuukaudeksi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">kolmeksi kuukaudeksi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">kuudeksi kuukaudeksi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">yhdeksi viikoksi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">yhdeksi kuukaudeksi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">kolmeksi kuukaudeksi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">kuudeksi kuukaudeksi</string>
   <string name="watchlist_expiry_dialog_title">Valitse tarkkailulistan tarkastelujakso</string>
   <string name="watchlist_expiry_dialog_permanent">Pysyvä</string>
   <string name="watchlist_expiry_dialog_one_week">Yksi viikko</string>
@@ -1752,6 +1755,5 @@
   <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Mikä tuli ensin?\" -triviapeliä Wikipedian Android-sovelluksessa %s</string>
   <string name="on_this_day_game_survey_q1">Kuinka tyytyväinen olit tähän peliin?</string>
   <string name="on_this_day_game_survey_q2">Olisitko kiinnostunut pelaamaan muita erilaisia Wikipedia-pelejä?</string>
-  <string name="search_back_button_content_description">Takaisin</string>
   <string name="about_screen_logo_accessibility_text">Wikipedian palapelipallon näköinen logo</string>
 </resources>

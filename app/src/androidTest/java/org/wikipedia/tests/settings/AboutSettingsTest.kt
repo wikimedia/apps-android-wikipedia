@@ -22,8 +22,9 @@ class AboutSettingsTest : BaseTest<SettingsActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         settingsRobot
+            .setComposeTestRule(composeTestRule)
             .clickAboutWikipediaAppOptionItem()
-            .activateDeveloperMode()
+            .activateDeveloperMode(context)
             .pressBack()
             .clickDeveloperMode()
             .assertWeAreInDeveloperSettings()

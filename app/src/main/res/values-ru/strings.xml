@@ -1459,8 +1459,8 @@
   <string name="menu_option_view_user_contributions">Посмотреть вклад</string>
   <string name="revision_diff_compare">Сравнить версии</string>
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
-  <string name="revision_diff_from">От:</string>
-  <string name="revision_diff_to">Поучат.:</string>
+  <string name="revision_diff_from">От версии:</string>
+  <string name="revision_diff_to">К версии:</string>
   <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_diff_lines_from_to">Строки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
