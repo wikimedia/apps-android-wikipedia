@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -38,6 +40,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
@@ -91,7 +94,6 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
         }
     }
-
     private fun setUpScrollListener() {
         binding.historyList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -260,6 +262,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         init {
             val searchCardView = itemView.findViewById<WikiCardView>(R.id.search_card)
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
+            val categoriesDialogButton = itemView.findViewById<ImageView>(R.id.categories_dialog)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
@@ -281,6 +284,34 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 } else {
                     deleteSelectedPages()
                 }
+            }
+            categoriesDialogButton.setOnClickListener {
+                val groupData = viewModel.groupedTitles
+
+                var htmlContent = ""
+                groupData.forEach {
+                    htmlContent += "${it.first} <b> (${it.second})</b> <br>"
+                }
+
+                val textView = TextView(requireContext()).apply {
+                    text = StringUtil.fromHtml(htmlContent)
+                    textSize = 14f
+                }
+
+                val scrollView = ScrollView(requireContext()).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    setPadding(DimenUtil.roundedDpToPx(12f))
+                    addView(textView)
+                }
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.action_item_categories)
+                    .setView(scrollView)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
             }
             FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
