@@ -52,6 +52,9 @@
   <string name="search_hint">Hint text for the search box. Should be as short as possible.</string>
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
+  <string name="search_back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
+  <string name="search_clear_query_content_description">Accessibility text informing users that this action clears the query.</string>
+  <string name="search_icon_content_description">Accessibility text informing users that this icon opens the search bar.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
@@ -1734,7 +1737,7 @@
   <string name="on_this_day_game_pause_negative">Negative action button of a dialog box for pausing the current game.</string>
   <string name="on_this_day_game_pause_positive">Positive action button of a dialog box for pausing the current game.</string>
   <string name="on_this_day_game_feed_entry_card_heading">header for the game feed entry card</string>
-  <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card</string>
+  <string name="on_this_day_game_feed_entry_card_title">title for the game feed entry card\n\nShould match {{msg-wm|Wikipedia-android-strings-on this day game title}}</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">subtitle for the game feed entry card</string>
   <string name="on_this_day_game_result">Message shown at the end of a game. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions.</string>
   <string name="on_this_day_game_next_in">Message indicating the time left until the next game. %s is replaced by the time.</string>
@@ -1746,7 +1749,7 @@
   <string name="on_this_day_game_stats_average_score">Label for the statistics that indicates the average score from previous games.</string>
   <string name="on_this_day_game_stats_streak">Label for the statistics that indicates the current streak of the gameplay.</string>
   <string name="on_this_day_game_result_subtitle">Label shown over the list of articles mentioned in the game.</string>
-  <string name="on_this_day_game_completed_message">Message displayed after the daily game has been completed.</string>
+  <string name="on_this_day_game_completed_message">Message displayed after the daily game has been completed.\n\n“Which came first?” should be translated as in {{msg-wm|Wikipedia-android-strings-on this day game title}}</string>
   <string name="on_this_day_game_menu_notifications">Menu label for setting up the game notifications.</string>
   <string name="on_this_day_game_menu_info">Menu label for visiting the information page of the game.</string>
   <string name="on_this_day_game_menu_feedback">Menu label for providing feedback on the game.</string>
@@ -1771,7 +1774,6 @@
   <string name="on_this_day_game_share_link_message">Text message when users share the game link. The \"%s\" symbol is replaced with the game link.</string>
   <string name="on_this_day_game_survey_q1">The first question in a survey about the game feature.</string>
   <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
-  <string name="search_back_button_content_description">Accessibility text informing users that this action naviagtes back.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
   <string name="search_clear_query_content_description">Accessibility text informing users that this action clears the query.</string>
   <string name="search_icon_content_description">Accessibility text informing users that this icon opens the search bar.</string>

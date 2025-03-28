@@ -14,6 +14,7 @@
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
+  <string name="search_icon_content_description">ڳولو</string>
   <string name="filter_hint_filter_my_lists_and_articles">میݙیاں تندیراں چھاݨو</string>
   <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>

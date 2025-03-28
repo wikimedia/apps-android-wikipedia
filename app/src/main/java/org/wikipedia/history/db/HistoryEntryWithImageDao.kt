@@ -10,15 +10,17 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
 
     // TODO: convert to PagingSource.
     // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN(SELECT displayTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY displayTitle) LatestEntries ON HistoryEntry.displayTitle = LatestEntries.displayTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN(SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     @RewriteQueriesToDropUnusedColumns
     suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
@@ -49,25 +51,22 @@ interface HistoryEntryWithImageDao {
     suspend fun filterHistoryItems(searchQuery: String): List<Any> {
         val list = mutableListOf<Any>()
         val entries = findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%")
-
-        for (i in entries.indices) {
+        val calendar = Calendar.getInstance(TimeZone.getDefault())
+        var prevDay = 0
+        entries.forEach { entry ->
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            val curTime: String = getDateString(entries[i].timestamp)
-            val prevTime: String
-            if (i > 0) {
-                prevTime = getDateString(entries[i - 1].timestamp)
-                if (curTime != prevTime) {
-                    list.add(curTime)
-                }
-            } else {
-                list.add(curTime)
+            calendar.time = entry.timestamp
+            val curDay = calendar[Calendar.YEAR] + calendar[Calendar.DAY_OF_YEAR]
+            if (prevDay == 0 || curDay != prevDay) {
+                list.add(getDateString(entry.timestamp))
             }
-            list.add(toHistoryEntry(entries[i]))
+            prevDay = curDay
+            list.add(toHistoryEntry(entry))
         }
         return list
     }
