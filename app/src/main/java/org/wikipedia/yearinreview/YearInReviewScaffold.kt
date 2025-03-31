@@ -56,7 +56,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import kotlin.math.absoluteValue
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
@@ -147,7 +146,7 @@ fun MainBottomBar(
         containerColor = WikipediaTheme.colors.paperColor,
         content = {
 
-            ConstraintLayout (
+            ConstraintLayout(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
@@ -183,7 +182,7 @@ fun MainBottomBar(
                     modifier = Modifier
                         .wrapContentHeight()
                         .wrapContentWidth()
-                        .constrainAs(pagination){
+                        .constrainAs(pagination) {
                             start.linkTo(parent.start)
                             end.linkTo(parent.end)
                             top.linkTo(parent.top)
@@ -257,7 +256,7 @@ fun OnboardingBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { /* TODO() */  }
+                    onClick = { /* TODO() */ }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -342,7 +341,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = { /* TODO() */  }) {
+                    onClick = { /* TODO() */ }) {
                     Icon(
                         painter = painterResource(R.drawable.baseline_info_24),
                         tint = WikipediaTheme.colors.primaryColor,
