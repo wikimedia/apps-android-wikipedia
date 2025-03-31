@@ -51,6 +51,7 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setTextDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -65,7 +66,6 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -175,7 +175,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             viewModel.editingAllowed = savedInstanceState.getBoolean(EXTRA_KEY_EDITING_ALLOWED, false)
             sectionTextModified = savedInstanceState.getBoolean(EXTRA_KEY_SECTION_TEXT_MODIFIED, false)
         }
-        L10nUtil.setConditionalTextDirection(binding.editSectionText, viewModel.pageTitle.wikiSite.languageCode)
+        binding.editSectionText.setTextDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         fetchSectionText()
 
