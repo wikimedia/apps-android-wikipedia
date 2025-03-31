@@ -59,7 +59,7 @@ class MediaRobot : BaseRobot() {
             return@apply
         }
 
-        verify.viewDoesNotExist(R.id.toolbar_container)
+        verify.viewWithIdIsNotVisible(R.id.toolbar_container)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
