@@ -143,8 +143,8 @@
   <string name="map_view_link_text">Näytä kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
-  <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; -lisenssillä.</string>
-  <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; -lisenssillä. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
+  <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaiset muokkauksesi peruuttamattomasti &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; -lisenssillä.</string>
+  <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaiset muokkauksesi peruuttamattomasti &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; -lisenssillä. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="edit_anon_warning">Laitteen IP-osoite tallentuu muutoshistoriaan. Suojaa yksityisyttäsi &lt;a href=\"https://#login\"&gt;kirjautumalla sisään&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
   <string name="langlinks_filter_hint">Haku</string>
@@ -589,7 +589,7 @@
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
   <string name="saved_list_empty_title">Tallennettuja sivuja ei vielä ole</string>
-  <string name="reading_lists_empty_message">Lisää artikkelit listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
+  <string name="reading_lists_empty_message">Lisää artikkeleita listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
   <string name="reading_list_empty">Tässä lukulistassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>
@@ -898,12 +898,12 @@
   <string name="description_edit_edit_image_caption">Muokkaa kuvatekstiä</string>
   <string name="description_edit_translate_image_caption">Käännä kuvateksti</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
-  <string name="description_edit_help_title">Ohje: Artikkelin kuvaukset</string>
+  <string name="description_edit_help_title">Ohje: Artikkelien kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
-  <string name="description_edit_license_notice">Muuttamalla artikkelin kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisää muokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
+  <string name="description_edit_license_notice">Muuttamalla artikkelin kuvausta, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_voice_input_description">Äänisyöte</string>
   <string name="description_edit_learn_more">Lue lisää artikkelien kuvauksista</string>
@@ -918,7 +918,7 @@
   <string name="description_is_in_different_language">Teksti näyttää olevan odottamattomalla kielellä.  Kielen tulee olla %s.</string>
   <string name="description_verification_notice">Varmista, että kuvauksesi on kirjoitettu kielellä %1$s. Voit jättää tämän varoituksen huomiotta, jos kirjoittamasi kuvaus on kirjoitettu kielellä %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Näytä ehdotetut kuvaukset</string>
-  <string name="description_edit_suggested_description_button_tooltip">Kokeile koneen ehdottamia artikkelikuvauksia</string>
+  <string name="description_edit_suggested_description_button_tooltip">Kokeile ohjelmiston ehdottamia artikkelikuvauksia</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
@@ -930,14 +930,14 @@
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
   <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
-  <string name="description_edit_tutorial_title_descriptions">Artikkelin kuvaukset</string>
+  <string name="description_edit_tutorial_title_descriptions">Artikkelien kuvaukset</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikkelin lyhyt kuvaus auttaa hahmottamaan aiheen nopeasti</string>
   <string name="description_edit_tutorial_keep_it_short">Pidä se lyhyenä</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Ohjelmiston ehdotukset</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Ehdotukset ovat koneen luomia vapaaehtoisten tai Wikimedia Foundationin luomien sijaan</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Ehdotukset ovat ohjelmiston luomia, eivät vapaaehtoisten tai Wikimedia Foundationin luomia</string>
   <string name="customize_toolbar_title">Mukauta työkalupalkkia</string>
   <string name="customize_toolbar_shortcut_description_text">Valitse ruudun alaosan palkkiin viisi toimintoa.</string>
   <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
@@ -962,10 +962,10 @@
   <string name="suggested_edits_review_image_caption">Esikatsele kuvatekstiä</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
   <string name="suggested_edits_no_description">Tällä tiedostolla ei ole kuvausta</string>
-  <string name="suggested_edits_license_notice">Lisäämällä kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
-  <string name="suggested_edits_image_caption_license_notice">Lisäämällä kuvan kuvatekstin hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="suggested_edits_license_notice">Lisäämällä kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="suggested_edits_image_caption_license_notice">Lisäämällä kuvan kuvatekstin hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
-  <string name="suggested_edits_task_add_description_title">Lisää artikkelin kuvaukset</string>
+  <string name="suggested_edits_task_add_description_title">Lisää artikkelien kuvauksia</string>
   <string name="suggested_edits_task_add_description_description">Kirjoita artikkeleita ilman kuvauksia</string>
   <string name="suggested_edits_task_image_caption_title">Lisää kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää puuttuvia lyhyitä kuvatekstejä kuviin</string>
@@ -1032,9 +1032,9 @@
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Esittele artikkeli lyhyesti auttaaksesi lukijoita ymmärtämään aiheen yhdellä silmäyksellä.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Muokkaustesi määrä tähän mennessä.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kuinka monta päivää peräkkäin olet tehnyt muokkauksia. Jos et ole muokannut vähään aikaan, se näyttää viimeisimmän muokkauspäivän.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kuinka monta päivää peräkkäin olet tehnyt muokkauksia. Jos et ole muokannut vähään aikaan, näytetään viimeisin muokkauspäiväsi.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Niiden sivujen katselumäärät, joita olet muokannut viimeisten 30 päivän aikana.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Kuinka monta kertaa muokkauksiasi palautettiin (toinen muokkaaja kumosi). Palautetut muokkaukset: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Perustuu siihen, kuinka monta kertaa muokkauksiasi palautettiin (toinen muokkaaja kumosi). Kumottuja muokkauksia: %d.</string>
   <string name="suggested_edits_paused_message">Ehdotetut muokkaukset on keskeytetty %1$s asti. Anteeksi %2$s, osa viimeaikaisista muokkauksistasi on palautettu.</string>
   <string name="suggested_edits_disabled_message">Ehdotetut muokkaukset on poistettu käytöstä. Pahoittelut %s, liian moni viimeaikaisista muokkauksistasi on kumottu.</string>
   <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
@@ -1074,7 +1074,7 @@
   <string name="suggested_edits_last_edited">Viimeksi muokattu</string>
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
   <string name="suggested_edits_task_new">Uusi</string>
-  <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Onko sinulla hetki aikaa jatkaa Wikipedian parantamista? Tarkista nämä muokkausehdotukset.</string>
@@ -1125,8 +1125,8 @@
     <item quantity="one">Lisäsit %d merkin</item>
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Artikkelin kuvat</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Lisää ehdotettuja kuvia Wikipedian artikkeleihin parantaaksesi ymmärrettävyyttä.</string>
+  <string name="suggested_edits_image_recommendations_task_title">Artikkelien kuvat</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Lisää ehdotettuja kuvia Wikipedian artikkeleihin parantaaksesi niiden ymmärrettävyyttä.</string>
   <string name="image_recommendation_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
   <string name="image_recommendation_tutorial">Opas</string>
   <string name="image_recommendation_accept">Kyllä</string>
@@ -1143,8 +1143,8 @@
   <string name="image_recommendation_reject_submit">Lähetä</string>
   <string name="image_recommendation_tooltip_main">Lisää puuttuvia kuvia artikkeleihin Ehdotetuissa muokkauksissa</string>
   <string name="image_recommendation_onboarding_1">Kuvat auttavat ihmisiä ymmärtämään, mutta monissa artikkeleissa ei ole niitä.</string>
-  <string name="image_recommendation_onboarding_2">Päätät, pitäisikö ehdotettu kuva sijoittaa Wikipedia-artikkeliin.</string>
-  <string name="image_recommendation_onboarding_3">Ehdotukset ovat koneellisesti luotuja ja sinä käytät harkintavaltaasi päättääksesi hyväksyäkö vaiko hylätä ne.</string>
+  <string name="image_recommendation_onboarding_2">Sinä päätät, tulisiko ehdotettu kuva sijoittaa Wikipedia-artikkeliin.</string>
+  <string name="image_recommendation_onboarding_3">Ehdotukset ovat ohjelmiston luomia, ja sinä käytät harkintavaltaasi päättääksesi hyväksyäkö vaiko hylätä ne.</string>
   <string name="image_recommendation_onboarding_4">Kuvat ovat Wikimedia Commonsista, joka on kokoelma vapaasti lisensoituja kuvia, joita käytetään Wikipediassa.</string>
   <string name="image_recommendation_tooltip_1">Tarkista tämä artikkeli ymmärtääksesi sen aiheen</string>
   <string name="image_recommendation_tooltip_2">Tarkista kuva ja siihen liittyvät tiedot</string>
@@ -1177,9 +1177,9 @@
   <string name="onboarding_get_started">Aloitetaan</string>
   <string name="onboarding_maybe_later">Ehkä myöhemmin</string>
   <string name="onboarding_explore_title">Tutki sisältöä uusin tavoin</string>
-  <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; mielenkiinnonkohteidesi mukaaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
+  <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syötettä mielenkiinnonkohteidesi mukaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
-  <string name="onboarding_reading_list_sync_text_v2">Lukulistalle voi lisätä myöhemmin luettavaksi artikkeleita, jotka toimivat myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data ja yksityisyys</string>
   <string name="onboarding_data_privacy_text">Uskomme, että sinun ei tarvitsisi antaa henkilötietoja osallistukasesi vapaan tiedon liikkeeseen. Tämän sovelluksen käytöstä kerätyt tiedot ovat anonyymejä. Lue lisää &lt;a href=\"#privacy\"&gt;tietosuojakäytännöstämme&lt;/a&gt; ja &lt;a href=\"#termsOfUse\"&gt;käyttöehdoistamme&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
@@ -1291,7 +1291,7 @@
   <string name="templates_description_missing_data">Tästä mallineesta puuttuu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, joten sen parametrit on &lt;a href=\"%2$s\"&gt;luotu automaattisesti&lt;/a&gt;. Tämän vuoksi mallineelta ja sen parametreilta puuttuvat kuvaukset.</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="main_tooltip_text">Hei %s, tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
+  <string name="main_tooltip_text">Hei %s, tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_text_v2">Tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="main_tooltip_watchlist_title">Tarkkailulista</string>
@@ -1450,7 +1450,7 @@
   <string name="watchlist_filter_user_intent_likely_problems">Todennäköisesti pahantahtoinen</string>
   <string name="watchlist_filter_user_intent_bad">Hyvin todennäköisesti pahantahtoinen</string>
   <string name="watchlist_filter_user_status_header">Käyttäjän rekisteröinti ja kokemus</string>
-  <string name="watchlist_filter_user_status_unregistered">Rekisteröimätön</string>
+  <string name="watchlist_filter_user_status_unregistered">Rekisteröitymätön</string>
   <string name="watchlist_filter_user_status_registered">Rekisteröitynyt</string>
   <string name="watchlist_filter_user_status_newcomers">Tulokkaat</string>
   <string name="watchlist_filter_user_status_learners">Oppijat</string>
@@ -1618,12 +1618,12 @@
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
-  <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
+  <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelin muokkauksia? Lisää artikkeli tarkkailulistallesi. Löydät sen \"Lisää\"-valikosta.</string>
   <string name="patroller_onboarding_two_talk_title">Keskustele</string>
   <string name="patroller_onboarding_two_talk_content">Keskustele muiden muokkaajien kanssa. Tallenna usein käytettyjä keskustelusivuviestejä tai käytä mallineita.</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
-  <string name="patroller_diff_tooltip_one">Vahinko ennustaa mikäli muokkaus aiheuttaa vahinkoa wikille.</string>
+  <string name="patroller_diff_tooltip_one">Vahinko ennustaa, onko muokkaus aiheuttanut vahinkoa wikille.</string>
   <string name="patroller_diff_tooltip_two">Aikomus ennustaa todennäköisyyttä sille, että muokkaus on tehty hyvässä aikomuksessa.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
   <string name="patroller_diff_menu_edit_history_title">Artikkelin muokkaushistoria</string>

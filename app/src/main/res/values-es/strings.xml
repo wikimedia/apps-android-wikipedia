@@ -106,6 +106,7 @@
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="search_hint_voice_search">Búsqueda por voz</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
+  <string name="search_icon_content_description">Buscar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mis listas</string>
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>

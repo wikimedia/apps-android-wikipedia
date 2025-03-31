@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
@@ -25,7 +26,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
-            L10nUtil.setConditionalLayoutDirection(this, viewModel.pageTitle.wikiSite.languageCode)
+            this.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
             setContent {
                 BaseTheme {
                     WiktionaryDialogScreen(viewModel) {

@@ -29,6 +29,7 @@ import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.page.PageTitle
@@ -37,7 +38,6 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil.shareImage
 import java.io.File
@@ -78,7 +78,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
         return binding.root
     }
 
