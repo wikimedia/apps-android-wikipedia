@@ -37,7 +37,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -105,19 +104,17 @@ fun YearInReviewScreen(
 
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
-
         if (totalPages > 1) {
             HorizontalPager(
                 verticalAlignment = Alignment.Top,
                 state = pagerState,
                 contentPadding = PaddingValues(0.dp),
             ) { page ->
-
-                val pageData = contentData[page]
-
-                screenContent(innerPadding, pageData)
+                screenContent(innerPadding, contentData[page])
             }
-        } else { screenContent(innerPadding, contentData[0]) }
+        } else {
+            screenContent(innerPadding, contentData[0])
+        }
     }
 }
 
@@ -148,7 +145,6 @@ fun MainBottomBar(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-
                     Icon(
                         painter = painterResource(R.drawable.ic_heart_24),
                         tint = WikipediaTheme.colors.destructiveColor,
@@ -229,7 +225,6 @@ fun YearInReviewScreenContent(
     screenData: YearInReviewScreenData,
 ) {
     val scrollState = rememberScrollState()
-    val context = LocalContext.current
     val gifAspectRatio = 3f / 2f
 
     Column(
@@ -244,7 +239,7 @@ fun YearInReviewScreenContent(
                 .fillMaxWidth()
         ) {
             AndroidView(
-                factory = {
+                factory = { context ->
                     ImageView(context).apply {
                         Glide.with(context)
                             .asGif()
@@ -264,7 +259,6 @@ fun YearInReviewScreenContent(
             modifier = Modifier
                 .padding(horizontal = 20.dp)
         ) {
-
             Row(horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
