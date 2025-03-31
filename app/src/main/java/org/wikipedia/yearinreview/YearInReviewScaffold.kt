@@ -1,9 +1,11 @@
 package org.wikipedia.yearinreview
 
 import android.widget.ImageView
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,11 +14,15 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
@@ -42,11 +48,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import kotlin.math.absoluteValue
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -91,7 +100,7 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (totalPages > 1) {
-                        IconButton(onClick = { Unit }) { // To add click functionality later
+                        IconButton(onClick = { /* TODO() */ }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -129,22 +138,31 @@ fun MainBottomBar(
 ) {
 
     BottomAppBar(
-        modifier = Modifier.border(
+        modifier = Modifier
+            .border(
             width = 1.dp,
             shape = RectangleShape,
             color = WikipediaTheme.colors.borderColor
         ),
         containerColor = WikipediaTheme.colors.paperColor,
         content = {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+
+            ConstraintLayout (
+                modifier = Modifier
+                    .fillMaxWidth()
             ) {
+                val (donateRow, pagination, navigateRight) = createRefs()
+
                 Row(
                     modifier = Modifier
-                        .clickable(onClick = { Unit }) // To add click functionality later
-                        .padding(start = 15.dp),
+                        .clickable(onClick = { /* TODO() */ })
+                        .padding(start = 15.dp)
+                        .wrapContentWidth()
+                        .constrainAs(donateRow) {
+                            start.linkTo(parent.start)
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                        },
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
@@ -160,8 +178,52 @@ fun MainBottomBar(
                         color = WikipediaTheme.colors.destructiveColor
                     )
                 }
+
+                Row(
+                    modifier = Modifier
+                        .wrapContentHeight()
+                        .wrapContentWidth()
+                        .constrainAs(pagination){
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                        },
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    val totalPaginationIndicators = totalPages
+
+                    repeat(totalPaginationIndicators) { iteration ->
+                        val color = if (pagerState.currentPage == iteration) {
+                            WikipediaTheme.colors.progressiveColor
+                        } else {
+                            WikipediaTheme.colors.inactiveColor
+                        }
+
+                        Box(
+                            modifier = Modifier
+                                .padding(2.dp)
+                                .clip(CircleShape)
+                                .background(color)
+                                .align(Alignment.CenterVertically)
+                                .size(paginationSizeGradient(
+                                    indicatorTotal = totalPaginationIndicators,
+                                    iteration = iteration,
+                                    pagerState = pagerState).dp)
+                        )
+                    }
+                }
                 if (pagerState.currentPage + 1 < totalPages) {
-                    IconButton(onClick = { onNavigationRightClick() }) {
+                    IconButton(
+                        onClick = { onNavigationRightClick() },
+                        modifier = Modifier
+                            .padding(0.dp)
+                            .constrainAs(navigateRight) {
+                                end.linkTo(parent.end)
+                                top.linkTo(parent.top)
+                                bottom.linkTo(parent.bottom)
+                            }
+                    ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
                             tint = WikipediaTheme.colors.primaryColor,
@@ -195,7 +257,7 @@ fun OnboardingBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { Unit } // To add click functionality later
+                    onClick = { /* TODO() */  }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -280,7 +342,7 @@ fun YearInReviewScreenContent(
                 )
 
                 IconButton(
-                    onClick = { Unit }) { // To add click functionality later
+                    onClick = { /* TODO() */  }) {
                     Icon(
                         painter = painterResource(R.drawable.baseline_info_24),
                         tint = WikipediaTheme.colors.primaryColor,
@@ -299,4 +361,19 @@ fun YearInReviewScreenContent(
             )
         }
     }
+}
+
+fun paginationSizeGradient(indicatorTotal: Int, iteration: Int, pagerState: PagerState): Int {
+
+    var paginationSize = 8
+
+    if (indicatorTotal > 3) {
+
+        when {
+            (iteration - pagerState.currentPage).absoluteValue <= 2 -> paginationSize = 8
+            (iteration - pagerState.currentPage).absoluteValue == 3 -> paginationSize = 4
+            else -> paginationSize = 2
+        }
+    }
+    return paginationSize
 }
