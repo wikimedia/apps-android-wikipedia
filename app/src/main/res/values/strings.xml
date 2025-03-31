@@ -1857,4 +1857,22 @@
     <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
     <string name="about_screen_logo_accessibility_text">Wikipedia puzzle globe logo</string>
+
+    <!-- Year In Review -->
+    <string name="year_in_review_learn_more">Learn More</string>
+    <string name="year_in_review_get_started">Get Started</string>
+    <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
+    <string name="year_in_review_navigate_left">Navigate Left</string>
+    <string name="year_in_review_share_icon">Share Icon</string>
+    <string name="year_in_review_heart_icon">Heart Icon</string>
+    <string name="year_in_review_navigate_right">Navigate Right</string>
+    <string name="year_in_review_donate">Donate</string>
+    <string name="year_in_review_information_icon">Information Icon</string>
+    <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
+    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_read_count_headline">You read %d articles this year</string>
+    <string name="year_in_review_read_count_bodytext">This year, you read %d articles, including Climate change, Dogs, and Cats. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
+    <string name="year_in_review_edit_count_headline">You edited Wikipedia %d times</string>
+    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
+
 </resources>
