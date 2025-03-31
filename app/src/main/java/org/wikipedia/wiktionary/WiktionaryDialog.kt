@@ -13,7 +13,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil
 
 class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
