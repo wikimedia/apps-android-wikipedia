@@ -48,13 +48,11 @@ import org.wikipedia.util.StringUtil
 @Composable
 fun LanguagesListScreen(
     modifier: Modifier = Modifier,
-    languages: List<AddLanguagesViewModel.LanguageListItem>,
-    isSiteInfoLoaded: Boolean = false,
+    languageListUiState: LanguageListUiState,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
     onListItemClick: (code: String) -> Unit,
     onLanguageSearched: (Boolean) -> Unit,
-    error: Throwable? = null,
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     val context = LocalContext.current
@@ -82,83 +80,91 @@ fun LanguagesListScreen(
                 }
             )
         },
-        floatingActionButton = {
-            if (error == null && !isSiteInfoLoaded) {
-                CircularProgressIndicator(
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        if (error != null) {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    // Add bottom padding when keyboard is visible for android 15 and above
-                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                ComposeWikiErrorParentView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    caught = error,
-                    errorClickEvents = wikiErrorClickEvents
-                )
-            }
-            return@Scaffold
-        }
-        if (languages.isEmpty()) {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    // Add bottom padding when keyboard is visible for android 15 and above
-                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                SearchEmptyView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    emptyTexTitle = context.getString(R.string.langlinks_no_match)
-                )
-            }
-
-            return@Scaffold
-        }
-
-        LazyColumn(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-        ) {
-            items(languages) { languageItem ->
-                if (languageItem.isHeader) {
-                    ListHeader(
+        when (languageListUiState) {
+            is LanguageListUiState.Error -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        // Add bottom padding when keyboard is visible for android 15 and above
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ComposeWikiErrorParentView(
                         modifier = Modifier
-                            .height(56.dp)
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .padding(bottom = 4.dp),
-                        title = languageItem.headerText
+                            .fillMaxWidth(),
+                        caught = languageListUiState.error,
+                        errorClickEvents = wikiErrorClickEvents
                     )
-                } else {
-                    val localizedLanguageName = StringUtil.capitalize(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageItem.code).orEmpty()) ?: ""
-                    LanguageListItemView(
+                }
+            }
+            is LanguageListUiState.Loading -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+                    CircularProgressIndicator(
                         modifier = Modifier
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = ripple(bounded = true),
-                                onClick = {
-                                    onListItemClick(languageItem.code)
-                                }
+                            .align(Alignment.BottomEnd)
+                            .padding(24.dp),
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            }
+            is LanguageListUiState.Success -> {
+                if (languageListUiState.languagesItems.isEmpty()) {
+                    Box(
+                        modifier = modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            // Add bottom padding when keyboard is visible for android 15 and above
+                            .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        SearchEmptyView(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                        )
+                    }
+                    return@Scaffold
+                }
+                LazyColumn(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                ) {
+                    items(languageListUiState.languagesItems) { languageItem ->
+                        if (languageItem.isHeader) {
+                            ListHeader(
+                                modifier = Modifier
+                                    .height(56.dp)
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp)
+                                    .padding(bottom = 4.dp),
+                                title = languageItem.headerText
                             )
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        localizedLanguageName = localizedLanguageName,
-                        subtitle = languageItem.canonicalName
-                    )
+                        } else {
+                            val localizedLanguageName = StringUtil.capitalize(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageItem.code).orEmpty()) ?: ""
+                            LanguageListItemView(
+                                modifier = Modifier
+                                    .clickable(
+                                        interactionSource = remember { MutableInteractionSource() },
+                                        indication = ripple(bounded = true),
+                                        onClick = {
+                                            onListItemClick(languageItem.code)
+                                        }
+                                    )
+                                    .fillMaxWidth()
+                                    .padding(16.dp),
+                                localizedLanguageName = localizedLanguageName,
+                                subtitle = languageItem.canonicalName
+                            )
+                        }
+                    }
                 }
             }
         }
