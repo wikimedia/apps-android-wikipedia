@@ -2,7 +2,6 @@ package org.wikipedia.yearinreview
 
 import android.widget.ImageView
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -42,7 +41,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -66,7 +66,6 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { totalPages })
-
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
@@ -109,7 +108,6 @@ fun YearInReviewScreen(
                 }
             )
         },
-
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
         if (totalPages > 1) {
@@ -132,23 +130,25 @@ fun MainBottomBar(
     pagerState: PagerState,
     totalPages: Int
 ) {
-
+    val topBorderColor = WikipediaTheme.colors.inactiveColor
     BottomAppBar(
         modifier = Modifier
-            .border(
-            width = 1.dp,
-            shape = RectangleShape,
-            color = WikipediaTheme.colors.borderColor
-        ),
+            .drawBehind {
+                val screenWidth = size.width
+                drawLine(
+                    start = Offset(x = 0f, 0f),
+                    end = Offset(x = screenWidth, 0f),
+                    strokeWidth = 3f,
+                    color = topBorderColor,
+                )
+            },
         containerColor = WikipediaTheme.colors.paperColor,
         content = {
-
             ConstraintLayout(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
                 val (donateRow, pagination, navigateRight) = createRefs()
-
                 Row(
                     modifier = Modifier
                         .clickable(onClick = { /* TODO() */ })
@@ -187,14 +187,12 @@ fun MainBottomBar(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     val totalPaginationIndicators = totalPages
-
                     repeat(totalPaginationIndicators) { iteration ->
                         val color = if (pagerState.currentPage == iteration) {
                             WikipediaTheme.colors.progressiveColor
                         } else {
                             WikipediaTheme.colors.inactiveColor
                         }
-
                         Box(
                             modifier = Modifier
                                 .padding(2.dp)
@@ -333,7 +331,6 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-
                 IconButton(
                     onClick = { /* TODO() */ }) {
                     Icon(
@@ -357,15 +354,12 @@ fun YearInReviewScreenContent(
 }
 
 fun paginationSizeGradient(indicatorTotal: Int, iteration: Int, pagerState: PagerState): Int {
-
     var paginationSize = 8
-
     if (indicatorTotal > 3) {
-
-        when {
-            (iteration - pagerState.currentPage).absoluteValue <= 2 -> paginationSize = 8
-            (iteration - pagerState.currentPage).absoluteValue == 3 -> paginationSize = 4
-            else -> paginationSize = 2
+        paginationSize = when {
+            (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
+            (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
+            else -> 2
         }
     }
     return paginationSize
