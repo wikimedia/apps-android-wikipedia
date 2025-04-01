@@ -27,8 +27,7 @@ class AddLanguagesListActivity : BaseActivity() {
                 LanguagesListScreen(
                     modifier = Modifier
                         .fillMaxSize(),
-                    languages = uiState.languagesItems,
-                    isSiteInfoLoaded = uiState.isSiteInfoLoaded,
+                    languageListUiState = uiState,
                     onBackButtonClick = {
                         finish()
                     },
@@ -49,7 +48,6 @@ class AddLanguagesListActivity : BaseActivity() {
                     onLanguageSearched = {
                         isLanguageSearched = it
                     },
-                    error = uiState.error,
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = { onBackPressed() },
                         retryClickListener = { viewModel.fetchAllData() }
