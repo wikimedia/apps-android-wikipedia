@@ -138,7 +138,7 @@ fun LanguagesListScreen(
                         .padding(paddingValues),
                 ) {
                     items(languageListUiState.languagesItems) { languageItem ->
-                        if (languageItem.isHeader) {
+                        if (languageItem.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier
                                     .height(56.dp)

@@ -52,7 +52,8 @@ class AddLanguagesViewModel : ViewModel() {
             val sites = SiteMatrix.getSites(siteMatrix)
             _siteInfoList.value = sites
 
-            // update the list
+            // isActive checks if the job is still active
+            // does not update the list if the coroutine has been cancelled
             if (isActive) {
                 updateSearchTerm(getCurrentSearchTerm(), siteInfoAvailable = true)
             }
@@ -60,10 +61,6 @@ class AddLanguagesViewModel : ViewModel() {
     }
 
     fun updateSearchTerm(term: String, siteInfoAvailable: Boolean = isSiteInfoLoaded()) {
-        if (_uiState.value is LanguageListUiState.Loading) {
-            return
-        }
-
         viewModelScope.launch {
             _uiState.value = LanguageListUiState.Success(
                 searchTerm = term,
@@ -140,7 +137,6 @@ class AddLanguagesViewModel : ViewModel() {
                         LanguageListItem(
                         code = "",
                         headerText = headerText,
-                        isHeader = true
                     )
                     )
                     first = false
@@ -166,7 +162,6 @@ data class LanguageListItem(
     val localizedName: String = "",
     val canonicalName: String = "",
     val headerText: String = "",
-    val isHeader: Boolean = false
 )
 
 sealed interface LanguageListUiState {
