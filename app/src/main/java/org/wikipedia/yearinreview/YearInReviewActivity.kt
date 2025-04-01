@@ -74,9 +74,7 @@ class YearInReviewActivity : ComponentActivity() {
     }
 
     companion object {
-
         fun newIntent(context: Context): Intent {
-
             return Intent(context, YearInReviewActivity::class.java)
         }
     }
