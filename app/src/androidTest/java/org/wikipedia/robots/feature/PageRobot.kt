@@ -83,7 +83,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun verifyLeadImageIsNotVisible() = apply {
-        verify.viewDoesNotExist(R.id.page_header_view)
+        verify.viewWithIdIsNotVisible(R.id.page_header_view)
     }
 
     fun swipePagerLeft() = apply {

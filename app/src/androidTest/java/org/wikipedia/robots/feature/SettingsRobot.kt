@@ -3,6 +3,9 @@ package org.wikipedia.robots.feature
 import android.content.Context
 import android.util.Log
 import androidx.annotation.IdRes
+import androidx.compose.ui.test.junit4.ComposeTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.performClick
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
@@ -26,6 +29,13 @@ import org.wikipedia.base.TestConfig
 import org.wikipedia.base.base.BaseRobot
 
 class SettingsRobot : BaseRobot() {
+
+    private lateinit var composeTestRule: ComposeTestRule
+
+    fun setComposeTestRule(rule: ComposeTestRule) = apply {
+        this.composeTestRule = rule
+        return@apply
+    }
 
     fun verifyTitle() = apply {
         verify.viewWithTextDisplayed("Settings")
@@ -73,12 +83,11 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun activateDeveloperMode() = apply {
+    fun activateDeveloperMode(context: Context) = apply {
         // Click 7 times to activate developer mode
         for (i in 1 until 8) {
-            onView(allOf(withId(R.id.about_logo_image),
-                childAtPosition(childAtPosition(withId(R.id.about_container), 0), 0)))
-                .perform(scrollTo(), click())
+            composeTestRule.onNodeWithContentDescription(context.getString(R.string.about_screen_logo_accessibility_text))
+                .performClick()
             delay(TestConfig.DELAY_MEDIUM)
         }
         delay(TestConfig.DELAY_MEDIUM)
@@ -167,7 +176,7 @@ class SettingsRobot : BaseRobot() {
     }
 
     fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
-        verify.textDoesNotExist(context.getString(R.string.feed_empty_message))
+        verify.textIsNotVisible(context.getString(R.string.feed_empty_message))
         delay(TestConfig.DELAY_SHORT)
     }
 

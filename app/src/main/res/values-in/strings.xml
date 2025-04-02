@@ -19,6 +19,7 @@
 * Gombang
 * Hanif Al Husaini
 * Hidayatsrf
+* ID Owly01
 * Iwan Novirion
 * Joseagush
 * Kenrick95
@@ -52,6 +53,9 @@
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_voice_search">Pencarian melalui suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
+  <string name="search_back_button_content_description">Kembali</string>
+  <string name="search_clear_query_content_description">Hapus kueri</string>
+  <string name="search_icon_content_description">Cari</string>
   <string name="filter_hint_filter_my_lists_and_articles">Saring daftar saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Selebihnya</string>
@@ -129,6 +133,7 @@
   <string name="menu_page_recently_viewed">Baru saja dilihat</string>
   <string name="menu_page_archive">Arsip</string>
   <string name="menu_long_press_open_page">Buka</string>
+  <string name="menu_long_press_open_in_places">Buka di Tempat</string>
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
   <string name="menu_text_select_define">Artikan</string>
@@ -153,12 +158,17 @@
   <string name="langlinks_your_wikipedia_languages">Bahasa Wikipedia Anda</string>
   <string name="menu_save_changes">Terbitkan perubahan</string>
   <string name="edit_saved_successfully">Suntingan telah diterbitkan!</string>
+  <string name="stub_article_edit_saved_successfully">Suntingan diterbitkan! Perubahan mungkin memerlukan waktu untuk muncul.</string>
   <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
   <string name="dialog_message_edit_failed_retry">Coba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batal</string>
   <string name="dialog_message_leaving_edit">Perubahan Anda belum diterbitkan. Anda yakin ingin meninggalkan halaman ini?</string>
   <string name="dialog_message_leaving_edit_leave">Tinggalkan</string>
   <string name="dialog_message_leaving_edit_stay">Tetap di sini</string>
+  <string name="dialog_confirm_delete_donation_history_title">Konfirmasi penghapusan</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ini hanya akan berlaku pada donasi yang dilakukan pada perangkat ini.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Hapus</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Batal</string>
   <string name="menu_show_toc">Daftar isi</string>
   <string name="search_no_results_found">Tidak ada yang ditemukan</string>
   <string name="search_reading_list_no_results">Tidak ada yang ditemukan di \"%s\"</string>
@@ -195,6 +205,8 @@
   <string name="logged_out_in_background_dialog">Anda telah keluar log dari Wikipedia. Apakah Anda ingin masuk log lagi?</string>
   <string name="logged_out_in_background_login">Masuk log</string>
   <string name="logged_out_in_background_cancel">Batal</string>
+  <string name="account_vanish_request_title">Hilangkan akun</string>
+  <string name="account_vanish_request_confirm_title">Peringatan penghapusan akun</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca tanpa koneksi.</string>
@@ -268,15 +280,15 @@
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/id</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -305,6 +317,8 @@
   <string name="edit_summary_tag_links">Penambahan pranala</string>
   <string name="edit_summary_tag_other">Lainnya</string>
   <string name="edit_summary_tag_other_hint">Cara lain Anda menyempurnakan halaman</string>
+  <string name="edit_summary_added_short_description">Tambahkan deskripsi singkat</string>
+  <string name="edit_summary_updated_short_description">Perbarui deskripsi singkat</string>
   <string name="edit_conflict_title">Konflik penyuntingan</string>
   <string name="edit_conflict_message">Halaman telah dimodifikasi oleh pengguna yang berbeda, dan bertentangan dengan suntingan Anda. Harap salin suntingan Anda, kembali dan segarkan halaman, lalu coba untuk menyunting lagi.</string>
   <string name="edit_notices">Pemberitahuan suntingan</string>
@@ -339,6 +353,8 @@
   <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Artikel pilihan hari ini:</string>
   <string name="widget_name_search">Penelusuran Wikipedia</string>
+  <string name="widget_description_search">Cara tercepat untuk mencari Wikipedia</string>
+  <string name="widget_description_featured_page">Artikel terbaik yang ditawarkan Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Tidak ada definisi yang ditemukan.</string>
   <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
   <string name="alpha_update_notification_text">Ketuk untuk mengunduh</string>
@@ -422,6 +438,7 @@
   <string name="link_preview_dialog_save_button">Simpan</string>
   <string name="link_preview_dialog_saved_button">Tersimpan</string>
   <string name="link_preview_dialog_share_button">Bagikan</string>
+  <string name="link_preview_stub_placeholder_text">Artikel ini adalah rintisan, yang artinya artikel ini tidak memiliki konten yang cukup untuk menghasilkan pratinjau. Namun, Anda dapat mengubahnya.</string>
   <string name="error_page_does_not_exist">Halaman ini tidak ada</string>
   <string name="error_user_page_does_not_exist">Wikipedia tidak memiliki &lt;a href=\"%1$s\"&gt;halaman pengguna&lt;/a&gt; dengan nama ini. Pada umumnya, halaman ini seharusnya dibuat dan disunting oleh &lt;b&gt;%2$s&lt;/b&gt;. Jika ragu, silakan periksa apakah \"%3$s\" sebenarnya ada atau tidak.</string>
   <string name="view_wiki_error_message_offline">Tidak dapat terhubung ke internet</string>
@@ -431,6 +448,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
   <string name="preference_summary_prefer_offline_content">Menghemat penggunaan data dengan memuat artikel yang tersedia secara luring daripada selalu memuat versi terbaru artikel</string>
+  <string name="preference_title_delete_local_donation_history">Hapus riwayat donasi lokal</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Cocokkan dengan tema sistem</string>
   <string name="page_footer_license_text">Konten tersedia di bawah $1 kecuali dinyatakan lain</string>
   <string name="empty_tab_title">Tab baru</string>
@@ -444,6 +462,20 @@
   <string name="error_blocked_footer">Anda bisa menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; lain untuk mendiskusikan pemblokiran Anda.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ubah suaikan bilah perkakas Anda</string>
   <string name="error_blocked_footer_no_blocker">Anda bisa menghubungi seorang &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; untuk mendiskusikan pembatasan Anda.</string>
+  <string name="temp_account_not_logged_in">Anda belum masuk log</string>
+  <string name="temp_account_anon_ip_dialog_body">Setelah Anda membuat suntingan, alamat IP Anda akan diasosiasikan dengan suntingan Anda.&lt;br/&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Masuk log&lt;/a&gt; atau &lt;a href=\"https://#createaccount\"&gt;buat akun&lt;/a&gt; untuk mendapatkan kredit pada suntingan selanjutnya dan untuk mengakses fitur-fitur lainnya.</string>
+  <string name="temp_account_anon_dialog_body">Setelah Anda membuat suntingan, sebuah &lt;b&gt;akun sementara&lt;/b&gt; akan dibuat untuk melindungi privasi Anda. &lt;a href=\"%1$s\"&gt;Pelajari lebih lanjut&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Log masuk&lt;/a&gt; atau &lt;a href=\"https://#createaccount\"&gt;buat akun&lt;/a&gt; untuk mendapatkan kredit untuk suntingan selanjutnya dan untuk mengakses fitur-fitur lainnya.</string>
+  <string name="temp_account_temp_dialog_body">Suntingan Anda akan diatribusikan pada %1$s. Alamat IP Anda akan terlihat oleh adminstrator.&lt;br /&gt;&lt;br /&gt;Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt; atau &lt;a href=\"https://#createaccount\"&gt;buat akun&lt;/a&gt;, suntingan Anda akan diatribusikan pada nama yang Anda pilih, ditambah dengan manfaat lainnya.</string>
+  <string name="temp_account_dialog_ok">Mengerti</string>
+  <string name="temp_account_using_title">Anda menggunakan akun sementara</string>
+  <string name="temp_account_dialog_discard">Buang perubahan dan masuk</string>
+  <plurals name="temp_account_created">
+    <item quantity="other">Akun sementara %1$s dibuat setelah suntingan Anda diterbitkan. Akun ini akan kedaluwarsa dalam %2$d hari.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="other">Akun ini akan kedaluwarsa dalam %d hari.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Anda tidak masuk log.&lt;/b&gt; Setelah Anda membuat suntingan, alamat IP Anda akan diasosiasikan dengan suntingan Anda.</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
@@ -760,8 +792,8 @@
   <string name="notifications_menu_uncheck_all">Hapus centang semua item</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Saringan jenis</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text">Semua wiki</string>
+  <string name="notifications_all_types_text">Semua tipe</string>
   <string name="notifications_menu_user_talk_page">Halaman pembicaraan %s</string>
   <string name="notifications_offline_disable_message">Fungsi ini tidak tersedia ketika luring.</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
@@ -811,6 +843,7 @@
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
   <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Tanggapan untuk menambahkan konten pada Wikipedia</string>
+  <string name="feed_item_type_places">Artikel terdekat berdasarkan lokasi saat ini</string>
   <string name="feed_empty_message">Tidak ada apa-apa di umpan Jelajahi Anda</string>
   <string name="feed_configure_onboarding_action">Sesuaikan</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Oke</string>
@@ -849,8 +882,8 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
@@ -1048,7 +1081,7 @@
   <string name="image_recommendation_reject">Tidak</string>
   <string name="image_recommendation_notsure">Tidak yakin</string>
   <string name="image_recommendation_reject_title">Alasan penolakan</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Jawaban Anda akan meningkatkan saran di masa mendatang.</string>
+  <string name="image_recommendation_reject_subtitle">Alasan penolakan bersifat anonim dan akan meningkatkan saran gambar di masa mendatang.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar tidak relevan</string>
   <string name="image_recommendation_reject_no_info">Tidak cukup informasi untuk memutuskan</string>
   <string name="image_recommendation_reject_offensive">Gambarnya menyinggung</string>
@@ -1105,6 +1138,7 @@
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
+  <string name="app_shortcuts_places">Tempat</string>
   <string name="on_this_day_card_title">Hari ini dalam sejarah</string>
   <string name="more_events_text">Lainnya pada hari ini</string>
   <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
@@ -1194,6 +1228,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Tinggi</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Sisipkan</string>
+  <string name="templates_search_hint">Cari templat</string>
+  <string name="templates_insert_button">Sisipkan</string>
+  <string name="templates_param_suggested_value">misalnya %s</string>
+  <string name="templates_param_optional_hint">%s (Opsional)</string>
+  <string name="templates_param_suggested_hint">%s (Disarankan)</string>
+  <string name="templates_learn_more_link">Pelajari lebih lanjut</string>
+  <string name="templates_description_incomplete">Templat dibuat oleh pengguna dan mungkin tidak memiliki deskripsi lengkap.</string>
+  <string name="templates_description_empty">Templat %s belum memiliki deskripsi.</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Masuk log / gabung ke Wikipedia</string>
   <string name="main_tooltip_text">Halo %s, tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
@@ -1314,10 +1356,10 @@
   <string name="revision_compare_two_only">Hanya dua revisi yang bisa dipilih.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selamanya</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">untuk 1 minggu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">untuk 1 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">untuk 3 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">untuk 6 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 minggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 bulan</string>
   <string name="watchlist_expiry_dialog_title">Pilih periode waktu Daftar Pantauan</string>
   <string name="watchlist_expiry_dialog_permanent">Selamanya</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
@@ -1568,5 +1610,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak puas</string>
   <string name="survey_dialog_cancel">Batal</string>
   <string name="survey_dialog_submit">Kirim</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Umpan balik dikirimkan.</string>
+  <string name="survey_dialog_submitted_snackbar">Umpan balik dikirimkan. Terima kasih!</string>
 </resources>

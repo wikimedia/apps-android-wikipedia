@@ -17,10 +17,10 @@ import org.wikipedia.databinding.ItemWiktionaryDefinitionWithExamplesBinding
 import org.wikipedia.databinding.ItemWiktionaryDefinitionsListBinding
 import org.wikipedia.databinding.ItemWiktionaryExampleBinding
 import org.wikipedia.dataclient.restbase.RbDefinition
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
@@ -43,7 +43,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(viewModel.selectedText)
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {

@@ -76,6 +76,7 @@
   <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_back_button_content_description">戻る</string>
+  <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
