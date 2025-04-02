@@ -35,6 +35,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.restbase.RbDefinition
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
 @Composable
@@ -45,9 +46,7 @@ fun WiktionaryDialogScreen(
     val uiState = viewModel.uiState.collectAsState().value
     WiktionaryDialogContent(
         title = StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(viewModel.selectedText)),
-        isLoading = uiState.isLoading,
-        error = uiState.error,
-        list = uiState.list,
+        wiktionaryDialogState = uiState,
         onDialogLinkClick = onDialogLinkClick
     )
 }
@@ -55,9 +54,7 @@ fun WiktionaryDialogScreen(
 @Composable
 fun WiktionaryDialogContent(
     title: String,
-    isLoading: Boolean = false,
-    error: Throwable? = null,
-    list: List<RbDefinition.Usage>,
+    wiktionaryDialogState: Resource<List<RbDefinition.Usage>>,
     onDialogLinkClick: (url: String) -> Unit
 ) {
     Column(
@@ -101,36 +98,36 @@ fun WiktionaryDialogContent(
             modifier = Modifier.fillMaxWidth()
         )
 
-        if (isLoading) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 128.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator(
-                    color = WikipediaTheme.colors.progressiveColor,
+        when (wiktionaryDialogState) {
+            is Resource.Loading -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 64.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(
+                        color = WikipediaTheme.colors.progressiveColor,
+                    )
+                }
+            }
+            is Resource.Error -> {
+                Text(
+                    text = stringResource(R.string.wiktionary_no_definitions_found),
+                    color = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.padding(top = 16.dp)
                 )
             }
-            return
-        }
-
-        if (error != null) {
-            Text(
-                text = stringResource(R.string.wiktionary_no_definitions_found),
-                color = WikipediaTheme.colors.primaryColor,
-                modifier = Modifier.padding(top = 16.dp)
-            )
-            return
-        }
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp)
-        ) {
-            list.forEach {
-                DefinitionList(it, onDialogLinkClick)
+            is Resource.Success -> {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
+                ) {
+                    wiktionaryDialogState.data.forEach {
+                        DefinitionList(it, onDialogLinkClick)
+                    }
+                }
             }
         }
     }
@@ -216,7 +213,7 @@ fun DefinitionWithExamples(
 fun WiktionaryDialogPreview() {
     WiktionaryDialogContent(
         title = "Lorem ipsum",
-        list = emptyList(),
+        wiktionaryDialogState = Resource.Success(emptyList()),
         onDialogLinkClick = {}
     )
 }
