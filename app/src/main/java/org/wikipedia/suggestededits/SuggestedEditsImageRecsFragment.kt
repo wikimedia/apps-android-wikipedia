@@ -54,8 +54,8 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.imageservice.ImageLoadListener
 
 class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvider, SuggestedEditsImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
@@ -244,8 +244,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         binding.imageView.loadImage(Uri.parse(thumbUrl),
-            cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
-                override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+            cropped = false, listener = object : ImageLoadListener {
+                override fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                     if (isAdded) {
                         var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
                         var color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.gray300))
@@ -271,7 +271,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                     }
                 }
 
-                override fun onImageFailed() {}
+                override fun onError(error: Throwable) {}
             })
 
         binding.imageCaptionText.text = viewModel.recommendation.images.first().metadata?.caption.orEmpty().trim()
