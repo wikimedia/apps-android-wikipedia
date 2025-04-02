@@ -58,13 +58,13 @@ data class PageProperties(
         isMainPage = pageSummary.type == PageSummary.TYPE_MAIN_PAGE,
         leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, DimenUtil.calculateLeadImageWidth()) },
         leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
-        leadImageWidth = pageSummary.thumbnailWidth,
-        leadImageHeight = pageSummary.thumbnailHeight,
+        leadImageWidth = pageSummary.thumbnail?.width ?: 0,
+        leadImageHeight = pageSummary.thumbnail?.height ?: 0,
         geo = pageSummary.coordinates,
         wikiBaseItem = pageSummary.wikiBaseItem,
         descriptionSource = pageSummary.descriptionSource
     )
 
     private val isLoggedInUserAllowedToEdit: Boolean
-        get() = protection?.run { AccountUtil.isMemberOf(editRoles) } ?: false
+        get() = protection?.run { AccountUtil.isMemberOf(editRoles) } == true
 }
