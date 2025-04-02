@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewSuggestedEditsCardBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), CardFooterView.Callback {
@@ -43,8 +43,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         binding.seCardsPager.adapter = SECardsPagerAdapter(card)
         binding.seCardsPager.offscreenPageLimit = 3
         binding.cardFooter.callback = this
-        L10nUtil.setConditionalLayoutDirection(binding.seCardsPager, WikipediaApp.instance.wikiSite.languageCode)
-        L10nUtil.setConditionalLayoutDirection(binding.seCardsIndicatorLayout, WikipediaApp.instance.wikiSite.languageCode)
+        binding.seCardsPager.setLayoutDirectionByLang(WikipediaApp.instance.wikiSite.languageCode)
+        binding.seCardsIndicatorLayout.setLayoutDirectionByLang(WikipediaApp.instance.wikiSite.languageCode)
         TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _, _ -> }.attach()
         binding.cardFooter.setFooterActionText(card.footerActionText(), null)
     }

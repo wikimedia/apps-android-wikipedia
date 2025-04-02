@@ -36,13 +36,13 @@ import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -77,7 +77,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(binding.contentContainer, callback().getLangCode())
+        binding.contentContainer.setLayoutDirectionByLang(callback().getLangCode())
         binding.cardItemErrorView.backClickListener = OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = OnClickListener {
             binding.cardItemProgressBar.visibility = VISIBLE

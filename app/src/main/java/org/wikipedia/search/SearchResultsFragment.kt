@@ -27,11 +27,11 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
@@ -104,7 +104,7 @@ class SearchResultsFragment : Fragment() {
     val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
 
     fun setLayoutDirection(langCode: String) {
-        setConditionalLayoutDirection(binding.searchResultsList, langCode)
+        binding.searchResultsList.setLayoutDirectionByLang(langCode)
     }
 
     fun startSearch(term: String?, force: Boolean) {

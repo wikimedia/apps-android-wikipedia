@@ -39,6 +39,7 @@
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_back_button_content_description">Повернутися</string>
   <string name="search_clear_query_content_description">Очистити запит</string>
+  <string name="search_icon_content_description">Пошук</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
