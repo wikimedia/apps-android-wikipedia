@@ -16,7 +16,6 @@ import androidx.core.content.getSystemService
 import androidx.core.net.toUri
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.FileUtil
@@ -71,7 +70,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
     private fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
                                        targetFileName: String, mimeType: String?) {
         context.getSystemService<DownloadManager>()?.let { downloadManager ->
-            val targetSubfolderName = WikipediaApp.instance.getString(R.string.app_name)
+            val targetSubfolderName = context.getString(R.string.app_name)
             val categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType)
             val targetFolder = File(categoryFolder, targetSubfolderName)
             val targetFile = File(targetFolder, targetFileName)

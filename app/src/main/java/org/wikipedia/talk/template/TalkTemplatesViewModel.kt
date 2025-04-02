@@ -57,8 +57,8 @@ class TalkTemplatesViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private fun loadSavedTemplates() {
         val langCode = pageTitle.wikiSite.languageCode
         for (i in savedMessagesSubjectList.indices) {
-            val subjectString = if (i == 0) "" else L10nUtil.getStringForArticleLanguage(langCode, savedMessagesSubjectList[i])
-            val bodyString = L10nUtil.getStringForArticleLanguage(langCode, savedMessagesBodyList[i])
+            val subjectString = if (i == 0) "" else L10nUtil.getString(langCode, savedMessagesSubjectList[i])
+            val bodyString = L10nUtil.getString(langCode, savedMessagesBodyList[i])
             val talkTemplate = TalkTemplate(0, 0, -1, savedMessagesTitleList[i], subjectString, bodyString)
             savedTemplatesList.add(talkTemplate)
         }
