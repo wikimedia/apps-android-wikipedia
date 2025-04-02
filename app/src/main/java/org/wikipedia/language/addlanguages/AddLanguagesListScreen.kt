@@ -44,11 +44,12 @@ import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UiState
 
 @Composable
 fun LanguagesListScreen(
     modifier: Modifier = Modifier,
-    languageListUiState: LanguageListUiState,
+    uiState: UiState<List<LanguageListItem>>,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
     onListItemClick: (code: String) -> Unit,
@@ -82,25 +83,8 @@ fun LanguagesListScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        when (languageListUiState) {
-            is LanguageListUiState.Error -> {
-                Box(
-                    modifier = modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        // Add bottom padding when keyboard is visible for android 15 and above
-                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    ComposeWikiErrorParentView(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        caught = languageListUiState.error,
-                        errorClickEvents = wikiErrorClickEvents
-                    )
-                }
-            }
-            is LanguageListUiState.Loading -> {
+        when (uiState) {
+            UiState.Loading -> {
                 Box(
                     modifier = modifier
                         .fillMaxSize()
@@ -114,8 +98,26 @@ fun LanguagesListScreen(
                     )
                 }
             }
-            is LanguageListUiState.Success -> {
-                if (languageListUiState.languagesItems.isEmpty()) {
+            is UiState.Error -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        // Add bottom padding when keyboard is visible for android 15 and above
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ComposeWikiErrorParentView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        caught = uiState.error,
+                        errorClickEvents = wikiErrorClickEvents
+                    )
+                }
+            }
+            is UiState.Success -> {
+                val languagesItems = uiState.data
+                if (languagesItems.isEmpty()) {
                     Box(
                         modifier = modifier
                             .fillMaxSize()
@@ -132,12 +134,13 @@ fun LanguagesListScreen(
                     }
                     return@Scaffold
                 }
+
                 LazyColumn(
                     modifier = modifier
                         .fillMaxSize()
                         .padding(paddingValues),
                 ) {
-                    items(languageListUiState.languagesItems) { languageItem ->
+                    items(languagesItems) { languageItem ->
                         if (languageItem.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier

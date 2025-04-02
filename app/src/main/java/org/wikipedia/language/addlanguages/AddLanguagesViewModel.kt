@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -14,6 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 
 class AddLanguagesViewModel : ViewModel() {
@@ -25,12 +25,12 @@ class AddLanguagesViewModel : ViewModel() {
     private val _siteInfoList = MutableStateFlow<List<SiteMatrix.SiteInfo>>(emptyList())
 
     // UI state exposed to Compose
-    private val _uiState = MutableStateFlow<LanguageListUiState>(LanguageListUiState.Loading)
-    val uiState: StateFlow<LanguageListUiState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<UiState<List<LanguageListItem>>>(UiState.Loading)
+    val uiState = _uiState.asStateFlow()
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
-        _uiState.value = LanguageListUiState.Error(throwable)
+        _uiState.value = UiState.Error(throwable)
     }
 
     private var fetchJob: Job? = null
@@ -43,11 +43,11 @@ class AddLanguagesViewModel : ViewModel() {
         fetchJob?.cancel()
 
         // Set to loading state
-        _uiState.value = LanguageListUiState.Loading
+        _uiState.value = UiState.Loading
 
         // fetch site matrix
         fetchJob = viewModelScope.launch(handler) {
-            _uiState.value = LanguageListUiState.Loading
+            _uiState.value = UiState.Loading
             val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
             val sites = SiteMatrix.getSites(siteMatrix)
             _siteInfoList.value = sites
@@ -55,38 +55,19 @@ class AddLanguagesViewModel : ViewModel() {
             // isActive checks if the job is still active
             // does not update the list if the coroutine has been cancelled
             if (isActive) {
-                updateSearchTerm(getCurrentSearchTerm(), siteInfoAvailable = true)
+                updateSearchTerm("")
             }
         }
     }
 
-    fun updateSearchTerm(term: String, siteInfoAvailable: Boolean = isSiteInfoLoaded()) {
+    fun updateSearchTerm(term: String) {
         viewModelScope.launch {
-            _uiState.value = LanguageListUiState.Success(
-                searchTerm = term,
-                languagesItems = getFilteredLanguageList(term, siteInfoAvailable),
-                isSiteInfoLoaded = siteInfoAvailable
-            )
-        }
-    }
-
-    private fun isSiteInfoLoaded(): Boolean {
-        return when (val state = _uiState.value) {
-            is LanguageListUiState.Success -> state.isSiteInfoLoaded
-            else -> false
-        }
-    }
-
-    private fun getCurrentSearchTerm(): String {
-        return when (val state = _uiState.value) {
-            is LanguageListUiState.Success -> state.searchTerm
-            else -> ""
+            _uiState.value = UiState.Success(getFilteredLanguageList(term))
         }
     }
 
     private fun getFilteredLanguageList(
         searchTerm: String,
-        siteInfoAvailable: Boolean
     ): List<LanguageListItem> {
         val results = mutableListOf<LanguageListItem>()
         val filter = StringUtils.stripAccents(searchTerm)
@@ -95,16 +76,14 @@ class AddLanguagesViewModel : ViewModel() {
             filter,
             suggestedLanguageCodes,
             WikipediaApp.instance.getString(R.string.languages_list_suggested_text),
-            results,
-            siteInfoAvailable
+            results
         )
 
         addFilteredLanguageListItems(
             filter,
             nonSuggestedLanguageCodes,
             WikipediaApp.instance.getString(R.string.languages_list_all_text),
-            results,
-            siteInfoAvailable
+            results
         )
 
         return results
@@ -115,7 +94,6 @@ class AddLanguagesViewModel : ViewModel() {
         codes: List<String>,
         headerText: String,
         results: MutableList<LanguageListItem>,
-        siteInfoAvailable: Boolean
     ) {
         var first = true
         for (code in codes) {
@@ -124,9 +102,7 @@ class AddLanguagesViewModel : ViewModel() {
             )
 
             // Only attempt to get canonical name if the site is available
-            val canonicalName = if (siteInfoAvailable) {
-                StringUtils.stripAccents(getCanonicalName(code))
-            } else ""
+            val canonicalName = StringUtils.stripAccents(getCanonicalName(code))
 
             if (filter.isEmpty() || code.contains(filter, true) ||
                 localizedName.contains(filter, true) ||
@@ -163,13 +139,3 @@ data class LanguageListItem(
     val canonicalName: String = "",
     val headerText: String = "",
 )
-
-sealed interface LanguageListUiState {
-    data object Loading : LanguageListUiState
-    data class Error(val error: Throwable) : LanguageListUiState
-    data class Success(
-        val searchTerm: String,
-        val languagesItems: List<LanguageListItem> = emptyList(),
-        val isSiteInfoLoaded: Boolean = false
-    ) : LanguageListUiState
-}

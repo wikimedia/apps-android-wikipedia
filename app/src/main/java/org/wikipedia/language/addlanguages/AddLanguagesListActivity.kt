@@ -27,7 +27,7 @@ class AddLanguagesListActivity : BaseActivity() {
                 LanguagesListScreen(
                     modifier = Modifier
                         .fillMaxSize(),
-                    languageListUiState = uiState,
+                    uiState = uiState,
                     onBackButtonClick = {
                         finish()
                     },
