@@ -104,7 +104,7 @@ fun ComposeLangLinksScreen(
                     ComposeWikiErrorParentView(
                         modifier = Modifier
                             .fillMaxWidth(),
-                        caught = uiState.throwable,
+                        caught = uiState.error,
                         errorClickEvents = wikiErrorClickEvents
                     )
                 }
