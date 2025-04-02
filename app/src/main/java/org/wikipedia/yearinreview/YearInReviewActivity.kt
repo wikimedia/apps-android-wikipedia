@@ -20,7 +20,14 @@ class YearInReviewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                val personalizedScreenList = listOf(readCountData, editCountData, readCountData, editCountData, readCountData)
+                /*
+                personalizedScreenList is temporarily populated with screens
+                for testing purposes. This is will adjusted in future iterations
+                 */
+                val personalizedScreenList = listOf(
+                    readCountData, editCountData, readCountData,
+                    editCountData, readCountData
+                )
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()

@@ -200,7 +200,7 @@ fun MainBottomBar(
                                 .background(color)
                                 .align(Alignment.CenterVertically)
                                 .size(paginationSizeGradient(
-                                    indicatorTotal = totalPaginationIndicators,
+                                    totalIndicators = totalPaginationIndicators,
                                     iteration = iteration,
                                     pagerState = pagerState).dp)
                         )
@@ -353,9 +353,9 @@ fun YearInReviewScreenContent(
     }
 }
 
-fun paginationSizeGradient(indicatorTotal: Int, iteration: Int, pagerState: PagerState): Int {
+fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
     var paginationSize = 8
-    if (indicatorTotal > 3) {
+    if (totalIndicators > 3) {
         paginationSize = when {
             (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
             (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
