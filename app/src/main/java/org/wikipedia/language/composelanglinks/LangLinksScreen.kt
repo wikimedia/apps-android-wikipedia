@@ -42,14 +42,13 @@ import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.UiState
 
 @Composable
 fun ComposeLangLinksScreen(
     modifier: Modifier = Modifier,
-    isLoading: Boolean = true,
-    langLinksItem: List<LangLinksViewModel.LangLinksItem>,
-    onLanguageSelected: (LangLinksViewModel.LangLinksItem) -> Unit,
-    error: Throwable? = null,
+    uiState: UiState<List<LangLinksItem>>,
+    onLanguageSelected: (LangLinksItem) -> Unit,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
@@ -77,77 +76,89 @@ fun ComposeLangLinksScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        if (error != null) {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    // Add bottom padding when keyboard is visible
-                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                ComposeWikiErrorParentView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    caught = error,
-                    errorClickEvents = wikiErrorClickEvents
-                )
-            }
-            return@Scaffold
-        }
-
-        if (langLinksItem.isEmpty()) {
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    // Add bottom padding when keyboard is visible
-                    .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                if (isLoading) {
+        when (uiState) {
+            is UiState.Loading -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        // Add bottom padding when keyboard is visible
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                    contentAlignment = Alignment.Center
+                ) {
                     CircularProgressIndicator(
                         color = WikipediaTheme.colors.progressiveColor
                     )
-                } else {
-                    SearchEmptyView(
+                }
+            }
+
+            is UiState.Error -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        // Add bottom padding when keyboard is visible
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ComposeWikiErrorParentView(
                         modifier = Modifier
                             .fillMaxWidth(),
-                        emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                        caught = uiState.throwable,
+                        errorClickEvents = wikiErrorClickEvents
                     )
                 }
             }
-            return@Scaffold
-        }
+            is UiState.Success -> {
+                val langLinksItem = uiState.data
+                if (langLinksItem.isEmpty()) {
+                    Box(
+                        modifier = modifier
+                            .fillMaxSize()
+                            .padding(paddingValues)
+                            // Add bottom padding when keyboard is visible
+                            .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        SearchEmptyView(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                        )
+                    }
+                    return@Scaffold
+                }
 
-        LazyColumn(
-            modifier = modifier
-                .padding(paddingValues)
-        ) {
-            items(langLinksItem) { item ->
-                if (item.isHeader) {
-                    ListHeader(
-                        modifier = Modifier
-                            .height(56.dp)
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .padding(bottom = 4.dp),
-                        title = item.headerText,
-                    )
-                } else {
-                    LangLinksItemView(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = ripple(bounded = true),
-                                onClick = { onLanguageSelected(item) }
-                            ),
-                        localizedLanguageName = item.localizedName,
-                        canonicalName = item.canonicalName,
-                        articleName = item.articleName
-                    )
+                LazyColumn(
+                    modifier = modifier
+                        .padding(paddingValues)
+                ) {
+                    items(langLinksItem) { item ->
+                        if (item.isHeader) {
+                            ListHeader(
+                                modifier = Modifier
+                                    .height(56.dp)
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp)
+                                    .padding(bottom = 4.dp),
+                                title = item.headerText,
+                            )
+                        } else {
+                            LangLinksItemView(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                                    .clickable(
+                                        interactionSource = remember { MutableInteractionSource() },
+                                        indication = ripple(bounded = true),
+                                        onClick = { onLanguageSelected(item) }
+                                    ),
+                                localizedLanguageName = item.localizedName,
+                                canonicalName = item.canonicalName,
+                                articleName = item.articleName
+                            )
+                        }
+                    }
                 }
             }
         }

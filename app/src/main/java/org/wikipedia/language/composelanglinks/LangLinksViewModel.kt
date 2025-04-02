@@ -9,9 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
@@ -25,6 +23,7 @@ import org.wikipedia.language.AppLanguageState
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UiState
 
 class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
@@ -35,8 +34,8 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private var appLanguageEntries = listOf<PageTitle>()
     private var variantLangToUpdate = mutableSetOf<String>()
 
-    private val _uiState = MutableStateFlow(LangLinksUiState())
-    val uiState: StateFlow<LangLinksUiState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow<UiState<List<LangLinksItem>>>(UiState.Loading)
+    val uiState = _uiState.asStateFlow()
     val historyEntryId = savedStateHandle.get<Long>(Constants.ARG_NUMBER) ?: -1
 
     init {
@@ -44,13 +43,9 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun fetchAllData() {
-        _uiState.update { it.copy(isLoading = true) }
+        _uiState.value = UiState.Loading
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.update {
-                it.copy(
-                    error = throwable
-                )
-            }
+            _uiState.value = UiState.Error(throwable)
         }) {
             val langLinksDeferred = async { fetchLangLinks() }
             val siteInfoDeferred = async { fetchSiteInfo() }
@@ -173,13 +168,7 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 items.addAll(nonDuplicateEntries.map { createLangLinksItem(it) })
             }
         }
-
-        _uiState.update {
-            it.copy(
-                langLinksItems = items,
-                isLoading = false
-            )
-        }
+        _uiState.value = UiState.Success(items)
     }
 
     private fun createLangLinksItem(pageTitle: PageTitle): LangLinksItem {
@@ -266,24 +255,15 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
     }
-
-    data class LangLinksItem(
-        val pageTitle: PageTitle? = null,
-        val articleName: String = "",
-        val languageCode: String = "",
-        val localizedName: String = "",
-        var canonicalName: String? = null,
-        val subtitle: String = "",
-        val headerText: String = "",
-        val isHeader: Boolean = false
-    )
-
-    data class LangLinksUiState(
-        val searchTerm: String = "",
-        val isSearchActive: Boolean = false,
-        val langLinksItems: List<LangLinksItem> = emptyList(),
-        val filteredItems: List<LangLinksItem> = emptyList(),
-        val isLoading: Boolean = false,
-        val error: Throwable? = null,
-    )
 }
+
+data class LangLinksItem(
+    val pageTitle: PageTitle? = null,
+    val articleName: String = "",
+    val languageCode: String = "",
+    val localizedName: String = "",
+    var canonicalName: String? = null,
+    val subtitle: String = "",
+    val headerText: String = "",
+    val isHeader: Boolean = false
+)

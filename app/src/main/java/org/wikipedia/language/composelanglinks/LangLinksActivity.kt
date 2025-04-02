@@ -26,9 +26,7 @@ class LangLinksActivity : BaseActivity() {
             BaseTheme {
                 val uiState by viewModel.uiState.collectAsState()
                 ComposeLangLinksScreen(
-                    isLoading = uiState.isLoading,
-                    langLinksItem = uiState.langLinksItems,
-                    error = uiState.error,
+                    uiState = uiState,
                     onLanguageSelected = { item ->
                         val pageTitle = item.pageTitle ?: return@ComposeLangLinksScreen
                         WikipediaApp.instance.languageState
