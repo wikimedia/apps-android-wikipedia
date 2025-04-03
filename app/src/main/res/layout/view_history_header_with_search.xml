@@ -36,6 +36,18 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/categories_dialog"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:contentDescription="@string/action_item_categories"
+            android:focusable="true"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_category_black_24dp"
+            app:tint="?attr/progressive_color" />
+
+        <ImageView
             android:id="@+id/history_filter"
             android:layout_width="48dp"
             android:layout_height="48dp"
