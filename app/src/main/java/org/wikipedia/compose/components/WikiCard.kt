@@ -3,6 +3,7 @@ package org.wikipedia.compose.components
 import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -16,6 +17,10 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun WikiCard(
     modifier: Modifier = Modifier,
     elevation: Dp = 8.dp,
+    colors: CardColors = CardDefaults.cardColors(
+        containerColor = WikipediaTheme.colors.paperColor,
+        contentColor = WikipediaTheme.colors.paperColor
+    ),
     border: BorderStroke? = null,
     content: @Composable () -> Unit
 ) {
@@ -31,10 +36,7 @@ fun WikiCard(
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = cardElevation),
-        colors = CardDefaults.cardColors(
-            containerColor = WikipediaTheme.colors.paperColor,
-            contentColor = WikipediaTheme.colors.paperColor
-        ),
+        colors = colors,
         border = border,
     ) {
         content()
