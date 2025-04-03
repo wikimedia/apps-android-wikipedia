@@ -24,7 +24,10 @@ import org.wikipedia.views.NonEmptyValidator
 
 class ResetPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
+
     private lateinit var firstStepToken: String
+    private var uiPromptResult: LoginResult? = null
+
     private lateinit var userName: String
     private var loginClient: LoginClient? = null
     private val loginCallback = LoginCallback()
@@ -94,13 +97,20 @@ class ResetPasswordActivity : BaseActivity() {
     private fun doLogin() {
         val password = getText(binding.resetPasswordInput)
         val retypedPassword = getText(binding.resetPasswordRepeat)
-        val twoFactorCode = binding.login2faText.text.toString()
+        val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
         if (loginClient == null) {
             loginClient = LoginClient()
         }
-        loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password,
-                retypedPassword, twoFactorCode, firstStepToken, loginCallback)
+        if (uiPromptResult == null) {
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password,
+                retypedPassword, null, null, firstStepToken, loginCallback)
+        } else {
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword,
+                if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                firstStepToken, loginCallback)
+        }
     }
 
     private inner class LoginCallback : LoginClient.LoginCallback {
@@ -119,11 +129,15 @@ class ResetPasswordActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String?) {
+        override fun uiPrompt(result: LoginResult, caught: Throwable, token: String?) {
             showProgressBar(false)
             firstStepToken = token.orEmpty()
+            uiPromptResult = result
+            binding.login2faText.hint = getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
             binding.login2faText.visibility = View.VISIBLE
+            binding.login2faText.editText?.setText("")
             binding.login2faText.requestFocus()
+            DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
         }
 

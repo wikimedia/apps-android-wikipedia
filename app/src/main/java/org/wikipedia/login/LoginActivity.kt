@@ -35,7 +35,10 @@ import org.wikipedia.views.NonEmptyValidator
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginSource: String
+
+    private var uiPromptResult: LoginResult? = null
     private var firstStepToken: String? = null
+
     private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
     private var shouldLogLogin = true
@@ -68,7 +71,7 @@ class LoginActivity : BaseActivity() {
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
 
         // Don't allow user to attempt login until they've put in a username and password
-        NonEmptyValidator(binding.loginButton, binding.loginUsernameText, binding.loginPasswordInput)
+        NonEmptyValidator(binding.loginButton, binding.loginUsernameText, binding.loginPasswordInput, binding.login2faText)
         binding.loginPasswordInput.editText?.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 validateThenLogin()
@@ -180,12 +183,15 @@ class LoginActivity : BaseActivity() {
         val password = getText(binding.loginPasswordInput)
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
-        if (twoFactorCode.isNotEmpty() && !firstStepToken.isNullOrEmpty()) {
+
+        if (uiPromptResult == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password,
-                    null, twoFactorCode, firstStepToken!!, loginCallback)
+                null, null, null, null, loginCallback)
         } else {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password,
-                null, null, null, loginCallback)
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, null,
+                if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                firstStepToken, loginCallback)
         }
     }
 
@@ -203,10 +209,13 @@ class LoginActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String?) {
+        override fun uiPrompt(result: LoginResult, caught: Throwable, token: String?) {
             showProgressBar(false)
             firstStepToken = token
+            uiPromptResult = result
+            binding.login2faText.hint = getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
             binding.login2faText.visibility = View.VISIBLE
+            binding.login2faText.editText?.setText("")
             binding.login2faText.requestFocus()
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             FeedbackUtil.showError(this@LoginActivity, caught)

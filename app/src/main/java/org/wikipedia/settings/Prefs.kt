@@ -221,6 +221,10 @@ object Prefs {
         PrefsIoUtil.setInt(R.string.preference_key_reading_list_page_sort_mode, sortMode)
     }
 
+    var loginForceEmailAuth
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
+
     val isMemoryLeakTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_memory_leak_test, false)
 
