@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.metrics.performance.PerformanceMetricsState
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BackPressedHandler
@@ -132,11 +133,15 @@ class FeedFragment : Fragment(), BackPressedHandler {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(requireActivity().window.decorView)
+        metricsStateHolder.state?.putState("screen", this.javaClass.simpleName)
+    }
     override fun onResume() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
-
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
         // https://issuetracker.google.com/issues/188096921
