@@ -28,6 +28,7 @@ kotlinxSerializationJson = "1.8.1"
 kspPlugin = "2.1.20-1.0.32"
 leakCanaryVersion = "2.14"
 material = "1.12.0"
+metricsPerformance = "1.0.0-beta02"
 metricsVersion = "2.9"
 mlKitVersion = "17.0.6"
 mockitoVersion = "5.2.0"
@@ -55,6 +56,7 @@ android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSd
 android-plugin-annotation-v9 = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "androidPluginAnnotationV9" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-metrics-performance = { module = "androidx.metrics:metrics-performance", version.ref = "metricsPerformance" }
 androidx-orchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestrator" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
