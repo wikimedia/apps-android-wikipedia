@@ -134,7 +134,7 @@ fun ComposeLangLinksScreen(
                         .padding(paddingValues)
                 ) {
                     items(langLinksItem) { item ->
-                        if (item.isHeader) {
+                        if (item.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier
                                     .height(56.dp)
@@ -144,19 +144,23 @@ fun ComposeLangLinksScreen(
                                 title = item.headerText,
                             )
                         } else {
-                            LangLinksItemView(
+                            Box(
                                 modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(16.dp)
                                     .clickable(
                                         interactionSource = remember { MutableInteractionSource() },
                                         indication = ripple(bounded = true),
                                         onClick = { onLanguageSelected(item) }
-                                    ),
-                                localizedLanguageName = item.localizedName,
-                                canonicalName = item.canonicalName,
-                                articleName = item.articleName
-                            )
+                                    )
+                            ) {
+                                LangLinksItemView(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    localizedLanguageName = item.localizedName,
+                                    canonicalName = item.canonicalName,
+                                    articleName = item.articleName
+                                )
+                            }
                         }
                     }
                 }

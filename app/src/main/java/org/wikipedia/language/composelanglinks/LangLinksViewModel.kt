@@ -11,7 +11,6 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -46,9 +45,15 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         _uiState.value = UiState.Loading
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = UiState.Error(throwable)
-        }) {
-            val langLinksDeferred = async { fetchLangLinks() }
-            val siteInfoDeferred = async { fetchSiteInfo() }
+        } + Dispatchers.IO) {
+            val langLinksDeferred = async {
+                val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
+                response.query!!.langLinks().toMutableList()
+            }
+            val siteInfoDeferred = async {
+                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+                SiteMatrix.getSites(siteMatrix)
+            }
 
             val langLinks = langLinksDeferred.await()
             siteInfoList = siteInfoDeferred.await()
@@ -74,26 +79,12 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    private suspend fun fetchLangLinks(): MutableList<PageTitle> {
-        return withContext(Dispatchers.IO) {
-            val response = ServiceFactory.get(pageTitle.wikiSite).getLangLinks(pageTitle.prefixedText)
-            response.query!!.langLinks().toMutableList()
-        }
-    }
-
-    private suspend fun fetchSiteInfo(): List<SiteMatrix.SiteInfo> {
-        return withContext(Dispatchers.IO) {
-            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-            SiteMatrix.getSites(siteMatrix)
-        }
-    }
-
     fun onSearchQueryChange(searchQuery: String) {
         updateLanguageItems(searchQuery)
     }
 
     private suspend fun fetchLangVariantLinks(langCode: String, title: String) {
-        val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+        val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(titles = title)
         response.query?.firstPage()?.varianttitles?.let { variantMap ->
             val currentItems = originalLanguageEntries.toMutableList()
             currentItems.forEach { item ->
@@ -150,7 +141,6 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             if (appLangEntries.isNotEmpty()) {
                 items.add(
                     LangLinksItem(
-                        isHeader = true,
                         headerText = app.getString(R.string.langlinks_your_wikipedia_languages)
                     )
                 )
@@ -161,7 +151,6 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             if (nonDuplicateEntries.isNotEmpty()) {
                 items.add(
                     LangLinksItem(
-                        isHeader = true,
                         headerText = app.getString(R.string.languages_list_all_text)
                     )
                 )
@@ -185,16 +174,6 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             localizedName = localizedName,
             canonicalName = canonicalName,
         )
-    }
-
-    fun canFetchLanguageLinksVariant(pageTitle: PageTitle?): Boolean {
-        if (pageTitle == null) return false
-        val langCode = app.languageState.getDefaultLanguageCode(pageTitle.wikiSite.languageCode)
-        if (langCode != null && variantLangToUpdate.contains(langCode)) {
-            variantLangToUpdate.remove(langCode)
-            return true
-        }
-        return false
     }
 
     private fun updateLanguageEntriesSupported(languageEntries: MutableList<PageTitle>) {
@@ -264,6 +243,5 @@ data class LangLinksItem(
     val localizedName: String = "",
     var canonicalName: String? = null,
     val subtitle: String = "",
-    val headerText: String = "",
-    val isHeader: Boolean = false
+    val headerText: String = ""
 )
