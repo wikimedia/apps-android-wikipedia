@@ -38,7 +38,7 @@ class LoginClient {
                     }
                     cb.success(loginResult)
                 } else if (LoginResult.STATUS_UI == loginResult.status) {
-                    val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text
+                    val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
                     when (loginResult) {
                         is LoginOAuthResult -> cb.twoFactorPrompt(LoginFailedException(parsedMessage), loginToken)
                         is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
