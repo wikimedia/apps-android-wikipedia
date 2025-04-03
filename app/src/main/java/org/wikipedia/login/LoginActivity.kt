@@ -208,6 +208,7 @@ class LoginActivity : BaseActivity() {
             firstStepToken = token
             binding.login2faText.visibility = View.VISIBLE
             binding.login2faText.requestFocus()
+            DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             FeedbackUtil.showError(this@LoginActivity, caught)
         }
 
