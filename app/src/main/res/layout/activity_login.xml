@@ -56,8 +56,10 @@
                 android:id="@+id/login_2fa_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="@string/login_2fa_hint"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <org.wikipedia.views.PlainPasteEditText
                     style="?android:textAppearanceMedium"
