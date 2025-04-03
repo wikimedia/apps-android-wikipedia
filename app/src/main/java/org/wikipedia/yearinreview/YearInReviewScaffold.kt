@@ -1,6 +1,9 @@
 package org.wikipedia.yearinreview
 
 import android.widget.ImageView
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -37,6 +40,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,6 +49,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -82,7 +87,7 @@ fun YearInReviewScreen(
                 navigationIcon = {
                     IconButton(onClick = {
                         if (totalPages > 1 && pagerState.currentPage != 0) {
-                            coroutineScope.launch { pagerState.scrollToPage(pagerState.currentPage - 1) }
+                            coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.Onboarding.name)
@@ -168,7 +173,8 @@ fun MainBottomBar(
                         contentDescription = stringResource(R.string.year_in_review_heart_icon),
                     )
 
-                    Text(text = stringResource(R.string.year_in_review_donate),
+                    Text(
+                        text = stringResource(R.string.year_in_review_donate),
                         style = WikipediaTheme.typography.h3,
                         color = WikipediaTheme.colors.destructiveColor
                     )
@@ -193,16 +199,27 @@ fun MainBottomBar(
                         } else {
                             WikipediaTheme.colors.inactiveColor
                         }
+
+                        val colorTransition = animateColorAsState(
+                            targetValue = color,
+                            animationSpec = tween(durationMillis = 500),
+                            label = "color transition"
+                        )
+                        val sizeTransition: Dp by animateDpAsState(
+                            targetValue = paginationSizeGradient(
+                                totalIndicators = totalPaginationIndicators,
+                                iteration = iteration,
+                                pagerState = pagerState).dp,
+                            animationSpec = tween(durationMillis = 500),
+                            label = "size transition")
+
                         Box(
                             modifier = Modifier
                                 .padding(2.dp)
                                 .clip(CircleShape)
-                                .background(color)
+                                .background(colorTransition.value)
                                 .align(Alignment.CenterVertically)
-                                .size(paginationSizeGradient(
-                                    totalIndicators = totalPaginationIndicators,
-                                    iteration = iteration,
-                                    pagerState = pagerState).dp)
+                                .size(sizeTransition)
                         )
                     }
                 }
@@ -354,13 +371,13 @@ fun YearInReviewScreenContent(
 }
 
 fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
-    var paginationSize = 8
+    var paginationIndicatorSize = 8
     if (totalIndicators > 3) {
-        paginationSize = when {
+        paginationIndicatorSize = when {
             (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
             (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
             else -> 2
         }
     }
-    return paginationSize
+    return paginationIndicatorSize
 }
