@@ -90,6 +90,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_back_button_content_description">Назад</string>
   <string name="search_clear_query_content_description">Очистить запрос</string>
+  <string name="search_icon_content_description">Поиск</string>
   <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
@@ -206,6 +207,7 @@
   <string name="dialog_message_leaving_edit_leave">Уйти</string>
   <string name="dialog_message_leaving_edit_stay">Остаться</string>
   <string name="dialog_confirm_delete_donation_history_title">Подтвердите удаление</string>
+  <string name="dialog_confirm_delete_donation_history_message">Это будет применяться только к пожертвованиям, сделанным с этого устройства.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Удалить</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Отмена</string>
   <string name="menu_show_toc">Содержание</string>
@@ -498,6 +500,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
+  <string name="preference_title_delete_local_donation_history">Удалить локальную историю пожертвований</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Соответствует системной теме оформления</string>
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
@@ -512,6 +515,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
+  <string name="temp_account_anon_ip_dialog_body">После создания правки ваш IP-адрес будет связан с вашими правками.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы сохранять историю будущих правок и получить доступ к другим функциям.</string>
   <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
   <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
@@ -1378,6 +1382,7 @@
   <string name="talk_warn">Предупреждение</string>
   <string name="talk_warn_save_dialog_title">Сохранить изменения?</string>
   <string name="talk_warn_save_dialog_message">Сохранить как новое сообщение</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Сохранить в список как новое сообщение</string>
   <string name="talk_warn_save_dialog_existing_update_message">Обновить существующее сообщение</string>
   <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
@@ -1683,6 +1688,7 @@
   <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
   <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
+  <string name="patroller_saved_message_title_editing_tests">Тестирование редактирования</string>
   <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматический перевод</string>
   <string name="patroller_saved_message_title_coi_rem">Напоминание о конфликте интересов</string>
@@ -1736,7 +1742,12 @@
   <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
   <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена. Спасибо!</string>
   <string name="on_this_day_game_entry_dialog_title">Введение</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Игры Википедии</string>
+  <string name="on_this_day_game_entry_dialog_button">Сыграть в сегодняшнюю игру</string>
+  <string name="on_this_day_game_title">Что произошло раньше?</string>
   <string name="on_this_day_game_dialog_button">Играть</string>
+  <string name="on_this_day_game_splash_message">Угадайте, какое событие произошло первым в истории в этот день.</string>
+  <string name="on_this_day_game_progress">%1$d из %2$d</string>
   <string name="on_this_day_game_score">Счёт: %d</string>
   <string name="on_this_day_game_correct">Правильно!</string>
   <string name="on_this_day_game_incorrect">Неверно!</string>
@@ -1747,6 +1758,10 @@
   <string name="on_this_day_game_pause_title">Поставить игру на паузу?</string>
   <string name="on_this_day_game_pause_negative">Продолжить играть</string>
   <string name="on_this_day_game_pause_positive">Понятно</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Игры Википедии</string>
+  <string name="on_this_day_game_feed_entry_card_title">Что произошло раньше?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Угадайте, какое событие произошло первым в истории в этот день.</string>
+  <string name="on_this_day_game_next_in">Следующая игра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
   <string name="on_this_day_game_menu_notifications">Уведомления об игре</string>
   <string name="on_this_day_game_menu_info">Узнать больше</string>
