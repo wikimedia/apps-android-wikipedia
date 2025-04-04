@@ -65,7 +65,7 @@ fun ComposeLangLinksScreen(
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.langlinks_activity_title),
-                placeHolderTitle = "",
+                placeHolderTitle = context.getString(R.string.langlinks_filter_hint),
                 searchQuery = searchQuery,
                 onSearchQueryChange = {
                     searchQuery = it
