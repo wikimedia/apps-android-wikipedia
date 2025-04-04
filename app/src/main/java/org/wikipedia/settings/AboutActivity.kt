@@ -45,6 +45,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.LicenseLinkText
 import org.wikipedia.compose.components.LinkTextData
+import org.wikipedia.compose.components.MessageCard
 import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -251,6 +252,27 @@ fun AboutWikipediaImage(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+
+        MessageCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+            title = stringResource(R.string.suggested_edits_encourage_account_creation_title),
+            message = stringResource(R.string.suggested_edits_encourage_account_creation_message),
+            imageRes = R.drawable.ic_require_login_header,
+            positiveButtonText = stringResource(R.string.suggested_edits_encourage_account_creation_login_button),
+            onPositiveButtonClick = {
+                // Handle positive button click
+            },
+            onContainerClick = {
+                // Handle container click
+            },
+            negativeButtonText = stringResource(R.string.suggested_edits_encourage_account_creation_login_button),
+            onNegativeButtonClick = {
+                // Handle positive button click
+            }
+        )
+
         Image(
             modifier = Modifier
                 .size(88.dp)
@@ -295,6 +317,7 @@ fun AboutScreenBody(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
+
         LinkTextWithHeader(
             header = stringResource(R.string.about_contributors_heading),
             html = stringResource(R.string.about_contributors)
