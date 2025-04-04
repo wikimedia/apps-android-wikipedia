@@ -15,7 +15,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -70,34 +69,29 @@ object UserTalkPopupHelper {
 
     private fun showThankDialog(activity: AppCompatActivity, title: PageTitle, revisionId: Long, pageId: Int) {
         val parent = FrameLayout(activity)
-        val editHistoryInteractionEvent = EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
         val dialog =
             MaterialAlertDialogBuilder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     sendPatrollerExperienceEvent(activity, "thank_confirm")
-                    sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
+                    sendThanks(activity, title.wikiSite, revisionId, title)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
                     sendPatrollerExperienceEvent(activity, "thank_cancel")
-                    editHistoryInteractionEvent.logThankCancel()
                 }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.show()
     }
 
-    private fun sendThanks(activity: AppCompatActivity, wikiSite: WikiSite, revisionId: Long?, title: PageTitle,
-                           editHistoryInteractionEvent: EditHistoryInteractionEvent) {
+    private fun sendThanks(activity: AppCompatActivity, wikiSite: WikiSite, revisionId: Long?, title: PageTitle) {
         activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
-            editHistoryInteractionEvent.logThankFail()
         }) {
             val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
             if (revisionId != null && token != null) {
                 ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token)
                 FeedbackUtil.showMessage(activity, activity.getString(R.string.thank_success_message, title.text))
-                editHistoryInteractionEvent.logThankSuccess()
             }
         }
     }
