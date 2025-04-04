@@ -20,7 +20,6 @@ import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.NotificationCategory
@@ -116,11 +115,9 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.overflow_view_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.overflow_view_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
-            NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
