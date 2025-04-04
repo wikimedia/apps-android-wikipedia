@@ -73,14 +73,17 @@ fun MessageCard(
 ) {
 
     WikiCard(modifier = modifier) {
-        Column {
+        Column(
+            modifier = Modifier
+            .fillMaxWidth()
+            .clickable(enabled = onContainerClick != null) {
+                onContainerClick?.invoke()
+            }
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
-                    .clickable(enabled = onContainerClick != null) {
-                        onContainerClick?.invoke()
-                    }
             ) {
                 if (imageRes != null) {
                     Image(
