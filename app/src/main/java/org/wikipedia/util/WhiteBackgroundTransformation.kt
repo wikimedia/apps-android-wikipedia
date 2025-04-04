@@ -10,6 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
+import org.wikipedia.views.imageservice.ImageTransformation
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 
@@ -73,5 +74,20 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
             }
             return bitmap
         }
+    }
+}
+
+// @TODO: White background transformation
+class WhiteBackgroundImageTransformation2 : ImageTransformation {
+    override fun apply(bitmap: Bitmap, width: Int, height: Int): Bitmap {
+        TODO("Not yet implemented")
+    }
+
+    override fun dimImage(bitmap: Bitmap): Bitmap {
+        TODO("Not yet implemented")
+    }
+
+    override fun applyMatrixWithBackground(inBitmap: Bitmap, targetBitmap: Bitmap, matrix: Matrix) {
+        TODO("Not yet implemented")
     }
 }

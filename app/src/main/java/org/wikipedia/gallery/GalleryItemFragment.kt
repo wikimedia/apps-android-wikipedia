@@ -3,7 +3,6 @@ package org.wikipedia.gallery
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +12,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -25,10 +25,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -44,9 +40,10 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.imageservice.ImageLoadListener
 import kotlin.math.abs
 
-class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?> {
+class GalleryItemFragment : Fragment(), MenuProvider {
     interface Callback {
         fun onDownload(item: GalleryItemFragment)
         fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle)
@@ -243,7 +240,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = this)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = createImageLoadListener())
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
@@ -251,19 +248,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
         onLoading(true)
-        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = this)
-    }
-
-    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-        callback()?.onError(e?.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
-        return false
-    }
-
-    override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>, dataSource: DataSource,
-        isFirstResource: Boolean): Boolean {
-        binding.imageView.visibility = View.VISIBLE
-        (requireActivity() as GalleryActivity).onMediaLoaded()
-        return false
+        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = createImageLoadListener())
     }
 
     private fun shareImage() {
@@ -285,6 +270,21 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     private fun callback(): Callback? {
         return FragmentUtil.getCallback(this, Callback::class.java)
+    }
+
+    private fun createImageLoadListener(): ImageLoadListener {
+        return object : ImageLoadListener {
+            override fun onSuccess(view: ImageView) {
+                if (view.id == binding.imageView.id) {
+                    binding.imageView.visibility = View.VISIBLE
+                    (requireActivity() as GalleryActivity).onMediaLoaded()
+                }
+            }
+
+            override fun onError(error: Throwable) {
+                callback()?.onError(error.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
+            }
+        }
     }
 
     companion object {
