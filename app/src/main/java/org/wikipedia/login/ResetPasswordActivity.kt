@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
@@ -50,6 +51,7 @@ class ResetPasswordActivity : BaseActivity() {
         binding.loginButton.setOnClickListener { validateThenLogin() }
         userName = intent.getStringExtra(LOGIN_USER_NAME).orEmpty()
         firstStepToken = intent.getStringExtra(LOGIN_TOKEN).orEmpty()
+        resetAuthState()
     }
 
     override fun onBackPressed() {
@@ -65,6 +67,12 @@ class ResetPasswordActivity : BaseActivity() {
     private fun clearErrors() {
         binding.resetPasswordInput.isErrorEnabled = false
         binding.resetPasswordRepeat.isErrorEnabled = false
+    }
+
+    private fun resetAuthState() {
+        binding.login2faText.isVisible = false
+        binding.login2faText.editText?.setText("")
+        uiPromptResult = null
     }
 
     private fun validateThenLogin() {
@@ -147,6 +155,8 @@ class ResetPasswordActivity : BaseActivity() {
 
         override fun error(caught: Throwable) {
             showProgressBar(false)
+            resetAuthState()
+            DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
             if (caught is LoginFailedException) {
                 FeedbackUtil.showError(this@ResetPasswordActivity, caught)
             } else {

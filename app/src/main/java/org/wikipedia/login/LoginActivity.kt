@@ -100,6 +100,7 @@ class LoginActivity : BaseActivity() {
         }
 
         setAllViewsClickListener()
+        resetAuthState()
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL)
@@ -132,6 +133,13 @@ class LoginActivity : BaseActivity() {
 
     private fun getText(input: TextInputLayout): String {
         return input.editText?.text?.toString().orEmpty()
+    }
+
+    private fun resetAuthState() {
+        binding.login2faText.isVisible = false
+        binding.login2faText.editText?.setText("")
+        firstStepToken = null
+        uiPromptResult = null
     }
 
     private fun clearErrors() {
@@ -227,6 +235,8 @@ class LoginActivity : BaseActivity() {
 
         override fun error(caught: Throwable) {
             showProgressBar(false)
+            resetAuthState()
+            DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             if (caught is LoginFailedException) {
                 FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
