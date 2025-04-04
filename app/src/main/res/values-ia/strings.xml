@@ -1730,4 +1730,5 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Lassar los disactivate</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificationes de joco disactivate.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificationes de joco activate.</string>
+  <string name="on_this_day_game_notification_text">Le joco “Qual ha evenite primo?” de hodie es preste a esser jocate.</string>
 </resources>
