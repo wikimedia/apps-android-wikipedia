@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -241,7 +241,7 @@ fun SearchEmptyView(
     ) {
         Icon(
             modifier = Modifier
-                .size(96.dp)
+                .requiredSize(96.dp)
                 .clip(CircleShape)
                 .background(ComposeColors.White)
                 .padding(20.dp),
