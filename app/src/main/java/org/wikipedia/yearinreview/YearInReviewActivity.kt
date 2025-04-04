@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,13 +20,25 @@ class YearInReviewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                val personalizedScreenList = listOf(readCountData, editCountData)
+                /*
+                personalizedScreenList is temporarily populated with screens
+                for testing purposes. This is will adjusted in future iterations
+                 */
+                val personalizedScreenList = listOf(
+                    readCountData, editCountData, readCountData,
+                    editCountData, readCountData
+                )
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
 
                 NavHost(
-                    navController = navController, startDestination = YearInReviewNavigation.Onboarding.name
+                    navController = navController,
+                    startDestination = YearInReviewNavigation.Onboarding.name,
+                    enterTransition = { EnterTransition.None },
+                    popEnterTransition = { EnterTransition.None },
+                    popExitTransition = { ExitTransition.None },
+                    exitTransition = { ExitTransition.None }
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
@@ -55,7 +69,7 @@ class YearInReviewActivity : ComponentActivity() {
                             customBottomBar = { pagerState -> MainBottomBar(
                                 onNavigationRightClick = {
                                     coroutineScope.launch {
-                                        pagerState.scrollToPage(pagerState.currentPage + 1)
+                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
                                     }
                                 },
                                 pagerState = pagerState,
