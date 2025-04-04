@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeToolbarBinding
 import org.wikipedia.page.action.PageActionItem
-import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeToolbarFragment : Fragment() {
