@@ -48,7 +48,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -186,32 +185,29 @@ fun MainBottomBar(
                             },
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        val totalPaginationIndicators = totalPages
-                        repeat(totalPaginationIndicators) { iteration ->
-                            val color = if (pagerState.currentPage == iteration) {
-                                WikipediaTheme.colors.progressiveColor
-                            } else {
-                                WikipediaTheme.colors.inactiveColor
-                            }
-                            val colorTransition = animateColorAsState(
-                                targetValue = color,
-                                animationSpec = tween(durationMillis = 500),
-                                label = "color transition"
+                        val animationDuration = 500
+                        repeat(totalPages) { iteration ->
+                            val colorTransition by animateColorAsState(
+                                targetValue = if (pagerState.currentPage == iteration) {
+                                    WikipediaTheme.colors.progressiveColor
+                                } else {
+                                    WikipediaTheme.colors.inactiveColor
+                                },
+                                animationSpec = tween(durationMillis = animationDuration)
                             )
-                            val sizeTransition: Dp by animateDpAsState(
+                            val sizeTransition by animateDpAsState(
                                 targetValue = paginationSizeGradient(
-                                    totalIndicators = totalPaginationIndicators,
+                                    totalIndicators = totalPages,
                                     iteration = iteration,
                                     pagerState = pagerState
                                 ).dp,
-                                animationSpec = tween(durationMillis = 500),
-                                label = "size transition"
+                                animationSpec = tween(durationMillis = animationDuration)
                             )
                             Box(
                                 modifier = Modifier
                                     .padding(2.dp)
                                     .clip(CircleShape)
-                                    .background(colorTransition.value)
+                                    .background(colorTransition)
                                     .align(Alignment.CenterVertically)
                                     .size(sizeTransition)
                             )
@@ -361,14 +357,11 @@ fun YearInReviewScreenContent(
     }
 }
 
-fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
-    var paginationIndicatorSize = 8
-    if (totalIndicators > 3) {
-        paginationIndicatorSize = when {
-            (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
-            (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
-            else -> 2
-        }
+private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
+    return when {
+        totalIndicators <= 3 -> 8
+        (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
+        (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
+        else -> 2
     }
-    return paginationIndicatorSize
 }
