@@ -32,14 +32,6 @@ class CustomizeToolbarFragment : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupRecyclerView()
         super.onViewCreated(view, savedInstanceState)

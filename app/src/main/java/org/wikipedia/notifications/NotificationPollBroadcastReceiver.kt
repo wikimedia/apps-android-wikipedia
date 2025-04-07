@@ -62,7 +62,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
-            ACTION_CANCEL == intent.action -> {}
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
