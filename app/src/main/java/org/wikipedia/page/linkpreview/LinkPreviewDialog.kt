@@ -33,6 +33,8 @@ import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.getStrings
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
@@ -261,26 +263,16 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
                 if (viewModel.fromPlaces) {
+                    val strings = requireContext().getStrings(viewModel.pageTitle, intArrayOf(R.string.link_preview_dialog_share_button, R.string.link_preview_dialog_save_button, R.string.link_preview_dialog_read_button))
                     it.callback = OverlayViewPlacesCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_share_button)
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_save_button)
-                    )
-                    it.setTertiaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_read_button)
-                    )
+                    it.setPrimaryButtonText(strings[R.string.link_preview_dialog_share_button])
+                    it.setSecondaryButtonText(strings[R.string.link_preview_dialog_save_button])
+                    it.setTertiaryButtonText(strings[R.string.link_preview_dialog_read_button])
                 } else {
+                    val strings = requireContext().getStrings(viewModel.pageTitle, intArrayOf(R.string.button_continue_to_talk_page, R.string.button_continue_to_article, R.string.menu_long_press_open_in_new_tab))
                     it.callback = OverlayViewCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
-                        )
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.menu_long_press_open_in_new_tab)
-                    )
+                    it.setPrimaryButtonText(strings[if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article])
+                    it.setSecondaryButtonText(strings[R.string.menu_long_press_open_in_new_tab])
                     it.showTertiaryButton(false)
                 }
                 containerView.addView(it)
@@ -407,7 +399,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         overlayView?.run {
             if (!viewModel.fromPlaces) {
                 setPrimaryButtonText(
-                    L10nUtil.getStringForArticleLanguage(
+                    requireContext().getString(
                         viewModel.pageTitle,
                         if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
                         else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
@@ -415,8 +407,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     )
                 )
             } else if (viewModel.fromPlaces) {
-                setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                    if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
+                setSecondaryButtonText(requireContext().getString(viewModel.pageTitle, if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
             }
         }
     }

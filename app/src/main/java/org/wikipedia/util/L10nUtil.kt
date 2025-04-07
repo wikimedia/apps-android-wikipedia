@@ -1,9 +1,8 @@
 package org.wikipedia.util
 
+import android.content.Context
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.text.TextUtils
-import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
@@ -32,67 +31,39 @@ object L10nUtil {
     val isDeviceRTL: Boolean
         get() = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL
 
-    private val currentConfiguration: Configuration
-        get() = Configuration(WikipediaApp.instance.resources.configuration)
-
     fun isLangRTL(lang: String): Boolean {
         return TextUtils.getLayoutDirectionFromLocale(Locale(lang)) == View.LAYOUT_DIRECTION_RTL
     }
 
-    fun getStringForArticleLanguage(languageCode: String, resId: Int): String {
-        return getStringsForLocale(Locale(languageCode), intArrayOf(resId))[resId]
+    @Deprecated("Use getString from current Activity's context instead.")
+    fun getString(@StringRes resId: Int): String {
+        val context = WikipediaApp.instance.currentResumedActivity ?: WikipediaApp.instance
+        return context.getString(resId)
     }
 
-    fun getStringForArticleLanguage(title: PageTitle, resId: Int): String {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode), intArrayOf(resId))[resId]
+    @Deprecated("Use Context extension instead.")
+    fun getString(languageCode: String, @StringRes resId: Int): String {
+        val context = WikipediaApp.instance.currentResumedActivity ?: WikipediaApp.instance
+        return getStringForLocale(context, Locale(languageCode), resId)
     }
 
-    fun getStringsForArticleLanguage(title: PageTitle, resId: IntArray): SparseArray<String> {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode), resId)
+    @Deprecated("Use Context extension instead.")
+    fun getString(title: PageTitle, @StringRes resId: Int): String {
+        val context = WikipediaApp.instance.currentResumedActivity ?: WikipediaApp.instance
+        return getStringForLocale(context, Locale(title.wikiSite.languageCode), resId)
     }
 
-    private fun getStringsForLocale(targetLocale: Locale,
-                                    @StringRes strings: IntArray): SparseArray<String> {
-        val config = currentConfiguration
+    fun getStringForLocale(context: Context, targetLocale: Locale, @StringRes resId: Int): String {
+        val config = Configuration(context.resources.configuration)
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
         if (systemLocale?.language == targetLocale.language) {
-            val localizedStrings = SparseArray<String>()
-            strings.forEach {
-                localizedStrings.put(it, WikipediaApp.instance.getString(it))
-            }
-            return localizedStrings
+            return context.getString(resId)
         }
         setDesiredLocale(config, targetLocale)
-        val localizedStrings = getTargetStrings(strings, config)
+        val str = context.createConfigurationContext(config).resources.getString(resId)
         config.setLocale(systemLocale)
-        // reset to current configuration
-        WikipediaApp.instance.createConfigurationContext(config)
-        return localizedStrings
-    }
-
-    // To be used only for plural strings and strings requiring arguments
-    fun getResourcesForWikiLang(languageCode: String): Resources? {
-        val config = currentConfiguration
-        val targetLocale = Locale(languageCode)
-        val systemLocale = ConfigurationCompat.getLocales(config)[0]
-        if (systemLocale?.language == targetLocale.language) {
-            return null
-        }
-        setDesiredLocale(config, targetLocale)
-        val targetResources = WikipediaApp.instance.createConfigurationContext(config).resources
-        config.setLocale(systemLocale)
-        // reset to current configuration
-        WikipediaApp.instance.createConfigurationContext(config)
-        return targetResources
-    }
-
-    private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {
-        val localizedStrings = SparseArray<String>()
-        val targetResources = WikipediaApp.instance.createConfigurationContext(altConfig).resources
-        strings.forEach {
-            localizedStrings.put(it, targetResources.getString(it))
-        }
-        return localizedStrings
+        context.createConfigurationContext(config)
+        return str
     }
 
     private fun getDesiredLocale(desiredLocale: Locale): Locale {
@@ -116,7 +87,7 @@ object L10nUtil {
         }
     }
 
-    private fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
+    fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.
