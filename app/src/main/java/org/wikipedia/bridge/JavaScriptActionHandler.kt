@@ -7,6 +7,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getStrings
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -15,7 +16,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
-import org.wikipedia.util.L10nUtil.getStrings
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit

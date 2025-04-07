@@ -4,13 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewStaticCardBinding
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
-import org.wikipedia.util.L10nUtil.getString
 
 class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(context) {
 

@@ -23,10 +23,10 @@ import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
 import org.wikipedia.analytics.metricsplatform.ArticleTocInteraction
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.L10nUtil.getString
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ObservableWebView

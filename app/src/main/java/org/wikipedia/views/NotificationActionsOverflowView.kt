@@ -22,13 +22,13 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.util.L10nUtil.getString
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil

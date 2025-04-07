@@ -33,6 +33,8 @@ import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.getStrings
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
@@ -49,8 +51,6 @@ import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.L10nUtil.getString
-import org.wikipedia.util.L10nUtil.getStrings
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil

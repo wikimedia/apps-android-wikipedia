@@ -2,9 +2,7 @@ package org.wikipedia.util
 
 import android.content.Context
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.text.TextUtils
-import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
@@ -55,37 +53,7 @@ object L10nUtil {
         return getStringForLocale(context, Locale(title.wikiSite.languageCode), resId)
     }
 
-    fun Context.getString(languageCode: String, @StringRes resId: Int): String {
-        return getStringForLocale(this, Locale(languageCode), resId)
-    }
-
-    fun Context.getString(title: PageTitle, @StringRes resId: Int): String {
-        return getStringForLocale(this, Locale(title.wikiSite.languageCode), resId)
-    }
-
-    fun Context.getStrings(title: PageTitle, strings: IntArray): SparseArray<String> {
-        val targetLocale = Locale(title.wikiSite.languageCode)
-        val config = Configuration(resources.configuration)
-        val systemLocale = ConfigurationCompat.getLocales(config)[0]
-        val localizedStrings = SparseArray<String>()
-        if (systemLocale?.language == targetLocale.language) {
-            strings.forEach {
-                localizedStrings.put(it, getString(it))
-            }
-            return localizedStrings
-        }
-        setDesiredLocale(config, targetLocale)
-        val targetResources = createConfigurationContext(config).resources
-        strings.forEach {
-            localizedStrings.put(it, targetResources.getString(it))
-        }
-        config.setLocale(systemLocale)
-        // reset to current configuration
-        createConfigurationContext(config)
-        return localizedStrings
-    }
-
-    private fun getStringForLocale(context: Context, targetLocale: Locale, @StringRes resId: Int): String {
+    fun getStringForLocale(context: Context, targetLocale: Locale, @StringRes resId: Int): String {
         val config = Configuration(context.resources.configuration)
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
         if (systemLocale?.language == targetLocale.language) {
@@ -96,22 +64,6 @@ object L10nUtil {
         config.setLocale(systemLocale)
         context.createConfigurationContext(config)
         return str
-    }
-
-    // To be used only for plural strings and strings requiring arguments
-    fun Context.getResources(languageCode: String): Resources {
-        val config = Configuration(resources.configuration)
-        val targetLocale = Locale(languageCode)
-        val systemLocale = ConfigurationCompat.getLocales(config)[0]
-        if (systemLocale?.language == targetLocale.language) {
-            return resources
-        }
-        setDesiredLocale(config, targetLocale)
-        val targetResources = createConfigurationContext(config).resources
-        config.setLocale(systemLocale)
-        // reset to current configuration
-        createConfigurationContext(config)
-        return targetResources
     }
 
     private fun getDesiredLocale(desiredLocale: Locale): Locale {
@@ -135,7 +87,7 @@ object L10nUtil {
         }
     }
 
-    private fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
+    fun setDesiredLocale(config: Configuration, desiredLocale: Locale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.

@@ -6,9 +6,9 @@ import android.os.Build
 import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.extensions.getResources
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.model.UtcDate
-import org.wikipedia.util.L10nUtil.getResources
-import org.wikipedia.util.L10nUtil.getString
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate

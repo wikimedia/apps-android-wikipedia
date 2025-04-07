@@ -7,10 +7,10 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ViewWikiGamesCardBinding
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
-import org.wikipedia.util.L10nUtil.getString
 import org.wikipedia.util.ResourceUtil
 
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context) {
