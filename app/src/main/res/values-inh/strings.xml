@@ -142,8 +142,8 @@
   <string name="login_username_hint">Доакъашхочун цIи</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Шинфактора аутентификацен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
+  <string name="login_2fa_hint" fuzzy="true">Шинфактора аутентификацен код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
   <string name="onboarding_card_login">Чувáла</string>
   <string name="page_editing_login">Чувáла</string>
   <string name="reading_lists_sync_login">Чувáла</string>

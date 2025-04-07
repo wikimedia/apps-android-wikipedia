@@ -139,8 +139,8 @@
   <string name="login_username_hint">Tʋmtʋm yʋ\'ʋr</string>
   <string name="login_password_hint">Paaswɛɛd</string>
   <string name="account_creation_password_hint">Paaswɛɛd</string>
-  <string name="login_2fa_hint">Fageta ayi ɔtɛntifikeesin koodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Niŋim fageta ayi ɔtɛntikeesin! M bɛlimnɛ lɛm tʋʋma la mɛŋ ni ka kpɛn\'nɛ fʋ 2FA tokin, ka mɔ\' ya\'as.</string>
+  <string name="login_2fa_hint" fuzzy="true">Fageta ayi ɔtɛntifikeesin koodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Niŋim fageta ayi ɔtɛntikeesin! M bɛlimnɛ lɛm tʋʋma la mɛŋ ni ka kpɛn\'nɛ fʋ 2FA tokin, ka mɔ\' ya\'as.</string>
   <string name="onboarding_card_login">Kpɛn\'ɛm</string>
   <string name="page_editing_login">Kpɛn\'ɛm</string>
   <string name="reading_lists_sync_login">Kpɛn\'ɛm</string>

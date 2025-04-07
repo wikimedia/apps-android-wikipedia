@@ -188,8 +188,8 @@
   <string name="login_username_hint">Benutzername</string>
   <string name="login_password_hint">Passwort</string>
   <string name="account_creation_password_hint">Passwort</string>
-  <string name="login_2fa_hint">Zwei-Faktor-Authentifikationscode</string>
-  <string name="login_2fa_other_workflow_error_msg">Zwei-Faktor-Authentifikation erforderlich! Bitte gehe zu den Hauptaktivitäten zurück, melde dich mit deinem 2FA-Token an und versuche es erneut.</string>
+  <string name="login_2fa_hint" fuzzy="true">Zwei-Faktor-Authentifikationscode</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Zwei-Faktor-Authentifikation erforderlich! Bitte gehe zu den Hauptaktivitäten zurück, melde dich mit deinem 2FA-Token an und versuche es erneut.</string>
   <string name="onboarding_card_login">Anmelden</string>
   <string name="page_editing_login">Anmelden</string>
   <string name="reading_lists_sync_login">Anmelden</string>

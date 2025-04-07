@@ -156,8 +156,8 @@
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="account_creation_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
-  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੀ ਸਰਗਰਮੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+  <string name="login_2fa_hint" fuzzy="true">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੀ ਸਰਗਰਮੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="onboarding_card_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="page_editing_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="reading_lists_sync_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
