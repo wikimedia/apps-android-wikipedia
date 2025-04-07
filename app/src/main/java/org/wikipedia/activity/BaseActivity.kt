@@ -24,7 +24,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -96,9 +95,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        if (savedInstanceState == null) {
-            NotificationInteractionEvent.processIntent(intent)
-        }
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor().run()

@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.CustomizeToolbarEvent
 import org.wikipedia.databinding.FragmentCustomizeToolbarBinding
 import org.wikipedia.page.action.PageActionItem
-import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeToolbarFragment : Fragment() {
@@ -26,24 +24,12 @@ class CustomizeToolbarFragment : Fragment() {
 
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
-    private lateinit var customizeToolbarEvent: CustomizeToolbarEvent
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        customizeToolbarEvent = CustomizeToolbarEvent()
         _binding = FragmentCustomizeToolbarBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        customizeToolbarEvent.resume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        customizeToolbarEvent.pause()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +38,6 @@ class CustomizeToolbarFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        customizeToolbarEvent.logCustomization(Prefs.customizeToolbarOrder.toMutableList(), Prefs.customizeToolbarMenuOrder.toMutableList())
         _binding = null
         super.onDestroyView()
     }
