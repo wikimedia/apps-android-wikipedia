@@ -137,8 +137,8 @@
   <string name="login_username_hint">Ушнышын лӱмжӧ</string>
   <string name="login_password_hint">Шолыпмут</string>
   <string name="account_creation_password_hint">Шолыпмут</string>
-  <string name="login_2fa_hint">Кок йыжыҥан аутентификацийын кодшо</string>
-  <string name="login_2fa_other_workflow_error_msg">Кок факторан аутентификаций кӱлеш! Поро лийза, тӱҥ паша дек пӧртылза да системыш тендан 2FA токен ден пайдаланен пурыза, эше ик гана тыршен ончыза.</string>
+  <string name="login_2fa_hint" fuzzy="true">Кок йыжыҥан аутентификацийын кодшо</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Кок факторан аутентификаций кӱлеш! Поро лийза, тӱҥ паша дек пӧртылза да системыш тендан 2FA токен ден пайдаланен пурыза, эше ик гана тыршен ончыза.</string>
   <string name="onboarding_card_login">Пураш</string>
   <string name="page_editing_login">Пураш</string>
   <string name="reading_lists_sync_login">Пураш</string>

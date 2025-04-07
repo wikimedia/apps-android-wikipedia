@@ -143,8 +143,8 @@
   <string name="login_username_hint">Navê bikarhêner</string>
   <string name="login_password_hint">Şîfre</string>
   <string name="account_creation_password_hint">Pêborîn</string>
-  <string name="login_2fa_hint">Koda Pejirandina Nasnameyê ya Du-faktorî</string>
-  <string name="login_2fa_other_workflow_error_msg">Pejirandina nasnameyê ya du-faktorî hewce ye! Xêra xwe vegere fealiyeta esas û bi kilîda xwe ya 2FA\'yê têkeve, paşê dîsa bicerribîne.</string>
+  <string name="login_2fa_hint" fuzzy="true">Koda Pejirandina Nasnameyê ya Du-faktorî</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Pejirandina nasnameyê ya du-faktorî hewce ye! Xêra xwe vegere fealiyeta esas û bi kilîda xwe ya 2FA\'yê têkeve, paşê dîsa bicerribîne.</string>
   <string name="onboarding_card_login">Têkeve</string>
   <string name="page_editing_login">Têkeve</string>
   <string name="reading_lists_sync_login">Têkeve</string>

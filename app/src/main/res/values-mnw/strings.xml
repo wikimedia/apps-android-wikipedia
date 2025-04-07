@@ -141,8 +141,8 @@
   <string name="login_username_hint">ယၟုမသုင်စောဲ</string>
   <string name="login_password_hint">မလိက်ပၞုက်</string>
   <string name="account_creation_password_hint">မအက္ခရ်ဓလုက်</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Two-factor authentication အာတ်မိက်ဒၟံင်! ပဂုန်တုဲ ကလေင်အာ ဇရေင် မုက်လိက်ဒၞာဲအဓိက the main activity တုဲ လုပ်လံက်အေန် နကဵု  2FA token မၞး၊ တုဲမ္ဂး ကလေင်ကၠောန်ပၠန်၊၊</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Two-factor authentication အာတ်မိက်ဒၟံင်! ပဂုန်တုဲ ကလေင်အာ ဇရေင် မုက်လိက်ဒၞာဲအဓိက the main activity တုဲ လုပ်လံက်အေန် နကဵု  2FA token မၞး၊ တုဲမ္ဂး ကလေင်ကၠောန်ပၠန်၊၊</string>
   <string name="onboarding_card_login">လုပ်လံက်အေန်</string>
   <string name="page_editing_login">လုပ်လံက်အေန်</string>
   <string name="reading_lists_sync_login">လုပ်လံက်အေန်</string>

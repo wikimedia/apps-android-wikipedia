@@ -100,7 +100,7 @@
   <string name="login_username_hint">Wužiwarske mjeno</string>
   <string name="login_password_hint">Hesło</string>
   <string name="account_creation_password_hint">Hesło</string>
-  <string name="login_2fa_hint">Kod za dwójnu awtentifikaciju</string>
+  <string name="login_2fa_hint" fuzzy="true">Kod za dwójnu awtentifikaciju</string>
   <string name="onboarding_card_login">Přizjewić</string>
   <string name="page_editing_login">Přizjewić</string>
   <string name="reading_lists_sync_login">Přizjewić</string>

@@ -183,8 +183,8 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint">Kode Autentikasi Dua Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Perlu autentikasi dua faktor! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode Autentikasi Dua Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Perlu autentikasi dua faktor! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
   <string name="onboarding_card_login">Masuk log</string>
   <string name="page_editing_login">Masuk log</string>
   <string name="reading_lists_sync_login">Masuk log</string>

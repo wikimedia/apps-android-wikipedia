@@ -95,8 +95,8 @@
   <string name="login_username_hint">Jeneng naraguna</string>
   <string name="login_password_hint">Tembung sandi</string>
   <string name="account_creation_password_hint">Tembung sandi</string>
-  <string name="login_2fa_hint">Kodhe Otèntifikasi Rong-Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Butuh otèntifikasi rong-faktor! Balia menyang kagiyatan pokok lan mlebu log mawa token 2FA-mu, banjur jajal manèh.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kodhe Otèntifikasi Rong-Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Butuh otèntifikasi rong-faktor! Balia menyang kagiyatan pokok lan mlebu log mawa token 2FA-mu, banjur jajal manèh.</string>
   <string name="onboarding_card_login">Mlebu log</string>
   <string name="page_editing_login">Mlebu log</string>
   <string name="reading_lists_sync_login">Mlebu log</string>

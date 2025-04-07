@@ -139,8 +139,8 @@
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="account_creation_password_hint">Contrasinal</string>
-  <string name="login_2fa_hint">Autenticación en dous factores</string>
-  <string name="login_2fa_other_workflow_error_msg">Autenticación en dous factores obrigatoriaǃ Por favor, volva á actividade principal e conéctese co seu identificador 2FA, despois inténteo de novo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Autenticación en dous factores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Autenticación en dous factores obrigatoriaǃ Por favor, volva á actividade principal e conéctese co seu identificador 2FA, despois inténteo de novo.</string>
   <string name="onboarding_card_login">Acceder ao sistema</string>
   <string name="page_editing_login">Acceder ao sistema</string>
   <string name="reading_lists_sync_login">Acceder ao sistema</string>

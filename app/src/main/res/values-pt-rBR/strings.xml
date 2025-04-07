@@ -187,8 +187,8 @@
   <string name="login_username_hint">Nome de usuário</string>
   <string name="login_password_hint">Senha</string>
   <string name="account_creation_password_hint">Senha</string>
-  <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
-  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores necessária! Volte à atividade principal e autentique-se com sua chave 2FA e, em seguida, tente novamente.</string>
+  <string name="login_2fa_hint" fuzzy="true">Código de autenticação de dois fatores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Autenticação de dois fatores necessária! Volte à atividade principal e autentique-se com sua chave 2FA e, em seguida, tente novamente.</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
