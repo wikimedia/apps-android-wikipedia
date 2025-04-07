@@ -164,8 +164,8 @@
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
   <string name="account_creation_password_hint">Passord</string>
-  <string name="login_2fa_hint">Totrinnsautentiseringskode</string>
-  <string name="login_2fa_other_workflow_error_msg">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
+  <string name="login_2fa_hint" fuzzy="true">Totrinnsautentiseringskode</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
   <string name="onboarding_card_login">Logg inn</string>
   <string name="page_editing_login">Logg inn</string>
   <string name="reading_lists_sync_login">Logg inn</string>

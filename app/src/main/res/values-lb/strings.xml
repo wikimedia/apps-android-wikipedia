@@ -145,7 +145,7 @@
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
   <string name="account_creation_password_hint">Passwuert</string>
-  <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
+  <string name="login_2fa_hint" fuzzy="true">Code fir Authentifikatioun mat zwee Elementer</string>
   <string name="onboarding_card_login">Aloggen</string>
   <string name="page_editing_login">Aloggen</string>
   <string name="reading_lists_sync_login">Aloggen</string>

@@ -87,7 +87,7 @@
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
   <string name="account_creation_password_hint">Parole</string>
-  <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
+  <string name="login_2fa_hint" fuzzy="true">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast" fuzzy="true">Pieslēgšanās veiksmīga!</string>
   <string name="reset_password_hint">Jaunā parole</string>

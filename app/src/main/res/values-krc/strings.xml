@@ -140,8 +140,8 @@
   <string name="login_username_hint">Хайырланыучуну аты</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Эки дараджалы аутентификация код</string>
-  <string name="login_2fa_other_workflow_error_msg">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Эки дараджалы аутентификация код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
   <string name="onboarding_card_login">Кир</string>
   <string name="page_editing_login">Кир</string>
   <string name="reading_lists_sync_login">Кир</string>

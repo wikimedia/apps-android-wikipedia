@@ -165,8 +165,8 @@
   <string name="login_username_hint">Nom d\'usuari</string>
   <string name="login_password_hint">Contrasenya</string>
   <string name="account_creation_password_hint">Contrasenya</string>
-  <string name="login_2fa_hint">Codi d\'autenticació de dos factors</string>
-  <string name="login_2fa_other_workflow_error_msg">Cal autenticació de dos factors! Torneu a l\'activitat principal i inicieu una sessió amb la clau d\'autenticació de dos factors i torneu-ho a provar.</string>
+  <string name="login_2fa_hint" fuzzy="true">Codi d\'autenticació de dos factors</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Cal autenticació de dos factors! Torneu a l\'activitat principal i inicieu una sessió amb la clau d\'autenticació de dos factors i torneu-ho a provar.</string>
   <string name="onboarding_card_login">Inicia una sessió</string>
   <string name="page_editing_login">Inicia una sessió</string>
   <string name="reading_lists_sync_login">Inicia una sessió</string>

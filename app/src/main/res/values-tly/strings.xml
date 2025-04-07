@@ -137,7 +137,7 @@
   <string name="login_username_hint">Ištirokəkə nom</string>
   <string name="login_password_hint">Parol</string>
   <string name="account_creation_password_hint">Parol</string>
-  <string name="login_2fa_hint">Dy-faktorinə autentifikasijə kod</string>
+  <string name="login_2fa_hint" fuzzy="true">Dy-faktorinə autentifikasijə kod</string>
   <string name="onboarding_card_login">Dəše</string>
   <string name="page_editing_login">Dəše</string>
   <string name="reading_lists_sync_login">Dəše</string>
