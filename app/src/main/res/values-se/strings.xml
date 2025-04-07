@@ -147,8 +147,8 @@
   <string name="login_username_hint">Geavaheaddjinamma</string>
   <string name="login_password_hint">Beassansátni</string>
   <string name="account_creation_password_hint">Beassansátni</string>
-  <string name="login_2fa_hint">Guovtteceahkat autentiserenkoda</string>
-  <string name="login_2fa_other_workflow_error_msg">Guovtteceahkat autentiseren gáibiduvvo! Máhca mat iežat váldodoibmii ja čálit sisa iežat guovtteceahkat čoavdagiin, ja geahččal ođđasit.</string>
+  <string name="login_2fa_hint" fuzzy="true">Guovtteceahkat autentiserenkoda</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Guovtteceahkat autentiseren gáibiduvvo! Máhca mat iežat váldodoibmii ja čálit sisa iežat guovtteceahkat čoavdagiin, ja geahččal ođđasit.</string>
   <string name="onboarding_card_login">Čálit sisa</string>
   <string name="page_editing_login">Čálit sisa</string>
   <string name="reading_lists_sync_login">Čálit sisa</string>

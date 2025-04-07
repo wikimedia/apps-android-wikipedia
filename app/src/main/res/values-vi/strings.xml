@@ -166,8 +166,8 @@
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
   <string name="account_creation_password_hint">Mật khẩu</string>
-  <string name="login_2fa_hint">Mã Xác thực Hai yếu tố</string>
-  <string name="login_2fa_other_workflow_error_msg">Yêu cầu xác thực dùng hai nhân tố! Xin hãy quay lại hoạt động chính, đăng nhập bằng mã xác thực dùng hai nhân tố, và thử lại.</string>
+  <string name="login_2fa_hint" fuzzy="true">Mã Xác thực Hai yếu tố</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Yêu cầu xác thực dùng hai nhân tố! Xin hãy quay lại hoạt động chính, đăng nhập bằng mã xác thực dùng hai nhân tố, và thử lại.</string>
   <string name="onboarding_card_login">Đăng nhập</string>
   <string name="page_editing_login">Đăng nhập</string>
   <string name="reading_lists_sync_login">Đăng nhập</string>

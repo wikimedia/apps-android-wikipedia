@@ -139,8 +139,8 @@
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
   <string name="account_creation_password_hint">Slaptažodis</string>
-  <string name="login_2fa_hint">Dviejų veiksnių autentifikavimo kodas</string>
-  <string name="login_2fa_other_workflow_error_msg">Reikalingas dviejų veiksnių autentifikavimas! Grįžkite į pagrindinę veiklą ir prisijunkite naudodami 2FA prieigos raktą, tada bandykite dar kartą.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dviejų veiksnių autentifikavimo kodas</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Reikalingas dviejų veiksnių autentifikavimas! Grįžkite į pagrindinę veiklą ir prisijunkite naudodami 2FA prieigos raktą, tada bandykite dar kartą.</string>
   <string name="onboarding_card_login">Prisijungti</string>
   <string name="page_editing_login">Prisijungti</string>
   <string name="reading_lists_sync_login">Prisijungti</string>

@@ -121,7 +121,7 @@
   <string name="login_username_hint">سميت لخدايمي</string>
   <string name="login_password_hint">موضباص</string>
   <string name="account_creation_password_hint">موضباص</string>
-  <string name="login_2fa_hint">كود التحقق بجوج خطوات</string>
+  <string name="login_2fa_hint" fuzzy="true">كود التحقق بجوج خطوات</string>
   <string name="onboarding_card_login">تكونيكطا</string>
   <string name="page_editing_login">تكونيكطا</string>
   <string name="reading_lists_sync_login">تكونيكطا</string>

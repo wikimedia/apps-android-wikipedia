@@ -90,8 +90,8 @@
   <string name="login_username_hint">ၸိုဝ်ႈၽူႈၸႂ်ႉတိုဝ်း</string>
   <string name="login_password_hint">ၶေႃႈလပ်ႉ</string>
   <string name="account_creation_password_hint">ၶေႃႈလပ်ႉ</string>
-  <string name="login_2fa_hint">မၢႆၼႄႉၼွၼ်း ထတ်းသွင်ၸၼ်ႉ</string>
-  <string name="login_2fa_other_workflow_error_msg">တေလူဝ်ႇ ၶေႃႈၼႄႉၼွၼ်းထတ်းသွင်ၸၼ်ႉ! ၶႅၼ်းတေႃႈ ၶိုၼ်းႁူၼ်ၸူး လွင်ႈတူင်ႉၼိုင် ႁူဝ်ႁႅၵ်ႇသေ ၸႂ်ႉတိုင်း ​မၢႆၸႅၼ်ႇ ၶေႃႈၼႄႉၼွၼ်ႉ ထတ်းသွင်ၸၼ်ႉ 2FA ၸဝ်ႈၵဝ်ႇသေၵေႃႈ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇ၊ ယဝ်ႉၸင်ႇ ၶိုၼ်းၶတ်းၸႂ်တူၺ်းထႅင်ႈလႄႈ။</string>
+  <string name="login_2fa_hint" fuzzy="true">မၢႆၼႄႉၼွၼ်း ထတ်းသွင်ၸၼ်ႉ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">တေလူဝ်ႇ ၶေႃႈၼႄႉၼွၼ်းထတ်းသွင်ၸၼ်ႉ! ၶႅၼ်းတေႃႈ ၶိုၼ်းႁူၼ်ၸူး လွင်ႈတူင်ႉၼိုင် ႁူဝ်ႁႅၵ်ႇသေ ၸႂ်ႉတိုင်း ​မၢႆၸႅၼ်ႇ ၶေႃႈၼႄႉၼွၼ်ႉ ထတ်းသွင်ၸၼ်ႉ 2FA ၸဝ်ႈၵဝ်ႇသေၵေႃႈ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇ၊ ယဝ်ႉၸင်ႇ ၶိုၼ်းၶတ်းၸႂ်တူၺ်းထႅင်ႈလႄႈ။</string>
   <string name="onboarding_card_login">လွၵ်ႉဢိၼ်ႇ</string>
   <string name="page_editing_login">လွၵ်ႉဢိၼ်ႇ</string>
   <string name="reading_lists_sync_login">လွၵ်ႉဢိၼ်ႇ</string>
