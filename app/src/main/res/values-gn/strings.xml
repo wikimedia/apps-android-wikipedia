@@ -132,8 +132,8 @@
   <string name="login_username_hint">Puruhára réra</string>
   <string name="login_password_hint">Ñe\'ẽñemi</string>
   <string name="account_creation_password_hint">Ñe\'ẽñemi</string>
-  <string name="login_2fa_hint">Código de autenticación de dos factores</string>
-  <string name="login_2fa_other_workflow_error_msg">¡Se requiere autenticación de dos factores! Por favor regresa a la actividad principal e inicia sesión con tu clave de autenticación de dos factores. Luego vuelve a intentarlo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Código de autenticación de dos factores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">¡Se requiere autenticación de dos factores! Por favor regresa a la actividad principal e inicia sesión con tu clave de autenticación de dos factores. Luego vuelve a intentarlo.</string>
   <string name="onboarding_card_login">Eike</string>
   <string name="page_editing_login">Eike</string>
   <string name="reading_lists_sync_login">Eike</string>

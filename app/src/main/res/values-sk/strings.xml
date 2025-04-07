@@ -160,8 +160,8 @@
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
-  <string name="login_2fa_hint">Kód pre dvojstupňové overenie</string>
-  <string name="login_2fa_other_workflow_error_msg">Vyžaduje sa dvojstupňové overenie. Prosím, vráťte sa a prihláste sa pomocou dvojstupňového overenia a skúste to znova.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kód pre dvojstupňové overenie</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Vyžaduje sa dvojstupňové overenie. Prosím, vráťte sa a prihláste sa pomocou dvojstupňového overenia a skúste to znova.</string>
   <string name="onboarding_card_login">Prihlásiť sa</string>
   <string name="page_editing_login">Prihlásiť sa</string>
   <string name="reading_lists_sync_login">Prihlásiť sa</string>

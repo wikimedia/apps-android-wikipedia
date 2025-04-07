@@ -154,8 +154,8 @@
   <string name="login_username_hint">Ҡатнашыусы исеме</string>
   <string name="login_password_hint">Серһүҙ</string>
   <string name="account_creation_password_hint">Серһүҙ</string>
-  <string name="login_2fa_hint">Ике факторлы танылыу коды</string>
-  <string name="login_2fa_other_workflow_error_msg">Ике факторлы танылыу кәрәк! Зинһар, төп ғәмәлгә кире ҡайтығыҙ һәм 2FA токены ярҙамында инегеҙ, ә һуңынан ҡабатлап ҡарағыҙ.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ике факторлы танылыу коды</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ике факторлы танылыу кәрәк! Зинһар, төп ғәмәлгә кире ҡайтығыҙ һәм 2FA токены ярҙамында инегеҙ, ә һуңынан ҡабатлап ҡарағыҙ.</string>
   <string name="onboarding_card_login">Танылыу</string>
   <string name="page_editing_login">Танылыу</string>
   <string name="reading_lists_sync_login">Танылыу</string>

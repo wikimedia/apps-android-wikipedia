@@ -175,8 +175,8 @@
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
   <string name="account_creation_password_hint">비밀번호</string>
-  <string name="login_2fa_hint">2요소 인증 코드</string>
-  <string name="login_2fa_other_workflow_error_msg">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
+  <string name="login_2fa_hint" fuzzy="true">2요소 인증 코드</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
   <string name="onboarding_card_login">로그인</string>
   <string name="page_editing_login">로그인</string>
   <string name="reading_lists_sync_login">로그인</string>
