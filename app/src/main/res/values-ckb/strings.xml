@@ -153,8 +153,8 @@
   <string name="login_username_hint">ناوی بەکارھێنەر</string>
   <string name="login_password_hint">تێپەڕوشە</string>
   <string name="account_creation_password_hint">تێپەڕوشە</string>
-  <string name="login_2fa_hint">کۆدی دڵنیاکردنەوەی دوو-فاکتەر</string>
-  <string name="login_2fa_other_workflow_error_msg">جەختکەرەوەی دوو-فاکتەر پێویستە! تکایە بگەڕێوە بۆ چالاکی سەرەکی و بە کۆدی ٢-ئێف-ئەیەکەت بچۆژوورەوە و دووبارە ھەوڵبدەرەوە.</string>
+  <string name="login_2fa_hint" fuzzy="true">کۆدی دڵنیاکردنەوەی دوو-فاکتەر</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">جەختکەرەوەی دوو-فاکتەر پێویستە! تکایە بگەڕێوە بۆ چالاکی سەرەکی و بە کۆدی ٢-ئێف-ئەیەکەت بچۆژوورەوە و دووبارە ھەوڵبدەرەوە.</string>
   <string name="onboarding_card_login">بچۆ ژوورەوە</string>
   <string name="page_editing_login">بچۆ ژوورەوە</string>
   <string name="reading_lists_sync_login">بچۆ ژوورەوە</string>

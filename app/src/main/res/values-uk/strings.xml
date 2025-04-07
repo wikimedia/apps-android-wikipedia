@@ -174,8 +174,8 @@
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Код двофакторної автентифікації</string>
-  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! будь ласка, поверніться до основної діяльності та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
+  <string name="login_2fa_hint" fuzzy="true">Код двофакторної автентифікації</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Необхідна двофакторна автентифікація! будь ласка, поверніться до основної діяльності та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
   <string name="reading_lists_sync_login">Увійти до системи</string>

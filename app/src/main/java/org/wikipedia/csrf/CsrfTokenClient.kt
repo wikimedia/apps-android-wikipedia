@@ -32,7 +32,7 @@ object CsrfTokenClient {
                     if (retry > 0 && AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
                         // Log in explicitly
                         try {
-                            LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
+                            LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!)
                         } catch (e: CancellationException) {
                             throw e
                         } catch (e: Throwable) {

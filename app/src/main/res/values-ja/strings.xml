@@ -205,8 +205,8 @@
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="account_creation_password_hint">パスワード</string>
-  <string name="login_2fa_hint">二段階認証コード</string>
-  <string name="login_2fa_other_workflow_error_msg">2段階認証が必要です! メイン画面に戻り2段階認証のトークンを使ってログインしてから、再実行してください。</string>
+  <string name="login_2fa_hint" fuzzy="true">二要素認証コード</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">二要素認証が必要です! メイン画面に戻り2FAトークンを使ってログインしてから、再実行してください。</string>
   <string name="onboarding_card_login">ログイン</string>
   <string name="page_editing_login">ログイン</string>
   <string name="reading_lists_sync_login">ログイン</string>
