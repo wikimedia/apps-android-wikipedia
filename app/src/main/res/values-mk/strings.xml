@@ -150,8 +150,8 @@
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="account_creation_password_hint">Лозинка</string>
-  <string name="login_2fa_hint">Код за двочинителска заверка</string>
-  <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
+  <string name="login_2fa_hint" fuzzy="true">Код за двочинителска заверка</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
   <string name="onboarding_card_login">Најава</string>
   <string name="page_editing_login">Најава</string>
   <string name="reading_lists_sync_login">Најава</string>

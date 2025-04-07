@@ -139,8 +139,8 @@
   <string name="login_username_hint">Tonton-yuori</string>
   <string name="login_password_hint">Gboribiri</string>
   <string name="account_creation_password_hint">Gboribiri</string>
-  <string name="login_2fa_hint">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
   <string name="onboarding_card_login">Kpɛ</string>
   <string name="page_editing_login">Kpɛ</string>
   <string name="reading_lists_sync_login">Kpɛ</string>

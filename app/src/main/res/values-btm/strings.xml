@@ -69,8 +69,8 @@
   <string name="nav_item_login">Masuk tu Wikipedia</string>
   <string name="login_username_hint">Gorar pamake</string>
   <string name="login_password_hint">Hata kunci</string>
-  <string name="login_2fa_hint">Kode otentikasi dua faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Otentikasi dua faktor iporluon! Kemamu mulak tu aktivitas utamo dot masuk log dohot token 2FA mu, dungni kajo mulak.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode otentikasi dua faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Otentikasi dua faktor iporluon! Kemamu mulak tu aktivitas utamo dot masuk log dohot token 2FA mu, dungni kajo mulak.</string>
   <string name="menu_login">Masuk log</string>
   <string name="login_activity_title" fuzzy="true">Masuk tu Wikipedia</string>
   <string name="login_in_progress_dialog_message">Dompak masuk log</string>

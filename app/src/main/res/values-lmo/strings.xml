@@ -134,8 +134,8 @@
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parolla ciav</string>
   <string name="account_creation_password_hint">Parolla ciav</string>
-  <string name="login_2fa_hint">Codes de autenticazzion a du fattor</string>
-  <string name="login_2fa_other_workflow_error_msg">A gh\'è besogn de l\'autenticazzion a du fattor! Per piesè, torna indrée a l\'attività principal e va dent cont el to token per la 2FA, e poeu proeuva ancamò.</string>
+  <string name="login_2fa_hint" fuzzy="true">Codes de autenticazzion a du fattor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">A gh\'è besogn de l\'autenticazzion a du fattor! Per piesè, torna indrée a l\'attività principal e va dent cont el to token per la 2FA, e poeu proeuva ancamò.</string>
   <string name="onboarding_card_login">Và dent</string>
   <string name="page_editing_login">Và dent</string>
   <string name="reading_lists_sync_login">Và dent</string>
