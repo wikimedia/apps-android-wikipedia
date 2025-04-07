@@ -59,7 +59,8 @@ fun SearchTopAppBar(
                 ),
                 textStyle = TextStyle(
                     fontSize = 16.sp
-                )
+                ),
+                singleLine = true
             )
         },
         navigationIcon = {
