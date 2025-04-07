@@ -1,9 +1,7 @@
 package org.wikipedia.yearinreview
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.BitmapFactory
-import android.util.Log
 import android.widget.ImageView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,11 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.content.ContextCompat.startActivity
 import com.bumptech.glide.Glide
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -57,7 +55,7 @@ fun YearInReviewBottomSheetScaffold() {
             modifier = Modifier.padding(
                 horizontal = textHorizontalPadding
             ),
-            text = "Explore your Wikipedia in Review",
+            text = stringResource(R.string.year_in_review_explore_screen_title),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.headlineSmall,
             textAlign = TextAlign.Center
@@ -67,7 +65,7 @@ fun YearInReviewBottomSheetScaffold() {
             modifier = Modifier.padding(
                 horizontal = textHorizontalPadding
             ),
-            text = "See insights about what articles we read and edited, and share highlights from our year on Wikipedia.",
+            text = stringResource(R.string.year_in_review_explore_screen_bodytext),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
@@ -89,7 +87,6 @@ fun YearInReviewBottomSheetScaffold() {
         )
         Button(
             onClick = {
-                //(context as? Activity)?.finish()
                 context.startActivity((YearInReviewActivity.newIntent(context)))
             },
             modifier = Modifier
