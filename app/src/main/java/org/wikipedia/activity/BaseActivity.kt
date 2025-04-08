@@ -53,6 +53,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.yearinreview.YearInReviewDialog
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -251,6 +252,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun launchDonateActivity(intent: Intent) {
         requestDonateActivity.launch(intent)
+    }
+
+    fun launchYearInReviewExploreActivity() {
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, YearInReviewDialog.newInstance())
     }
 
     private fun removeSplashBackground() {

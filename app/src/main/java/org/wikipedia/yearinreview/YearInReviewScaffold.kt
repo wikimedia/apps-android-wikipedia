@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview
 
 import android.widget.ImageView
+import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -46,6 +47,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -69,6 +71,8 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { totalPages })
+    val context = LocalContext.current
+
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
@@ -86,6 +90,8 @@ fun YearInReviewScreen(
                     IconButton(onClick = {
                         if (totalPages > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
+                        } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
+                            (context as? ComponentActivity)?.finish()
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.Onboarding.name)
