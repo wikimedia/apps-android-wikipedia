@@ -27,9 +27,7 @@ class YearInReviewDialog : ExtendedBottomSheetDialogFragment() {
     ): View {
         _binding = DialogYearInReviewBinding.inflate(inflater, container, false)
         val view = binding.root
-
         binding.yearInReviewLayout.apply {
-
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 BaseTheme {
@@ -37,7 +35,6 @@ class YearInReviewDialog : ExtendedBottomSheetDialogFragment() {
                 }
             }
         }
-
         (dialog as? BottomSheetDialog)?.behavior.apply {
             this?.isFitToContents = true
             this?.state = BottomSheetBehavior.STATE_EXPANDED

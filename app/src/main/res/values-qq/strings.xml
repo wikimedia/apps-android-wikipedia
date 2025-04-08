@@ -1795,4 +1795,5 @@
   <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. \"%d\" represents the total number of userContribs for the current year</string>
   <string name="year_in_review_explore_screen_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_explore_screen_bodytext">Body text for the year in review Explore Screen</string>
+  <string name="year_in_review_explore_screen_continue">Button text for the year in review Explore Screen</string>
 </resources>

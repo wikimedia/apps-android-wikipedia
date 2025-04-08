@@ -1878,5 +1878,5 @@
     <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
     <string name="year_in_review_explore_screen_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_explore_screen_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
-
+    <string name="year_in_review_explore_screen_continue">Continue</string>
 </resources>

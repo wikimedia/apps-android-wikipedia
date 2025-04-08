@@ -101,7 +101,7 @@ fun YearInReviewBottomSheetScaffold() {
             )
         ) {
             Text(
-                text = "Continue",
+                text = stringResource(R.string.year_in_review_explore_screen_continue),
                 color = WikipediaTheme.colors.paperColor,
                 style = MaterialTheme.typography.labelLarge
             )
