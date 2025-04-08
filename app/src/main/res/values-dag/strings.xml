@@ -143,8 +143,8 @@
   <string name="login_username_hint">ŋun su yuli</string>
   <string name="login_password_hint">Paswɛdi</string>
   <string name="account_creation_password_hint">Paswɛdi</string>
-  <string name="login_2fa_hint">Two-Factor maŋgubu ashili bachinima</string>
-  <string name="login_2fa_other_workflow_error_msg">Fakta-dibaayi maŋgubu ashili bachinima kpɛhibu zala talahi! Dimi suɣulo labimi atuma maa jɛnda maani nti kpɛhi a 2FA ashili bachinima maa ka labi mɔ.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor maŋgubu ashili bachinima</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Fakta-dibaayi maŋgubu ashili bachinima kpɛhibu zala talahi! Dimi suɣulo labimi atuma maa jɛnda maani nti kpɛhi a 2FA ashili bachinima maa ka labi mɔ.</string>
   <string name="onboarding_card_login">Kpɛma</string>
   <string name="page_editing_login">Kpɛma</string>
   <string name="reading_lists_sync_login">Kpɛma</string>

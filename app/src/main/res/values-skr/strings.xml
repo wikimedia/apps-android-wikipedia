@@ -113,7 +113,7 @@
   <string name="login_username_hint">صارف دا ناں</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint">ݙو جزی تصیدیقی کوڈ</string>
+  <string name="login_2fa_hint" fuzzy="true">ݙو جزی تصیدیقی کوڈ</string>
   <string name="onboarding_card_login">لاگ ان تھیوو</string>
   <string name="page_editing_login">لاگ ان تھیوو</string>
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>

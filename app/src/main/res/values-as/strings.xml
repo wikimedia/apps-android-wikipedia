@@ -122,8 +122,8 @@
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">পাছৱৰ্ড</string>
   <string name="account_creation_password_hint">পাছৱৰ্ড</string>
-  <string name="login_2fa_hint">দুই-কাৰক প্ৰমাণীকৰণ ক\'ড</string>
-  <string name="login_2fa_other_workflow_error_msg">দুই-স্তৰীয় প্ৰমানীকৰণৰ আৱশ্যক! অনুগ্ৰহ কৰি মূল কাৰ্যলৈ গৈ আপোনাৰ 2FA ট\'কেন দি প্ৰৱেশ কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
+  <string name="login_2fa_hint" fuzzy="true">দুই-কাৰক প্ৰমাণীকৰণ ক\'ড</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">দুই-স্তৰীয় প্ৰমানীকৰণৰ আৱশ্যক! অনুগ্ৰহ কৰি মূল কাৰ্যলৈ গৈ আপোনাৰ 2FA ট\'কেন দি প্ৰৱেশ কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="onboarding_card_login">প্ৰৱেশ</string>
   <string name="page_editing_login">প্ৰৱেশ</string>
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>

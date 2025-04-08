@@ -149,8 +149,8 @@
   <string name="login_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="account_creation_password_hint">ಪ್ರವೇಶಪದ</string>
-  <string name="login_2fa_hint">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ ಸಂಕೇತ</string>
-  <string name="login_2fa_other_workflow_error_msg">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ! ದಯವಿಟ್ಟು ಮುಖ್ಯ ಚಟುವಟಿಕೆಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ನಿಮ್ಮ 2ಎಫ್ಎ ಟೋಕನ್‌ನೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ, ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="login_2fa_hint" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ ಸಂಕೇತ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ! ದಯವಿಟ್ಟು ಮುಖ್ಯ ಚಟುವಟಿಕೆಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ನಿಮ್ಮ 2ಎಫ್ಎ ಟೋಕನ್‌ನೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ, ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
   <string name="onboarding_card_login">ಲಾಗ್ ಇನ್</string>
   <string name="page_editing_login">ಲಾಗ್ ಇನ್</string>
   <string name="reading_lists_sync_login">ಲಾಗ್ ಇನ್</string>

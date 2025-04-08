@@ -22,6 +22,8 @@
   <string name="search_hint_voice_search">Iskanje z glasovnim vnosom</string>
   <string name="search_hint_search_languages">Poiščite jezik</string>
   <string name="search_back_button_content_description">Nazaj</string>
+  <string name="search_clear_query_content_description">Počisti poizvedbo</string>
+  <string name="search_icon_content_description">Iskanje</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
   <string name="nav_item_suggested_edits">Urejanja</string>
   <string name="nav_item_more">Več</string>
@@ -81,14 +83,14 @@
   <string name="menu_page_show_tabs">Pokaži zavihke</string>
   <string name="menu_page_other_languages">Spremeni jezik</string>
   <string name="menu_page_find_in_page">Poišči na strani</string>
-  <string name="menu_page_add_to_watchlist">Dodaj na spisek nadzorov</string>
+  <string name="menu_page_add_to_watchlist">Dodaj na nadzorni seznam</string>
   <string name="menu_page_watch">Opazuj</string>
   <string name="menu_page_unwatch">Odopazuj</string>
   <string name="menu_page_view_talk">Ogled pogovorne strani</string>
   <string name="menu_page_talk_page">Pogovorna stran</string>
   <string name="menu_page_view_edit_history">Ogled zgodovine urejanja</string>
   <string name="menu_page_edit_history">Zgodovina urejanja</string>
-  <string name="menu_page_remove_from_watchlist">Odstrani s spiska nadzorov</string>
+  <string name="menu_page_remove_from_watchlist">Odstrani z nadzornega seznama</string>
   <string name="menu_page_watched">Opazovano</string>
   <string name="edit_section_find_in_page">Poišči na strani</string>
   <string name="menu_page_font_and_theme">Pisava in tema</string>
@@ -156,8 +158,8 @@
   <string name="login_username_hint">Uporabniško ime</string>
   <string name="login_password_hint">Geslo</string>
   <string name="account_creation_password_hint">Geslo</string>
-  <string name="login_2fa_hint">Koda za dvofaktorsko avtentikacijo</string>
-  <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska avtentikacija! Vrnite se na glavno dejavnost in se prijavite s svojim žetonom 2FA, nato poskusite znova.</string>
+  <string name="login_2fa_hint" fuzzy="true">Koda za dvofaktorsko avtentikacijo</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Potrebna je dvofaktorska avtentikacija! Vrnite se na glavno dejavnost in se prijavite s svojim žetonom 2FA, nato poskusite znova.</string>
   <string name="onboarding_card_login">Prijava</string>
   <string name="page_editing_login">Prijava</string>
   <string name="reading_lists_sync_login">Prijava</string>
@@ -239,8 +241,8 @@
   <string name="page_protected_can_not_edit">Vaš račun trenutno žal nima zadostnih pravic za urejanje te strani.</string>
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisek nadzorov</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Spremljajte spremembe člankov, ki vas zanimajo. Za opazovanje sprememb tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na nadzorni seznam</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Spremljajte spremembe člankov, ki vas zanimajo. Za opazovanje sprememb tapnite prelivni meni in izberite &lt;b&gt;Dodaj na nadzorni seznam&lt;/b&gt;.</string>
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
   <string name="about_description">O aplikaciji Wikipedija</string>
@@ -792,7 +794,7 @@
     <item quantity="few">%d označenih kot neprebrano</item>
     <item quantity="other">%d označenih kot neprebrano</item>
   </plurals>
-  <string name="watchlist_title">Spisek nadzorov</string>
+  <string name="watchlist_title">Nadzorni seznam</string>
   <string name="preference_title_notification_poll">Preveri obvestila</string>
   <string name="preference_summary_notification_poll">Omogoči aplikaciji uporabo podatkov za preverjanje novih obvestil v ozadju.</string>
   <string name="preference_category_notification_types">Vrste obvestil v aplikaciji</string>
@@ -1358,8 +1360,8 @@
   <string name="main_tooltip_text">Pozdravljeni, %s, ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
   <string name="main_tooltip_text_v2">Ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
   <string name="main_tooltip_action_button">Začnimo</string>
-  <string name="main_tooltip_watchlist_title">Spisek nadzorov</string>
-  <string name="main_tooltip_watchlist_text">Članke in strani, ki ste jih dodali na svoj spisek nadzorov, lahko spremljate v meniju Več pod &lt;b&gt;Spisek nadzorov&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_title">Nadzorni seznam</string>
+  <string name="main_tooltip_watchlist_text">Članke in strani, ki ste jih dodali na svoj nadzorni seznam, lahko spremljate v meniju Več pod &lt;b&gt;Nadzorni seznam&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_cancel_button_text">Prekliči</string>
@@ -1482,18 +1484,18 @@
   <string name="revision_compare_two_only">Izberete lahko samo dve redakciji.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Spremeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">za 1 teden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">za 1 mesec</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">za 3 mesece</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">za 6 mesecev</string>
-  <string name="watchlist_expiry_dialog_title">Izberite čas spremljanja na spisku nadzorov</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 teden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mesec</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mesece</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mesecev</string>
+  <string name="watchlist_expiry_dialog_title">Izberite čas spremljanja na nadzornem seznamu</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">1 teden</string>
   <string name="watchlist_expiry_dialog_one_month">1 mesec</string>
   <string name="watchlist_expiry_dialog_three_months">3 mesece</string>
   <string name="watchlist_expiry_dialog_six_months">6 mesecev</string>
-  <string name="watchlist_empty">Na spisku nadzorov nimate nobenega članka.</string>
-  <string name="watchlist_search">Preišči spisek nadzorov</string>
+  <string name="watchlist_empty">Na nadzornem seznamu nimate nobenega članka.</string>
+  <string name="watchlist_search">Preišči nadzorni seznam</string>
   <string name="watchlist_filter_all">Vse</string>
   <string name="watchlist_filter_talk">Pogovor</string>
   <string name="watchlist_filter_pages">Strani</string>
@@ -1501,10 +1503,10 @@
   <string name="watchlist_page_moved">Prestavljeno</string>
   <string name="watchlist_page_protected">Zaščiteno</string>
   <string name="watchlist_page_deleted">Izbrisano</string>
-  <string name="watchlist_filter_title">Filter spiska nadzorov</string>
+  <string name="watchlist_filter_title">Filter nadzornega seznama</string>
   <string name="watchlist_filter_wiki_filter_header">Viki</string>
   <string name="watchlist_filter_all_text">Vse</string>
-  <string name="watchlist_filter_watchlist_activity_header">Dejavnost spiska nadzorov</string>
+  <string name="watchlist_filter_watchlist_activity_header">Dejavnost nadzornega seznama</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Nevidene spremembe</string>
   <string name="watchlist_filter_watchlist_activity_seen">Videne spremembe</string>
   <string name="watchlist_filter_contribution_quality_header">Napovedi kakovosti prispevkov</string>
@@ -1543,8 +1545,8 @@
   <string name="watchlist_filter_type_of_change_logged_actions">Dnevniška dejanja</string>
   <string name="watchlist_filter_type_of_change_new_users">Novi uporabniki</string>
   <string name="watchlist_filter_reset_button">Ponastavi</string>
-  <string name="watchlist_search_bar_hint">Poiščite ali filtrirajte spisek nadzorov</string>
-  <string name="watchlist_search_bar_filter_hint">Filter spiska nadzorov</string>
+  <string name="watchlist_search_bar_hint">Poiščite ali filtrirajte nadzorni seznam</string>
+  <string name="watchlist_search_bar_filter_hint">Filter nadzornega seznama</string>
   <string name="watchlist_empty_search_message">Ni zadetkov, poskusite odstraniti %s, da vidite več.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -1694,7 +1696,7 @@
   <string name="patroller_onboarding_two_thank_title">Zahvala</string>
   <string name="patroller_onboarding_two_thank_content">Vidite produktivno urejanje? Zahvalite se uporabniku za njegov prispevek.</string>
   <string name="patroller_onboarding_two_watch_title">Opazuj</string>
-  <string name="patroller_onboarding_two_watch_content">Želite spremljati urejanje člankov? Dodajte jih na svoj spisek nadzorov. Oglejte si ga pod »Več«.</string>
+  <string name="patroller_onboarding_two_watch_content">Želite spremljati urejanje člankov? Dodajte jih na svoj nadzorni seznam. Oglejte si ga pod »Več«.</string>
   <string name="patroller_onboarding_two_talk_title">Pogovor</string>
   <string name="patroller_onboarding_two_talk_content">Komunicirajte z drugimi uredniki. Shranite pogosto uporabljena sporočila za pogovorne strani ali uporabljajte predlogo.</string>
   <string name="patroller_onboarding_two_undo_title">Razveljavi/vrni</string>

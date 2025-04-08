@@ -15,12 +15,14 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.DialogOnThisDayGameArticleBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -29,6 +31,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.AllowSnackbarOverBottomSheet
 import org.wikipedia.views.ViewUtil
 
@@ -81,6 +84,11 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
                 pageSummary.thumbnailUrl,
                 placeholderId = R.mipmap.launcher
             )
+            binding.articleThumbnail.setOnClickListener {
+                val leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty())
+                val filePageTitle = PageTitle("File:$leadImageName", viewModel.wikiSite)
+                startActivity(FilePageActivity.newIntent(requireContext(), filePageTitle))
+            }
         }
 
         val event = viewModel.getEventByPageTitle(pageSummary.apiTitle)

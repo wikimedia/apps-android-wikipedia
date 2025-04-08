@@ -207,8 +207,8 @@
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="account_creation_password_hint">كلمة السر</string>
-  <string name="login_2fa_hint">رمز التحقق بخطوتين</string>
-  <string name="login_2fa_other_workflow_error_msg">التوثيق بخطوتين مطلوب! يرجى الرجوع إلى النشاط الرئيسي وتسجيل الدخول باستخدام الرمز المميز 2FA، ثم إعادة المحاولة.</string>
+  <string name="login_2fa_hint" fuzzy="true">رمز التحقق بخطوتين</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">التوثيق بخطوتين مطلوب! يرجى الرجوع إلى النشاط الرئيسي وتسجيل الدخول باستخدام الرمز المميز 2FA، ثم إعادة المحاولة.</string>
   <string name="onboarding_card_login">تسجيل الدخول</string>
   <string name="page_editing_login">تسجيل الدخول</string>
   <string name="reading_lists_sync_login">تسجيل الدخول</string>

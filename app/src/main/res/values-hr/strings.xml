@@ -125,8 +125,8 @@
   <string name="login_username_hint">Suradničko ime</string>
   <string name="login_password_hint">Zaporka</string>
   <string name="account_creation_password_hint">Zaporka</string>
-  <string name="login_2fa_hint">Kôd dvofaktorske autentikacije</string>
-  <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska autentikacija! Molimo Vas, vratite se na glavnu aktivnost i prijavite se Vašim 2FA tokenom, a zatim pokušajte ponovno.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kôd dvofaktorske autentikacije</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Potrebna je dvofaktorska autentikacija! Molimo Vas, vratite se na glavnu aktivnost i prijavite se Vašim 2FA tokenom, a zatim pokušajte ponovno.</string>
   <string name="onboarding_card_login">Prijava</string>
   <string name="page_editing_login">Prijava</string>
   <string name="reading_lists_sync_login">Prijava</string>

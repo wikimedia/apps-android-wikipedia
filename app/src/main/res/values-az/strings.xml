@@ -25,6 +25,9 @@
   <string name="search_hint">Vikipediyada axtar</string>
   <string name="search_hint_voice_search">Səslə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
+  <string name="search_back_button_content_description">Geriyə qayıt</string>
+  <string name="search_clear_query_content_description">Sorğunu sil</string>
+  <string name="search_icon_content_description">Axtarış</string>
   <string name="filter_hint_filter_my_lists_and_articles">Siyahılarımı süzgəcdən keçir</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
   <string name="nav_item_more">Daha</string>
@@ -154,8 +157,10 @@
   <string name="login_username_hint">İstifadəçi adı</string>
   <string name="login_password_hint">Parol</string>
   <string name="account_creation_password_hint">Şifrə</string>
-  <string name="login_2fa_hint">İki faktorlu doğrulama Kodu</string>
-  <string name="login_2fa_other_workflow_error_msg">İki faktorlu kimlik doğrulaması tələb olunur! Ana fəaliyyətə qayıdın və 2FA simvolu ilə daxil olun və yenidən cəhd edin.</string>
+  <string name="login_2fa_hint">İki faktorlu autentifikasiya kodu</string>
+  <string name="login_2fa_other_workflow_error_msg">İki faktorlu autentifikasiya tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və 2FA kodunu daxil edin.</string>
+  <string name="login_email_auth_hint">E-poçt doğrulama kodu</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-poçt təsdiqi tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və e-poçt doğrulama kodunuzu daxil edin.</string>
   <string name="onboarding_card_login">Daxil ol</string>
   <string name="page_editing_login">Daxil ol</string>
   <string name="reading_lists_sync_login">Daxil ol</string>
@@ -883,6 +888,7 @@
   <string name="description_edit_learn_more">Məqalə təsvirləri haqqında daha çox məlumat əldə edin</string>
   <string name="description_edit_image_caption_learn_more">Şəkil alt yazıları haqqında ətraflı məlumat əldə edin</string>
   <string name="description_too_short">Mətn çox qısadır.</string>
+  <string name="description_too_long">İstifadəçilərin məqalənin mövzusunu bir baxışda anlaya bilməsi üçün təsvirləri qısa tutmağa çalışın</string>
   <string name="description_ends_with_punctuation">Mətn durğu işarələri ilə bitməməlidir.</string>
   <string name="description_starts_with_uppercase">Birinci söz xüsusi isim olmadığı təqdirdə kiçik hərflə başla.</string>
   <string name="description_starts_with_lowercase">Kiçik hərflə başlamaqdan çəkinin.</string>
@@ -1382,10 +1388,10 @@
   <string name="revision_compare_two_only">Yalnız iki düzəliş seçilə bilər.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Dəyiş</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">daimi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 həftə</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 ay</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ay</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 həftə</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ay</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ay</string>
   <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
   <string name="watchlist_expiry_dialog_permanent">Daimi</string>
   <string name="watchlist_expiry_dialog_one_week">1 həftə</string>
@@ -1669,6 +1675,68 @@
   <string name="survey_dialog_option_very_unsatisfied">Çox narazıyam</string>
   <string name="survey_dialog_cancel">İmtina</string>
   <string name="survey_dialog_submit">Göndər</string>
+  <string name="survey_dialog_next">Növbəti</string>
+  <string name="survey_dialog_general_yes">Bəli</string>
+  <string name="survey_dialog_general_no">Xeyr</string>
+  <string name="survey_dialog_general_maybe">Bəlkə</string>
   <string name="survey_dialog_input_hint">Əlavə rəy</string>
   <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi. Təşəkkürlər!</string>
+  <string name="on_this_day_game_entry_dialog_title">Təqdimat</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Vikipediya oyunları</string>
+  <string name="on_this_day_game_entry_dialog_button">Bu günün oyununu oyna</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Vikipediya oyunları Kəşf et lentində mövcuddur.</string>
+  <string name="on_this_day_game_title">Hansı birinci baş verib?</string>
+  <string name="on_this_day_game_dialog_button">Oyna</string>
+  <string name="on_this_day_game_splash_message">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
+  <string name="on_this_day_game_progress">%1$d/%2$d</string>
+  <string name="on_this_day_game_score">Xal: %d</string>
+  <string name="on_this_day_game_correct">Düzdür!</string>
+  <string name="on_this_day_game_incorrect">Səhvdir!</string>
+  <string name="on_this_day_game_point">+1 xal</string>
+  <string name="on_this_day_game_next">Növbəti sual</string>
+  <string name="on_this_day_game_finish">Son nəticələr</string>
+  <string name="on_this_day_game_share">Dostlarınla paylaş</string>
+  <string name="on_this_day_game_pause_title">Oyuna fasilə verilsin?</string>
+  <string name="on_this_day_game_pause_body">Sizin irəliləyişiniz bu gün üçün yadda saxlanılacaq. Siz oyunu Kəşf et lentinizdə tapa bilərsiniz.</string>
+  <string name="on_this_day_game_pause_negative">Oynamağa davam et</string>
+  <string name="on_this_day_game_pause_positive">Başa düşdüm</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Vikipediya oyunları</string>
+  <string name="on_this_day_game_feed_entry_card_title">Hansı birinci baş verib?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
+  <string name="on_this_day_game_result">%1$d/%2$d sualı bildiniz.</string>
+  <string name="on_this_day_game_next_in">Növbəti oyun %s sonra</string>
+  <string name="on_this_day_game_your_stats">Sizin statistikanız</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Oynanan oyun sayı</item>
+    <item quantity="other">Oynanan oyun sayı</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Ortalama xal</string>
+  <string name="on_this_day_game_stats_streak">Cari ardıcıllıq</string>
+  <string name="on_this_day_game_result_subtitle">Bugünkü oyunda istinad edilən məqalələr</string>
+  <string name="on_this_day_game_completed_message">Oynadığınız üçün təşəkkür edirik. Yeni oyun \"Hansı birinci baş verib?\" hər gün Kəşf et lentində mövcuddur.</string>
+  <string name="on_this_day_game_menu_notifications">Oyun bildirişləri</string>
+  <string name="on_this_day_game_menu_info">Daha ətraflı öyrən</string>
+  <string name="on_this_day_game_menu_feedback">Funksiya ilə bağlı problem</string>
+  <string name="on_this_day_game_article_read_button">Məqaləni oxu</string>
+  <string name="on_this_day_game_article_related_event_title">Bu məqalə ilə bağlı hadisə</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Bu sualı düz tapdınız</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Bu sualı səhv tapdınız</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Oyun bildirişləri söndürülsün?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Canlı bildirişləri deaktiv etsəniz, hər gün yeni oyun oynamaq üçün hazır olduqda bildiriş almayacaqsınız.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Oyun bildirişləri yandırılsın?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Yeni oyun oynamaq üçün hazır olduqda oyun bildirişləri sizi gündəlik xəbərdar edir.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Xeyr, açıq saxla</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Söndür</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Bəli, yandır</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Sönülü saxla</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Oyun bildirişləri sönülüdür.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Oyun bildirişləri yanılıdır.</string>
+  <string name="on_this_day_game_notification_text">Bu günün oyunu olan \"Hansı birinci baş verib?\" oynamağa hazırdır.</string>
+  <string name="on_this_day_game_report_email_subject">Problem bildirişi - Vikipediya oyunları</string>
+  <string name="on_this_day_game_report_email_body">Mən Vikipediya oyunları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Problemi təsvir edin]\n\nBaş verməsini gözlədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
+  <string name="on_this_day_game_notification_undo">Geri qaytar</string>
+  <string name="on_this_day_game_share_link_message">Mən Vikipediya Android tətbiqində \"Hansı birinci baş verib?\" gündəlik trivia oyununu oynayıram %s</string>
+  <string name="on_this_day_game_survey_q1">Bu oyundan nə dərəcədə razı qaldınız?</string>
+  <string name="on_this_day_game_survey_q2">Fərqli Vikipediya oyunlarını oynamaqda maraqlanırsınız?</string>
+  <string name="about_screen_logo_accessibility_text">Vikipediya tapmacası qlobus loqosu</string>
 </resources>

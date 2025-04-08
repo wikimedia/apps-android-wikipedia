@@ -143,8 +143,8 @@
   <string name="login_username_hint">Sunan amfani</string>
   <string name="login_password_hint">Lambar sirri</string>
   <string name="account_creation_password_hint">Lambar sirri</string>
-  <string name="login_2fa_hint">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
-  <string name="login_2fa_other_workflow_error_msg">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
   <string name="onboarding_card_login">Shiga</string>
   <string name="page_editing_login">Shiga</string>
   <string name="reading_lists_sync_login">Shiga</string>

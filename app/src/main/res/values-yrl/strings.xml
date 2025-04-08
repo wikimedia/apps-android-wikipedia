@@ -134,8 +134,8 @@
   <string name="login_username_hint">Puruçara rera</string>
   <string name="login_password_hint">Nhẽẽga Kabé</string>
   <string name="account_creation_password_hint">Nhẽẽga Kabé</string>
-  <string name="login_2fa_hint">Mukũiwatá Muereteçá yupinimaçawa</string>
-  <string name="login_2fa_other_workflow_error_msg">Mukũiwatá muereteçawa puraĩgawá, e-iwíri murakiçawa yupirũgawa upé açuí e-yumũdí ne 2FA kabé irũ, ariré e-çaá amũ ruê.</string>
+  <string name="login_2fa_hint" fuzzy="true">Mukũiwatá Muereteçá yupinimaçawa</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Mukũiwatá muereteçawa puraĩgawá, e-iwíri murakiçawa yupirũgawa upé açuí e-yumũdí ne 2FA kabé irũ, ariré e-çaá amũ ruê.</string>
   <string name="onboarding_card_login">Uiké</string>
   <string name="page_editing_login">Uiké</string>
   <string name="reading_lists_sync_login">Uiké</string>

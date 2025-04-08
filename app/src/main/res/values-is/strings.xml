@@ -140,8 +140,8 @@
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
   <string name="account_creation_password_hint">Lykilorð</string>
-  <string name="login_2fa_hint">Tveggja-þrepa auðkenningarkóði</string>
-  <string name="login_2fa_other_workflow_error_msg">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
+  <string name="login_2fa_hint" fuzzy="true">Tveggja-þrepa auðkenningarkóði</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
   <string name="onboarding_card_login">Skrá inn</string>
   <string name="page_editing_login">Skrá inn</string>
   <string name="reading_lists_sync_login">Skrá inn</string>

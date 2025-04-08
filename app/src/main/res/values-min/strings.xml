@@ -89,8 +89,8 @@
   <string name="login_username_hint">Namo pangguno</string>
   <string name="login_password_hint">Kato sandi</string>
   <string name="account_creation_password_hint">Kato sandi</string>
-  <string name="login_2fa_hint">Kode Otentikasi Duo Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Otentikasi duo faktor diparalukan! Silakan baliak ka aktivitas utamo sarato masuak log jo token 2FA Sanak, kudian cubo liak.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode Otentikasi Duo Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Otentikasi duo faktor diparalukan! Silakan baliak ka aktivitas utamo sarato masuak log jo token 2FA Sanak, kudian cubo liak.</string>
   <string name="onboarding_card_login">Masuak log</string>
   <string name="page_editing_login">Masuak log</string>
   <string name="reading_lists_sync_login">Masuak log</string>
