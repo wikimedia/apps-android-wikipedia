@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/empty"
+        android:icon="@drawable/ic_filter_list_24"
+        android:orderInCategory="101"
+        android:title="@string/abc_action_menu_overflow_description"
+        app:showAsAction="always"
+        app:iconTint="?attr/primary_color">
+        <menu>
+            <item
+                android:id="@+id/menu_topics"
+                android:icon="@drawable/ic_category_black_24dp"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/topics_floating_button_text" />
+        </menu>
+    </item>
+</menu>

@@ -70,17 +70,17 @@
 
     </FrameLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/topics_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="80dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/topics_floating_button_text"
-        android:textColor="@color/white"
-        app:backgroundTint="?attr/progressive_color"
-        app:iconTint="@color/white"
-        app:icon="@drawable/ic_filter_list_24" />
+<!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--        android:id="@+id/topics_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_marginBottom="80dp"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        android:text="@string/topics_floating_button_text"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:backgroundTint="?attr/progressive_color"-->
+<!--        app:iconTint="@color/white"-->
+<!--        app:icon="@drawable/ic_filter_list_24" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

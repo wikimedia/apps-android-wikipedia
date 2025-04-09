@@ -6,10 +6,14 @@ import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.util.Pair
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -39,7 +43,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class RandomFragment : Fragment() {
+class RandomFragment : Fragment(), MenuProvider {
 
     private var _binding: FragmentRandomBinding? = null
     private val binding get() = _binding!!
@@ -108,10 +112,11 @@ class RandomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        updateTopicsButton()
-        binding.topicsButton?.setOnClickListener {
-            topicsLauncher.launch(Intent(context, TopicsActivity::class.java))
-        }
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+//        updateTopicsButton()
+//        binding.topicsButton?.setOnClickListener {
+//            topicsLauncher.launch(Intent(context, TopicsActivity::class.java))
+//        }
     }
 
     override fun onResume() {
@@ -123,6 +128,27 @@ class RandomFragment : Fragment() {
         binding.randomItemPager.unregisterOnPageChangeCallback(viewPagerListener)
         _binding = null
         super.onDestroyView()
+    }
+
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_randomizer, menu)
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        super.onPrepareMenu(menu)
+        val topics = Prefs.selectedTopics
+        menu.findItem(R.id.menu_topics).title = if (topics.isEmpty())
+            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
+    }
+
+    override fun onMenuItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_topics -> {
+                topicsLauncher.launch(Intent(context, TopicsActivity::class.java))
+                true
+            }
+            else -> false
+        }
     }
 
     private fun onNextClick() {
@@ -249,11 +275,11 @@ class RandomFragment : Fragment() {
         }
     }
 
-    private fun updateTopicsButton() {
-        val topics = Prefs.selectedTopics
-        binding.topicsButton?.text = if (topics.isEmpty())
-            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
-    }
+//    private fun updateTopicsButton() {
+//        val topics = Prefs.selectedTopics
+//        binding.topicsButton?.text = if (topics.isEmpty())
+//            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
+//    }
 
     companion object {
         const val DEFAULT_PAGER_TAB = 0
