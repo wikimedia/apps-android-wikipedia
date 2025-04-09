@@ -53,7 +53,7 @@ class RandomFragment : Fragment() {
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)
-        binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL))
+        //binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL))
         binding.randomItemPager.registerOnPageChangeCallback(viewPagerListener)
 
         binding.randomNextButton.setOnClickListener { onNextClick() }

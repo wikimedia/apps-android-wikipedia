@@ -21,6 +21,7 @@ import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
 import org.wikipedia.util.Resource
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class RandomItemFragment : Fragment() {
@@ -37,9 +38,9 @@ class RandomItemFragment : Fragment() {
 
         _binding = FragmentRandomItemBinding.inflate(inflater, container, false)
 
-        binding.randomItemWikiArticleCardView.setOnClickListener {
+        binding.articleTitle.setOnClickListener {
             title?.let { title ->
-                parent().onSelectPage(title, binding.randomItemWikiArticleCardView.getSharedElements())
+                parent().onSelectPage(title, emptyArray())
             }
         }
 
@@ -81,24 +82,24 @@ class RandomItemFragment : Fragment() {
         binding.randomItemErrorView.setError(t)
         binding.randomItemErrorView.isVisible = true
         binding.randomItemProgress.isVisible = false
-        binding.randomItemWikiArticleCardView.isVisible = false
+        binding.articleImage.isVisible = false
     }
 
     private fun updateContents(summary: PageSummary?) {
         binding.randomItemErrorView.isVisible = false
         binding.randomItemProgress.isVisible = false
-        binding.randomItemWikiArticleCardView.isVisible = summary != null
+
         summary?.run {
-            binding.randomItemWikiArticleCardView.setTitle(displayTitle)
-            binding.randomItemWikiArticleCardView.setDescription(description)
-            binding.randomItemWikiArticleCardView.setExtract(extract, EXTRACT_MAX_LINES)
+            binding.articleTitle.text = StringUtil.fromHtml(displayTitle)
+            //binding.randomItemWikiArticleCardView.setDescription(description)
+            binding.articleExtract.text = StringUtil.fromHtml(extract)
 
             var imageUri: Uri? = null
 
             thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
                 imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
             }
-            binding.randomItemWikiArticleCardView.setImageUri(imageUri, false)
+            binding.articleImage.loadImage(imageUri)
         }
         parent().onChildLoaded()
     }

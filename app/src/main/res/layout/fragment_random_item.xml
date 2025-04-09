@@ -1,45 +1,74 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <org.wikipedia.views.WikiCardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/random_item_error_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:paddingBottom="@dimen/randomizer_card_view_bottom_padding">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
 
-        <ProgressBar
-            android:id="@+id/random_item_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="64dp" />
+    <ProgressBar
+        android:id="@+id/random_item_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <org.wikipedia.views.WikiErrorView
-            android:id="@+id/random_item_error_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="48dp"
-            android:visibility="gone" />
+    <org.wikipedia.views.FaceAndColorDetectImageView
+        android:id="@+id/articleImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="@string/transition_article_image"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/articleTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/articleExtract"
+        android:background="#80000000"
+        android:ellipsize="end"
+        android:fontFamily="serif"
+        android:lineSpacingMultiplier="1.1"
+        android:maxLines="3"
+        android:paddingTop="8dp"
+        android:paddingHorizontal="8dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        tools:text="Lorem ipsum"
+        android:transitionName="@string/transition_article_title" />
 
-            <org.wikipedia.views.WikiArticleCardView
-                android:id="@+id/random_item_wiki_article_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true" />
+    <TextView
+        android:id="@+id/articleExtract"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:background="#80000000"
+        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="120dp"
+        android:maxLines="5"
+        android:lineSpacingMultiplier="1.3"
+        android:textColor="@color/white"
+        android:fontFamily="serif"
+        tools:text="Lorem ipsum"
+        android:textSize="16sp"/>
 
-        </ScrollView>
 
-    </org.wikipedia.views.WikiCardView>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
