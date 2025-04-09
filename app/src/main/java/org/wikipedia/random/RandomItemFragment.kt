@@ -19,6 +19,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
@@ -35,7 +36,7 @@ class RandomItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-
+        println("orange --> onCreateView RandomItemFragment")
         _binding = FragmentRandomItemBinding.inflate(inflater, container, false)
 
         binding.articleTitle.setOnClickListener {
@@ -67,6 +68,10 @@ class RandomItemFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        if (Prefs.selectedTopics.isNotEmpty()) {
+            viewModel.getRandomPage()
         }
 
         return binding.root

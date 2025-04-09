@@ -49,14 +49,13 @@ class RandomFragment : Fragment() {
 
     private val topicsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == TOPICS_SELECTION_SUCCESS) {
-            println("orange")
             requireActivity().recreate()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-
+        println("orange onCreateView")
         _binding = FragmentRandomBinding.inflate(inflater, container, false)
         val view = binding.root
 
