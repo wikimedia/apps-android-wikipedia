@@ -36,7 +36,6 @@ class RandomItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        println("orange --> onCreateView RandomItemFragment")
         _binding = FragmentRandomItemBinding.inflate(inflater, container, false)
 
         binding.articleTitle.setOnClickListener {
