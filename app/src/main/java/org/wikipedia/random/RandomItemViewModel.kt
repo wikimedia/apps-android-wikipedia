@@ -11,7 +11,9 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
+import org.wikipedia.util.UriUtil
 
 class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -30,6 +32,16 @@ class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getRandomPage() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
+            if (Prefs.selectedTopics.isEmpty()) {
+                val topics = Prefs.selectedTopics.joinToString("|")
+                val response = ServiceFactory.get(wikiSite).fullTextSearch("articletopic:$topics", 1, null)
+                val title = UriUtil.encodeURL(response.query?.firstPage()?.title.orEmpty())
+                if (title.isNotEmpty()) {
+                    summary = ServiceFactory.getRest(wikiSite).getPageSummary(title)
+                    _uiState.value = Resource.Success(summary)
+                    return@launch
+                }
+            }
             summary = ServiceFactory.getRest(wikiSite).getRandomSummary()
             _uiState.value = Resource.Success(summary)
         }
