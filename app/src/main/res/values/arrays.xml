@@ -30,5 +30,44 @@
         <item>stem</item>
         <item>technology</item>
         <item>space</item>
+        <item>food-and-drink</item>
+        <item>internet-culture</item>
+        <item>linguistics</item>
+        <item>media*</item>
+        <item>software</item>
+        <item>video-games</item>
+        <item>performing-arts</item>
+        <item>philosophy-and-religion</item>
+        <item>visual-arts</item>
+        <item>visual-arts*</item>
+        <item>comics-and-anime</item>
+        <item>regions</item>
+        <item>central-africa</item>
+        <item>eastern-africa</item>
+        <item>northern-africa</item>
+        <item>southern-africa</item>
+        <item>western-africa</item>
+        <item>americas</item>
+        <item>central-america</item>
+        <item>north-america</item>
+        <item>south-america</item>
+        <item>central-asia</item>
+        <item>east-asia</item>
+        <item>north-asia</item>
+        <item>south-asia</item>
+        <item>southeast-asia</item>
+        <item>west-asia</item>
+        <item>eastern-europe</item>
+        <item>northern-europe</item>
+        <item>southern-europe</item>
+        <item>western-europe</item>
+        <item>business-and-economics</item>
+        <item>military-and-warfare</item>
+        <item>politics-and-government</item>
+        <item>transportation</item>
+        <item>computing</item>
+        <item>earth-and-environment</item>
+        <item>libraries-and-information</item>
+        <item>medicine-and-health</item>
     </string-array>
 </resources>
