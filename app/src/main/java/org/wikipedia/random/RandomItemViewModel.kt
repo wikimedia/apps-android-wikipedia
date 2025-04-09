@@ -32,7 +32,7 @@ class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun getRandomPage() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            if (Prefs.selectedTopics.isEmpty()) {
+            if (Prefs.selectedTopics.isNotEmpty()) {
                 val topics = Prefs.selectedTopics.joinToString("|")
                 val response = ServiceFactory.get(wikiSite).fullTextSearch("articletopic:$topics", 1, null)
                 val title = UriUtil.encodeURL(response.query?.firstPage()?.title.orEmpty())
