@@ -58,7 +58,8 @@ interface Service {
     suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("gsroffset") gsrOffset: Int?
+        @Query("gsroffset") gsrOffset: Int?,
+        @Query("gsrsort") gsrsort: String? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")

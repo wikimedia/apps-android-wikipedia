@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
-import org.wikipedia.util.UriUtil
 
 class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -34,8 +33,13 @@ class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         viewModelScope.launch(handler) {
             if (Prefs.selectedTopics.isNotEmpty()) {
                 val topics = Prefs.selectedTopics.joinToString("|")
-                val response = ServiceFactory.get(wikiSite).fullTextSearch("articletopic:$topics", 1, null)
-                val title = UriUtil.encodeURL(response.query?.firstPage()?.title.orEmpty())
+                val response = ServiceFactory.get(wikiSite).fullTextSearch(
+                    "articletopic:$topics",
+                    1,
+                    null,
+                    "random"
+                )
+                val title = response.query?.firstPage()?.title.orEmpty()
                 if (title.isNotEmpty()) {
                     summary = ServiceFactory.getRest(wikiSite).getPageSummary(title)
                     _uiState.value = Resource.Success(summary)
