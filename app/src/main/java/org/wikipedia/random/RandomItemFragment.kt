@@ -101,7 +101,7 @@ class RandomItemFragment : Fragment() {
             var imageUri: Uri? = null
 
             thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
-                imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+                imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, 640))
             }
             binding.articleImage.loadImage(imageUri)
         }

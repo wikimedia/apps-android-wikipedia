@@ -23,6 +23,10 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _uiState = MutableStateFlow(Resource<Boolean>())
     val uiState = _uiState.asStateFlow()
 
+    init {
+        RandomItemViewModel.prevTitles.clear()
+    }
+
     fun findPageInAnyList(title: PageTitle) {
         viewModelScope.launch(handler) {
             val inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null

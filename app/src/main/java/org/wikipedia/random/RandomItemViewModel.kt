@@ -33,21 +33,32 @@ class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         viewModelScope.launch(handler) {
             if (Prefs.selectedTopics.isNotEmpty()) {
                 val topics = Prefs.selectedTopics.joinToString("|")
-                val response = ServiceFactory.get(wikiSite).fullTextSearch(
-                    "articletopic:$topics",
-                    1,
-                    null,
-                    "random"
-                )
-                val title = response.query?.firstPage()?.title.orEmpty()
-                if (title.isNotEmpty()) {
-                    summary = ServiceFactory.getRest(wikiSite).getPageSummary(title)
-                    _uiState.value = Resource.Success(summary)
-                    return@launch
+                while(true) {
+                    val response = ServiceFactory.get(wikiSite).fullTextSearch(
+                        "articletopic:$topics",
+                        10,
+                        null,
+                        "random"
+                    )
+                    response.query?.pages?.forEach {
+                        val title = it.title
+                        if (title.isNotEmpty() && !prevTitles.contains(title)) {
+                            summary = ServiceFactory.getRest(wikiSite).getPageSummary(title)
+                            if (summary?.thumbnailUrl.orEmpty().isNotEmpty()) {
+                                prevTitles.add(title)
+                                _uiState.value = Resource.Success(summary)
+                                return@launch
+                            }
+                        }
+                    }
                 }
             }
             summary = ServiceFactory.getRest(wikiSite).getRandomSummary()
             _uiState.value = Resource.Success(summary)
         }
+    }
+
+    companion object {
+        var prevTitles = mutableListOf<String>()
     }
 }
