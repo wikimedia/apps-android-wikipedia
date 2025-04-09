@@ -86,7 +86,7 @@ enum class FeedContentType(private val code: Int,
     },
     FEATURED_TOPIC(11, R.string.featured_topic, R.string.featured_topic_subtitle, false, true) {
         override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
-            return if (isEnabled) TopicsClient() else null
+            return if (isEnabled) TopicsClient(coroutineScope) else null
         }
     };
 
