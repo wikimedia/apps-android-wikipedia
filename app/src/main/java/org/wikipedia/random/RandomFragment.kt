@@ -1,12 +1,14 @@
 package org.wikipedia.random
 
 import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -29,6 +31,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.Prefs
+import org.wikipedia.topics.TopicsActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -42,6 +46,13 @@ class RandomFragment : Fragment() {
     private val viewModel: RandomViewModel by viewModels()
     private val viewPagerListener = ViewPagerListener()
     private val topTitle get() = getTopChild()?.title
+
+    private val topicsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TOPICS_SELECTION_SUCCESS) {
+            println("orange")
+            requireActivity().recreate()
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -95,6 +106,14 @@ class RandomFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        updateTopicsButton()
+        binding.topicsButton?.setOnClickListener {
+            topicsLauncher.launch(Intent(context, TopicsActivity::class.java))
+        }
     }
 
     override fun onResume() {
@@ -232,10 +251,18 @@ class RandomFragment : Fragment() {
         }
     }
 
+    private fun updateTopicsButton() {
+        val topics = Prefs.selectedTopics
+        binding.topicsButton?.text = if (topics.isEmpty())
+            getString(R.string.topics_floating_button_text) else getString(R.string.topics_floating_button_text_selected, topics.size)
+    }
+
     companion object {
         const val DEFAULT_PAGER_TAB = 0
         const val ENABLED_BACK_BUTTON_ALPHA = 1f
         const val DISABLED_BACK_BUTTON_ALPHA = 0.5f
+        const val TOPICS_SELECTION_SUCCESS = 19
+
 
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
             arguments = bundleOf(
@@ -244,4 +271,5 @@ class RandomFragment : Fragment() {
             )
         }
     }
+
 }

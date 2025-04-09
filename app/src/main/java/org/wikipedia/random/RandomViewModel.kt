@@ -30,4 +30,8 @@ class RandomViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _uiState.value = Resource.Success(inAnyList)
         }
     }
+
+    fun formatTopicsForQuery(list: List<String>): String {
+        return ""
+    }
 }

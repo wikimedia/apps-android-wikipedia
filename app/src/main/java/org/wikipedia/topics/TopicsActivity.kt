@@ -6,6 +6,7 @@ import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityTopicsBinding
+import org.wikipedia.random.RandomFragment
 import org.wikipedia.settings.Prefs
 
 class TopicsActivity : BaseActivity() {
@@ -43,5 +44,10 @@ class TopicsActivity : BaseActivity() {
                 Prefs.selectedTopics = topics
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        setResult(RandomFragment.TOPICS_SELECTION_SUCCESS)
     }
 }
