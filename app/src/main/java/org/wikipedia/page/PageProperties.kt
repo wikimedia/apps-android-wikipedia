@@ -17,7 +17,7 @@ import java.util.Date
 
 @Parcelize
 @TypeParceler<Date, DateParceler>()
-data class PageProperties constructor(
+data class PageProperties(
     val pageId: Int = 0,
     val namespace: Namespace,
     val revisionId: Long = 0,
@@ -58,16 +58,13 @@ data class PageProperties constructor(
         isMainPage = pageSummary.type == PageSummary.TYPE_MAIN_PAGE,
         leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, DimenUtil.calculateLeadImageWidth()) },
         leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
-        leadImageWidth = pageSummary.thumbnailWidth,
-        leadImageHeight = pageSummary.thumbnailHeight,
+        leadImageWidth = pageSummary.thumbnail?.width ?: 0,
+        leadImageHeight = pageSummary.thumbnail?.height ?: 0,
         geo = pageSummary.coordinates,
         wikiBaseItem = pageSummary.wikiBaseItem,
         descriptionSource = pageSummary.descriptionSource
     )
 
-    constructor(title: PageTitle, isMainPage: Boolean) : this(namespace = title.namespace(),
-        displayTitle = title.displayText, isMainPage = isMainPage)
-
     private val isLoggedInUserAllowedToEdit: Boolean
-        get() = protection?.run { AccountUtil.isMemberOf(editRoles) } ?: false
+        get() = protection?.run { AccountUtil.isMemberOf(editRoles) } == true
 }

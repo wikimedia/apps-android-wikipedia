@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">Gyɛ ne</string>
   <string name="page_edit_history_filter_by_all">Maale emmo zaa (%s)</string>
   <string name="page_edit_history_filter_by_user">Tontona maale emmo (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anon maale emmo (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anon maale emmo (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot Maale emmo (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrics a yi %1$s wa tɔ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -139,8 +139,8 @@
   <string name="login_username_hint">Tonton-yuori</string>
   <string name="login_password_hint">Gboribiri</string>
   <string name="account_creation_password_hint">Gboribiri</string>
-  <string name="login_2fa_hint">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
   <string name="onboarding_card_login">Kpɛ</string>
   <string name="page_editing_login">Kpɛ</string>
   <string name="reading_lists_sync_login">Kpɛ</string>
@@ -348,7 +348,6 @@
   <string name="page_view_in_browser">Kaa a pegi a browza poɔŋ</string>
   <string name="tool_tip_toc_title">Nyɛ wieoŋ yelbulo tabul</string>
   <string name="tool_tip_toc_text">Pampana fo na baŋ laali la gɔɔ yuo a yelbulo tabul, ane meŋ tɔ a vu a bonvuuraa neɛzie ŋa na Ɛge wieoŋ lɛ gaa a atekele lombo yuo.</string>
-  <string name="tool_tip_lang_button">Fo na baŋ weɛre bɔ la pampana ane kanne wikipiideɛ kɔkɔ yaga poɔ a app poɔ.\nTɔ a bonwulaa na paale kɔkɔ yaga.</string>
   <string name="error_response_malformed">Sagebo yi a sɛva ba wa tõɔ kɔre-bare soŋ.</string>
   <string name="error_unknown">Gbɛ-ŋmɛ kaŋa eɛɛ la</string>
   <string name="format_error_server_message">Duori: \"%s\"</string>
@@ -924,8 +923,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">paahi enfuo caption</string>
   <string name="suggested_edits_feed_card_translate_image_caption">paahi enfuo caption (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">paahi enfuo tags</string>
-  <string name="suggested_edits_snackbar_survey_text">Wola ka fo maale eŋ yelnyɛrre wuo? Sɔroo de vuo fĩĩ fore a yelpeɛre kyaare app poɔ maale eŋ.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">De peɛhibo</string>
   <string name="suggested_edits_task_action_text_add">Paahi</string>
   <string name="suggested_edits_task_action_text_translate">Leɛre</string>
   <string name="suggested_edits_image_captions">Enfuo Caption</string>
@@ -991,7 +988,6 @@
     <item quantity="one">You added %d tag</item>
     <item quantity="other">Fo paale la %d magere</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zaameŋ</string>
   <string name="suggested_edits_encourage_account_creation_title">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
@@ -1027,8 +1023,8 @@
   <string name="image_recommendation_accept">Ɔɔ</string>
   <string name="image_recommendation_reject">Aayi</string>
   <string name="image_recommendation_notsure">Ba sage di baare</string>
-  <string name="image_recommendation_reject_title">Boŋ zuiŋ?</string>
-  <string name="image_recommendation_reject_subtitle">Fo nɔ-iri baa la nandaare teɛrɛ.</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Boŋ zuiŋ?</string>
+  <string name="image_recommendation_reject_subtitle" fuzzy="true">Fo nɔ-iri baa la nandaare teɛrɛ.</string>
   <string name="image_recommendation_reject_not_relevant">Enfuoni ba taa tɔna</string>
   <string name="image_recommendation_reject_no_info">Duoro ba seŋ bone na teɛre</string>
   <string name="image_recommendation_reject_offensive">Enfuoni ŋmaara la doŋ</string>
@@ -1098,8 +1094,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Koŋ baŋ iri a kɔkɔɛ zaa</string>
   <string name="more_language_options">Yaga</string>
   <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Poɔ kɔkɔɛ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Bareka kyebe</string>
   <string name="remove_language_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="remove_language_dialog_ok_button_text">Tɔɔ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Tɔɔ</string>
@@ -1159,6 +1153,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Wogiroŋ</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">De eŋ</string>
+  <string name="templates_param_suggested_value">Aseŋ %s</string>
   <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
   <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
@@ -1277,14 +1272,12 @@
   <string name="revision_rollback_success">Maale eŋ leɛ la.</string>
   <string name="revision_compare_button">Tag-lantaa kaa nyɛ</string>
   <string name="revision_compare_two_only">Boma ayi yoŋ la baŋ baŋ iri</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ane o yelyaga peegyi de paale la fo pɛll kaare %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">kyili</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Aŋ gɛrɛ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">a ko dagbuli yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">a ko kyuu yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">a ko kyuuri ata</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">a ko kyuuri ayɔɔbo</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s o yelyaga peegyi iri yi la fo pɛll-kaare.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">a ko dagbuli yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">a ko kyuu yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">a ko kyuuri ata</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">a ko kyuuri ayɔɔbo</string>
   <string name="watchlist_expiry_dialog_title">Iri pɛll kaare vuo wagere</string>
   <string name="watchlist_expiry_dialog_permanent">Kpi maroo</string>
   <string name="watchlist_expiry_dialog_one_week">daagbuli yeni</string>
@@ -1375,8 +1368,6 @@
   <string name="reading_list_share_menu_label">Tɔre</string>
   <string name="reading_list_share_menu_tooltip">Tɔre kannoo pɛll ŋa ne fo taa</string>
   <string name="reading_list_share_message_v2">Hi! N da na nɔŋ la ka n tɔre n wikipiideɛ kannoo pɛll ne fo:</string>
-  <string name="reading_list_share_survey_title">Fo na baŋ soŋ te la baa \"kannoo pɛll tɔre\"?</string>
-  <string name="reading_list_share_survey_body">\"Kannoo pɛll tɔraa\" e la nanda nyooraa te boɔra la fo  sagebo duoro na baa bee iri o bare.</string>
   <string name="talk_templates_empty_message" fuzzy="true">Fo ba taa kpããbo masɛgye binnaa zaa.</string>
   <string name="talk_templates_new_message_title">Masɛgye paalaa</string>
   <string name="talk_templates_new_message_subject_hint">Bɔgere</string>
@@ -1455,17 +1446,11 @@
   <string name="patroller_onboarding_one_content">Zɛgere wikipiideɛ yelbulo papa ne deedee duori maale eŋ paala leɛkaabo ane hakelɛ teɛbo, soŋguubo ane korɔ maale enneba eŋyuori.</string>
   <string name="patroller_onboarding_two_thank_title">Bareka</string>
   <string name="patroller_onboarding_two_watch_title">Bɛll</string>
-  <string name="patroller_onboarding_two_warn_title">Kpãã</string>
+  <string name="patroller_onboarding_two_talk_title">Yeli</string>
+  <string name="patroller_onboarding_two_talk_content">Yeli yɛlɛ ne fo maale eŋ taaba. Biŋ tontona yelyeli peegyi tonaa naŋ pore duoro bee toŋ ne tɛmplɛte.</string>
   <string name="patroller_onboarding_two_undo_title">Leɛ e/leɛ puori</string>
-  <string name="patroller_diff_feedback_dialog_title">Soŋ te baa nandaa ŋa</string>
-  <string name="patroller_diff_feedback_dialog_message">A nandaa ŋa sege fo laa?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Sege la</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Ba be a kaŋazaa</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ba sege</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Wola te ma baŋ e baa a nandaa?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">leɛ teroo</string>
-  <string name="patroller_diff_feedback_dialog_submit">Tere</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Leɛ teroo toɔlɛɛ la.</string>
   <string name="patroller_diff_feedback_tooltip">Tɔ ɔvafuloo menu eŋɛ na toɔle leɛ teroo wagere zaa a puli kyɛ \'Yelwonee ne nandaare\'.</string>
   <string name="data_opt_in_accept">Sage</string>
   <string name="data_opt_in_reject">zagere</string>
@@ -1473,4 +1458,11 @@
   <string name="donation_campaign_maybe_later_snackbar">Te na la leɛ maale teɛre fo la bieu.</string>
   <string name="donation_campaign_go_back_button">Gaa puori</string>
   <string name="menu_single_webview_open_external">Yuo sisitim broza poɔ</string>
+  <string name="survey_dialog_title">Soŋ te baa nandaa ŋa</string>
+  <string name="survey_dialog_message">A nandaa ŋa sege fo laa?</string>
+  <string name="survey_dialog_option_satisfied">Sege la</string>
+  <string name="survey_dialog_option_neutral">Ba be a kaŋazaa</string>
+  <string name="survey_dialog_option_unsatisfied">Ba sege</string>
+  <string name="survey_dialog_submit">Tere</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Leɛ teroo toɔlɛɛ la.</string>
 </resources>

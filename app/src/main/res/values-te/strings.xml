@@ -61,7 +61,7 @@
   <string name="page_edit_history_filter_by">ఇలా వడపోయి:</string>
   <string name="page_edit_history_filter_by_all">దిద్దుబాట్లన్నీ (%s)</string>
   <string name="page_edit_history_filter_by_user">వాడుకరి దిద్దుబాట్లు (%s)</string>
-  <string name="page_edit_history_filter_by_anon">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
   <string name="page_edit_history_filter_by_bot">బాట్ల దిద్దుబాట్లు (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
@@ -136,8 +136,8 @@
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="account_creation_password_hint">సంకేతపదం</string>
-  <string name="login_2fa_hint">రెండంచెల (Two-factor) ధ్రువీకరణ కోడ్:</string>
-  <string name="login_2fa_other_workflow_error_msg">రెండంచెల ధ్రువీకరణ అవసరం! తిరిగి ప్రధాన కార్యకలాపాలకు వెళ్ళి రెండంచెల ధ్రువీకరణతో లాగినై, మళ్ళీ ప్రయత్నించండి.</string>
+  <string name="login_2fa_hint" fuzzy="true">రెండంచెల (Two-factor) ధ్రువీకరణ కోడ్:</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">రెండంచెల ధ్రువీకరణ అవసరం! తిరిగి ప్రధాన కార్యకలాపాలకు వెళ్ళి రెండంచెల ధ్రువీకరణతో లాగినై, మళ్ళీ ప్రయత్నించండి.</string>
   <string name="onboarding_card_login">లాగినవండి</string>
   <string name="page_editing_login">లాగినవండి</string>
   <string name="reading_lists_sync_login">లాగినవండి</string>
@@ -338,7 +338,6 @@
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="tool_tip_toc_title">విషయ సూచిక సత్వర అందుబాటు</string>
   <string name="tool_tip_toc_text">విషయ సూచికను తెరిచేందుకు ఎడమ వైపుకు స్వైపు చెయ్యండి. అలాగే వ్యాసం లోని వివిధ విభాగాలకు దూకేందుకు ఈ స్క్రాలరు బొత్తాన్ని తట్టి లాగండి.</string>
-  <string name="tool_tip_lang_button">మీరిప్పుడు యాప్‌లో అనేక వికీపీడియా భాషల్లో వెతకడం, చదవడం చెయ్యవచ్చు.\n\n\nమరిన్ని భాషలను చేర్చేందుకు ఐకనుపై తట్టండి.</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
@@ -561,7 +560,7 @@
   <string name="notification_syncing_resume_button">కొనసాగించు</string>
   <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
   <string name="notification_syncing_reading_list_channel_title">చదివే జాబితాలను సింకు చేస్తున్నాం</string>
-  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడాం పురోగతిలో ఉంది</string>
+  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడం పురోగతిలో ఉంది</string>
   <string name="notification_many_unread">మీకు %d చదవని గమనింపు లున్నాయి</string>
   <plurals name="notification_channel_name">
     <item quantity="one">వ్యాసాన్ని దించుతున్నాం</item>
@@ -648,7 +647,7 @@
   <string name="preference_title_customize_push_notifications">పంపించే గమనింపులను కస్టమైజు చెయ్యండి</string>
   <string name="preference_category_display_settings">ప్రదర్శన అమరికలు</string>
   <string name="preference_title_hide_read_notifications">చదివే గమనింపులను దాచు</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడీయా</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">వికీపీడియా</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">వికీపీడియా నుండి గమనింపులు</string>
   <string name="notifications_channel_group_other_title">ఇతర</string>
   <string name="notifications_channel_group_other_description">యాప్ నుండి ఇతర గమనింపులు</string>
@@ -834,8 +833,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="suggested_edits_feed_card_translate_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">బొమ్మకు ట్యాగులు చేర్చండి</string>
-  <string name="suggested_edits_snackbar_survey_text">మీ దిద్దుబాటు అనుభవం ఎలా ఉంది? కొద్ది క్షణాలు సమయం తీసుకుని, ఈ యాప్‌లో దిద్దుబాట్లు చెయ్యడంపై సర్వే ఫారం నింపండి.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">సర్వేలో పాల్గొనండి</string>
   <string name="suggested_edits_task_action_text_add">చేర్చండి</string>
   <string name="suggested_edits_task_action_text_translate">అనువదించండి</string>
   <string name="suggested_edits_image_captions">బొమ్మ వ్యాఖ్యలు</string>
@@ -914,7 +911,6 @@
     <item quantity="one">మీరు %d ట్యాగును చేర్చారు</item>
     <item quantity="other">మీరు %d ట్యాగులను చేర్చారు</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
   <string name="suggested_edits_encourage_account_creation_title">వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -940,7 +936,7 @@
   <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
   <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
   <string name="image_recommendation_accept">సరే</string>
-  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">ఎందుకని వద్దు?</string>
   <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
   <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
   <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>
@@ -1003,10 +999,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">కనీసం ఒక్క వికీపీడియా భాషనైనా ఉంచండి - కంటెంటును వెతకడం, చదవడం చెయ్యాలిగా.</string>
   <string name="more_language_options">మరిన్ని</string>
   <string name="add_wikipedia_languages_text">వికీపీడియా భాషలను చేర్చు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">మీ యాప్ భాషల నుండి ఓ చైనీసు రకాన్ని తీసెయ్యమంటారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">మీ యాప్ భాషల్లో ప్రస్తుతం సాంప్రదాయిక చైనీసు, సరళీకృత చైనీసు రెండూ ఉన్నాయి. మీ యాప్‌లో భాషా అమరికలను తాజాకరిస్తారా?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">భాషలను సవరించు</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">వద్దులే</string>
   <string name="remove_language_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="remove_language_dialog_ok_button_text">సరే</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">సరే</string>
@@ -1068,7 +1060,7 @@
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
-  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
+  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించు</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
   <string name="watchlist_details_watch_label">వీక్షించు</string>
   <string name="watchlist_details_next_edit">తరువాతి దిద్దుబాటు</string>
@@ -1095,14 +1087,12 @@
   <string name="revision_undo_success">ఈ కూర్పును వెనక్కి తిప్పాం.</string>
   <string name="revision_compare_button">పోల్చిచూడు</string>
   <string name="revision_compare_two_only">రెండే కూర్పులను ఎంచుకోవచ్చు.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s నీ, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా %2$s లో చేర్చాం.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">మార్చు</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">శాశ్వతంగా</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 వారం పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 నెల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 నెలల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 నెలల పాటు</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ని, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా నుండి తీసేసాం.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 వారం పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 నెల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 నెలల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 నెలల పాటు</string>
   <string name="watchlist_expiry_dialog_title">వీక్షణ జాబితా వ్యవధిని ఎంచుకోండి</string>
   <string name="watchlist_expiry_dialog_permanent">శాశ్వతంగా</string>
   <string name="watchlist_expiry_dialog_one_week">1 వారం</string>

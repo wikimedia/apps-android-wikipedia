@@ -15,12 +15,9 @@ object FileUtil {
     private const val JPEG_QUALITY = 85
 
     fun writeToFile(bytes: ByteArrayOutputStream, destinationFile: File): File {
-        val fo = destinationFile.outputStream()
-        try {
-            fo.write(bytes.toByteArray())
-        } finally {
-            fo.flush()
-            fo.close()
+        destinationFile.outputStream().use {
+            it.write(bytes.toByteArray())
+            it.flush()
         }
         return destinationFile
     }

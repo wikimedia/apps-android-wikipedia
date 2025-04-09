@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by">Фильтрла</string>
   <string name="page_edit_history_filter_by_all">Пур тӳрлетӳсем те (%s)</string>
   <string name="page_edit_history_filter_by_user">Хутшӑнакансен тӳрлетӗвӗсем (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимлӑ тӳрлетнисем (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анонимлӑ тӳрлетнисем (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботсен тӳрлетӗвӗсем (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s пуҫласа %2$s таран метрикӑсем</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -142,8 +142,8 @@
   <string name="login_username_hint">Хутшӑнакан ячӗ</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Икӗ факторлӑ аутентификацин кочӗ</string>
-  <string name="login_2fa_other_workflow_error_msg">Икӗ факторлӑ аутентификаци кирлӗ! Тархасшӑн, тӗп ӗҫ патне таврӑнӑр та системӑна хӑвӑрӑн 2FA-токенпа кӗрӗр. Кайран тепӗр хут туса пӑхӑр.</string>
+  <string name="login_2fa_hint" fuzzy="true">Икӗ факторлӑ аутентификацин кочӗ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Икӗ факторлӑ аутентификаци кирлӗ! Тархасшӑн, тӗп ӗҫ патне таврӑнӑр та системӑна хӑвӑрӑн 2FA-токенпа кӗрӗр. Кайран тепӗр хут туса пӑхӑр.</string>
   <string name="onboarding_card_login">Кӗр</string>
   <string name="page_editing_login">Кӗр</string>
   <string name="reading_lists_sync_login">Кӗр</string>

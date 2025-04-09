@@ -16,18 +16,21 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -35,6 +38,10 @@ import java.util.concurrent.TimeUnit
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (!DeviceUtil.assertAppContext(context, true)) {
+            return
+        }
+
         when {
             Intent.ACTION_BOOT_COMPLETED == intent.action -> {
                 // To test the BOOT_COMPLETED intent:
@@ -71,6 +78,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
             }
+            ACTION_DAILY_GAME == intent.action -> {
+                OnThisDayGameNotificationManager.showNotification(context)
+            }
         }
     }
 
@@ -78,6 +88,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val ACTION_DAILY_GAME = "action_daily_game"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
@@ -138,7 +149,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
             if (notificationsToDisplay.isNotEmpty()) {
                 Prefs.notificationUnreadCount = notificationsToDisplay.size
-                WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
+                FlowEventBus.post(UnreadNotificationsEvent())
             }
 
             if (notificationsToDisplay.size > 2) {
@@ -158,7 +169,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         suspend fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             withContext(Dispatchers.IO) {
-                val token = CsrfTokenClient.getToken(wiki).blockingSingle()
+                val token = CsrfTokenClient.getToken(wiki)
                 notifications.windowed(50, partialWindows = true).forEach { window ->
                     val idListStr = window.joinToString("|")
                     ServiceFactory.get(wiki).markRead(token, if (unread) null else idListStr, if (unread) idListStr else null)
@@ -167,7 +178,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.isAnyActivityResumed) {
+            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.currentResumedActivity != null) {
                 return
             }
             var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)

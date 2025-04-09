@@ -1,37 +1,32 @@
 package org.wikipedia.analytics.eventplatform
 
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.donate.CampaignCollection
+import org.wikipedia.settings.Prefs
 
-class DonorExperienceEvent {
+open class DonorExperienceEvent {
 
     companion object {
-        fun logImpression(activeInterface: String, campaignId: String? = null, wikiId: String = "") {
-            submitDonorExperienceEvent("impression", activeInterface, getActionDataString(campaignId), wikiId)
-        }
 
         fun logAction(
             action: String,
             activeInterface: String,
-            wikiId: String = "",
+            wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode,
             campaignId: String? = null
         ) {
-            submitDonorExperienceEvent(
+            submit(
                 action,
                 activeInterface,
-                getActionDataString(campaignId),
+                campaignId?.let { "campaign_id: ${CampaignCollection.getFormattedCampaignId(it)}, " }.orEmpty() + "banner_opt_in: ${Prefs.donationBannerOptIn}",
                 wikiId
             )
         }
 
-        fun getActionDataString(campaignId: String? = null): String {
-            return campaignId?.let { "campaign_id: $it, " }.orEmpty()
-        }
-
-        private fun submitDonorExperienceEvent(
+        fun submit(
             action: String,
             activeInterface: String,
             actionData: String,
-            wikiId: String
+            wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
         ) {
             EventPlatformClient.submit(
                 AppInteractionEvent(

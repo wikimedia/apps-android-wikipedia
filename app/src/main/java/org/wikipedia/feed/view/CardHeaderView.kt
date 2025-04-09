@@ -14,10 +14,10 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.model.Card
-import org.wikipedia.util.L10nUtil
 
-class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+class CardHeaderView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
         fun onRequestDismissCard(card: Card): Boolean
@@ -71,11 +71,11 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
         binding.viewListCardHeaderSecondaryIcon.isVisible = false
         if (langCode.isNullOrEmpty() || WikipediaApp.instance.languageState.appLanguageCodes.size < 2) {
             binding.viewListCardHeaderLangCode.isVisible = false
-            L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.instance.languageState.systemLanguageCode)
+            setLayoutDirectionByLang(WikipediaApp.instance.languageState.systemLanguageCode)
         } else {
             binding.viewListCardHeaderLangCode.isVisible = true
             binding.viewListCardHeaderLangCode.setLangCode(langCode)
-            L10nUtil.setConditionalLayoutDirection(this, langCode)
+            setLayoutDirectionByLang(langCode)
         }
         return this
     }

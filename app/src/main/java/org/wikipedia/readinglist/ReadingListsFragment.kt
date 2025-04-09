@@ -5,7 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,22 +21,22 @@ import androidx.core.text.color
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.snackbar.Snackbar
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -49,16 +54,25 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.CircularProgressBar
+import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
+import org.wikipedia.views.PageItemView
+import org.wikipedia.views.ReadingListsOverflowView
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
     private val binding get() = _binding!!
     private var displayedLists = listOf<Any>()
-    private val disposables = CompositeDisposable()
     private val adapter = ReadingListAdapter()
     private val readingListItemCallback = ReadingListItemCallback()
     private val readingListPageItemCallback = ReadingListPageItemCallback()
@@ -92,14 +106,37 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.swipeRefreshLayout.isEnabled = false
         }
         binding.searchEmptyView.visibility = View.GONE
         enableLayoutTransition(true)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ReadingListSyncEvent -> {
+                            binding.recyclerView.post {
+                                if (isAdded) {
+                                    updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentPreviewSavedReadingList != null)
+                                }
+                            }
+                        }
+                        is ArticleSavedOrDeletedEvent -> {
+                            if (event.isAdded) {
+                                if (Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
+                                    showReadingListsSyncDialog()
+                                    Prefs.readingListsPageSaveCount += 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -113,7 +150,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         binding.recyclerView.adapter = null
         binding.recyclerView.clearOnScrollListeners()
         _binding = null
@@ -122,9 +158,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
+
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
-        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -135,7 +171,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) { this.updateLists() }
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) { this.updateLists() }
     }
 
     override fun onShareItem(pageId: Long) {
@@ -161,7 +197,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
+        ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -239,7 +275,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun updateLists(searchQuery: String?, forcedRefresh: Boolean) {
         maybeShowOnboarding(searchQuery)
-        ReadingListBehaviorsUtil.searchListsAndPages(searchQuery) { lists ->
+        ReadingListBehaviorsUtil.searchListsAndPages(lifecycleScope, searchQuery) { lists ->
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
                     return lists.size
@@ -265,10 +301,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -277,27 +309,34 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 lists.removeAt(0)
             }
 
-            // Asynchronous update fo lists affects the multiselect process
-            if (!isTagType(actionMode)) {
-                displayedLists = lists
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
+
+            lifecycleScope.launch {
+                // Asynchronous update of lists affects the multiselect process
+                if (!isTagType(actionMode)) {
+                    displayedLists = lists
+                }
+
+                if (invalidateAll) {
+                    adapter.notifyDataSetChanged()
+                } else {
+                    result.dispatchUpdatesTo(adapter)
+                }
+
+                recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                    .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+
+                binding.swipeRefreshLayout.isRefreshing = false
+                maybeShowListLimitMessage()
+                updateEmptyState(searchQuery)
+                maybeDeleteListFromIntent()
+                maybeShowPreviewSavedReadingListsSnackbar()
+                currentSearchQuery = searchQuery
+                maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
             }
-
-            if (invalidateAll) {
-                adapter.notifyDataSetChanged()
-            } else {
-                result.dispatchUpdatesTo(adapter)
-            }
-
-            recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
-
-            binding.swipeRefreshLayout.isRefreshing = false
-            maybeShowListLimitMessage()
-            updateEmptyState(searchQuery)
-            maybeDeleteListFromIntent()
-            maybeShowPreviewSavedReadingListsSnackbar()
-            currentSearchQuery = searchQuery
-            maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
         }
     }
 
@@ -351,16 +390,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         sortListsBy(position)
     }
 
-    private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
+    private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
-            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode, readingList.id == recentPreviewSavedReadingList?.id)
+            view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode,
+                newImport = readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
+            view.saveClickListener = View.OnClickListener {
+                startActivity(ReadingListActivity.newIntent(requireActivity(), true))
+            }
         }
 
         override val view get() = itemView as ReadingListItemView
     }
 
-    private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView) {
+    private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView) {
         fun bindItem(page: ReadingListPage) {
             view.item = page
             view.setTitle(page.displayTitle)
@@ -378,16 +421,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
-            PageAvailableOfflineHandler.check(page) { available -> view.setViewsGreyedOut(!available) }
+            PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
         }
     }
 
     private inner class ReadingListAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         override fun getItemViewType(position: Int): Int {
             return if (displayedLists[position] is ReadingList) {
-                Companion.VIEW_TYPE_ITEM
+                VIEW_TYPE_ITEM
             } else {
-                Companion.VIEW_TYPE_PAGE_ITEM
+                VIEW_TYPE_PAGE_ITEM
             }
         }
 
@@ -396,7 +439,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            return if (viewType == Companion.VIEW_TYPE_ITEM) {
+            return if (viewType == VIEW_TYPE_ITEM) {
                 ReadingListItemHolder(ReadingListItemView(requireContext()))
             } else {
                 ReadingListPageItemHolder(PageItemView(requireContext()))
@@ -511,10 +554,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val title = ReadingListPage.toPageTitle(it)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
-                Completable.fromAction {
-                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    AppDatabase.instance.readingListPageDao().updateReadingListPage(it)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
@@ -563,20 +603,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private val selectedListsCount get() = displayedLists.count { it is ReadingList && it.selected }
-
-    private val selectedLists: List<ReadingList>
-        get() {
-            return displayedLists.let {
-                displayedLists.filterIsInstance<ReadingList>()
-                    .filter { it.selected }
-                    .onEach { it.selected = false }
-            }
-        }
+    private val selectedLists
+        get() = displayedLists.filterIsInstance<ReadingList>().filter { it.selected }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
-        private val allSelected get() = selectedListsCount == displayedLists.count { it is ReadingList }
-        private val noneSelected get() = selectedListsCount == 0
+        private val allSelected get() = selectedLists.size == displayedLists.count { it is ReadingList }
+        private val noneSelected get() = selectedLists.isEmpty()
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
@@ -590,22 +622,23 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            mode.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
+            val listsSelected = selectedLists
+            val onlyDefaultSelected = listsSelected.size == 1 && listsSelected[0].isDefault
+            mode.title = if (listsSelected.isEmpty()) "" else getString(R.string.multi_select_items_selected, listsSelected.size)
             val fullOpacity = 255
             val halfOpacity = 80
-            val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
-            val isEnabled = selectedListsCount != 0
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
             val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
             exportItem.title = buildSpannedString {
-                color(ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)) {
+                color(ColorUtils.setAlphaComponent(exportItemTitleColor,
+                    if (listsSelected.isEmpty()) halfOpacity else fullOpacity)) {
                     append(exportItem.title)
                 }
             }
-            deleteItem.icon?.alpha = alpha
-            exportItem.isEnabled = isEnabled
-            deleteItem.isEnabled = isEnabled
+            deleteItem.icon?.alpha = if (listsSelected.isEmpty() || onlyDefaultSelected) halfOpacity else fullOpacity
+            exportItem.isEnabled = listsSelected.isNotEmpty()
+            deleteItem.isEnabled = listsSelected.isNotEmpty() && !onlyDefaultSelected
 
             val selectButton = menu.findItem(R.id.menu_select)
             selectButton.setIcon(when {
@@ -628,7 +661,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     return true
                 }
                 R.id.menu_export_selected -> {
-                    if (selectedListsCount == 0) {
+                    if (selectedLists.isEmpty()) {
                         Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
                             Toast.LENGTH_SHORT).show()
                         return true
@@ -720,25 +753,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is ReadingListSyncEvent) {
-                binding.recyclerView.post {
-                    if (isAdded) {
-                        updateLists(currentSearchQuery, !currentSearchQuery.isNullOrEmpty() || recentPreviewSavedReadingList != null)
-                    }
-                }
-            } else if (event is ArticleSavedOrDeletedEvent) {
-                if (event.isAdded) {
-                    if (Prefs.readingListsPageSaveCount < SAVE_COUNT_LIMIT) {
-                        showReadingListsSyncDialog()
-                        Prefs.readingListsPageSaveCount = Prefs.readingListsPageSaveCount + 1
-                    }
-                }
-            }
-        }
-    }
-
     private fun showReadingListsSyncDialog() {
         if (!Prefs.isReadingListSyncEnabled) {
             if (AccountUtil.isLoggedIn) {
@@ -755,15 +769,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (shouldShowImportedSnackbar) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
-                .addCallback(object : Snackbar.Callback() {
-                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                        if (!isAdded) {
-                            return
-                        }
-                        ReadingListsReceiveSurveyHelper.activateSurvey()
-                        ReadingListsReceiveSurveyHelper.maybeShowSurvey(requireActivity())
-                    }
-                })
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
                     recentPreviewSavedReadingList?.let {
                         startActivity(ReadingListActivity.newIntent(requireContext(), it))
@@ -781,7 +786,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled &&
+        if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
@@ -792,7 +797,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.isReadingListSyncReminderEnabled = false
             }, false)
             binding.onboardingView.isVisible = true
-        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+        } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -814,12 +819,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     private fun onListsImportResult(uri: Uri) {
         binding.swipeRefreshLayout.isRefreshing = true
-        val inputStr = activity?.contentResolver?.openInputStream(uri)
-        inputStr?.let { inputStream ->
+        activity?.contentResolver?.openInputStream(uri)?.use { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
             importMode = true
-            inputStream.close()
         }
     }
 
@@ -834,7 +837,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         fun refreshSync(fragment: Fragment, swipeRefreshLayout: SwipeRefreshLayout) {
-            if (!AccountUtil.isLoggedIn) {
+            if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
                 ReadingListSyncBehaviorDialogs.promptLogInToSyncDialog(fragment.requireActivity())
                 swipeRefreshLayout.isRefreshing = false
             } else {

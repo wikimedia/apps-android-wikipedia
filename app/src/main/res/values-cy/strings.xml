@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Afalau
+* Ceirios
 * Cymrodor
 * Johnogwen123
 * Lloffiwr
@@ -125,8 +126,8 @@
   <string name="login_username_hint">Enw defnyddiwr</string>
   <string name="login_password_hint">Cyfrinair</string>
   <string name="account_creation_password_hint">Cyfrinair</string>
-  <string name="login_2fa_hint">Cod dilysu 2-ffactor</string>
-  <string name="login_2fa_other_workflow_error_msg">Mae cod dilysu 2-ffactor yn angenrheidiol! Trowch nôl a mewngofnodwch gyda\'ch taleb 2FA (Cod dilysu 2-ffactor) a cheisiwch eto.</string>
+  <string name="login_2fa_hint" fuzzy="true">Cod dilysu 2-ffactor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Mae cod dilysu 2-ffactor yn angenrheidiol! Trowch nôl a mewngofnodwch gyda\'ch taleb 2FA (Cod dilysu 2-ffactor) a cheisiwch eto.</string>
   <string name="onboarding_card_login">Mewngofnodi</string>
   <string name="page_editing_login">Mewngofnodi</string>
   <string name="reading_lists_sync_login">Mewngofnodi</string>
@@ -364,7 +365,7 @@
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
   <string name="image_recommendation_accept">Ie</string>
   <string name="image_recommendation_reject">Na</string>
-  <string name="image_recommendation_reject_title">Pam?</string>
+  <string name="image_recommendation_reject_title" fuzzy="true">Pam?</string>
   <string name="image_recommendation_reject_submit">Cyflwyno</string>
   <string name="edit_summary_added_image">Ychwanegu delwedd</string>
   <string name="insert_media_settings_caption">Pennawd y ddelwedd</string>
@@ -383,5 +384,5 @@
   <string name="patroller_tasks_filters_all_text">Popeth</string>
   <string name="data_opt_in_accept">Cytuno</string>
   <string name="data_opt_in_reject">Gwrthod</string>
-  <string name="places_survey_dialog_cancel">Canslo</string>
+  <string name="survey_dialog_cancel">Canslo</string>
 </resources>

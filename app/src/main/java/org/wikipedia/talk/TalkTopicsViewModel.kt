@@ -4,12 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -28,6 +25,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistViewModel
 
 class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boolean) : ViewModel() {
 
@@ -126,9 +124,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun undoSave(newRevisionId: Long, undoneSubject: CharSequence, undoneBody: CharSequence) {
         viewModelScope.launch(actionHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
-            }
+            val token = CsrfTokenClient.getToken(pageTitle.wikiSite)
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
             actionState.value = ActionState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
@@ -137,12 +133,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
         threadSha(threadItem)?.let {
             viewModelScope.launch(actionHandler) {
-                withContext(Dispatchers.Main) {
-                    if (topicSeen(threadItem) && !force) {
-                        talkPageDao.deleteTalkPageSeen(it)
-                    } else {
-                        talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
-                    }
+                if (topicSeen(threadItem) && !force) {
+                    talkPageDao.deleteTalkPageSeen(it)
+                } else {
+                    talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
                 }
             }
         }
@@ -158,9 +152,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     fun subscribeTopic(commentName: String, subscribed: Boolean) {
         viewModelScope.launch(actionHandler) {
-            val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
-            }
+            val token = CsrfTokenClient.getToken(pageTitle.wikiSite)
             ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, if (!subscribed) true else null)
         }
     }
@@ -194,6 +186,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             threadItems.add(0, headerItem)
         }
 
+        // Remove empty items to prevent empty content from being displayed.
+        threadItems.removeIf { TalkTopicActivity.isHeaderTemplate(it) && it.replies.isEmpty() && it.othercontent.isEmpty() }
+
         sortedThreadItems = threadItems.filter { it.plainText.contains(currentSearchQuery.orEmpty(), true) ||
                 it.plainOtherContent.contains(currentSearchQuery.orEmpty(), true) ||
                 it.allReplies.any { reply -> reply.plainText.contains(currentSearchQuery.orEmpty(), true) ||
@@ -209,28 +204,13 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
-        if (isWatched) {
-            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
-        } else {
-            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
-        }
         viewModelScope.launch(actionHandler) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
-
-            if (unwatch) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
-            } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-            }
-            response.getFirst()?.let {
-                isWatched = it.watched
-                hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
-                // We have to send values to the object, even if we use the variables from ViewModel.
-                // Otherwise the status will not be updated in the activity since the values in the object remains the same.
-                actionState.value = ActionState.DoWatch(isWatched, hasWatchlistExpiry)
-            }
+            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, expiry, isWatched, pageTitle.namespace().talk())
+            isWatched = pair.first
+            hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
+            // We have to send values to the object, even if we use the variables from ViewModel.
+            // Otherwise the status will not be updated in the activity since the values in the object remains the same.
+            actionState.value = ActionState.DoWatch(isWatched, pair.second, hasWatchlistExpiry)
         }
     }
 
@@ -250,7 +230,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     open class ActionState {
         data class UndoEdit(val edit: Edit, val undoneSubject: CharSequence, val undoneBody: CharSequence) : ActionState()
-        data class DoWatch(val isWatched: Boolean, val hasWatchlistExpiry: Boolean) : ActionState()
+        data class DoWatch(val isWatched: Boolean, val message: String, val hasWatchlistExpiry: Boolean) : ActionState()
         data class OnError(val throwable: Throwable) : ActionState()
     }
 }

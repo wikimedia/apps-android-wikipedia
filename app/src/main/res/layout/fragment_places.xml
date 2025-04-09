@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
-    <com.mapbox.mapboxsdk.maps.MapView
+    <org.maplibre.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,7 +51,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:background="?attr/selectableItemBackground"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:text="@string/places_search_hint"

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.manager.SupportRequestManagerFragment
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
@@ -126,7 +125,6 @@ object BreadCrumbViewUtil {
                 return targetFrag
             }
             val frags = (context.baseContext as FragmentActivity).supportFragmentManager.fragments
-                .filter { it !is SupportRequestManagerFragment }
             frags.forEach {
                 targetFrag = it.childFragmentManager.findFragmentByTag(ExclusiveBottomSheetPresenter.BOTTOM_SHEET_FRAGMENT_TAG)
                 if (targetFrag != null) {

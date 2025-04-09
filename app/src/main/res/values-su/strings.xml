@@ -56,7 +56,7 @@
   <string name="page_edit_history_filter_by">Saring dumasar</string>
   <string name="page_edit_history_filter_by_all">Sadaya éditan (%s)</string>
   <string name="page_edit_history_filter_by_user">Éditan pamaké (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Éditan anon (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Éditan anon (%s)</string>
   <string name="page_edit_history_filter_by_bot">Éditan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métrik ti %1$s nepi ka %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -135,8 +135,8 @@
   <string name="login_username_hint">Sandiasma</string>
   <string name="login_password_hint">Kecap sandi</string>
   <string name="account_creation_password_hint">Kecap sandi</string>
-  <string name="login_2fa_hint">Kodeu auténtikasi dua faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Oténtikasi dua faktor diperlukeun! Mangga balik deui kana aktivitas utama sarta asup log deui ku token 2FA anjeun, tuluy cobaan deui.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kodeu auténtikasi dua faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Oténtikasi dua faktor diperlukeun! Mangga balik deui kana aktivitas utama sarta asup log deui ku token 2FA anjeun, tuluy cobaan deui.</string>
   <string name="onboarding_card_login">Asup log</string>
   <string name="page_editing_login">Asup log</string>
   <string name="reading_lists_sync_login">Asup log</string>

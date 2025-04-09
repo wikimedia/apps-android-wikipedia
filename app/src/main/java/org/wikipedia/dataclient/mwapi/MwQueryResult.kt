@@ -14,6 +14,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.*
 
 @Serializable
@@ -23,7 +26,7 @@ class MwQueryResult {
     @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
     @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
-    @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
+    @SerialName("autocreatetempuser") val autoCreateTempUser: SiteInfo.AutoCreateTempUser? = null
     @SerialName("recentchanges") val recentChanges: List<RecentChange>? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
@@ -206,13 +209,16 @@ class MwQueryResult {
         private val minor = false
         val oldlen = 0
         val newlen = 0
-        val timestamp: String = ""
+        private val timestamp: String = ""
 
         @SerialName("parsedcomment") val parsedComment: String = ""
         private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
 
-        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        val parsedInstant: Instant by lazy { Instant.parse(timestamp) }
+        val parsedDateTime: LocalDateTime by lazy {
+            LocalDateTime.ofInstant(parsedInstant, ZoneId.systemDefault())
+        }
         val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
 
         override fun toString(): String {

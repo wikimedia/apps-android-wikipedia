@@ -3,7 +3,6 @@ package org.wikipedia.feed.onboarding
 import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
@@ -13,12 +12,12 @@ import org.wikipedia.util.UriUtil
 class OnboardingClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
-        FeedCoordinator.postCardsToCallback(cb, listOfNotNull(getCards(context).getOrNull(age)))
+        cb.success(listOfNotNull(getCards(context).getOrNull(age)))
     }
 
     private fun getCards(context: Context): List<Card> {
         val cards = ArrayList<Card>()
-        val card: OnboardingCard
+        var card: OnboardingCard
 
         // NOTE: When adding new onboarding cards, please add them to the *beginning* of the list.
 
@@ -42,6 +41,20 @@ class OnboardingClient : FeedClient {
         if (card.shouldShow() && Prefs.exploreFeedVisitCount <= SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
             cards.add(card)
         }
+
+        card = YIROnboardingCard(
+            Announcement(id = "yir2024Card",
+                text = context.getString(R.string.year_in_review_text),
+                imageUrl = "https://upload.wikimedia.org/wikipedia/commons/2/21/WYiR_Block_1.gif",
+                action = Announcement.Action(context.getString(R.string.year_in_review_action_positive), "https://wikimediafoundation.org/wikipedia-year-in-review-2024/"),
+                negativeText = context.getString(R.string.view_announcement_card_negative_action),
+                imageAspectRatio = 4.0 / 3.0
+            )
+        )
+        if (card.shouldShow()) {
+            cards.add(card)
+        }
+
         return cards
     }
 

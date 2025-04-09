@@ -110,7 +110,7 @@
   <string name="login_username_hint">Nom d\'utilizaire</string>
   <string name="login_password_hint">Senhal</string>
   <string name="account_creation_password_hint">Senhau</string>
-  <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
+  <string name="login_2fa_hint" fuzzy="true">Còdi d\'autenticación de dos factors</string>
   <string name="onboarding_card_login">Connexion</string>
   <string name="page_editing_login">Connexion</string>
   <string name="reading_lists_sync_login">Connexion</string>
@@ -316,5 +316,7 @@
   <string name="suggested_edits_label">Edicions suggeridas</string>
   <string name="suggested_edits_reactivation_notification_title">Edicions suggeridas</string>
   <string name="talk_list_item_last_comment_date">Darrièr comentari: %s</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">per 1 mes</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mes</string>
   <string name="page_issues_title">Problèmas de la pagina</string>
 </resources>

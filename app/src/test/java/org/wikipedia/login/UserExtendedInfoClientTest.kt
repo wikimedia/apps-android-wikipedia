@@ -1,5 +1,6 @@
 package org.wikipedia.login
 
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -9,27 +10,10 @@ class UserExtendedInfoClientTest : MockRetrofitTest() {
     fun testRequestSuccess() {
         enqueueFromFile("user_extended_info.json")
         val id = 24531888
-        apiService.userInfo.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue {
-                it.query?.userInfo?.id == id &&
-                        it.query?.getUserResponse("USER")?.name == "USER"
-            }
-    }
-
-    @Test
-    @Throws(Throwable::class)
-    fun testRequestResponse404() {
-        enqueue404()
-        apiService.userInfo.test().await()
-            .assertError(Exception::class.java)
-    }
-
-    @Test
-    @Throws(Throwable::class)
-    fun testRequestResponseMalformed() {
-        enqueueMalformed()
-        apiService.userInfo.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            val userInfo = apiService.getUserInfo()
+            assert(userInfo.query?.userInfo?.id == id)
+            assert(userInfo.query?.getUserResponse("USER")?.name == "USER")
+        }
     }
 }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -27,6 +28,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
@@ -37,9 +39,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -50,7 +50,7 @@ class TalkTopicActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var linkHandler: TalkLinkHandler
 
-    private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
+    private val viewModel: TalkTopicViewModel by viewModels()
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private var actionMode: ActionMode? = null
@@ -98,9 +98,8 @@ class TalkTopicActivity : BaseActivity() {
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
-        L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
+        binding.talkRecyclerView.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
+        binding.talkErrorView.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
             it.movementMethod = linkMovementMethod
@@ -225,17 +224,9 @@ class TalkTopicActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, searchHintString,
-                object : SearchActionProvider.Callback {
-                    override fun onQueryTextChange(s: String) {
-                        onQueryChange(s)
-                    }
+            searchActionProvider = SearchActionProvider(this@TalkTopicActivity, getSearchHintString()) { onQueryChange(it) }
 
-                    override fun onQueryTextFocusChange() {
-                    }
-                })
-
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
             searchActionProvider?.setQueryText(viewModel.currentSearchQuery)
@@ -430,11 +421,18 @@ class TalkTopicActivity : BaseActivity() {
 
     private fun showUndoSnackbar(undoRevId: Long) {
         FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted))
-                .setAction(R.string.talk_snackbar_undo) {
-                    binding.talkProgressBar.visibility = View.VISIBLE
-                    viewModel.undo(undoRevId)
+            .setAction(R.string.talk_snackbar_undo) {
+                binding.talkProgressBar.visibility = View.VISIBLE
+                viewModel.undo(undoRevId)
+            }
+            .addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isDestroyed) {
+                        AccountUtil.maybeShowTempAccountWelcome(this@TalkTopicActivity)
+                    }
                 }
-                .show()
+            })
+            .show()
     }
 
     companion object {

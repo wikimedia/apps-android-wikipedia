@@ -20,7 +20,7 @@ class SearchAndFilterActionProvider(context: Context,
 
     interface Callback {
         fun onQueryTextChange(s: String)
-        fun onQueryTextFocusChange()
+        fun onQueryTextFocusChange() {}
         fun onFilterIconClick()
         fun getExcludedFilterCount(): Int
         fun getFilterIconContentDescription(): Int

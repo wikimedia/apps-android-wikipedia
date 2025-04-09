@@ -114,6 +114,8 @@ data class WikiSite(
     fun dbName(): String {
         return (if (uri.authority.orEmpty().contains("wikidata")) {
             "wikidata"
+        } else if (uri.authority.orEmpty().contains("commons")) {
+            "commons"
         } else {
             subdomain().replace("-".toRegex(), "_")
         }) + "wiki"
@@ -132,7 +134,6 @@ data class WikiSite(
             DEFAULT_BASE_URL = url.ifEmpty { Service.WIKIPEDIA_URL }
         }
 
-        @JvmStatic
         fun forLanguageCode(languageCode: String): WikiSite {
             val uri = ensureScheme(Uri.parse(DEFAULT_BASE_URL))
             return WikiSite(

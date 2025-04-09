@@ -22,6 +22,7 @@ import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
 import java.time.Duration
+import java.time.Instant
 import java.util.Calendar
 import java.util.Date
 import kotlin.math.max
@@ -35,7 +36,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     val wikiSite get() = WikiSite.forLanguageCode(langCode)
     var currentQuery = ""
     var actionModeActive = false
-    var recentEditsSource: RecentEditsPagingSource? = null
 
     private val cachedUserInfo = mutableListOf<UserInfo>()
     private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
@@ -43,8 +43,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private val pageSize = 50
 
     val recentEditsFlow = Pager(PagingConfig(pageSize = pageSize, initialLoadSize = pageSize), pagingSourceFactory = {
-        recentEditsSource = RecentEditsPagingSource()
-        recentEditsSource!!
+        RecentEditsPagingSource()
     }).flow.map { pagingData ->
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
@@ -86,7 +85,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val triple = getRecentEditsCall(wikiSite, params.loadSize, Date().toInstant().toString(), "older", params.key, cachedUserInfo)
+                val triple = getRecentEditsCall(wikiSite, params.loadSize, continueStr = params.key,
+                    userInfoCache = cachedUserInfo)
 
                 cachedContinueKey = triple.third
                 cachedRecentEdits.addAll(triple.first)
@@ -109,12 +109,14 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 
     companion object {
-
-        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: String, direction: String,
-            continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
-
-            val response = ServiceFactory.get(wikiSite)
-                .getRecentEdits(count, startTimeStamp, direction, latestRevisions(), showCriteriaString(), continueStr)
+        suspend fun getRecentEditsCall(
+            wikiSite: WikiSite, count: Int = 10, startTimeStamp: Instant = Instant.now(),
+            direction: String = "older", continueStr: String? = null,
+            userInfoCache: MutableList<UserInfo> = mutableListOf()
+        ): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
+            val service = ServiceFactory.get(wikiSite)
+            val response = service.getRecentEdits(count, startTimeStamp.toString(), direction,
+                latestRevisions(), showCriteriaString(), continueStr)
 
             val allRecentChanges = response.query?.recentChanges.orEmpty()
 
@@ -126,13 +128,12 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 !userInfoCache.map { userInfo -> userInfo.name }.contains(it)
             }
 
-            val usersInfoResponse = ServiceFactory.get(wikiSite)
-                .userInfo(usernames.joinToString(separator = "|")).query?.users ?: emptyList()
+            val usersInfoResponse = service.userInfo(usernames.joinToString(separator = "|")).query?.users ?: emptyList()
 
             userInfoCache.addAll(usersInfoResponse)
 
             // Filtering User experiences and registration.
-            val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache))
+            val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache)).sortedByDescending { it.parsedDateTime }
 
             return Triple(finalRecentChanges, allRecentChanges, response.continuation?.rcContinuation)
         }

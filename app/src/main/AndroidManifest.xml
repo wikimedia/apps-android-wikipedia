@@ -32,19 +32,23 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!-- For being able to post notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+    List of hardware features that are implicitly used, but not required. These need to be
+    declared as optional, so that the app can be installed on devices that don't have them.
+    -->
     <uses-feature android:name="android.hardware.wifi" android:required="false"  />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!--
-        Don't let Google Play filter out devices that just have fake touch
-        (e.g. mouse and keyboard instead of a real touchscreen).
-    -->
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
 
     <queries>
         <intent>
@@ -79,8 +83,12 @@
         <!-- Opt out of metrics collection for the System WebView. -->
         <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
+        <!-- Necessary for Google Pay API -->
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+
         <activity
             android:name=".main.MainActivity"
+            android:icon="@mipmap/launcher"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">
@@ -136,10 +144,6 @@
             android:name=".settings.NotificationSettingsActivity"
             android:label="@string/notification_preferences_title"
             android:theme="@style/AppTheme.ActionBar" />
-        <activity
-            android:name=".settings.AboutActivity"
-            android:label="@string/about_activity_title"
-            android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".settings.languages.WikipediaLanguagesActivity"
             android:label="@string/wikipedia_languages_title"/>
         <activity
@@ -182,17 +186,9 @@
             android:name=".gallery.GalleryActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.FullScreen" />
+
         <activity
-            android:name=".settings.LicenseActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            tools:ignore="GoogleAppIndexingUrlError"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:pathPrefix="/android_asset/licenses/" android:scheme="content" />
-            </intent-filter>
-        </activity>
+            android:name=".settings.LicenseActivity"/>
 
         <activity
             android:name=".feed.news.NewsActivity"
@@ -295,7 +291,7 @@
         <activity
             android:name=".commons.FilePageActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".talk.TalkTopicsActivity"
@@ -366,6 +362,15 @@
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".donate.GooglePayActivity"/>
+
+        <activity
+            android:name=".settings.AboutActivity"/>
+
+        <activity
+            android:name=".games.onthisday.OnThisDayGameActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -413,10 +418,6 @@
         </receiver>
 
         <service
-            android:name=".readinglist.sync.ReadingListSyncAdapter"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <service
             android:name=".auth.AuthenticatorService"
             android:exported="false">
 
@@ -429,10 +430,6 @@
                 android:resource="@xml/wikimedia_authenticator" />
 
         </service>
-
-        <service
-            android:name=".savedpages.SavedPageSyncService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 

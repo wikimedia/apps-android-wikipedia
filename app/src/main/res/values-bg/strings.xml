@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Kareyac
+* MTongov
 * ShockD
 * Spas.Z.Spasov
 * StanProg
@@ -26,6 +26,7 @@
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
   <string name="nav_item_search">Търсене</string>
+  <string name="nav_item_contribute">Добавете своя принос</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -61,7 +62,7 @@
   <string name="page_edit_history_filter_by">Филтриране по</string>
   <string name="page_edit_history_filter_by_all">Всички редакции (%s)</string>
   <string name="page_edit_history_filter_by_user">Редакции от потребители (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Редакции от анонимни (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Редакции на нерегистрирани (%s)</string>
   <string name="page_edit_history_filter_by_bot">Редакции на бот (%s)</string>
   <string name="page_edit_history_metrics_content_description">Показатели от %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -100,6 +101,7 @@
   <string name="menu_page_recently_viewed">Посетени наскоро</string>
   <string name="menu_page_archive">Архивиране</string>
   <string name="menu_long_press_open_page">Отваряне</string>
+  <string name="menu_long_press_open_in_places">Отваряне в Места</string>
   <string name="menu_long_press_open_in_new_tab">Отваряне в нов раздел</string>
   <string name="menu_long_press_copy_page">Копиране адреса на препратката</string>
   <string name="menu_text_select_define">В Уикиречник</string>
@@ -124,6 +126,7 @@
   <string name="langlinks_your_wikipedia_languages">Вашите езици на Уикипедия</string>
   <string name="menu_save_changes">Публикуване на промените</string>
   <string name="edit_saved_successfully">Редакцията е публикувана!</string>
+  <string name="stub_article_edit_saved_successfully">Редакцията е публикувана! Отразяването на промените може да отнеме известно време.</string>
   <string name="dialog_message_edit_failed">Редакцията е неуспешна!</string>
   <string name="dialog_message_edit_failed_retry">Опитайте отново</string>
   <string name="dialog_message_edit_failed_cancel">Отказ</string>
@@ -144,8 +147,8 @@
   <string name="login_username_hint">Потребителско име</string>
   <string name="login_password_hint">Парола</string>
   <string name="account_creation_password_hint">Парола</string>
-  <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
+  <string name="login_2fa_hint" fuzzy="true">Двукомпонентен удостоверителен код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -166,6 +169,8 @@
   <string name="logged_out_in_background_dialog">Излезли сте от Уикипедия. Желаете ли да влезете пак?</string>
   <string name="logged_out_in_background_login">Влизане</string>
   <string name="logged_out_in_background_cancel">Отказ</string>
+  <string name="account_vanish_request_title">Изтриване на сметката</string>
+  <string name="account_vanish_request_confirm_title">Предупреждение за изтриване на сметката</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
   <string name="history_offline_articles_toast">Някои статии в историята може да са недостъпни офлайн.</string>
@@ -235,15 +240,15 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
-  <string name="about_app_license" fuzzy="true">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
@@ -259,6 +264,8 @@
   <string name="edit_undo">Отмяна</string>
   <string name="edit_redo">Повторение</string>
   <string name="edit_rollback">Отмяна</string>
+  <string name="edit_warn">Предупреждение</string>
+  <string name="edit_damage">Щети %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байта</item>
@@ -270,6 +277,8 @@
   <string name="edit_summary_tag_links">Добавени препратки</string>
   <string name="edit_summary_tag_other">Други</string>
   <string name="edit_summary_tag_other_hint">Други начини, по които подобрихте страницата</string>
+  <string name="edit_summary_added_short_description">Добавено кратко описание</string>
+  <string name="edit_summary_updated_short_description">Актуализирано кратко описание</string>
   <string name="edit_conflict_title">Конфликт на редакции</string>
   <string name="edit_conflict_message">Страницата вече е била променена от друг потребител, което възпрепятства вашата редакция. Моля, копирайте редакции си, върнете се и обновете страницата, след което се опитайте да редактирате отново.</string>
   <string name="edit_notices">Известия за редактиране</string>
@@ -304,6 +313,8 @@
   <string name="widget_name_featured_page">Избрана страница на Уикипедия</string>
   <string name="widget_title_featured_page">Избран материал на деня:</string>
   <string name="widget_name_search">Търсене в Уикипедия</string>
+  <string name="widget_description_search">Най-бързият начин за търсене в Уикипедия</string>
+  <string name="widget_description_featured_page">Най-добрите статии, които Уикипедия може да предложи</string>
   <string name="wiktionary_no_definitions_found">Не е намерено нищо в речника.</string>
   <string name="alpha_update_notification_title">Налична е нова алфа версия</string>
   <string name="alpha_update_notification_text">Докоснете за изтегляне</string>
@@ -350,7 +361,6 @@
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
   <string name="tool_tip_toc_text">Вече можете да плъзнете наляво, за да отворите съдържанието, а също така да докоснете и плъзнете този бутон за превъртане, за да преминете бързо към различни секции на статия.</string>
-  <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.\n\n\nДокоснете иконката, за да добавите още езици.</string>
   <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>
   <string name="format_error_server_message">Съобщение: „%s“</string>
@@ -387,6 +397,10 @@
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="error_message_generic">Възникна грешка</string>
   <string name="view_link_preview_error_button_dismiss">Затваряне</string>
+  <string name="link_preview_dialog_read_button">Четене</string>
+  <string name="link_preview_dialog_save_button">Съхраняване</string>
+  <string name="link_preview_dialog_saved_button">Съхранена</string>
+  <string name="link_preview_dialog_share_button">Споделяне</string>
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="view_wiki_error_message_timeout">Не е възможно свързването с Уикипедия. Проверете Вашата мрежова връзка или опитайте по-късно</string>
@@ -408,6 +422,11 @@
   <string name="error_blocked_footer">Можете да се свържете с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или друг &lt;a href=\" href=\"https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Персонализирайте лентата си с инструменти</string>
   <string name="error_blocked_footer_no_blocker">Можете да се свържете с &lt;a href=\"https://https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
+  <string name="temp_account_not_logged_in">Вие не сте влезли в системата</string>
+  <string name="temp_account_dialog_ok">Разбрах</string>
+  <string name="temp_account_using_title">Използвате временна сметка</string>
+  <string name="temp_account_dialog_discard">Отхвърляне на промените ли влизане</string>
+  <string name="temp_account_end_session">Завършване на сесията</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
@@ -672,6 +691,7 @@
   <string name="notifications_filter_label">Филтриране на известия</string>
   <string name="notifications_filter_icon_content_description">Филтриране на известия</string>
   <string name="notifications_filter_update_app_languages">Актуализиране езиците на приложението</string>
+  <string name="notifications_empty_search_message">Опитайте да премахнете %s, за да видите повече известия</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d филтър</item>
     <item quantity="other">%d филтъра</item>
@@ -689,8 +709,8 @@
   <string name="notifications_menu_uncheck_all">Премахване на отметката на всички</string>
   <string name="notifications_wiki_filter_header">Филтриране по Уики</string>
   <string name="notifications_type_filter_header">Филтриране по тип</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Всички уикита</string>
-  <string name="notifications_all_types_text" fuzzy="true">Всички типове</string>
+  <string name="notifications_all_wikis_text">Всички уикита</string>
+  <string name="notifications_all_types_text">Всички типове</string>
   <string name="notifications_menu_user_talk_page">Беседа на %s</string>
   <string name="notifications_offline_disable_message">Функцията не е налична, докато сте офлайн.</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
@@ -746,6 +766,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
+  <string name="feed_language_variants_removal_dialog_save">Съхраняване</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Моля, актуализирайте вторичните си езици</string>
   <string name="top_read_activity_title">Най-четени за %s</string>
   <string name="description_edit_text_hint">Описание на статията</string>
   <string name="description_edit_article_description_label">Статия</string>
@@ -793,11 +815,15 @@
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Машинно генерирани предложения</string>
+  <string name="customize_toolbar_title">Персонализиране на лентата с инструменти</string>
   <string name="customize_toolbar_category_toolbar">Лента с инструменти</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_describe_articles">Описване на статии</string>
   <string name="suggested_edits_caption_images">Описване на изображения</string>
   <string name="suggested_edits_tag_images">Добавяне на етикети</string>
+  <string name="suggested_edits_edit_patrol">Патрулиране на редакции</string>
+  <string name="suggested_edits_edit_patrol_hint">Прегледайте последните редакции и преценете дали са конструктивни или не.</string>
+  <string name="suggested_edits_edit_patrol_review">Проверка</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>
@@ -855,7 +881,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавяне на описание за изображение</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавяне на описание за изображението (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавяне на етикети към изображения</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
   <string name="suggested_edits_image_captions">Описания на изображения</string>
@@ -926,7 +951,6 @@
     <item quantity="one">Добавихте %d етикет</item>
     <item quantity="other">Добавихте %d етикета</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените редакции са нов начин за редактиране на Уикипедия на Андроид. Помагат Ви да направите дребни, но полезни приноси към Уикипедия.\nНашата цел е да направим редактирането по-лесно и по-достъпно за всички! Влезте или се присъединете към Уикипедия, за да започнете.</string>
@@ -951,12 +975,14 @@
     <item quantity="one">Добавихте %d знак</item>
     <item quantity="other">Добавихте %d знака</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Изображения за статии</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Добавете предложени изображения към статиите в Уикипедия, за да подобрите възприемането им.</string>
   <string name="image_recommendation_tutorial">Ръководство</string>
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
-  <string name="image_recommendation_notsure">Не съм сигурен/а</string>
-  <string name="image_recommendation_reject_title">Защо не?</string>
-  <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
+  <string name="image_recommendation_notsure">Затруднявам се да отговоря</string>
+  <string name="image_recommendation_reject_title">Причина за отказ</string>
+  <string name="image_recommendation_reject_subtitle">Причината за отказа е анонимна и ще подобри бъдещите предложения за изображения.</string>
   <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
   <string name="image_recommendation_reject_no_info">Няма достатъчно информация за вземане на решение</string>
   <string name="image_recommendation_reject_offensive">Изображението е обидно</string>
@@ -1007,6 +1033,7 @@
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text">Още на този ден</string>
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>
@@ -1037,10 +1064,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Оставете поне един език на Уикипедия, на който да търсите и да четете съдържание.</string>
   <string name="more_language_options">още</string>
   <string name="add_wikipedia_languages_text">Добавяне на езици на Уикипедия</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Премахване на китайски вариант от езиците на приложението Ви?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Към момента имате както традиционен, така и опростен китайски вариант в езиците на приложението. Промяна на езиковите Ви настройки на приложението?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактиране на езици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодаря</string>
   <string name="remove_language_dialog_cancel_button_text">Отказ</string>
   <string name="remove_language_dialog_ok_button_text">Добре</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Добре</string>
@@ -1099,6 +1122,10 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Височина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Вмъкване</string>
+  <string name="templates_insert_button">Вмъкване</string>
+  <string name="templates_param_suggested_value">напр. %s</string>
+  <string name="templates_param_optional_hint">%s (незадължително)</string>
+  <string name="templates_learn_more_link">Научете повече</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
   <string name="main_tooltip_text">Здравейте %s, знаехте ли, че всеки може да редактира Уикипедия?</string>
@@ -1114,6 +1141,17 @@
   <string name="talk_user_title">Беседа: %s</string>
   <string name="talk_new_topic">Нова тема</string>
   <string name="talk_new_topic_submitted">Темата е публикувана.</string>
+  <string name="talk_warn">Предупреждение</string>
+  <string name="talk_warn_save_dialog_title">Съхраняване на промените?</string>
+  <string name="talk_warn_save_dialog_message">Съхраняване като ново съобщение</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Съхраняване като ново съобщение в списъка</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Актуализиране на съществуващото съобщение</string>
+  <string name="talk_warn_save_dialog_hint">Заглавие на съобщението</string>
+  <string name="talk_warn_save_dialog_publish">Публикуване</string>
+  <string name="talk_warn_save_dialog_cancel">Отказ</string>
+  <string name="talk_warn_save_dialog_dont_save">Да не се съхранява</string>
+  <string name="talk_warn_submitted_and_saved">Съобщението е съхранено и публикувано на потребителската беседа на редактора</string>
+  <string name="talk_warn_saved_messages">Съхранени съобщения</string>
   <string name="talk_page_empty">Беседата е празна.</string>
   <string name="talk_page_empty_title">Разговорът започва тук</string>
   <string name="talk_add_reply">Отговор</string>
@@ -1196,10 +1234,10 @@
   <string name="revision_compare_button">Сравняване</string>
   <string name="revision_compare_two_only">Могат да бъдат избрани само две версии.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промяна</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">за 1 седмица</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">за 1 месец</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">за 3 месеца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">за 6 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">за 1 седмица</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">за 1 месец</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">за 3 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">за 6 месеца</string>
   <string name="watchlist_expiry_dialog_one_week">1 седмица</string>
   <string name="watchlist_expiry_dialog_one_month">1 месец</string>
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
@@ -1282,21 +1320,131 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
+  <string name="talk_templates_new_message_dialog_cancel">Отказ</string>
+  <string name="talk_templates_edit_message_dialog_save">Съхраняване</string>
+  <string name="talk_templates_edit_message_dialog_delete">Изтриване</string>
+  <string name="talk_templates_edit_message_updated">Съобщението е актуализирано</string>
+  <string name="talk_templates_menu_remove_message">Премахване на съобщението</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Сигурни ли сте, че искате да изтриете съобщението от списъка?</item>
+    <item quantity="other">Сигурни ли сте, че искате да изтриете съобщенията от списъка?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Съобщението е изтрито</item>
+    <item quantity="other">Съобщенията са изтрити</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Заглавието не може да бъде празно.</string>
+  <string name="talk_templates_your_messages_tab_title">Вашите съобщения</string>
+  <string name="talk_templates_example_messages_tab_title">Примерни съобщения</string>
+  <string name="patroller_tasks_edits_list_search_hint">Търсене или филтриране на редакции</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Етикети: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Няма</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Преглед на потребителската страница</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Преглед на беседата</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Информация за потребителя</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Преглед на приносите</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Благодарност</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Информация за потребителя</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Сметка от:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Брой редакции:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Затваряне</string>
+  <string name="patroller_tasks_filters_title">Филтри</string>
+  <string name="patroller_tasks_filters_reset">Изчистване</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Уики</string>
+  <string name="patroller_tasks_filters_all_text">Всички</string>
+  <string name="patroller_tasks_filters_user_status_header">Регистрация на потребителя и опит</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Нерегистрирани</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Редактори, които не са влезли в системата.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Регистрирани</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Влезли в системата редактори.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Новодошли</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Регистрирани редактори с по-малко от 10 редакции и 4 дена активност.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Учещи се</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Регистрирани потребители с опит от „Новодошли“ до „Опитни потребители“.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Опитни потребители</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Регистрирани редактори с повече от 500 редакции и 30 дни активност.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Текущи версии</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Текуща версия</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не е последна версия</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Автоматизирани редакции</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Бот</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Човек (не бот)</string>
+  <string name="patroller_tasks_filters_significance_header">Значимост</string>
+  <string name="patroller_tasks_filters_significance_minor">Малки промени</string>
+  <string name="patroller_tasks_filters_significance_edits">Обикновени редакции</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Прогноза за качеството на приноса</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Много вероятно добра</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Много точен при намиране на почти всички безпроблемни редакции.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Може да има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Намира повечето погрешни или вредни редакции, но с по-ниска точност.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Вероятно има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Със средна точност намира междинната част от проблемните редакции.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Много вероятно да има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Много висока точност при намиране на най-очевидно погрешните или вредни редакции.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Прогноза за намерението на потребителя</string>
+  <string name="patroller_tasks_filters_user_intent_good">Много вероятно добросъвестна</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Много точен при намиране на почти всички безпроблемни редакции.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Може да е недобросъвестно</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Открива повечето недобросъвестни редакции, но с по-ниска точност.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Вероятно недобросъвестна</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Със средна точност намира междинната част от проблемните редакции.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Много вероятно недобросъвестна</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Много висока точност при намиране на най-очевидно погрешните или вредни редакции.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Опитайте да премахнете %s, за да видите повече редакции</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d филтър</item>
+    <item quantity="other">%d филтъра</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">История на редакциите на статията</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Връщането е завършено</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурен ли сте, че искате да отмените редакцията?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Отмяната е завършена</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Преглед</string>
+  <string name="patroller_tasks_overflow_report">Проблем с възможността</string>
+  <string name="patroller_tasks_overflow_learn">Научете повече</string>
   <string name="patroller_onboarding_two_thank_title">Благодарност</string>
   <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
-  <string name="patroller_onboarding_two_warn_title">Предупреждение</string>
-  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да подобрим тази възможност</string>
-  <string name="patroller_diff_feedback_dialog_message">Доволни ли сте от тази възможност?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрална</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна</string>
+  <string name="patroller_onboarding_two_talk_title">Беседа</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Как можем да подобрим тази възможност?</string>
+  <string name="patroller_diff_menu_edit_history_title">История на редакциите на статията</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратна връзка</string>
-  <string name="patroller_diff_feedback_dialog_submit">Изпращане</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Обратната връзка е изпратена.</string>
   <string name="data_opt_in_accept">Приемане</string>
   <string name="data_opt_in_reject">Отхвърляне</string>
   <string name="page_issues_title">Проблеми със страницата</string>
+  <string name="email_report_patroller_tasks_subject">Докладване на проблем - Възможност „Патрулиране на редакции“</string>
+  <string name="email_report_patroller_tasks_body">Срещнах проблем с възможността за патрулиране на редакции:\n- [Опишете конкретния проблем]\n\nПоведението, което бих искал да видя е:\n- [Опишете предложеното решение]\n\n [Екранни снимки или връзки]</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отваряне в системния браузър</string>
+  <string name="donate_gpay_dialog_title">Дарение чрез Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Дарете чрез Google Play или изберете друг начин за плащане.</string>
+  <string name="donate_gpay_dialog_pay_button">Дарение чрез Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Друг начин на плащане</string>
+  <string name="donate_gpay_activity_title">Изберете сумата</string>
+  <string name="donate_gpay_help_problems">Имате проблеми с даряването?</string>
+  <string name="donate_gpay_help_other_ways">Други начини за дарение</string>
+  <string name="donate_gpay_help_faq">Често задавани въпроси</string>
+  <string name="donate_gpay_help_tax">Информация за данъчни облекчения</string>
+  <string name="places_title">Места</string>
+  <string name="places_permissions_denied">Необходимо е разрешение за местоположение, за да видите местоположението си на картата. Моля, опитайте отново.</string>
+  <string name="places_search_hint">Търсене на места</string>
+  <string name="places_filter_title">Филтриране по език</string>
+  <string name="places_toggle_buttons_map">Карта</string>
+  <string name="places_toggle_buttons_list">Списък</string>
+  <string name="places_empty_list">Тази зона е празна. Намалете мащаба &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Места наблизо</string>
+  <string name="places_card_action">Повече места наблизо</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за проучване на Уикипедия</string>
+  <string name="places_card_enable_location_card_button">Активиране на местоположението</string>
+  <string name="places_card_distance_suffix">на %s от Вас</string>
+  <string name="places_card_distance_unknown">Неизвестна отдалеченост</string>
+  <string name="survey_dialog_title">Помогнете ни да подобрим тази възможност</string>
+  <string name="survey_dialog_message">Доволни ли сте от тази възможност?</string>
+  <string name="survey_dialog_option_satisfied">Задоволителна</string>
+  <string name="survey_dialog_option_neutral">Неутрална</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволителна</string>
+  <string name="survey_dialog_option_very_satisfied">Много доволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Много недоволен</string>
+  <string name="survey_dialog_cancel">Отказ</string>
+  <string name="survey_dialog_submit">Изпращане</string>
+  <string name="survey_dialog_submitted_snackbar">Обратната връзка е изпратена. Благодарим Ви!</string>
 </resources>

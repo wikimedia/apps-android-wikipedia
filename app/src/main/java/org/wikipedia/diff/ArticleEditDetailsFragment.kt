@@ -40,6 +40,7 @@ import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -55,9 +56,9 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
@@ -76,7 +77,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
+    private val viewModel: ArticleEditDetailsViewModel by viewModels()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     private val actionBarOffsetChangedListener =
@@ -186,10 +187,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
         viewModel.watchResponse.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                val firstWatch = it.data.getFirst()
-                if (firstWatch != null) {
-                    showWatchlistSnackbar()
-                }
+                showWatchlistSnackbar(it.data.second)
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -262,7 +260,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             }
         }
 
-        L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
+        requireView().setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         binding.appBarLayout.addOnOffsetChangedListener(actionBarOffsetChangedListener)
     }
@@ -280,6 +278,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
             } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
+            } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME ||
+                viewModel.pageTitle.wikiSite.dbName() == Constants.COMMONS_DB_NAME) {
+                CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.mobileUri)
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)))
@@ -352,7 +353,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         }
         updateWatchButton(false)
 
-        binding.warnButton.setOnClickListener {
+        binding.talkButton.setOnClickListener {
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
@@ -461,7 +462,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         binding.undoButton.isVisible = false
         binding.olderIdButton.isVisible = false
         binding.newerIdButton.isVisible = false
-        binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
     private fun updateAfterRevisionFetchSuccess() {
@@ -551,11 +551,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         )
     }
 
-    private fun showWatchlistSnackbar() {
+    private fun showWatchlistSnackbar(message: String) {
         updateWatchButton(false)
         if (!viewModel.isWatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
-            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
+            FeedbackUtil.makeSnackbar(requireActivity(), message)
                 .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
                         if (!isAdded) {
@@ -568,10 +568,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 .show()
         } else if (viewModel.isWatched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
-            FeedbackUtil.makeSnackbar(requireActivity(),
-                    getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                            viewModel.pageTitle.displayText,
-                            getString(WatchlistExpiry.NEVER.stringId)))
+            FeedbackUtil.makeSnackbar(requireActivity(), message)
                 .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
                 }
@@ -686,14 +683,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         if (Prefs.showOneTimeRecentEditsFeedbackForm) {
             sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
         }
-        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
+        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), invokeSource = InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
     }
 
     private fun updateActionButtons() {
         binding.undoButton.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
-                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
+                AccountUtil.userName != viewModel.revisionTo?.user &&
                 viewModel.revisionTo?.isAnon == false
     }
 

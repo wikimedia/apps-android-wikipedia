@@ -3,29 +3,26 @@ package org.wikipedia.edit.summaries
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.edit.db.EditSummary
+import org.wikipedia.extensions.setTextDirectionByLang
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil.setConditionalTextDirection
 
-class EditSummaryHandler(private val container: View,
+class EditSummaryHandler(private val coroutineScope: CoroutineScope,
+                         private val container: View,
                          private val summaryEdit: AutoCompleteTextView,
                          title: PageTitle) {
 
     init {
         container.setOnClickListener { summaryEdit.requestFocus() }
-        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
+        summaryEdit.setTextDirectionByLang(title.wikiSite.languageCode)
 
-        AppDatabase.instance.editSummaryDao().getEditSummaries()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { summaries ->
-                if (container.isAttachedToWindow) {
-                    updateAutoCompleteList(summaries)
-                }
-            }
+        coroutineScope.launch {
+            val summaries = AppDatabase.instance.editSummaryDao().getEditSummaries()
+            updateAutoCompleteList(summaries)
+        }
     }
 
     private fun updateAutoCompleteList(editSummaries: List<EditSummary>) {
@@ -38,9 +35,9 @@ class EditSummaryHandler(private val container: View,
     }
 
     fun persistSummary() {
-        AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        coroutineScope.launch {
+            AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
+        }
     }
 
     fun handleBackPressed(): Boolean {

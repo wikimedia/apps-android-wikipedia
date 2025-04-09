@@ -28,6 +28,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
 
@@ -74,7 +75,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     .load(pageTitle.thumbUrl)
                     .override(256)
                     .downsample(DownsampleStrategy.CENTER_INSIDE)
-                    .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
+                    .transform(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
                     .into(AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId))
 
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
@@ -95,7 +96,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     companion object {
         private var lastServerUpdateMillis = 0L
 
-        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null, sendIntent: Boolean = true) {
+        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
             val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
             ids.forEach { id ->
@@ -105,7 +106,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 options.putParcelable(Constants.ARG_TITLE, bundle)
                 appWidgetManager.updateAppWidgetOptions(id, options)
             }
-            if (ids.isNotEmpty() && sendIntent) {
+            if (ids.isNotEmpty()) {
                 context.sendBroadcast(Intent(context, WidgetProviderFeaturedPage::class.java)
                     .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
                     .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids))

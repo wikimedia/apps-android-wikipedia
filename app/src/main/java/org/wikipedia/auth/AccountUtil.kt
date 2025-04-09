@@ -3,17 +3,26 @@ package org.wikipedia.auth
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
+import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
-import java.util.*
+import java.time.LocalDate
+import java.util.Collections
+import kotlin.math.max
 
 object AccountUtil {
+    private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
+    private const val TEMP_ACCOUNT_EXPIRY_DAYS = 90
 
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
@@ -29,19 +38,22 @@ object AccountUtil {
     }
 
     val isLoggedIn: Boolean
-        get() = account() != null
+        get() = account() != null || isTemporaryAccount
 
-    val userName: String?
-        get() {
-            val account = account()
-            return account?.name
-        }
+    val isTemporaryAccount: Boolean
+        get() = account() == null && getUserNameFromCookie().isNotEmpty()
+
+    val userName: String
+        get() = account()?.name ?: getUserNameFromCookie()
 
     val password: String?
         get() {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
         }
+
+    val assertUser: String?
+        get() = if (isLoggedIn && !isTemporaryAccount) "user" else null
 
     var groups: Set<String>
         get() {
@@ -86,6 +98,34 @@ object AccountUtil {
 
     fun accountType(): String {
         return WikipediaApp.instance.getString(R.string.account_type)
+    }
+
+    fun getUserNameFromCookie(): String {
+        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
+    }
+
+    fun maybeSetTempAccountDay() {
+        if (isTemporaryAccount && Prefs.tempAccountCreateDay == 0L) {
+            Prefs.tempAccountCreateDay = LocalDate.now().toEpochDay()
+        }
+    }
+
+    fun maybeShowTempAccountWelcome(activity: Activity) {
+        if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
+            Prefs.tempAccountWelcomeShown = true
+            Prefs.tempAccountDialogShown = false
+            val expiryDays = tempAccountDaysLeft()
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
+                expiryDays, userName, expiryDays))
+        }
+    }
+
+    fun tempAccountDaysLeft(): Int {
+        return max(TEMP_ACCOUNT_EXPIRY_DAYS - (LocalDate.now().toEpochDay() - Prefs.tempAccountCreateDay), 0).toInt()
+    }
+
+    fun isUserNameTemporary(userName: String): Boolean {
+        return userName.startsWith("~")
     }
 
     private fun createAccount(userName: String, password: String): Boolean {

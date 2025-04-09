@@ -19,8 +19,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:contentDescription="@null"
+            android:visibility="gone"
             app:srcCompat="@drawable/feed_header_wordmark"
             app:tint="?attr/primary_color" />
+
     </com.google.android.material.appbar.MaterialToolbar>
 
     <FrameLayout

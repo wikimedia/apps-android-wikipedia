@@ -99,10 +99,10 @@
         android:layout_marginTop="24dp">
 
         <ImageView
-            android:id="@+id/warnImage"
+            android:id="@+id/talkImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_warning_24"
+            android:src="@drawable/ic_notification_user_talk"
             android:padding="8dp"
             android:background="@drawable/shape_circle"
             android:backgroundTint="?attr/addition_color"
@@ -112,25 +112,25 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/warnTitle"
+            android:id="@+id/talkTitle"
             style="@style/H3.MaterialListTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/patroller_onboarding_two_warn_title"
+            android:text="@string/patroller_onboarding_two_talk_title"
             android:layout_marginStart="20dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/warnImage"
+            app:layout_constraintStart_toEndOf="@id/talkImage"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:id="@+id/warnContent"
+            android:id="@+id/talkContent"
             style="@style/P"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/patroller_onboarding_two_warn_content"
+            android:text="@string/patroller_onboarding_two_talk_content"
             android:layout_marginTop="6dp"
-            app:layout_constraintTop_toBottomOf="@id/warnTitle"
-            app:layout_constraintStart_toStartOf="@id/warnTitle"
+            app:layout_constraintTop_toBottomOf="@id/talkTitle"
+            app:layout_constraintStart_toStartOf="@id/talkTitle"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

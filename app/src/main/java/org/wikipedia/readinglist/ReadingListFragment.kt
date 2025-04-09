@@ -5,7 +5,12 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +21,10 @@ import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,17 +32,15 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
-import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Runnable
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
@@ -45,26 +50,37 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
-import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.util.*
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.CircularProgressBar
+import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
+import org.wikipedia.views.PageItemView
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import java.util.Date
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
     private var _binding: FragmentReadingListBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: ReadingListFragmentViewModel by viewModels()
 
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
-    private val disposables = CompositeDisposable()
     private var isPreview: Boolean = false
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
@@ -91,14 +107,76 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
+
         isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
+
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
-        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.updateListByIdFlow.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                binding.readingListSwipeRefresh.isRefreshing = false
+                                readingList = resource.data
+                                readingList?.let {
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                                }
+                                update()
+                            }
+                            is Resource.Error -> {
+                                // If we failed to retrieve the requested list, it means that the list is no
+                                // longer in the database (likely removed due to sync).
+                                // In this case, there's nothing for us to do, so just bail from the activity.
+                                requireActivity().finish()
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.updateListFlow.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                readingList = resource.data
+                                readingList?.let {
+                                    ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
+                                }
+                                update()
+                            }
+                            is Resource.Error -> {
+                                L.e(resource.throwable)
+                                FeedbackUtil.showError(requireActivity(), resource.throwable)
+                                requireActivity().finish()
+                            }
+                        }
+                    }
+                }
+                launch {
+                    FlowEventBus.events.collectLatest { event ->
+                        when (event) {
+                            is ReadingListSyncEvent -> {
+                                updateReadingListData()
+                            }
+                            is PageDownloadEvent -> {
+                                val pagePosition = getPagePositionInList(event.page)
+                                if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
+                                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
+                                    adapter.notifyItemChanged(pagePosition + 1)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return binding.root
     }
 
@@ -106,11 +184,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         super.onResume()
         updateReadingListData()
         ReadingListsAnalyticsHelper.logListShown(requireContext(), readingList?.pages?.size ?: 0)
-        ReadingListsShareSurveyHelper.maybeShowSurvey(requireActivity())
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         previewSaveDialog?.dismiss()
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
@@ -141,7 +217,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val sortOptionsItem = menu.findItem(R.id.menu_sort_options)
         val iconColor = if (toolbarExpanded) AppCompatResources.getColorStateList(requireContext(), android.R.color.white)
         else ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color)
-        menu.findItem(R.id.menu_reading_list_share)?.isVisible = ReadingListsShareHelper.shareEnabled()
         MenuItemCompat.setIconTintList(searchItem, iconColor)
         MenuItemCompat.setIconTintList(sortOptionsItem, iconColor)
         readingList?.let {
@@ -234,29 +309,25 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
-            headerView.previewSaveButton.setOnClickListener {
+            headerView.saveClickListener = View.OnClickListener {
                 previewSaveDialog()
             }
             return
         }
 
-        if (ReadingListsShareHelper.shareEnabled()) {
-            headerView.shareButton.isVisible = true
-            if (!Prefs.readingListShareTooltipShown) {
-                enqueueTooltip {
-                    FeedbackUtil.showTooltip(
-                        requireActivity(),
-                        headerView.shareButton,
-                        getString(R.string.reading_list_share_menu_tooltip),
-                        aboveOrBelow = false,
-                        autoDismiss = true,
-                        showDismissButton = true
-                    )
-                    Prefs.readingListShareTooltipShown = true
-                }
+        headerView.shareButton.isVisible = true
+        if (!Prefs.readingListShareTooltipShown) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(
+                    requireActivity(),
+                    headerView.shareButton,
+                    getString(R.string.reading_list_share_menu_tooltip),
+                    aboveOrBelow = false,
+                    autoDismiss = true,
+                    showDismissButton = true
+                )
+                Prefs.readingListShareTooltipShown = true
             }
-        } else {
-            headerView.shareButton.isVisible = false
         }
     }
 
@@ -268,7 +339,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun setSwipeRefreshView() {
-        binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
@@ -298,41 +368,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                val encodedJson = Prefs.receiveReadingListsData
-                if (!encodedJson.isNullOrEmpty()) {
-                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                        L.e(throwable)
-                        FeedbackUtil.showError(requireActivity(), throwable)
-                        requireActivity().finish()
-                    }) {
-                        withContext(Dispatchers.Main) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
-                        }
-                    }
-                }
+                val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
+                val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
+                viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
             } else {
                 update()
             }
         } else {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, _ ->
-                // If we failed to retrieve the requested list, it means that the list is no
-                // longer in the database (likely removed due to sync).
-                // In this case, there's nothing for us to do, so just bail from the activity.
-                requireActivity().finish()
-            }) {
-                val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
-                binding.readingListSwipeRefresh.isRefreshing = false
-                readingList = list
-                readingList?.let {
-                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                }
-                update()
-            }
+            viewModel.updateListById(readingListId)
         }
     }
 
@@ -363,7 +406,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 updateEmptyState(query)
             } else {
-                ReadingListBehaviorsUtil.searchListsAndPages(query) { lists ->
+                ReadingListBehaviorsUtil.searchListsAndPages(lifecycleScope, query) { lists ->
                     displayedLists = lists
                     adapter.notifyDataSetChanged()
                     updateEmptyState(query)
@@ -408,7 +451,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
         if (!isTagType(actionMode)) {
@@ -465,6 +508,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
+
                     requireActivity().startActivity(MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
@@ -533,7 +577,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) {
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) {
             adapter.notifyDataSetChanged()
             update()
         }
@@ -568,7 +612,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         val page = getPageById(pageId) ?: return
         readingList?.let {
             val listsContainPage = if (currentSearchQuery.isNullOrEmpty()) listOf(it) else ReadingListBehaviorsUtil.getListsContainPage(page)
-            ReadingListBehaviorsUtil.deletePages(requireActivity(), listsContainPage, page, { updateReadingListData() }, {
+            ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listsContainPage, page, { updateReadingListData() }, {
                 update()
             })
         }
@@ -599,7 +643,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
-    private inner class ReadingListItemHolder constructor(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
+    private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
             view.setPreviewMode(isPreview)
@@ -609,7 +653,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         override val view get() = itemView as ReadingListItemView
     }
 
-    private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
+    private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var page: ReadingListPage
         fun bindItem(page: ReadingListPage) {
             this.page = page
@@ -625,7 +669,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setListItemImageDimensions(imageDimension, imageDimension)
-            check(page, PageAvailableOfflineHandler.Callback { available -> view.setViewsGreyedOut(!available) })
+            PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
                 view.setTitleEllipsis()
@@ -643,7 +687,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             readingList?.let {
                 if (currentSearchQuery.isNullOrEmpty()) {
-                    ReadingListBehaviorsUtil.deletePages(requireActivity(), listOf(it), page, { updateReadingListData() }, {
+                    ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listOf(it), page, { updateReadingListData() }, {
                         update()
                     })
                 }
@@ -801,10 +845,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
-                Completable.fromAction {
-                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
@@ -933,20 +974,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             actionMode = null
             setStatusBarActionMode(false)
             super.onDestroyActionMode(mode)
-        }
-    }
-
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            if (event is ReadingListSyncEvent) {
-                updateReadingListData()
-            } else if (event is PageDownloadEvent) {
-                val pagePosition = getPagePositionInList(event.page)
-                if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
-                    adapter.notifyItemChanged(pagePosition + 1)
-                }
-            }
         }
     }
 

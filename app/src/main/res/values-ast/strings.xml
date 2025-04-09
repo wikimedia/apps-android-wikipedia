@@ -64,7 +64,7 @@
   <string name="edit_history_link_text">Ver l\'historial d\'ediciones</string>
   <string name="map_view_link_text">Ver nun mapa</string>
   <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
-  <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
+  <string name="language_count_link_text">Disponible en %d llingües más</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
   <string name="preference_title_language">Llingües de Wikipedia</string>
@@ -95,8 +95,8 @@
   <string name="login_username_hint">Nome d\'usuariu</string>
   <string name="login_password_hint">Contraseña</string>
   <string name="account_creation_password_hint">Contraseña</string>
-  <string name="login_2fa_hint">Códigu d\'autenticación de dos factores</string>
-  <string name="login_2fa_other_workflow_error_msg">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Códigu d\'autenticación de dos factores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
   <string name="onboarding_card_login">Aniciar sesión</string>
   <string name="page_editing_login">Aniciar sesión</string>
   <string name="reading_lists_sync_login">Aniciar sesión</string>
@@ -172,9 +172,9 @@
   <string name="page_protected_can_not_edit">La to cuenta nun tienes permisos abondo pa editar esta páxina nesti momentu.</string>
   <string name="page_protected_can_not_edit_anon">Esta páxina nun puede editase de mou anónimu nesti momentu.</string>
   <string name="page_protected_can_not_edit_title">Esta páxina ta protexida</string>
-  <string name="settings_item_preferences">Configuración</string>
-  <string name="settings_activity_title">Configuración</string>
-  <string name="about_description">Tocante a la app de Wikipedia</string>
+  <string name="settings_item_preferences">Axustes</string>
+  <string name="settings_activity_title">Axustes</string>
+  <string name="about_description">Tocante a l\'aplicación Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
   <string name="about_wikipedia_url">https://ast.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
@@ -282,7 +282,6 @@
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
   <string name="tool_tip_toc_title">Accesu rápidu a la tabla de conteníu</string>
   <string name="tool_tip_toc_text">Agora pués esmucir a la izquierda p\'abrir la tabla de conteníu, y tamién tocar y abasnar esti botón de desplazamientu para saltar rápido a distintes secciones d\'un artículu.</string>
-  <string name="tool_tip_lang_button">Agora puedes buscar y lleer Wikipedia en distintos idiomes na app.\n\n\nToca l\'iconu p\'añadir más idiomes.</string>
   <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
   <string name="format_error_server_message">Mensaxe: «%s»</string>
@@ -650,8 +649,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Pies d\'imáxenes</string>
@@ -735,6 +732,7 @@
   <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
   <string name="onboarding_reading_list_sync_title">Llistes de llectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Puedes facer llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;br/&gt;Anicia sesión cola to cuenta de Wikipedia pa sincronizar les llistes de llectura. &lt;a href=\"#login\"&gt;Xúnite a Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Datos y privacidá</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
   <string name="onboarding_got_it">Entendílo</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
@@ -771,10 +769,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Dexa polo menos una llingua de Wikipedia pa buscar y lleer el conteníu.</string>
   <string name="more_language_options">más</string>
   <string name="add_wikipedia_languages_text">Añadir idiomes de Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">¿Quitar una variante del chinu de los idiomes de l\'aplicación?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora tienes definíos tanto\'l chinu tradicional como\'l simplificáu nos idiomes de l\'aplicación. ¿Anovar la configuración llingüística de la app?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar llingües</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non, gracies</string>
   <string name="remove_language_dialog_cancel_button_text">Zarrar</string>
   <string name="remove_language_dialog_ok_button_text">Aceutar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceutar</string>

@@ -7,15 +7,18 @@ import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.text.method.LinkMovementMethod
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -27,6 +30,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
@@ -35,6 +39,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
@@ -51,6 +56,8 @@ class EditSummaryFragment : Fragment() {
     val isMinorEdit get() = binding.minorEditCheckBox.isChecked
     val watchThisPage get() = binding.watchPageCheckBox.isChecked
     val isActive get() = binding.root.visibility == View.VISIBLE
+
+    private val viewModel: EditSectionViewModel by activityViewModels()
 
     private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val voiceSearchResult = it.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
@@ -83,14 +90,14 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.editSummaryTextLayout.setEndIconOnClickListener {
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction("tts_open", "editsummary_dialog", getActionDataStringForData())
             }
             launchVoiceInput()
         }
 
         binding.learnMoreButton.setOnClickListener {
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction("view_help", "editsummary_dialog", getActionDataStringForData())
             }
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_edit_summary_url)))
@@ -105,7 +112,7 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.watchPageCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                 ImageRecommendationsEvent.logAction(if (isChecked) "add_watchlist" else "remove_watchlist", "editsummary_dialog", getActionDataStringForData())
             }
         }
@@ -126,9 +133,10 @@ class EditSummaryFragment : Fragment() {
             acceptanceState = "accepted", captionAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
             altTextAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())
     }
+
     override fun onStart() {
         super.onStart()
-        editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
+        editSummaryHandler = EditSummaryHandler(lifecycleScope, binding.root, binding.editSummaryText, title)
     }
 
     override fun onDestroyView() {
@@ -162,7 +170,7 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun addEditSummaries() {
-        val summaryTagStrings = if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
+        val summaryTagStrings = if (invokeSource() == Constants.InvokeSource.EDIT_ADD_IMAGE)
             intArrayOf(R.string.edit_summary_added_image_and_caption, R.string.edit_summary_added_image)
         else
             intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
@@ -198,7 +206,18 @@ class EditSummaryFragment : Fragment() {
         return chip
     }
 
+    private fun invokeSource() = (requireActivity() as EditSectionActivity).getInvokeSource()
+
     fun show() {
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
+            binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+            binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getUserNameFromCookie(), getString(R.string.temp_accounts_help_url))
+            else getString(if (viewModel.tempAccountsEnabled) R.string.temp_account_anon_edit_status else R.string.temp_account_anon_ip_edit_status, getString(R.string.temp_accounts_help_url)))
+        } else {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
             binding.editSummaryText.requestFocus()

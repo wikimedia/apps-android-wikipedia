@@ -5,7 +5,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -31,19 +33,32 @@ class LogoutPreference : Preference {
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
-        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
-            activity?.let {
-                MaterialAlertDialogBuilder(it)
-                    .setMessage(R.string.logout_prompt)
-                    .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                    .setPositiveButton(R.string.preference_title_logout) { _, _ ->
-                        WikipediaApp.instance.logOut()
-                        Prefs.readingListsLastSyncTime = null
-                        Prefs.isReadingListSyncEnabled = false
-                        Prefs.isSuggestedEditsHighestPriorityEnabled = false
-                        it.setResult(SettingsActivity.ACTIVITY_RESULT_LOG_OUT)
-                        it.finish()
-                    }.show()
+        holder.itemView.findViewById<ImageView>(R.id.accountIcon).apply {
+            setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_baseline_person_24)
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.accountExpiry).apply {
+            isVisible = AccountUtil.isTemporaryAccount
+            val expiryDays = AccountUtil.tempAccountDaysLeft()
+            text = context.resources.getQuantityString(R.plurals.temp_account_expiry, expiryDays, expiryDays)
+        }
+
+        holder.itemView.findViewById<Button>(R.id.logoutButton).apply {
+            text = context.getString(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session else R.string.preference_title_logout)
+            setOnClickListener {
+                activity?.let {
+                    MaterialAlertDialogBuilder(it)
+                        .setMessage(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session_confirm else R.string.logout_prompt)
+                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
+                        .setPositiveButton(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session else R.string.preference_title_logout) { _, _ ->
+                            WikipediaApp.instance.logOut()
+                            Prefs.readingListsLastSyncTime = null
+                            Prefs.isReadingListSyncEnabled = false
+                            Prefs.isSuggestedEditsHighestPriorityEnabled = false
+                            it.setResult(SettingsActivity.ACTIVITY_RESULT_LOG_OUT)
+                            it.finish()
+                        }.show()
+                }
             }
         }
         holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
@@ -59,5 +74,7 @@ class LogoutPreference : Preference {
                     }.show()
             }
         }
+
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).isVisible = !AccountUtil.isTemporaryAccount
     }
 }

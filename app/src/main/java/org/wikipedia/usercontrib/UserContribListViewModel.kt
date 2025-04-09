@@ -1,16 +1,14 @@
 package org.wikipedia.usercontrib
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -21,14 +19,13 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.*
+import java.util.Date
 
-class UserContribListViewModel(bundle: Bundle) : ViewModel() {
-
+class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val userContribStatsData = MutableLiveData<Resource<UserContribStats>>()
 
-    var userName: String = bundle.getString(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
-    var langCode: String = WikipediaApp.instance.appOrSystemLanguageCode
+    var userName = savedStateHandle.get<String>(UserContribListActivity.INTENT_EXTRA_USER_NAME)!!
+    var langCode = Prefs.userContribFilterLangCode
 
     val wikiSite get(): WikiSite {
         return when (langCode) {
@@ -41,13 +38,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     var currentQuery = ""
     var actionModeActive = false
 
-    var userContribSource: UserContribPagingSource? = null
     private val cachedContribs = mutableListOf<UserContribution>()
     private var cachedContinueKey: String? = null
 
     val userContribFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
-        userContribSource = UserContribPagingSource()
-        userContribSource!!
+        UserContribPagingSource()
     }).flow.map { pagingData ->
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
@@ -129,11 +124,4 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
     class UserContribItem(val item: UserContribution) : UserContribItemModel()
     class UserContribSeparator(val date: String) : UserContribItemModel()
     class UserContribStats(val totalEdits: Int, val registrationDate: Date, val projectName: String) : UserContribItemModel()
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return UserContribListViewModel(bundle) as T
-        }
-    }
 }

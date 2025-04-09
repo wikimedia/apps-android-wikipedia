@@ -1,20 +1,28 @@
 package org.wikipedia.page.edithistory
 
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
-import kotlinx.coroutines.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.insertSeparators
+import androidx.paging.map
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
-import org.wikipedia.extensions.parcelable
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -22,12 +30,12 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.*
+import java.util.Calendar
 
-class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
+class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
-    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     var pageId = -1
         private set
     var comparing = false
@@ -39,24 +47,26 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var currentQuery = ""
     var actionModeActive = false
 
-    var editHistorySource: EditHistoryPagingSource? = null
     private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
     private var cachedContinueKey: String? = null
 
     val editHistoryFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
-        editHistorySource = EditHistoryPagingSource(pageTitle)
-        editHistorySource!!
+        EditHistoryPagingSource(pageTitle)
     }).flow.map { pagingData ->
         val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
 
         pagingData.insertSeparators { before, after ->
-            if (before != null && after != null) { before.diffSize = before.size - after.size }
+            if (before != null && after != null) {
+                before.diffSize = before.size - after.size
+            } else if (before != null) {
+                before.diffSize = before.size
+            }
             null
         }.filter {
             when {
-                anonEditsOnly -> { it.isAnon }
-                userEditsOnly -> { !it.isAnon }
+                anonEditsOnly -> { it.isAnon || it.isTemp }
+                userEditsOnly -> { !it.isAnon && !it.isTemp }
                 else -> { true }
             }
         }.filter {
@@ -96,14 +106,20 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
             val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
             val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
-            val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
+            val articleMetricsResponse = async {
+                if (pageTitle.namespace() == Namespace.MAIN) {
+                    ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
+                } else {
+                    null
+                }
+            }
 
             val page = mwResponse.await().query?.pages?.first()
             pageId = page?.pageId ?: -1
 
             editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
-                page?.revisions?.first()!!,
-                articleMetricsResponse.await().firstItem.results,
+                page?.revisions?.first() ?: MwQueryPage.Revision(),
+                articleMetricsResponse.await()?.firstItem?.results ?: emptyList(),
                 editCountsResponse.await(),
                 editCountsUserResponse.await(),
                 editCountsAnonResponse.await(),
@@ -191,13 +207,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     class EditHistorySeparator(val date: String) : EditHistoryItemModel()
     class EditHistoryStats(val revision: MwQueryPage.Revision, val metrics: List<Metrics.Results>,
                            val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return EditHistoryListViewModel(bundle) as T
-        }
-    }
 
     companion object {
         const val SELECT_INACTIVE = 0

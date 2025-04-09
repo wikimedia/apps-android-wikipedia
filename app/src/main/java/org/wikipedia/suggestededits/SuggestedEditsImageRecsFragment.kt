@@ -61,8 +61,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels { SuggestedEditsImageRecsFragmentViewModel.Factory(
-        bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)) }
+    private val viewModel: SuggestedEditsImageRecsFragmentViewModel by viewModels()
 
     private var infoClicked = false
     private var scrolled = false
@@ -245,7 +244,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         binding.imageView.loadImage(Uri.parse(thumbUrl),
-            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+            cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                 override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                     if (isAdded) {
                         var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
@@ -335,9 +334,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             R.id.menu_report_feature -> {
                 ImageRecommendationsEvent.logAction("report_problem", "recommendedimagetoolbar",
                     getActionStringForAnalytics(), viewModel.langCode)
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
-                    getString(R.string.email_report_image_recommendations_subject),
-                    getString(R.string.email_report_image_recommendations_body))
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.email_report_image_recommendations_subject),
+                    body = getString(R.string.email_report_image_recommendations_body))
                 true
             }
             else -> false
@@ -462,11 +461,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
-        const val IMAGE_REC_EDIT_COMMENT_TOP = "#suggestededit-add-image-top"
-        const val IMAGE_REC_EDIT_COMMENT_INFOBOX = "#suggestededit-add-image-infobox"
 
         fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageRecsFragment()
+            return SuggestedEditsImageRecsFragment().apply {
+                arguments = bundleOf(ARG_LANG to WikipediaApp.instance.appOrSystemLanguageCode)
+            }
         }
     }
 }

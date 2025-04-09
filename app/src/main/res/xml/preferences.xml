@@ -3,8 +3,8 @@
     //TODO: Remove the override of the private attributes in values/sw360dp/v13/preference.xml
      when a better solution is found in androidx for removing the iconReserved space.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/preferences_general_heading">
         <org.wikipedia.settings.PreferenceMultiLine
                 android:key="@string/preference_key_language"
@@ -28,7 +28,7 @@
             android:key="@string/preference_key_color_theme"
             android:defaultValue="0"
             android:title="@string/preference_title_app_theme"
-            android:summary="@string/preference_summary_color_theme"/>
+            android:summary="@string/preference_summary_color_theme" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_sync"
@@ -58,5 +58,10 @@
             android:defaultValue="false"
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_delete_local_donation_history"
+            android:defaultValue="0"
+            app:isPreferenceVisible="false"
+            android:title="@string/preference_title_delete_local_donation_history" />
     </PreferenceCategory>
 </PreferenceScreen>

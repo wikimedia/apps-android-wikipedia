@@ -9,15 +9,17 @@ import org.wikipedia.util.UriUtil
 
 @Serializable
 @Parcelize
-class MediaListItem constructor(val title: String = "",
-                                val type: String = "",
-                                val caption: TextInfo? = null,
-                                val showInGallery: Boolean = false,
-                                @SerialName("section_id") private val sectionId: Int = 0,
-                                @SerialName("srcset") val srcSets: List<ImageSrcSet> = emptyList()) :
+class MediaListItem(val title: String = "",
+                    val type: String = "",
+                    val caption: TextInfo? = null,
+                    val showInGallery: Boolean = false,
+                    @SerialName("section_id") private val sectionId: Int = 0,
+                    @SerialName("srcset") val srcSets: List<ImageSrcSet> = emptyList()) :
     Parcelable {
 
     val isInCommons get() = srcSets.firstOrNull()?.src?.contains(Service.URL_FRAGMENT_FROM_COMMONS) == true
+
+    val isVideo get() = type == "video"
 
     fun getImageUrl(deviceScale: Float): String {
         var imageUrl = srcSets[0].src

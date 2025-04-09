@@ -57,7 +57,7 @@
   <string name="page_edit_history_search_or_filter_edits_hint">Засваруудыг хайх эсвэл шүүх</string>
   <string name="page_edit_history_filter_by_all">Бүх засвар ( %s )</string>
   <string name="page_edit_history_filter_by_user">Хэрэглэгчийн засвар ( %s )</string>
-  <string name="page_edit_history_filter_by_anon">Анон засвар ( %s )</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анон засвар ( %s )</string>
   <string name="menu_page_show_tabs">Цонхнуудыг харуулах</string>
   <string name="menu_page_other_languages">Хэл солих</string>
   <string name="menu_page_find_in_page">Өгүүллээс хайх</string>
@@ -125,7 +125,7 @@
   <string name="login_username_hint">Хэрэглэгчийн нэр</string>
   <string name="login_password_hint">Нууц үг</string>
   <string name="account_creation_password_hint">Нууц үг</string>
-  <string name="login_2fa_hint">Хоёр нөхцөлт баталгаажуулалтын код</string>
+  <string name="login_2fa_hint" fuzzy="true">Хоёр нөхцөлт баталгаажуулалтын код</string>
   <string name="onboarding_card_login">Нэвтрэх</string>
   <string name="page_editing_login">Нэвтрэх</string>
   <string name="reading_lists_sync_login">Нэвтрэх</string>

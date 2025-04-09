@@ -12,8 +12,8 @@ import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderLargeBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
@@ -35,13 +35,13 @@ class CardLargeHeaderView : ConstraintLayout {
     val sharedElements get() = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
 
     fun setLanguageCode(langCode: String): CardLargeHeaderView {
-        L10nUtil.setConditionalLayoutDirection(this, langCode)
+        setLayoutDirectionByLang(langCode)
         return this
     }
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, roundedCorners = true, cropped = true, listener = ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, cropped = true, listener = ImageLoadListener())
         return this
     }
 

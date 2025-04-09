@@ -6,8 +6,8 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
@@ -118,7 +118,7 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
-                "   \"userGroups\": \"${AccountUtil.groups}\"," +
+                "   \"userGroups\": ${JsonUtil.encodeToString(AccountUtil.groups)}," +
                 "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
@@ -134,10 +134,10 @@ object JavaScriptActionHandler {
         val showTalkLink = model.page!!.title.namespace() !== Namespace.TALK
         val showMapLink = model.page!!.pageProperties.geo != null
         val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
+        val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
-        val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
         return "pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
@@ -154,7 +154,26 @@ object JavaScriptActionHandler {
                 "   }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: \"$baseURL\"," +
+                "       readMoreLazy: true," +
+                "       langCode: \"$langCode\"," +
+                "       fragment: \"pcs-read-more\"" +
+                "   }" +
+                "})"
+    }
+
+    fun appendReadMode(model: PageViewModel): String {
+        if (model.page == null) {
+            return ""
+        }
+        val apiBaseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
+        val langCode = model.title?.wikiSite?.languageCode ?: WikipediaApp.instance.appOrSystemLanguageCode
+        return "pcs.c1.Footer.appendReadMore({" +
+                "   platform: \"android\"," +
+                "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
+                "   readMore: { " +
+                "       itemCount: 3," +
+                "       apiBaseURL: \"$apiBaseURL\"," +
+                "       langCode: \"$langCode\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
@@ -163,8 +182,14 @@ object JavaScriptActionHandler {
     fun mobileWebChromeShim(marginTop: Int, marginBottom: Int): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${marginTop}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: ${marginBottom}px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${marginTop}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: ${marginBottom}px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; } .banner-container { display: none; }';" +
                 "document.head.appendChild(style);" +
+                "})();"
+    }
+
+    fun mobileWebSetDarkMode(): String {
+        return "(function() {" +
+                "document.documentElement.classList.add('skin-theme-clientpref-night');" +
                 "})();"
     }
 
@@ -190,5 +215,5 @@ object JavaScriptActionHandler {
 
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
-                       val src: String = "", val centerCrop: Boolean = false)
+                       val src: String = "")
 }

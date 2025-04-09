@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aram1985
+* GeoO
 * Kareyac
 * MuratTheTurkish
 * Xelgen
@@ -23,6 +24,7 @@
   <string name="nav_item_suggested_edits">Խմբագրումներ</string>
   <string name="nav_item_more">Ավելին</string>
   <string name="nav_item_search">Որոնել</string>
+  <string name="nav_item_contribute">Ներդրում</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>
@@ -101,7 +103,7 @@
   <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
   <string name="other_languages_indication_text">Կարդալ այլ լեզվով</string>
   <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
+  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
   <string name="preference_title_language">Վիքիպեդիայի լեզուները</string>
   <string name="langlinks_filter_hint">Որոնել</string>
   <string name="langlinks_empty">Այս էջն այլ լեզուներով մատչելի չէ։</string>
@@ -116,6 +118,8 @@
   <string name="dialog_message_leaving_edit">Ձեր փոփոխությունները դեռևս պահպանված չեն: Ցանկանու՞մ եք լքել այս էջը:</string>
   <string name="dialog_message_leaving_edit_leave">Հեռանալ</string>
   <string name="dialog_message_leaving_edit_stay">Մնալ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Ջնջել</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Չեղարկել</string>
   <string name="menu_show_toc">Բովանդակություն</string>
   <string name="search_no_results_found">Ոչինչ չի գտնվել</string>
   <string name="title_captcha">Մուտքագրեք CAPTCHA֊ն</string>
@@ -124,7 +128,7 @@
   <string name="login_username_hint">Մասնակցային անուն</string>
   <string name="login_password_hint">Գաղտնաբառ</string>
   <string name="account_creation_password_hint">Գաղտնաբառ</string>
-  <string name="login_2fa_hint">Երկգործոն նույնականացման ծածկագիրը</string>
+  <string name="login_2fa_hint" fuzzy="true">Երկգործոն նույնականացման ծածկագիրը</string>
   <string name="onboarding_card_login">Մտնել</string>
   <string name="page_editing_login">Մտնել</string>
   <string name="reading_lists_sync_login">Մտնել</string>
@@ -283,6 +287,7 @@
   <string name="notifications_activity_title">Ծանուցումներ</string>
   <string name="notifications_poll_enable_positive">Միացնել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="notifications_mark_all_as_read">Նշել բոլորը որպես ընթերցված</string>
   <string name="notifications_direct_reply_action">Պատասխանել</string>
   <string name="watchlist_title">Հսկացանկ</string>
   <string name="preference_title_notification_system">Հհամակարգչային</string>
@@ -327,6 +332,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Լավ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="feed_language_variants_removal_dialog_save">Հիշել</string>
   <string name="description_edit_article_description_label">Հոդված</string>
   <string name="description_edit_add_caption_label">Պատկերի նկարագրություն</string>
   <string name="description_edit_add_caption_hint">Պատկերի նկարագրություն</string>
@@ -373,7 +379,7 @@
     <item quantity="other">Ներդրումներ</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Երբեք</string>
-  <string name="suggested_edits_task_new" fuzzy="true">նոր</string>
+  <string name="suggested_edits_task_new">Նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
   <string name="suggested_edits_contribution_image_label">Պատկեր</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
@@ -407,9 +413,6 @@
   </plurals>
   <string name="more_language_options">ավելին</string>
   <string name="add_wikipedia_languages_text">Ավելացնել Վիքիպեդիայի լեզուներ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Հեռացնե՞լ չինարեն ձեր հավելվածի լեզուներից</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Խմբագրել լեզուներ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ոչ, շնորհակալություն</string>
   <string name="remove_language_dialog_cancel_button_text">Չեղարկել</string>
   <string name="remove_language_dialog_ok_button_text">Լավ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Լավ</string>
@@ -495,4 +498,7 @@
   <string name="shareable_reading_lists_new_install_dialog_got_it">Հասկանալի է</string>
   <string name="data_opt_in_accept">Ընդունել</string>
   <string name="data_opt_in_reject">Մերժել</string>
+  <string name="survey_dialog_next">Հաջորդ</string>
+  <string name="survey_dialog_general_yes">Այո</string>
+  <string name="survey_dialog_general_no">Ոչ</string>
 </resources>

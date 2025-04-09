@@ -1,13 +1,19 @@
 package org.wikipedia.language
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -28,7 +34,7 @@ class LangLinksActivity : BaseActivity() {
 
     private var currentSearchQuery: String? = null
     private var actionMode: ActionMode? = null
-    private val viewModel: LangLinksViewModel by viewModels { LangLinksViewModel.Factory(intent.extras!!) }
+    private val viewModel: LangLinksViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -204,7 +210,7 @@ class LangLinksActivity : BaseActivity() {
             languageEntries.clear()
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode
-                val canonicalName = app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
+                val canonicalName = viewModel.getCanonicalName(languageCode) ?: app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
                 val localizedName = app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty()
                 if (canonicalName.contains(filterText, true) || localizedName.contains(filterText, true)) {
                     languageEntries.add(entry)
@@ -229,13 +235,13 @@ class LangLinksActivity : BaseActivity() {
         }
     }
 
-    private open inner class DefaultViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private open inner class DefaultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(pageTitle: PageTitle) {
             itemView.findViewById<TextView>(R.id.section_header_text).text = StringUtil.fromHtml(pageTitle.displayText)
         }
     }
 
-    private inner class LangLinksItemViewHolder constructor(itemView: View) : DefaultViewHolder(itemView), View.OnClickListener {
+    private inner class LangLinksItemViewHolder(itemView: View) : DefaultViewHolder(itemView), View.OnClickListener {
         private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
         private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
         private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
@@ -259,7 +265,9 @@ class LangLinksActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             app.languageState.addMruLanguageCode(pageTitle.wikiSite.languageCode)
-            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK)
+            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK).apply {
+                prevId = viewModel.historyEntryId
+            }
             val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, pageTitle, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
             DeviceUtil.hideSoftKeyboard(this@LangLinksActivity)
@@ -269,9 +277,13 @@ class LangLinksActivity : BaseActivity() {
 
     companion object {
         const val ACTIVITY_RESULT_LANGLINK_SELECT = 1
-        const val ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title"
-
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+
+        fun newIntent(context: Context, title: PageTitle, historyEntryId: Long = -1): Intent {
+            return Intent(context, LangLinksActivity::class.java)
+                .putExtra(Constants.ARG_TITLE, title)
+                .putExtra(Constants.ARG_NUMBER, historyEntryId)
+        }
     }
 }
