@@ -2,6 +2,7 @@ package org.wikipedia.topics
 
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.MenuItem
 import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -43,6 +44,17 @@ class TopicsActivity : BaseActivity() {
                 }
                 Prefs.selectedTopics = topics
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                setResult(RandomFragment.TOPICS_SELECTION_SUCCESS)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
