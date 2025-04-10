@@ -32,10 +32,17 @@ class RandomItemViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             if (Prefs.selectedTopics.isNotEmpty()) {
-                val topics = Prefs.selectedTopics.joinToString("|")
+                //val topics = Prefs.selectedTopics.joinToString("|")
+
+                var searchStr = ""
+                Prefs.selectedTopics.forEach {
+                    searchStr += " articletopic:$it"
+                }
+
+
                 while(true) {
                     val response = ServiceFactory.get(wikiSite).fullTextSearch(
-                        "articletopic:$topics",
+                        searchStr.trim(),
                         10,
                         null,
                         "random"
