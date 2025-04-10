@@ -148,8 +148,8 @@
   <string name="login_username_hint">Кулланучы исеме</string>
   <string name="login_password_hint">Серсүз</string>
   <string name="account_creation_password_hint">Серсүз</string>
-  <string name="login_2fa_hint">Ике факторлы аутентификация коды</string>
-  <string name="login_2fa_other_workflow_error_msg">Ике факторлы аутентификация таләп ителә! Зинһар, төп гамәлгә кире кайтыгыз, үзегезнең 2FA токены ярдәмендә системага керегез һәм аннан соң омтылышны кабатлагыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ике факторлы аутентификация коды</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ике факторлы аутентификация таләп ителә! Зинһар, төп гамәлгә кире кайтыгыз, үзегезнең 2FA токены ярдәмендә системага керегез һәм аннан соң омтылышны кабатлагыз.</string>
   <string name="onboarding_card_login">Керү</string>
   <string name="page_editing_login">Керү</string>
   <string name="reading_lists_sync_login">Керү</string>

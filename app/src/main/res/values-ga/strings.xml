@@ -115,8 +115,8 @@
   <string name="login_username_hint">Ainm úsáideora</string>
   <string name="login_password_hint">Pasfhocal</string>
   <string name="account_creation_password_hint">Pasfhocal</string>
-  <string name="login_2fa_hint">Cód Fíordheimhnithe Déshraithe</string>
-  <string name="login_2fa_other_workflow_error_msg">Fíordheimhniú déshraithe de dhíth! Fill ar an bpríomh-ghníomhaíocht, logáil isteach le do cheadchomhartha fhíordheimhniú déshraithe, agus atriail ansin.</string>
+  <string name="login_2fa_hint" fuzzy="true">Cód Fíordheimhnithe Déshraithe</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Fíordheimhniú déshraithe de dhíth! Fill ar an bpríomh-ghníomhaíocht, logáil isteach le do cheadchomhartha fhíordheimhniú déshraithe, agus atriail ansin.</string>
   <string name="onboarding_card_login">Logáil isteach</string>
   <string name="page_editing_login">Logáil isteach</string>
   <string name="reading_lists_sync_login">Logáil isteach</string>

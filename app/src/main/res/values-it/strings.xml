@@ -196,8 +196,9 @@
   <string name="login_username_hint">Nome utente</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Codice autenticazione a due fattori</string>
-  <string name="login_2fa_other_workflow_error_msg">È richiesta l\'autenticazione a due fattori! Per favore, torna all\'attività principale ed effettua l\'accesso con il tuo token per la 2FA, dopodiché riprova.</string>
+  <string name="login_2fa_hint">Codice di autenticazione a due fattori</string>
+  <string name="login_2fa_other_workflow_error_msg">È richiesta l\'autenticazione a due fattori! Accedi dalla schermata principale e inserisci il codice del tuo token 2FA.</string>
+  <string name="login_email_auth_hint">Codice di verifica e-mail</string>
   <string name="onboarding_card_login">Entra</string>
   <string name="page_editing_login">Entra</string>
   <string name="reading_lists_sync_login">Entra</string>
