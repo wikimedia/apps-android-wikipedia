@@ -138,8 +138,8 @@
   <string name="login_username_hint">صٲرِف ناو</string>
   <string name="login_password_hint">پاسوٲڈ</string>
   <string name="account_creation_password_hint">پاسوٲڈ</string>
-  <string name="login_2fa_hint">دۄیِم-فیکٹر تصدیٖقی کوڈ</string>
-  <string name="login_2fa_other_workflow_error_msg">دۄیِم-فیکٹر تصدیٖقٕچ چھےٚ ضروٗرتھ! مہربٲنی کرِتھ گٕژھیوٚ اَہَم سرگرمی کُن واپس تہٕ دٲخل گژھیوٚ پنٔنہِ 2FA ٹوکنہٕ سٕتی، پتہٕ کٕریٚو دۄبارٕ کوٗشس.</string>
+  <string name="login_2fa_hint" fuzzy="true">دۄیِم-فیکٹر تصدیٖقی کوڈ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">دۄیِم-فیکٹر تصدیٖقٕچ چھےٚ ضروٗرتھ! مہربٲنی کرِتھ گٕژھیوٚ اَہَم سرگرمی کُن واپس تہٕ دٲخل گژھیوٚ پنٔنہِ 2FA ٹوکنہٕ سٕتی، پتہٕ کٕریٚو دۄبارٕ کوٗشس.</string>
   <string name="onboarding_card_login">دٲخِل گَژھُن</string>
   <string name="page_editing_login">دٲخِل گَژھُن</string>
   <string name="reading_lists_sync_login">دٲخِل گَژھُن</string>

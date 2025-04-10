@@ -108,8 +108,8 @@
   <string name="login_username_hint">Isem n useqdac</string>
   <string name="login_password_hint">Awal uffir</string>
   <string name="account_creation_password_hint">Awal uffir</string>
-  <string name="login_2fa_hint">Tangalt n usesteb s snat n tarrayin</string>
-  <string name="login_2fa_other_workflow_error_msg">Asesteb s stan n tarrayin ilaq!\nUɣal ar urmud agekdan sakin qqen s ujuṭun 2FA, sakin ɛreḍ tikelt-nniḍen.</string>
+  <string name="login_2fa_hint" fuzzy="true">Tangalt n usesteb s snat n tarrayin</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Asesteb s stan n tarrayin ilaq!\nUɣal ar urmud agekdan sakin qqen s ujuṭun 2FA, sakin ɛreḍ tikelt-nniḍen.</string>
   <string name="onboarding_card_login">Kcem</string>
   <string name="page_editing_login">Kcem</string>
   <string name="reading_lists_sync_login">Kcem</string>

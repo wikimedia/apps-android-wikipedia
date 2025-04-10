@@ -133,8 +133,8 @@
   <string name="login_username_hint">பயனர் பெயர்</string>
   <string name="login_password_hint">கடவுச்சொல்</string>
   <string name="account_creation_password_hint">கடவுச்சொல்</string>
-  <string name="login_2fa_hint">இரு-காரணிய அங்கீகாரக் குறியீடு</string>
-  <string name="login_2fa_other_workflow_error_msg">இரு-காரணிய அங்கிகாரக் குறியீடு தேவைப்படுகிறது! தயவுசெய்து முதற்பக்கத்திற்கு சென்று உங்களது இரு-காரணிய அங்கிகாரக் குறியீட்டுடன் புகுபதிந்து மறுமுயற்சி செய்யவும்.</string>
+  <string name="login_2fa_hint" fuzzy="true">இரு-காரணிய அங்கீகாரக் குறியீடு</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">இரு-காரணிய அங்கிகாரக் குறியீடு தேவைப்படுகிறது! தயவுசெய்து முதற்பக்கத்திற்கு சென்று உங்களது இரு-காரணிய அங்கிகாரக் குறியீட்டுடன் புகுபதிந்து மறுமுயற்சி செய்யவும்.</string>
   <string name="onboarding_card_login">புகுபதிகை</string>
   <string name="page_editing_login">புகுபதிகை</string>
   <string name="reading_lists_sync_login">புகுபதிகை</string>

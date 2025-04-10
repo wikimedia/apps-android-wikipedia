@@ -146,8 +146,8 @@
   <string name="login_username_hint">Username</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Kailangan ng two-factor authentication! Bumalik po sa main activity at mag-login gamit ang SFA token niyo, pagkatapos, subukan muli.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Kailangan ng two-factor authentication! Bumalik po sa main activity at mag-login gamit ang SFA token niyo, pagkatapos, subukan muli.</string>
   <string name="onboarding_card_login">Mag-login</string>
   <string name="page_editing_login">Mag-login</string>
   <string name="reading_lists_sync_login">Mag-login</string>
