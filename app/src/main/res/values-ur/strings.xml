@@ -130,8 +130,8 @@
   <string name="login_username_hint">صارف نام</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint">دوہری تصدیق کا کوڈ</string>
-  <string name="login_2fa_other_workflow_error_msg">دوہری تصدیق درکار ہے! براہ کرم واپس لوٹیں، اپنے ٹوکن کے ذریعہ داخل ہوں اور پھر کوشش کریں۔</string>
+  <string name="login_2fa_hint" fuzzy="true">دوہری تصدیق کا کوڈ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">دوہری تصدیق درکار ہے! براہ کرم واپس لوٹیں، اپنے ٹوکن کے ذریعہ داخل ہوں اور پھر کوشش کریں۔</string>
   <string name="onboarding_card_login">لاگ ان</string>
   <string name="page_editing_login">لاگ ان</string>
   <string name="reading_lists_sync_login">لاگ ان</string>

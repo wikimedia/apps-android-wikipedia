@@ -74,8 +74,8 @@
   <string name="nav_item_login">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
   <string name="login_password_hint">परवलीचा शब्द</string>
-  <string name="login_2fa_hint">दोन पातळ्यांवर वैधता करणारा संकेत</string>
-  <string name="login_2fa_other_workflow_error_msg">दोन पातळ्यांवर वैधता तपासणे आवश्यक !  मुख्य क्रियेवर परत जाऊन तुमच्या 2FA टोकनानी पुऩा सनोंद प्रवेश करा, आणि मग पुऩा प्रयत्न करा.</string>
+  <string name="login_2fa_hint" fuzzy="true">दोन पातळ्यांवर वैधता करणारा संकेत</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">दोन पातळ्यांवर वैधता तपासणे आवश्यक !  मुख्य क्रियेवर परत जाऊन तुमच्या 2FA टोकनानी पुऩा सनोंद प्रवेश करा, आणि मग पुऩा प्रयत्न करा.</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
   <string name="login_activity_title" fuzzy="true">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>

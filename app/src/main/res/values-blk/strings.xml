@@ -127,8 +127,8 @@
   <string name="login_username_hint">သုင်ꩻသားမိဥ်ꩻ</string>
   <string name="login_password_hint">ငဝ်းဗိဥ်ႏပလို့ꩻ</string>
   <string name="account_creation_password_hint">ငဝ်းဗိဥ်ႏပလို့ꩻ</string>
-  <string name="login_2fa_hint">ငဝ်းဗိဉ်ႏပလို့ꩻကိုဒ် ၂ ရန်းစား</string>
-  <string name="login_2fa_other_workflow_error_msg">အဝ်ႏလိုႏ လိုမ်းဗိဉ်ႏရေꩻစနိစ် နီရန်းစားသွူ! သဲင်ꩻလွေꩻချာယင်းသွော့ အဓိကခွုမ်မာꩻမုꩻထျꩻဩ၊ အကောက်နဝ်ꩻ နွို့အီသွော့ တောမ်ႏနာꩻ 2FA အမုဲင်ဩ၊ မိဉ်ႏထွူနဝ်ꩻ သဲင်ꩻကျိုꩻစာꩻချာစံꩻယင်းလုဲင်းဩ။</string>
+  <string name="login_2fa_hint" fuzzy="true">ငဝ်းဗိဉ်ႏပလို့ꩻကိုဒ် ၂ ရန်းစား</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">အဝ်ႏလိုႏ လိုမ်းဗိဉ်ႏရေꩻစနိစ် နီရန်းစားသွူ! သဲင်ꩻလွေꩻချာယင်းသွော့ အဓိကခွုမ်မာꩻမုꩻထျꩻဩ၊ အကောက်နဝ်ꩻ နွို့အီသွော့ တောမ်ႏနာꩻ 2FA အမုဲင်ဩ၊ မိဉ်ႏထွူနဝ်ꩻ သဲင်ꩻကျိုꩻစာꩻချာစံꩻယင်းလုဲင်းဩ။</string>
   <string name="onboarding_card_login">နွို့အကောက်</string>
   <string name="page_editing_login">နွို့အကောက်</string>
   <string name="reading_lists_sync_login">နွို့အကောက်</string>

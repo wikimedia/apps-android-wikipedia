@@ -92,8 +92,8 @@
   <string name="login_username_hint">प्रयोगकर्तानाँव</string>
   <string name="login_password_hint">गुप्तशब्द (पासवर्ड)</string>
   <string name="account_creation_password_hint">गुप्तशब्द (पासवर्ड)</string>
-  <string name="login_2fa_hint">टू-फैक्टर ऑथेन्टिकेशन कोड</string>
-  <string name="login_2fa_other_workflow_error_msg">टू-फैक्टर ऑथेन्टिकेशन जरूरी बा! मुख्य कामकाज पर लवटीं आ आपन 2एफए टोकन के साथ खाता में प्रवेश करीं, तब फिर दोबारा कोसिस करीं।</string>
+  <string name="login_2fa_hint" fuzzy="true">टू-फैक्टर ऑथेन्टिकेशन कोड</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">टू-फैक्टर ऑथेन्टिकेशन जरूरी बा! मुख्य कामकाज पर लवटीं आ आपन 2एफए टोकन के साथ खाता में प्रवेश करीं, तब फिर दोबारा कोसिस करीं।</string>
   <string name="onboarding_card_login">लॉग इन</string>
   <string name="page_editing_login">लॉग इन</string>
   <string name="reading_lists_sync_login">लॉग इन</string>

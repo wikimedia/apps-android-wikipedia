@@ -190,8 +190,8 @@
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
   <string name="account_creation_password_hint">Parola</string>
-  <string name="login_2fa_hint">İki Aşamalı Doğrulama Kodu</string>
-  <string name="login_2fa_other_workflow_error_msg">İki faktörlü kimlik doğrulama gerekli! Lütfen, ana faaliyetinize dönüp 2AKD anahtarınızla giriş yapın ve ardından tekrar deneyin.</string>
+  <string name="login_2fa_hint" fuzzy="true">İki Aşamalı Doğrulama Kodu</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">İki faktörlü kimlik doğrulama gerekli! Lütfen, ana faaliyetinize dönüp 2AKD anahtarınızla giriş yapın ve ardından tekrar deneyin.</string>
   <string name="onboarding_card_login">Oturum aç</string>
   <string name="page_editing_login">Oturum aç</string>
   <string name="reading_lists_sync_login">Oturum aç</string>

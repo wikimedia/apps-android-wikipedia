@@ -133,8 +133,8 @@
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
   <string name="account_creation_password_hint">Lozinka</string>
-  <string name="login_2fa_hint">Kôd za potvrdu u 2 koraka</string>
-  <string name="login_2fa_other_workflow_error_msg">Zahtijeva se potvrda u 2 koraka! Vratite se na glavnu radnju i prijavite se sa žetonom za potvrdu u 2 koraka te pokušajte ponovo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kôd za potvrdu u 2 koraka</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Zahtijeva se potvrda u 2 koraka! Vratite se na glavnu radnju i prijavite se sa žetonom za potvrdu u 2 koraka te pokušajte ponovo.</string>
   <string name="onboarding_card_login">Prijavi me</string>
   <string name="page_editing_login">Prijavi me</string>
   <string name="reading_lists_sync_login">Prijavi me</string>
