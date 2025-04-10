@@ -130,8 +130,8 @@
   <string name="login_username_hint">Бэлиэ-аат</string>
   <string name="login_password_hint">Аһарык</string>
   <string name="account_creation_password_hint">Аһарык</string>
-  <string name="login_2fa_hint">Икки суол тургутуулаах куод</string>
-  <string name="login_2fa_other_workflow_error_msg">Икки хаттыгастаах аутентификация ирдэнэр! Бука диэн, сүрүн бырайыаккар төннөн, 2FA токены туһанан тиһиккэ киир, онтон хатылаан көр.</string>
+  <string name="login_2fa_hint" fuzzy="true">Икки суол тургутуулаах куод</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Икки хаттыгастаах аутентификация ирдэнэр! Бука диэн, сүрүн бырайыаккар төннөн, 2FA токены туһанан тиһиккэ киир, онтон хатылаан көр.</string>
   <string name="onboarding_card_login">Киир</string>
   <string name="page_editing_login">Киир</string>
   <string name="reading_lists_sync_login">Киирии</string>

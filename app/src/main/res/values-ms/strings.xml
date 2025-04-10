@@ -151,8 +151,8 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
   <string name="account_creation_password_hint">Kata laluan</string>
-  <string name="login_2fa_hint">Kod Pengesahan Dwifaktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kod Pengesahan Dwifaktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
   <string name="onboarding_card_login">Log masuk</string>
   <string name="page_editing_login">Log masuk</string>
   <string name="reading_lists_sync_login">Log masuk</string>
@@ -342,7 +342,7 @@
   <string name="gallery_fair_use_license">Kegunaan wajar</string>
   <string name="gallery_uploader_unknown">Pemuat naik tidak dikenali</string>
   <string name="gallery_not_available_offline_snackbar">Paparan galeri tidak tersedia di luar talian.</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">Singkir</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Abaikan</string>
   <string name="menu_new_tab">Tab baru</string>
   <string name="menu_close_all_tabs">Tutup semua tab</string>
   <string name="close_all_tabs_confirm">Adakah anda pasti anda mahu menutup semua tab?</string>
@@ -392,7 +392,7 @@
   </plurals>
   <string name="multi_select_items_selected">%d dipilih</string>
   <string name="error_message_generic">Ada ralat</string>
-  <string name="view_link_preview_error_button_dismiss">Singkir</string>
+  <string name="view_link_preview_error_button_dismiss">Abaikan</string>
   <string name="link_preview_dialog_read_button">Baca</string>
   <string name="link_preview_dialog_save_button">Simpan</string>
   <string name="link_preview_dialog_saved_button">Disimpan</string>

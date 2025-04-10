@@ -31,6 +31,8 @@ class LoginResponse : MwResponse() {
                     for (req in requests) {
                         if (req.id.orEmpty().endsWith("TOTPAuthenticationRequest")) {
                             return LoginOAuthResult(site, status, userName, password, message)
+                        } else if (req.id.orEmpty().endsWith("EmailAuthAuthenticationRequest")) {
+                            return LoginEmailAuthResult(site, status, userName, password, message)
                         } else if (req.id.orEmpty().endsWith("PasswordAuthenticationRequest")) {
                             return LoginResetPasswordResult(site, status, userName, password, message)
                         }

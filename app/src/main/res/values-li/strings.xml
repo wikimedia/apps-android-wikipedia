@@ -67,8 +67,8 @@
   <string name="nav_item_login">Meld dich aan bie Wikipedia</string>
   <string name="login_username_hint">Gebroekersnaam</string>
   <string name="login_password_hint">Wachwaord</string>
-  <string name="login_2fa_hint">Twieëtrapsauthenticatiecode</string>
-  <string name="login_2fa_other_workflow_error_msg">Twieëtrapsauthenticatie vereisj! Gank trögk nao de wichtigste aktiviteit en melj dich aan mit dien 2FA-code en perbeer \'t den oppernuuj.</string>
+  <string name="login_2fa_hint" fuzzy="true">Twieëtrapsauthenticatiecode</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Twieëtrapsauthenticatie vereisj! Gank trögk nao de wichtigste aktiviteit en melj dich aan mit dien 2FA-code en perbeer \'t den oppernuuj.</string>
   <string name="menu_login">Meld dich aan</string>
   <string name="login_activity_title" fuzzy="true">Meld dich aan bie Wikipedia</string>
   <string name="login_in_progress_dialog_message">Zich aan \'nt melde...</string>

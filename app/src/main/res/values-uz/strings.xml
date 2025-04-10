@@ -144,8 +144,8 @@
   <string name="login_username_hint">Foydalanuvchi ismi</string>
   <string name="login_password_hint">Maxfiy soʻz</string>
   <string name="account_creation_password_hint">Parol</string>
-  <string name="login_2fa_hint">Ikki faktorli autentifikatsiya kodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ikki faktorli autentifikatsiya kodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
   <string name="onboarding_card_login">Kirish</string>
   <string name="page_editing_login">Kirish</string>
   <string name="reading_lists_sync_login">Kirish</string>

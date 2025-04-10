@@ -128,7 +128,7 @@
   <string name="login_username_hint">Մասնակցային անուն</string>
   <string name="login_password_hint">Գաղտնաբառ</string>
   <string name="account_creation_password_hint">Գաղտնաբառ</string>
-  <string name="login_2fa_hint">Երկգործոն նույնականացման ծածկագիրը</string>
+  <string name="login_2fa_hint" fuzzy="true">Երկգործոն նույնականացման ծածկագիրը</string>
   <string name="onboarding_card_login">Մտնել</string>
   <string name="page_editing_login">Մտնել</string>
   <string name="reading_lists_sync_login">Մտնել</string>

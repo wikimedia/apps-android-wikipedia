@@ -119,7 +119,7 @@
   <string name="login_username_hint">सदस्यनाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="account_creation_password_hint">कूटशब्द (पासवर्ड)</string>
-  <string name="login_2fa_hint">दू-कारक प्रमाणीकरण कोड</string>
+  <string name="login_2fa_hint" fuzzy="true">दू-कारक प्रमाणीकरण कोड</string>
   <string name="onboarding_card_login">लॉग-इन करौ</string>
   <string name="page_editing_login">लॉग-इन करौ</string>
   <string name="reading_lists_sync_login">लॉग-इन करौ</string>
