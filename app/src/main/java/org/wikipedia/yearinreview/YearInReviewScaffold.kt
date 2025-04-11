@@ -41,7 +41,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,6 +59,7 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.Resource
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -289,7 +293,11 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
+    viewModel: YearInReviewViewModel
 ) {
+    val jobMapState = viewModel.masterMap.collectAsState()
+    val derivedMapState = remember { derivedStateOf { jobMapState.value[screenData.jobId] } }
+
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
     Column(
@@ -323,36 +331,69 @@ fun YearInReviewScreenContent(
             modifier = Modifier
                 .padding(horizontal = 20.dp)
         ) {
-            Row(horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Text(
-                    modifier = Modifier
-                        .padding(top = 10.dp)
-                        .height(IntrinsicSize.Min)
-                        .weight(1f),
-                    text = String.format(stringResource(screenData.headLineText), 350),
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.headlineMedium
-                )
-                IconButton(
-                    onClick = { /* TODO() */ }) {
-                    Icon(
-                        painter = painterResource(R.drawable.baseline_info_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_information_icon)
+            when (derivedMapState.value) {
+                /* Temporary Loading placeholder for now.
+                It will be replaced with a different composable
+                 */
+                is Resource.Loading -> {
+                    Text(
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .height(IntrinsicSize.Min)
+                            .weight(1f),
+                        text = "LOADING",
+                        color = WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.headlineMedium
+                    )
+                }
+                is Resource.Success -> {
+                    val fetchedHeadLine = (derivedMapState.value as Resource.Success<YearInReviewTextData>).data.headLineText
+                    val fetchedBodyText = (derivedMapState.value as Resource.Success<YearInReviewTextData>).data.bodyText
+                    Row(horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .padding(top = 10.dp)
+                                .height(IntrinsicSize.Min)
+                                .weight(1f),
+                            text = String.format(stringResource(screenData.headLineText), fetchedHeadLine),
+                            color = WikipediaTheme.colors.primaryColor,
+                            style = MaterialTheme.typography.headlineMedium
+                        )
+                        IconButton(
+                            onClick = { /* TODO() */ }) {
+                            Icon(
+                                painter = painterResource(R.drawable.baseline_info_24),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = stringResource(R.string.year_in_review_information_icon)
+                            )
+                        }
+                    }
+                    Text(
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .height(IntrinsicSize.Min),
+                        text = String.format(stringResource(screenData.bodyText), fetchedBodyText),
+                        color = WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+                is Resource.Error -> {
+                    val fetchedError = (derivedMapState.value as Resource.Error<YearInReviewTextData>).throwable
+
+                    Text(
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .height(IntrinsicSize.Min)
+                            .weight(1f),
+                        text = String.format(stringResource(screenData.headLineText), fetchedError.message),
+                        color = WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.headlineMedium
                     )
                 }
             }
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp)
-                    .height(IntrinsicSize.Min),
-                text = String.format(stringResource(screenData.bodyText), 350),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.bodyLarge
-            )
         }
     }
 }
