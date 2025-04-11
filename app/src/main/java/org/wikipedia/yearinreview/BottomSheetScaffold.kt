@@ -72,8 +72,8 @@ fun YearInReviewBottomSheetScaffold() {
         )
         AndroidView(
             factory = {
-                ImageView(context).apply {
-                    Glide.with(context)
+                ImageView(it).apply {
+                    Glide.with(this)
                         .asGif()
                         .load(R.drawable.wyir_puzzle_4_v2)
                         .centerCrop()
