@@ -333,7 +333,7 @@
   <string name="gallery_not_available_offline_snackbar_dismiss">Verwerfen</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
-  <string name="close_all_tabs_confirm">Sidd Dir sécher datt Dir all Tabs zoumaache wëllt?</string>
+  <string name="close_all_tabs_confirm">Sidd Dir sécher, datt Dir all Tabs zoumaache wëllt?</string>
   <string name="close_all_tabs_confirm_yes">Jo</string>
   <string name="close_all_tabs_confirm_no">Neen</string>
   <string name="button_close_tab">Tab zoumaachen</string>
