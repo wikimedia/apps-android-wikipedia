@@ -1,7 +1,6 @@
 package org.wikipedia.language.composelanglinks
 
 import android.os.Build
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -13,14 +12,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.ripple
@@ -31,13 +25,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
-import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -224,37 +217,6 @@ fun LangLinksItemView(
             text = articleName,
             style = WikipediaTheme.typography.list.copy(
                 color = WikipediaTheme.colors.secondaryColor
-            )
-        )
-    }
-}
-
-@Composable
-fun SearchEmptyView(
-    modifier: Modifier = Modifier,
-    emptyTexTitle: String
-) {
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Icon(
-            modifier = Modifier
-                .requiredSize(96.dp)
-                .clip(CircleShape)
-                .background(ComposeColors.White)
-                .padding(20.dp),
-            imageVector = Icons.Outlined.Search,
-            tint = WikipediaTheme.colors.placeholderColor,
-            contentDescription = null
-        )
-        Text(
-            modifier = Modifier
-                .padding(top = 24.dp),
-            text = emptyTexTitle,
-            style = WikipediaTheme.typography.p.copy(
-                color = WikipediaTheme.colors.placeholderColor
             )
         )
     }
