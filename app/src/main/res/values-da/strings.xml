@@ -165,8 +165,10 @@
   <string name="login_username_hint">Brugernavn</string>
   <string name="login_password_hint">Adgangskode</string>
   <string name="account_creation_password_hint">Adgangskode</string>
-  <string name="login_2fa_hint" fuzzy="true">To-Faktor-Autentificeringskode</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">To-faktor-autentificering påkrævet! Vend venligst tilbage til hovedaktiviteten og log på med din 2FA kode, og prøv så igen.</string>
+  <string name="login_2fa_hint">To-faktor godkendelseskode</string>
+  <string name="login_2fa_other_workflow_error_msg">To-faktor-godkendelse påkrævet! Log ind fra hovedskærmen, og indtast koden fra dit 2FA-token.</string>
+  <string name="login_email_auth_hint">E-mail bekræftelseskode</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-mailbekræftelse påkrævet! Log venligst på fra hovedskærmen, og indtast din e-mailbekræftelseskode.</string>
   <string name="onboarding_card_login">Log på</string>
   <string name="page_editing_login">Log på</string>
   <string name="reading_lists_sync_login">Log på</string>
