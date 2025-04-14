@@ -39,14 +39,6 @@ object L10nUtil {
         return TextUtils.getLayoutDirectionFromLocale(Locale(lang)) == View.LAYOUT_DIRECTION_RTL
     }
 
-    fun setConditionalTextDirection(view: View, lang: String) {
-        view.textDirection = if (isLangRTL(lang)) View.TEXT_DIRECTION_RTL else View.TEXT_DIRECTION_LTR
-    }
-
-    fun setConditionalLayoutDirection(view: View, lang: String) {
-        view.layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(lang))
-    }
-
     fun getStringForArticleLanguage(languageCode: String, resId: Int): String {
         return getStringsForLocale(Locale(languageCode), intArrayOf(resId))[resId]
     }

@@ -1,12 +1,21 @@
 package org.wikipedia.commons
 
+import android.Manifest
 import android.app.Activity.RESULT_OK
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -14,23 +23,40 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.setLayoutDirectionByLang
+import org.wikipedia.gallery.ImagePipelineBitmapGetter
+import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ShareUtil.shareImage
+import java.io.File
 
-class FilePageFragment : Fragment(), FilePageView.Callback {
+class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
     private var _binding: FragmentFilePageBinding? = null
     private val binding get() = _binding!!
     private val viewModel: FilePageViewModel by viewModels()
+
+    private val downloadReceiver = MediaDownloadReceiver()
+    private val downloadReceiverCallback = MediaDownloadReceiverCallback()
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            downloadImage()
+        } else {
+            FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
 
     private val addImageCaptionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -49,7 +75,10 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFilePageBinding.inflate(inflater, container, false)
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
         return binding.root
     }
 
@@ -111,6 +140,17 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
                 callback = this
             )
         }
+        requireActivity().invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        downloadReceiver.unregister(requireContext())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        downloadReceiver.register(requireContext(), downloadReceiverCallback)
     }
 
     override fun onImageCaptionClick(summaryForEdit: PageSummaryForEdit) {
@@ -127,6 +167,72 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
         addImageTagsLauncher.launch(
             SuggestedEditsImageTagEditActivity.newIntent(requireContext(), page, Constants.InvokeSource.FILE_PAGE_ACTIVITY)
         )
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_file_page, menu)
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        if (!isAdded) {
+            return
+        }
+        val enableShareAndSave = viewModel.mediaInfo?.thumbUrl?.isNotEmpty() == true
+        menu.findItem(R.id.menu_file_save).isEnabled = enableShareAndSave
+        menu.findItem(R.id.menu_file_share).isEnabled = enableShareAndSave
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.menu_file_save -> {
+                handleImageSaveRequest()
+                true
+            }
+            R.id.menu_file_share -> {
+                shareImage()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun handleImageSaveRequest() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ||
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            downloadImage()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
+    }
+
+    private fun shareImage() {
+        viewModel.pageSummaryForEdit?.let { summary ->
+            val thumbUrl = summary.getPreferredSizeThumbnailUrl()
+            ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+                if (!isAdded) {
+                    return@ImagePipelineBitmapGetter
+                }
+                shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
+                    summary.displayTitle, summary.pageTitle.uri)
+            }
+        }
+    }
+
+    private fun downloadImage() {
+        viewModel.pageSummaryForEdit?.let { summary ->
+            viewModel.mediaInfo?.let { info ->
+                downloadReceiver.download(requireContext(), summary.pageTitle, info)
+                FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
+            }
+        } ?: run {
+            FeedbackUtil.showMessage(this, R.string.err_cannot_save_file)
+        }
+    }
+
+    private inner class MediaDownloadReceiverCallback : MediaDownloadReceiver.Callback {
+        override fun onSuccess() {
+            FeedbackUtil.showMessage(this@FilePageFragment, R.string.gallery_save_success)
+        }
     }
 
     companion object {

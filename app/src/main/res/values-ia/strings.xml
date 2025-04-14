@@ -17,6 +17,9 @@
   <string name="search_hint">Cercar in Wikipedia</string>
   <string name="search_hint_voice_search">Recerca per entrata vocal</string>
   <string name="search_hint_search_languages">Cercar un lingua</string>
+  <string name="search_back_button_content_description">Retornar</string>
+  <string name="search_clear_query_content_description">Rader consulta</string>
+  <string name="search_icon_content_description">Cercar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mi listas</string>
   <string name="nav_item_suggested_edits">Modificationes</string>
   <string name="nav_item_more">Plus</string>
@@ -128,6 +131,10 @@
   <string name="dialog_message_leaving_edit">Tu cambiamentos non ha ancora essite publicate. Es tu secur de voler quitar iste pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Quitar</string>
   <string name="dialog_message_leaving_edit_stay">Restar</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmar deletion</string>
+  <string name="dialog_confirm_delete_donation_history_message">Isto se applicara solmente al donationes facite desde iste apparato.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Deler</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Cancellar</string>
   <string name="menu_show_toc">Tabula de contento</string>
   <string name="search_no_results_found">Nulle resultato trovate</string>
   <string name="search_reading_list_no_results">Necun resultato trovate in \"%s\"</string>
@@ -143,7 +150,9 @@
   <string name="login_password_hint">Contrasigno</string>
   <string name="account_creation_password_hint">Contrasigno</string>
   <string name="login_2fa_hint">Codice de authentication bifactorial</string>
-  <string name="login_2fa_other_workflow_error_msg">Authentication bifactorial obligatori! Per favor retorna al activitate principal e aperi session con tu token 2FA, postea tenta lo de novo.</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentication bifactorial obligatori! Per favor aperi session a partir del schermo principal e insere le codice e tu token 2FA.</string>
+  <string name="login_email_auth_hint">Codice de verification in e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Verification in e-mail obligatori! Per favor aperi session a partir del schermo principal e insere tu codice de verification in e-mail.</string>
   <string name="onboarding_card_login">Aperir session</string>
   <string name="page_editing_login">Aperir session</string>
   <string name="reading_lists_sync_login">Aperir session</string>
@@ -410,6 +419,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuation de imagines (in thema Obscur)</string>
   <string name="preference_title_prefer_offline_content">Preferer contento foras de linea</string>
   <string name="preference_summary_prefer_offline_content">Economisar le utilisation de datos cargante articulos disponibile foras de linea in loco de sempre cargar le ultime version de un articulo</string>
+  <string name="preference_title_delete_local_donation_history">Deler le historia local de donationes</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Adaptar al thema del systema</string>
   <string name="page_footer_license_text">Le contento es disponibile sub $1 salvo indication contrari</string>
   <string name="empty_tab_title">Nove scheda</string>
@@ -874,6 +884,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Le texto es troppo curte.</string>
+  <string name="description_too_long">Tenta mantener le descriptiones curte de maniera que le usatores pote comprender le subjecto del articulo a prime vista</string>
   <string name="description_ends_with_punctuation">Le texto non debe terminar per un signo de punctuation.</string>
   <string name="description_starts_with_uppercase">Comencia con un littera minuscule, excepte si le prime parola es un nomine proprie.</string>
   <string name="description_starts_with_lowercase">Evita comenciar con un littera minuscule.</string>
@@ -999,7 +1010,7 @@
   <string name="suggested_edits_edit_quality_stat_tooltip">Basate sur le numero de vices que un de tu contributiones ha essite revertite (i.e. disfacite per un altere editor). Modificationes revertite: %d.</string>
   <string name="suggested_edits_paused_message">Le modificationes suggerite es pausate usque al %1$s. Perdono, %2$s, ma alcunes de tu contributiones recente ha essite revertite.</string>
   <string name="suggested_edits_disabled_message">Le modificationes suggerite ha essite disactivate. Perdono, %s, ma troppo de tu contributiones recente ha essite revertite.</string>
-  <string name="suggested_edits_ip_blocked_message">Le adresse IP (o gamma de adresses IP) que tu usa pare esser actualmente blocate de modificar Wikipedia.</string>
+  <string name="suggested_edits_ip_blocked_message">Le adresse IP (o intervallo de adresses IP) que tu usa pare esser actualmente blocate pro le modification de Wikipedia.</string>
   <string name="suggested_edits_gate_message">Infelicemente, %s, tu debe facer al minus tres modificationes directemente in un articulo pro usar iste function.</string>
   <string name="suggested_edits_editing_tips_link_text">Avisos e trucos de modification</string>
   <string name="suggested_edits_help_page_link_text">Pagina de adjuta pro modificationes suggerite</string>
@@ -1376,10 +1387,10 @@
   <string name="revision_compare_two_only">Solmente duo versiones pote esser seligite.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pro 1 septimana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pro 1 mense</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pro 3 menses</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pro 6 menses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 septimana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mense</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 menses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 menses</string>
   <string name="watchlist_expiry_dialog_title">Selige le periodo de tempore del observatorio</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 septimana</string>
@@ -1641,6 +1652,7 @@
   <string name="donate_gpay_help_other_ways">Altere modos de donation</string>
   <string name="donate_gpay_help_faq">Folio a questiones</string>
   <string name="donate_gpay_help_tax">Information sur le deductibilitate fiscal</string>
+  <string name="donation_history_deleted_message_snackbar">Historia del donator delite</string>
   <string name="places_title">Locos</string>
   <string name="places_permissions_denied">Le permission de localisation es necessari pro vider tu position sur le carta. Per favor tenta lo de novo.</string>
   <string name="places_search_hint">Cercar locos</string>
@@ -1664,6 +1676,64 @@
   <string name="survey_dialog_option_very_unsatisfied">Multo insatisfacite</string>
   <string name="survey_dialog_cancel">Cancellar</string>
   <string name="survey_dialog_submit">Submitter</string>
+  <string name="survey_dialog_next">Sequente</string>
+  <string name="survey_dialog_general_yes">Si</string>
+  <string name="survey_dialog_general_no">No</string>
+  <string name="survey_dialog_general_maybe">Forsan</string>
   <string name="survey_dialog_input_hint">Retroaction additional</string>
   <string name="survey_dialog_submitted_snackbar">Retroaction inviate. Gratias!</string>
+  <string name="on_this_day_game_entry_dialog_title">Presentation</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Jocos de Wikipedia</string>
+  <string name="on_this_day_game_entry_dialog_button">Jocar al joco de hodie</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Le jocos de Wikipedia es disponibile sur le fluxo Explorar.</string>
+  <string name="on_this_day_game_title">Qual ha evenite primo?</string>
+  <string name="on_this_day_game_dialog_button">Jocar</string>
+  <string name="on_this_day_game_splash_message">Divina qual evento se ha producite primo sur iste die in le historia.</string>
+  <string name="on_this_day_game_progress">%1$d de %2$d</string>
+  <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_correct">Correcte!</string>
+  <string name="on_this_day_game_incorrect">Incorrecte!</string>
+  <string name="on_this_day_game_point">+1 puncto</string>
+  <string name="on_this_day_game_next">Proxime question</string>
+  <string name="on_this_day_game_finish">Resultatos final</string>
+  <string name="on_this_day_game_share">Condivider con amicos</string>
+  <string name="on_this_day_game_pause_title">Pausar le joco?</string>
+  <string name="on_this_day_game_pause_body">Tu progresso essera salveguardate pro le die. Tu pote retrovar le joco sur tu fluxo Explorar.</string>
+  <string name="on_this_day_game_pause_negative">Continuar a jocar</string>
+  <string name="on_this_day_game_pause_positive">Comprendite</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Jocos de Wikipedia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Qual ha evenite primo?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Divina qual evento se ha producite primo sur iste die in le historia.</string>
+  <string name="on_this_day_game_result">Tu ha obtenite %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Proxime partita in %s</string>
+  <string name="on_this_day_game_your_stats">Tu statisticas</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Partita jocate</item>
+    <item quantity="other">Partitas jocate</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Score medie</string>
+  <string name="on_this_day_game_stats_streak">Serie actual</string>
+  <string name="on_this_day_game_result_subtitle">Articulos referentiate in le joco de hodie</string>
+  <string name="on_this_day_game_completed_message">Gratias pro haber jocate. Cata die es disponibile un nove joco de “Qual ha evenite primo?” sur tu fluxo Explorar.</string>
+  <string name="on_this_day_game_menu_notifications">Notificationes de joco</string>
+  <string name="on_this_day_game_menu_info">Leger plus</string>
+  <string name="on_this_day_game_menu_feedback">Problema de functionalitate</string>
+  <string name="on_this_day_game_article_read_button">Leger articulo</string>
+  <string name="on_this_day_game_article_related_event_title">Evento ligate a iste articulo</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Tu ha respondite ben a iste question</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Tu ha respondite mal a iste question</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Disactivar le notificationes de joco?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si tu disactiva le notificationes ‘push’, tu non recipera plus un rememoration cata die quando es disponibile un nove joco a jocar.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Activar le notificationes de joco?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Le notificationes de joco te alerta cata die quando es disponibile un nove joco a jocar.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">No, lassar los activate</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Disactivar los</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Si, activar los</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Lassar los disactivate</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificationes de joco disactivate.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificationes de joco activate.</string>
+  <string name="on_this_day_game_notification_text">Le joco “Qual ha evenite primo?” de hodie es preste a esser jocate.</string>
+  <string name="on_this_day_game_report_email_subject">Reporto de problema – jocos de Wikipeia</string>
+  <string name="on_this_day_game_report_email_body">Io ha incontrate un problema con le function Jocos de Wikipedia:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="on_this_day_game_notification_undo">Disfacer</string>
 </resources>

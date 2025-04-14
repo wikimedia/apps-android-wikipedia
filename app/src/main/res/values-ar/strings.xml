@@ -66,6 +66,9 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث الصوتي</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
+  <string name="search_back_button_content_description">رجوع</string>
+  <string name="search_clear_query_content_description">مسح الاستعلام</string>
+  <string name="search_icon_content_description">بحث</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">تعديلات</string>
   <string name="nav_item_more">المزيد</string>
@@ -204,8 +207,10 @@
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="account_creation_password_hint">كلمة السر</string>
-  <string name="login_2fa_hint">رمز التحقق بخطوتين</string>
-  <string name="login_2fa_other_workflow_error_msg">التوثيق بخطوتين مطلوب! يرجى الرجوع إلى النشاط الرئيسي وتسجيل الدخول باستخدام الرمز المميز 2FA، ثم إعادة المحاولة.</string>
+  <string name="login_2fa_hint">رمز المصادقة الثنائية</string>
+  <string name="login_2fa_other_workflow_error_msg">المصادقة الثنائية مطلوبة! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز المصادقة الثنائية.</string>
+  <string name="login_email_auth_hint">رمز التحقق من البريد الإلكتروني</string>
+  <string name="login_email_auth_other_workflow_error_msg">مطلوب التحقق من بريدك الإلكتروني! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز التحقق.</string>
   <string name="onboarding_card_login">تسجيل الدخول</string>
   <string name="page_editing_login">تسجيل الدخول</string>
   <string name="reading_lists_sync_login">تسجيل الدخول</string>
@@ -1605,10 +1610,10 @@
   <string name="revision_compare_two_only">يمكن اختيار فقط مراجعين اثنين</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">لمدة أسبوع واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">لمدة شهر واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">لمدة 3 أشهر</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">لمدة 6 أشهر</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">أسبوع واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">شهر واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 أشهر</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 أشهر</string>
   <string name="watchlist_expiry_dialog_title">حدّد الفترة الزمنية لقائمة المراقبة</string>
   <string name="watchlist_expiry_dialog_permanent">دائمًا</string>
   <string name="watchlist_expiry_dialog_one_week">أسبوع واحد</string>
@@ -1977,6 +1982,5 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
-  <string name="search_back_button_content_description">رجوع</string>
   <string name="about_screen_logo_accessibility_text">شعار لغز ويكيبيديا</string>
 </resources>

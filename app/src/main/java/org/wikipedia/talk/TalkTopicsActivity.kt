@@ -37,6 +37,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
@@ -54,7 +55,6 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -321,7 +321,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private fun resetViews() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkContentsView, viewModel.pageTitle.wikiSite.languageCode)
+        binding.talkContentsView.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.isVisible = false
         binding.talkEmptyContainer.isVisible = false

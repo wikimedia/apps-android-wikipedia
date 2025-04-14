@@ -38,7 +38,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 35
-        versionCode 50525
+        versionCode 50527
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -279,6 +279,8 @@ dependencies {
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
+    debugImplementation(libs.compose.debug.test)
+    debugImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {

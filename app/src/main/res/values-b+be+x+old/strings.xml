@@ -140,8 +140,8 @@
   <string name="login_username_hint">Імя ўдзельніка</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
-  <string name="login_2fa_other_workflow_error_msg">Неабходная двухфактарная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасьці і ўвайдзіце са сваім ключом 2FA, пасьля чаго паўтарыце спробу.</string>
+  <string name="login_2fa_hint" fuzzy="true">Код двухфактарнай аўтэнтыфікацыі</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Неабходная двухфактарная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасьці і ўвайдзіце са сваім ключом 2FA, пасьля чаго паўтарыце спробу.</string>
   <string name="onboarding_card_login">Увайсьці</string>
   <string name="page_editing_login">Увайсьці</string>
   <string name="reading_lists_sync_login">Увайсьці</string>

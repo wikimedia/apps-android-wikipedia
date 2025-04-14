@@ -87,6 +87,9 @@
   <string name="search_hint">搜索维基百科</string>
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_languages">搜索语言</string>
+  <string name="search_back_button_content_description">返回</string>
+  <string name="search_clear_query_content_description">清空查询</string>
+  <string name="search_icon_content_description">搜索</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
@@ -216,8 +219,10 @@
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="account_creation_password_hint">密码</string>
-  <string name="login_2fa_hint">两步验证码</string>
-  <string name="login_2fa_other_workflow_error_msg">需要两步验证！请返回主活动页面并使用2FA令牌登录后重试。</string>
+  <string name="login_2fa_hint">双重认证代码</string>
+  <string name="login_2fa_other_workflow_error_msg">需要双重认证！请在主界面登录后，输入2FA令牌中的代码。</string>
+  <string name="login_email_auth_hint">电子邮件验证码</string>
+  <string name="login_email_auth_other_workflow_error_msg">需要验证电子邮件！请在主界面登录后，输入电子邮件验证码。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>
   <string name="reading_lists_sync_login">登录</string>
@@ -946,6 +951,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
+  <string name="description_too_long">请尽量保持描述简短，使条目的主题一目了然</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
@@ -1447,10 +1453,10 @@
   <string name="revision_compare_two_only">只能选择两个修订。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1周</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1个月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3个月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6个月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1周</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1个月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3个月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6个月</string>
   <string name="watchlist_expiry_dialog_title">选择监视列表持续时间</string>
   <string name="watchlist_expiry_dialog_permanent">永久</string>
   <string name="watchlist_expiry_dialog_one_week">1周</string>
@@ -1734,6 +1740,11 @@
   <string name="survey_dialog_option_very_unsatisfied">非常不满意</string>
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
+  <string name="survey_dialog_next">下一题</string>
+  <string name="survey_dialog_general_yes">是</string>
+  <string name="survey_dialog_general_no">否</string>
+  <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
+  <string name="about_screen_logo_accessibility_text">维基百科拼图地球标志</string>
 </resources>

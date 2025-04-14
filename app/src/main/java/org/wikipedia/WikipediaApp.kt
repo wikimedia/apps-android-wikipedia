@@ -241,6 +241,7 @@ class WikipediaApp : Application() {
             Prefs.isPushNotificationTokenSubscribed = false
             Prefs.pushNotificationTokenOld = ""
             Prefs.tempAccountWelcomeShown = false
+            Prefs.tempAccountCreateDay = 0L
             Prefs.tempAccountDialogShown = false
 
             val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
