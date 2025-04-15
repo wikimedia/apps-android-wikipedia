@@ -254,10 +254,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         requestDonateActivity.launch(intent)
     }
 
-    fun launchYearInReviewExploreActivity() {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, YearInReviewDialog.newInstance())
-    }
-
     private fun removeSplashBackground() {
         window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
     }
