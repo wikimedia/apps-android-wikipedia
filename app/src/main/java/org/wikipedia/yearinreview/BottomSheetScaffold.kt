@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.widget.ImageView
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
