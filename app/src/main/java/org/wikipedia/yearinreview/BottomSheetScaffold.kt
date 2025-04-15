@@ -1,7 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import android.widget.ImageView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -31,29 +28,23 @@ import com.bumptech.glide.Glide
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
-const val TEXT_PADDING_PERCENT_OF_SCREEN_WIDTH = 0.125
-const val BUTTON_PADDING_PERCENT_OF_SCREEN_WIDTH = 0.05
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewBottomSheetScaffold() {
-
     val context = LocalContext.current
-    val screenWidth = LocalConfiguration.current.screenWidthDp
-    val textHorizontalPadding = (screenWidth * TEXT_PADDING_PERCENT_OF_SCREEN_WIDTH).dp
-    val buttonHorizontalPadding = (screenWidth * BUTTON_PADDING_PERCENT_OF_SCREEN_WIDTH).dp
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .background(WikipediaTheme.colors.paperColor)
             .wrapContentHeight()
-            .background(WikipediaTheme.colors.paperColor),
+            .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
+            .padding(15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Text(
             modifier = Modifier.padding(
-                horizontal = textHorizontalPadding
+                horizontal = 30.dp
             ),
             text = stringResource(R.string.year_in_review_explore_screen_title),
             color = WikipediaTheme.colors.primaryColor,
@@ -63,7 +54,7 @@ fun YearInReviewBottomSheetScaffold() {
         )
         Text(
             modifier = Modifier.padding(
-                horizontal = textHorizontalPadding
+                horizontal = 45.dp
             ),
             text = stringResource(R.string.year_in_review_explore_screen_bodytext),
             color = WikipediaTheme.colors.primaryColor,
@@ -82,7 +73,7 @@ fun YearInReviewBottomSheetScaffold() {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(getAspectRatio(context, R.drawable.wyir_puzzle_4_v2))
+                .aspectRatio(3f / 2f)
                 .clip(RoundedCornerShape(16.dp))
         )
         Button(
@@ -91,10 +82,7 @@ fun YearInReviewBottomSheetScaffold() {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(
-                    start = buttonHorizontalPadding,
-                    end = buttonHorizontalPadding
-                ),
+                .padding(horizontal = 20.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.progressiveColor,
                 contentColor = WikipediaTheme.colors.paperColor
@@ -109,17 +97,8 @@ fun YearInReviewBottomSheetScaffold() {
     }
 }
 
-fun getAspectRatio(context: Context, imageResource: Int): Float {
-
-    val bitmapObj = BitmapFactory.decodeResource(context.resources, imageResource)
-    val resourceHeight = bitmapObj.height.toFloat()
-    val resourceWidth = bitmapObj.width.toFloat()
-
-    return (resourceWidth / resourceHeight)
-}
-
 @Preview
 @Composable
-fun previewBottomSheet() {
+fun PreviewBottomSheet() {
     YearInReviewBottomSheetScaffold()
 }
