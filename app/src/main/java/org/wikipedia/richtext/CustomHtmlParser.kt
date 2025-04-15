@@ -24,10 +24,10 @@ import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
@@ -151,7 +151,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                                 drawable.bitmap.applyCanvas {
                                     drawBitmap(bitmap, Rect(0, 0, bitmap.width, bitmap.height), drawable.bounds, null)
                                 }
-                                WhiteBackgroundTransformation.maybeDimImage(drawable.bitmap)
+                                drawable.bitmap.maybeDimImage()
                                 view.postInvalidate()
                             }
                         }

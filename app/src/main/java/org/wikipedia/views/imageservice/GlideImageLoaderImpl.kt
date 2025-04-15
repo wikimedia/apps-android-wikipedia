@@ -1,5 +1,7 @@
 package org.wikipedia.views.imageservice
 
+import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -13,7 +15,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.request.transition.Transition
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.DimenUtil.roundedDpToPx
@@ -38,6 +42,7 @@ class GlideImageLoaderImpl : ImageLoaderImpl {
         var builder = Glide.with(imageView)
             .load(imageUrl)
             .downsample(DownsampleStrategy.CENTER_INSIDE)
+
         if (placeholderId != null) {
             builder = builder.placeholder(placeholderId).error(placeholderId)
         } else {
@@ -134,6 +139,34 @@ class GlideImageLoaderImpl : ImageLoaderImpl {
             builder.transform(WhiteBackgroundTransformation())
         }
         builder.into(imageView)
+    }
+
+    override fun imagePipeLineBitmapGetter(
+        context: Context,
+        imageUrl: String?,
+        imageTransformer: ImageTransformer?,
+        onSuccess: (Bitmap) -> Unit
+    ) {
+        Glide.with(context)
+            .asBitmap()
+            .let {
+                if (imageTransformer != null && imageTransformer is WhiteBackgroundTransformation)
+                    it.transform(imageTransformer) else it
+            }
+            .load(imageUrl)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    onSuccess(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {}
+            })
+    }
+
+    override fun getBitmapForMarker(context: Context): Bitmap {
+        val markerSize = roundedDpToPx(40f)
+        return Glide.get(context).bitmapPool
+            .getDirty(markerSize, markerSize, Bitmap.Config.ARGB_8888)
     }
 
     companion object {

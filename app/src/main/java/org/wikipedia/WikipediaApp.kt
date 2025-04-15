@@ -36,7 +36,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.imageservice.GlideImageLoaderImpl
+import org.wikipedia.views.imageservice.CoilLoaderImpl
 import org.wikipedia.views.imageservice.ImageService
 import java.util.UUID
 
@@ -166,7 +166,10 @@ class WikipediaApp : Application() {
 
         EventPlatformClient.setUpStreamConfigs()
 
-        ImageService.setImplementation(GlideImageLoaderImpl())
+        ImageService.setImplementation(
+            instance,
+            CoilLoaderImpl()
+        )
     }
 
     /**

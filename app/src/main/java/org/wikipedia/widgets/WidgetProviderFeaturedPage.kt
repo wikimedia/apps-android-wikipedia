@@ -71,6 +71,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             if (pageTitle.thumbUrl.isNullOrEmpty()) {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
             } else {
+                // @TODO: Conversion
                 Glide.with(context).asBitmap()
                     .load(pageTitle.thumbUrl)
                     .override(256)

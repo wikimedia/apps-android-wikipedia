@@ -8,6 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 
+// @TODO: Conversion
 class ImagePipelineBitmapGetter(context: Context, imageUrl: String?, transform: BitmapTransformation? = null, callback: Callback) {
     fun interface Callback {
         fun onSuccess(bitmap: Bitmap)

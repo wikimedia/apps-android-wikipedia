@@ -2,7 +2,6 @@ package org.wikipedia.views.imageservice
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.net.Uri
 import android.widget.ImageView
 import androidx.palette.graphics.Palette
@@ -10,7 +9,9 @@ import androidx.palette.graphics.Palette
 object ImageService {
     private var implementation: ImageLoaderImpl = GlideImageLoaderImpl()
 
-    fun setImplementation(impl: ImageLoaderImpl) {
+    fun setImplementation(
+        context: Context,
+        impl: ImageLoaderImpl) {
         implementation = impl
     }
 
@@ -34,6 +35,14 @@ object ImageService {
         listener: ImageLoadListener? = null
     ) {
         implementation.loadImage(imageView, url, shouldDetectFace, cropped, emptyPlaceholder, listener)
+    }
+
+    fun imagePipeLineBitmapGetter(context: Context, imageUrl: String?, imageTransformer: ImageTransformer? = null, onSuccess: (Bitmap) -> Unit) {
+        implementation.imagePipeLineBitmapGetter(context, imageUrl, imageTransformer, onSuccess)
+    }
+
+    fun getBitmapForMarker(context: Context): Bitmap {
+        return implementation.getBitmapForMarker(context)
     }
 }
 
@@ -60,15 +69,13 @@ interface ImageLoaderImpl {
         cropped: Boolean = true,
         emptyPlaceholder: Boolean = false,
         listener: ImageLoadListener? = null
-    ) {}
-}
+    )
 
-interface ImageTransformation {
-    fun apply(bitmap: Bitmap, width: Int, height: Int): Bitmap
-    fun dimImage(bitmap: Bitmap): Bitmap
-    fun applyMatrixWithBackground(inBitmap: Bitmap, targetBitmap: Bitmap, matrix: Matrix)
-}
+    fun imagePipeLineBitmapGetter(
+        context: Context,
+        imageUrl: String?,
+        imageTransformer: ImageTransformer? = null,
+        onSuccess: (Bitmap) -> Unit)
 
-interface ImageLibraryConfig {
-    fun initialize(context: Context)
+    fun getBitmapForMarker(context: Context): Bitmap
 }

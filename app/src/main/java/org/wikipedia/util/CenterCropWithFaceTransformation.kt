@@ -6,6 +6,8 @@ import androidx.core.graphics.applyCanvas
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
+import org.wikipedia.extensions.applyMatrixWithBackground
+import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.util.log.L
 import java.security.MessageDigest
 
@@ -67,8 +69,8 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
         val result = pool.getDirty(width, height, inBitmap.config ?: Bitmap.Config.RGB_565)
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         TransformationUtils.setAlpha(inBitmap, result)
-        WhiteBackgroundTransformation().applyMatrixWithBackground(inBitmap, result, m)
-        return WhiteBackgroundTransformation.maybeDimImage(result)
+        result.applyMatrixWithBackground(inBitmap, m)
+        return result.maybeDimImage()
     }
 
     private fun detectFace(testBitmap: Bitmap): PointF? {

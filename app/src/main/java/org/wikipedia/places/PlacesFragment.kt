@@ -12,7 +12,6 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
-import android.graphics.drawable.BitmapDrawable
 import android.location.Location
 import android.os.Bundle
 import android.view.Gravity
@@ -26,6 +25,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.os.bundleOf
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -72,7 +72,6 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.page.NearbyPage
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -97,6 +96,7 @@ import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.imageservice.ImageService
 import java.util.Locale
 import kotlin.math.abs
 
@@ -706,29 +706,49 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             return
         }
 
-        ImagePipelineBitmapGetter(requireContext(), url, whiteBackgroundTransformation) { bitmap ->
-            if (!isAdded) {
-                return@ImagePipelineBitmapGetter
-            }
-            annotationCache.find { it.pageId == page.pageId }?.let {
-                val bmp = getMarkerBitmap(bitmap)
-                it.bitmap = bmp
+        ImageService.imagePipeLineBitmapGetter(
+            requireContext(),
+            url,
+            onSuccess = { bitmap ->
+                if (!isAdded) {
+                    return@imagePipeLineBitmapGetter
+                }
+                annotationCache.find { it.pageId == page.pageId }?.let {
+                    val bmp = getMarkerBitmap(bitmap)
+                    it.bitmap = bmp
 
-                mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+                    mapboxMap?.style?.addImage(url, bmp.toDrawable(resources))
 
-                it.annotation?.let { annotation ->
-                    annotation.iconImage = url
-                    symbolManager?.update(annotation)
+                    it.annotation?.let { annotation ->
+                        annotation.iconImage = url
+                        symbolManager?.update(annotation)
+                    }
                 }
             }
-        }
+        )
+//        // @TODO: Conversion
+//        ImagePipelineBitmapGetter(requireContext(), url, whiteBackgroundTransformation) { bitmap ->
+//            if (!isAdded) {
+//                return@ImagePipelineBitmapGetter
+//            }
+//            annotationCache.find { it.pageId == page.pageId }?.let {
+//                val bmp = getMarkerBitmap(bitmap)
+//                it.bitmap = bmp
+//
+//                mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+//
+//                it.annotation?.let { annotation ->
+//                    annotation.iconImage = url
+//                    symbolManager?.update(annotation)
+//                }
+//            }
+//        }
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
 
         // Retrieve an unused bitmap from the pool
-        val result = Glide.get(requireContext()).bitmapPool
-            .getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
+        val result = ImageService.getBitmapForMarker(requireContext())
 
         result.applyCanvas {
             this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
