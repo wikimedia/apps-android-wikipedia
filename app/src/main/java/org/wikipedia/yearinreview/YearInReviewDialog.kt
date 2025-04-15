@@ -23,7 +23,7 @@ class YearInReviewDialog : ExtendedBottomSheetDialogFragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
-                    YearInReviewBottomSheetScaffold()
+                    YearInReviewBottomSheet()
                 }
             }
         }

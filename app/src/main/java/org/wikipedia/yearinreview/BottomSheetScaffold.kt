@@ -30,7 +30,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun YearInReviewBottomSheetScaffold() {
+fun YearInReviewBottomSheet() {
     val context = LocalContext.current
     Column(
         modifier = Modifier
@@ -100,5 +100,5 @@ fun YearInReviewBottomSheetScaffold() {
 @Preview
 @Composable
 fun PreviewBottomSheet() {
-    YearInReviewBottomSheetScaffold()
+    YearInReviewBottomSheet()
 }
