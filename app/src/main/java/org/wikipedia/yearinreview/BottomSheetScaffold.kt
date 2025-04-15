@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,13 +34,14 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @Composable
 fun YearInReviewBottomSheet() {
     val context = LocalContext.current
+    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(WikipediaTheme.colors.paperColor)
             .wrapContentHeight()
             .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
-            .padding(15.dp),
+            .padding(20.dp)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
