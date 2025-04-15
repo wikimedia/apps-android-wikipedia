@@ -103,8 +103,8 @@
   <string name="login_username_hint">Meidochnamme</string>
   <string name="login_password_hint">Wachtwurd</string>
   <string name="account_creation_password_hint">Wachtwurd</string>
-  <string name="login_2fa_hint">Twafaktor-autentifikaasjekoade</string>
-  <string name="login_2fa_other_workflow_error_msg">Twafaktor-autentifikaasje frege! Gean werom nei de haadaktiviteit, meld jo oan mei jo 2FA-token, en besykje it dan nochris.</string>
+  <string name="login_2fa_hint" fuzzy="true">Twafaktor-autentifikaasjekoade</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Twafaktor-autentifikaasje frege! Gean werom nei de haadaktiviteit, meld jo oan mei jo 2FA-token, en besykje it dan nochris.</string>
   <string name="onboarding_card_login">Oanmelde</string>
   <string name="page_editing_login">Oanmelde</string>
   <string name="reading_lists_sync_login">Oanmelde</string>

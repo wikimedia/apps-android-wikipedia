@@ -4,6 +4,7 @@ import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
+import org.wikipedia.login.LoginClient
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
@@ -104,6 +105,10 @@ class SharedPreferenceCookieManager(
                 // from wikipedia.org unconditionally.
                 buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX)
             }
+        }
+        if (LoginClient.enqueueForceEmailAuth && (url.toString().contains("action=clientlogin"))) {
+            cookieList.add(Cookie.Builder().name("forceEmailAuth").value("1").domain(domain).secure().build())
+            LoginClient.enqueueForceEmailAuth = false
         }
         return cookieList
     }

@@ -23,6 +23,7 @@
 * Rbndev
 * SMP
 * Skurz0
+* Sma1997
 * Ssola
 * Toniher
 * Unapersona
@@ -41,10 +42,14 @@
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
+  <string name="search_back_button_content_description">Enrere</string>
+  <string name="search_clear_query_content_description">Esborra la consulta</string>
+  <string name="search_icon_content_description">Cerca</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
   <string name="nav_item_suggested_edits">Edicions</string>
   <string name="nav_item_more">Més</string>
   <string name="nav_item_search">Cerca</string>
+  <string name="nav_item_contribute">Contribueix</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -151,6 +156,10 @@
   <string name="dialog_message_leaving_edit">Els canvis encara no s\'han publicat. Segur que voleu sortir d\'aquesta pàgina?</string>
   <string name="dialog_message_leaving_edit_leave">Surt</string>
   <string name="dialog_message_leaving_edit_stay">Roman</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirma eliminació</string>
+  <string name="dialog_confirm_delete_donation_history_message">Això només s\'aplicarà a les donacions fetes des d\'aquest dispositiu.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Suprimeix</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Cancel·la</string>
   <string name="menu_show_toc">Taula de continguts</string>
   <string name="search_no_results_found">No s\'han trobat resultats</string>
   <string name="search_reading_list_no_results">No s\'ha trobat cap resultat a «%s»</string>
@@ -166,7 +175,9 @@
   <string name="login_password_hint">Contrasenya</string>
   <string name="account_creation_password_hint">Contrasenya</string>
   <string name="login_2fa_hint">Codi d\'autenticació de dos factors</string>
-  <string name="login_2fa_other_workflow_error_msg">Cal autenticació de dos factors! Torneu a l\'activitat principal i inicieu una sessió amb la clau d\'autenticació de dos factors i torneu-ho a provar.</string>
+  <string name="login_2fa_other_workflow_error_msg">Cal autenticació de dos factors! Si us plau inicieu sessió des de la pàgina principal i introduïu el codi de la vostra clau d\'autenticació de dos factors.</string>
+  <string name="login_email_auth_hint">Codi de verificació del correu electrònic</string>
+  <string name="login_email_auth_other_workflow_error_msg">Cal verificar el correu electrònic! Inicieu sessió des de la pantalla principal i introduïu el vostre codi de verificació de correu electrònic.</string>
   <string name="onboarding_card_login">Inicia una sessió</string>
   <string name="page_editing_login">Inicia una sessió</string>
   <string name="reading_lists_sync_login">Inicia una sessió</string>

@@ -136,8 +136,8 @@
   <string name="login_username_hint">Nama pemaké</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint">Kode Pengeruanan Dua-Sela</string>
-  <string name="login_2fa_other_workflow_error_msg">Pengeruanan dua-selah dibutuhin! Padol dah, kombali ke kegetolan utama èn masup paké lu punya gobang 2FA, terus jal lagi dah.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode Pengeruanan Dua-Sela</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Pengeruanan dua-selah dibutuhin! Padol dah, kombali ke kegetolan utama èn masup paké lu punya gobang 2FA, terus jal lagi dah.</string>
   <string name="onboarding_card_login">Masup</string>
   <string name="page_editing_login">Masup</string>
   <string name="reading_lists_sync_login">Masup</string>

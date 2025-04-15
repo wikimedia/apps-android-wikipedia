@@ -175,7 +175,9 @@
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
-  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! будь ласка, поверніться до основної діяльності та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
+  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! Будь ласка, увійдіть в систему з головного екрану і введіть свій токен 2FA.</string>
+  <string name="login_email_auth_hint">Код підтвердження електронної пошти</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потрібна перевірка електронної пошти! Увійдіть із головного екрана та введіть код підтвердження електронної пошти.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
   <string name="reading_lists_sync_login">Увійти до системи</string>

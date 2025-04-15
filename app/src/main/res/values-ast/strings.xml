@@ -95,8 +95,8 @@
   <string name="login_username_hint">Nome d\'usuariu</string>
   <string name="login_password_hint">Contraseña</string>
   <string name="account_creation_password_hint">Contraseña</string>
-  <string name="login_2fa_hint">Códigu d\'autenticación de dos factores</string>
-  <string name="login_2fa_other_workflow_error_msg">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Códigu d\'autenticación de dos factores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
   <string name="onboarding_card_login">Aniciar sesión</string>
   <string name="page_editing_login">Aniciar sesión</string>
   <string name="reading_lists_sync_login">Aniciar sesión</string>

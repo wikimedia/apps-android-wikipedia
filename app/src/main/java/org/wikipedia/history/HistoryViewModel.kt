@@ -54,6 +54,7 @@ class HistoryViewModel : ViewModel() {
     fun deleteAllHistoryItems() {
         viewModelScope.launch(handler) {
             AppDatabase.instance.historyEntryDao().deleteAll()
+            AppDatabase.instance.pageImagesDao().deleteAll()
             historyItems.postValue(Resource.Success(emptyList()))
         }
     }
