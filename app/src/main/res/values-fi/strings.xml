@@ -179,8 +179,10 @@
   <string name="login_username_hint">Käyttäjänimi</string>
   <string name="login_password_hint">Salasana</string>
   <string name="account_creation_password_hint">Salasana</string>
-  <string name="login_2fa_hint" fuzzy="true">Kaksivaiheinen tunnistautumiskoodi</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Kaksivaiheinen tunnistautuminen vaaditaan! Palaa kirjautumissivulle, kirjaudu sisään kaksivaiheisen tunnistautumisen koodilla ja yritä sitten uudelleen.</string>
+  <string name="login_2fa_hint">Kaksivaiheinen tunnistautumiskoodi</string>
+  <string name="login_2fa_other_workflow_error_msg">Kaksivaiheinen tunnistautuminen vaaditaan! Kirjaudu sisään pääsivulla ja anna kaksivaiheisen tunnistautumisen koodi.</string>
+  <string name="login_email_auth_hint">Sähköpostivahvistuskoodi</string>
+  <string name="login_email_auth_other_workflow_error_msg">Sähköpostitunnistautuminen vaaditaan! Kirjaudu sisään pääsivulla ja anna sähköpostitunnistautumisen koodi.</string>
   <string name="onboarding_card_login">Kirjaudu sisään</string>
   <string name="page_editing_login">Kirjaudu sisään</string>
   <string name="reading_lists_sync_login">Kirjaudu sisään</string>

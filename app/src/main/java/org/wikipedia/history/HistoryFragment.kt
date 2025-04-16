@@ -272,7 +272,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 }
             }
             clearHistoryButton.setOnClickListener {
-                if (selectedEntries.size == 0) {
+                if (selectedEntries.isEmpty()) {
                     MaterialAlertDialogBuilder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)

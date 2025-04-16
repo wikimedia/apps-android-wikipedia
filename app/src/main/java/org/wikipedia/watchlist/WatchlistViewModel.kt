@@ -21,6 +21,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.io.IOException
@@ -211,7 +212,7 @@ class WatchlistViewModel : ViewModel() {
                     .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
             }
             val messageCall = scope.async {
-                val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${WikipediaApp.instance.getString(expiry.stringId)}",
+                val unparsedMessage = ServiceFactory.get(pageTitle.wikiSite).getMessages(whichMessage, "${StringUtil.removeUnderscores(pageTitle.prefixedText)}|${L10nUtil.getString(expiry.stringId)}",
                     WikipediaApp.instance.appOrSystemLanguageCode)
                     .query?.allmessages?.firstOrNull { it.name == whichMessage }?.content.orEmpty()
                 ServiceFactory.get(pageTitle.wikiSite).parseText(unparsedMessage)
