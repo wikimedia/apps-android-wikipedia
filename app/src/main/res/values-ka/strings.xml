@@ -112,8 +112,8 @@
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
   <string name="account_creation_password_hint">პაროლი</string>
-  <string name="login_2fa_hint">ორფაქტორიანი ავთენტიფიკაციის კოდი</string>
-  <string name="login_2fa_other_workflow_error_msg">საჭიროა ორფაქტორიანი ავთენტიფიკაცია! გთხოვთ დაუბრუნდეთ ძირითად საქმიანობას და სისტემაში თქვენი 2FA ტოკენის დახმარებით შეხვიდეთ, ხოლო შემდეგ სცადეთ თავიდან.</string>
+  <string name="login_2fa_hint" fuzzy="true">ორფაქტორიანი ავთენტიფიკაციის კოდი</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">საჭიროა ორფაქტორიანი ავთენტიფიკაცია! გთხოვთ დაუბრუნდეთ ძირითად საქმიანობას და სისტემაში თქვენი 2FA ტოკენის დახმარებით შეხვიდეთ, ხოლო შემდეგ სცადეთ თავიდან.</string>
   <string name="onboarding_card_login">შესვლა</string>
   <string name="page_editing_login">შესვლა</string>
   <string name="reading_lists_sync_login">შესვლა</string>

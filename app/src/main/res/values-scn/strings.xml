@@ -135,7 +135,7 @@
   <string name="login_username_hint">Nomu utenti</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Còdici autentificazzioni a dui fattura</string>
+  <string name="login_2fa_hint" fuzzy="true">Còdici autentificazzioni a dui fattura</string>
   <string name="onboarding_card_login">Trasi</string>
   <string name="page_editing_login">Trasi</string>
   <string name="reading_lists_sync_login">Trasi</string>

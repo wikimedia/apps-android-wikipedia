@@ -159,8 +159,8 @@
   <string name="login_username_hint">Szerkesztőnév</string>
   <string name="login_password_hint">Jelszó</string>
   <string name="account_creation_password_hint">Jelszó</string>
-  <string name="login_2fa_hint">Kétlépcsős azonosítás kódja</string>
-  <string name="login_2fa_other_workflow_error_msg">Kétlépcsős azonosítás szükséges! Lépj vissza a fő tevékenységhez, jelentkezz be a kétlépcsős tokeneddel, majd próbáld újra.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kétlépcsős azonosítás kódja</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Kétlépcsős azonosítás szükséges! Lépj vissza a fő tevékenységhez, jelentkezz be a kétlépcsős tokeneddel, majd próbáld újra.</string>
   <string name="onboarding_card_login">Bejelentkezés</string>
   <string name="page_editing_login">Bejelentkezés</string>
   <string name="reading_lists_sync_login">Bejelentkezés</string>

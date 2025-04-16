@@ -139,8 +139,8 @@
   <string name="login_username_hint">Peséngan sang anganggé</string>
   <string name="login_password_hint">Kruna sandi</string>
   <string name="account_creation_password_hint">Kruna sandi</string>
-  <string name="login_2fa_hint">Kode Oténtikasi Kalih Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Oténtikasi kalih faktor kamaturang! Durus malih ring parilaksana utama miwah manjing log antuk token 2FA Ida, selantur nyané coba malih.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode Oténtikasi Kalih Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Oténtikasi kalih faktor kamaturang! Durus malih ring parilaksana utama miwah manjing log antuk token 2FA Ida, selantur nyané coba malih.</string>
   <string name="onboarding_card_login">Manjing log</string>
   <string name="page_editing_login">Manjing log</string>
   <string name="reading_lists_sync_login">Manjing log</string>

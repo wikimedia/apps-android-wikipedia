@@ -298,7 +298,8 @@ interface Service {
         @Field("password") pass: String?,
         @Field("retype") retypedPass: String?,
         @Field("OATHToken") twoFactorCode: String?,
-        @Field("logintoken") token: String?,
+        @Field("token") emailAuthToken: String?,
+        @Field("logintoken") loginToken: String?,
         @Field("logincontinue") loginContinue: Boolean
     ): LoginResponse
 
