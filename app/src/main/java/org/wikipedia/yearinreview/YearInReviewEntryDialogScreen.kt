@@ -3,8 +3,8 @@ package org.wikipedia.yearinreview
 import android.widget.ImageView
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
@@ -19,7 +19,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,24 +33,24 @@ import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun YearInReviewBottomSheet() {
+fun YearInReviewEntryDialogScreen() {
     val context = LocalContext.current
-    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .clip(RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
-            .padding(20.dp)
-            .verticalScroll(scrollState),
+            .padding(vertical = 16.dp)
+            .nestedScroll(rememberNestedScrollInteropConnection())
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Text(
             modifier = Modifier.padding(
-                horizontal = 30.dp
+                horizontal = 32.dp
             ),
-            text = stringResource(R.string.year_in_review_explore_screen_title),
+            text = stringResource(R.string.year_in_review_entry_dialog_title),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.headlineSmall,
             textAlign = TextAlign.Center
@@ -56,9 +58,9 @@ fun YearInReviewBottomSheet() {
         )
         Text(
             modifier = Modifier.padding(
-                horizontal = 45.dp
+                horizontal = 16.dp
             ),
-            text = stringResource(R.string.year_in_review_explore_screen_bodytext),
+            text = stringResource(R.string.year_in_review_entry_dialog_bodytext),
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
@@ -69,13 +71,12 @@ fun YearInReviewBottomSheet() {
                     Glide.with(this)
                         .asGif()
                         .load(R.drawable.wyir_puzzle_4_v2)
-                        .centerCrop()
                         .into(this)
                 }
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(3f / 2f)
+                .heightIn(max = 240.dp)
                 .clip(RoundedCornerShape(16.dp))
         )
         Button(
@@ -91,7 +92,7 @@ fun YearInReviewBottomSheet() {
             )
         ) {
             Text(
-                text = stringResource(R.string.year_in_review_explore_screen_continue),
+                text = stringResource(R.string.year_in_review_entry_dialog_continue),
                 color = WikipediaTheme.colors.paperColor,
                 style = MaterialTheme.typography.labelLarge
             )
@@ -99,8 +100,8 @@ fun YearInReviewBottomSheet() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewBottomSheet() {
-    YearInReviewBottomSheet()
+    YearInReviewEntryDialogScreen()
 }
