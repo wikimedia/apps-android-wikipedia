@@ -41,7 +41,7 @@ val Typography = WikipediaTypography(
     ),
     h3 = TextStyle(
         fontFamily = FontFamily.SansSerif,
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
         lineHeight = 24.sp
     ),
@@ -56,6 +56,11 @@ val Typography = WikipediaTypography(
         fontWeight = FontWeight.Bold,
         fontSize = 12.sp,
         lineHeight = 18.sp
+    ),
+    p = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontSize = 16.sp,
+        lineHeight = 24.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.SansSerif,
