@@ -29,14 +29,16 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 
@@ -52,12 +54,10 @@ fun LanguagesListScreen(
 ) {
     var searchQuery by remember { mutableStateOf("") }
 
-    val (imeHeight, isKeyboardVisible) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+    val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
         // Handle IME (keyboard) insets
-        val windowInsets = WindowInsets.ime
-        val height = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
-        Pair(height, height > 0.dp)
-    } else Pair(0.dp, false)
+        with(LocalDensity.current) { WindowInsets.ime.getBottom(this).toDp() }
+    } else 0.dp
 
     Scaffold(
         modifier = modifier,
@@ -97,7 +97,7 @@ fun LanguagesListScreen(
                         .fillMaxSize()
                         .padding(paddingValues)
                         // Add bottom padding when keyboard is visible for android 15 and above
-                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                        .padding(bottom = imeHeight),
                     contentAlignment = Alignment.Center
                 ) {
                     WikiErrorView(
@@ -116,7 +116,7 @@ fun LanguagesListScreen(
                             .fillMaxSize()
                             .padding(paddingValues)
                             // Add bottom padding when keyboard is visible for android 15 and above
-                            .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                            .padding(bottom = imeHeight),
                         contentAlignment = Alignment.Center
                     ) {
                         SearchEmptyView(
@@ -144,7 +144,7 @@ fun LanguagesListScreen(
                                 title = languageItem.headerText
                             )
                         } else {
-                            val localizedLanguageName = StringUtil.capitalize(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageItem.code).orEmpty()) ?: ""
+                            val localizedLanguageName = StringUtil.capitalize(languageItem.localizedName).orEmpty()
                             LanguageListItemView(
                                 modifier = Modifier
                                     .clickable(
@@ -212,5 +212,26 @@ fun LanguageListItemView(
                 )
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun LanguagesListScreenPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        LanguagesListScreen(
+            modifier = Modifier
+                .fillMaxSize(),
+            uiState = UiState.Success(data = listOf(
+                LanguageListItem(code = "", headerText = "Languages"),
+                LanguageListItem(code = "en", canonicalName = "English", localizedName = "English"),
+                LanguageListItem(code = "he", canonicalName = "Hebrew", localizedName = "עברית")
+            )
+            ),
+            { },
+            { },
+            { },
+            { }
+        )
     }
 }
