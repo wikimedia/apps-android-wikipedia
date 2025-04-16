@@ -9,9 +9,7 @@ import androidx.palette.graphics.Palette
 object ImageService {
     private var implementation: ImageLoaderImpl = GlideImageLoaderImpl()
 
-    fun setImplementation(
-        context: Context,
-        impl: ImageLoaderImpl) {
+    fun setImplementation(impl: ImageLoaderImpl) {
         implementation = impl
     }
 
@@ -43,6 +41,10 @@ object ImageService {
 
     fun getBitmapForMarker(context: Context): Bitmap {
         return implementation.getBitmapForMarker(context)
+    }
+
+    fun getWhiteBackgroundTransformer(): ImageTransformer {
+        return implementation.getWhiteBackgroundTransformer()
     }
 }
 
@@ -78,4 +80,6 @@ interface ImageLoaderImpl {
         onSuccess: (Bitmap) -> Unit)
 
     fun getBitmapForMarker(context: Context): Bitmap
+
+    fun getWhiteBackgroundTransformer(): ImageTransformer
 }

@@ -124,7 +124,7 @@ class CoilLoaderImpl : ImageLoaderImpl {
         onSuccess: (Bitmap) -> Unit
     ) {
         val request = ImageRequest.Builder(context)
-            .data(imageUrl?.toUri())
+            .data(imageUrl)
             .apply {
                 if (imageTransformer != null && imageTransformer is CoilWhiteBackgroundTransformation) {
                     transformations(imageTransformer)
@@ -142,5 +142,9 @@ class CoilLoaderImpl : ImageLoaderImpl {
     override fun getBitmapForMarker(context: Context): Bitmap {
         val markerSize = DimenUtil.roundedDpToPx(40f)
         return createBitmap(markerSize, markerSize, Bitmap.Config.ARGB_8888)
+    }
+
+    override fun getWhiteBackgroundTransformer(): ImageTransformer {
+        return CoilWhiteBackgroundTransformation()
     }
 }

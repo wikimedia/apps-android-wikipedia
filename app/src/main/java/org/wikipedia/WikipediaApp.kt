@@ -166,10 +166,7 @@ class WikipediaApp : Application() {
 
         EventPlatformClient.setUpStreamConfigs()
 
-        ImageService.setImplementation(
-            instance,
-            CoilLoaderImpl()
-        )
+        ImageService.setImplementation(CoilLoaderImpl())
     }
 
     /**

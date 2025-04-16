@@ -709,6 +709,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         ImageService.imagePipeLineBitmapGetter(
             requireContext(),
             url,
+            ImageService.getWhiteBackgroundTransformer(),
             onSuccess = { bitmap ->
                 if (!isAdded) {
                     return@imagePipeLineBitmapGetter
@@ -726,27 +727,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
             }
         )
-//        // @TODO: Conversion
-//        ImagePipelineBitmapGetter(requireContext(), url, whiteBackgroundTransformation) { bitmap ->
-//            if (!isAdded) {
-//                return@ImagePipelineBitmapGetter
-//            }
-//            annotationCache.find { it.pageId == page.pageId }?.let {
-//                val bmp = getMarkerBitmap(bitmap)
-//                it.bitmap = bmp
-//
-//                mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
-//
-//                it.annotation?.let { annotation ->
-//                    annotation.iconImage = url
-//                    symbolManager?.update(annotation)
-//                }
-//            }
-//        }
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
-
         // Retrieve an unused bitmap from the pool
         val result = ImageService.getBitmapForMarker(requireContext())
 

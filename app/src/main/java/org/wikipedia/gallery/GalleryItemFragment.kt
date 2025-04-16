@@ -41,6 +41,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.imageservice.ImageLoadListener
+import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
 
 class GalleryItemFragment : Fragment(), MenuProvider {
@@ -254,13 +255,13 @@ class GalleryItemFragment : Fragment(), MenuProvider {
     private fun shareImage() {
         mediaInfo?.let {
             val imageUrl = ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)
-            ImagePipelineBitmapGetter(requireContext(), imageUrl) { bitmap ->
+            ImageService.imagePipeLineBitmapGetter(requireContext(), imageUrl, onSuccess = { bitmap ->
                 if (!isAdded) {
-                    return@ImagePipelineBitmapGetter
+                    return@imagePipeLineBitmapGetter
                 }
                 callback()?.onShare(this@GalleryItemFragment, bitmap,
                     StringUtil.removeHTMLTags(viewModel.imageTitle.displayText), imageTitle)
-            }
+            })
         }
     }
 

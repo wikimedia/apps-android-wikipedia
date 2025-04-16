@@ -16,8 +16,11 @@ import android.text.style.LeadingMarginSpan
 import android.text.style.ParagraphStyle
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
+import android.util.Log
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.text.HtmlCompat
 import androidx.core.text.getSpans
 import androidx.core.text.parseAsHtml
@@ -25,10 +28,10 @@ import androidx.core.text.toSpanned
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.maybeDimImage
-import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.imageservice.ImageService
 import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
@@ -133,8 +136,8 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
 
                     if (drawable == null || drawable.bitmap.isRecycled) {
                         // give it a placeholder drawable of the appropriate size
-                        drawable = BitmapDrawable(view.context.resources,
-                            Bitmap.createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565))
+                        drawable = createBitmap(imgWidth, imgHeight, Bitmap.Config.RGB_565)
+                            .toDrawable(view.context.resources)
                         bmpMap[imgSrc] = drawable
 
                         drawable.setBounds(0, 0, imgWidth, imgHeight)
@@ -146,15 +149,18 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                             uri = Service.COMMONS_URL + uri.replace("./", "")
                         }
 
-                        ImagePipelineBitmapGetter(view.context, uri) { bitmap ->
-                            if (!drawable.bitmap.isRecycled) {
+                        ImageService.imagePipeLineBitmapGetter(view.context, uri, onSuccess = { bitmap ->
+                            Log.d("orange", "Received bitmap: width=${bitmap.width}, height=${bitmap.height}, " +
+                                    "config=${bitmap.config}, isRecycled=${bitmap.isRecycled}, hasAlpha=${bitmap.hasAlpha()}")
+                        val newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
+                        if (!drawable.bitmap.isRecycled) {
                                 drawable.bitmap.applyCanvas {
-                                    drawBitmap(bitmap, Rect(0, 0, bitmap.width, bitmap.height), drawable.bounds, null)
+                                    drawBitmap(newBitmap, Rect(0, 0, bitmap.width, bitmap.height), drawable.bounds, null)
                                 }
                                 drawable.bitmap.maybeDimImage()
                                 view.postInvalidate()
                             }
-                        }
+                        })
                     }
                 }
             } else if (tag == "a") {

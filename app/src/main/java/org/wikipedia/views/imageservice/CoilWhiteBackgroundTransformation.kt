@@ -17,7 +17,7 @@ class CoilWhiteBackgroundTransformation : Transformation(), ImageTransformer {
             val newBitmap = createBitmap(
                 input.width,
                 input.height,
-                input.config ?: android.graphics.Bitmap.Config.RGB_565
+                input.config ?: android.graphics.Bitmap.Config.ARGB_8888
             )
             newBitmap.applyMatrixWithBackground(input, Matrix())
             newBitmap

@@ -169,6 +169,10 @@ class GlideImageLoaderImpl : ImageLoaderImpl {
             .getDirty(markerSize, markerSize, Bitmap.Config.ARGB_8888)
     }
 
+    override fun getWhiteBackgroundTransformer(): ImageTransformer {
+        return WhiteBackgroundTransformation()
+    }
+
     companion object {
         private val FACE_DETECT_TRANSFORM by lazy { CenterCropWithFaceTransformation() }
         private val CENTER_CROP_WHITE_BACKGROUND by lazy { MultiTransformation(CenterCrop(), WhiteBackgroundTransformation()) }
