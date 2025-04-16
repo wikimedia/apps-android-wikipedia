@@ -97,30 +97,27 @@ class AddLanguagesViewModel : ViewModel() {
     ) {
         var first = true
         for (code in codes) {
-            val localizedName = StringUtils.stripAccents(
-                WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty()
-            )
-
-            // Only attempt to get canonical name if the site is available
-            val canonicalName = StringUtils.stripAccents(getCanonicalName(code))
+            val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty()
+            val canonicalName = getCanonicalName(code)
 
             if (filter.isEmpty() || code.contains(filter, true) ||
-                localizedName.contains(filter, true) ||
-                canonicalName.contains(filter, true)) {
+                StringUtils.stripAccents(localizedName).contains(filter, true) ||
+                StringUtils.stripAccents(canonicalName).contains(filter, true)) {
 
                 if (first) {
                     results.add(
                         LanguageListItem(
-                        code = "",
-                        headerText = headerText,
-                    )
+                            code = "",
+                            headerText = headerText,
+                        )
                     )
                     first = false
                 }
                 results.add(
                     LanguageListItem(
                         code = code,
-                        canonicalName = canonicalName
+                        canonicalName = canonicalName,
+                        localizedName = localizedName
                     )
                 )
             }
@@ -128,6 +125,7 @@ class AddLanguagesViewModel : ViewModel() {
     }
 
     private fun getCanonicalName(code: String): String {
+        // Only attempt to get canonical name if the site is available
         return _siteInfoList.value.find { it.code == code }?.localname.orEmpty()
             .ifEmpty { WikipediaApp.instance.languageState.getAppLanguageCanonicalName(code).orEmpty() }
     }
