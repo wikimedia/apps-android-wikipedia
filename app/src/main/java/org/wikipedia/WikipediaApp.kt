@@ -289,11 +289,6 @@ class WikipediaApp : Application(), SingletonImageLoader.Factory {
         }
     }
 
-    companion object {
-        lateinit var instance: WikipediaApp
-            private set
-    }
-
     override fun newImageLoader(context: PlatformContext): ImageLoader {
         return ImageLoader.Builder(context)
             .components {
@@ -307,5 +302,10 @@ class WikipediaApp : Application(), SingletonImageLoader.Factory {
             }
             .allowRgb565(true)
             .build()
+    }
+
+    companion object {
+        lateinit var instance: WikipediaApp
+            private set
     }
 }
