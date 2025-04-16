@@ -2,7 +2,7 @@ Resmi Wikipedia Android uygulaması, Wikipedia hakkındaki bilgileri bulmanıza,
 
 Özellikler:
 
-Feed'i keşfedin - Yeni "feed'i keşfet", trend olan makaleler, güncel etkinlikler, önerilen okumalar ve daha fazlası dahil olmak üzere, ana ekranda doğrudan ve sürekli olarak Wikipedia içeriğini güncellemeyi önerir.
+Feed'i keşfet - Yeni "feed'i keşfet", trend olan makaleler, güncel etkinlikler, önerilen okumalar ve daha fazlası dahil olmak üzere, ana ekranda doğrudan ve sürekli olarak Wikipedia içeriğini güncellemeyi önerir.
 
 Sesle tümleşik arama - Cihazınızdaki sesle etkinleştirilen arama dahil olmak üzere, uygulamanızın en üstünde bulunan önemli bir arama çubuğuyla aradığınızı kolayca bulun.
 
@@ -10,9 +10,9 @@ Yakında - Geçerli ve yakın konumunuzla ilgili makaleleri görmek için etkile
 
 Dil desteği - Güncel makalenin dilini değiştirerek ya da arama yaparken tercih ettiğiniz arama dilini değiştirerek dil destekli Vikipedi'ye sorunsuzca geçiş yapın.
 
-Önizleme bağlantısı - Önizlemek için, okumakta olduğunuz yerinizdeki yerinizi kaybetmeden bir makaleye dokunun. Yeni bir sekmede açmak için bir bağlantıyı basılı tutun, geçerli makaleyi yerinizi kaybetmeden okumaya devam edin ve hazır olduğunuzda yeni sekmeye geçin.
+Önizleme bağlantısı - Önizleme yapmak için, okumakta olduğunuz yeri kaybetmeden bir makaleye dokunun. Yeni bir sekmede açmak için bir bağlantıyı basılı tutun, geçerli makaleyi yerinizi kaybetmeden okumaya devam edin ve hazır olduğunuzda yeni sekmeye geçin.
 
-İçindekiler - herhangi bir makalenin sol üst kısmına kaydırın, bu da içerik bölümlerini kolayca bulmanızı sağlar.
+İçindekiler - herhangi bir makalenin sol üst kısmına kaydırın. Bu içerik bölümlerini kolayca bulmanızı sağlar.
 
 Okuma listeleri - Göz attığınız makaleleri, çevrimdışı olduğunuzda bile erişebileceğiniz okuma listelerinde düzenleyin. İstediğiniz kadar liste oluşturun, onlara özel adlar ve açıklamalar verin ve bunları herhangi bir dil wiki'sinden makalelerle doldurun.
 
@@ -24,7 +24,7 @@ Wikipedia Zero - Katılan mobil operatörlerden Android için Wikipedia'ya veri 
 
 Uygulama ile ilgili geri dönüşlerinizi bize gönderin! Menüde "Ayarlar", ardından "Wikipedia uygulaması hakkında", ardından "Uygulama geri bildirimi gönder" düğmesine basın.
 
-Kod %100 açık kaynaklıdır. Java ve Android SDK ile tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
+Kod %100 açık kaynaklıdır. Java ve Android SDK deneyiminiz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
 
 Bu uygulamayı kullanarak, kilitlenme raporlarının bir üçüncü taraf hizmet sağlayıcısına otomatik olarak iletilmesini kabul edersiniz. Bu özelliği devre dışı bırakmak isterseniz, lütfen "Ayarlar" a basın, ardından Gizlilik bölümündeki "Kilitlenme raporları gönder" seçeneğini işaretleyin. Uygulamanın ihtiyaç duyduğu izinlerin açıklaması: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
