@@ -8,6 +8,11 @@ import android.os.Handler
 import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
+import coil3.ImageLoader
+import coil3.PlatformContext
+import coil3.SingletonImageLoader
+import coil3.network.okhttp.OkHttpNetworkFetcherFactory
+import coil3.request.allowRgb565
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -21,6 +26,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.ThemeFontChangeEvent
@@ -40,7 +46,7 @@ import org.wikipedia.views.imageservice.CoilLoaderImpl
 import org.wikipedia.views.imageservice.ImageService
 import java.util.UUID
 
-class WikipediaApp : Application() {
+class WikipediaApp : Application(), SingletonImageLoader.Factory {
     init {
         instance = this
     }
@@ -286,5 +292,20 @@ class WikipediaApp : Application() {
     companion object {
         lateinit var instance: WikipediaApp
             private set
+    }
+
+    override fun newImageLoader(context: PlatformContext): ImageLoader {
+        return ImageLoader.Builder(context)
+            .components {
+                add(
+                    OkHttpNetworkFetcherFactory(
+                        callFactory = {
+                            OkHttpConnectionFactory.client
+                        }
+                    )
+                )
+            }
+            .allowRgb565(true)
+            .build()
     }
 }
