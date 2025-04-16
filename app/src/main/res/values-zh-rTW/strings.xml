@@ -180,8 +180,10 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
-  <string name="login_2fa_hint" fuzzy="true">雙重驗證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">需要雙重驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙重驗證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請從主畫面登入，並輸入您的雙重驗證令牌中的代碼。</string>
+  <string name="login_email_auth_hint">電子郵件驗證碼</string>
+  <string name="login_email_auth_other_workflow_error_msg">需要電子郵件驗證！請從主畫面登錄，並輸入您的電子郵件驗證碼。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -830,7 +832,7 @@
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
-  <string name="view_main_page_card_title">維基百科今日</string>
+  <string name="view_main_page_card_title">維基百科今日焦點</string>
   <string name="view_main_page_card_action">檢視主頁面</string>
   <string name="view_featured_image_card_title">每日圖片</string>
   <string name="view_featured_image_card_download">下載</string>
