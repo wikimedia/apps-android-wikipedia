@@ -76,6 +76,7 @@
   <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_back_button_content_description">戻る</string>
+  <string name="search_clear_query_content_description">クエリを消去</string>
   <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
@@ -205,8 +206,10 @@
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="account_creation_password_hint">パスワード</string>
-  <string name="login_2fa_hint" fuzzy="true">二要素認証コード</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">二要素認証が必要です! メイン画面に戻り2FAトークンを使ってログインしてから、再実行してください。</string>
+  <string name="login_2fa_hint">二要素認証コード</string>
+  <string name="login_2fa_other_workflow_error_msg">二要素認証が必要です! メイン画面からログインして2FAトークンからコードを入力してください。</string>
+  <string name="login_email_auth_hint">メール認証コード</string>
+  <string name="login_email_auth_other_workflow_error_msg">メール認証が必要です！メイン画面からログインし、メール認証コードを入力してください。</string>
   <string name="onboarding_card_login">ログイン</string>
   <string name="page_editing_login">ログイン</string>
   <string name="reading_lists_sync_login">ログイン</string>
