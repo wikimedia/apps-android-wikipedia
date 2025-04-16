@@ -568,6 +568,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.mapView.onDestroy()
         _binding = null
 
+        // @TODO: this can be removed
         clearAnnotationCache()
         markerBitmapBase.recycle()
         super.onDestroyView()
@@ -637,6 +638,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     if (!removed.pageTitle.thumbUrl.isNullOrEmpty()) {
                         mapboxMap?.style?.removeImage(removed.pageTitle.thumbUrl!!)
                     }
+                    // @TODO: this can be removed
                     if (removed.bitmap != null) {
                         Glide.get(requireContext()).bitmapPool.put(removed.bitmap!!)
                     }

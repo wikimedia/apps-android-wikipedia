@@ -93,6 +93,12 @@ class CoilLoaderImpl : ImageLoaderImpl {
             .data(uri)
             .placeholder(if (emptyPlaceholder) null else placeholder)
             .error(placeholder)
+            .transformations(
+                when {
+                    cropped && shouldDetectFace -> CoilCenterCropWithFaceTransformation()
+                    else -> CoilWhiteBackgroundTransformation()
+                }
+            )
 
         if (listener != null) {
             requestBuilder.listener(object : ImageRequest.Listener {
@@ -111,8 +117,6 @@ class CoilLoaderImpl : ImageLoaderImpl {
             })
         }
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        requestBuilder
-            .transformations(CoilWhiteBackgroundTransformation())
         val request = requestBuilder.target(imageView).build()
         context.imageLoader.enqueue(request)
     }
