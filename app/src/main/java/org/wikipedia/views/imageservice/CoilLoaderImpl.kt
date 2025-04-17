@@ -73,7 +73,7 @@ class CoilLoaderImpl : ImageLoaderImpl {
         context.imageLoader.enqueue(request)
     }
 
-    override fun loadImage(
+    override fun loadImageWithFaceDetect(
         imageView: ImageView,
         uri: Uri?,
         shouldDetectFace: Boolean,

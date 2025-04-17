@@ -84,7 +84,7 @@ class GlideImageLoaderImpl : ImageLoaderImpl {
         builder.into(imageView)
     }
 
-    override fun loadImage(
+    override fun loadImageWithFaceDetect(
         imageView: ImageView,
         uri: Uri?,
         shouldDetectFace: Boolean,

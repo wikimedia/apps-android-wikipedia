@@ -22,7 +22,7 @@ class FaceAndColorDetectImageView : ShapeableImageView {
     }
 
     fun loadImage(uri: Uri?, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: ImageLoadListener? = null) {
-        ImageService.loadImage(this, uri, shouldDetectFace(uri), cropped, emptyPlaceholder, listener)
+        ImageService.loadImageWithFaceDetect(this, uri, shouldDetectFace(uri), cropped, emptyPlaceholder, listener)
     }
 
     fun loadImage(@DrawableRes id: Int) {

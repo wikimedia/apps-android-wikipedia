@@ -24,7 +24,7 @@ object ImageService {
         implementation.loadImage(imageView, url, roundedCorners, force, placeholderId, listener)
     }
 
-    fun loadImage(
+    fun loadImageWithFaceDetect(
         imageView: ImageView,
         url: Uri?,
         shouldDetectFace: Boolean = true,
@@ -32,7 +32,7 @@ object ImageService {
         emptyPlaceholder: Boolean = false,
         listener: ImageLoadListener? = null
     ) {
-        implementation.loadImage(imageView, url, shouldDetectFace, cropped, emptyPlaceholder, listener)
+        implementation.loadImageWithFaceDetect(imageView, url, shouldDetectFace, cropped, emptyPlaceholder, listener)
     }
 
     fun imagePipeLineBitmapGetter(context: Context, imageUrl: String?, imageTransformer: ImageTransformer? = null, onSuccess: (Bitmap) -> Unit) {
@@ -71,7 +71,7 @@ interface ImageLoaderImpl {
         listener: ImageLoadListener? = null
     )
 
-    fun loadImage(
+    fun loadImageWithFaceDetect(
         imageView: ImageView,
         uri: Uri?,
         shouldDetectFace: Boolean = true,
