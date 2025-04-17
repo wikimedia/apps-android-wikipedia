@@ -16,10 +16,6 @@
 -dontwarn okio.**
 # --- /OkHttp + Okio ---
 
-# Glide
--keep public class * extends com.bumptech.glide.module.AppGlideModule
--keep class com.bumptech.glide.GeneratedAppGlideModuleImpl
-
 # --- Wikipedia ---
 -keep class org.wikipedia.** { <init>(...); *; }
 -keep enum org.wikipedia.** { <init>(...); *; }
