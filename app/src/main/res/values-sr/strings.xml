@@ -161,7 +161,8 @@
   <string name="login_password_hint">Лозинка</string>
   <string name="account_creation_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Двофакторски аутентификациони код</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
+  <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
+  <string name="login_email_auth_hint">Имејл верификациони код</string>
   <string name="onboarding_card_login">Пријава</string>
   <string name="page_editing_login">Пријава</string>
   <string name="reading_lists_sync_login">Пријава</string>
