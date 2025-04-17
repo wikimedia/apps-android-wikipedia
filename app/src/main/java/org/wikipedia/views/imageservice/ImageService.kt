@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.palette.graphics.Palette
 
 object ImageService {
-    private var implementation: ImageLoaderImpl = GlideImageLoaderImpl()
+    private var implementation: ImageLoaderImpl = CoilLoaderImpl()
 
     fun setImplementation(impl: ImageLoaderImpl) {
         implementation = impl

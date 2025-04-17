@@ -197,10 +197,6 @@ dependencies {
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
 
-    implementation libs.glide
-    implementation libs.okhttp3.integration
-    ksp libs.glide.ksp
-
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit

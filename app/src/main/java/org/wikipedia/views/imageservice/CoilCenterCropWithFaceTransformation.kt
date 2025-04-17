@@ -12,7 +12,6 @@ import coil3.Bitmap
 import coil3.size.Size
 import coil3.size.pxOrElse
 import coil3.transform.Transformation
-import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import org.wikipedia.extensions.applyMatrixWithBackground
 import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.util.log.L
@@ -67,7 +66,7 @@ class CoilCenterCropWithFaceTransformation : Transformation() {
         val result = createBitmap(width, height,
             input.config ?: android.graphics.Bitmap.Config.RGB_565)
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
-        TransformationUtils.setAlpha(input, result)
+        result.setHasAlpha(input.hasAlpha())
         result.applyMatrixWithBackground(input, m)
         return result.maybeDimImage()
     }
