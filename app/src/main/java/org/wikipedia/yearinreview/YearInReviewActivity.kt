@@ -24,10 +24,8 @@ class YearInReviewActivity : ComponentActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val personalizedScreenList = listOf(
-                    readCountData, editCountData, readCountData,
-                    editCountData, readCountData
-                )
+                val yirViewModel = YearInReviewViewModel()
+                val personalizedScreenList = yirViewModel.personalizedScreenList
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
@@ -57,7 +55,9 @@ class YearInReviewActivity : ComponentActivity() {
                             screenContent = { innerPadding, contentData ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    screenData = contentData)
+                                    screenData = contentData,
+                                    viewModel = yirViewModel
+                                )
                             },
                         )
                     }
@@ -77,10 +77,18 @@ class YearInReviewActivity : ComponentActivity() {
                             screenContent = { innerPadding, contentData ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    screenData = contentData
+                                    screenData = contentData,
+                                    viewModel = yirViewModel
                                 )
                             },
                         )
+                    }
+                    /*
+                    This is a temporary route for testing only.
+                    This will be removed in future iterations
+                     */
+                    composable(route = "test screen") {
+                        TestScreen(yirViewModel)
                     }
                 }
             }

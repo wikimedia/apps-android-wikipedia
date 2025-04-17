@@ -439,6 +439,16 @@ interface Service {
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights|registrationdate")
+    suspend fun getUserContribsByTimeFrame(
+        @Query("ucuser") username: String,
+        @Query("uclimit") maxCount: Int,
+        @Query("ucstart") startDate: String,
+        @Query("ucend") endDate: String,
+        @Query("ucnamespace") ns: Int?,
+        @Query("uccontinue") uccontinue: String?
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
