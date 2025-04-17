@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +32,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
@@ -134,7 +135,7 @@ fun LanguagesListScreen(
                         .fillMaxSize()
                         .padding(paddingValues),
                 ) {
-                    items(languagesItems) { languageItem ->
+                    itemsIndexed(languagesItems) { index, languageItem ->
                         if (languageItem.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier
@@ -152,6 +153,7 @@ fun LanguagesListScreen(
                                         interactionSource = remember { MutableInteractionSource() },
                                         indication = ripple(bounded = true),
                                         onClick = {
+                                            BreadCrumbLogEvent.logClick(context, "listItem.$index")
                                             onListItemClick(languageItem.code)
                                         }
                                     )
