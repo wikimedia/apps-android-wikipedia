@@ -1789,10 +1789,6 @@
   <string name="year_in_review_information_icon">Content description of the information icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_get_started_headline">Healine text for the year in review get started page</string>
   <string name="year_in_review_get_started_bodytext">Body text for the the year in review get started page</string>
-  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. \"%d\" represents the total number of articles in the HistoryEntry table for the current year</string>
-  <string name="year_in_review_read_count_bodytext">Body text for the year in review readcount page. \"%d\" represents the total number of articles in the HistoryEntry table for the current year</string>
-  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. \"%d\" represents the total number of userContribs for the current year</string>
-  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. \"%d\" represents the total number of userContribs for the current year</string>
   <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
