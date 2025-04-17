@@ -12,12 +12,14 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,8 +32,7 @@ fun WikiTopAppBar(
     modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
-    val navigationIcon = Icons.AutoMirrored.Filled.ArrowBack
-    val backgroundColor = WikipediaTheme.colors.paperColor
+    val context = LocalContext.current
 
     TopAppBar(
         title = {
@@ -42,16 +43,19 @@ fun WikiTopAppBar(
             )
         },
         navigationIcon = {
-            IconButton(onClick = onNavigationClick) {
+            IconButton(onClick = {
+                BreadCrumbLogEvent.logClick(context, "navigationButton")
+                onNavigationClick()
+            }) {
                 Icon(
-                    imageVector = navigationIcon,
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.search_back_button_content_description)
                 )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = backgroundColor,
+            containerColor = WikipediaTheme.colors.paperColor,
             titleContentColor = WikipediaTheme.colors.primaryColor
         ),
         actions = actions,

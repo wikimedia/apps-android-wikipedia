@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -32,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.restbase.RbDefinition
@@ -169,6 +171,8 @@ fun DefinitionWithExamples(
     count: Int,
     onDialogLinkClick: (url: String) -> Unit
 ) {
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -182,6 +186,7 @@ fun DefinitionWithExamples(
                     fontSize = 14.sp,
                 ),
                 linkInteractionListener = {
+                    BreadCrumbLogEvent.logClick(context, "link")
                     val url = (it as LinkAnnotation.Url).url
                     onDialogLinkClick(url)
                 }
@@ -199,6 +204,7 @@ fun DefinitionWithExamples(
                         fontStyle = FontStyle.Italic
                     ),
                     linkInteractionListener = {
+                        BreadCrumbLogEvent.logClick(context, "link")
                         val url = (it as LinkAnnotation.Url).url
                         onDialogLinkClick(url)
                     }

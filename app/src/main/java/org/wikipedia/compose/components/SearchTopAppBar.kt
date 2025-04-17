@@ -20,11 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,6 +40,8 @@ fun SearchTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     val focusRequester = remember { FocusRequester() }
+    val context = LocalContext.current
+
     TopAppBar(
         modifier = modifier
             .fillMaxWidth()
@@ -64,7 +68,10 @@ fun SearchTopAppBar(
             )
         },
         navigationIcon = {
-            IconButton(onClick = onBackButtonClick) {
+            IconButton(onClick = {
+                BreadCrumbLogEvent.logClick(context, "searchBackButton")
+                onBackButtonClick()
+            }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(R.string.search_back_button_content_description),
@@ -80,6 +87,7 @@ fun SearchTopAppBar(
     )
 
     LaunchedEffect(Unit) {
+        BreadCrumbLogEvent.logClick(context, "search")
         focusRequester.requestFocus()
     }
 }

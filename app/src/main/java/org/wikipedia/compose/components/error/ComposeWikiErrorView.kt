@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
@@ -67,6 +68,8 @@ fun ComposeWikiErrorView(
     footerErrorMessage: String?,
     onButtonClick: (() -> Unit)? = null,
 ) {
+    val context = LocalContext.current
+
     Column(
         modifier = modifier
             .fillMaxWidth(),
@@ -116,7 +119,10 @@ fun ComposeWikiErrorView(
             modifier = Modifier
                 .heightIn(min = 48.dp)
                 .widthIn(min = 0.dp),
-            onClick = { onButtonClick?.invoke() },
+            onClick = {
+                BreadCrumbLogEvent.logClick(context, "errorButton")
+                onButtonClick?.invoke()
+            },
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.backgroundColor,
                 contentColor = WikipediaTheme.colors.placeholderColor
