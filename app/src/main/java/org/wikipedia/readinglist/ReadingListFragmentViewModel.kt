@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 
 class ReadingListFragmentViewModel : ViewModel() {
@@ -29,7 +29,7 @@ class ReadingListFragmentViewModel : ViewModel() {
         }) {
              val list = AppDatabase.instance.readingListDao().getListById(readingListId, true)
              if (list == null) {
-                 _updateListByIdFlow.emit(Resource.Error(Throwable(WikipediaApp.instance.getString(R.string.error_message_generic))))
+                 _updateListByIdFlow.emit(Resource.Error(Throwable(L10nUtil.getString(R.string.error_message_generic))))
              } else {
                  _updateListByIdFlow.emit(Resource.Success(list))
              }

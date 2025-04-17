@@ -26,6 +26,7 @@
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
   <string name="search_back_button_content_description">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="search_clear_query_content_description">ਪੁੱਛਗਿੱਛ ਸਾਫ਼ ਕਰੋ</string>
+  <string name="search_icon_content_description">ਖੋਜੋ</string>
   <string name="filter_hint_filter_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਫਿਲਟਰ ਕਰੋ</string>
   <string name="nav_item_suggested_edits">ਸੋਧਾਂ</string>
   <string name="nav_item_more">ਹੋਰ</string>
@@ -156,8 +157,10 @@
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="account_creation_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="login_2fa_hint" fuzzy="true">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਦੀ ਲੋੜ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੀ ਸਰਗਰਮੀ \'ਤੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨਾਲ ਦਾਖਲ ਹੋਵੋ, ਫੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+  <string name="login_2fa_hint">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਕੋਡ</string>
+  <string name="login_2fa_other_workflow_error_msg">ਦੋ-ਪੱਖੀ ਤਸਦੀਕ ਲਾਜ਼ਮੀ ਹੈ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੇ ਪਰਦੇ(screen) \'ਤੇ ਵਾਪਸ ਜਾਓ, ਅਤੇ ਆਪਣੇ 2FA(ਦੋ-ਪੱਖੀ ਤਸਦੀਕ) ਟੋਕਨ ਨੂੰ ਦਰਜ ਕਰੋ।</string>
+  <string name="login_email_auth_hint">ਈਮੇਲ ਤਸਦੀਕ ਕੋਡ</string>
+  <string name="login_email_auth_other_workflow_error_msg">ਈਮੇਲ ਤਸਦੀਕ ਦੀ ਲੋੜ ਏ! ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਢਲੇ ਪਰਦੇ(screen) ਤੋਂ ਦਾਖਲ ਹੋਵੋ, ਅਤੇ ਆਪਣਾ ਈਮੇਲ ਤਸਦੀਕ ਕੋਡ ਦਰਜ ਕਰੋ।</string>
   <string name="onboarding_card_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="page_editing_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="reading_lists_sync_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
@@ -709,6 +712,7 @@
   <string name="notifications_filter_icon_content_description">ਫਿਲਟਰ ਸੂਚਨਾਵਾਂ</string>
   <string name="notifications_filter_update_app_languages">ਐਪ ਭਾਸ਼ਾਵਾਂ ਨੂੰ ਨਵਿਆਓ</string>
   <string name="notifications_empty_search_message">ਹੋਰ ਸੂਚਨਾਵਾਂ ਦੇਖਣ ਲਈ %s ਨੂੰ ਹਟਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+  <string name="notifications_select_all_filters">ਸਾਰੀਆਂ ਛਾਣਨੀਆਂ ਚੁਣੋ</string>
   <string name="notifications_tab_filter_all">ਸਾਰੇ</string>
   <string name="notifications_tab_filter_mentions">ਜ਼ਿਕਰ</string>
   <string name="notifications_search_bar_hint">ਸੂਚਨਾਵਾਂ ਦੀ ਖੋਜ ਕਰੋ ਜਾਂ ਛਾਣੋ</string>
@@ -719,6 +723,7 @@
   <string name="notifications_menu_check_all">ਸਾਰੀਆਂ ਚੀਜ਼ਾਂ ਚੁਣੋ</string>
   <string name="notifications_menu_uncheck_all">ਸਾਰੀਆਂ ਚੀਜ਼ਾ ਤੋਂ ਨਿਸ਼ਾਨ ਹਟਾਓ</string>
   <string name="notifications_wiki_filter_header">ਵਿਕੀ ਛਾਣਨੀ</string>
+  <string name="notifications_type_filter_header">ਛਾਣਨੀ ਦੀ ਕਿਸਮ</string>
   <string name="notifications_all_wikis_text">ਸਾਰਿਆਂ ਵਿਕੀਆਂ</string>
   <string name="notifications_all_types_text">ਸਾਰੀਆਂ ਕਿਸਮਾਂ</string>
   <string name="notifications_menu_user_talk_page">%s ਦਾ ਗੱਲਬਾਤ ਸਫ਼ਾ</string>
@@ -1276,9 +1281,11 @@
   <string name="watchlist_filter_watchlist_activity_unseen">ਅਣਦੇਖੀਆਂ ਤਬਦੀਲੀਆਂ</string>
   <string name="watchlist_filter_watchlist_activity_seen">ਤਬਦੀਲੀਆਂ ਵੇਖੀਆਂ</string>
   <string name="watchlist_filter_contribution_quality_header">ਯੋਗਦਾਨ ਗੁਣਵੱਤਾ ਦੀ ਭਵਿੱਖਬਾਣੀ</string>
+  <string name="watchlist_filter_contribution_quality_good">ਸ਼ਾਇਦ ਵਧੀਆ ਹੋਵੇਗਾ</string>
   <string name="watchlist_filter_contribution_quality_may_problems">ਸਮੱਸਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">ਸਮੱਸਿਆਵਾਂ ਹੋਣ ਦੀ ਸੰਭਾਵਨਾ ਹੈ।</string>
   <string name="watchlist_filter_contribution_quality_bad">ਸਮੱਸਿਆਵਾਂ ਹੋਣ ਦੀ ਬਹੁਤ ਸੰਭਾਵਨਾ ਹੈ।</string>
+  <string name="watchlist_filter_user_intent_good">ਸ਼ਾਇਦ ਵਧੀਆ ਨੀਅਤ ਨਾਲ</string>
   <string name="watchlist_filter_user_status_unregistered">ਨਾ-ਦਰਜ ਕੀਤਾ</string>
   <string name="watchlist_filter_user_status_registered">ਦਰਜ ਕੀਤਾ</string>
   <string name="watchlist_filter_user_status_newcomers">ਨਵੇਂ ਆਏ</string>
@@ -1408,7 +1415,9 @@
   <string name="patroller_tasks_filters_significance_minor">ਛੋਟੀਆਂ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_significance_edits">ਗੈਰ-ਮਾਮੂਲੀ ਸੋਧਾਂ</string>
   <string name="patroller_tasks_filters_contribution_quality_header">ਯੋਗਦਾਨ ਗੁਣਵੱਤਾ ਦੀ ਭਵਿੱਖਬਾਣੀ</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">ਸ਼ਾਇਦ ਵਧੀਆ ਹੋਵੇਗਾ</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">ਸਮੱਸਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ</string>
+  <string name="patroller_tasks_filters_user_intent_good">ਸ਼ਾਇਦ ਵਧੀਆ ਨੀਅਤ ਨਾਲ</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">ਲੇਖ ਸੋਧ ਇਤਿਹਾਸ</string>
   <string name="patroller_tasks_patrol_edit_undo_success">ਮੁੜ-ਵਾਪਸੀ ਪੂਰੀ ਹੋਈ</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਵਾਪਸ ਮੋੜਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>

@@ -18,6 +18,9 @@ interface PageImageDao {
     @Query("SELECT * FROM PageImage WHERE lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun findItemsBy(lang: String, namespace: String, apiTitle: String): List<PageImage>
 
+    @Query("DELETE FROM PageImage")
+    suspend fun deleteAll()
+
     @Transaction
     suspend fun upsertForTimeSpent(entry: HistoryEntry, timeSpent: Int) {
         val items = findItemsBy(entry.lang, entry.namespace, entry.apiTitle)
