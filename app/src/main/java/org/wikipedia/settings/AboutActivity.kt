@@ -286,7 +286,6 @@ fun AboutScreenBody(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-
         LinkTextWithHeader(
             header = stringResource(R.string.about_contributors_heading),
             html = stringResource(R.string.about_contributors)
