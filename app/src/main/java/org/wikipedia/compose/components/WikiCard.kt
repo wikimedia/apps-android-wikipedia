@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -14,6 +15,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -64,6 +66,7 @@ fun WikiCard(
 @Composable
 fun MessageCard(
     modifier: Modifier = Modifier,
+    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     title: String? = null,
     message: String,
     imageRes: Int? = null,
@@ -74,12 +77,20 @@ fun MessageCard(
     onContainerClick: (() -> Unit)? = null,
     isNegativeButtonVisible: Boolean = true
 ) {
-
-    WikiCard(modifier = modifier) {
+    WikiCard(
+        modifier = modifier,
+        isDarkTheme = isDarkTheme
+    ) {
         Column(
             modifier = Modifier
             .fillMaxWidth()
-            .clickable(enabled = onContainerClick != null) {
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = ripple(
+                    bounded = true,
+                    color = WikipediaTheme.colors.overlayColor
+                ),
+                enabled = onContainerClick != null) {
                 onContainerClick?.invoke()
             }
         ) {
@@ -198,5 +209,33 @@ private fun BorderAndElevationWikiTextPreview() {
                 color = WikipediaTheme.colors.progressiveColor
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MessageCardPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        MessageCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+            isDarkTheme = true,
+            title = "Title text",
+            message = "Message text",
+            positiveButtonText = "Positive button",
+            onPositiveButtonClick = {
+                // Handle positive button click
+            },
+            onContainerClick = {
+                // Handle container click
+            },
+            negativeButtonText = "Negative button",
+            onNegativeButtonClick = {
+                // Handle positive button click
+            }
+        )
     }
 }
