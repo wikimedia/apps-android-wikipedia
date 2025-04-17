@@ -146,18 +146,6 @@ fun WikiErrorView(
     }
 }
 
-@Preview
-@Composable
-private fun WikiErrorViewPreview() {
-    BaseTheme(
-        currentTheme = Theme.DARK
-    ) {
-        WikiErrorView(
-            caught = Exception()
-        )
-    }
-}
-
 private fun getClickEventForErrorType(
     wikiErrorClickEvents: WikiErrorClickEvents?,
     errorType: ComposeErrorType
@@ -192,7 +180,6 @@ private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?): ComposeErro
             isNotLoggedIn(it) -> {
                 return ComposeErrorType.LoggedOut()
             }
-            else -> {}
         }
     }
     return ComposeErrorType.Generic()
@@ -254,3 +241,15 @@ data class WikiErrorClickEvents(
     var nextClickListener: (() -> Unit)? = null,
     var loginClickListener: (() -> Unit)? = null,
 )
+
+@Preview
+@Composable
+private fun WikiErrorViewPreview() {
+    BaseTheme(
+        currentTheme = Theme.DARK
+    ) {
+        WikiErrorView(
+            caught = Exception()
+        )
+    }
+}
