@@ -34,7 +34,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
@@ -92,7 +91,6 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
-import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -124,7 +122,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private lateinit var markerPaintSrcIn: Paint
     private lateinit var markerBorderPaint: Paint
     private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
-    private val whiteBackgroundTransformation = WhiteBackgroundTransformation()
 
     private val searchRadius
         get() = mapboxMap?.let {
@@ -568,18 +565,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.mapView.onDestroy()
         _binding = null
 
-        // @TODO: this can be removed
         clearAnnotationCache()
         markerBitmapBase.recycle()
         super.onDestroyView()
     }
 
     private fun clearAnnotationCache() {
-        annotationCache.forEach {
-            if (it.bitmap != null) {
-                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
-            }
-        }
         annotationCache.clear()
     }
 
@@ -637,10 +628,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     manager.delete(removed.annotation)
                     if (!removed.pageTitle.thumbUrl.isNullOrEmpty()) {
                         mapboxMap?.style?.removeImage(removed.pageTitle.thumbUrl!!)
-                    }
-                    // @TODO: this can be removed
-                    if (removed.bitmap != null) {
-                        Glide.get(requireContext()).bitmapPool.put(removed.bitmap!!)
                     }
                 }
             }

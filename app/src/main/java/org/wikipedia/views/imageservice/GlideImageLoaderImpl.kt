@@ -20,6 +20,7 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.views.ViewUtil.getPlaceholderDrawable
@@ -159,6 +160,24 @@ class GlideImageLoaderImpl : ImageLoaderImpl {
                     onSuccess(resource)
                 }
 
+                override fun onLoadCleared(placeholder: Drawable?) {}
+            })
+    }
+
+    override fun getBitmapForWidget(
+        context: Context,
+        imageUrl: String?,
+        onSuccess: (Bitmap) -> Unit
+    ) {
+        Glide.with(context).asBitmap()
+            .load(imageUrl)
+            .override(256)
+            .downsample(DownsampleStrategy.CENTER_INSIDE)
+            .transform(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    onSuccess(resource)
+                }
                 override fun onLoadCleared(placeholder: Drawable?) {}
             })
     }

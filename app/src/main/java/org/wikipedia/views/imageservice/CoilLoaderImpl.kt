@@ -7,7 +7,6 @@ import android.widget.ImageView
 import androidx.core.graphics.createBitmap
 import androidx.core.net.toUri
 import androidx.palette.graphics.Palette
-import coil3.ImageLoader
 import coil3.imageLoader
 import coil3.request.ErrorResult
 import coil3.request.ImageRequest
@@ -140,7 +139,20 @@ class CoilLoaderImpl : ImageLoaderImpl {
                 }
             )
             .build()
-        ImageLoader(context).enqueue(request)
+        context.imageLoader.enqueue(request)
+    }
+
+    override fun getBitmapForWidget(context: Context, imageUrl: String?, onSuccess: (Bitmap) -> Unit) {
+        val request = ImageRequest.Builder(context)
+            .data(imageUrl)
+            .size(256)
+            .target(
+                onSuccess = { image ->
+                    onSuccess(image.toBitmap())
+                }
+            )
+            .build()
+        context.imageLoader.enqueue(request)
     }
 
     override fun getBitmapForMarker(context: Context): Bitmap {
