@@ -219,7 +219,17 @@ fun DefinitionWithExamples(
 fun WiktionaryDialogPreview() {
     WiktionaryDialogContent(
         title = "Lorem ipsum",
-        wiktionaryDialogState = Resource.Success(emptyList()),
+        wiktionaryDialogState = Resource.Success(
+            listOf(
+                RbDefinition.Usage(
+                    partOfSpeech = "Noun",
+                    definitions = listOf(
+                        RbDefinition.Definition("Foo", listOf("Example 1", "Example 2")),
+                        RbDefinition.Definition("Bar", listOf("Example 3", "Example 4"))
+                    )
+                )
+            )
+        ),
         onDialogLinkClick = {}
     )
 }
