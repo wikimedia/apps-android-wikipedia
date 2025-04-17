@@ -16,7 +16,7 @@ import org.wikipedia.extensions.applyMatrixWithBackground
 import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.util.log.L
 
-class CoilCenterCropWithFaceTransformation : Transformation() {
+class CenterCropWithFaceTransformation : Transformation() {
     override val cacheKey: String
         get() = "CoilCenterCropWithFaceTransformation"
 

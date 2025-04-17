@@ -22,7 +22,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.ViewUtil
 
-class CoilLoaderImpl : ImageLoaderImpl {
+class CoilImageLoader : ImageLoader {
     override fun loadImage(
         imageView: ImageView,
         url: String?,
@@ -51,10 +51,10 @@ class CoilLoaderImpl : ImageLoaderImpl {
             imageView.scaleType = ImageView.ScaleType.CENTER_CROP
             requestBuilder.transformations(
                 RoundedCornersTransformation(2f),
-                CoilWhiteBackgroundTransformation()
+                WhiteBackgroundTransformation()
             )
         } else {
-            requestBuilder.transformations(CoilWhiteBackgroundTransformation())
+            requestBuilder.transformations(WhiteBackgroundTransformation())
         }
 
         if (listener != null) {
@@ -94,8 +94,8 @@ class CoilLoaderImpl : ImageLoaderImpl {
             .error(placeholder)
             .transformations(
                 when {
-                    cropped && shouldDetectFace -> CoilCenterCropWithFaceTransformation()
-                    else -> CoilWhiteBackgroundTransformation()
+                    cropped && shouldDetectFace -> CenterCropWithFaceTransformation()
+                    else -> WhiteBackgroundTransformation()
                 }
             )
 
@@ -129,7 +129,7 @@ class CoilLoaderImpl : ImageLoaderImpl {
         val request = ImageRequest.Builder(context)
             .data(imageUrl)
             .apply {
-                if (imageTransformer != null && imageTransformer is CoilWhiteBackgroundTransformation) {
+                if (imageTransformer != null && imageTransformer is WhiteBackgroundTransformation) {
                     transformations(imageTransformer)
                 }
             }
@@ -161,6 +161,6 @@ class CoilLoaderImpl : ImageLoaderImpl {
     }
 
     override fun getWhiteBackgroundTransformer(): ImageTransformer {
-        return CoilWhiteBackgroundTransformation()
+        return WhiteBackgroundTransformation()
     }
 }

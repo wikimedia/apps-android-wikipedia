@@ -42,7 +42,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.imageservice.CoilLoaderImpl
+import org.wikipedia.views.imageservice.CoilImageLoader
 import org.wikipedia.views.imageservice.ImageService
 import java.util.UUID
 
@@ -172,7 +172,7 @@ class WikipediaApp : Application(), SingletonImageLoader.Factory {
 
         EventPlatformClient.setUpStreamConfigs()
 
-        ImageService.setImplementation(CoilLoaderImpl())
+        ImageService.setImplementation(CoilImageLoader())
     }
 
     /**

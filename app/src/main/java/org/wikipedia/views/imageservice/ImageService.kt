@@ -7,9 +7,9 @@ import android.widget.ImageView
 import androidx.palette.graphics.Palette
 
 object ImageService {
-    private var implementation: ImageLoaderImpl = CoilLoaderImpl()
+    private var implementation: ImageLoader = CoilImageLoader()
 
-    fun setImplementation(impl: ImageLoaderImpl) {
+    fun setImplementation(impl: ImageLoader) {
         implementation = impl
     }
 
@@ -61,7 +61,7 @@ interface ImageLoadListener {
     fun onError(error: Throwable)
 }
 
-interface ImageLoaderImpl {
+interface ImageLoader {
     fun loadImage(
         imageView: ImageView,
         url: String?,

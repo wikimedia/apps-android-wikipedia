@@ -8,7 +8,7 @@ import coil3.transform.Transformation
 import org.wikipedia.extensions.applyMatrixWithBackground
 import org.wikipedia.extensions.maybeDimImage
 
-class CoilWhiteBackgroundTransformation : Transformation(), ImageTransformer {
+class WhiteBackgroundTransformation : Transformation(), ImageTransformer {
     override val cacheKey: String
         get() = "CoilWhiteBackgroundTransformation"
 
