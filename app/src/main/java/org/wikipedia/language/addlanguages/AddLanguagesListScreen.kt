@@ -25,8 +25,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,8 +34,8 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
-import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -52,7 +52,6 @@ fun LanguagesListScreen(
     onLanguageSearched: (Boolean) -> Unit,
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
-    val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
 
     val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
@@ -64,8 +63,8 @@ fun LanguagesListScreen(
         modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
-                appBarTitle = context.getString(R.string.languages_list_activity_title),
-                placeHolderTitle = context.getString(R.string.search_hint_search_languages),
+                appBarTitle = stringResource(R.string.languages_list_activity_title),
+                placeHolderTitle = stringResource(R.string.search_hint_search_languages),
                 searchQuery = searchQuery,
                 onBackButtonClick = onBackButtonClick,
                 onSearchQueryChange = { value ->
@@ -101,7 +100,7 @@ fun LanguagesListScreen(
                         .padding(bottom = imeHeight),
                     contentAlignment = Alignment.Center
                 ) {
-                    ComposeWikiErrorParentView(
+                    WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth(),
                         caught = uiState.error,
@@ -123,7 +122,7 @@ fun LanguagesListScreen(
                         SearchEmptyView(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                            emptyTexTitle = stringResource(R.string.langlinks_no_match)
                         )
                     }
                     return@Scaffold
