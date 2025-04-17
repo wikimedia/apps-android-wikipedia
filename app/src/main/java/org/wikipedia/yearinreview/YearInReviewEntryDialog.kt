@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 
-class YearInReviewDialog : ExtendedBottomSheetDialogFragment() {
+class YearInReviewEntryDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,15 +23,15 @@ class YearInReviewDialog : ExtendedBottomSheetDialogFragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
-                    YearInReviewBottomSheet()
+                    YearInReviewEntryDialogScreen()
                 }
             }
         }
     }
 
     companion object {
-        fun newInstance(): YearInReviewDialog {
-            return YearInReviewDialog()
+        fun newInstance(): YearInReviewEntryDialog {
+            return YearInReviewEntryDialog()
         }
     }
 }
