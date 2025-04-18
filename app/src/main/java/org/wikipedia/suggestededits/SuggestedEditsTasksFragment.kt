@@ -374,9 +374,13 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(vandalismPatrolTask)
         }
 
-        if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
-            !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
-            displayedTasks.add(addDescriptionsTask)
+        val usesLocalDescriptions = DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode)
+        val sufficientContributionsForArticleDescription = viewModel.totalContributions > (if (usesLocalDescriptions) 50 else 3)
+        if (usesLocalDescriptions && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
+            !usesLocalDescriptions && viewModel.blockMessageWikidata.isNullOrEmpty()) {
+            if (sufficientContributionsForArticleDescription) {
+                displayedTasks.add(addDescriptionsTask)
+            }
         }
 
         // If app language is `de`, the local edits need to be > 50 edits. See https://phabricator.wikimedia.org/T351275
