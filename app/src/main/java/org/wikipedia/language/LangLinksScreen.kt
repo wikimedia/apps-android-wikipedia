@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
-import org.wikipedia.compose.components.error.ComposeWikiErrorParentView
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.UiState
 
@@ -94,7 +94,7 @@ fun ComposeLangLinksScreen(
                         .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
                     contentAlignment = Alignment.Center
                 ) {
-                    ComposeWikiErrorParentView(
+                    WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth(),
                         caught = uiState.error,
