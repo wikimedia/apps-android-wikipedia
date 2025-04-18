@@ -200,7 +200,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             }
         }
 
-        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.editSectionText,
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.editSectionText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
 
@@ -478,7 +478,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             else -> {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
-                binding.editSectionContainer.isVisible = false
+                binding.editSectionScroll.isVisible = false
                 editPreviewFragment.showPreview(viewModel.pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
                 supportActionBar?.title = getString(R.string.edit_preview)
@@ -626,7 +626,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
+            binding.editSectionScroll.isVisible = true
         }
     }
 
@@ -676,9 +676,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private fun displaySectionText() {
         showProgressBar(false)
         binding.editSectionText.setText(viewModel.sectionWikitext)
-        binding.editSectionContainer.isVisible = true
+        binding.editSectionScroll.isVisible = true
         binding.editSectionText.isEnabled = viewModel.editingAllowed
-        binding.editKeyboardOverlay.isVisible = viewModel.editingAllowed
         scrollToHighlight(viewModel.textToHighlight)
     }
 
@@ -731,7 +730,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
                 altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
             editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
+            binding.editSectionScroll.isVisible = true
             supportActionBar?.title = null
 
             // If we came from the Image Recommendations workflow, bring back the Add Image activity.
