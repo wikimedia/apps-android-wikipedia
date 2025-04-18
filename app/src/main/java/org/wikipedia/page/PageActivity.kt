@@ -59,7 +59,7 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.language.composelanglinks.LangLinksActivity
+import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity

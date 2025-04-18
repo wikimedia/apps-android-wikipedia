@@ -1,4 +1,4 @@
-package org.wikipedia.language.composelanglinks
+package org.wikipedia.language
 
 import android.os.Build
 import androidx.compose.foundation.clickable
