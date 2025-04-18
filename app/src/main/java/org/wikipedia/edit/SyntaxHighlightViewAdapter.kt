@@ -1,7 +1,6 @@
 package org.wikipedia.edit
 
 import android.content.Intent
-import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +21,6 @@ import org.wikipedia.search.SearchActivity
 class SyntaxHighlightViewAdapter(
     val activity: AppCompatActivity,
     val pageTitle: PageTitle,
-    private val rootView: View,
     val editText: SyntaxHighlightableEditText,
     private val wikiTextKeyboardView: WikiTextKeyboardView,
     private val wikiTextKeyboardFormattingView: WikiTextKeyboardFormattingView,
@@ -43,12 +41,15 @@ class SyntaxHighlightViewAdapter(
         wikiTextKeyboardView.userMentionVisible = showUserMention
         hideAllSyntaxModals()
 
-        ViewCompat.setOnApplyWindowInsetsListener(rootView) { _, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(activity.window.decorView) { _, insets ->
             val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
             hideAllSyntaxModals()
             wikiTextKeyboardView.isVisible = imeVisible && editText.isFocused
-            rootView.onApplyWindowInsets(insets.toWindowInsets())
             insets
+        }
+
+        editText.setOnFocusChangeListener { _, hasFocus ->
+            activity.window.decorView.requestApplyInsets()
         }
     }
 
