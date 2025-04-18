@@ -1,5 +1,7 @@
 package org.wikipedia.compose.components.error
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,13 +15,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
@@ -31,42 +29,46 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil.is404
+import org.wikipedia.util.ThrowableUtil.isEmptyException
+import org.wikipedia.util.ThrowableUtil.isNotLoggedIn
+import org.wikipedia.util.ThrowableUtil.isOffline
+import org.wikipedia.util.ThrowableUtil.isTimeout
 
 @Composable
-fun ComposeWikiErrorParentView(
+fun WikiErrorView(
     modifier: Modifier = Modifier,
     caught: Throwable?,
     pageTitle: PageTitle? = null,
-    viewModel: ComposeWikiErrorViewModel = viewModel(),
     errorClickEvents: WikiErrorClickEvents? = null,
 ) {
-    val context = LocalContext.current
-    val uiState by viewModel.uiState.collectAsState()
-    LaunchedEffect(Unit) {
-        viewModel.setError(caught, pageTitle, context)
-    }
-    ComposeWikiErrorView(
-        modifier = modifier,
-        errorType = uiState.errorType,
-        errorMessage = uiState.errorMessage,
-        footerErrorMessage = uiState.footerErrorMessage,
-        onButtonClick = viewModel.getClickEventForErrorType(errorClickEvents, uiState.errorType)
-    )
-}
+    val errorType = getErrorType(caught, pageTitle)
 
-@Composable
-fun ComposeWikiErrorView(
-    modifier: Modifier = Modifier,
-    errorType: ComposeErrorType,
-    errorMessage: String?,
-    footerErrorMessage: String?,
-    onButtonClick: (() -> Unit)? = null,
-) {
+    val errorMessage = when {
+        caught is MwException -> caught.message
+        errorType is ComposeErrorType.UserPageMissing && pageTitle != null -> stringResource(
+            errorType.text,
+            pageTitle.uri,
+            pageTitle.displayText,
+            StringUtil.removeNamespace(pageTitle.displayText)
+        )
+        else -> stringResource(errorType.text)
+    }
+
+    val footerErrorMessage = when {
+        errorType.hasFooterText -> stringResource(errorType.footerText)
+        caught != null && caught !is MwException -> caught.message
+        else -> null
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth(),
@@ -88,7 +90,7 @@ fun ComposeWikiErrorView(
                 .height(24.dp)
         )
 
-        if (errorMessage != null) {
+        if (errorMessage.isNotEmpty()) {
             Text(
                 text = AnnotatedString.fromHtml(
                     htmlString = errorMessage,
@@ -116,7 +118,7 @@ fun ComposeWikiErrorView(
             modifier = Modifier
                 .heightIn(min = 48.dp)
                 .widthIn(min = 0.dp),
-            onClick = { onButtonClick?.invoke() },
+            onClick = { getClickEventForErrorType(errorClickEvents, errorType)?.invoke() },
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.backgroundColor,
                 contentColor = WikipediaTheme.colors.placeholderColor
@@ -128,7 +130,7 @@ fun ComposeWikiErrorView(
                 )
             }
         )
-        if (footerErrorMessage != null) {
+        if (!footerErrorMessage.isNullOrEmpty()) {
             Spacer(
                 modifier = Modifier
                     .height(16.dp)
@@ -144,13 +146,109 @@ fun ComposeWikiErrorView(
     }
 }
 
+private fun getClickEventForErrorType(
+    wikiErrorClickEvents: WikiErrorClickEvents?,
+    errorType: ComposeErrorType
+): (() -> Unit)? {
+    return when (errorType) {
+        is ComposeErrorType.UserPageMissing,
+        is ComposeErrorType.PageMissing,
+        is ComposeErrorType.Generic -> wikiErrorClickEvents?.backClickListener
+        is ComposeErrorType.LoggedOut -> wikiErrorClickEvents?.loginClickListener
+        is ComposeErrorType.Empty -> wikiErrorClickEvents?.nextClickListener
+        is ComposeErrorType.Offline,
+        is ComposeErrorType.Timeout -> wikiErrorClickEvents?.retryClickListener
+    }
+}
+
+private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?): ComposeErrorType {
+    caught?.let {
+        when {
+            is404(it) -> {
+                return if (pageTitle?.namespace() == Namespace.USER) ComposeErrorType.UserPageMissing()
+                else ComposeErrorType.PageMissing()
+            }
+            isTimeout(it) -> {
+                return ComposeErrorType.Timeout()
+            }
+            isOffline(it) -> {
+                return ComposeErrorType.Offline()
+            }
+            isEmptyException(it) -> {
+                return ComposeErrorType.Empty()
+            }
+            isNotLoggedIn(it) -> {
+                return ComposeErrorType.LoggedOut()
+            }
+        }
+    }
+    return ComposeErrorType.Generic()
+}
+
+sealed class ComposeErrorType(
+    @DrawableRes val icon: Int,
+    @StringRes val text: Int,
+    @StringRes val buttonText: Int,
+    val hasFooterText: Boolean = false,
+    @StringRes val footerText: Int = 0,
+) {
+    class UserPageMissing : ComposeErrorType(
+        icon = R.drawable.ic_userpage_error_icon,
+        text = R.string.error_user_page_does_not_exist,
+        buttonText = R.string.page_error_back_to_main
+    )
+
+    class PageMissing : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.error_page_does_not_exist,
+        buttonText = R.string.page_error_back_to_main
+    )
+
+    class Timeout : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.view_wiki_error_message_timeout,
+        buttonText = R.string.offline_load_error_retry
+    )
+
+    class Offline : ComposeErrorType(
+        icon = R.drawable.ic_portable_wifi_off_black_24px,
+        text = R.string.view_wiki_error_message_offline,
+        buttonText = R.string.offline_load_error_retry
+    )
+
+    class Empty : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.error_message_generic,
+        buttonText = R.string.error_next
+    )
+
+    class LoggedOut : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.error_message_generic,
+        buttonText = R.string.reading_lists_login_button
+    )
+
+    class Generic : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.error_message_generic,
+        buttonText = R.string.error_back
+    )
+}
+
+data class WikiErrorClickEvents(
+    var retryClickListener: (() -> Unit)? = null,
+    var backClickListener: (() -> Unit)? = null,
+    var nextClickListener: (() -> Unit)? = null,
+    var loginClickListener: (() -> Unit)? = null,
+)
+
 @Preview
 @Composable
-private fun ComposeWikiErrorParentViewPreview() {
+private fun WikiErrorViewPreview() {
     BaseTheme(
         currentTheme = Theme.DARK
     ) {
-        ComposeWikiErrorParentView(
+        WikiErrorView(
             caught = Exception()
         )
     }

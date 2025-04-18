@@ -150,10 +150,9 @@
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
-            android:name=".language.LanguagesListActivity"
-            android:label="@string/languages_list_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+            android:name=".language.addlanguages.AddLanguagesListActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"

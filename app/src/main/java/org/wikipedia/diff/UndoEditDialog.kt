@@ -7,13 +7,11 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
 import org.wikipedia.util.ResourceUtil
 
 class UndoEditDialog(
-    private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
     context: Context,
     source: Constants.InvokeSource?,
     callback: Callback
@@ -41,7 +39,6 @@ class UndoEditDialog(
             if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
                 PatrollerExperienceEvent.logAction("undo_cancel", "pt_edit")
             }
-            editHistoryInteractionEvent?.logUndoCancel()
         }
 
         binding.textInput.doOnTextChanged { text, _, _, _ ->
