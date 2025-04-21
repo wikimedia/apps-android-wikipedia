@@ -7,12 +7,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.util.Resource
 
 class YearInReviewActivity : ComponentActivity() {
 
@@ -24,8 +27,8 @@ class YearInReviewActivity : ComponentActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val yirViewModel = YearInReviewViewModel()
-                val personalizedScreenList = yirViewModel.personalizedScreenList
+                val yirViewModel: YearInReviewViewModel = viewModel()
+                val screenState = yirViewModel.uiScreenListState.collectAsState().value
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
@@ -56,32 +59,36 @@ class YearInReviewActivity : ComponentActivity() {
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData,
-                                    viewModel = yirViewModel
                                 )
                             },
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
-                        YearInReviewScreen(
-                            totalPages = personalizedScreenList.size,
-                            contentData = personalizedScreenList,
-                            navController = navController,
-                            customBottomBar = { pagerState -> MainBottomBar(
-                                onNavigationRightClick = {
-                                    coroutineScope.launch {
-                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                    }
-                                },
-                                pagerState = pagerState,
-                                totalPages = personalizedScreenList.size) },
-                            screenContent = { innerPadding, contentData ->
-                                YearInReviewScreenContent(
-                                    innerPadding = innerPadding,
-                                    screenData = contentData,
-                                    viewModel = yirViewModel
+                        when (screenState) {
+                            is Resource.Loading -> {} // Re-route to dedicated loading screen or adding loading composable
+                            is Resource.Success -> {
+                                YearInReviewScreen(
+                                    totalPages = screenState.data.size,
+                                    contentData = screenState.data,
+                                    navController = navController,
+                                    customBottomBar = { pagerState -> MainBottomBar(
+                                        onNavigationRightClick = {
+                                            coroutineScope.launch {
+                                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                            }
+                                        },
+                                        pagerState = pagerState,
+                                        totalPages = screenState.data.size) },
+                                    screenContent = { innerPadding, contentData ->
+                                        YearInReviewScreenContent(
+                                            innerPadding = innerPadding,
+                                            screenData = contentData,
+                                        )
+                                    },
                                 )
-                            },
-                        )
+                            }
+                            else -> {} // Re-Route to a dedicated error screen or load Error composable
+                        }
                     }
                     /*
                     This is a temporary route for testing only.

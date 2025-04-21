@@ -2,17 +2,11 @@ package org.wikipedia.yearinreview
 
 import org.wikipedia.R
 
-enum class PersonalizedJobID {
-    READ_COUNT,
-    EDIT_COUNT,
-    ONBOARDING
-}
-
 data class YearInReviewScreenData(
     val imageResource: Int,
     val headLineText: Int,
     val bodyText: Int,
-    var fetchedArgs: MutableList<String>? = null
+    var fetchedArgs: List<String>? = null
 )
 
 data class YearInReviewTextData(
@@ -52,5 +46,3 @@ val nonEnglishCollectiveEditCountData = YearInReviewScreenData(
     headLineText = R.string.year_in_review_non_english_collective_editcount_headline,
     bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
 )
-
-

@@ -24,7 +24,7 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate ")
     suspend fun getHistoryCount(startDate: Long, endDate: Long): Int
 
-    @Query("SELECT DISTINCT apiTitle FROM HistoryEntry ORDER BY random() LIMIT 3")
+    @Query("SELECT DISTINCT REPLACE(apiTitle, \"_\", \" \") FROM HistoryEntry ORDER BY random() LIMIT 3")
     suspend fun getApiTitles(): List<String>
 
     @Query("DELETE FROM HistoryEntry")
