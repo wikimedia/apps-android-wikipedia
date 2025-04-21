@@ -1796,4 +1796,8 @@
   <string name="year_in_review_read_count_bodytext">Body text for the year in review readcount page. The first \"%s\" represents the total number of articles in the HistoryEntry table for the current year. The second \"%s\ is one article, the third \"%s\ is an additional article, and the 4th \"%s\ is a the last artcile</string>
   <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
   <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
+  <string name="year_in_review_non_english_collective_readcount_headline">Headline text for the year in review non-english collective read count screen</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">Body text for the year in review non-english collective edit count screen</string>
 </resources>
