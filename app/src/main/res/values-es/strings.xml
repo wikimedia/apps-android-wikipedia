@@ -1016,6 +1016,7 @@
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Subtitular imágenes</string>
   <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
+  <string name="suggested_edits_edit_patrol">Patruya de ediciones</string>
   <string name="suggested_edits_edit_patrol_hint">Revisa las ediciones recientes y determina si son constructivas o no.</string>
   <string name="suggested_edits_edit_patrol_review">Revisar</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
@@ -1673,6 +1674,11 @@
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial de ediciones del artículo</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversión completada</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">¿Estás seguro que quieres deshacer la edición?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Reversión completada</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Ver</string>
+  <string name="patroller_tasks_overflow_report">Problema con la función</string>
+  <string name="patroller_tasks_overflow_learn">Más información</string>
+  <string name="patroller_onboarding_one_title">Contribuir a la supervisión y aprobación de las ediciones de Wikipedia.</string>
   <string name="patroller_onboarding_two_talk_title">Discusión</string>
   <string name="patroller_onboarding_two_talk_content">Comunicarse con otros editores. Guarde los mensajes de la página de discusión de uso común o use una plantilla.</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>

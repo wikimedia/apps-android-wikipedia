@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aaribaud
 * Alno
+* Bananax47
 * Bbernrd
 * BlueCamille
 * Blurby
@@ -82,6 +83,9 @@
   <string name="search_hint">Rechercher Wikipédia</string>
   <string name="search_hint_voice_search">Recherche de saisi vocale</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
+  <string name="search_back_button_content_description">Revenir en arrière</string>
+  <string name="search_clear_query_content_description">Effacer la requête</string>
+  <string name="search_icon_content_description">Rechercher</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
@@ -211,8 +215,10 @@
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
   <string name="account_creation_password_hint">Mot de passe</string>
-  <string name="login_2fa_hint" fuzzy="true">Code d’authentification à deux facteurs</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Authentification à deux facteurs requise ! Veuillez revenir à l’activité principale et vous connecter avec votre jeton d’authentification, puis réessayez.</string>
+  <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Veuillez vous reconnecter depuis l’écran principal avec votre authentification a double facteur.</string>
+  <string name="login_email_auth_hint">Code de vérification par email</string>
+  <string name="login_email_auth_other_workflow_error_msg">Vérification de l\'adresse e-mail requise ! Veuillez vous connecter depuis l\'écran principal et saisir votre code de vérification.</string>
   <string name="onboarding_card_login">Se connecter</string>
   <string name="page_editing_login">Se connecter</string>
   <string name="reading_lists_sync_login">Se connecter</string>
@@ -1452,10 +1458,10 @@
   <string name="revision_compare_two_only">Seulement deux versions peuvent être sélectionnées.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pour 1 semaine</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pour 1 mois</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pour 3 mois</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pour 6 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 semaine</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mois</string>
   <string name="watchlist_expiry_dialog_title">Sélectionner la période de temps de la liste de suivi</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semaine</string>
@@ -1804,4 +1810,5 @@
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
   <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
+  <string name="about_screen_logo_accessibility_text">Logo du globe-puzzle Wikipédia</string>
 </resources>
