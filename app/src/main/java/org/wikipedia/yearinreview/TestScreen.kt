@@ -25,7 +25,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.bumptech.glide.Glide
@@ -105,51 +104,3 @@ fun TestScreen(
         }
     }
 }
-
-@Preview
-@Composable
-fun PreviewTestScreen() {
-    // TestScreen()
-}
-
-/*
-
-when (derivedMapState.value) {
-            is Resource.Loading -> {
-                Text(
-                    text = "LOADING",
-                    fontSize = 20.sp,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-            }
-
-            is Resource.Success -> {
-                val fetchedHeadLine =
-                    (derivedMapState.value as Resource.Success<YearInReviewTextData>).data.headLineText
-                val fetchedBodyText =
-                    (derivedMapState.value as Resource.Success<YearInReviewTextData>).data.bodyText
-                Text(
-                    text = String.format(
-                        stringResource(screenDataObj.headLineText),
-                        fetchedHeadLine
-                    ),
-                    fontSize = 20.sp,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-
-                Text(
-                    text = String.format(stringResource(screenDataObj.bodyText), fetchedBodyText),
-                    fontSize = 20.sp,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-            }
-
-            else -> {
-                Text(
-                    text = "Error",
-                    fontSize = 30.sp,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-            }
-        }
- */

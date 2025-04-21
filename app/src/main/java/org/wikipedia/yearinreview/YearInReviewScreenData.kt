@@ -9,11 +9,6 @@ data class YearInReviewScreenData(
     var fetchedArgs: List<String>? = null
 )
 
-data class YearInReviewTextData(
-    val headLineText: String,
-    val bodyText: String
-)
-
 val getStartedData = YearInReviewScreenData(
     imageResource = R.drawable.year_in_review_block_10_resize,
     headLineText = R.string.year_in_review_get_started_headline,
