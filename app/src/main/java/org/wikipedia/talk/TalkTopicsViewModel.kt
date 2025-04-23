@@ -107,7 +107,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
             threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
-            val watchStatus = if (AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite)
+            val watchStatus = if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite)
                     .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
