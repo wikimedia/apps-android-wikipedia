@@ -32,6 +32,7 @@ import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
 import java.time.Instant
 import java.time.LocalDate
+import java.time.Year
 import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
@@ -162,7 +163,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
                         response.query?.pages?.flatMap { page ->
                             page.categoriesProps?.map { category ->
-                                Category(title = category.title, lang = title.wikiSite.languageCode, count = 1)
+                                Category(title = category.title, lang = title.wikiSite.languageCode, count = 1, year = Year.now().value.toLong())
                             }.orEmpty()
                         }.orEmpty()
                     }
@@ -184,10 +185,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             println("orange --> thread ${Thread.currentThread()}")
                             categoriesResponse.forEach { category ->
                                 println("orange --> adding to db")
-                                AppDatabase.instance.categoryDao().insertOrIncrement(
-                                    title = category.title,
-                                    lang = title.wikiSite.languageCode
-                                )
+//                                AppDatabase.instance.categoryDao().insertOrIncrement(
+//                                    title = category.title,
+//                                    lang = title.wikiSite.languageCode
+//                                )
+                                AppDatabase.instance.categoryDao().upsert(category)
                             }
                         }
                     }

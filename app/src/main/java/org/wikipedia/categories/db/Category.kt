@@ -11,7 +11,7 @@ data class Category(
     val title: String,
     val lang: String,
     val count: Long,
-    val date: Long = System.currentTimeMillis()
+    val year: Long
 )
 
 // for the API response
