@@ -493,4 +493,19 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Year in review">
+        <Preference
+            android:key="@string/preference_key_year_in_review_add_categories"
+            android:title="@string/preference_key_year_in_review_add_categories"/>
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            android:key="@string/preference_key_year_in_review_see_data"
+            android:title="@string/preference_key_year_in_review_see_data" />
+
+        <Preference
+            android:key="@string/preference_key_year_in_review_delete_all_categories"
+            android:title="@string/preference_key_year_in_review_delete_all_categories"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

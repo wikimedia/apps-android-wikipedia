@@ -24,6 +24,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.CategoryTestUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
 
@@ -204,6 +205,14 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
             OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
             FeedbackUtil.showMessage(activity, "Notification state reset.")
+            true
+        }
+        findPreference(R.string.preference_key_year_in_review_add_categories).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            CategoryTestUtil.addTestData(activity)
+            true
+        }
+        findPreference(R.string.preference_key_year_in_review_delete_all_categories).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            CategoryTestUtil.deleteAllCategories(activity)
             true
         }
     }
