@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -27,7 +28,7 @@ import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistViewModel
 
-class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boolean) : ViewModel() {
+class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
 
     private val talkPageDao = AppDatabase.instance.talkPageSeenDao()
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -106,12 +107,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
 
-            if (WikipediaApp.instance.isOnline) {
-                val watchStatus = if (!sidePanel) ServiceFactory.get(pageTitle.wikiSite)
-                        .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
-                isWatched = watchStatus.watched
-                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
-            }
+            val watchStatus = if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite)
+                    .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
+            isWatched = watchStatus.watched
+            hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
@@ -214,10 +213,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         }
     }
 
-    class Factory(private val pageTitle: PageTitle, private val sidePanel: Boolean = false) : ViewModelProvider.Factory {
+    class Factory(private val pageTitle: PageTitle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return TalkTopicsViewModel(pageTitle.copy(), sidePanel) as T
+            return TalkTopicsViewModel(pageTitle.copy()) as T
         }
     }
 
