@@ -74,8 +74,7 @@ fun MessageCard(
     negativeButtonText: String? = null,
     onPositiveButtonClick: (() -> Unit)? = null,
     onNegativeButtonClick: (() -> Unit)? = null,
-    onContainerClick: (() -> Unit)? = null,
-    isNegativeButtonVisible: Boolean = true
+    onContainerClick: (() -> Unit)? = null
 ) {
     WikiCard(
         modifier = modifier,
@@ -138,7 +137,7 @@ fun MessageCard(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    if (positiveButtonText != null) {
+                    if (!positiveButtonText.isNullOrEmpty()) {
                         AppButton(
                             onClick = { onPositiveButtonClick?.invoke() },
                             modifier = Modifier.padding(end = 8.dp),
@@ -152,7 +151,7 @@ fun MessageCard(
                         }
                     }
 
-                    if (negativeButtonText != null && isNegativeButtonVisible) {
+                    if (!negativeButtonText.isNullOrEmpty()) {
                         AppTextButton(
                             onClick = { onNegativeButtonClick?.invoke() }
                         ) {
