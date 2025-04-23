@@ -3,14 +3,17 @@ package org.wikipedia.page
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -115,66 +118,112 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoad() {
         model.title?.let { title ->
-            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                L.e("Page details network error: ", throwable)
-                commonSectionFetchOnCatch(throwable)
-            }) {
-                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
+            fragment.lifecycleScope.launch(
+                context = CoroutineExceptionHandler { _, throwable ->
+                    L.e("Page details network error: ", throwable)
+                    commonSectionFetchOnCatch(throwable)
+                },
+                block = {
+                    model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
-                fragment.updateQuickActionsAndMenuOptions()
-                fragment.requireActivity().invalidateOptionsMenu()
-                fragment.callback()?.onPageUpdateProgressBar(true)
-                model.page = null
-                val delayLoadHtml = title.prefixedText.contains(":")
-                if (!delayLoadHtml) {
-                    bridge.resetHtml(title)
-                }
-                if (title.namespace() === Namespace.SPECIAL) {
-                    // Short-circuit the entire process of fetching the Summary, since Special: pages
-                    // are not supported in RestBase.
-                    bridge.resetHtml(title)
-                    leadImagesHandler.loadLeadImage()
+                    fragment.updateQuickActionsAndMenuOptions()
                     fragment.requireActivity().invalidateOptionsMenu()
-                    fragment.onPageMetadataLoaded()
-                    return@launch
-                }
-
-                val pageSummaryRequest = async {
-                    ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
-                        saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                        langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
-                }
-                val watchedRequest = async {
-                    if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
-                        ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
-                    } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
-                        AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    } else {
-                        MwQueryResponse()
+                    fragment.callback()?.onPageUpdateProgressBar(true)
+                    model.page = null
+                    val delayLoadHtml = title.prefixedText.contains(":")
+                    if (!delayLoadHtml) {
+                        bridge.resetHtml(title)
                     }
-                }
+                    if (title.namespace() === Namespace.SPECIAL) {
+                        // Short-circuit the entire process of fetching the Summary, since Special: pages
+                        // are not supported in RestBase.
+                        bridge.resetHtml(title)
+                        leadImagesHandler.loadLeadImage()
+                        fragment.requireActivity().invalidateOptionsMenu()
+                        fragment.onPageMetadataLoaded()
+                        return@launch
+                    }
 
-                val pageSummaryResponse = pageSummaryRequest.await()
-                val watchedResponse = watchedRequest.await()
-                val isWatched = watchedResponse.query?.firstPage()?.watched == true
-                val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
-                if (pageSummaryResponse.body() == null) {
-                    throw RuntimeException("Summary response was invalid.")
-                }
-                val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-                createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                }
-                if (delayLoadHtml) {
-                    bridge.resetHtml(title)
-                }
-                fragment.onPageMetadataLoaded(redirectedFrom)
+                    val pageSummaryRequest = async {
+                        ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
+                            saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                            langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
+                    }
+                    val watchedRequest = async {
+                        if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
+                            ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
+                        } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                            AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+                        } else {
+                            MwQueryResponse()
+                        }
+                    }
+                    val categoriesRequest = async {
+                        val response =  ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+                        response.query?.pages?.flatMap { page ->
+                            page.categoriesProps?.map { category ->
+                                Category(title = category.title, lang = title.wikiSite.languageCode, count = 1 )
+                            }.orEmpty()
+                        }.orEmpty()
+                    }
+                    val pageSummaryResponse = pageSummaryRequest.await()
+                    val watchedResponse = watchedRequest.await()
+                    val categoriesResponse = categoriesRequest.await()
+                    val isWatched = watchedResponse.query?.firstPage()?.watched == true
+                    val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
+                    if (pageSummaryResponse.body() == null) {
+                        throw RuntimeException("Summary response was invalid.")
+                    }
+                    val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
+                    createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+                    if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
+                        showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
+                    }
+                    if (categoriesResponse.isNotEmpty()) {
+                        withContext(Dispatchers.IO) {
+                            println("orange --> thread ${Thread.currentThread()}")
+                            categoriesResponse.forEach { category ->
+                                println("orange --> adding to db")
+                                AppDatabase.instance.categoryDao().insertOrIncrement(
+                                    title = category.title,
+                                    lang = title.wikiSite.languageCode
+                                )
+                            }
+                        }
+                    }
+                    if (delayLoadHtml) {
+                        bridge.resetHtml(title)
+                    }
+                    fragment.onPageMetadataLoaded(redirectedFrom)
 
-                if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
-                    checkAnonNotifications(title)
-                }
+                    if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                        checkAnonNotifications(title)
+                    }
             }
+            )
+
+            // independent call
+            // edge case: if user navigates away from the page, if network is slow then all categories
+            // may not be added to db or if db insertion is slow for some unknown reason
+//            fragment.lifecycleScope.launch(
+//                context = CoroutineExceptionHandler { _, throwable ->
+//                    L.e("categories api/db error: ", throwable)
+//                    commonSectionFetchOnCatch(throwable)
+//                },
+//                block = {
+//                    val response =  ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+//                    response.query?.pages?.flatMap { page ->
+//                        page.categoriesProps?.map { category ->
+//                            delay(5000)
+//                            println("orange --> adding to db")
+//                            AppDatabase.instance.categoryDao().insertOrIncrement(
+//                                title = category.title,
+//                                lang = title.wikiSite.languageCode
+//                            )
+//                        }.orEmpty()
+//                    }.orEmpty()
+//                }
+//            )
         }
     }
 
