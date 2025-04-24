@@ -1750,12 +1750,12 @@
   <string name="places_card_title">Lugares cercanos</string>
   <string name="places_card_action">Más lugares cercanos</string>
   <string name="survey_dialog_title">Ayúdanos a mejorar esta función</string>
-  <string name="survey_dialog_message">¿Esta característica te ha satisfecho?{{GENDER:{{{username}}}|||&lt;br/&gt;(Las palabras se muestran según el género que estableciste en tu cuenta)}}</string>
-  <string name="survey_dialog_option_satisfied">{{GENDER:{{{username}}}|Satisfecho|Satisfecha|Satisfeche}}</string>
+  <string name="survey_dialog_message">¿Esta característica te ha satisfecho?(Las palabras se muestran según el género que estableciste en tu cuenta)</string>
+  <string name="survey_dialog_option_satisfied">Satisfecho</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
-  <string name="survey_dialog_option_unsatisfied">{{GENDER:{{{username}}}|Insatisfecho|Insatisfecha|Insatisfeche}}</string>
-  <string name="survey_dialog_option_very_satisfied">{{GENDER:{{{username}}}|Muy satisfecho|Muy satisfecha|Muy satisfeche}}</string>
-  <string name="survey_dialog_option_very_unsatisfied">{{GENDER:{{{username}}}|Muy insatisfecho|Muy insatisfecha|Muy insatisfeche}}</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfecho</string>
+  <string name="survey_dialog_option_very_satisfied">Muy satisfecho</string>
+  <string name="survey_dialog_option_very_unsatisfied">Muy insatisfecho</string>
   <string name="survey_dialog_cancel">Cancelar</string>
   <string name="survey_dialog_submit">Enviar</string>
   <string name="survey_dialog_next">Siguiente</string>
