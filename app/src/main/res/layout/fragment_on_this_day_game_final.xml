@@ -73,6 +73,14 @@
                         app:drawableTint="@color/gray700"
                         android:drawablePadding="6dp"
                         tools:text="Lorem ipsum"/>
+                    
+                    <Button
+                        android:id="@+id/shareButton"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/on_this_day_game_share_button"/>
 
                 </LinearLayout>
 
@@ -249,17 +257,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/shareButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/on_this_day_game_share"
-        app:tint="?attr/background_color"
-        app:srcCompat="@drawable/ic_share"
-        app:backgroundTint="?attr/progressive_color"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
