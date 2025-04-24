@@ -163,7 +163,7 @@ object DateUtil {
     }
 
     fun yearToStringWithEra(year: Int): String {
-        val cal: Calendar = GregorianCalendar(year, 1, 1)
+        val cal: Calendar = GregorianCalendar(if (year < 0) year + 1 else year, 1, 1)
         return getDateStringWithSkeletonPattern(cal.time, if (year < 0) "y GG" else "y")
     }
 
