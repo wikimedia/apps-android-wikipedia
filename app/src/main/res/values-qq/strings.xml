@@ -1773,6 +1773,8 @@
   <string name="on_this_day_game_report_email_body">Body of email for sending a report about a problem with the Wikipedia games feature.</string>
   <string name="on_this_day_game_notification_undo">Snackbar action text when users turn on or off the game notification.</string>
   <string name="on_this_day_game_share_link_message">Text message when users share the game link. The \"%s\" symbol is replaced with the game link.</string>
+  <string name="on_this_day_game_share_screen_title">Text for the Wikipedia games share screen. The %1$d symbol is replaced with the number of correct answers, %2$d is the total number of questions.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Text for the article list title in the Wikipedia games share screen.</string>
   <string name="on_this_day_game_survey_q1">The first question in a survey about the game feature.</string>
   <string name="on_this_day_game_survey_q2">The second question in a survey about the game feature.</string>
   <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>

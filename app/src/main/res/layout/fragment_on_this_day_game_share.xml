@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color">
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/shareContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:clipToPadding="false"
+                android:background="?attr/paper_color"
+                android:orientation="vertical">
+
+                <org.wikipedia.views.WikiCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:strokeColor="?attr/highlight_color"
+                    app:hasBorder="true">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:id="@+id/resultText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/H1.Article"
+                            android:textColor="?attr/primary_color"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="I scored 4/5 on 'Which Came First' today."/>
+
+                        <View
+                            android:id="@+id/questionDotLine"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="?attr/inactive_color"
+                            android:layout_marginHorizontal="4dp"
+                            app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
+                            app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
+                            app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
+                            app:layout_constraintBottom_toBottomOf="@id/questionDotsFlow" />
+
+                        <androidx.constraintlayout.helper.widget.Flow
+                            android:id="@+id/questionDotsFlow"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintTop_toBottomOf="@id/resultText"
+                            app:layout_constraintStart_toStartOf="@id/resultText"
+                            app:flow_horizontalBias="0"
+                            app:flow_horizontalGap="16dp"
+                            app:flow_verticalAlign="center"
+                            app:flow_wrapMode="chain" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </org.wikipedia.views.WikiCardView>
+
+                <TextView
+                    android:id="@+id/shareSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/H2.AppBar"
+                    android:textColor="?attr/primary_color"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/on_this_day_game_share_screen_subtitle"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/shareArticlesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/donation_campaign_go_back_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
