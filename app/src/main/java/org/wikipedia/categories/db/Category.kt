@@ -5,18 +5,23 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @Entity(
-    primaryKeys = ["title", "lang"]
+    primaryKeys = ["title", "lang", "timeStamp"]
 )
 data class Category(
     val title: String,
     val lang: String,
-    val count: Long,
-    val year: Long
+    val timeStamp: Long = System.currentTimeMillis(),
 )
 
 // for the API response
 @Serializable
-data class CategoryDto(
+data class CategoryResponse(
     val ns: Int,
     val title: String
+)
+
+data class CategoryCount(
+    val title: String,
+    val lang: String,
+    val count: Long
 )

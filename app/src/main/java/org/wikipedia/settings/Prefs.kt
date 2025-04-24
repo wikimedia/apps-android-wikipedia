@@ -773,8 +773,4 @@ object Prefs {
             OnThisDayGameNotificationState.valueOf(it)
         } ?: OnThisDayGameNotificationState.NO_INTERACTED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
-
-    var yearInReviewData
-        get() = PrefsIoUtil.getString(R.string.preference_key_year_in_review_see_data, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_year_in_review_see_data, value)
 }

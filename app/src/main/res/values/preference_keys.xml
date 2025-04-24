@@ -178,7 +178,4 @@
     <string name="preference_key_otd_game_survey_shown">otdGameSurveyShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
-    <string name="preference_key_year_in_review_add_categories">addYearInReviewCategories</string>
-    <string name="preference_key_year_in_review_see_data">seeYearInReviewData</string>
-    <string name="preference_key_year_in_review_delete_all_categories">deleteAllYearInReviewData</string>
 </resources>

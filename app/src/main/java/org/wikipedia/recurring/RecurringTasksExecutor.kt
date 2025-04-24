@@ -15,6 +15,7 @@ class RecurringTasksExecutor() {
         MainScope().launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
+            CategoriesTableCleanupTask().runIfNecessary()
             RemoteConfigRefreshTask().runIfNecessary()
             DailyEventTask(app).runIfNecessary()
             TalkOfflineCleanupTask(app).runIfNecessary()

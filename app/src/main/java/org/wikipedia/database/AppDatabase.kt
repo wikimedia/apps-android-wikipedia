@@ -277,9 +277,8 @@ abstract class AppDatabase : RoomDatabase() {
                 db.execSQL("CREATE TABLE category (" +
                         "title TEXT NOT NULL," +
                         "lang TEXT NOT NULL," +
-                        "count INTEGER NOT NULL," +
-                        "date INTEGER NOT NULL," +
-                        "PRIMARY KEY (title, lang)" +
+                        "timeStamp INTEGER NOT NULL," +
+                        "PRIMARY KEY (title, lang, timeStamp)" +
                         ");")
             }
         }

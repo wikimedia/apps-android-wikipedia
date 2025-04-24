@@ -32,7 +32,6 @@ import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
 import java.time.Instant
 import java.time.LocalDate
-import java.time.Year
 import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
@@ -163,7 +162,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
                         response.query?.pages?.flatMap { page ->
                             page.categoriesProps?.map { category ->
-                                Category(title = category.title, lang = title.wikiSite.languageCode, count = 1, year = Year.now().value.toLong())
+                                Category(title = category.title, lang = title.wikiSite.languageCode)
                             }.orEmpty()
                         }.orEmpty()
                     }
@@ -182,14 +181,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     }
                     if (categoriesResponse.isNotEmpty()) {
                         withContext(Dispatchers.IO) {
-                            println("orange --> thread ${Thread.currentThread()}")
                             categoriesResponse.forEach { category ->
-                                println("orange --> adding to db")
-//                                AppDatabase.instance.categoryDao().insertOrIncrement(
-//                                    title = category.title,
-//                                    lang = title.wikiSite.languageCode
-//                                )
-                                AppDatabase.instance.categoryDao().upsert(category)
+                                AppDatabase.instance.categoryDao().insert(category)
                             }
                         }
                     }
@@ -203,29 +196,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     }
             }
             )
-
-            // independent call
-            // edge case: if user navigates away from the page, if network is slow then all categories
-            // may not be added to db or if db insertion is slow for some unknown reason
-//            fragment.lifecycleScope.launch(
-//                context = CoroutineExceptionHandler { _, throwable ->
-//                    L.e("categories api/db error: ", throwable)
-//                    commonSectionFetchOnCatch(throwable)
-//                },
-//                block = {
-//                    val response =  ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
-//                    response.query?.pages?.flatMap { page ->
-//                        page.categoriesProps?.map { category ->
-//                            delay(5000)
-//                            println("orange --> adding to db")
-//                            AppDatabase.instance.categoryDao().insertOrIncrement(
-//                                title = category.title,
-//                                lang = title.wikiSite.languageCode
-//                            )
-//                        }.orEmpty()
-//                    }.orEmpty()
-//                }
-//            )
         }
     }
 
