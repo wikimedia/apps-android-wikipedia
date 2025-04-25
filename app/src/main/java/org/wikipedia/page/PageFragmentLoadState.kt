@@ -200,7 +200,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private fun checkAnonNotifications(title: PageTitle) {
-        fragment.lifecycleScope.launch {
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             val response = ServiceFactory.get(title.wikiSite)
                 .getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
