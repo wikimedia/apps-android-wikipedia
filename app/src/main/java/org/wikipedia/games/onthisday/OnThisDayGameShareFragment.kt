@@ -47,10 +47,6 @@ class OnThisDayGameShareFragment : Fragment() {
 
         buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
 
-        binding.backButton.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
-
         binding.shareContainer.post {
             val shareMessage = getString(R.string.on_this_day_game_share_link_message,
                 getString(R.string.on_this_day_game_share_url))
@@ -73,7 +69,7 @@ class OnThisDayGameShareFragment : Fragment() {
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.shareArticlesList.isNestedScrollingEnabled = false
-        binding.shareArticlesList.adapter = RecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(3))
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(articlesMentioned)
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
