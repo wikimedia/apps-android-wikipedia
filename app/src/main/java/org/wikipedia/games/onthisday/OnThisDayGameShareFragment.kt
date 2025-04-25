@@ -45,16 +45,18 @@ class OnThisDayGameShareFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        buildSharableContent(viewModel.getCurrentGameState())
+        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
 
         binding.backButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
         binding.shareContainer.post {
+            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
+                getString(R.string.on_this_day_game_share_url))
             binding.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
                 ShareUtil.shareImage(lifecycleScope, requireContext(), this, "on_this_day_game_" + LocalDate.now(),
-                    binding.resultText.text.toString(), binding.resultText.text.toString())
+                    binding.resultText.text.toString(), shareMessage)
             }
         }
     }
@@ -64,14 +66,14 @@ class OnThisDayGameShareFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState) {
+    private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
         binding.shareContainer.visibility = View.VISIBLE
         val totalCorrect = gameState.answerState.count { it }
         binding.resultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.shareArticlesList.isNestedScrollingEnabled = false
-//        binding.shareArticlesList.adapter = RecyclerViewAdapter(gameState.articles.filterIndexed { index, _ -> index % 2 == 0 }.take(3))
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(3))
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
@@ -95,7 +97,7 @@ class OnThisDayGameShareFragment : Fragment() {
             dotView.id = viewId
             dotView.isVisible = true
 
-            binding.shareContainer.addView(dotView)
+            binding.scoreContainer.addView(dotView)
         }
         binding.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
     }

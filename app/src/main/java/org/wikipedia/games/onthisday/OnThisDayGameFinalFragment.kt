@@ -71,10 +71,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-
-            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
-                getString(R.string.on_this_day_game_share_url))
-            ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
+            requireActivity().supportFragmentManager.beginTransaction()
+                .add(R.id.fragmentContainer, OnThisDayGameShareFragment.newInstance(viewModel.invokeSource))
+                .addToBackStack(null)
+                .commit()
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {

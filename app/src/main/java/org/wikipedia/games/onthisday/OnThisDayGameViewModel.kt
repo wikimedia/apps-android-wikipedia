@@ -227,6 +227,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
+    fun getCurrentGameState(): GameState {
+        return currentState
+    }
+
     private fun composeQuestionState(index: Int): QuestionState {
         return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }

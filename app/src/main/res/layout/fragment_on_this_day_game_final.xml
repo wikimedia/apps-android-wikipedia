@@ -51,7 +51,7 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:paddingHorizontal="16dp"
-                    android:paddingVertical="24dp"
+                    android:paddingTop="24dp"
                     android:background="@color/green600">
 
                     <TextView
@@ -76,6 +76,7 @@
                     
                     <Button
                         android:id="@+id/shareButton"
+                        style="@style/App.Button"
                         android:layout_marginTop="16dp"
                         android:layout_marginHorizontal="8dp"
                         android:layout_width="match_parent"
