@@ -51,7 +51,7 @@ class OnThisDayGameShareFragment : Fragment() {
             val shareMessage = getString(R.string.on_this_day_game_share_link_message,
                 getString(R.string.on_this_day_game_share_url))
             binding.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
-                ShareUtil.shareImage(lifecycleScope, requireContext(), this, "on_this_day_game_" + LocalDate.now(),
+                ShareUtil.shareImage(lifecycleScope, requireContext(), this, "wikipedia_on_this_day_game_" + LocalDate.now(),
                     binding.resultText.text.toString(), shareMessage)
             }
         }
