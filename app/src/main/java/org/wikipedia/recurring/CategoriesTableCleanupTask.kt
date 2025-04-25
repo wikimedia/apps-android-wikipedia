@@ -18,9 +18,7 @@ class CategoriesTableCleanupTask : RecurringTask() {
     override suspend fun run(lastRun: Date) {
         withContext(Dispatchers.IO) {
             val twoYearsAgoTimeStamp = getTimeStampForYearsAgo(CLEANUP_TIME_IN_YEARS)
-            println("orange --> twoYearsAgoTimeStamp $twoYearsAgoTimeStamp")
             try {
-                println("orange --> deleting Category table data")
                 AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
                 Log.d(TAG, "Successfully deleted Category data older than two years")
             } catch (e: Exception) {
