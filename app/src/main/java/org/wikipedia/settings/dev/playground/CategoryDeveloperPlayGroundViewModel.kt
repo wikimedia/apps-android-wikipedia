@@ -1,53 +1,80 @@
-package org.wikipedia.util
+package org.wikipedia.settings.dev.playground
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import kotlinx.coroutines.CoroutineScope
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.categories.db.Category
+import org.wikipedia.categories.db.CategoryCount
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.endOfYearInMillis
 import org.wikipedia.extensions.startOfYearInMillis
+import org.wikipedia.util.UiState
+import java.time.Year
 import java.util.Calendar
-import java.util.UUID
 
-object CategoryTestUtil {
-    private const val TAG = "CategoryTestUtil"
-    private const val MILLION = 1000000
-    private val years = arrayOf(System.currentTimeMillis(), getPreviousYearMillis(1))
+class CategoryDeveloperPlayGroundViewModel : ViewModel() {
+    private val TAG = "CategoryTable"
+
     private val categories = arrayOf(
         "Animals", "Science", "Technology", "History", "Geography",
         "Art", "Music", "Literature", "Sports", "Food",
         "Politics", "Religion", "Education", "Health", "Environment", "Fruit",
         "Vegetables", "Philosophy"
     )
-    val languages = arrayOf(
-        "en", "ar", "zh-cn", "ja", "de"
+    private val languages = arrayOf(
+        "en", "zh-cn"
     )
 
-    fun addTestData(context: Context, size: Int = Int.MAX_VALUE) {
-        CoroutineScope(Dispatchers.IO).launch {
+    // UI state exposed to Compose
+    private val _categoryCountState = MutableStateFlow<UiState<List<CategoryCount>>>(UiState.Success(listOf()))
+    val categoryCountState = _categoryCountState.asStateFlow()
+
+    private val _categoryState = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
+    val categoryState = _categoryState.asStateFlow()
+
+    init {
+        loadCategories()
+    }
+
+    fun loadCategories() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val categories = AppDatabase.instance.categoryDao().getAllCategories()
+            withContext(Dispatchers.Main) {
+                _categoryState.value = UiState.Success(categories)
+            }
+        }
+    }
+
+    fun filterBy(year: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val categoryCounts = AppDatabase.instance.categoryDao().getCategoriesByYearRange(
+                startOfYear = year.startOfYearInMillis(),
+                endOfYear = year.endOfYearInMillis()
+            )
+            _categoryCountState.value = UiState.Success(categoryCounts)
+        }
+    }
+
+    fun addTestData(context: Context, title: String, languageCode: String, year: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
-                val generatedCategories = (0 until size).map {
-                    val randomCategoryIndex = (categories.indices).random()
-                    val randomLanguageIndex = (languages.indices).random()
-                    val randomYearIndex = (years.indices).random()
-                    Category(
-                        title = "Category:${categories[randomCategoryIndex]}",
-                        lang = languages[randomLanguageIndex],
-                        timeStamp = years[randomYearIndex]
-                    )
+                val currentYear = Year.now().value
+                val timeStamp = if (year == currentYear) {
+                    System.currentTimeMillis()
+                } else {
+                    getPreviousYearMillis(currentYear - year)
                 }
-                generatedCategories.forEach {
-                    AppDatabase.instance.categoryDao().insert(it)
-                }
-                // Show success message on main thread
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Added $size categories", Toast.LENGTH_SHORT).show()
-                }
+                AppDatabase.instance.categoryDao().insert(
+                    Category(title, languageCode, timeStamp)
+                )
+                loadCategories()
             } catch (e: Exception) {
                 Log.e(TAG, "Error generating sample data", e)
                 withContext(Dispatchers.Main) {
@@ -57,8 +84,14 @@ object CategoryTestUtil {
         }
     }
 
-    fun addTestDataBulk(context: Context, size: Int = 10000) { // Use a reasonable default
-        CoroutineScope(Dispatchers.IO).launch {
+    fun addTestDataBulk(context: Context, size: Int = 10000, year: Int) {
+        val currentYear = Year.now().value
+        val timeStamp = if (year == currentYear) {
+            System.currentTimeMillis()
+        } else {
+            getPreviousYearMillis(currentYear - year)
+        }
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 val batchSize = 4000
                 var inserted = 0
@@ -70,12 +103,10 @@ object CategoryTestUtil {
                     val batch = (0 until currentBatchSize).map {
                         val randomCategoryIndex = (categories.indices).random()
                         val randomLanguageIndex = (languages.indices).random()
-                        val randomYearIndex = (years.indices).random()
-                        val uniqueId = UUID.randomUUID().toString().substring(0, 8)
                         Category(
-                            title = "Category:${categories[randomCategoryIndex]}$uniqueId",
+                            title = "Category:${categories[randomCategoryIndex]}",
                             lang = languages[randomLanguageIndex],
-                            timeStamp = System.currentTimeMillis()
+                            timeStamp = timeStamp
                         )
                     }
 
@@ -84,11 +115,7 @@ object CategoryTestUtil {
 
                     inserted += batch.size
                 }
-
-                // Show success message on main thread
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Added $size categories", Toast.LENGTH_SHORT).show()
-                }
+                loadCategories()
             } catch (e: Exception) {
                 Log.e(TAG, "Error generating sample data", e)
                 withContext(Dispatchers.Main) {
@@ -99,12 +126,10 @@ object CategoryTestUtil {
     }
 
     fun deleteAllCategories(context: Context) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 AppDatabase.instance.categoryDao().deleteAll()
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Deleted all categories", Toast.LENGTH_SHORT).show()
-                }
+                loadCategories()
             } catch (e: Exception) {
                 Log.e(TAG, "Error deleting categories", e)
                 withContext(Dispatchers.Main) {
@@ -114,20 +139,13 @@ object CategoryTestUtil {
         }
     }
 
-    fun getCategoriesByYearRange(context: Context) {
-        CoroutineScope(Dispatchers.IO).launch {
+    fun deleteBeforeYear(context: Context, yearsAgo: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
-                val year = 2025
-                val startOfYear = year.startOfYearInMillis()
-                val endOfYear = year.endOfYearInMillis()
-                val categories = AppDatabase.instance.categoryDao().getCategoriesByYearRange(
-                    startOfYear = startOfYear,
-                    endOfYear = endOfYear
-                )
-                println("orange --> year $categories")
-                println("orange --> year size ${categories.size}")
+                AppDatabase.instance.categoryDao().deleteOlderThan(getPreviousYearMillis(yearsAgo))
+                loadCategories()
             } catch (e: Exception) {
-                Log.e(TAG, "Error retrieving CategoriesByYearRange", e)
+                Log.e(TAG, "Error deleting categories data of $yearsAgo years ago", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }

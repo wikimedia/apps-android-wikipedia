@@ -17,6 +17,9 @@ interface CategoryDao {
             "GROUP BY title, lang ORDER BY count DESC")
     suspend fun getCategoriesByYearRange(startOfYear: Long, endOfYear: Long): List<CategoryCount>
 
+    @Query("SELECT * FROM category")
+    suspend fun getAllCategories(): List<Category>
+
     @Query("DELETE FROM Category")
     suspend fun deleteAll()
 
