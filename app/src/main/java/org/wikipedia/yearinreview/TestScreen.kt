@@ -80,7 +80,7 @@ fun TestScreen(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = stringResource(screenData.headLineText),
+                    text = screenData.headLineText.toString(),
                     color = Color.Black,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -97,7 +97,7 @@ fun TestScreen(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
-                text = stringResource(screenData.bodyText),
+                text = screenData.bodyText.toString(),
                 color = Color.Black,
                 style = MaterialTheme.typography.bodyLarge
             )

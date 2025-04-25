@@ -299,8 +299,6 @@ fun YearInReviewScreenContent(
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
-    val headlineText = screenData.fetchedArgs?.let { String.format(stringResource(screenData.headLineText), it.toTypedArray()[0]) } ?: stringResource(screenData.headLineText)
-    val bodyText = screenData.fetchedArgs?.let { String.format(stringResource(screenData.bodyText), *screenData.fetchedArgs!!.toTypedArray()) } ?: stringResource(screenData.bodyText)
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier
@@ -341,7 +339,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = headlineText.toString(),
+                    text = processString(screenData.headLineText),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -358,11 +356,19 @@ fun YearInReviewScreenContent(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
-                text = bodyText.toString(),
+                text = processString(screenData.bodyText),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
         }
+    }
+}
+
+@Composable
+private fun processString(resource: Any?): String {
+    return when (resource) {
+        is Int -> stringResource(resource)
+        else -> resource.toString()
     }
 }
 

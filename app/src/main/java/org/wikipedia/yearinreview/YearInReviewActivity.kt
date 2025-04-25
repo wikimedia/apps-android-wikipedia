@@ -9,7 +9,7 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -27,8 +27,9 @@ class YearInReviewActivity : ComponentActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val yirViewModel: YearInReviewViewModel = viewModel()
-                val screenState = yirViewModel.uiScreenListState.collectAsState().value
+                val viewModelFactory = YearInReviewViewModelFactory(application)
+                val yirViewModel = ViewModelProvider(this, viewModelFactory)[YearInReviewViewModel::class]
+                yirViewModel.fetchPersonalizedData()
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
@@ -64,6 +65,7 @@ class YearInReviewActivity : ComponentActivity() {
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
+                        val screenState = yirViewModel.uiScreenListState.collectAsState().value
                         when (screenState) {
                             is Resource.Loading -> {} // Re-route to dedicated loading screen or adding loading composable
                             is Resource.Success -> {
