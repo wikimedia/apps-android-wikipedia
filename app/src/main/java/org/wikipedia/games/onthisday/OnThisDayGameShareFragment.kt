@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentOnThisDayGameShareBinding
-import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
+import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -108,7 +108,7 @@ class OnThisDayGameShareFragment : Fragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
-            return RecyclerViewItemHolder(ItemOnThisDayGameTopicBinding.inflate(layoutInflater, parent, false))
+            return RecyclerViewItemHolder(ItemOnThisDayGameShareTopicBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
@@ -116,7 +116,7 @@ class OnThisDayGameShareFragment : Fragment() {
         }
     }
 
-    private inner class RecyclerViewItemHolder(val binding: ItemOnThisDayGameTopicBinding) :
+    private inner class RecyclerViewItemHolder(val binding: ItemOnThisDayGameShareTopicBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindItem(page: PageSummary) {
@@ -124,7 +124,7 @@ class OnThisDayGameShareFragment : Fragment() {
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true)
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
             }
         }
     }
