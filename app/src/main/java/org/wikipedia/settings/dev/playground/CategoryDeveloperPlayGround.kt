@@ -331,7 +331,7 @@ fun DeleteView(
                 year = it
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text("Years ago") },
+            label = { Text("Years before") },
             colors = OutlinedTextFieldDefaults.colors(
                 focusedTextColor = WikipediaTheme.colors.primaryColor,
                 unfocusedTextColor = WikipediaTheme.colors.primaryColor,
