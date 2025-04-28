@@ -182,6 +182,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     fun refresh() {
+        Prefs.suggestedEditsFeedCardTypes = null
         binding.emptyContainer.visibility = View.GONE
         coordinator.reset()
         feedAdapter.notifyDataSetChanged()

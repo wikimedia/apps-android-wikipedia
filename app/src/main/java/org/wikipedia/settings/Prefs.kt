@@ -773,4 +773,8 @@ object Prefs {
             OnThisDayGameNotificationState.valueOf(it)
         } ?: OnThisDayGameNotificationState.NO_INTERACTED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
+
+    var suggestedEditsFeedCardTypes
+        get() = PrefsIoUtil.getString(R.string.suggested_edits_feed_card_title, null)
+        set(value) = PrefsIoUtil.setString(R.string.suggested_edits_feed_card_title, value)
 }
