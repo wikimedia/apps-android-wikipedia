@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -29,7 +30,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -69,6 +76,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
+    private var loadedImagesForShare = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -81,24 +89,24 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-
             buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned()).run {
-                binding.shareContainer.postDelayed({
+                binding.shareContainer.post{
                     val shareMessage = getString(
                         R.string.on_this_day_game_share_link_message,
                         getString(R.string.on_this_day_game_share_url)
                     )
-                    binding.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
-                        ShareUtil.shareImage(
-                            lifecycleScope,
-                            requireContext(),
-                            this,
-                            "wikipedia_on_this_day_game_" + LocalDate.now(),
-                            binding.shareResultText.text.toString(),
-                            shareMessage
-                        )
+                    lifecycleScope.launch {
+                        while (loadedImagesForShare < (binding.shareArticlesList.adapter?.itemCount ?: 0)) {
+                            delay(100)
+                            if (!isAdded) return@launch
+                        }
+                        binding.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
+                            ShareUtil.shareImage(lifecycleScope, requireContext(), this,
+                                "wikipedia_on_this_day_game_" + LocalDateTime.now(),
+                                binding.shareResultText.text.toString(), shareMessage)
+                        }
                     }
-                }, 2000)
+                }
             }
         }
 
@@ -184,6 +192,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
         binding.shareContainer.visibility = View.VISIBLE
         val totalCorrect = gameState.answerState.count { it }
+        loadedImagesForShare = 0
         binding.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
@@ -238,9 +247,19 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
-            page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it)
-            }
+            ViewUtil.loadImage(binding.listItemThumbnail, page.thumbnailUrl, listener = ShareImageLoader())
+        }
+    }
+
+    private inner class ShareImageLoader : RequestListener<Drawable?> {
+        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+            loadedImagesForShare++
+            return false
+        }
+
+        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>?, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+            loadedImagesForShare++
+            return false
         }
     }
 
