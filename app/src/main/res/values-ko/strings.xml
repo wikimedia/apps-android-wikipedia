@@ -540,10 +540,10 @@
   <string name="reading_list_sort_ellipsis">정렬 기준...</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
-  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (가장 오래된 순서)</string>
-  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
+  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (최초)</string>
+  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (최초)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_export">목록 내보내기</string>
   <string name="reading_list_menu_select">선택</string>
