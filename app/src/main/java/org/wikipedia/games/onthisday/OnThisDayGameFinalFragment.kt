@@ -247,7 +247,11 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
-            ViewUtil.loadImage(binding.listItemThumbnail, page.thumbnailUrl, listener = ShareImageLoader())
+            page.thumbnailUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoader())
+            } ?: run {
+                loadedImagesForShare++
+            }
         }
     }
 
