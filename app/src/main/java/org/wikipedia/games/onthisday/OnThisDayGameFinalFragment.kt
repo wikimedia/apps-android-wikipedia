@@ -83,7 +83,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
 
             buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned()).run {
-                binding.shareContainer.post {
+                binding.shareContainer.postDelayed({
                     val shareMessage = getString(
                         R.string.on_this_day_game_share_link_message,
                         getString(R.string.on_this_day_game_share_url)
@@ -98,7 +98,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
                             shareMessage
                         )
                     }
-                }
+                }, 2000)
             }
         }
 
