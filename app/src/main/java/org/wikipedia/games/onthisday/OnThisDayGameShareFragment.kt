@@ -69,7 +69,7 @@ class OnThisDayGameShareFragment : Fragment() {
         createDots(gameState)
         binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.shareArticlesList.isNestedScrollingEnabled = false
-        binding.shareArticlesList.adapter = RecyclerViewAdapter(articlesMentioned)
+        binding.shareArticlesList.adapter = RecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
