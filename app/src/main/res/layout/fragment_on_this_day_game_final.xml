@@ -22,10 +22,108 @@
         android:orientation="vertical" />
 
     <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:id="@+id/shareContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp"
+            android:clipToPadding="false"
+            android:background="?attr/paper_color"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/feed_header_wordmark"
+                app:tint="?attr/primary_color" />
+
+            <org.wikipedia.views.WikiCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hasBorder="false"
+                app:strokeColor="?attr/highlight_color"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/scoreContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/shareResultText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        style="@style/H1.Article"
+                        android:textColor="?attr/primary_color"
+                        android:layout_marginHorizontal="24dp"
+                        android:textAlignment="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="I scored 4/5 on 'Which Came First' today."/>
+
+                    <View
+                        android:id="@+id/questionDotLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="?attr/inactive_color"
+                        android:layout_marginHorizontal="12dp"
+                        app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
+                        app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
+                        app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
+                        app:layout_constraintBottom_toBottomOf="@id/questionDotsFlow" />
+
+                    <androidx.constraintlayout.helper.widget.Flow
+                        android:id="@+id/questionDotsFlow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/shareResultText"
+                        app:layout_constraintStart_toStartOf="@id/shareResultText"
+                        app:layout_constraintEnd_toEndOf="@id/shareResultText"
+                        app:flow_horizontalBias="0"
+                        app:flow_horizontalGap="16dp"
+                        app:flow_verticalAlign="center"
+                        app:flow_wrapMode="chain" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </org.wikipedia.views.WikiCardView>
+
+            <TextView
+                android:id="@+id/shareSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/H2.AppBar"
+                android:textColor="?attr/primary_color"
+                android:layout_marginTop="32dp"
+                android:text="@string/on_this_day_game_share_screen_subtitle"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shareArticlesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:background="?attr/paper_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
