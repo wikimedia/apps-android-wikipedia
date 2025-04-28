@@ -90,20 +90,20 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
             buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned()).run {
-                binding.shareContainer.post{
+                binding.shareLayout.shareContainer.post {
                     val shareMessage = getString(
                         R.string.on_this_day_game_share_link_message,
                         getString(R.string.on_this_day_game_share_url)
                     )
                     lifecycleScope.launch {
-                        while (loadedImagesForShare < (binding.shareArticlesList.adapter?.itemCount ?: 0)) {
+                        while (loadedImagesForShare < (binding.shareLayout.shareArticlesList.adapter?.itemCount ?: 0)) {
                             delay(100)
                             if (!isAdded) return@launch
                         }
-                        binding.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
+                        binding.shareLayout.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
                             ShareUtil.shareImage(lifecycleScope, requireContext(), this,
                                 "wikipedia_on_this_day_game_" + LocalDateTime.now(),
-                                binding.shareResultText.text.toString(), shareMessage)
+                                binding.shareLayout.shareResultText.text.toString(), shareMessage)
                         }
                     }
                 }
@@ -190,14 +190,14 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     }
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
-        binding.shareContainer.visibility = View.VISIBLE
+        binding.shareLayout.shareContainer.visibility = View.VISIBLE
         val totalCorrect = gameState.answerState.count { it }
         loadedImagesForShare = 0
-        binding.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
+        binding.shareLayout.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
         createDots(gameState)
-        binding.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
-        binding.shareArticlesList.isNestedScrollingEnabled = false
-        binding.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
+        binding.shareLayout.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.shareLayout.shareArticlesList.isNestedScrollingEnabled = false
+        binding.shareLayout.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
@@ -222,9 +222,9 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             dotView.id = viewId
             dotView.isVisible = true
 
-            binding.scoreContainer.addView(dotView)
+            binding.shareLayout.scoreContainer.addView(dotView)
         }
-        binding.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
+        binding.shareLayout.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
     }
 
     private inner class ShareRecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<ShareRecyclerViewItemHolder>() {

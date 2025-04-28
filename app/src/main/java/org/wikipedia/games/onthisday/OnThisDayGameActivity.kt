@@ -230,16 +230,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             showPauseDialog()
             return
         }
-        if (isShareFragmentVisible()) {
-            supportFragmentManager.popBackStack()
-            return
-        }
         super.onBackPressed()
         onFinish()
-    }
-
-    private fun isShareFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameShareFragment
     }
 
     private fun isOnboardingFragmentVisible(): Boolean {
