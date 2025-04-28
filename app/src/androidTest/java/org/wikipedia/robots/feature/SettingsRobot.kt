@@ -86,7 +86,7 @@ class SettingsRobot : BaseRobot() {
     fun activateDeveloperMode(context: Context) = apply {
         // Click 7 times to activate developer mode
         for (i in 1 until 8) {
-            composeTestRule.onNodeWithContentDescription(context.getString(R.string.about_screen_logo_accessibility_text))
+            composeTestRule.onNodeWithContentDescription(context.getString(R.string.about_logo_content_description))
                 .performClick()
             delay(TestConfig.DELAY_MEDIUM)
         }
