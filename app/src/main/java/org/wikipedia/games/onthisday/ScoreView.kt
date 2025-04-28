@@ -3,13 +3,12 @@ package org.wikipedia.games.onthisday
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.ShapeAppearanceModel
 import org.wikipedia.R
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
 class ScoreView @JvmOverloads constructor(
@@ -72,15 +71,17 @@ class ScoreView @JvmOverloads constructor(
         for (i in answerState.indices) {
             val scoreViewToUpdate = scoreViews[i]
             when {
+                // future questions
                 i >= currentQuestionIndex -> {
                     scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
                         ResourceUtil.getThemedColor(context, R.attr.paper_color)
                     )
                 }
 
+                // questions that have already been answered
                 i < currentQuestionIndex -> {
                     if (answerState[i]) {
-                        scoreViewToUpdate.setImageResource(R.drawable.checked)
+                        scoreViewToUpdate.setImageResource(R.drawable.ic_check_circle_black_24dp)
                         scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
                             ResourceUtil.getThemedColor(context, R.attr.success_color)
                         )
@@ -98,29 +99,20 @@ class ScoreView @JvmOverloads constructor(
     private fun createImageView(): ShapeableImageView {
         val imageView = ShapeableImageView(context)
 
-        val size = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            22f,
-            context.resources.displayMetrics
-        ).toInt()
-        val marginSize = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            4f,
-            context.resources.displayMetrics
-        ).toInt()
+        val size = DimenUtil.dpToPx(22f).toInt()
+        val marginSize = DimenUtil.dpToPx(2f).toInt()
         val layoutParams = LayoutParams(size, size)
+        val paddingSize = 2
         layoutParams.marginStart = marginSize
         layoutParams.marginEnd = marginSize
 
         imageView.layoutParams = layoutParams
-        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         imageView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        imageView.strokeWidth = 2f
+        imageView.strokeWidth = 1f
         imageView.strokeColor = ColorStateList.valueOf(
-            ResourceUtil.getThemedColor(context, R.attr.border_color)
+            ResourceUtil.getThemedColor(context, R.attr.paper_color)
         )
-        imageView.setPadding(2, 2, 2, 2)
-
+        imageView.setPadding(paddingSize, paddingSize, paddingSize, paddingSize)
         imageView.shapeAppearanceModel = ShapeAppearanceModel.builder(
             context,
             0,
