@@ -1863,5 +1863,5 @@
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
   <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
-  <string name="about_screen_logo_accessibility_text">Логотип пазла-глобуса Вікіпедії</string>
+  <string name="about_logo_content_description">Логотип пазла-глобуса Вікіпедії</string>
 </resources>
