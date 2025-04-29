@@ -1,8 +1,6 @@
 package org.wikipedia.recurring
 
 import android.util.Log
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import java.util.Calendar
 import java.util.Date
@@ -16,14 +14,12 @@ class CategoriesTableCleanupTask : RecurringTask() {
     }
 
     override suspend fun run(lastRun: Date) {
-        withContext(Dispatchers.IO) {
-            val twoYearsAgoTimeStamp = getTimeStampForYearsAgo(CLEANUP_TIME_IN_YEARS)
-            try {
-                AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
-                Log.d(TAG, "Successfully deleted Category data older than two years")
-            } catch (e: Exception) {
-                Log.e(TAG, "error: ${e.message}")
-            }
+        val twoYearsAgoTimeStamp = getTimeStampForYearsAgo(CLEANUP_TIME_IN_YEARS)
+        try {
+            AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
+            Log.d(TAG, "Successfully deleted Category data older than two years")
+        } catch (e: Exception) {
+            Log.e(TAG, "error: ${e.message}")
         }
     }
 
