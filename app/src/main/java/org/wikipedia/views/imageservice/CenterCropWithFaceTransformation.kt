@@ -18,7 +18,7 @@ import org.wikipedia.util.log.L
 
 class CenterCropWithFaceTransformation : Transformation() {
     override val cacheKey: String
-        get() = "CoilCenterCropWithFaceTransformation"
+        get() = "CenterCropWithFaceTransformation"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val width = size.width.pxOrElse { 0 }
@@ -109,7 +109,6 @@ class CenterCropWithFaceTransformation : Transformation() {
     }
 
     companion object {
-        private const val ID = "org.wikipedia.views.CenterCropWithFace"
         private const val BITMAP_COPY_WIDTH = 200
     }
 }

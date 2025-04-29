@@ -10,7 +10,7 @@ import org.wikipedia.extensions.maybeDimImage
 
 class WhiteBackgroundTransformation : Transformation(), ImageTransformer {
     override val cacheKey: String
-        get() = "CoilWhiteBackgroundTransformation"
+        get() = "WhiteBackgroundTransformation"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val result = if (input.hasAlpha()) {

@@ -7,10 +7,14 @@ import android.widget.ImageView
 import androidx.core.graphics.createBitmap
 import androidx.core.net.toUri
 import androidx.palette.graphics.Palette
+import coil3.ImageLoader
+import coil3.SingletonImageLoader
 import coil3.imageLoader
+import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import coil3.request.ErrorResult
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
+import coil3.request.allowRgb565
 import coil3.request.crossfade
 import coil3.request.error
 import coil3.request.placeholder
@@ -18,11 +22,31 @@ import coil3.request.target
 import coil3.request.transformations
 import coil3.toBitmap
 import coil3.transform.RoundedCornersTransformation
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.ViewUtil
 
-class CoilImageLoader : ImageLoader {
+class CoilImageServiceLoader : ImageServiceLoader {
+    private var factory = SingletonImageLoader.Factory { context ->
+        ImageLoader.Builder(context)
+            .components {
+                add(
+                    OkHttpNetworkFetcherFactory(
+                        callFactory = {
+                            OkHttpConnectionFactory.client
+                        }
+                    )
+                )
+            }
+            .allowRgb565(true)
+            .build()
+    }
+
+    init {
+        SingletonImageLoader.setSafe(factory)
+    }
+
     override fun loadImage(
         imageView: ImageView,
         url: String?,

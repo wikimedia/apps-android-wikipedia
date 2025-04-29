@@ -7,10 +7,13 @@ import android.widget.ImageView
 import androidx.palette.graphics.Palette
 
 object ImageService {
-    private var implementation: ImageLoader = CoilImageLoader()
+    private var _implementation: ImageServiceLoader? = null
+    private val implementation get() = _implementation ?: throw IllegalStateException(
+        "ImageService has not been set, call ImageService.setImplementation() before using ImageService"
+    )
 
-    fun setImplementation(impl: ImageLoader) {
-        implementation = impl
+    fun setImplementation(impl: ImageServiceLoader) {
+        _implementation = impl
     }
 
     fun loadImage(
@@ -58,10 +61,10 @@ object ImageService {
 interface ImageLoadListener {
     fun onSuccess(view: ImageView) {}
     fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {}
-    fun onError(error: Throwable)
+    fun onError(error: Throwable) {}
 }
 
-interface ImageLoader {
+interface ImageServiceLoader {
     fun loadImage(
         imageView: ImageView,
         url: String?,
