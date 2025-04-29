@@ -1810,5 +1810,5 @@
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
   <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
-  <string name="about_screen_logo_accessibility_text">Logo du globe-puzzle Wikipédia</string>
+  <string name="about_logo_content_description">Logo du globe-puzzle Wikipédia</string>
 </resources>

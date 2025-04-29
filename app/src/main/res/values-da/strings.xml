@@ -1757,5 +1757,5 @@
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hvilken kom først?\" et dagligt trivia-spil på Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hvor tilfreds var du med dette spil?</string>
   <string name="on_this_day_game_survey_q2">Vil du være interesseret i at spille andre Wikipedia-spil?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedia puslespil globus logo</string>
+  <string name="about_logo_content_description">Wikipedia puslespil globus logo</string>
 </resources>
