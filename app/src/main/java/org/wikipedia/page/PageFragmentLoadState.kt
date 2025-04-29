@@ -120,12 +120,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoad() {
         model.title?.let { title ->
-            fragment.lifecycleScope.launch(
-                context = CoroutineExceptionHandler { _, throwable ->
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                     L.e("Page details network error: ", throwable)
                     commonSectionFetchOnCatch(throwable)
-                },
-                block = {
+                }) {
                     model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
                     fragment.updateQuickActionsAndMenuOptions()
@@ -182,11 +180,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                     }
                     if (categoriesResponse.isNotEmpty()) {
-                        withContext(Dispatchers.IO) {
-                            categoriesResponse.forEach { category ->
-                                AppDatabase.instance.categoryDao().insert(category)
-                            }
-                        }
+                        AppDatabase.instance.categoryDao().insertAll(categoriesResponse)
                     }
                     if (delayLoadHtml) {
                         bridge.resetHtml(title)
@@ -197,7 +191,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         checkAnonNotifications(title)
                     }
             }
-            )
         }
     }
 

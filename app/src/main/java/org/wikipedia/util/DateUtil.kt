@@ -183,4 +183,14 @@ object DateUtil {
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
     }
+
+    fun startOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
+        val localDate = LocalDate.of(year, 1, 1)
+        return localDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
+    }
+
+    fun endOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
+        val localDate = LocalDate.of(year, 12, 31)
+        return localDate.atTime(0, 0, 0).atZone(zoneId).toInstant().toEpochMilli()
+    }
 }

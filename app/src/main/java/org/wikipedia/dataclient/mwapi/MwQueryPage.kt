@@ -6,7 +6,6 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
-import org.wikipedia.categories.db.CategoryResponse
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
@@ -149,4 +148,10 @@ class MwQueryPage {
         val label: List<String> = emptyList()
         val description: List<String> = emptyList()
     }
+
+    @Serializable
+    data class CategoryResponse(
+        val ns: Int,
+        val title: String
+    )
 }
