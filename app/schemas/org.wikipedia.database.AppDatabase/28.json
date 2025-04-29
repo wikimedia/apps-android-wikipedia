@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 28,
-    "identityHash": "61c3e7dad5390e890305bcd6006894cb",
+    "identityHash": "7918b8d710e349d8c543711619ed7b07",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -81,7 +81,8 @@
             "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_HistoryEntry_lang_namespace_apiTitle` ON `${TABLE_NAME}` (`lang`, `namespace`, `apiTitle`)"
           }
-        ]
+        ],
+        "foreignKeys": []
       },
       {
         "tableName": "PageImage",
@@ -108,12 +109,14 @@
           {
             "fieldPath": "imageName",
             "columnName": "imageName",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "description",
             "columnName": "description",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "timeSpentSec",
@@ -154,7 +157,8 @@
             "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_PageImage_lang_namespace_apiTitle` ON `${TABLE_NAME}` (`lang`, `namespace`, `apiTitle`)"
           }
-        ]
+        ],
+        "foreignKeys": []
       },
       {
         "tableName": "RecentSearch",
@@ -178,7 +182,9 @@
           "columnNames": [
             "text"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "TalkPageSeen",
@@ -196,7 +202,9 @@
           "columnNames": [
             "sha"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "EditSummary",
@@ -220,7 +228,9 @@
           "columnNames": [
             "summary"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "OfflineObject",
@@ -268,7 +278,9 @@
           "columnNames": [
             "id"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "ReadingList",
@@ -283,7 +295,8 @@
           {
             "fieldPath": "description",
             "columnName": "description",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "mtime",
@@ -327,7 +340,9 @@
           "columnNames": [
             "id"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "ReadingListPage",
@@ -360,12 +375,14 @@
           {
             "fieldPath": "description",
             "columnName": "description",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "thumbUrl",
             "columnName": "thumbUrl",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "listId",
@@ -433,7 +450,9 @@
           "columnNames": [
             "id"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "Notification",
@@ -454,7 +473,8 @@
           {
             "fieldPath": "read",
             "columnName": "read",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "category",
@@ -477,22 +497,26 @@
           {
             "fieldPath": "title",
             "columnName": "title",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "agent",
             "columnName": "agent",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "timestamp",
             "columnName": "timestamp",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "contents",
             "columnName": "contents",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -501,7 +525,9 @@
             "id",
             "wiki"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "TalkTemplate",
@@ -549,43 +575,15 @@
           "columnNames": [
             "id"
           ]
-        }
-      },
-      {
-        "tableName": "Category",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `lang` TEXT NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`title`, `lang`))",
-        "fields": [
-          {
-            "fieldPath": "title",
-            "columnName": "title",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "lang",
-            "columnName": "lang",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "count",
-            "columnName": "count",
-            "affinity": "INTEGER",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "autoGenerate": false,
-          "columnNames": [
-            "title",
-            "lang"
-          ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '61c3e7dad5390e890305bcd6006894cb')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7918b8d710e349d8c543711619ed7b07')"
     ]
   }
 }
