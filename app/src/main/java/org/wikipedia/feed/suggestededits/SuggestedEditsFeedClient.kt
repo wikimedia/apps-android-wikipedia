@@ -3,11 +3,8 @@ package org.wikipedia.feed.suggestededits
 import android.content.Context
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -15,8 +12,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.json.JsonUtil
-import org.wikipedia.settings.Prefs
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.log.L
 
@@ -37,15 +32,15 @@ class SuggestedEditsFeedClient(
             cb.success(emptyList())
             return
         }
-        val cardTypes = JsonUtil.decodeFromString<MutableList<DescriptionEditActivity.Action>>(Prefs.suggestedEditsFeedCardTypes) ?: mutableListOf()
-        if (cardTypes.isEmpty()) {
-            clientJob = coroutineScope.launch(Dispatchers.IO + CoroutineExceptionHandler { _, throwable ->
+
+        if (age == 0) {
+            cardTypes.clear()
+            clientJob = coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)
                 cb.error(throwable)
             }) {
-                val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 50, null, null) }
-                val homeSiteResponse = homeSiteCall.await()
-                var totalContributions = homeSiteResponse.query?.userInfo?.editCount ?: 0
+                val homeSiteCall = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 50, null, null)
+                val totalContributions = homeSiteCall.query?.userInfo?.editCount ?: 0
 
                 val usesLocalDescriptions = DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode)
                 val sufficientContributionsForArticleDescription = totalContributions > (if (usesLocalDescriptions) 50 else 3)
@@ -54,10 +49,7 @@ class SuggestedEditsFeedClient(
                 }
                 cardTypes.add(DescriptionEditActivity.Action.ADD_CAPTION)
                 cardTypes.add(DescriptionEditActivity.Action.ADD_IMAGE_TAGS)
-                withContext(Dispatchers.Main) {
-                    Prefs.suggestedEditsFeedCardTypes = JsonUtil.encodeToString(cardTypes).orEmpty()
-                    cb.success(listOf(SuggestedEditsCard(cardTypes, wiki, age)))
-                }
+                cb.success(listOf(SuggestedEditsCard(cardTypes, wiki, age)))
             }
         } else {
             cb.success(listOf(SuggestedEditsCard(cardTypes, wiki, age)))
@@ -66,5 +58,9 @@ class SuggestedEditsFeedClient(
 
     override fun cancel() {
         clientJob?.cancel()
+    }
+
+    companion object {
+        private val cardTypes = mutableListOf<DescriptionEditActivity.Action>()
     }
 }

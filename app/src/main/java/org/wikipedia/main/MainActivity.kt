@@ -63,7 +63,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
-        Prefs.suggestedEditsFeedCardTypes = null
     }
 
     override fun onResume() {

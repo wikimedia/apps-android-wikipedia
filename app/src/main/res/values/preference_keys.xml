@@ -178,5 +178,4 @@
     <string name="preference_key_otd_game_survey_shown">otdGameSurveyShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
-    <string name="preference_key_suggested_edits_feed_card_title_types">suggestedEditsFeedCardTypes</string>
 </resources>
