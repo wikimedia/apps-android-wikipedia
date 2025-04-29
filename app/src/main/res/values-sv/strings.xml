@@ -33,6 +33,8 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="search_back_button_content_description">Gå tillbaka</string>
+  <string name="search_clear_query_content_description">Rensa förfrågan</string>
+  <string name="search_icon_content_description">Sök</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Mer</string>
@@ -162,8 +164,8 @@
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
   <string name="account_creation_password_hint">Lösenord</string>
-  <string name="login_2fa_hint">Tvåstegsverifieringskod</string>
-  <string name="login_2fa_other_workflow_error_msg">Tvåstegsverifiering krävs! Gå tillbaka till huvudaktiviteten och logga in med din tvåstegsverifieringskod och försök igen.</string>
+  <string name="login_2fa_hint" fuzzy="true">Tvåstegsverifieringskod</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Tvåstegsverifiering krävs! Gå tillbaka till huvudaktiviteten och logga in med din tvåstegsverifieringskod och försök igen.</string>
   <string name="onboarding_card_login">Logga in</string>
   <string name="page_editing_login">Logga in</string>
   <string name="reading_lists_sync_login">Logga in</string>
@@ -1402,10 +1404,10 @@
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">i 1 vecka</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">i 1 månad</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">i 3 månader</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">i 6 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 vecka</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 månad</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 månader</string>
   <string name="watchlist_expiry_dialog_title">Välj period för bevakningslistan</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 vecka</string>
@@ -1754,5 +1756,5 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedias pusselglob-logotyp</string>
+  <string name="about_logo_content_description">Wikipedias pusselglob-logotyp</string>
 </resources>

@@ -164,8 +164,8 @@
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="account_creation_password_hint">Parolă</string>
-  <string name="login_2fa_hint">Autentificare cu doi factori</string>
-  <string name="login_2fa_other_workflow_error_msg">Necesită autentificare cu doi factori! Reveniți la activitatea principală și conectați-vă cu token-ul 2FA, apoi reîncercați.</string>
+  <string name="login_2fa_hint" fuzzy="true">Autentificare cu doi factori</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Necesită autentificare cu doi factori! Reveniți la activitatea principală și conectați-vă cu token-ul 2FA, apoi reîncercați.</string>
   <string name="onboarding_card_login">Autentificare</string>
   <string name="page_editing_login">Autentificați-vă</string>
   <string name="reading_lists_sync_login">Autentificare</string>

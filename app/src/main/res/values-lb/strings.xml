@@ -16,8 +16,10 @@
   <string name="page_tabs_back">Zréck</string>
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
+  <string name="search_hint_voice_search">Sproochsich</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="search_back_button_content_description">Zréck goen</string>
+  <string name="search_clear_query_content_description">Requête eidel maachen</string>
   <string name="search_icon_content_description">Sichen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
   <string name="nav_item_suggested_edits">Ännerungen</string>
@@ -145,7 +147,8 @@
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
   <string name="account_creation_password_hint">Passwuert</string>
-  <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
+  <string name="login_2fa_hint">Zwee-Faktor-Authentifikatiounscode</string>
+  <string name="login_email_auth_hint">E-Mail-Verifikatiounscode</string>
   <string name="onboarding_card_login">Aloggen</string>
   <string name="page_editing_login">Aloggen</string>
   <string name="reading_lists_sync_login">Aloggen</string>
@@ -332,7 +335,7 @@
   <string name="gallery_not_available_offline_snackbar_dismiss">Verwerfen</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
-  <string name="close_all_tabs_confirm">Sidd Dir sécher datt Dir all Tabs zoumaache wëllt?</string>
+  <string name="close_all_tabs_confirm">Sidd Dir sécher, datt Dir all Tabs zoumaache wëllt?</string>
   <string name="close_all_tabs_confirm_yes">Jo</string>
   <string name="close_all_tabs_confirm_no">Neen</string>
   <string name="button_close_tab">Tab zoumaachen</string>
@@ -388,6 +391,7 @@
   <string name="reference_list_title">Referenzen</string>
   <string name="preference_title_prefer_offline_content">Offline-Inhalt virzéien</string>
   <string name="preference_title_delete_local_donation_history">Lokalen Historique vun den Done läschen</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Faarfscheema vum System iwwerhuelen</string>
   <string name="page_footer_license_text">Den Inhalt ass ënner der $1 disponibel, wann et net anescht uginn ass</string>
   <string name="empty_tab_title">Neien Tab</string>
   <string name="menu_save_all_tabs">All Onglete späicheren</string>
@@ -398,6 +402,7 @@
   <string name="error_blocked_expiry">Enn vun der Spär: %s</string>
   <string name="error_blocked_id">Spär-ID: %s</string>
   <string name="error_blocked_footer">Dir kënnt &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder een aneren &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéiere fir iwwer d\'Spär ze diskutéieren.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Är Geschierläischt upassen</string>
   <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
   <string name="temp_account_not_logged_in">Dir sidd net ageloggt</string>
   <string name="temp_account_dialog_ok">Verstanen</string>
@@ -421,6 +426,7 @@
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Beispilltext</string>
   <string name="preference_title_app_theme">Ausgesi vun der App</string>
+  <string name="preference_summary_color_theme">Op d\'däischtert Faarfscheema vun der App wiesselen</string>
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
@@ -1273,6 +1279,8 @@
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">All</string>
   <string name="watchlist_filter_watchlist_activity_header">Aktivitéit op der Iwwerwaachunglëscht</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Ännerungen, déi net gesi goufen</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Ännerungen, déi gesi goufen</string>
   <string name="watchlist_filter_contribution_quality_good">Héchstwarscheinlech gutt</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Kéint Problemer hunn</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Huet warscheinlech Problemer</string>
@@ -1300,6 +1308,7 @@
   <string name="watchlist_filter_latest_revisions_not_latest_revision">Net déi aktuell Versioun</string>
   <string name="watchlist_filter_type_of_change_header">Typ vun der Ännerung</string>
   <string name="watchlist_filter_type_of_change_page_edits">Säitenännerungen</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Säit ugeluecht</string>
   <string name="watchlist_filter_type_of_change_category_changes">Kategorienännerungen</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Ännerungen</string>
   <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
@@ -1400,9 +1409,9 @@
   <string name="patroller_tasks_filters_user_status_learners_desc">Ugemellt Auteuren, deenen hir Erfarung tëscht déi vun „Neien“ a vun „Erfuere Benotzer“ fält.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Erfuere Benotzer</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Ugemellt Auteure mat méi wéi 500 Ännerungen an 30 Deeg Aktivitéit.</string>
-  <string name="patroller_tasks_filters_latest_revisions_header">Lescht Versiounen</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Aktuell Versiounen</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Aktuell Versioun</string>
-  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Net déi lescht Versioun</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Net déi aktuell Versioun</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiséiert Kontributiounen</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Mënsch (kee Bot)</string>

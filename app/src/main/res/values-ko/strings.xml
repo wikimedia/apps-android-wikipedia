@@ -47,6 +47,7 @@
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="search_back_button_content_description">돌아가기</string>
   <string name="search_clear_query_content_description">쿼리 초기화</string>
+  <string name="search_icon_content_description">검색</string>
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
@@ -176,7 +177,8 @@
   <string name="login_password_hint">비밀번호</string>
   <string name="account_creation_password_hint">비밀번호</string>
   <string name="login_2fa_hint">2요소 인증 코드</string>
-  <string name="login_2fa_other_workflow_error_msg">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
+  <string name="login_2fa_other_workflow_error_msg">2단계 인증이 필요합니다! 주 화면에서 로그인하고 2FA 토큰의 코드를 입력하십시오.</string>
+  <string name="login_email_auth_hint">이메일 인증 코드</string>
   <string name="onboarding_card_login">로그인</string>
   <string name="page_editing_login">로그인</string>
   <string name="reading_lists_sync_login">로그인</string>
@@ -538,10 +540,10 @@
   <string name="reading_list_sort_ellipsis">정렬 기준...</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
-  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (가장 오래된 순서)</string>
-  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
+  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (최초)</string>
+  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (최초)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_export">목록 내보내기</string>
   <string name="reading_list_menu_select">선택</string>

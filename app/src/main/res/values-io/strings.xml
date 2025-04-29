@@ -144,8 +144,8 @@
   <string name="login_username_hint">Uzeronomo</string>
   <string name="login_password_hint">Pasovorto</string>
   <string name="account_creation_password_hint">pasovorto</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
   <string name="onboarding_card_login">Enirar</string>
   <string name="page_editing_login">Enirar</string>
   <string name="reading_lists_sync_login">Enirar</string>
@@ -168,7 +168,7 @@
   <string name="logged_out_in_background_cancel">Anular</string>
   <string name="account_vanish_request_title">Efacar konto</string>
   <string name="account_vanish_request_confirm_title">Avizo pri efaco di konto</string>
-  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte deziras ne pluse redaktar permanante&lt;/b&gt;, ed anke celar la maxim multa kam posibla de vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altrei ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte e permanante ne pluse deziras redaktar&lt;/b&gt;, ed anke celar la maxim multa kam posibla ek vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altri ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
   <string name="history_empty_title">Nula artiklo vidita recente</string>
   <string name="history_empty_message">Hike tu povas vidar la kozi quin tu lektabis.</string>
   <string name="history_offline_articles_toast">Kelka artikli en la historio povas ne esar videbla \'\'offline\'\'.</string>

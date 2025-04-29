@@ -131,8 +131,8 @@
   <string name="login_username_hint">Uzantnomo</string>
   <string name="login_password_hint">Pasvorto</string>
   <string name="account_creation_password_hint">Pasvorto</string>
-  <string name="login_2fa_hint">Dupaŝa aŭtentiga kodo</string>
-  <string name="login_2fa_other_workflow_error_msg">Dupaŝa aŭtentigo estas deviga! Bonvolu reiri al via ĉefa agado kaj ensaluti per via 2FA-ĵetono kaj reprovi.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dupaŝa aŭtentiga kodo</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Dupaŝa aŭtentigo estas deviga! Bonvolu reiri al via ĉefa agado kaj ensaluti per via 2FA-ĵetono kaj reprovi.</string>
   <string name="onboarding_card_login">Ensaluti</string>
   <string name="page_editing_login">Ensaluti</string>
   <string name="reading_lists_sync_login">Ensaluti</string>
