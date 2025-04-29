@@ -439,7 +439,7 @@ interface Service {
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights|registrationdate")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&meta=userinfo&uiprop=editcount")
     suspend fun getUserContribsByTimeFrame(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,

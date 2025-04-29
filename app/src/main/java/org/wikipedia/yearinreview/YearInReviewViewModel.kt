@@ -46,7 +46,6 @@ class YearInReviewViewModel(appContext: Application) : AndroidViewModel(appConte
             _uiScreenListState.value = Resource.Loading()
             val readCountJob = async {
                 personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getHistoryCount(startTimeInMillis, endTimeInMillis)
-                if (personalizedStatistics.readCount < 3) throw IllegalStateException("0")
                 personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getApiTitles()
                 readCountData.headLineText = wikiAppContext.getString(
                     R.string.year_in_review_read_count_headline,
