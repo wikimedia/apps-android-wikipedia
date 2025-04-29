@@ -1691,7 +1691,10 @@
   <string name="patroller_onboarding_two_undo_title">Deshacer/Revertir</string>
   <string name="patroller_onboarding_two_undo_content">Seleccione «Deshacer» para deshacer o revertir una edición potencialmente destructiva.</string>
   <string name="patroller_diff_tooltip_one">Damage predice si una edición daña a una wiki.</string>
+  <string name="patroller_diff_tooltip_two">Intent predice las probabilidades de que una edición se haya guardado de buena fe.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">¿Cómo podemos mejorar la función?</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Comentarios</string>
   <string name="patroller_saved_message_title_vandalism">Advertencia de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Pestañas de edición</string>
   <string name="patroller_saved_message_title_npov">Punto de vista neutral</string>
@@ -1750,7 +1753,7 @@
   <string name="places_card_title">Lugares cercanos</string>
   <string name="places_card_action">Más lugares cercanos</string>
   <string name="survey_dialog_title">Ayúdanos a mejorar esta función</string>
-  <string name="survey_dialog_message">¿Esta característica te ha satisfecho?(Las palabras se muestran según el género que estableciste en tu cuenta)</string>
+  <string name="survey_dialog_message">¿Esta característica te ha satisfecho?</string>
   <string name="survey_dialog_option_satisfied">Satisfecho</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Insatisfecho</string>

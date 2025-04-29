@@ -46,6 +46,6 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
     }
 
     fun description(): String {
-        return featuredImage.description.text
+        return featuredImage.description.text.ifEmpty { filename() }
     }
 }
