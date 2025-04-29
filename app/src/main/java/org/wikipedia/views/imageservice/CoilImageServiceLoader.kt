@@ -15,7 +15,6 @@ import coil3.request.ErrorResult
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
 import coil3.request.allowRgb565
-import coil3.request.crossfade
 import coil3.request.error
 import coil3.request.placeholder
 import coil3.request.target
@@ -59,7 +58,6 @@ class CoilImageServiceLoader : ImageServiceLoader {
         val imageUrl = if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) url.toUri() else null
         val requestBuilder = ImageRequest.Builder(imageView.context)
             .data(imageUrl)
-            .crossfade(true)
 
         if (placeholderId != null) {
             requestBuilder
