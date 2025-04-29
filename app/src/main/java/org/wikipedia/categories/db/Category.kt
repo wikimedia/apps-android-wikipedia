@@ -1,8 +1,6 @@
 package org.wikipedia.categories.db
 
 import androidx.room.Entity
-import kotlinx.serialization.Serializable
-
 
 @Entity(
     primaryKeys = ["title", "lang", "timeStamp"]
