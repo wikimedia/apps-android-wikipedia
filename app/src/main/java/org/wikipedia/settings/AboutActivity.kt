@@ -1,6 +1,5 @@
 package org.wikipedia.settings
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -37,7 +36,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -124,8 +122,6 @@ fun AboutWikipediaScreen(
     onBackButtonClick: () -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    val context = LocalContext.current
 
     Scaffold(
         modifier = modifier,
@@ -152,9 +148,7 @@ fun AboutWikipediaScreen(
                    .padding(paddingValues),
                versionName = versionName,
                credits = credits,
-               snackbarHostState = snackbarHostState,
-               scope = scope,
-               context = context
+               snackbarHostState = snackbarHostState
            )
         }
     )
@@ -165,9 +159,7 @@ fun AboutScreenContent(
     modifier: Modifier = Modifier,
     versionName: String,
     credits: List<LinkTextData>,
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
-    context: Context
+    snackbarHostState: SnackbarHostState
 ) {
     Column(
         modifier = modifier
@@ -179,9 +171,7 @@ fun AboutScreenContent(
                 .fillMaxWidth()
                 .padding(top = 30.dp, bottom = 16.dp),
             versionName = versionName,
-            snackbarHostState = snackbarHostState,
-            scope = scope,
-            context = context
+            snackbarHostState = snackbarHostState
         )
         AboutScreenBody(
             modifier = Modifier
@@ -201,10 +191,11 @@ fun AboutScreenContent(
 fun AboutWikipediaHeader(
     modifier: Modifier = Modifier,
     versionName: String,
-    snackbarHostState: SnackbarHostState,
-    scope: CoroutineScope,
-    context: Context
+    snackbarHostState: SnackbarHostState
 ) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -270,7 +261,7 @@ fun AboutWikipediaImage(
                     },
                 ),
             painter = painterResource(R.drawable.w_nav_mark),
-            contentDescription = stringResource(R.string.about_screen_logo_accessibility_text),
+            contentDescription = stringResource(R.string.about_logo_content_description),
         )
         Image(
             modifier = Modifier

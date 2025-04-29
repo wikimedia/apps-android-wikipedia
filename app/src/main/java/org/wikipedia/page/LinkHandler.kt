@@ -15,10 +15,10 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
 abstract class LinkHandler(protected val context: Context) : JSEventListener, UrlHandlerWithText {
-    abstract fun onPageLinkClicked(anchor: String, linkText: String)
-    abstract fun onInternalLinkClicked(title: PageTitle)
-    abstract fun onMediaLinkClicked(title: PageTitle)
-    abstract fun onDiffLinkClicked(title: PageTitle, revisionId: Long)
+    open fun onPageLinkClicked(anchor: String, linkText: String) {}
+    open fun onInternalLinkClicked(title: PageTitle) {}
+    open fun onMediaLinkClicked(title: PageTitle) {}
+    open fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {}
     abstract var wikiSite: WikiSite
 
     // message from JS bridge:

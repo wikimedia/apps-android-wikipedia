@@ -1184,11 +1184,11 @@
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_maybe_later">稍後再說</string>
-  <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
-  <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-  <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
-  <string name="onboarding_data_privacy_title">資料與隱私</string>
+  <string name="onboarding_explore_title">「探索」頁的新樣貌</string>
+  <string name="onboarding_explore_text">時常更新的「探索」頁，讓您沉迷於維基百科而無法自拔。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
+  <string name="onboarding_reading_list_sync_title">閱讀清單同步更新</string>
+  <string name="onboarding_reading_list_sync_text_v2">對於想要稍後閱讀的條目，您可以建立閱讀清單，即使在離線時也可使用。&lt;br/&gt;登入維基百科帳號後方可同步閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">資料及隱私權</string>
   <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
@@ -1774,5 +1774,5 @@
   <string name="on_this_day_game_share_link_message">我正在遊玩維基百科 Android 應用程式上的每日小知識遊戲「哪一個先開始？」%s</string>
   <string name="on_this_day_game_survey_q1">您對此遊戲的滿意度如何？</string>
   <string name="on_this_day_game_survey_q2">您有興趣遊玩不同的維基百科遊戲嗎？</string>
-  <string name="about_screen_logo_accessibility_text">維基百科拼圖球標誌</string>
+  <string name="about_logo_content_description">維基百科拼圖球標誌</string>
 </resources>

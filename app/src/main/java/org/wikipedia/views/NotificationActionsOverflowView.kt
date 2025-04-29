@@ -8,7 +8,6 @@ import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
@@ -20,16 +19,15 @@ import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -75,7 +73,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
-                        binding.overflowViewSecondaryTalk.text = String.format(L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+                        binding.overflowViewSecondaryTalk.text = String.format(anchorView.context.getString(StringUtil.dbNameToLangCode(container.notification.wiki),
                             R.string.notifications_menu_user_talk_page), secondary.first().label)
                         binding.overflowViewSecondaryTalk.setOnClickListener {
                             if (UriUtil.isAppSupportedLink(uri)) {
@@ -95,7 +93,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
 
         container.notification?.isUnread?.let {
-            binding.overflowMarkAsRead.text = L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+            binding.overflowMarkAsRead.text = anchorView.context.getString(StringUtil.dbNameToLangCode(container.notification.wiki),
                 if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
             binding.overflowMarkAsRead.setCompoundDrawablesRelativeWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
         }
@@ -116,11 +114,9 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.overflow_view_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.overflow_view_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
-            NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
