@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.ColorInt
-import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
@@ -19,7 +18,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback {
-    @Serializable
     enum class Action {
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATIONS, VANDALISM_PATROL
     }
