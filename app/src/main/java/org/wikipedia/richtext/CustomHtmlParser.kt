@@ -16,7 +16,6 @@ import android.text.style.LeadingMarginSpan
 import android.text.style.ParagraphStyle
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
-import android.util.Log
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
@@ -150,8 +149,6 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                         }
 
                         ImageService.imagePipeLineBitmapGetter(view.context, uri, onSuccess = { bitmap ->
-                            Log.d("orange", "Received bitmap: width=${bitmap.width}, height=${bitmap.height}, " +
-                                    "config=${bitmap.config}, isRecycled=${bitmap.isRecycled}, hasAlpha=${bitmap.hasAlpha()}")
                         val newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
                         if (!drawable.bitmap.isRecycled) {
                                 drawable.bitmap.applyCanvas {
