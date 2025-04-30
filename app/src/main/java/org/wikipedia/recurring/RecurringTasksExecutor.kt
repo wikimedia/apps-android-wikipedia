@@ -15,13 +15,13 @@ class RecurringTasksExecutor() {
         MainScope().launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            CategoriesTableCleanupTask().runIfNecessary()
             RemoteConfigRefreshTask().runIfNecessary()
             DailyEventTask(app).runIfNecessary()
             TalkOfflineCleanupTask(app).runIfNecessary()
             if (ReleaseUtil.isAlphaRelease) {
                 AlphaUpdateChecker(app).runIfNecessary()
             }
+            CategoriesTableCleanupTask(app).runIfNecessary()
         }
     }
 }

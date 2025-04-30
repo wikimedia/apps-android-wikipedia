@@ -414,8 +414,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
-        articleLinkPreviewInteractionEvent?.logNavigate()
-        linkPreviewInteraction?.logNavigate()
         dialog?.dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }

@@ -196,7 +196,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (!isAdded) {
             return
         }
-        if (returnLink) {
+        if (returnLink && (if (invokeSource == InvokeSource.PLACES) location != null else true)) {
             if (invokeSource == InvokeSource.PLACES) {
                 PlacesEvent.logAction("search_result_click", "search_view")
             }

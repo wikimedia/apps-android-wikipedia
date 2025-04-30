@@ -261,7 +261,7 @@ fun AboutWikipediaImage(
                     },
                 ),
             painter = painterResource(R.drawable.w_nav_mark),
-            contentDescription = stringResource(R.string.about_screen_logo_accessibility_text),
+            contentDescription = stringResource(R.string.about_logo_content_description),
         )
         Image(
             modifier = Modifier

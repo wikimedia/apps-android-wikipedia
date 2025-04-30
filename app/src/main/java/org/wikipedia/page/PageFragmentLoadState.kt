@@ -3,13 +3,13 @@ package org.wikipedia.page
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -118,12 +118,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoad() {
         model.title?.let { title ->
-            fragment.lifecycleScope.launch(
-                context = CoroutineExceptionHandler { _, throwable ->
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
                     L.e("Page details network error: ", throwable)
                     commonSectionFetchOnCatch(throwable)
-                },
-                block = {
+                }) {
                     model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
                     fragment.updateQuickActionsAndMenuOptions()
@@ -180,11 +178,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                     }
                     if (categoriesResponse.isNotEmpty()) {
-                        withContext(Dispatchers.IO) {
-                            categoriesResponse.forEach { category ->
-                                AppDatabase.instance.categoryDao().insert(category)
-                            }
-                        }
+                        AppDatabase.instance.categoryDao().insertAll(categoriesResponse)
                     }
                     if (delayLoadHtml) {
                         bridge.resetHtml(title)
@@ -195,12 +189,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         checkAnonNotifications(title)
                     }
             }
-            )
         }
     }
 
     private fun checkAnonNotifications(title: PageTitle) {
-        fragment.lifecycleScope.launch {
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             val response = ServiceFactory.get(title.wikiSite)
                 .getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
@@ -270,6 +265,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     // Update metadata in the DB
                     AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
                 }
+
+                // And finally, count this as a page view.
+                WikipediaApp.instance.appSessionEvent.pageViewed(entry)
+                ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
+                ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
             }
         }
     }
