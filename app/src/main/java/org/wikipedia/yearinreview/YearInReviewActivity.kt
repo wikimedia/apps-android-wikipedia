@@ -66,7 +66,9 @@ class YearInReviewActivity : ComponentActivity() {
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         val screenState = yirViewModel.uiScreenListState.collectAsState().value
                         when (screenState) {
-                            is Resource.Loading -> {} // Re-route to dedicated loading screen or adding loading composable
+                            is Resource.Loading -> {
+                                LoadingIndicator()
+                            }
                             is Resource.Success -> {
                                 YearInReviewScreen(
                                     totalPages = screenState.data.size,
