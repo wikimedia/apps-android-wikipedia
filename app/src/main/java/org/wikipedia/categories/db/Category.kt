@@ -1,6 +1,7 @@
 package org.wikipedia.categories.db
 
 import androidx.room.Entity
+import java.util.Date
 
 @Entity(
     primaryKeys = ["title", "lang", "timeStamp"]
@@ -8,7 +9,7 @@ import androidx.room.Entity
 data class Category(
     val title: String,
     val lang: String,
-    val timeStamp: Long = System.currentTimeMillis(),
+    val timeStamp: Date = Date(),
 )
 
 data class CategoryCount(
