@@ -1,6 +1,7 @@
 package org.wikipedia.games.onthisday.db
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
@@ -16,5 +17,6 @@ interface DailyGameHistoryDao {
     @Update
     suspend fun update(dailyGameHistory: DailyGameHistory)
 
+    @Delete
     suspend fun delete(dailyGameHistory: DailyGameHistory)
 }
