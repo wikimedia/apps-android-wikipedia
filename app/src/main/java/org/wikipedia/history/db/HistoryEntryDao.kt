@@ -1,6 +1,8 @@
 package org.wikipedia.history.db
 
+import androidx.constraintlayout.compose.Span
 import androidx.room.Dao
+import androidx.room.Ignore
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -24,8 +26,9 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate ")
     suspend fun getHistoryCount(startDate: Long, endDate: Long): Int
 
-    @Query("SELECT DISTINCT REPLACE(apiTitle, \"_\", \" \") FROM HistoryEntry ORDER BY random() LIMIT 3")
-    suspend fun getApiTitles(): List<String>
+    @Ignore
+    @Query("SELECT DISTINCT SUBSTR(displayTitle, (INSTR(displayTitle, '>')+1), INSTR(displayTitle, '</') - INSTR(displayTitle, '>') - 1) FROM HistoryEntry LIMIT 3")
+    suspend fun getDisplayTitles(): List<String>
 
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()

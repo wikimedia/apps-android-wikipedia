@@ -1,6 +1,8 @@
 package org.wikipedia.yearinreview
 
 import android.app.Application
+import android.util.Log
+import androidx.constraintlayout.compose.Span
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -46,7 +48,7 @@ class YearInReviewViewModel(appContext: Application) : AndroidViewModel(appConte
             _uiScreenListState.value = Resource.Loading()
             val readCountJob = async {
                 personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getHistoryCount(startTimeInMillis, endTimeInMillis)
-                personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getApiTitles()
+                personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
                 readCountData.headLineText = wikiAppContext.getString(
                     R.string.year_in_review_read_count_headline,
                     personalizedStatistics.readCount.toString()
