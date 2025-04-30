@@ -31,6 +31,7 @@ import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Query
+import java.time.LocalDateTime
 
 /**
  * Retrofit service layer for all API interactions, including regular MediaWiki and RESTBase.
@@ -443,10 +444,10 @@ interface Service {
     suspend fun getUserContribsByTimeFrame(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
-        @Query("ucstart") startDate: String,
-        @Query("ucend") endDate: String,
-        @Query("ucnamespace") ns: Int?,
-        @Query("uccontinue") uccontinue: String?
+        @Query("ucstart") startDate: LocalDateTime?,
+        @Query("ucend") endDate: LocalDateTime?,
+        @Query("ucnamespace") ns: Int? = null,
+        @Query("uccontinue") uccontinue: String? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")

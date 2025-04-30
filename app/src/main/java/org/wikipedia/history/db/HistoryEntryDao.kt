@@ -24,7 +24,7 @@ interface HistoryEntryDao {
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
     @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate ")
-    suspend fun getHistoryCount(startDate: Long, endDate: Long): Int
+    suspend fun getHistoryCount(startDate: Long?, endDate: Long?): Int
 
     @Query("SELECT DISTINCT displayTitle FROM HistoryEntry LIMIT 3")
     suspend fun getDisplayTitles(): List<String>

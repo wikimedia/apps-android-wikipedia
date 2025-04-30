@@ -1,7 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -19,21 +17,20 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.util.Calendar
-import kotlin.time.ExperimentalTime
-import kotlin.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
-@OptIn(ExperimentalTime::class)
 class YearInReviewViewModel() : ViewModel() {
     private val wikiAppContext = WikipediaApp.instance
     private var _uiScreenListState = MutableStateFlow(Resource<List<YearInReviewScreenData>>())
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
 
-    val currentYear = Calendar.getInstance().get(Calendar.YEAR).toString()
-    val startTime = "$currentYear-01-01T00:00:00Z"
-    val endTime = "$currentYear-12-31T23:59:59Z"
-    val startTimeInMillis = Instant.parse(startTime).toEpochMilliseconds()
-    val endTimeInMillis = Instant.parse(endTime).toEpochMilliseconds()
+    val currentYear = LocalDate.now().year
+    val startTime: LocalDateTime? = LocalDateTime.of(currentYear, 1, 1, 0, 0, 1)
+    val endTime: LocalDateTime? = LocalDateTime.of(currentYear, 12, 31, 23, 59, 59)
+    val startTimeInMillis = startTime?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
+    val endTimeInMillis = endTime?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
 
     val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -48,20 +45,24 @@ class YearInReviewViewModel() : ViewModel() {
             _uiScreenListState.value = Resource.Loading()
             val readCountJob = async {
                 personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getHistoryCount(startTimeInMillis, endTimeInMillis)
-                personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
-                    .map { StringUtil.fromHtml(it).toString() }
-                readCountData.headLineText = wikiAppContext.getString(
-                    R.string.year_in_review_read_count_headline,
-                    personalizedStatistics.readCount.toString()
-                )
-                readCountData.bodyText = wikiAppContext.getString(
-                    R.string.year_in_review_read_count_bodytext,
-                    personalizedStatistics.readCount.toString(),
-                    personalizedStatistics.readCountApiTitles[0],
-                    personalizedStatistics.readCountApiTitles[1],
-                    personalizedStatistics.readCountApiTitles[2]
-                )
-                return@async readCountData
+                if(personalizedStatistics.readCount >= 3) {
+                    personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
+                        .map { StringUtil.fromHtml(it).toString() }
+                    readCountData.headLineText = wikiAppContext.getString(
+                        R.string.year_in_review_read_count_headline,
+                        personalizedStatistics.readCount.toString()
+                    )
+                    readCountData.bodyText = wikiAppContext.getString(
+                        R.string.year_in_review_read_count_bodytext,
+                        personalizedStatistics.readCount.toString(),
+                        personalizedStatistics.readCountApiTitles[0],
+                        personalizedStatistics.readCountApiTitles[1],
+                        personalizedStatistics.readCountApiTitles[2]
+                    )
+                    readCountData
+                } else {
+                    nonEnglishCollectiveReadCountData
+                }
             }
             val editCountJob = async {
                 val homeSiteCall = async {
@@ -70,9 +71,7 @@ class YearInReviewViewModel() : ViewModel() {
                             username = AccountUtil.userName,
                             maxCount = 500,
                             startDate = endTime,
-                            endDate = startTime,
-                            ns = null,
-                            uccontinue = null
+                            endDate = startTime
                         )
                 }
                 val commonsCall = async {
@@ -81,9 +80,7 @@ class YearInReviewViewModel() : ViewModel() {
                             username = AccountUtil.userName,
                             maxCount = 500,
                             startDate = endTime,
-                            endDate = startTime,
-                            ns = null,
-                            uccontinue = null
+                            endDate = startTime
                         )
                 }
                 val wikidataCall = async {
@@ -94,7 +91,6 @@ class YearInReviewViewModel() : ViewModel() {
                             startDate = endTime,
                             endDate = startTime,
                             ns = 0,
-                            uccontinue = null
                         )
                 }
 
@@ -114,7 +110,7 @@ class YearInReviewViewModel() : ViewModel() {
                     R.string.year_in_review_edit_count_bodytext,
                     personalizedStatistics.editCount.toString()
                 )
-                return@async editCountData
+                editCountData
             }
             _uiScreenListState.value = Resource.Success(
                 data = listOf(readCountJob.await(), editCountJob.await())
