@@ -1,9 +1,8 @@
 package org.wikipedia.yearinreview
 
 import android.app.Application
-import android.util.Log
-import androidx.constraintlayout.compose.Span
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
@@ -24,8 +23,8 @@ import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
 @OptIn(ExperimentalTime::class)
-class YearInReviewViewModel(appContext: Application) : AndroidViewModel(appContext) {
-    private val wikiAppContext = appContext
+class YearInReviewViewModel() : ViewModel() {
+    private val wikiAppContext = WikipediaApp.instance
     private var _uiScreenListState = MutableStateFlow(Resource<List<YearInReviewScreenData>>())
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
 

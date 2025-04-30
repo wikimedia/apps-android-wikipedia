@@ -5,11 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -27,8 +27,7 @@ class YearInReviewActivity : ComponentActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val viewModelFactory = YearInReviewViewModelFactory(application)
-                val yirViewModel = ViewModelProvider(this, viewModelFactory)[YearInReviewViewModel::class]
+                val yirViewModel: YearInReviewViewModel by viewModels()
                 yirViewModel.fetchPersonalizedData()
                 val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
