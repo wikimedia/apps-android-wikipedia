@@ -29,7 +29,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -67,24 +66,39 @@ class CategoryDeveloperPlayGround : BaseActivity() {
                     categoryCountState = categoryCountState.value,
                     categoryState = categoryState.value,
                     onAddToDb = { title, languageCode, year ->
-                        if (title.isEmpty() || languageCode.isEmpty() || year == 0) {
+                        if (title.isEmpty() || languageCode.isEmpty() || year.isEmpty()) {
                             Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
                                 .show()
                             return@CategoryDeveloperPlayGroundScreen
                         }
-                        viewModel.addTestData(this, title, languageCode, year)
+                        viewModel.addTestData(this, title, languageCode, year.toInt())
                     },
                     onBulkAddToDb = { numberOfRows, year ->
-                        viewModel.addTestDataBulk(this, numberOfRows, year)
+                        if (numberOfRows.isEmpty() || year.isEmpty()) {
+                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
+                                .show()
+                            return@CategoryDeveloperPlayGroundScreen
+                        }
+                        viewModel.addTestDataBulk(this, numberOfRows.toInt(), year.toInt())
                     },
                     onDeleteAll = {
                         viewModel.deleteAllCategories(this)
                     },
                     onDeleteBeforeYear = { yearsAgo ->
-                        viewModel.deleteBeforeYear(this, yearsAgo)
+                        if (yearsAgo.isEmpty()) {
+                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
+                                .show()
+                            return@CategoryDeveloperPlayGroundScreen
+                        }
+                        viewModel.deleteBeforeYear(this, yearsAgo.toInt())
                     },
                     onFilter = { year ->
-                        viewModel.filterBy(year)
+                        if (year.isEmpty()) {
+                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
+                                .show()
+                            return@CategoryDeveloperPlayGroundScreen
+                        }
+                        viewModel.filterBy(year.toInt())
                     },
                     onOptionSelected = { option ->
                         when (option) {
@@ -112,11 +126,11 @@ fun CategoryDeveloperPlayGroundScreen(
     modifier: Modifier = Modifier,
     categoryCountState: UiState<List<CategoryCount>>,
     categoryState: UiState<List<Category>>,
-    onAddToDb: (String, String, Int) -> Unit,
-    onBulkAddToDb: (Int, Int) -> Unit,
-    onFilter: (Int) -> Unit,
+    onAddToDb: (String, String, String) -> Unit,
+    onBulkAddToDb: (String, String) -> Unit,
+    onFilter: (String) -> Unit,
     onDeleteAll: () -> Unit,
-    onDeleteBeforeYear: (Int) -> Unit,
+    onDeleteBeforeYear: (String) -> Unit,
     onOptionSelected: (Option) -> Unit,
     onBackButtonClick: () -> Unit
 ) {
@@ -308,7 +322,7 @@ fun CategoryDeveloperPlayGroundScreen(
 fun DeleteView(
     modifier: Modifier = Modifier,
     onDeleteAll: () -> Unit,
-    onDeleteBeforeYear: (Int) -> Unit
+    onDeleteBeforeYear: (String) -> Unit
 ) {
     var year by remember { mutableStateOf("") }
 
@@ -327,6 +341,7 @@ fun DeleteView(
 
         OutlinedTextField(
             value = year,
+            singleLine = true,
             onValueChange = {
                 year = it
             },
@@ -344,7 +359,7 @@ fun DeleteView(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                onDeleteBeforeYear(year.toInt())
+                onDeleteBeforeYear(year)
             }
         ) {
             Text("Delete Before")
@@ -355,7 +370,7 @@ fun DeleteView(
 @Composable
 fun FilterView(
     modifier: Modifier = Modifier,
-    onFilter: (Int) -> Unit
+    onFilter: (String) -> Unit
 ) {
     var year by remember { mutableStateOf("") }
 
@@ -369,6 +384,7 @@ fun FilterView(
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text("Year") },
+            singleLine = true,
             colors = OutlinedTextFieldDefaults.colors(
                 focusedTextColor = WikipediaTheme.colors.primaryColor,
                 unfocusedTextColor = WikipediaTheme.colors.primaryColor,
@@ -386,7 +402,7 @@ fun FilterView(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                onFilter(year.toInt())
+                onFilter(year)
             }
         ) {
             Text("Filter")
@@ -396,7 +412,7 @@ fun FilterView(
 
 @Composable
 fun SingleEntryView(
-    onAddToDb: (String, String, Int) -> Unit,
+    onAddToDb: (String, String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var title by remember { mutableStateOf("") }
@@ -412,6 +428,7 @@ fun SingleEntryView(
             onValueChange = {
                 title = it
             },
+            singleLine = true,
             label = {
                 Text(
                     text = "Title",
@@ -432,6 +449,7 @@ fun SingleEntryView(
             onValueChange = {
                 languageCode = it
             },
+            singleLine = true,
             label = {
                 Text(
                     text = "language code",
@@ -452,6 +470,7 @@ fun SingleEntryView(
             onValueChange = {
                 year = it
             },
+            singleLine = true,
             label = {
                 Text(
                     text = "Year",
@@ -476,7 +495,7 @@ fun SingleEntryView(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                onAddToDb(title, languageCode, year.toInt())
+                onAddToDb(title, languageCode, year)
             }
         ) {
             Text("Add Entry")
@@ -486,10 +505,10 @@ fun SingleEntryView(
 
 @Composable
 fun RandomBulkEntryView(
-    onBulkAddToDb: (Int, Int) -> Unit,
+    onBulkAddToDb: (String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var numberOfRows by remember { mutableIntStateOf(10) }
+    var numberOfRows by remember { mutableStateOf("") }
     var year by remember { mutableStateOf("") }
 
     Column(
@@ -497,10 +516,11 @@ fun RandomBulkEntryView(
     ) {
         // Input field for size
         OutlinedTextField(
-            value = numberOfRows.toString(),
+            value = numberOfRows,
             onValueChange = {
-                numberOfRows = it.toInt()
+                numberOfRows = it
             },
+            singleLine = true,
             label = {
                 Text(
                     text = "Number of Rows",
@@ -523,6 +543,7 @@ fun RandomBulkEntryView(
                 year = it
             },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            singleLine = true,
             label = {
                 Text(
                     text = "Year",
@@ -546,7 +567,7 @@ fun RandomBulkEntryView(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                onBulkAddToDb(numberOfRows, year.toInt())
+                onBulkAddToDb(numberOfRows, year)
             }
         ) {
             Text("Add Random Entries")
@@ -661,7 +682,7 @@ fun CategoryTable(
                         modifier = Modifier.weight(0.3f)
                     )
                     Text(
-                        text = category.timeStamp.toYear().toString(),
+                        text = category.timeStamp.time.toYear().toString(),
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.weight(0.3f)
                     )

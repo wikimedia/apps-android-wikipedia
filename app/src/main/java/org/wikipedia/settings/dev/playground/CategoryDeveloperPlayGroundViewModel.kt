@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,11 +14,12 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.categories.db.Category
 import org.wikipedia.categories.db.CategoryCount
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.extensions.endOfYearInMillis
-import org.wikipedia.extensions.startOfYearInMillis
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
+import org.wikipedia.util.log.L
 import java.time.Year
 import java.util.Calendar
+import java.util.Date
 
 class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     private val TAG = "CategoryTable"
@@ -44,7 +46,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     fun loadCategories() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             val categories = AppDatabase.instance.categoryDao().getAllCategories()
             withContext(Dispatchers.Main) {
                 _categoryState.value = UiState.Success(categories)
@@ -53,17 +57,21 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     fun filterBy(year: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             val categoryCounts = AppDatabase.instance.categoryDao().getCategoriesByYearRange(
-                startOfYear = year.startOfYearInMillis(),
-                endOfYear = year.endOfYearInMillis()
+                startOfYear = DateUtil.startOfYearInMillis(year),
+                endOfYear = DateUtil.endOfYearInMillis(year)
             )
             _categoryCountState.value = UiState.Success(categoryCounts)
         }
     }
 
     fun addTestData(context: Context, title: String, languageCode: String, year: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             try {
                 val currentYear = Year.now().value
                 val timeStamp = if (year == currentYear) {
@@ -72,7 +80,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                     getPreviousYearMillis(currentYear - year)
                 }
                 AppDatabase.instance.categoryDao().insert(
-                    Category(title, languageCode, timeStamp)
+                    Category(title, languageCode, Date(timeStamp))
                 )
                 loadCategories()
             } catch (e: Exception) {
@@ -106,7 +114,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                         Category(
                             title = "Category:${categories[randomCategoryIndex]}",
                             lang = languages[randomLanguageIndex],
-                            timeStamp = timeStamp
+                            timeStamp = Date(timeStamp)
                         )
                     }
 
@@ -126,7 +134,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     fun deleteAllCategories(context: Context) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             try {
                 AppDatabase.instance.categoryDao().deleteAll()
                 loadCategories()
@@ -140,7 +150,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     fun deleteBeforeYear(context: Context, yearsAgo: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
             try {
                 AppDatabase.instance.categoryDao().deleteOlderThan(getPreviousYearMillis(yearsAgo))
                 loadCategories()
