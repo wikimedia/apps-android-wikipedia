@@ -17,6 +17,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.Resource
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.util.Calendar
 import kotlin.time.ExperimentalTime
@@ -48,6 +49,7 @@ class YearInReviewViewModel() : ViewModel() {
             val readCountJob = async {
                 personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getHistoryCount(startTimeInMillis, endTimeInMillis)
                 personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
+                    .map { StringUtil.fromHtml(it).toString() }
                 readCountData.headLineText = wikiAppContext.getString(
                     R.string.year_in_review_read_count_headline,
                     personalizedStatistics.readCount.toString()
