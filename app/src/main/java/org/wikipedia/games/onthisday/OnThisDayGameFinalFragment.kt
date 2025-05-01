@@ -186,7 +186,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     }
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
-        binding.shareLayout.shareContainer.visibility = View.VISIBLE
         val totalCorrect = gameState.answerState.count { it }
         loadedImagesForShare = 0
         binding.shareLayout.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
