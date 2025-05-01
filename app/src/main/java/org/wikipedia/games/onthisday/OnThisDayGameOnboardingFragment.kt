@@ -10,6 +10,9 @@ import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -21,6 +24,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
+import java.util.Calendar
 
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -39,9 +43,37 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.playGameButton.setOnClickListener {
-            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
-            requireActivity().supportFragmentManager.popBackStack()
-            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
+            val startDate = Calendar.getInstance().apply {
+                set(2025, Calendar.APRIL, 24)
+            }
+            val endDate = Calendar.getInstance().apply {
+                set(get(Calendar.YEAR), get(Calendar.MONTH), get(Calendar.DAY_OF_MONTH))
+            }
+            val endTimeInMillis = System.currentTimeMillis()
+            val calendarConstraints = CalendarConstraints.Builder()
+                .setEnd(endTimeInMillis)
+                .setValidator(DateValidatorPointBackward.before(endTimeInMillis))
+                .build()
+
+            MaterialDatePicker.Builder.datePicker()
+                .setTheme(R.style.MaterialDatePickerStyle)
+                .setDayViewDecorator(DateDecorator(
+                    startDate,
+                    endDate,
+                    hashMapOf(
+                        "2025-3-25" to 5,
+                        "2025-3-28" to 3,
+                        "2025-3-30" to 1
+                    )))
+                .setCalendarConstraints(calendarConstraints)
+                .build()
+                .apply {
+                    addOnPositiveButtonClickListener {}
+                }
+                .show(requireActivity().supportFragmentManager, "datePicker")
+//            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+//            requireActivity().supportFragmentManager.popBackStack()
+//            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
         }
 
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
