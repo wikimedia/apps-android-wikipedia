@@ -326,6 +326,7 @@
   <string name="about_app_license">Code source disponible sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
+  <string name="about_logo_content_description">Logo du globe-puzzle Wikipédia</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
   <string name="edit_abandon_confirm_yes">Oui</string>
   <string name="edit_abandon_confirm_no">Non</string>
@@ -1810,5 +1811,4 @@
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
   <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
-  <string name="about_logo_content_description">Logo du globe-puzzle Wikipédia</string>
 </resources>
