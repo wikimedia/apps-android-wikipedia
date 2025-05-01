@@ -17,6 +17,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -27,10 +28,10 @@ class YearInReviewViewModel() : ViewModel() {
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
 
     val currentYear = LocalDate.now().year
-    val startTime: LocalDateTime? = LocalDateTime.of(currentYear, 1, 1, 0, 0, 1)
-    val endTime: LocalDateTime? = LocalDateTime.of(currentYear, 12, 31, 23, 59, 59)
-    val startTimeInMillis = startTime?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
-    val endTimeInMillis = endTime?.toInstant(ZoneOffset.UTC)?.toEpochMilli()
+    val startTime: Instant = LocalDateTime.of(currentYear, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
+    val endTime: Instant = LocalDateTime.of(currentYear, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
+    val startTimeInMillis = startTime.toEpochMilli()
+    val endTimeInMillis = endTime.toEpochMilli()
 
     val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
