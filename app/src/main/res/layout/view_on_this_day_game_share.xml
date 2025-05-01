@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
-    android:visibility="invisible">
+    android:visibility="invisible"
+    tools:visibility="visible">
 
     <LinearLayout
         android:id="@+id/shareContainer"
@@ -57,7 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:background="?attr/inactive_color"
-                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginHorizontal="24dp"
                     app:layout_constraintStart_toStartOf="@id/questionDotsFlow"
                     app:layout_constraintEnd_toEndOf="@id/questionDotsFlow"
                     app:layout_constraintTop_toTopOf="@id/questionDotsFlow"
@@ -84,7 +85,7 @@
             android:id="@+id/shareSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/H2.AppBar"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="?attr/primary_color"
             android:layout_marginTop="32dp"
             android:text="@string/on_this_day_game_share_screen_subtitle"/>

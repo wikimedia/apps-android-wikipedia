@@ -1856,7 +1856,7 @@
     <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="on_this_day_game_notification_undo">Undo</string>
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
-    <string name="on_this_day_game_share_screen_title">I scored %1$d/%2$d on \"Which came first?\" today.</string>
+    <string name="on_this_day_game_share_screen_title">I scored %1$d/%2$d on \n\"Which came first?\" \ntoday.</string>
     <string name="on_this_day_game_share_screen_subtitle">Topics included:</string>
     <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>

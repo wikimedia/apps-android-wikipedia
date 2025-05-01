@@ -21,7 +21,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
-import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -130,9 +129,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.root.setOnApplyWindowInsetsListener { view, insets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(insets, view)
             val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            binding.shareButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                bottomMargin = navBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            }
             binding.resultArticlesList.updatePaddingRelative(bottom = navBarInsets.bottom)
             insets
         }
@@ -197,7 +193,8 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         createDots(gameState)
         binding.shareLayout.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.shareLayout.shareArticlesList.isNestedScrollingEnabled = false
-        binding.shareLayout.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
+        binding.shareLayout.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned
+            .filter { !it.thumbnailUrl.isNullOrEmpty() }.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
     }
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
@@ -248,7 +245,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoader())
+                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoader())
             } ?: run {
                 loadedImagesForShare++
             }
