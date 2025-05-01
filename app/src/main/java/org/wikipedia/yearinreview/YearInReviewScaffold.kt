@@ -52,7 +52,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
@@ -149,21 +148,17 @@ fun MainBottomBar(
         BottomAppBar(
             containerColor = WikipediaTheme.colors.paperColor,
             content = {
-                ConstraintLayout(
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .wrapContentHeight()
                 ) {
-                    val (donateRow, pagination, navigateRight) = createRefs()
                     Row(
                         modifier = Modifier
                             .clickable(onClick = { /* TODO() */ })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
-                            .constrainAs(donateRow) {
-                                start.linkTo(parent.start)
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                            },
+                            .align(Alignment.CenterStart),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
@@ -183,12 +178,7 @@ fun MainBottomBar(
                         modifier = Modifier
                             .wrapContentHeight()
                             .wrapContentWidth()
-                            .constrainAs(pagination) {
-                                start.linkTo(parent.start)
-                                end.linkTo(parent.end)
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                            },
+                            .align(Alignment.Center),
                         horizontalArrangement = Arrangement.Center
                     ) {
                         val animationDuration = 500
@@ -224,11 +214,7 @@ fun MainBottomBar(
                             onClick = { onNavigationRightClick() },
                             modifier = Modifier
                                 .padding(0.dp)
-                                .constrainAs(navigateRight) {
-                                    end.linkTo(parent.end)
-                                    top.linkTo(parent.top)
-                                    bottom.linkTo(parent.bottom)
-                                }
+                                .align(Alignment.CenterEnd)
                         ) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
