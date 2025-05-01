@@ -254,7 +254,6 @@ fun OnboardingBottomBar(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
                     .padding(start = 10.dp, end = 10.dp)
             ) {
                 OutlinedButton(
@@ -304,27 +303,21 @@ fun YearInReviewScreenContent(
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        Row(
-            verticalAlignment = Alignment.Top,
+        AndroidView(
+            factory = { context ->
+                ImageView(context).apply {
+                    Glide.with(context)
+                        .asGif()
+                        .load(screenData.imageResource)
+                        .centerCrop()
+                        .into(this)
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
-        ) {
-            AndroidView(
-                factory = { context ->
-                    ImageView(context).apply {
-                        Glide.with(context)
-                            .asGif()
-                            .load(screenData.imageResource)
-                            .centerCrop()
-                            .into(this)
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(gifAspectRatio)
-                    .clip(RoundedCornerShape(16.dp))
-            )
-        }
+                .aspectRatio(gifAspectRatio)
+                .clip(RoundedCornerShape(16.dp))
+        )
         Column(
             modifier = Modifier
                 .padding(horizontal = 20.dp)
