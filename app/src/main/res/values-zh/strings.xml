@@ -1746,5 +1746,5 @@
   <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
-  <string name="about_screen_logo_accessibility_text">维基百科拼图地球标志</string>
+  <string name="about_logo_content_description">维基百科拼图地球标志</string>
 </resources>
