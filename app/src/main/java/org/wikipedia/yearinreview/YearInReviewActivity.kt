@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
 
@@ -90,7 +91,11 @@ class YearInReviewActivity : ComponentActivity() {
                                     },
                                 )
                             }
-                            else -> {} // Re-Route to a dedicated error screen or load Error composable
+                            is Resource.Error -> {
+                                WikiErrorView(
+                                    caught = screenState.throwable
+                                )
+                            }
                         }
                     }
                     /*
