@@ -65,11 +65,10 @@ fun YearInReviewScreen(
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
-    contentData: List<YearInReviewScreenData>,
-    totalPages: Int
+    contentData: List<YearInReviewScreenData>
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(pageCount = { totalPages })
+    val pagerState = rememberPagerState(pageCount = { contentData.size })
     val context = LocalContext.current
 
     Scaffold(
@@ -87,7 +86,7 @@ fun YearInReviewScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        if (totalPages > 1 && pagerState.currentPage != 0) {
+                        if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
                             (context as? ComponentActivity)?.finish()
@@ -104,7 +103,7 @@ fun YearInReviewScreen(
                     }
                 },
                 actions = {
-                    if (totalPages > 1) {
+                    if (contentData.size > 1) {
                         IconButton(onClick = { /* TODO() */ }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
@@ -118,7 +117,7 @@ fun YearInReviewScreen(
         },
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
-        if (totalPages > 1) {
+        if (contentData.size > 1) {
             HorizontalPager(
                 verticalAlignment = Alignment.Top,
                 state = pagerState,

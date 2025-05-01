@@ -42,7 +42,6 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            totalPages = getStartedList.size,
                             contentData = getStartedList,
                             navController = navController,
                             customBottomBar = {
@@ -63,7 +62,6 @@ class YearInReviewActivity : BaseActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreen(
-                            totalPages = personalizedScreenList.size,
                             contentData = personalizedScreenList,
                             navController = navController,
                             customBottomBar = { pagerState -> MainBottomBar(
