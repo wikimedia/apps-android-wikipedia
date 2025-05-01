@@ -267,6 +267,7 @@
     <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
+    <string name="about_logo_content_description">Wikipedia puzzle globe logo</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
     <string name="edit_abandon_confirm_yes">Yes</string>
     <string name="edit_abandon_confirm_no">No</string>
@@ -1858,5 +1859,4 @@
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
-    <string name="about_screen_logo_accessibility_text">Wikipedia puzzle globe logo</string>
 </resources>
