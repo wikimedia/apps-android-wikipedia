@@ -296,6 +296,7 @@
   <string name="about_app_license">Description of the license for the app, as well as links for finding our source code.\n\n  {{doc-important|Please don\'t translate links and link titles.}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="about_activity_title">{{Identical|About}}</string>
+  <string name="about_logo_content_description">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
   <string name="edit_abandon_confirm_yes">Affirmative answer to abandon any changes that were made during editing.\n{{Identical|Yes}}</string>
   <string name="edit_abandon_confirm_no">Negative answer to abandon any changes that were made during editing.\n{{Identical|No}}</string>
