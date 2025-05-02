@@ -163,7 +163,7 @@ fun YearInReviewSurvey() {
                             .fillMaxWidth()
                             .height(72.dp)
 
-                    ){
+                    ) {
                         Text(
                             text = stringResource(R.string.year_in_review_survey_cancel),
                             style = WikipediaTheme.typography.button,
