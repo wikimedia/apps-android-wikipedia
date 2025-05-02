@@ -51,6 +51,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     init {
         Prefs.lastOtdGameVisitDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+
+        L.d("Game Prefs otdGameState: ${Prefs.otdGameState}")
+        L.d("Game Prefs otdGameHistory: ${Prefs.otdGameHistory}")
+
         loadGameState()
     }
 
