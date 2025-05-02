@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -156,11 +158,6 @@ class PageRobot(private val context: Context) : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun clickLanguageListedAtFourthPosition() = apply {
-        list.clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun openOverflowMenu() = apply {
         click.onViewWithId(R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
@@ -294,12 +291,8 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun selectSpanishLanguage() = apply {
         val language = "Spanish"
-        list.scrollToRecyclerView(
-            recyclerViewId = R.id.langlinks_recycler,
-            title = language,
-            textViewId = R.id.non_localized_language_name
-        )
-        click.onViewWithText(language)
+        composeTestRule.onNodeWithText(language)
+            .performClick()
     }
 
     fun scrollToAboutThisArticle() = apply {
