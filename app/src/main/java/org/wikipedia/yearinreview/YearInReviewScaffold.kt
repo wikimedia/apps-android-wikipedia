@@ -117,6 +117,7 @@ fun YearInReviewScreen(
         },
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
+        YearInReviewSurvey()
         if (contentData.size > 1) {
             HorizontalPager(
                 verticalAlignment = Alignment.Top,
