@@ -147,7 +147,7 @@
   <string name="login_username_hint">Потребителско име</string>
   <string name="login_password_hint">Парола</string>
   <string name="account_creation_password_hint">Парола</string>
-  <string name="login_2fa_hint" fuzzy="true">Двукомпонентен удостоверителен код</string>
+  <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
@@ -1234,10 +1234,10 @@
   <string name="revision_compare_button">Сравняване</string>
   <string name="revision_compare_two_only">Могат да бъдат избрани само две версии.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промяна</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">за 1 седмица</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">за 1 месец</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">за 3 месеца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">за 6 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 седмица</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеца</string>
   <string name="watchlist_expiry_dialog_one_week">1 седмица</string>
   <string name="watchlist_expiry_dialog_one_month">1 месец</string>
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
