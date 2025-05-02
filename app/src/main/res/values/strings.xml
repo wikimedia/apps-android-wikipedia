@@ -1880,4 +1880,14 @@
     <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
     <string name="year_in_review_entry_dialog_continue">Continue</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
+    <string name="year_in_review_survey_satisfied">Satisfied</string>
+    <string name="year_in_review_survey_neutral">Neutral</string>
+    <string name="year_in_review_survey_unsatisfied">Unsatisfied</string>
+    <string name="year_in_review_survey_very_unsatisfied">Very unsatisfied</string>
+    <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
+    <string name="year_in_review_survey_cancel">Cancel</string>
+    <string name="year_in_review_survey_submit">Submit</string>
 </resources>

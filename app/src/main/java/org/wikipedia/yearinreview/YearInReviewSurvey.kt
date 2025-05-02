@@ -33,21 +33,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
+import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewSurvey() {
     val radioOptions = listOf(
-        "Very satisfied",
-        "Satisfied",
-        "Neutral",
-        "Unsatisfied",
-        "Very unsatisfied"
+        stringResource(R.string.year_in_review_survey_very_satisfied),
+        stringResource(R.string.year_in_review_survey_satisfied),
+        stringResource(R.string.year_in_review_survey_neutral),
+        stringResource(R.string.year_in_review_survey_unsatisfied),
+        stringResource(R.string.year_in_review_survey_very_unsatisfied)
     )
     val openSurvey = remember { mutableStateOf(true) }
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
@@ -75,13 +77,13 @@ fun YearInReviewSurvey() {
 
                 ) {
                     Text(
-                        text = "Help Improve Year In Review",
+                        text = stringResource(R.string.year_in_review_survey_title),
                         style = WikipediaTheme.typography.h2,
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.padding(top = 20.dp, bottom = 5.dp)
                     )
                     Text(
-                        text = "Are you satisfied with this feature?",
+                        text = stringResource(R.string.year_in_review_survey_subtitle),
                         style = WikipediaTheme.typography.p,
                         color = WikipediaTheme.colors.placeholderColor,
                         modifier = Modifier.padding(top = 5.dp, bottom = 10.dp)
@@ -163,7 +165,7 @@ fun YearInReviewSurvey() {
 
                     ){
                         Text(
-                            text = "Cancel",
+                            text = stringResource(R.string.year_in_review_survey_cancel),
                             style = WikipediaTheme.typography.button,
                             color = WikipediaTheme.colors.progressiveColor,
                             modifier = Modifier.clickable {
@@ -172,11 +174,17 @@ fun YearInReviewSurvey() {
                         )
                         Spacer(modifier = Modifier.width(32.dp))
                         Text(
-                            text = "Submit",
+                            text = stringResource(R.string.year_in_review_survey_submit),
                             style = WikipediaTheme.typography.button,
                             color = WikipediaTheme.colors.progressiveColor,
                             modifier = Modifier.clickable {
-                                /* TODO: Add click behavior */
+                                /*
+                                PatrollerExperienceEvent.logAction(
+                                    "yir_survey_form",
+                                    "yir_survey_submit",
+                                    "$selectedOption $userInput"
+                                ) */
+                                openSurvey.value = false
                             }
                         )
                     }

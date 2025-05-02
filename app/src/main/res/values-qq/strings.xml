@@ -1797,4 +1797,14 @@
   <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
+  <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
+  <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
+  <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>
+  <string name="year_in_review_survey_satisfied">Satisfied button option for the Year in Review survey</string>
+  <string name="year_in_review_survey_neutral">Neutral button option for the Year in Review survey</string>
+  <string name="year_in_review_survey_unsatisfied">Unsatisfied button option for the Year in Review survey</string>
+  <string name="year_in_review_survey_very_unsatisfied">Very unsatisfied button option for the Year in Review survey</string>
+  <string name="year_in_review_survey_placeholder_text">Placeholder text for the Year in Review Text input field</string>
+  <string name="year_in_review_survey_cancel">Cancel button text for the Year in Review survey</string>
+  <string name="year_in_review_survey_submit">Submit button text for the Year in Review survey</string>
 </resources>
