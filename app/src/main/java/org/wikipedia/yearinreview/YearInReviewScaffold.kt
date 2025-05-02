@@ -104,7 +104,7 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (contentData.size > 1) {
-                        IconButton(onClick = { /* TODO() */ }) {
+                        IconButton(onClick = { YearInReviewShareSheet(context) }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
