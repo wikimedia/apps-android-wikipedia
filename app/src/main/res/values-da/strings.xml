@@ -275,6 +275,7 @@
   <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-licensen&lt;/a&gt; . Medmindre andet er angivet, er indhold tilgængeligt under en &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-Del på samme Vilkår-licens&lt;/a&gt; .</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
+  <string name="about_logo_content_description">Wikipedia puslespil globus logo</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nej</string>
@@ -1757,5 +1758,4 @@
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hvilken kom først?\" et dagligt trivia-spil på Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hvor tilfreds var du med dette spil?</string>
   <string name="on_this_day_game_survey_q2">Vil du være interesseret i at spille andre Wikipedia-spil?</string>
-  <string name="about_logo_content_description">Wikipedia puslespil globus logo</string>
 </resources>
