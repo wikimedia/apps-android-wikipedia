@@ -330,6 +330,7 @@
   <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
+  <string name="about_logo_content_description">维基百科拼图地球标志</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -1746,5 +1747,4 @@
   <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
-  <string name="about_logo_content_description">维基百科拼图地球标志</string>
 </resources>

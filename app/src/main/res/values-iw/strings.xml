@@ -286,6 +286,7 @@
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;גיטהאב&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
+  <string name="about_logo_content_description">סמול גלובוס הפאזל של ויקיפדיה</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
   <string name="edit_abandon_confirm_no">לא</string>
@@ -1858,5 +1859,4 @@
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
   <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
   <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
-  <string name="about_logo_content_description">סמול גלובוס הפאזל של ויקיפדיה</string>
 </resources>
