@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -42,57 +43,44 @@ class ScoreView @JvmOverloads constructor(
         if (currentQuestionIndex >= answerState.size) {
             return
         }
-
-        val answer = answerState[currentQuestionIndex]
-        val scoreViewToUpdate = scoreViews[currentQuestionIndex]
-        // current question, user has not submitted answer
-        if (!gotToNext) {
-            scoreViewToUpdate.setImageResource(R.drawable.shape_circle)
-            scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.paper_color)
-            )
-            return
-        }
-        // user submitted answer
-        if (answer) {
-            scoreViewToUpdate.setImageResource(R.drawable.checked)
-            scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.success_color)
-            )
-        } else {
-            scoreViewToUpdate.setImageResource(R.drawable.ic_cancel_24px)
-            scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.destructive_color)
-            )
-        }
+        updateScoreViewAppearance(
+            scoreView = scoreViews[currentQuestionIndex],
+            isCorrect = answerState[currentQuestionIndex],
+            isAnswered = gotToNext // when false, user has not answered
+        )
     }
 
     fun updateInitialScores(answerState: List<Boolean>, currentQuestionIndex: Int) {
         for (i in answerState.indices) {
-            val scoreViewToUpdate = scoreViews[i]
-            when {
-                // future questions
-                i >= currentQuestionIndex -> {
-                    scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                        ResourceUtil.getThemedColor(context, R.attr.paper_color)
-                    )
-                }
+            val isAnswered = i < currentQuestionIndex
+            val isCorrect = isAnswered && answerState[i]
+            updateScoreViewAppearance(scoreViews[i], isCorrect, isAnswered)
+        }
+    }
 
-                // questions that have already been answered
-                i < currentQuestionIndex -> {
-                    if (answerState[i]) {
-                        scoreViewToUpdate.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                        scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                            ResourceUtil.getThemedColor(context, R.attr.success_color)
-                        )
-                    } else {
-                        scoreViewToUpdate.setImageResource(R.drawable.ic_cancel_24px)
-                        scoreViewToUpdate.imageTintList = ColorStateList.valueOf(
-                            ResourceUtil.getThemedColor(context, R.attr.destructive_color)
-                        )
-                    }
-                }
-            }
+    private fun updateScoreViewAppearance(
+        scoreView: ImageView,
+        isCorrect: Boolean,
+        isAnswered: Boolean
+    ) {
+        if (!isAnswered) {
+            scoreView.setImageResource(R.drawable.shape_circle)
+            scoreView.imageTintList = ColorStateList.valueOf(
+                ResourceUtil.getThemedColor(context, R.attr.paper_color)
+            )
+            return
+        }
+
+        if (isCorrect) {
+            scoreView.setImageResource(R.drawable.ic_check_circle_black_24dp)
+            scoreView.imageTintList = ColorStateList.valueOf(
+                ResourceUtil.getThemedColor(context, R.attr.success_color)
+            )
+        } else {
+            scoreView.setImageResource(R.drawable.ic_cancel_24px)
+            scoreView.imageTintList = ColorStateList.valueOf(
+                ResourceUtil.getThemedColor(context, R.attr.destructive_color)
+            )
         }
     }
 
