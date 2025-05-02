@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -50,8 +52,7 @@ fun YearInReviewSurvey() {
     val openSurvey = remember { mutableStateOf(true) }
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
     var userInput by remember { mutableStateOf("") }
-
-    /* TODO: Add scrollable behavior for landscape mode */
+    val scrollState = rememberScrollState()
 
     if (openSurvey.value) {
         BasicAlertDialog(
@@ -69,7 +70,8 @@ fun YearInReviewSurvey() {
                     .fillMaxWidth()
             ) {
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.verticalScroll(scrollState)
 
                 ) {
                     Text(
