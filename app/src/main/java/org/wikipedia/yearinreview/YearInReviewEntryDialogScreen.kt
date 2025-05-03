@@ -12,7 +12,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,7 +30,6 @@ import com.bumptech.glide.Glide
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewEntryDialogScreen() {
     val context = LocalContext.current

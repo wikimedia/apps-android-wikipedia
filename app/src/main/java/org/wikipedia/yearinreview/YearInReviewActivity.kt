@@ -3,7 +3,6 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
@@ -14,11 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
 
-class YearInReviewActivity : ComponentActivity() {
+class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,6 @@ class YearInReviewActivity : ComponentActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            totalPages = getStartedList.size,
                             contentData = getStartedList,
                             navController = navController,
                             customBottomBar = {
@@ -59,8 +58,7 @@ class YearInReviewActivity : ComponentActivity() {
                             screenContent = { innerPadding, contentData ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    screenData = contentData,
-                                )
+                                    screenData = contentData)
                             },
                         )
                     }
@@ -72,7 +70,6 @@ class YearInReviewActivity : ComponentActivity() {
                             }
                             is Resource.Success -> {
                                 YearInReviewScreen(
-                                    totalPages = screenState.data.size,
                                     contentData = screenState.data,
                                     navController = navController,
                                     customBottomBar = { pagerState -> MainBottomBar(
@@ -97,13 +94,6 @@ class YearInReviewActivity : ComponentActivity() {
                                 )
                             }
                         }
-                    }
-                    /*
-                    This is a temporary route for testing only.
-                    This will be removed in future iterations
-                     */
-                    composable(route = "test screen") {
-                        TestScreen(yirViewModel)
                     }
                 }
             }
