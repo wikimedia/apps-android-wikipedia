@@ -87,11 +87,16 @@ for key, value in data[u"sitematrix"].items():
         language_code = 'nb'
 
     lang_name = value[u"name"]
+    english_name = value[u"localname"]
     lang_bcp47 = language_code
     for name in lang_list_response[u"query"][u"languages"]:
         if name[u"code"] == language_code:
             lang_name = name[u"name"]
             lang_bcp47 = name[u"bcp47"]
+            break
+    for name in lang_list_en_response[u"query"][u"languages"]:
+        if name[u"code"] == language_code:
+            english_name = name[u"name"]
             break
 
     # add language variants into the list
@@ -129,7 +134,7 @@ for key, value in data[u"sitematrix"].items():
     if language_code == 'zh':
         continue
 
-    add_lang(language_code, lang_bcp47, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
+    add_lang(language_code, lang_bcp47, lang_name.replace("'", "\\'"), english_name.replace("'", "\\'"), rank)
 
 
 add_lang(key='test', bcp47key='test', local_name='Test', eng_name='Test', rank=0)

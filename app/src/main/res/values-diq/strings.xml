@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1917 Ekim Devrimi
 * Dbrant
+* GolyatGeri
 * Gorizon
 * Gırd
 * Kumkumuk
@@ -22,6 +23,7 @@
   <string name="search_hint">Wikipedia de bıvinê</string>
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
+  <string name="search_icon_content_description">Cı geyre</string>
   <string name="filter_hint_filter_my_lists_and_articles">Parzûnê listanê mı</string>
   <string name="nav_item_suggested_edits">Vurnayışi</string>
   <string name="nav_item_more">Zêde</string>
@@ -93,6 +95,9 @@
   <string name="dialog_message_leaving_edit">Vurnayışê şıma hewna nêçapneyaye. Şıma qayılê na pela abıryê?</string>
   <string name="dialog_message_leaving_edit_leave">Abıriye</string>
   <string name="dialog_message_leaving_edit_stay">Bıman</string>
+  <string name="dialog_confirm_delete_donation_history_title">Esterıtışi tesdiq ke</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Bestere</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Bıtexelne</string>
   <string name="menu_show_toc">Tabloyê zerreki</string>
   <string name="search_no_results_found">Neticeyi nêvêniyayi</string>
   <string name="search_reading_list_no_results">\"%s\" tede de theba nêvineya</string>
@@ -106,7 +111,7 @@
   <string name="login_username_hint">Namey karberi</string>
   <string name="login_password_hint">Parola</string>
   <string name="account_creation_password_hint">Parola</string>
-  <string name="login_2fa_hint">Dı Faktorın Kodê Araşt Kerdışi</string>
+  <string name="login_2fa_hint" fuzzy="true">Dı Faktorın Kodê Araşt Kerdışi</string>
   <string name="onboarding_card_login">Cı kewe</string>
   <string name="page_editing_login">Cı kewe</string>
   <string name="reading_lists_sync_login">Cı kewe</string>
@@ -264,7 +269,7 @@
   <string name="tool_tip_toc_title">Pêt resayışê zerreki</string>
   <string name="format_error_server_message">Mesac : \"%s\"</string>
   <string name="address_copied">Adrese kopyayê panoyi biya.</string>
-  <string name="text_copied">Metin kopyayê panoy biyo</string>
+  <string name="text_copied">Metın be panoyi ra kopya bi.</string>
   <string name="button_continue_to_article">Meqaley bıwanê</string>
   <string name="button_continue_to_talk_page">Pela werênayışi ake</string>
   <string name="button_continue_to_disambiguation">Pelanê tay pêya bımocne</string>
@@ -486,7 +491,7 @@
   <string name="description_edit_translate_image_caption">Bınnuştey resımi açarnê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_help_title">Zang:Şınasiya meqaley</string>
-  <string name="description_edit_help_about_wikidata">Heqê Wikidata</string>
+  <string name="description_edit_help_about_wikidata">Heqê Wikidayıt</string>
   <string name="description_edit_success_saved">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_snackbar">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Şınastiya meqaley çapneyê  (%s)</string>
@@ -544,7 +549,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bınnuştey resimi cı kerê (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Etiketê resımi cı kerê</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="suggested_edits_task_action_text_add">Cı ke</string>
   <string name="suggested_edits_task_action_text_translate">Bıçarne</string>
   <string name="suggested_edits_image_tags_publishing">Çapnayeno</string>
@@ -641,8 +645,13 @@
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 hefte</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aşme</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aşmi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aşmi</string>
   <string name="watchlist_filter_all">Pêro</string>
   <string name="watchlist_page_deleted">Esteriya</string>
   <string name="shareable_reading_lists_new_indicator">*newe*</string>
   <string name="reading_list_share_menu_label">Vıla ke...</string>
+  <string name="on_this_day_game_stats_average_score">Puwano miyanên</string>
 </resources>

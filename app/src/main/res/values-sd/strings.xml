@@ -145,8 +145,8 @@
   <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
-  <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
-  <string name="login_2fa_other_workflow_error_msg">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
+  <string name="login_2fa_hint" fuzzy="true">ٻہ-مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -879,8 +879,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_add_image_tags">عڪس جا ٽيڪ وجهو</string>
-  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجهو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
@@ -1261,14 +1259,12 @@
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>
   <string name="revision_compare_button">ڀيٽيو</string>
   <string name="revision_compare_two_only">رڳو ٻہ ورجاءَ چونڊي سگهجن ٿا.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ھفتي لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 مھيني لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 مھينن لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 مھينن لاءِ</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ۽ ان جو بحث صفحو توھان جي نظر۾فھرست مان ڪڍيا ويا آھن.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ھفتي لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 مھيني لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 مھينن لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 مھينن لاءِ</string>
   <string name="watchlist_expiry_dialog_title">نظر۾فھرست جو عرصو چونڊيو</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">1 ھفتو</string>

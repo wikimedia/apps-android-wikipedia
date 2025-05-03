@@ -272,7 +272,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 }
             }
             clearHistoryButton.setOnClickListener {
-                if (selectedEntries.size == 0) {
+                if (selectedEntries.isEmpty()) {
                     MaterialAlertDialogBuilder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)
@@ -297,6 +297,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             view.setTitleTypeface(Typeface.NORMAL)
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
+            view.setSearchQuery(viewModel.searchQuery)
             view.isSelected = selectedEntries.contains(entry)
             PageAvailableOfflineHandler.check(lifecycleScope, entry.title) { view.setViewsGreyedOut(!it) }
         }
@@ -320,9 +321,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
         override fun getItemViewType(position: Int): Int {
             return when {
-                historyEntries[position] is SearchBar -> Companion.VIEW_TYPE_SEARCH_CARD
-                historyEntries[position] is String -> Companion.VIEW_TYPE_HEADER
-                else -> Companion.VIEW_TYPE_ITEM
+                historyEntries[position] is SearchBar -> VIEW_TYPE_SEARCH_CARD
+                historyEntries[position] is String -> VIEW_TYPE_HEADER
+                else -> VIEW_TYPE_ITEM
             }
         }
 
@@ -341,11 +342,11 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
-                Companion.VIEW_TYPE_SEARCH_CARD -> {
+                VIEW_TYPE_SEARCH_CARD -> {
                     val view = LayoutInflater.from(requireContext()).inflate(R.layout.view_history_header_with_search, parent, false)
                     SearchCardViewHolder(view)
                 }
-                Companion.VIEW_TYPE_HEADER -> {
+                VIEW_TYPE_HEADER -> {
                     val view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false)
                     HeaderViewHolder(view)
                 }
@@ -393,6 +394,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onLongClick(item: HistoryEntry?): Boolean {
+            if (actionMode != null) {
+                return false
+            }
             beginMultiSelect()
             toggleSelectPage(item)
             return true
@@ -412,13 +416,11 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
         override fun onQueryChange(s: String) {
             viewModel.searchQuery = s.trim()
-            viewModel.reloadHistoryItems()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             viewModel.searchQuery = ""
-            viewModel.reloadHistoryItems()
             actionMode = null
             (requireParentFragment() as MainFragment).setBottomNavVisible(true)
         }

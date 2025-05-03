@@ -140,8 +140,8 @@
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
   <string name="account_creation_password_hint">Lykilorð</string>
-  <string name="login_2fa_hint">Tveggja-þrepa auðkenningarkóði</string>
-  <string name="login_2fa_other_workflow_error_msg">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
+  <string name="login_2fa_hint" fuzzy="true">Tveggja-þrepa auðkenningarkóði</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
   <string name="onboarding_card_login">Skrá inn</string>
   <string name="page_editing_login">Skrá inn</string>
   <string name="reading_lists_sync_login">Skrá inn</string>
@@ -928,8 +928,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bæta við myndatexta</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bæta við myndatexta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bæta við merkjum á myndir</string>
-  <string name="suggested_edits_snackbar_survey_text">Hvernig fannst þér vinnan við breytingar? Taktu þér smástund við að fylla út könnun á notkun forritsins við breytingar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Taka þátt í könnun</string>
   <string name="suggested_edits_task_action_text_add">Bæta við</string>
   <string name="suggested_edits_task_action_text_translate">Þýða</string>
   <string name="suggested_edits_image_captions">Myndatextar</string>
@@ -1300,14 +1298,12 @@
   <string name="revision_rollback_success">Breytingar afturkallaðar.</string>
   <string name="revision_compare_button">Bera saman</string>
   <string name="revision_compare_two_only">Aðeins er hægt að velja tvær útgáfur.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Síðunni %1$s og spjallsíðu hennar hefur verið bætt við á %2$s vaktlistann þinn.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Breyta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">endanlega</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">í 1 viku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">í 1 mánuð</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">í 3 mánuði</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">í 6 mánuði</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og spjallsíða hennar hafa verið fjarlægðar af vaktlistanum þínum.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">í 1 viku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">í 1 mánuð</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">í 3 mánuði</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">í 6 mánuði</string>
   <string name="watchlist_expiry_dialog_title">Veldu tímabil vaktlista</string>
   <string name="watchlist_expiry_dialog_permanent">Varanlegt</string>
   <string name="watchlist_expiry_dialog_one_week">1 vika</string>

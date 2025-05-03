@@ -109,8 +109,8 @@
   <string name="login_username_hint">მახვარებუშ ჯოხო</string>
   <string name="login_password_hint">პაროლი</string>
   <string name="account_creation_password_hint">პაროლი</string>
-  <string name="login_2fa_hint">ჟირფაქტორიანი ავთენტიფიკაციაშ კოდი</string>
-  <string name="login_2fa_other_workflow_error_msg">ოხვილჷ ჟირფაქტორიან ავთენტიფიკაციას! ქორთხინთ დართათ თარ საქვარუას დო სისტემაშა თქვანი 2FA ტოკენიშ მოხვარათ გემშართით, დო უკული ქოცადით კინ დუდშე.</string>
+  <string name="login_2fa_hint" fuzzy="true">ჟირფაქტორიანი ავთენტიფიკაციაშ კოდი</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ოხვილჷ ჟირფაქტორიან ავთენტიფიკაციას! ქორთხინთ დართათ თარ საქვარუას დო სისტემაშა თქვანი 2FA ტოკენიშ მოხვარათ გემშართით, დო უკული ქოცადით კინ დუდშე.</string>
   <string name="onboarding_card_login">მიშულა</string>
   <string name="page_editing_login">მიშულა</string>
   <string name="reading_lists_sync_login">მიშულა</string>
@@ -484,7 +484,7 @@
   <string name="menu_option_view_user_talk">ხასჷლაშ სხუნუაშ ძირაფა</string>
   <string name="revision_diff_lines_from_to">ღოზეფი %1$d–%2$d</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">თირუა</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თუთათ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 თუთათ</string>
   <string name="watchlist_expiry_dialog_one_week">1 მარა</string>
   <string name="watchlist_expiry_dialog_one_month">1 თუთა</string>
   <string name="watchlist_expiry_dialog_three_months">3 თუთა</string>

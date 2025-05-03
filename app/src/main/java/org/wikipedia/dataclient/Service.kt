@@ -92,7 +92,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
-                "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
+                "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun searchMoreLike(
@@ -112,7 +112,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     suspend fun getDescription(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
@@ -163,7 +163,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
-    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&contentmodel=wikitext&disablelimitreport=1")
     suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
@@ -172,7 +172,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles|displaytitle&gcmprop=ids|title")
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&pilicense=any&generator=categorymembers&inprop=varianttitles|displaytitle&gcmprop=ids|title")
     suspend fun getCategoryMembers(
         @Query("gcmtitle") title: String,
         @Query("gcmtype") type: String,
@@ -298,7 +298,8 @@ interface Service {
         @Field("password") pass: String?,
         @Field("retype") retypedPass: String?,
         @Field("OATHToken") twoFactorCode: String?,
-        @Field("logintoken") token: String?,
+        @Field("token") emailAuthToken: String?,
+        @Field("logintoken") loginToken: String?,
         @Field("logincontinue") loginContinue: Boolean
     ): LoginResponse
 

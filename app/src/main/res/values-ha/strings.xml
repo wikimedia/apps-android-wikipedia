@@ -143,8 +143,8 @@
   <string name="login_username_hint">Sunan amfani</string>
   <string name="login_password_hint">Lambar sirri</string>
   <string name="account_creation_password_hint">Lambar sirri</string>
-  <string name="login_2fa_hint">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
-  <string name="login_2fa_other_workflow_error_msg">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
   <string name="onboarding_card_login">Shiga</string>
   <string name="page_editing_login">Shiga</string>
   <string name="reading_lists_sync_login">Shiga</string>
@@ -934,8 +934,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ƙara rubutun hoto</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ƙara rubutun hoto (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ƙara alamun hoto</string>
-  <string name="suggested_edits_snackbar_survey_text">Ta yaya kwarewar gyara take? Da fatan za a dauki lokaci don cika binciken game da gyaran aikace-aikacen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ɗauki Bincike</string>
   <string name="suggested_edits_task_action_text_add">Ƙara</string>
   <string name="suggested_edits_task_action_text_translate">Fassara</string>
   <string name="suggested_edits_image_captions">Magana game da hoton</string>
@@ -1320,14 +1318,12 @@
   <string name="revision_rollback_success">An sake gyarawa.</string>
   <string name="revision_compare_button">Kwatanta</string>
   <string name="revision_compare_two_only">Za\'a iya zaɓar sake dubawa guda biyu kawai.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da shafin magana an kara su a cikin jerin masu kallo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canja</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dindindin</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na mako 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na wata 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na watanni 3</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na watanni 6</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">An cire %s da shafin magana daga jerin masu kallo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na mako 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na wata 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na watanni 3</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na watanni 6</string>
   <string name="watchlist_expiry_dialog_title">Zaɓin lokacin Watchlist</string>
   <string name="watchlist_expiry_dialog_permanent">Dindindin</string>
   <string name="watchlist_expiry_dialog_one_week">mako 1</string>

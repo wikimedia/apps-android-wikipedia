@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Chimes
 * Cookai1205
 * Cwek
 * Davidzdh
@@ -86,6 +87,9 @@
   <string name="search_hint">搜索维基百科</string>
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_languages">搜索语言</string>
+  <string name="search_back_button_content_description">返回</string>
+  <string name="search_clear_query_content_description">清空查询</string>
+  <string name="search_icon_content_description">搜索</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
@@ -197,6 +201,10 @@
   <string name="dialog_message_leaving_edit">您的修改还没有发布。您确定要离开本页吗？</string>
   <string name="dialog_message_leaving_edit_leave">离开</string>
   <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_confirm_delete_donation_history_title">确认删除</string>
+  <string name="dialog_confirm_delete_donation_history_message">这仅适用于从此设备进行的捐赠。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">删除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">取消</string>
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">找不到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
@@ -211,8 +219,10 @@
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="account_creation_password_hint">密码</string>
-  <string name="login_2fa_hint">两步验证码</string>
-  <string name="login_2fa_other_workflow_error_msg">需要两步验证！请返回主活动页面并使用2FA令牌登录后重试。</string>
+  <string name="login_2fa_hint">双重认证代码</string>
+  <string name="login_2fa_other_workflow_error_msg">需要双重认证！请在主界面登录后，输入2FA令牌中的代码。</string>
+  <string name="login_email_auth_hint">电子邮件验证码</string>
+  <string name="login_email_auth_other_workflow_error_msg">需要验证电子邮件！请在主界面登录后，输入电子邮件验证码。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>
   <string name="reading_lists_sync_login">登录</string>
@@ -320,6 +330,7 @@
   <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
+  <string name="about_logo_content_description">维基百科拼图地球标志</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -481,6 +492,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">在夜间主题下调暗图像</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载离线可用的条目而不是始终加载条目的最新版本来节省数据使用量</string>
+  <string name="preference_title_delete_local_donation_history">删除本地捐赠记录</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
@@ -940,6 +952,7 @@
   <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
   <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
+  <string name="description_too_long">请尽量保持描述简短，使条目的主题一目了然</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
@@ -1037,8 +1050,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
-  <string name="suggested_edits_snackbar_survey_text">您的编辑体验如何？请花点时间填写一下关于应用内编辑的调查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图像说明</string>
@@ -1441,14 +1452,12 @@
   <string name="revision_rollback_success">已回退编辑。</string>
   <string name="revision_compare_button">比较</string>
   <string name="revision_compare_two_only">只能选择两个修订。</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s及其讨论页已添加到您的监视列表，持续时间%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1周</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1个月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3个月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6个月</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s及其讨论页已从您的监视列表移除。</string>
   <string name="watchlist_expiry_dialog_title">选择监视列表持续时间</string>
   <string name="watchlist_expiry_dialog_permanent">永久</string>
   <string name="watchlist_expiry_dialog_one_week">1周</string>
@@ -1708,6 +1717,7 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
+  <string name="donation_history_deleted_message_snackbar">捐赠者历史已删除</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>
@@ -1722,23 +1732,6 @@
   <string name="places_card_distance_suffix">距离%s</string>
   <string name="places_card_distance_unknown">未知距离</string>
   <string name="places_empty_message_snackbar">附近没有条目。请尝试缩小并移动地图。</string>
-  <string name="recent_searches_title">最近搜索</string>
-  <string name="recent_searches_related_to_reading">与你正在阅读的内容相关</string>
-  <string name="rabbit_holes_experiment">实验功能</string>
-  <string name="rabbit_holes_experiment_about">关于此实验功能</string>
-  <string name="rabbit_holes_survey_dialog_title">帮助改善兔子洞</string>
-  <string name="rabbit_holes_survey_dialog_body">您对这个推荐搜索结果满意吗？</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">帮助改进推荐阅读列表</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">您对这份推荐阅读清单满意吗？</string>
-  <string name="suggested_reading_list_title">根据您的阅览历史</string>
-  <string name="suggested_reading_list_description">灵感来自“ %s ”</string>
-  <string name="suggested_reading_list_description_multi">受到%1$s和%2$s的启发</string>
-  <string name="suggested_reading_list_later_snackbar">如果您想稍后访问您的阅览列表，请转到主屏幕上的“已保存”选项卡。</string>
-  <string name="suggested_reading_list_dialog_title">您有一份新的推荐阅览列表。</string>
-  <string name="suggested_reading_list_dialog_body">这是一项实验性功能。内容基于您最近的阅览历史。您想查看这个新的阅读列表吗？</string>
-  <string name="suggested_reading_list_dialog_positive">立即试用</string>
-  <string name="suggested_reading_list_dialog_negative">以后再说</string>
-  <string name="suggested_reading_list_back_cancel">可随时在主屏幕的“已保存”选项卡中查看推荐阅览列表。</string>
   <string name="survey_dialog_title">帮助我们改进此功能</string>
   <string name="survey_dialog_message">您对该功能满意吗？</string>
   <string name="survey_dialog_option_satisfied">满意</string>
@@ -1748,6 +1741,10 @@
   <string name="survey_dialog_option_very_unsatisfied">非常不满意</string>
   <string name="survey_dialog_cancel">取消</string>
   <string name="survey_dialog_submit">提交</string>
+  <string name="survey_dialog_next">下一题</string>
+  <string name="survey_dialog_general_yes">是</string>
+  <string name="survey_dialog_general_no">否</string>
+  <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
 </resources>

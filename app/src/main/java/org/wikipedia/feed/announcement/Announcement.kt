@@ -26,6 +26,7 @@ class Announcement(val id: String = "",
                    // for iOS versions, so these need to be serialized manually.
                    @SerialName("min_version") private val minVersion: JsonElement? = null,
                    @SerialName("max_version") private val maxVersion: JsonElement? = null,
+                   val imageAspectRatio: Double? = null,
                    val border: Boolean? = null,
                    val beta: Boolean? = null,
                    val placement: String = PLACEMENT_FEED,

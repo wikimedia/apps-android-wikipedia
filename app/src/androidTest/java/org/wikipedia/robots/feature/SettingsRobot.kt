@@ -3,6 +3,9 @@ package org.wikipedia.robots.feature
 import android.content.Context
 import android.util.Log
 import androidx.annotation.IdRes
+import androidx.compose.ui.test.junit4.ComposeTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.performClick
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewAction
@@ -22,10 +25,21 @@ import org.hamcrest.Matchers.allOf
 import org.junit.Assert.assertTrue
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
 class SettingsRobot : BaseRobot() {
+
+    private lateinit var composeTestRule: ComposeTestRule
+
+    fun setComposeTestRule(rule: ComposeTestRule) = apply {
+        this.composeTestRule = rule
+        return@apply
+    }
+
+    fun verifyTitle() = apply {
+        verify.viewWithTextDisplayed("Settings")
+    }
 
     fun clickExploreFeedSettingItem() = apply {
         // Click on `Explore feed` option
@@ -69,12 +83,11 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun activateDeveloperMode() = apply {
+    fun activateDeveloperMode(context: Context) = apply {
         // Click 7 times to activate developer mode
         for (i in 1 until 8) {
-            onView(allOf(withId(R.id.about_logo_image),
-                childAtPosition(childAtPosition(withId(R.id.about_container), 0), 0)))
-                .perform(scrollTo(), click())
+            composeTestRule.onNodeWithContentDescription(context.getString(R.string.about_logo_content_description))
+                .performClick()
             delay(TestConfig.DELAY_MEDIUM)
         }
         delay(TestConfig.DELAY_MEDIUM)
@@ -110,7 +123,7 @@ class SettingsRobot : BaseRobot() {
     fun clickLogOut(context: Context) = apply {
         try {
             scrollToSettingsPreferenceItem(R.string.preference_title_logout, scrollTo())
-            clickOnViewWithText(context.getString(R.string.preference_title_logout))
+            click.onViewWithText(context.getString(R.string.preference_title_logout))
             delay(TestConfig.DELAY_MEDIUM)
         } catch (e: Exception) {
             Log.e("SettingsRobotError:", "User is not logged in.")
@@ -144,12 +157,12 @@ class SettingsRobot : BaseRobot() {
 
     fun verifyExploreFeedIsEmpty(context: Context) = apply {
         try {
-            checkViewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
+            verify.viewWithTextDisplayed(text = context.getString(R.string.feed_empty_message))
             delay(TestConfig.DELAY_SHORT)
         } catch (e: AssertionError) {
             Log.d("SettingsRobot: ", "Assertion error due to offline mode")
             // checks offline card is visible
-            checkViewWithTextDisplayed(context.getString(R.string.view_offline_card_text))
+           verify.viewWithTextDisplayed(context.getString(R.string.view_offline_card_text))
             // test the feed is empty
             onView(withId(R.id.feed_view))
                 .check { view, noViewFoundException ->
@@ -163,7 +176,7 @@ class SettingsRobot : BaseRobot() {
     }
 
     fun verifyExploreFeedIsNotEmpty(context: Context) = apply {
-        checkTextDoesNotExist(context.getString(R.string.feed_empty_message))
+        verify.textIsNotVisible(context.getString(R.string.feed_empty_message))
         delay(TestConfig.DELAY_SHORT)
     }
 

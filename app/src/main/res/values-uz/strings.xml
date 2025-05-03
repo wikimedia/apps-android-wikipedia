@@ -144,8 +144,8 @@
   <string name="login_username_hint">Foydalanuvchi ismi</string>
   <string name="login_password_hint">Maxfiy soʻz</string>
   <string name="account_creation_password_hint">Parol</string>
-  <string name="login_2fa_hint">Ikki faktorli autentifikatsiya kodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ikki faktorli autentifikatsiya kodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
   <string name="onboarding_card_login">Kirish</string>
   <string name="page_editing_login">Kirish</string>
   <string name="reading_lists_sync_login">Kirish</string>
@@ -941,8 +941,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Rasmga teg qoʻshmoq</string>
-  <string name="suggested_edits_snackbar_survey_text">Tahrirlash tajribangiz qanaqa? Iltimos, ilova ichidagi tahrirlash haqidagi soʻrovnomani toʻldiring.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ishtirok etmoq</string>
   <string name="suggested_edits_task_action_text_add">Qoʻshmoq</string>
   <string name="suggested_edits_task_action_text_translate">Tarjima qilish</string>
   <string name="suggested_edits_image_captions">Rasm nomi</string>
@@ -1329,14 +1327,12 @@
   <string name="revision_rollback_success">Tahrirlar qaytarildi.</string>
   <string name="revision_compare_button">Solishtirish</string>
   <string name="revision_compare_two_only">Faqat ikkita tahrirni tanlash mumkin.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Oʻzgaritirmoq</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vaqtinchalik</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftaga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 oyga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 oyga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 oyga</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s 1 va uning munozara sahifasi sizning kuzatuvlaringiz roʻyxatidan oʻchirildi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 haftaga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 oyga</string>
   <string name="watchlist_expiry_dialog_title">Kuzatuv roʻyxati vaqtini tanlang</string>
   <string name="watchlist_expiry_dialog_permanent">Doimiy</string>
   <string name="watchlist_expiry_dialog_one_week">1 hafta</string>

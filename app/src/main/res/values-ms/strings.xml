@@ -151,8 +151,8 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
   <string name="account_creation_password_hint">Kata laluan</string>
-  <string name="login_2fa_hint">Kod Pengesahan Dwifaktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kod Pengesahan Dwifaktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
   <string name="onboarding_card_login">Log masuk</string>
   <string name="page_editing_login">Log masuk</string>
   <string name="reading_lists_sync_login">Log masuk</string>
@@ -342,7 +342,7 @@
   <string name="gallery_fair_use_license">Kegunaan wajar</string>
   <string name="gallery_uploader_unknown">Pemuat naik tidak dikenali</string>
   <string name="gallery_not_available_offline_snackbar">Paparan galeri tidak tersedia di luar talian.</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">Singkir</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Abaikan</string>
   <string name="menu_new_tab">Tab baru</string>
   <string name="menu_close_all_tabs">Tutup semua tab</string>
   <string name="close_all_tabs_confirm">Adakah anda pasti anda mahu menutup semua tab?</string>
@@ -392,7 +392,7 @@
   </plurals>
   <string name="multi_select_items_selected">%d dipilih</string>
   <string name="error_message_generic">Ada ralat</string>
-  <string name="view_link_preview_error_button_dismiss">Singkir</string>
+  <string name="view_link_preview_error_button_dismiss">Abaikan</string>
   <string name="link_preview_dialog_read_button">Baca</string>
   <string name="link_preview_dialog_save_button">Simpan</string>
   <string name="link_preview_dialog_saved_button">Disimpan</string>
@@ -450,6 +450,7 @@
   <string name="theme_category_reading">Membaca</string>
   <string name="theme_category_editing">Menyunting</string>
   <string name="reading_focus_mode">Mod tumpu membaca</string>
+  <string name="editing_syntax_highlight_label">Penyerlahan sintaks</string>
   <string name="editing_line_numbers_label">Tunjukkan nombor baris</string>
   <string name="editing_monospace_font_label">Gunakan fon monospace</string>
   <string name="editing_typing_suggestions">Tunjukkan cadangan penaipan</string>
@@ -1005,9 +1006,9 @@
   <string name="revision_diff_compare">Banding semakan</string>
   <string name="revision_diff_line_added">Baris ditambah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">untuk 1 minggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">untuk 1 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">untuk 3 bulan</string>
   <string name="watchlist_expiry_dialog_permanent">Kekal</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
   <string name="watchlist_expiry_dialog_one_month">1 bulan</string>

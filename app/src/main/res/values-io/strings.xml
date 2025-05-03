@@ -144,8 +144,8 @@
   <string name="login_username_hint">Uzeronomo</string>
   <string name="login_password_hint">Pasovorto</string>
   <string name="account_creation_password_hint">pasovorto</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
   <string name="onboarding_card_login">Enirar</string>
   <string name="page_editing_login">Enirar</string>
   <string name="reading_lists_sync_login">Enirar</string>
@@ -168,7 +168,7 @@
   <string name="logged_out_in_background_cancel">Anular</string>
   <string name="account_vanish_request_title">Efacar konto</string>
   <string name="account_vanish_request_confirm_title">Avizo pri efaco di konto</string>
-  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte deziras ne pluse redaktar permanante&lt;/b&gt;, ed anke celar la maxim multa kam posibla de vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altrei ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte e permanante ne pluse deziras redaktar&lt;/b&gt;, ed anke celar la maxim multa kam posibla ek vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altri ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
   <string name="history_empty_title">Nula artiklo vidita recente</string>
   <string name="history_empty_message">Hike tu povas vidar la kozi quin tu lektabis.</string>
   <string name="history_offline_articles_toast">Kelka artikli en la historio povas ne esar videbla \'\'offline\'\'.</string>
@@ -266,8 +266,8 @@
   <string name="edit_damage">Domajo %s</string>
   <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s bicoko*</item>
-    <item quantity="other">%s bicoki*</item>
+    <item quantity="one">%s bicoko</item>
+    <item quantity="other">%s bicoki</item>
   </plurals>
   <string name="edit_zoom_in">Augmentez la videbleso</string>
   <string name="edit_zoom_out">Diminutez la videbleso</string>
@@ -922,8 +922,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adjuntez informo pri imajo</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez informo pri imajo (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adjuntez etiketi ad imaji</string>
-  <string name="suggested_edits_snackbar_survey_text">Quale vu sentis dum redaktado? Respondez nia inquesto pri l\'uzo dil \'\'app\'\' por redaktar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Respondez l\'inquesto</string>
   <string name="suggested_edits_task_action_text_add">Adjuntar</string>
   <string name="suggested_edits_task_action_text_translate">Tradukez</string>
   <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
@@ -1193,14 +1191,12 @@
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua diskuto-pagino adjuntesis a vua surveyo-listo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifikar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanante</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">dum 1 semano</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">dum 1 monato</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">dum 3 monati</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">dum 6 monati</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e lua diskuto-pagino efacesis de vua surveyo-listo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">dum 1 semano</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">dum 1 monato</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">dum 3 monati</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">dum 6 monati</string>
   <string name="watchlist_expiry_dialog_title">Selektez periodo di tempo di la surveyo-listo</string>
   <string name="watchlist_expiry_dialog_permanent">Permananta</string>
   <string name="watchlist_expiry_dialog_one_week">1 semano</string>

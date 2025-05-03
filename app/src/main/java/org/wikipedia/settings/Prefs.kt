@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
@@ -220,6 +221,10 @@ object Prefs {
         PrefsIoUtil.setInt(R.string.preference_key_reading_list_page_sort_mode, sortMode)
     }
 
+    var loginForceEmailAuth
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
+
     val isMemoryLeakTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_memory_leak_test, false)
 
@@ -380,18 +385,6 @@ object Prefs {
     var showDescriptionEditSuccessPrompt
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_description_edit_success_prompt, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_description_edit_success_prompt, value)
-
-    var suggestedEditsCountForSurvey
-        get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_count_for_survey, 0)
-        set(count) = PrefsIoUtil.setInt(R.string.preference_key_suggested_edits_count_for_survey, count)
-
-    var suggestedEditsSurveyClicked
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_edits_survey_clicked, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_suggested_edits_survey_clicked, value)
-
-    var showSuggestedEditsSurvey
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_survey, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_survey, value)
 
     var showSuggestedEditsTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
@@ -629,6 +622,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_dialog_shown, value)
 
+    var tempAccountCreateDay
+        get() = PrefsIoUtil.getLong(R.string.preference_key_temp_account_create_day, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_temp_account_create_day, value)
+
     var readingListShareTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_tooltip_shown, value)
@@ -742,4 +739,38 @@ object Prefs {
     var donationResults
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
+
+    var lastOtdGameVisitDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_last_visit_date, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_last_visit_date, value)
+
+    var lastOtdGameDateOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value)
+
+    var otdGameState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
+
+    var otdGameHistory
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_history, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_history, value)
+
+    var otdGameQuestionsPerDay
+        get() = PrefsIoUtil.getInt(R.string.preference_key_otd_game_num_questions, 5)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_otd_game_num_questions, value)
+
+    var otdEntryDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
+
+    var otdGameSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_survey_shown, value)
+
+    var otdNotificationState: OnThisDayGameNotificationState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_notification_state, null)?.let {
+            OnThisDayGameNotificationState.valueOf(it)
+        } ?: OnThisDayGameNotificationState.NO_INTERACTED
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
 }

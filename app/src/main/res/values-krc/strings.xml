@@ -140,8 +140,8 @@
   <string name="login_username_hint">Хайырланыучуну аты</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Эки дараджалы аутентификация код</string>
-  <string name="login_2fa_other_workflow_error_msg">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Эки дараджалы аутентификация код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
   <string name="onboarding_card_login">Кир</string>
   <string name="page_editing_login">Кир</string>
   <string name="reading_lists_sync_login">Кир</string>
@@ -163,8 +163,8 @@
   <string name="logged_out_in_background_login">Кир</string>
   <string name="logged_out_in_background_cancel">Ызына ал</string>
   <string name="account_vanish_request_title">Хыйсабны джокъ эт</string>
-  <string name="account_vanish_request_confirm_title">Хыйсабны джокъ этиу эсгертиу</string>
-  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm_title">Хыйсаб сюртюуню эсгертиую</string>
+  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошумугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
   <string name="history_empty_title">Кёб болмай кёргюзюлген статьяла джокъдула</string>
   <string name="history_empty_message">Окъугъан статьяларыгъызны былайдан ызлагъыз.</string>
   <string name="history_offline_articles_toast">Тарихдеги бир къауум статьтяла, оффлайн халда кёрюрча тюлдюле.</string>
@@ -960,8 +960,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурат тюб джазыу къош</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурат тюб джазыу къош (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурат теглени къош</string>
-  <string name="suggested_edits_snackbar_survey_text">Тюзетиу сынамыгъыз къалай эди? Тилейбиз, къошакъны ичиндеги тюзетиу бла байламлы анкетаны толтурур ючюн такъикъагъызны айырыгъыз.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Соруугъа къошул</string>
   <string name="suggested_edits_task_action_text_add">Къош</string>
   <string name="suggested_edits_task_action_text_translate">Кёчюр</string>
   <string name="suggested_edits_image_captions">Сурат тюб джазыула</string>
@@ -1360,14 +1358,12 @@
   <string name="revision_rollback_success">Тюзетиуле кери алындыла.</string>
   <string name="revision_compare_button">Тенглешдир</string>
   <string name="revision_compare_two_only">Къуру эки версия сайларгъа боллукъду.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s эмда аны сюзюу бети %2$s кёздеги тизмеге къошулду.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Тюрлендир</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">дайым</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ыйыкълыкъ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 кюнлюк</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 айлыкъ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 айлыкъ</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s эмда аны сюзюу бети кёздеги тизмегизден къоратылды.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ыйыкълыкъ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 кюнлюк</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 айлыкъ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 айлыкъ</string>
   <string name="watchlist_expiry_dialog_title">Кёздеги тизме заман кёзюуюн сайлагъыз</string>
   <string name="watchlist_expiry_dialog_permanent">Дайым</string>
   <string name="watchlist_expiry_dialog_one_week">1 ыйыкъ</string>

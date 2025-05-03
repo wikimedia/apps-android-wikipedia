@@ -849,8 +849,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߙߊ߬</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߝߙߊ߬</string>
-  <string name="suggested_edits_snackbar_survey_text">ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍߞߌߦߊ ߕߘߍ߬ ߦߋ߫ ߘߌ߬؟ ߥߊ߯ߕߌ ߘߏ߫ ߕߊ߬ ߖߊ߰ߣߌ߲߫ ߞߊ߬ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐߙߑߝ߭ߋ߬) ߘߏ߫ ߟߝߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߊ߲߬.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ߘߐ߬ߛߏ߰ߙߋߟߌ ߞߍ߫</string>
   <string name="suggested_edits_task_action_text_add">ߟߊ߬ߘߏ߲߬ߠߌ߲</string>
   <string name="suggested_edits_task_action_text_translate">ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
@@ -1188,14 +1186,12 @@
   <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>
   <string name="revision_compare_button">ߞߵߊ߬ ߟߊ߫ ߢߐ߲߮ ߡߊ߬</string>
   <string name="revision_compare_two_only">ߟߢߊ߬ߟߌ߫ ߝߌ߬ߟߊ߬ ߘߐߙߐ߲߫ ߠߋ߬ ߘߌ߫ ߛߋ߫ ߓߊߕߐ߬ߡߐ߲߫ ߠߊ߫.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߓߌ߬ߟߊ߬ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ %2$s ߟߊ߫</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ߊ߬ ߡߊߝߊ߬ߟߋ߲߬</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ߘߊ߲߬ߓߊߟߌ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ߞߎ߲߬ߢߐ߰ ߁ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ߞߊߙߏ߫ ߁ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ߞߊߙߏ߫ ߃ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ߞߊߙߏ߫ ߆ ߞߘߐ߫</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߢߌ߬ߣߊ߬ߓߐ߫ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">ߞߎ߲߬ߢߐ߰ ߁ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">ߞߊߙߏ߫ ߁ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ߞߊߙߏ߫ ߃ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ߞߊߙߏ߫ ߆ ߞߘߐ߫</string>
   <string name="watchlist_expiry_dialog_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ ߥߎ߬ߛߎ ߓߊߕߐ߬ߡߐ߲߬</string>
   <string name="watchlist_expiry_dialog_permanent">ߓߟߏߕߍ߰ߓߊߟߌ</string>
   <string name="watchlist_expiry_dialog_one_week">ߞߎ߲߬ߢߐ߰ ߁</string>

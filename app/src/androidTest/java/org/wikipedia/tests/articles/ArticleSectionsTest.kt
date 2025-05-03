@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.TestConstants.SEARCH_TERM
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 import org.wikipedia.robots.feature.SearchRobot
 
@@ -18,9 +19,12 @@ class ArticleSectionsTest : BaseTest<MainActivity>(
 
     private val searchRobot = SearchRobot()
     private val pageRobot = PageRobot(context)
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         searchRobot
             .tapSearchView()
             .typeTextInView(SEARCH_TERM)

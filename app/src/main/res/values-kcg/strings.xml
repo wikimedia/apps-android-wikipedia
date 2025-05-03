@@ -14,6 +14,7 @@
   <string name="search_hint">Zop Wikipidya</string>
   <string name="search_hint_voice_search">Zop tyei a̱nwuat</string>
   <string name="search_hint_search_languages">Zop a̱lyem</string>
+  <string name="search_icon_content_description">Zop</string>
   <string name="filter_hint_filter_my_lists_and_articles">Cyam lis nung hu</string>
   <string name="nav_item_suggested_edits">Njhyuk</string>
   <string name="nav_item_more">Nkyang njhyang</string>
@@ -574,7 +575,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Mbeang a̱pyia̱ a̱lyiat ghwughwu</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Mbeang a̱pyia̱ a̱lyiat ghwughwu (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Mbeang a̱yaalama ghwughwu</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Cyet a lii</string>
   <string name="suggested_edits_task_action_text_add">Mbeang</string>
   <string name="suggested_edits_task_action_text_translate">Bwuak</string>
   <string name="suggested_edits_image_captions">Pipyia̱ a̱lyiat ghwughwu</string>
@@ -712,14 +712,12 @@
   <string name="thank_dialog_positive_button_text">Ta̱m ma̱ng a̱gwai</string>
   <string name="thank_dialog_negative_button_text">Lyang</string>
   <string name="thank_success_message">Á̱ ta̱m ma̱ng \'A̱gwai\' ang na ma %s 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Á̱ mbeang %1$s ma̱ng peji a̱lyiat nhu hu di̱ lis saai-a̱ghyi ang hu %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Shai</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ma̱ di̱ndi̱ng</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">mi̱ sati 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">mi̱ zwat 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">mi̱ zwát 3</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">mi̱ zwát 6</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Á̱ turung %s ma̱ng peji a̱lyiat nhu hu neet di̱ lis saai-a̱ghyi ang hu.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">sati 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">zwat 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">zwát 3</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">zwát 6</string>
   <string name="watchlist_expiry_dialog_title">Khai jen nwuan Lis saai-a̱ghyi</string>
   <string name="watchlist_expiry_dialog_permanent">A̱di̱ndi̱ng</string>
   <string name="watchlist_expiry_dialog_one_week">Sati 1</string>

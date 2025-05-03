@@ -558,7 +558,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
         if (!descriptionStr.isNullOrEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
-            binding.descriptionText.text = StringUtil.strip(descriptionStr)
+            binding.descriptionText.text = descriptionStr.trim()
         } else {
             binding.descriptionContainer.visibility = View.GONE
         }
@@ -638,7 +638,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         const val EXTRA_FILENAME = "filename"
         const val EXTRA_REVISION = "revision"
 
-        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long? = null): Intent {
             return Intent(context, GalleryActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wiki)
                 .putExtra(Constants.ARG_TITLE, pageTitle)

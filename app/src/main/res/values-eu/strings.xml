@@ -153,8 +153,8 @@
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="account_creation_password_hint">Pasahitza</string>
-  <string name="login_2fa_hint">Bi-faktoreko Autentikatze Kodea</string>
-  <string name="login_2fa_other_workflow_error_msg">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
+  <string name="login_2fa_hint" fuzzy="true">Bi-faktoreko Autentikatze Kodea</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
   <string name="onboarding_card_login">Saioa hasi</string>
   <string name="page_editing_login">Saioa hasi</string>
   <string name="reading_lists_sync_login">Saioa hasi</string>
@@ -670,8 +670,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ikusi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Gehitu irudi oineko testua</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Gehitu irudi oineko testua (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Nolakoa izan da zure esperientzia editatzen? Mesedez, hartu tarte bat eta erantzun aplikazioan editatzeari buruzko galdetegi hau.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Bete inkesta</string>
   <string name="suggested_edits_task_action_text_add">Gehitu</string>
   <string name="suggested_edits_task_action_text_translate">Itzuli</string>
   <string name="suggested_edits_image_captions">Irudi oineko testuak</string>

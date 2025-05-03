@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -12,9 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
@@ -22,6 +24,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -32,6 +35,37 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private val setMediaWikiMultiLangSupportChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
         resetMediaWikiSettings()
         true
+    }
+
+    fun filterPreferences(query: String? = null) {
+        query?.let {
+            for (i in 0 until fragment.preferenceScreen.preferenceCount) {
+                filterPreferenceGroupItems(fragment.preferenceScreen.getPreference(i), query)
+            }
+        } ?: run {
+            clearPreferences()
+            loadPreferences()
+        }
+    }
+
+    private fun filterPreferenceGroupItems(preference: Preference, query: String): Boolean {
+        if (preference is PreferenceGroup) {
+            var visibleChildCount = 0
+            for (i in 0 until preference.preferenceCount) {
+                if (filterPreferenceGroupItems(preference.getPreference(i), query)) {
+                    visibleChildCount++
+                }
+            }
+
+            // Hide the group if no children are visible
+            preference.isVisible = visibleChildCount > 0
+            return preference.isVisible
+        } else {
+            val isPrefVisible = preference.title?.toString()?.contains(query, ignoreCase = true) == true ||
+                    preference.summary?.toString()?.contains(query, ignoreCase = true) == true
+            preference.isVisible = isPrefVisible
+            return isPrefVisible
+        }
     }
 
     override fun loadPreferences() {
@@ -150,8 +184,26 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             setupLeakCanary()
             true
         }
-        findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            UserContributionEvent.logOpen()
+        findPreference(R.string.preference_key_feed_yir_onboarding_card_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, isEnabled: Any? ->
+            if (isEnabled is Boolean && isEnabled) {
+                Prefs.hiddenCards = emptySet()
+                Toast.makeText(activity, "Please relaunch the app.", Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
+        findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.otdGameState = ""
+            Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
+            true
+        }
+        findPreference(R.string.preferences_developer_otd_show_notification).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            OnThisDayGameNotificationManager.showNotification(activity)
+            true
+        }
+        findPreference(R.string.preference_key_otd_notification_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
+            OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
+            FeedbackUtil.showMessage(activity, "Notification state reset.")
             true
         }
     }

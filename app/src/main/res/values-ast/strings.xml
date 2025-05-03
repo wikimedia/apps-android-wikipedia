@@ -95,8 +95,8 @@
   <string name="login_username_hint">Nome d\'usuariu</string>
   <string name="login_password_hint">Contraseña</string>
   <string name="account_creation_password_hint">Contraseña</string>
-  <string name="login_2fa_hint">Códigu d\'autenticación de dos factores</string>
-  <string name="login_2fa_other_workflow_error_msg">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Códigu d\'autenticación de dos factores</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
   <string name="onboarding_card_login">Aniciar sesión</string>
   <string name="page_editing_login">Aniciar sesión</string>
   <string name="reading_lists_sync_login">Aniciar sesión</string>
@@ -649,8 +649,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Pies d\'imáxenes</string>

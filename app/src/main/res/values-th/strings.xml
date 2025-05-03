@@ -141,8 +141,8 @@
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
   <string name="account_creation_password_hint">รหัสผ่าน</string>
-  <string name="login_2fa_hint">รหัสการยืนยันตัวตนสองขั้นตอน</string>
-  <string name="login_2fa_other_workflow_error_msg">ต้องการการยืนยันตัวตนสองขั้นตอน! โปรดกลับไปยังกิจกรรมหลักและเข้าสู่ระบบด้วยโทเค็น 2FA ของคุณ แล้วลองอีกครั้ง</string>
+  <string name="login_2fa_hint" fuzzy="true">รหัสการยืนยันตัวตนสองขั้นตอน</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ต้องการการยืนยันตัวตนสองขั้นตอน! โปรดกลับไปยังกิจกรรมหลักและเข้าสู่ระบบด้วยโทเค็น 2FA ของคุณ แล้วลองอีกครั้ง</string>
   <string name="onboarding_card_login">เข้าสู่ระบบ</string>
   <string name="page_editing_login">เข้าสู่ระบบ</string>
   <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
@@ -812,8 +812,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">เพิ่มคำบรรยายภาพ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">เพิ่มคำบรรยายภาพ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">เพิ่มป้ายกำกับภาพ</string>
-  <string name="suggested_edits_snackbar_survey_text">ประสบการณ์ในการแก้ไขของคุณเป็นอย่างไรบ้าง โปรดสละเวลาสักครู่เพื่อทำแบบสอบถามเกี่ยวกับการแก้ไขจากภายในแอป</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ทำแบบสำรวจ</string>
   <string name="suggested_edits_task_action_text_add">เพิ่ม</string>
   <string name="suggested_edits_task_action_text_translate">แปล</string>
   <string name="suggested_edits_image_captions">คำบรรยายภาพ</string>
@@ -990,10 +988,10 @@
   <string name="revision_compare_button">เปรียบเทียบ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">เปลี่ยน</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ถาวร</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 สัปดาห์</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 เดือน</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 เดือน</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 สัปดาห์</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 เดือน</string>
   <string name="watchlist_expiry_dialog_one_week">1 สัปดาห์</string>
   <string name="watchlist_expiry_dialog_one_month">1 เดือน</string>
   <string name="watchlist_expiry_dialog_three_months">3 เดือน</string>

@@ -75,7 +75,7 @@
   <string name="page_edit_history_filter_by">Filtrer etter</string>
   <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_user">Brukerredigeringer (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Redigeringer fra uregistrerte (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botredigeringer (%s)</string>
   <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -114,6 +114,7 @@
   <string name="menu_page_recently_viewed">Nylig besøkt</string>
   <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åpne</string>
+  <string name="menu_long_press_open_in_places">Åpne i «Steder»</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
   <string name="menu_text_select_define">Definer</string>
@@ -145,6 +146,10 @@
   <string name="dialog_message_leaving_edit">Endringene dine har ikke blitt publisert ennå. Er du sikker på at du vil forlate siden?</string>
   <string name="dialog_message_leaving_edit_leave">Forlat siden</string>
   <string name="dialog_message_leaving_edit_stay">Bli på siden</string>
+  <string name="dialog_confirm_delete_donation_history_title">Bekreft sletting</string>
+  <string name="dialog_confirm_delete_donation_history_message">Dette vil kun gjelde donasjoner som gjøres fra denne enheten.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Slett</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Avbryt</string>
   <string name="menu_show_toc">Innholdsfortegnelse</string>
   <string name="search_no_results_found">Ingen resultater ble funnet</string>
   <string name="search_reading_list_no_results">Ingen treff i «%s»</string>
@@ -159,8 +164,8 @@
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
   <string name="account_creation_password_hint">Passord</string>
-  <string name="login_2fa_hint">Totrinnsautentiseringskode</string>
-  <string name="login_2fa_other_workflow_error_msg">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
+  <string name="login_2fa_hint" fuzzy="true">Totrinnsautentiseringskode</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
   <string name="onboarding_card_login">Logg inn</string>
   <string name="page_editing_login">Logg inn</string>
   <string name="reading_lists_sync_login">Logg inn</string>
@@ -427,6 +432,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
   <string name="preference_title_prefer_offline_content">Foretrekk offline-innhold</string>
   <string name="preference_summary_prefer_offline_content">Reduser dataforbruket ved å vise artikler som er tilgjengelige offline i stedet for å alltid laste den siste versjonen av en artikkel</string>
+  <string name="preference_title_delete_local_donation_history">Slett lokal donasjonshistorikk</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Match med systemets stil</string>
   <string name="page_footer_license_text">Innholdet er tilgjengelig under $1 med mindre annet er angitt</string>
   <string name="empty_tab_title">Ny fane</string>
@@ -441,8 +447,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Tilpass verktøylinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://no.wikipedia.org/wiki/Wikipedia:Administratorer\"&gt;administrator&lt;/a&gt; for å diskutere blokkeringen.</string>
   <string name="temp_account_not_logged_in">Du er ikke logget inn</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Når du gjør en redigering blir en &lt;b&gt;midlertidig konto&lt;/b&gt; opprettet for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;opprett en konto&lt;/a&gt; for å få kreditering for framtidige redigeringer du gjør og få tilgang til andre funksjoner.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Redigeringen din blir tilskrevet %1$s. IP-adressen din vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; eller &lt;a href=\"https://#login\"&gt;oppretter en konto&lt;/a&gt; blir redigeringene dine tilskrevet et navn du velger, blant andre fordeler.</string>
+  <string name="temp_account_anon_ip_dialog_body">Når dugjør en redigering blir IP-adressa di tilknyttet redigeringene dine.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opprett en konto&lt;/a&gt; for å bli tilskrevet fremtidige redigeringer og få tilgang til andre funksjoner.</string>
+  <string name="temp_account_anon_dialog_body">Når du gjør en redigering blir en &lt;b&gt;midlertidig konto&lt;/b&gt; opprettet for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Logg inn&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;opprett en konto&lt;/a&gt; for å få kreditering for framtidige redigeringer du gjør og få tilgang til andre funksjoner.</string>
+  <string name="temp_account_temp_dialog_body">Redigeringen din blir tilskrevet %1$s. IP-adressen din vil være synlig for administratorer.&lt;br /&gt;&lt;br /&gt;Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; eller &lt;a href=\"https://#createaccount\"&gt;oppretter en konto&lt;/a&gt; blir redigeringene dine tilskrevet et navn du velger, blant andre fordeler.</string>
   <string name="temp_account_dialog_ok">Skjønner</string>
   <string name="temp_account_using_title">Du bruker en midlertidig konto</string>
   <string name="temp_account_dialog_discard">Forkast endringer og logg inn</string>
@@ -454,6 +461,7 @@
     <item quantity="one">Kontoen utløper om %d dag.</item>
     <item quantity="other">Kontoen utløper om %d dager.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Du er ikke logget inn.&lt;/b&gt; Når du gjør en redigering blir IP-adressa di tilknyttet redigeringene dine.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Du er ikke logget inn.&lt;/b&gt; Når du gjør en redigering blir en midlertidig konto opprettet for deg for å beskytte personvernet ditt. &lt;a href=\"%1$s\"&gt;Lær mer&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Du bruker en midlertidig konto.&lt;/b&gt; Redigeringen din blir tilskrevet %1$s. &lt;a href=\"%2$s\"&gt;Lær mer&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Du bruker for tiden en midlertidig konto.&lt;/b&gt; Redigeringer som gjøres med den midlertidige kontoen %1$s overføres ikke til din permanente konto når du logger inn. Logg inn eller opprett en konto for å få kreditering til brukernavnet ditt, blant andre fordeler.</string>
@@ -843,6 +851,7 @@
   <string name="feed_item_type_main_page">Hovedsiden til Wikipedia med dagens fremhevede innhold</string>
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
+  <string name="feed_item_type_places">Artikler i nærheten, basert på den nåværende plasseringen din</string>
   <string name="feed_empty_message">Det er ingenting her</string>
   <string name="feed_configure_onboarding_action">Tilpass</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -988,8 +997,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Legg til bildetekst</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Legg til bildetekst (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Legg til bildeknagger</string>
-  <string name="suggested_edits_snackbar_survey_text">Hvordan var redigeringsopplevelsen for deg? Bruk gjerne noen minutter på å fylle ut spørreskjemaet om redigering fra appen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersøkelsen</string>
   <string name="suggested_edits_task_action_text_add">Legg til</string>
   <string name="suggested_edits_task_action_text_translate">Oversett</string>
   <string name="suggested_edits_image_captions">Bildetekster</string>
@@ -1037,6 +1044,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Redigering</item>
+    <item quantity="other">Redigeringer</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
@@ -1167,6 +1178,7 @@
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
+  <string name="app_shortcuts_places">Steder</string>
   <string name="on_this_day_card_title">På denne dag</string>
   <string name="more_events_text">Mer på denne dag</string>
   <string name="events_count_text">%1$s hendelser fra %2$s–%3$d</string>
@@ -1388,14 +1400,12 @@
   <string name="revision_rollback_success">Redigeringer tilbakestilt.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 uke</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 måned</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 måneder</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 måneder</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og den tilhørende diskusjonssiden har blitt fjernet fra overvåkningslisten din.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">i 1 uke</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">i 1 måned</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">i 3 måneder</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">i 6 måneder</string>
   <string name="watchlist_expiry_dialog_title">Velg periode for overvåkningsliste</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 uke</string>
@@ -1645,6 +1655,7 @@
   <string name="donate_gpay_help_other_ways">Andre måter å gi</string>
   <string name="donate_gpay_help_faq">Ofte stilte spørsmål</string>
   <string name="donate_gpay_help_tax">Informasjon om skattefradrag</string>
+  <string name="donation_history_deleted_message_snackbar">Donorhistorikk slettet</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Posisjonstillatelse kreves for å se din posisjon på kartet. Prøv igjen.</string>
   <string name="places_search_hint">Søk i steder</string>
@@ -1652,6 +1663,13 @@
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
+  <string name="places_card_title">Steder i nærheten</string>
+  <string name="places_card_action">Flere steder i nærheten</string>
+  <string name="places_card_enable_location_card_message">«Steder» er en kartbasert måte å utforske Wikipedia på</string>
+  <string name="places_card_enable_location_card_button">Slå på plassering</string>
+  <string name="places_card_distance_suffix">%s unna</string>
+  <string name="places_card_distance_unknown">Ukjent avstand</string>
+  <string name="places_empty_message_snackbar">Det er ingen artikler i nærheten. Prøv å zoome ut og/eller å flytte kartet.</string>
   <string name="survey_dialog_title">Hjelp oss å forbedre denne funksjonen</string>
   <string name="survey_dialog_message">Er du fornøyd med denne funksjonen?</string>
   <string name="survey_dialog_option_satisfied">Fornøyd</string>
@@ -1661,5 +1679,6 @@
   <string name="survey_dialog_option_very_unsatisfied">Veldig misfornøyd</string>
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Send</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Tilbakemelding sendt.</string>
+  <string name="survey_dialog_input_hint">Ytterligere tilbakemeldinger</string>
+  <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt. Hjertelig takk!</string>
 </resources>

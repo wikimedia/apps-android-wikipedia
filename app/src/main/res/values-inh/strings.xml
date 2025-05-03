@@ -142,8 +142,8 @@
   <string name="login_username_hint">Доакъашхочун цIи</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Шинфактора аутентификацен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
+  <string name="login_2fa_hint" fuzzy="true">Шинфактора аутентификацен код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
   <string name="onboarding_card_login">Чувáла</string>
   <string name="page_editing_login">Чувáла</string>
   <string name="reading_lists_sync_login">Чувáла</string>
@@ -936,8 +936,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурта цӀи тӀатоха</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурта цӀи тӀатоха (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурта фосташ тӀатоха</string>
-  <string name="suggested_edits_snackbar_survey_text">Мишта хет хьона тоадар?\nПриложене чу тоадарах лаьца хоаттаме Ӏа дакъа лоацаре тхона чӀоагӀа новкъостал хургдар.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Хоаттаме дáкъа лаца</string>
   <string name="suggested_edits_task_action_text_add">ТӀатоха</string>
   <string name="suggested_edits_task_action_text_translate">Таржам де</string>
   <string name="suggested_edits_image_captions">Суртах лаьца дар</string>
@@ -1278,14 +1276,12 @@
   <string name="revision_rollback_success">Хувцамаш юхатеттад.</string>
   <string name="revision_compare_button">ВӀаший йиста</string>
   <string name="revision_compare_two_only">Ши кеп мара харжа йиш яц.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Доакъашхочун оагӀув а %1$s, цун къамаьл-оагӀув а, тӀатехай хьа зем-листама чу (%2$s).</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Хувца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">массаза а</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">цхьан кӀирá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">цхьан беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">кхаь беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ялх беттá</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s яха оагӀув а цун къамаьл-оагӀув а дӀаяьккхай хьа дешара листама чура.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">цхьан кӀирá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">цхьан беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">кхаь беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ялх беттá</string>
   <string name="watchlist_expiry_dialog_title">Зем бара ха хьахаржа</string>
   <string name="watchlist_expiry_dialog_permanent">Массехана</string>
   <string name="watchlist_expiry_dialog_one_week">1 кӀира</string>
