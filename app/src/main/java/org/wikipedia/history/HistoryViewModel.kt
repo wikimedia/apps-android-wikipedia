@@ -6,12 +6,18 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwQueryPage.Category
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.StringUtil
 
 class HistoryViewModel : ViewModel() {
 
@@ -33,6 +39,7 @@ class HistoryViewModel : ViewModel() {
 
     val historyItems = MutableLiveData(Resource<List<Any>>())
     val deleteHistoryItemsAction = SingleLiveData<Resource<Boolean>>()
+    var groupedTitles = emptyList<Pair<String, Int>>()
 
     init {
         reloadHistoryItems()
@@ -47,6 +54,26 @@ class HistoryViewModel : ViewModel() {
     private suspend fun loadHistoryItems() {
         withContext(Dispatchers.IO) {
             val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(searchQuery.orEmpty())
+            val historyEntryItems = items.filterIsInstance<HistoryEntry>()
+
+            val categories = mutableListOf<Category>()
+            val deferredCategories = historyEntryItems.map { item ->
+                async {
+                    try {
+                        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getCategoriesProps(item.apiTitle)
+                        response.query?.firstPage()?.categoriesProps ?: emptyList()
+                    } catch (e: Exception) {
+                        // Handle exceptions appropriately, e.g., log, return emptyList, etc.
+                        println("Error fetching categories for ${item.apiTitle}: ${e.message}")
+                        emptyList() // or throw e; depending on your error handling.
+                    }
+                }
+            }
+
+            deferredCategories.awaitAll().forEach { categories.addAll(it) }
+
+            // Grouping the titles by setting in a Pair<> with its name and count
+            groupedTitles = categories.groupBy { it.title }.map { Pair(StringUtil.removeNamespace(it.key), it.value.size) }.sortedByDescending { it.second }
             historyItems.postValue(Resource.Success(items))
         }
     }
