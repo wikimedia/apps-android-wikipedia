@@ -1,4 +1,4 @@
-package org.wikipedia.games.onthisday.db
+package org.wikipedia.games.db
 
 import androidx.room.Dao
 import androidx.room.Delete

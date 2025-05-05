@@ -11,8 +11,8 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.categories.db.CategoryDao
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
-import org.wikipedia.games.onthisday.db.DailyGameHistory
-import org.wikipedia.games.onthisday.db.DailyGameHistoryDao
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.db.DailyGameHistoryDao
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
