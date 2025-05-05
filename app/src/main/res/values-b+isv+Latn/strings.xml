@@ -511,13 +511,13 @@
     <item quantity="one">1 članok</item>
     <item quantity="few">%d članky</item>
     <item quantity="many">%d člankov</item>
-    <item quantity="other">%ćlankov</item>
+    <item quantity="other">%d ćlankov</item>
   </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 članok, %2$.2f MB</item>
     <item quantity="few">%1$d članky, %2$.2f MB</item>
     <item quantity="many">%1$d člankov, %2$.2f MB</item>
-    <item quantity="other">%1$člankov, %2$.2f MB</item>
+    <item quantity="other">%1$d člankov, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d iz 1 članka dostupny oflajn</item>
