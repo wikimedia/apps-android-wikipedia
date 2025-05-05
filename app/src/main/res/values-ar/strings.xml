@@ -48,6 +48,7 @@
 * أيوب
 * أَحمد
 * بدارين
+* بدر
 * جودت
 * ديفيد
 * عبد الإله صديقي
@@ -318,6 +319,7 @@
   <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جيت هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;رخصة أباتشي 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;رخصة المشاع الإبداعي الملزمة بنسبة العمل لمؤلفه وبترخيص الأعمال المشتقة بالمثل&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
+  <string name="about_logo_content_description">شعار لغز ويكيبيديا</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="edit_abandon_confirm_yes">نعم</string>
   <string name="edit_abandon_confirm_no">لا</string>
@@ -346,7 +348,7 @@
   <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
-  <string name="edit_summary_tag_links">تمت إضافة وصلات</string>
+  <string name="edit_summary_tag_links">أضفتُ وصلات</string>
   <string name="edit_summary_tag_other">أخرى</string>
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_summary_added_short_description">أُضيف وصف مختصر</string>
@@ -1982,5 +1984,4 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
-  <string name="about_screen_logo_accessibility_text">شعار لغز ويكيبيديا</string>
 </resources>

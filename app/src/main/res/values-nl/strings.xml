@@ -300,6 +300,7 @@
   <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licentie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
+  <string name="about_logo_content_description">Wikipedia-logo met puzzel en wereldbol</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nee</string>
@@ -1782,5 +1783,4 @@
   <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hoe tevreden was u met dit spel?</string>
   <string name="on_this_day_game_survey_q2">Zou u geïnteresseerd zijn in het spelen van andere Wikipedia-spellen?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedia-logo met puzzel en wereldbol</string>
 </resources>

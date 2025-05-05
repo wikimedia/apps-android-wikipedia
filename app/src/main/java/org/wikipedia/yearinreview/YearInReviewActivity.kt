@@ -3,7 +3,6 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -12,9 +11,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 
-class YearInReviewActivity : ComponentActivity() {
+class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,6 @@ class YearInReviewActivity : ComponentActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            totalPages = getStartedList.size,
                             contentData = getStartedList,
                             navController = navController,
                             customBottomBar = {
@@ -63,7 +62,6 @@ class YearInReviewActivity : ComponentActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         YearInReviewScreen(
-                            totalPages = personalizedScreenList.size,
                             contentData = personalizedScreenList,
                             navController = navController,
                             customBottomBar = { pagerState -> MainBottomBar(

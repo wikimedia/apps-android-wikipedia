@@ -306,6 +306,7 @@
   <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.it\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
+  <string name="about_logo_content_description">Logo del globo puzzle di Wikipedia</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
   <string name="edit_abandon_confirm_yes">Sì</string>
   <string name="edit_abandon_confirm_no">No</string>
@@ -1685,7 +1686,7 @@
   <string name="email_report_patroller_tasks_subject">Segnala un problema - Funzione di verifica delle modifiche</string>
   <string name="email_report_patroller_tasks_body">Ho riscontrato un problema con la funzione Verifica delle modifiche:\n- [Descrivi il problema specifico]\n\nIl comportamento che vorrei vedere è:\n- [Descrivi la soluzione proposta]\n\n[Schermate o collegamenti]</string>
   <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
-  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità ci aiuta a sostenere Wikipedia e i suoi siti correlati.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità ci aiuta a sostenere Wikipedia ed i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
   <string name="donate_gpay_dialog_title">Donare con Google Pay?</string>
@@ -1790,5 +1791,4 @@
   <string name="on_this_day_game_share_link_message">Sto giocando a \"Chi è arrivato prima?\", un quiz giornaliero sull\'app Android di Wikipedia %s</string>
   <string name="on_this_day_game_survey_q1">Quanto sei soddisfatto di questo gioco?</string>
   <string name="on_this_day_game_survey_q2">Ti piacerebbe provare diversi giochi di Wikipedia?</string>
-  <string name="about_screen_logo_accessibility_text">Logo del globo puzzle di Wikipedia</string>
 </resources>

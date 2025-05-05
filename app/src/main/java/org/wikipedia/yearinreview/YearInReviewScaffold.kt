@@ -52,7 +52,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
@@ -66,11 +65,10 @@ fun YearInReviewScreen(
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
-    contentData: List<YearInReviewScreenData>,
-    totalPages: Int
+    contentData: List<YearInReviewScreenData>
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(pageCount = { totalPages })
+    val pagerState = rememberPagerState(pageCount = { contentData.size })
     val context = LocalContext.current
 
     Scaffold(
@@ -88,7 +86,7 @@ fun YearInReviewScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        if (totalPages > 1 && pagerState.currentPage != 0) {
+                        if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
                             (context as? ComponentActivity)?.finish()
@@ -105,7 +103,7 @@ fun YearInReviewScreen(
                     }
                 },
                 actions = {
-                    if (totalPages > 1) {
+                    if (contentData.size > 1) {
                         IconButton(onClick = { /* TODO() */ }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
@@ -119,7 +117,7 @@ fun YearInReviewScreen(
         },
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
-        if (totalPages > 1) {
+        if (contentData.size > 1) {
             HorizontalPager(
                 verticalAlignment = Alignment.Top,
                 state = pagerState,
@@ -149,21 +147,17 @@ fun MainBottomBar(
         BottomAppBar(
             containerColor = WikipediaTheme.colors.paperColor,
             content = {
-                ConstraintLayout(
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .wrapContentHeight()
                 ) {
-                    val (donateRow, pagination, navigateRight) = createRefs()
                     Row(
                         modifier = Modifier
                             .clickable(onClick = { /* TODO() */ })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
-                            .constrainAs(donateRow) {
-                                start.linkTo(parent.start)
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                            },
+                            .align(Alignment.CenterStart),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
@@ -183,12 +177,7 @@ fun MainBottomBar(
                         modifier = Modifier
                             .wrapContentHeight()
                             .wrapContentWidth()
-                            .constrainAs(pagination) {
-                                start.linkTo(parent.start)
-                                end.linkTo(parent.end)
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                            },
+                            .align(Alignment.Center),
                         horizontalArrangement = Arrangement.Center
                     ) {
                         val animationDuration = 500
@@ -224,11 +213,7 @@ fun MainBottomBar(
                             onClick = { onNavigationRightClick() },
                             modifier = Modifier
                                 .padding(0.dp)
-                                .constrainAs(navigateRight) {
-                                    end.linkTo(parent.end)
-                                    top.linkTo(parent.top)
-                                    bottom.linkTo(parent.bottom)
-                                }
+                                .align(Alignment.CenterEnd)
                         ) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
@@ -254,7 +239,6 @@ fun OnboardingBottomBar(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
                     .padding(start = 10.dp, end = 10.dp)
             ) {
                 OutlinedButton(
@@ -304,27 +288,21 @@ fun YearInReviewScreenContent(
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        Row(
-            verticalAlignment = Alignment.Top,
+        AndroidView(
+            factory = { context ->
+                ImageView(context).apply {
+                    Glide.with(context)
+                        .asGif()
+                        .load(screenData.imageResource)
+                        .centerCrop()
+                        .into(this)
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
-        ) {
-            AndroidView(
-                factory = { context ->
-                    ImageView(context).apply {
-                        Glide.with(context)
-                            .asGif()
-                            .load(screenData.imageResource)
-                            .centerCrop()
-                            .into(this)
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(gifAspectRatio)
-                    .clip(RoundedCornerShape(16.dp))
-            )
-        }
+                .aspectRatio(gifAspectRatio)
+                .clip(RoundedCornerShape(16.dp))
+        )
         Column(
             modifier = Modifier
                 .padding(horizontal = 20.dp)

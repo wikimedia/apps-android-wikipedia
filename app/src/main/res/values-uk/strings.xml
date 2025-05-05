@@ -285,6 +285,7 @@
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
+  <string name="about_logo_content_description">Логотип пазла-глобуса Вікіпедії</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
   <string name="edit_abandon_confirm_yes">Так</string>
   <string name="edit_abandon_confirm_no">Ні</string>
@@ -1863,5 +1864,4 @@
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
   <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
-  <string name="about_screen_logo_accessibility_text">Логотип пазла-глобуса Вікіпедії</string>
 </resources>

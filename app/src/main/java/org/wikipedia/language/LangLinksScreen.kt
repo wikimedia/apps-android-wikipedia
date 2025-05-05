@@ -1,4 +1,4 @@
-package org.wikipedia.language.addlanguages
+package org.wikipedia.language
 
 import android.os.Build
 import androidx.compose.foundation.clickable
@@ -25,80 +25,73 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.theme.Theme
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 
 @Composable
-fun LanguagesListScreen(
+fun ComposeLangLinksScreen(
     modifier: Modifier = Modifier,
-    uiState: UiState<List<LanguageListItem>>,
+    uiState: UiState<List<LangLinksItem>>,
+    onLanguageSelected: (LangLinksItem) -> Unit,
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
-    onListItemClick: (code: String) -> Unit,
-    onLanguageSearched: (Boolean) -> Unit,
-    wikiErrorClickEvents: WikiErrorClickEvents? = null
-) {
+    ) {
+    val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
-
-    val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+    val (imeHeight, isKeyboardVisible) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
         // Handle IME (keyboard) insets
-        with(LocalDensity.current) { WindowInsets.ime.getBottom(this).toDp() }
-    } else 0.dp
-
+        val windowInsets = WindowInsets.ime
+        val height = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
+        Pair(height, height > 0.dp)
+    } else Pair(0.dp, false)
     Scaffold(
-        modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
-                appBarTitle = stringResource(R.string.languages_list_activity_title),
-                placeHolderTitle = stringResource(R.string.search_hint_search_languages),
+                appBarTitle = context.getString(R.string.langlinks_activity_title),
+                placeHolderTitle = context.getString(R.string.langlinks_filter_hint),
                 searchQuery = searchQuery,
-                onBackButtonClick = onBackButtonClick,
-                onSearchQueryChange = { value ->
-                    onLanguageSearched(true)
-                    searchQuery = value
-                    onSearchQueryChange(value)
-                }
+                onSearchQueryChange = {
+                    searchQuery = it
+                    onSearchQueryChange(it)
+                },
+                onBackButtonClick = onBackButtonClick
             )
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
         when (uiState) {
-            UiState.Loading -> {
+            is UiState.Loading -> {
                 Box(
                     modifier = modifier
                         .fillMaxSize()
                         .padding(paddingValues)
+                        // Add bottom padding when keyboard is visible
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                    contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator(
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .padding(24.dp),
                         color = WikipediaTheme.colors.progressiveColor
                     )
                 }
             }
+
             is UiState.Error -> {
                 Box(
                     modifier = modifier
                         .fillMaxSize()
                         .padding(paddingValues)
-                        // Add bottom padding when keyboard is visible for android 15 and above
-                        .padding(bottom = imeHeight),
+                        // Add bottom padding when keyboard is visible
+                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     WikiErrorView(
@@ -110,20 +103,20 @@ fun LanguagesListScreen(
                 }
             }
             is UiState.Success -> {
-                val languagesItems = uiState.data
-                if (languagesItems.isEmpty()) {
+                val langLinksItem = uiState.data
+                if (langLinksItem.isEmpty()) {
                     Box(
                         modifier = modifier
                             .fillMaxSize()
                             .padding(paddingValues)
-                            // Add bottom padding when keyboard is visible for android 15 and above
-                            .padding(bottom = imeHeight),
+                            // Add bottom padding when keyboard is visible
+                            .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         SearchEmptyView(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            emptyTexTitle = stringResource(R.string.langlinks_no_match)
+                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
                         )
                     }
                     return@Scaffold
@@ -131,37 +124,36 @@ fun LanguagesListScreen(
 
                 LazyColumn(
                     modifier = modifier
-                        .fillMaxSize()
                         .padding(paddingValues)
-                        .testTag("language_list"),
                 ) {
-                    items(languagesItems) { languageItem ->
-                        if (languageItem.headerText.isNotEmpty()) {
+                    items(langLinksItem) { item ->
+                        if (item.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier
                                     .height(56.dp)
                                     .fillMaxWidth()
                                     .padding(horizontal = 16.dp)
                                     .padding(bottom = 4.dp),
-                                title = languageItem.headerText
+                                title = item.headerText,
                             )
                         } else {
-                            val localizedLanguageName = StringUtil.capitalize(languageItem.localizedName).orEmpty()
-                            LanguageListItemView(
+                            Box(
                                 modifier = Modifier
                                     .clickable(
                                         interactionSource = remember { MutableInteractionSource() },
                                         indication = ripple(bounded = true),
-                                        onClick = {
-                                            onListItemClick(languageItem.code)
-                                        }
+                                        onClick = { onLanguageSelected(item) }
                                     )
-                                    .fillMaxWidth()
-                                    .padding(16.dp)
-                                    .testTag(languageItem.canonicalName),
-                                localizedLanguageName = localizedLanguageName,
-                                subtitle = languageItem.canonicalName
-                            )
+                            ) {
+                                LangLinksItemView(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    localizedLanguageName = item.localizedName,
+                                    canonicalName = item.canonicalName,
+                                    articleName = item.articleName
+                                )
+                            }
                         }
                     }
                 }
@@ -191,50 +183,41 @@ fun ListHeader(
 }
 
 @Composable
-fun LanguageListItemView(
+fun LangLinksItemView(
     modifier: Modifier = Modifier,
     localizedLanguageName: String,
-    subtitle: String? = null
+    canonicalName: String? = null,
+    articleName: String
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
+            modifier = Modifier
+                .fillMaxWidth(),
             text = localizedLanguageName,
             style = WikipediaTheme.typography.h3.copy(
                 color = WikipediaTheme.colors.primaryColor,
             )
         )
-        if (subtitle != null) {
+        if (!canonicalName.isNullOrEmpty()) {
             Text(
-                text = subtitle,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = canonicalName,
                 style = WikipediaTheme.typography.list.copy(
-                    color = WikipediaTheme.colors.secondaryColor,
-                    textAlign = TextAlign.Center
+                    color = WikipediaTheme.colors.secondaryColor
                 )
             )
         }
-    }
-}
-
-@Preview
-@Composable
-private fun LanguagesListScreenPreview() {
-    BaseTheme(currentTheme = Theme.LIGHT) {
-        LanguagesListScreen(
+        Text(
             modifier = Modifier
-                .fillMaxSize(),
-            uiState = UiState.Success(data = listOf(
-                LanguageListItem(code = "", headerText = "Languages"),
-                LanguageListItem(code = "en", canonicalName = "English", localizedName = "English"),
-                LanguageListItem(code = "he", canonicalName = "Hebrew", localizedName = "עברית")
+                .fillMaxWidth(),
+            text = articleName,
+            style = WikipediaTheme.typography.list.copy(
+                color = WikipediaTheme.colors.secondaryColor
             )
-            ),
-            { },
-            { },
-            { },
-            { }
         )
     }
 }

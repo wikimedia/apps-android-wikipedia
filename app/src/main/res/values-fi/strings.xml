@@ -290,6 +290,7 @@
   <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-säätiön&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
+  <string name="about_logo_content_description">Wikipedian palapelipallon näköinen logo</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
   <string name="edit_abandon_confirm_yes">Kyllä</string>
   <string name="edit_abandon_confirm_no">Ei</string>
@@ -1757,5 +1758,4 @@
   <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Mikä tuli ensin?\" -triviapeliä Wikipedian Android-sovelluksessa %s</string>
   <string name="on_this_day_game_survey_q1">Kuinka tyytyväinen olit tähän peliin?</string>
   <string name="on_this_day_game_survey_q2">Olisitko kiinnostunut pelaamaan muita erilaisia Wikipedia-pelejä?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedian palapelipallon näköinen logo</string>
 </resources>

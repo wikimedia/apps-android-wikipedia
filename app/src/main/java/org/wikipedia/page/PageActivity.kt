@@ -38,10 +38,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
-import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -597,13 +595,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
-            val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
-                pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
-            articleLinkPreviewInteractionEvent.logNavigate()
-
-            ArticleLinkPreviewInteraction(pageFragment, entry.source).logNavigate()
-        }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
@@ -628,7 +619,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
-            app.appSessionEvent.pageViewed(entry)
         }
     }
 
