@@ -88,11 +88,6 @@ class YearInReviewActivity : BaseActivity() {
                                     },
                                 )
                             }
-                            is Resource.Error -> {
-                                WikiErrorView(
-                                    caught = screenState.throwable
-                                )
-                            }
                         }
                     }
                 }
