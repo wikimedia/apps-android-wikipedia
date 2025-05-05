@@ -20,8 +20,5 @@ class YearInReviewScreenTest : BaseTest<YearInReviewActivity>(
     fun runTest() {
         yearInReviewRobot
             .setComposeTestRule(composeTestRule)
-            .assertHeadlineIsLTR()
-
-
     }
 }

@@ -1,14 +1,12 @@
 package org.wikipedia.robots.feature
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.test.DeviceConfigurationOverride
 import androidx.compose.ui.test.LayoutDirection
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import org.junit.Test
 import org.wikipedia.yearinreview.YearInReviewScreenContent
 import org.wikipedia.yearinreview.readCountData
 
@@ -33,10 +31,7 @@ class YearInReviewRobot {
         }
 
         composeTestRule.onNodeWithTag("hello")
-            .
-
         }
-
     }
 
 /*
