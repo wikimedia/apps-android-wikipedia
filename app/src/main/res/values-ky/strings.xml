@@ -76,7 +76,7 @@
   <string name="login_in_progress_dialog_message">Кирүүдө…</string>
   <string name="login_success_toast">Кирдиңиз !</string>
   <string name="preference_title_logout">Чыгуу</string>
-  <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
+  <string name="toast_logout_complete">Аккаунттан чыктыңыз</string>
   <string name="logout_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="logged_out_in_background_title">Чыктыңыз</string>
   <string name="logged_out_in_background_login">Кирүү</string>

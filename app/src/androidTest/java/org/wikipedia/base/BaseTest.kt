@@ -74,6 +74,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     @Before
     open fun setup() {
         Intents.init()
+        ComposeTestManager.setComposeTestRule(composeTestRule)
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
