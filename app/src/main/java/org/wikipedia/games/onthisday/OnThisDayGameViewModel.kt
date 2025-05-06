@@ -310,7 +310,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 )
             }
 
-
             // get data fro GameStatistics
             GameStatistics(
                 totalGamesPlayed.await(),
