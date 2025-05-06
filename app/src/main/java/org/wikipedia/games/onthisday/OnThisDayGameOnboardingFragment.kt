@@ -100,12 +100,14 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             .build()
 
         MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Choose a game by date to play.") // @TODO: replace this with string resource later
             .setTheme(R.style.MaterialDatePickerStyle)
             .setDayViewDecorator(DateDecorator(
                 startDate,
                 endDate,
                 scoreData))
             .setCalendarConstraints(calendarConstraints)
+            .setSelection(endTimeInMillis)
             .build()
             .apply {
                 addOnPositiveButtonClickListener {}
