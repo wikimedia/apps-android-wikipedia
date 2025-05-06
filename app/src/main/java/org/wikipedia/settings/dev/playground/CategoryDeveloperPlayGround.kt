@@ -151,7 +151,6 @@ fun CategoryDeveloperPlayGroundScreen(
     var topContentHeight by remember { mutableStateOf(0) }
     val topContentHeightDp = with(LocalDensity.current) { topContentHeight.toDp() }
 
-
     // Calculate available height for the entire screen
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     val statusBarHeight = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
