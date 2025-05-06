@@ -291,32 +291,31 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private suspend fun getGameStatistics(): GameStatistics {
         return withContext(Dispatchers.IO) {
-            val totalGamesPlayedAsync = async {
+            val totalGamesPlayed = async {
                 AppDatabase.instance.dailyGameHistoryDao().getTotalGamesPlayed(
                     gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                     language = wikiSite.languageCode
                 )
             }
-            val averageScoreAsync = async {
+            val averageScore = async {
                 AppDatabase.instance.dailyGameHistoryDao().getAverageScore(
                     gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                     language = wikiSite.languageCode
                 )
             }
-            val currentStreakAsync = async {
+            val currentStreak = async {
                 AppDatabase.instance.dailyGameHistoryDao().getCurrentStreak(
                     gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                     language = wikiSite.languageCode
                 )
             }
 
-            totalGamesPlayed = totalGamesPlayedAsync.await()
 
             // get data fro GameStatistics
             GameStatistics(
-                totalGamesPlayed,
-                averageScoreAsync.await(),
-                currentStreakAsync.await()
+                totalGamesPlayed.await(),
+                averageScore.await(),
+                currentStreak.await()
             )
         }
     }

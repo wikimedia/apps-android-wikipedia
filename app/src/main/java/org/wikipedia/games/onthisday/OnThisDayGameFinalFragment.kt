@@ -249,7 +249,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
     companion object {
         const val EXTRA_GAME_COMPLETED = "onThisDayGameCompleted"
-        const val EXTRA_GAME_TOTAL_GAME_PLAYED = "onThisDayGameTotalPlayed"
 
         fun newInstance(invokeSource: InvokeSource): OnThisDayGameFinalFragment {
             return OnThisDayGameFinalFragment().apply {
@@ -263,20 +262,21 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             return Duration.between(now, startOfNextDay)
         }
 
-        fun maybeShowOnThisDayGameEndContent(activity: Activity, totalGamesPlayed: Int) {
+        fun maybeShowOnThisDayGameEndContent(activity: Activity) {
             if (!Prefs.otdGameSurveyShown) {
                 Prefs.otdGameSurveyShown = true
                 showOnThisDayGameSurvey1(activity) {
-                    maybeShowThanksSnackbar(activity, totalGamesPlayed)
+                    maybeShowThanksSnackbar(activity)
                 }
             } else {
-                maybeShowThanksSnackbar(activity, totalGamesPlayed)
+                maybeShowThanksSnackbar(activity)
             }
         }
 
-        private fun maybeShowThanksSnackbar(activity: Activity, totalGamesPlayed: Int) {
-            if (activity is PageActivity && totalGamesPlayed == 1) {
+        private fun maybeShowThanksSnackbar(activity: Activity) {
+            if (activity is PageActivity && !Prefs.otdGameFirstPlayedShown) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+                Prefs.otdGameFirstPlayedShown = true
             }
         }
 

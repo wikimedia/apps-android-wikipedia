@@ -374,7 +374,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         updateGameState(gameState)
 
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
-        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_TOTAL_GAME_PLAYED, viewModel.totalGamesPlayed))
 
         binding.progressText.isVisible = false
         binding.scoreText.isVisible = false
