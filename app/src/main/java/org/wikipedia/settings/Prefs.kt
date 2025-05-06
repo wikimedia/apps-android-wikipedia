@@ -740,10 +740,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var lastOtdGameVisitDate
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_last_visit_date, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_last_visit_date, value)
-
     var lastOtdGameDateOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value)
