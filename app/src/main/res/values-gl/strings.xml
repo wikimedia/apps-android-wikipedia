@@ -139,7 +139,7 @@
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="account_creation_password_hint">Contrasinal</string>
-  <string name="login_2fa_hint">Código de autenticación en dous factores</string>
+  <string name="login_2fa_hint">Código de autenticación de dous factores</string>
   <string name="login_2fa_other_workflow_error_msg">A autenticación en dous factores é obrigatoria! Por favor, volva á pantalla principal e escriba o seu código de autenticación en dous factores.</string>
   <string name="onboarding_card_login">Acceder ao sistema</string>
   <string name="page_editing_login">Acceder ao sistema</string>
