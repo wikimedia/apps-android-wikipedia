@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
@@ -28,7 +29,6 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.containsString
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.AssertJavascriptAction
 
 class PageRobot(private val context: Context) : BaseRobot() {

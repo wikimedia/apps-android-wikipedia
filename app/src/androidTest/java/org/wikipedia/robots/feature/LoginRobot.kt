@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.content.Context
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
@@ -14,7 +15,6 @@ import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class LoginRobot : BaseRobot() {
 
