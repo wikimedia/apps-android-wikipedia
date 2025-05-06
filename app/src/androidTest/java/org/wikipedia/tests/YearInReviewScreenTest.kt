@@ -5,20 +5,27 @@ import androidx.test.filters.LargeTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
+import org.wikipedia.base.DataInjector
 import org.wikipedia.robots.feature.YearInReviewRobot
 import org.wikipedia.yearinreview.YearInReviewActivity
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class YearInReviewScreenTest : BaseTest<YearInReviewActivity>(
-    activityClass = YearInReviewActivity::class.java
+    activityClass = YearInReviewActivity::class.java,
+    dataInjector = DataInjector()
 ) {
-
-    private val yearInReviewRobot = YearInReviewRobot()
+    val yearInReviewRobot = YearInReviewRobot()
 
     @Test
-    fun runTest() {
+    fun runTest1() {
         yearInReviewRobot
-            .setComposeTestRule(composeTestRule)
+            .getStarted()
+            .setLeftMargin()
+            .setRightMargin()
+    }
+
+    @Test
+    fun runTest2() {
     }
 }

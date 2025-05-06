@@ -1,55 +1,54 @@
 package org.wikipedia.robots.feature
 
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.ui.test.DeviceConfigurationOverride
-import androidx.compose.ui.test.LayoutDirection
-import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import android.util.Log
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
-import org.wikipedia.yearinreview.YearInReviewScreenContent
-import org.wikipedia.yearinreview.readCountData
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import org.wikipedia.base.TestConfig
+import org.wikipedia.base.base.BaseRobot
 
-class YearInReviewRobot {
+class YearInReviewRobot() : BaseRobot() {
+    private var leftMarginLTR: Float = 0f
+    private var rightMarginLTR: Float = 0f
+    private var headlineRTL: Float = 0f
 
-    private lateinit var composeTestRule: ComposeContentTestRule
-
-    fun setComposeTestRule(rule: ComposeContentTestRule) = apply {
-        this.composeTestRule = rule
-        return@apply
+    fun getStarted() = apply {
+        composeTestRule.onNodeWithText("Get Started").performClick()
+        delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun assertHeadlineIsRtL() {
-        composeTestRule.setContent {
-            DeviceConfigurationOverride(
-                DeviceConfigurationOverride.LayoutDirection(LayoutDirection.Rtl)
-            ) {
-            YearInReviewScreenContent(
-                innerPadding = PaddingValues(48.dp),
-                screenData = readCountData)
-            }
-        }
+    fun setLeftMargin() = apply {
+        val node = composeTestRule.onNodeWithTag("headline_text").fetchSemanticsNode()
+        leftMarginLTR = node
+            .layoutInfo
+            .coordinates
+            .positionInRoot()
+            .x
 
-        composeTestRule.onNodeWithTag("hello")
-        }
+        Log.d("x-pos-headline", leftMarginLTR.toString())
     }
 
-/*
-fun assertHeadlineIsLTR() {
-        var currentTextDirection: LayoutDirection? = null
-        composeTestRule.setContent {
-            YearInReviewScreenContent(
-                innerPadding = PaddingValues(48.dp),
-                screenData = readCountData
-            ).run{ currentTextDirection = LocalLayoutDirection.current}
-        }
-        composeTestRule.onNodeWithTag("hello").also {
-            assert(LocalLayoutDirection.current == LayoutDirection.Ltr)
-        }
-        /*
-        composeTestRule.runOnIdle {
-            currentTextDirection = LocalLayoutDirection.current
-        }
-        assert(currentTextDirection == LayoutDirection.Ltr) */
+    fun setRightMargin() = apply {
+        val node = composeTestRule.onNodeWithTag("information_icon").fetchSemanticsNode()
+        rightMarginLTR = node
+            .layoutInfo
+            .coordinates
+            .positionInRoot()
+            .x
+
+        Log.d("x-pos-icon", rightMarginLTR.toString())
     }
- */
+
+    fun checkLanguageRTL() = apply {
+
+        val node = composeTestRule.onNodeWithTag("headline_text").fetchSemanticsNode()
+        headlineRTL = node
+            .layoutInfo
+            .coordinates
+            .positionInRoot()
+            .x
+
+        Log.d("x-pos-headlineRTL", headlineRTL.toString())
+    }
+}
