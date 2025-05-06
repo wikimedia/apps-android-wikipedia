@@ -1,11 +1,11 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.DrawableMatcher
 
 class LicenseRobot : BaseRobot() {
