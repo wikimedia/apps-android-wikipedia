@@ -10,15 +10,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -34,8 +40,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.coerceAtLeast
 import androidx.compose.ui.unit.dp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.categories.db.Category
@@ -137,6 +147,16 @@ fun CategoryDeveloperPlayGroundScreen(
     var selectedOption by remember { mutableStateOf(Option.ENTRY) }
     var selectedEntry by remember { mutableStateOf(ENTRY.SINGLE) }
 
+    // Keep tracks of top content height to calculate remaining space for table
+    var topContentHeight by remember { mutableStateOf(0) }
+    val topContentHeightDp = with(LocalDensity.current) { topContentHeight.toDp() }
+
+
+    // Calculate available height for the entire screen
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+    val statusBarHeight = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
+    val navBarHeight = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+
     Scaffold(
         topBar = {
             WikiTopAppBar(
@@ -146,171 +166,138 @@ fun CategoryDeveloperPlayGroundScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
+
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            // Main options row
-            LazyRow(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .onGloballyPositioned { coordinates ->
+                        // Measure the height of the top content
+                        topContentHeight = coordinates.size.height
+                    },
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                item {
-                    ChipButton(
-                        text = "Entry",
-                        isSelected = selectedOption == Option.ENTRY,
-                        onClick = {
-                            onOptionSelected(Option.ENTRY)
-                            selectedOption = Option.ENTRY
-                        }
-                    )
+                // Main options row
+                LazyRow(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    item {
+                        ChipButton(
+                            text = "Entry",
+                            isSelected = selectedOption == Option.ENTRY,
+                            onClick = {
+                                onOptionSelected(Option.ENTRY)
+                                selectedOption = Option.ENTRY
+                            }
+                        )
+                    }
+                    item {
+                        ChipButton(
+                            text = "Filter",
+                            isSelected = selectedOption == Option.FILTER,
+                            onClick = {
+                                onOptionSelected(Option.FILTER)
+                                selectedOption = Option.FILTER
+                            }
+                        )
+                    }
+                    item {
+                        ChipButton(
+                            text = "Delete",
+                            isSelected = selectedOption == Option.DELETE,
+                            onClick = {
+                                onOptionSelected(Option.DELETE)
+                                selectedOption = Option.DELETE
+                            }
+                        )
+                    }
                 }
-                item {
-                    ChipButton(
-                        text = "Filter",
-                        isSelected = selectedOption == Option.FILTER,
-                        onClick = {
-                            onOptionSelected(Option.FILTER)
-                            selectedOption = Option.FILTER
-                        }
-                    )
-                }
-                item {
-                    ChipButton(
-                        text = "Delete",
-                        isSelected = selectedOption == Option.DELETE,
-                        onClick = {
-                            onOptionSelected(Option.DELETE)
-                            selectedOption = Option.DELETE
-                        }
-                    )
-                }
-            }
 
-            when (selectedOption) {
-                Option.ENTRY -> {
-                    LazyRow(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        item {
-                            ChipButton(
-                                text = "Single",
-                                isSelected = selectedEntry == ENTRY.SINGLE,
-                                onClick = {
-                                    selectedEntry = ENTRY.SINGLE
-                                }
-                            )
-                        }
-                        item {
-                            ChipButton(
-                                text = "Random Bulk Entries",
-                                isSelected = selectedEntry == ENTRY.RANDOM_BULK,
-                                onClick = {
-                                    selectedEntry = ENTRY.RANDOM_BULK
-                                }
-                            )
-                        }
-                    }
-                    when (selectedEntry) {
-                        ENTRY.SINGLE -> SingleEntryView(onAddToDb)
-                        ENTRY.RANDOM_BULK -> RandomBulkEntryView(onBulkAddToDb)
-                    }
-                    when (categoryState) {
-                        is UiState.Error,
-                        UiState.Loading -> {
-                            Box(
-                                modifier = modifier
-                                    .fillMaxSize()
-                                    .padding(paddingValues)
-                            ) {
-                                CircularProgressIndicator(
-                                    modifier = Modifier
-                                        .align(Alignment.Center)
-                                        .padding(24.dp),
-                                    color = WikipediaTheme.colors.progressiveColor
+                when (selectedOption) {
+                    Option.ENTRY -> {
+                        LazyRow(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            item {
+                                ChipButton(
+                                    text = "Single",
+                                    isSelected = selectedEntry == ENTRY.SINGLE,
+                                    onClick = {
+                                        selectedEntry = ENTRY.SINGLE
+                                    }
+                                )
+                            }
+                            item {
+                                ChipButton(
+                                    text = "Random Bulk Entries",
+                                    isSelected = selectedEntry == ENTRY.RANDOM_BULK,
+                                    onClick = {
+                                        selectedEntry = ENTRY.RANDOM_BULK
+                                    }
                                 )
                             }
                         }
-
-                        is UiState.Success -> {
-                            CategoryTable(
-                                modifier = Modifier
-                                    .weight(1f),
-                                categories = categoryState.data
-                            )
+                        when (selectedEntry) {
+                            ENTRY.SINGLE -> SingleEntryView(onAddToDb)
+                            ENTRY.RANDOM_BULK -> RandomBulkEntryView(onBulkAddToDb)
                         }
                     }
-                }
-
-                Option.FILTER -> {
-                    FilterView(
-                        onFilter = { year ->
-                            onFilter(year)
-                        }
-                    )
-                    when (categoryCountState) {
-                        is UiState.Error,
-                        UiState.Loading -> {
-                            Box(
-                                modifier = modifier
-                                    .fillMaxSize()
-                                    .padding(paddingValues)
-                            ) {
-                                CircularProgressIndicator(
-                                    modifier = Modifier
-                                        .align(Alignment.Center)
-                                        .padding(24.dp),
-                                    color = WikipediaTheme.colors.progressiveColor
-                                )
+                    Option.FILTER -> {
+                        FilterView(
+                            onFilter = { year ->
+                                onFilter(year)
                             }
-                        }
-
-                        is UiState.Success -> {
-                            CategoryTable(
-                                modifier = Modifier
-                                    .weight(1f),
-                                categoriesCount = categoryCountState.data
-                            )
-                        }
+                        )
                     }
-                }
-
-                Option.DELETE -> {
-                    Column(
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
+                    Option.DELETE -> {
                         DeleteView(
                             onDeleteAll = onDeleteAll,
                             onDeleteBeforeYear = onDeleteBeforeYear
                         )
-                        when (categoryState) {
-                            is UiState.Error,
-                            UiState.Loading -> {
-                                Box(
-                                    modifier = modifier
-                                        .fillMaxSize()
-                                        .padding(paddingValues)
-                                ) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier
-                                            .align(Alignment.Center)
-                                            .padding(24.dp),
-                                        color = WikipediaTheme.colors.progressiveColor
-                                    )
-                                }
-                            }
+                    }
+                }
+            }
 
-                            is UiState.Success -> {
-                                CategoryTable(
-                                    modifier = Modifier
-                                        .weight(1f),
-                                    categories = categoryState.data
-                                )
-                            }
-                        }
+            // Calculates the remaining height for table
+            // We subtract topContentHeight, paddingValues, and add some buffer space
+            val tableHeight = screenHeight - topContentHeightDp - paddingValues.calculateTopPadding() -
+                    paddingValues.calculateBottomPadding() - statusBarHeight - navBarHeight - 16.dp
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(tableHeight.coerceAtLeast(300.dp))
+            ) {
+                when {
+                    selectedOption == Option.FILTER && categoryCountState is UiState.Success -> {
+                        CategoryTable(
+                            modifier = Modifier.fillMaxSize(),
+                            categoriesCount = categoryCountState.data
+                        )
+                    }
+
+                    selectedOption != Option.FILTER && categoryState is UiState.Success -> {
+                        CategoryTable(
+                            modifier = Modifier.fillMaxSize(),
+                            categories = categoryState.data
+                        )
+                    }
+
+                    else -> {
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .align(Alignment.Center)
+                                .padding(24.dp),
+                            color = WikipediaTheme.colors.progressiveColor
+                        )
                     }
                 }
             }
@@ -372,7 +359,7 @@ fun FilterView(
     modifier: Modifier = Modifier,
     onFilter: (String) -> Unit
 ) {
-    var year by remember { mutableStateOf("") }
+    var year by remember { mutableStateOf("2025") }
 
     Column(
         modifier = modifier
@@ -417,7 +404,7 @@ fun SingleEntryView(
 ) {
     var title by remember { mutableStateOf("") }
     var languageCode by remember { mutableStateOf("") }
-    var year by remember { mutableStateOf("") }
+    var year by remember { mutableStateOf("2025") }
 
     Column(
         modifier = modifier
@@ -509,7 +496,7 @@ fun RandomBulkEntryView(
     modifier: Modifier = Modifier
 ) {
     var numberOfRows by remember { mutableStateOf("") }
-    var year by remember { mutableStateOf("") }
+    var year by remember { mutableStateOf("2025") }
 
     Column(
         modifier = modifier
