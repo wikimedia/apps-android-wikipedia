@@ -263,7 +263,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             return Duration.between(now, startOfNextDay)
         }
 
-        fun maybeShowOnThisDayGameEndContent(activity: Activity, totalGamesPlayed : Int) {
+        fun maybeShowOnThisDayGameEndContent(activity: Activity, totalGamesPlayed: Int) {
             if (!Prefs.otdGameSurveyShown) {
                 Prefs.otdGameSurveyShown = true
                 showOnThisDayGameSurvey1(activity) {
@@ -274,7 +274,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             }
         }
 
-        private fun maybeShowThanksSnackbar(activity: Activity, totalGamesPlayed : Int) {
+        private fun maybeShowThanksSnackbar(activity: Activity, totalGamesPlayed: Int) {
             if (activity is PageActivity && totalGamesPlayed == 1) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
             }
