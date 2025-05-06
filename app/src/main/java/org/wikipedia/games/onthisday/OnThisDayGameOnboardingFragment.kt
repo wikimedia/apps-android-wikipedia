@@ -43,37 +43,9 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.playGameButton.setOnClickListener {
-            val startDate = Calendar.getInstance().apply {
-                set(2025, Calendar.APRIL, 24)
-            }
-            val endDate = Calendar.getInstance().apply {
-                set(get(Calendar.YEAR), get(Calendar.MONTH), get(Calendar.DAY_OF_MONTH))
-            }
-            val endTimeInMillis = System.currentTimeMillis()
-            val calendarConstraints = CalendarConstraints.Builder()
-                .setEnd(endTimeInMillis)
-                .setValidator(DateValidatorPointBackward.before(endTimeInMillis))
-                .build()
-
-            MaterialDatePicker.Builder.datePicker()
-                .setTheme(R.style.MaterialDatePickerStyle)
-                .setDayViewDecorator(DateDecorator(
-                    startDate,
-                    endDate,
-                    hashMapOf(
-                        "2025-3-25" to 5,
-                        "2025-3-28" to 3,
-                        "2025-3-30" to 1
-                    )))
-                .setCalendarConstraints(calendarConstraints)
-                .build()
-                .apply {
-                    addOnPositiveButtonClickListener {}
-                }
-                .show(requireActivity().supportFragmentManager, "datePicker")
-//            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
-//            requireActivity().supportFragmentManager.popBackStack()
-//            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
+            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+            requireActivity().supportFragmentManager.popBackStack()
+            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
         }
 
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
@@ -113,5 +85,31 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 }
             }
         }
+    }
+
+    // helper function to create a standard key for calendar views
+    private fun getScoreDatKey(year: Int, month: Int, day: Int): String {
+        return "$year-$month-$day"
+    }
+
+    fun maybeShowArchiveCalendar(startDate: Calendar, endDate: Calendar, scoreData: Map<String, Int>) {
+        val endTimeInMillis = System.currentTimeMillis()
+        val calendarConstraints = CalendarConstraints.Builder()
+            .setEnd(endTimeInMillis)
+            .setValidator(DateValidatorPointBackward.before(endTimeInMillis))
+            .build()
+
+        MaterialDatePicker.Builder.datePicker()
+            .setTheme(R.style.MaterialDatePickerStyle)
+            .setDayViewDecorator(DateDecorator(
+                startDate,
+                endDate,
+                scoreData))
+            .setCalendarConstraints(calendarConstraints)
+            .build()
+            .apply {
+                addOnPositiveButtonClickListener {}
+            }
+            .show(requireActivity().supportFragmentManager, "datePicker")
     }
 }

@@ -46,8 +46,8 @@ class DateDecorator(
         val score = scoreData[dateKey]
 
         return when (score) {
-            1, 2, 3 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow500))
-            4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red500))
+            0, 1, 2 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow500))
+            3, 4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.orange500))
             5 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green600))
             else -> null
         }
@@ -57,7 +57,7 @@ class DateDecorator(
         Calendar.getInstance(),
         Calendar.getInstance(),
         hashMapOf()
-    ) {}
+    )
 
     override fun describeContents(): Int { return 0 }
 
