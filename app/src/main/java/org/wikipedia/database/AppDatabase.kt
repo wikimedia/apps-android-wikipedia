@@ -283,9 +283,9 @@ abstract class AppDatabase : RoomDatabase() {
                         "lang TEXT NOT NULL," +
                         "timeStamp INTEGER NOT NULL," +
                         "PRIMARY KEY (title, lang, timeStamp)" +
-                        ");")
-                db.execSQL("CREATE TABLE DailyGameHistory (" +
-                        "    id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS DailyGameHistory (" +
+                        "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                         "    gameName INTEGER NOT NULL," +
                         "    language TEXT NOT NULL," +
                         "    year INTEGER NOT NULL," +
@@ -294,7 +294,7 @@ abstract class AppDatabase : RoomDatabase() {
                         "    score INTEGER NOT NULL," +
                         "    playType INTEGER NOT NULL," +
                         "    gameData TEXT" +
-                        ");")
+                        ")")
             }
         }
 

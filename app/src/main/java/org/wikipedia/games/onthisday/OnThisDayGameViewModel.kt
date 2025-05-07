@@ -53,18 +53,17 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val events = mutableListOf<OnThisDay.Event>()
     val savedPages = mutableListOf<PageSummary>()
-    var totalGamesPlayed = 0
 
     init {
-        loadGameState()
 
-        // TODO: remove this in May, 2026
         // Migrate from Prefs.otdGameHistory to use database
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _gameState.postValue(Resource.Error(throwable))
         }) {
+            // TODO: remove this in May, 2026
             migrateGameHistoryFromPrefsToDatabase()
+            loadGameState()
         }
     }
 
