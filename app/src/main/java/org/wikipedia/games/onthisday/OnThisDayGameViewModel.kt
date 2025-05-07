@@ -348,6 +348,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
         AppDatabase.instance.dailyGameHistoryDao().insertAll(dailyGameHistories)
+        Prefs.otdGameHistory = ""
     }
 
     @Serializable
