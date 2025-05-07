@@ -236,6 +236,7 @@
   <string name="text_copied">Tèxte copiat dins lo quichapapièrs.</string>
   <string name="button_continue_to_article">Legir l’article</string>
   <string name="button_continue_to_talk_page">Dubrir la pagina de discussion</string>
+  <string name="link_preview_disambiguation_description">Aquel títol fa referéncia a mai d\'una pagina:</string>
   <string name="button_add_to_reading_list">Apondre la la lista de lectura</string>
   <string name="button_get_directions">Obténer las direccions</string>
   <string name="preference_title_show_link_previews">Afichar los apercebuts de ligam</string>
@@ -256,6 +257,7 @@
   <string name="color_theme_select">Tèma</string>
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Escur</string>
+  <string name="editing_line_numbers_label">Mostrar los numèros de linha</string>
   <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
   <string name="reading_list_create_new">Crear un novèl</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>

@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.app.Activity
 import android.content.Context
 import android.util.Log
@@ -18,7 +19,6 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class ReadingListRobot : BaseRobot() {
 

@@ -1,5 +1,6 @@
 package org.wikipedia.robots.screen
 
+import BaseRobot
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.hasTestTag
@@ -17,7 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.ColorAssertions
 import org.wikipedia.base.utils.assertTextColor
 import org.wikipedia.theme.Theme
