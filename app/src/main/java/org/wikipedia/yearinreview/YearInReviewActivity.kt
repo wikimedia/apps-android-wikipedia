@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -13,8 +15,11 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.util.Resource
 
 class YearInReviewActivity : BaseActivity() {
+
+    private val viewModel: YearInReviewViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +29,6 @@ class YearInReviewActivity : BaseActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val personalizedScreenList = listOf(
-                    readCountData, editCountData, readCountData,
-                    editCountData, readCountData
-                )
-                val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
 
@@ -42,7 +42,7 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            contentData = getStartedList,
+                            contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
                             customBottomBar = {
                                 OnboardingBottomBar(
@@ -61,24 +61,32 @@ class YearInReviewActivity : BaseActivity() {
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
-                        YearInReviewScreen(
-                            contentData = personalizedScreenList,
-                            navController = navController,
-                            customBottomBar = { pagerState -> MainBottomBar(
-                                onNavigationRightClick = {
-                                    coroutineScope.launch {
-                                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                    }
-                                },
-                                pagerState = pagerState,
-                                totalPages = personalizedScreenList.size) },
-                            screenContent = { innerPadding, contentData ->
-                                YearInReviewScreenContent(
-                                    innerPadding = innerPadding,
-                                    screenData = contentData
+                        val screenState = viewModel.uiScreenListState.collectAsState().value
+                        when (screenState) {
+                            is Resource.Loading -> {
+                                LoadingIndicator()
+                            }
+                            is Resource.Success -> {
+                                YearInReviewScreen(
+                                    contentData = screenState.data,
+                                    navController = navController,
+                                    customBottomBar = { pagerState -> MainBottomBar(
+                                        onNavigationRightClick = {
+                                            coroutineScope.launch {
+                                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                            }
+                                        },
+                                        pagerState = pagerState,
+                                        totalPages = screenState.data.size) },
+                                    screenContent = { innerPadding, contentData ->
+                                        YearInReviewScreenContent(
+                                            innerPadding = innerPadding,
+                                            screenData = contentData,
+                                        )
+                                    },
                                 )
-                            },
-                        )
+                            }
+                        }
                     }
                 }
             }
