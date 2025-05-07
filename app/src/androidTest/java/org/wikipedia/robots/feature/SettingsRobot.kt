@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.content.Context
 import android.util.Log
 import androidx.annotation.IdRes
@@ -25,7 +26,6 @@ import org.junit.Assert.assertTrue
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class SettingsRobot : BaseRobot() {
     fun verifyTitle() = apply {
