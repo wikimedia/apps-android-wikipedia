@@ -8,11 +8,12 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.DayViewDecorator
 import org.wikipedia.R
 import java.util.Calendar
+import java.util.Date
 
 class DateDecorator(
-    private val startDate: Calendar,
-    private val endDate: Calendar,
-    private val scoreData: Map<String, Int>
+    private val startDate: Date,
+    private val endDate: Date,
+    private val scoreData: Map<Long, Int>
 ) : DayViewDecorator() {
 
     private val calendar = Calendar.getInstance()
@@ -24,10 +25,6 @@ class DateDecorator(
 
             return !calendar.before(startDate) && !calendar.after(endDate)
         }
-    }
-
-    private fun getDateKey(year: Int, month: Int, day: Int): String {
-        return "$year-$month-$day"
     }
 
     override fun getBackgroundColor(
@@ -54,8 +51,8 @@ class DateDecorator(
     }
 
     constructor(parcel: Parcel) : this(
-        Calendar.getInstance(),
-        Calendar.getInstance(),
+        Date(),
+        Date(),
         hashMapOf()
     )
 
@@ -70,6 +67,10 @@ class DateDecorator(
 
         override fun newArray(size: Int): Array<DateDecorator?> {
             return arrayOfNulls(size)
+        }
+
+        fun getDateKey(year: Int, month: Int, day: Int): Long {
+            return (year * 10000 + month * 100 + day).toLong()
         }
     }
 }

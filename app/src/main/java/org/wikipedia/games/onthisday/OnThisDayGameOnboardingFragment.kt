@@ -26,6 +26,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import java.util.Calendar
+import java.util.Date
 import java.util.TimeZone
 
 class OnThisDayGameOnboardingFragment : Fragment() {
@@ -89,12 +90,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         }
     }
 
-    // helper function to create a standard key for calendar views
-    private fun getScoreDataKey(year: Int, month: Int, day: Int): String {
-        return "$year-$month-$day"
-    }
-
-    fun maybeShowArchiveCalendar(startDate: Calendar, endDate: Calendar, scoreData: Map<String, Int>) {
+    fun maybeShowArchiveCalendar(startDate: Date, endDate: Date, scoreData: Map<Long, Int>) {
         val endTimeInMillis = System.currentTimeMillis()
         val calendarConstraints = CalendarConstraints.Builder()
             .setEnd(endTimeInMillis)
@@ -118,7 +114,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     val year = calendar.get(Calendar.YEAR)
                     val month = calendar.get(Calendar.MONTH)
                     val day = calendar.get(Calendar.DAY_OF_MONTH)
-                    val scoreDataKey = getScoreDataKey(year, month, day)
+                    val scoreDataKey = DateDecorator.getDateKey(year, month, day)
                     val score = scoreData[scoreDataKey]
                     val total = OnThisDayGameViewModel.MAX_QUESTIONS
                     if (scoreData[scoreDataKey] != null) {
