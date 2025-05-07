@@ -57,6 +57,7 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.ShareUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -104,7 +105,11 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (contentData.size > 1) {
-                        IconButton(onClick = { YearInReviewShareSheet(context) }) {
+                        IconButton(onClick = { ShareUtil.shareText(
+                            context = context,
+                            subject = "Sharing Link",
+                            text = "https://wikipedia.org") }
+                        ) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
