@@ -497,4 +497,10 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Playground">
+        <Preference
+            android:key="@string/preference_key_playground_category"
+            android:title="Category" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

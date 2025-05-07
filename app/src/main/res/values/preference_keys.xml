@@ -179,4 +179,5 @@
     <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
+    <string name="preference_key_playground_category">categoryPlayground</string>
 </resources>
