@@ -19,6 +19,8 @@ import org.wikipedia.util.Resource
 
 class YearInReviewActivity : BaseActivity() {
 
+    private val viewModel: YearInReviewViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,9 +29,6 @@ class YearInReviewActivity : BaseActivity() {
                 personalizedScreenList is temporarily populated with screens
                 for testing purposes. This is will adjusted in future iterations
                  */
-                val yirViewModel: YearInReviewViewModel by viewModels()
-                yirViewModel.fetchPersonalizedData()
-                val getStartedList = listOf(getStartedData)
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
 
@@ -43,7 +42,7 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            contentData = getStartedList,
+                            contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
                             customBottomBar = {
                                 OnboardingBottomBar(
@@ -62,7 +61,7 @@ class YearInReviewActivity : BaseActivity() {
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
-                        val screenState = yirViewModel.uiScreenListState.collectAsState().value
+                        val screenState = viewModel.uiScreenListState.collectAsState().value
                         when (screenState) {
                             is Resource.Loading -> {
                                 LoadingIndicator()
