@@ -1,9 +1,9 @@
 package org.wikipedia.robots.screen
 
+import BaseRobot
 import androidx.test.espresso.action.ViewActions.click
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class SuggestedEditsScreenRobot : BaseRobot() {
 
