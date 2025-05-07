@@ -176,9 +176,9 @@
   <string name="login_password_hint">סיסמה</string>
   <string name="account_creation_password_hint">סיסמה</string>
   <string name="login_2fa_hint">קוד אימות דו־שלבי</string>
-  <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא להתחבר מהמסך הראשי והזן את קוד האימות הדו־שלבי (2FA) שלך.</string>
+  <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא להתחבר מהמסך הראשי ולהזין את קוד האימות הדו־שלבי (2FA) שלך.</string>
   <string name="login_email_auth_hint">קוד אימות בדוא״ל</string>
-  <string name="login_email_auth_other_workflow_error_msg">נדרש אימות דוא\"ל! אנא התחבר מהמסך הראשי והזן את קוד אימות הדוא\"ל שלך.</string>
+  <string name="login_email_auth_other_workflow_error_msg">נדרש אימות דוא\"ל! נא להתחבר מהמסך הראשי ולהזין את קוד אימות הדוא\"ל שלך.</string>
   <string name="onboarding_card_login">כניסה</string>
   <string name="page_editing_login">כניסה</string>
   <string name="reading_lists_sync_login">כניסה</string>
@@ -1502,8 +1502,8 @@
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">שבוע 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">חודש 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">שבוע אחד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">חודש אחד</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 חודשים</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 חודשים</string>
   <string name="watchlist_expiry_dialog_title">נא לבחור את הזמן לשמירה ברשימת המעקב</string>
