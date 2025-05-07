@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -25,6 +26,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import java.util.Calendar
+import java.util.TimeZone
 
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -88,7 +90,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     // helper function to create a standard key for calendar views
-    private fun getScoreDatKey(year: Int, month: Int, day: Int): String {
+    private fun getScoreDataKey(year: Int, month: Int, day: Int): String {
         return "$year-$month-$day"
     }
 
@@ -110,7 +112,21 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             .setSelection(endTimeInMillis)
             .build()
             .apply {
-                addOnPositiveButtonClickListener {}
+                addOnPositiveButtonClickListener { selectedDateInMillis ->
+                    val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                    calendar.timeInMillis = selectedDateInMillis
+                    val year = calendar.get(Calendar.YEAR)
+                    val month = calendar.get(Calendar.MONTH)
+                    val day = calendar.get(Calendar.DAY_OF_MONTH)
+                    val scoreDataKey = getScoreDataKey(year, month, day)
+                    val score = scoreData[scoreDataKey]
+                    val total = OnThisDayGameViewModel.MAX_QUESTIONS
+                    if (scoreData[scoreDataKey] != null) {
+                        val formattedDate = DateUtil.getMMMMdYYYY(calendar.time)
+                        // @TODO: replace this with string resource later
+                        Toast.makeText(requireContext(), "You score $score/$total on $formattedDate", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
             .show(requireActivity().supportFragmentManager, "datePicker")
     }
