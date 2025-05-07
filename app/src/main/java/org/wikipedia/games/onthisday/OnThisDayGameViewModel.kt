@@ -169,6 +169,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 if (nextQuestionIndex >= currentState.totalQuestions) {
                     currentState = currentState.copy(currentQuestionIndex = nextQuestionIndex)
 
+                    var shouldInsert = false
                     // Get game data from the database OR create a blank object.
                     val gameHistory = withContext(Dispatchers.IO) {
                         AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
@@ -178,6 +179,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             month = currentDate.monthValue,
                             day = currentDate.dayOfMonth
                         ) ?: run {
+                            shouldInsert = true
                             DailyGameHistory(
                                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                                 language = wikiSite.languageCode,
@@ -198,7 +200,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
                     // Update or insert the game history in the database.
                     withContext(Dispatchers.IO) {
-                        if (gameHistory.id == -1) {
+                        if (shouldInsert) {
                             AppDatabase.instance.dailyGameHistoryDao().insert(gameHistory)
                         } else {
                             AppDatabase.instance.dailyGameHistoryDao().update(gameHistory)
@@ -321,30 +323,31 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     // TODO: remove this in May, 2026
     private suspend fun migrateGameHistoryFromPrefsToDatabase() {
-        val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it)?.langToHistory }
+        if (Prefs.otdGameHistory.isEmpty()) {
+            return
+        }
+        val totalHistory = JsonUtil.decodeFromString<TotalGameHistory>(Prefs.otdGameHistory)?.langToHistory ?: return
         val dailyGameHistories = mutableListOf<DailyGameHistory>()
-        totalHistory?.let {
-            it.forEach { (lang, gameHistory) ->
-                gameHistory.history.forEach { (year, monthMap) ->
-                    monthMap.forEach { (month, dayMap) ->
-                        dayMap.forEach { (day, answers) ->
-                            val gameHistory = DailyGameHistory(
-                                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                                language = lang,
-                                year = year,
-                                month = month,
-                                day = day,
-                                score = answers.count { it }.toInt(),
-                                playType = PlayTypes.PLAYED_ON_SAME_DAY.ordinal,
-                                gameData = JsonUtil.encodeToString(answers)
-                            )
-                            dailyGameHistories.add(gameHistory)
-                        }
+        totalHistory.forEach { (lang, gameHistory) ->
+            gameHistory.history.forEach { (year, monthMap) ->
+                monthMap.forEach { (month, dayMap) ->
+                    dayMap.forEach { (day, answers) ->
+                        val gameHistory = DailyGameHistory(
+                            gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                            language = lang,
+                            year = year,
+                            month = month,
+                            day = day,
+                            score = answers.count { it }.toInt(),
+                            playType = PlayTypes.PLAYED_ON_SAME_DAY.ordinal,
+                            gameData = JsonUtil.encodeToString(answers)
+                        )
+                        dailyGameHistories.add(gameHistory)
                     }
                 }
             }
-            AppDatabase.instance.dailyGameHistoryDao().insertAll(dailyGameHistories)
         }
+        AppDatabase.instance.dailyGameHistoryDao().insertAll(dailyGameHistories)
     }
 
     @Serializable

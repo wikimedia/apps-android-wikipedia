@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class DailyGameHistory(
-    @PrimaryKey(autoGenerate = true) val id: Int = -1,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val gameName: Int,
     val language: String,
     val year: Int,
