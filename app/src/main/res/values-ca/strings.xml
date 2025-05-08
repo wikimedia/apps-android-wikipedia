@@ -877,8 +877,6 @@
   <string name="description_edit_voice_input_description">Entrada de veu</string>
   <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
   <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>

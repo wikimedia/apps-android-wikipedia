@@ -900,8 +900,6 @@
   <string name="description_edit_voice_input_description">Taleinput</string>
   <string name="description_edit_learn_more">Lær mere om artikelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mere om billedtekster</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_too_long">Forsøg at hold beskrivelser korte, sådan at brugere hurtigt kan forstå artiklens emne</string>
   <string name="description_ends_with_punctuation">Teksten må ikke ende med skilletegn.</string>

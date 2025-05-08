@@ -828,8 +828,6 @@
   <string name="description_edit_voice_input_description">Eniro di voco</string>
   <string name="description_edit_learn_more">Lektez pluse pri deskripto di artikli</string>
   <string name="description_edit_image_caption_learn_more">Lektez pluse pri texti (\'\'captions\'\') pri imaji</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">La texto esas tro kurta.</string>
   <string name="description_ends_with_punctuation">La texto ne povas finar per puntizosigno.</string>
   <string name="description_starts_with_uppercase">Komencez skribanta minuskula litero, ecepte se l\'unesma vorto esas propra nomo.</string>

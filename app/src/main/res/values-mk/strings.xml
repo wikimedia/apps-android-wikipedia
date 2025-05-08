@@ -887,8 +887,6 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_too_long">Трудете се описите да бидат кратки, така што читателите би можеле да разберат што обработува статијата со еден поглед</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
