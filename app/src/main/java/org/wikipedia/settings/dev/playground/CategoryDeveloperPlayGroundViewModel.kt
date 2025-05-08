@@ -1,7 +1,6 @@
 package org.wikipedia.settings.dev.playground
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,8 +21,6 @@ import java.util.Calendar
 import java.util.Date
 
 class CategoryDeveloperPlayGroundViewModel : ViewModel() {
-    private val TAG = "CategoryTable"
-
     private val categories = arrayOf(
         "Animals", "Science", "Technology", "History", "Geography",
         "Art", "Music", "Literature", "Sports", "Food",
@@ -84,7 +81,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 )
                 loadCategories()
             } catch (e: Exception) {
-                Log.e(TAG, "Error generating sample data", e)
+                L.e("Error generating sample data", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -125,7 +122,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 }
                 loadCategories()
             } catch (e: Exception) {
-                Log.e(TAG, "Error generating sample data", e)
+                L.e("Error generating sample data", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -141,7 +138,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 AppDatabase.instance.categoryDao().deleteAll()
                 loadCategories()
             } catch (e: Exception) {
-                Log.e(TAG, "Error deleting categories", e)
+                L.e("Error deleting categories", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -157,7 +154,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 AppDatabase.instance.categoryDao().deleteOlderThan(getPreviousYearMillis(yearsAgo))
                 loadCategories()
             } catch (e: Exception) {
-                Log.e(TAG, "Error deleting categories data of $yearsAgo years ago", e)
+                L.e("Error deleting categories data of $yearsAgo years ago", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }

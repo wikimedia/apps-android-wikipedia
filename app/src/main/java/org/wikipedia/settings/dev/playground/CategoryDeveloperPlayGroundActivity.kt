@@ -35,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -76,17 +77,13 @@ class CategoryDeveloperPlayGround : BaseActivity() {
                     categoryCountState = categoryCountState.value,
                     categoryState = categoryState.value,
                     onAddToDb = { title, languageCode, year ->
-                        if (title.isEmpty() || languageCode.isEmpty() || year.isEmpty()) {
-                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
-                                .show()
+                        if (!validateInput(title.isEmpty() || languageCode.isEmpty() || year.isEmpty())) {
                             return@CategoryDeveloperPlayGroundScreen
                         }
                         viewModel.addTestData(this, title, languageCode, year.toInt())
                     },
                     onBulkAddToDb = { numberOfRows, year ->
-                        if (numberOfRows.isEmpty() || year.isEmpty()) {
-                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
-                                .show()
+                        if (!validateInput(numberOfRows.isEmpty() || year.isEmpty())) {
                             return@CategoryDeveloperPlayGroundScreen
                         }
                         viewModel.addTestDataBulk(this, numberOfRows.toInt(), year.toInt())
@@ -95,17 +92,13 @@ class CategoryDeveloperPlayGround : BaseActivity() {
                         viewModel.deleteAllCategories(this)
                     },
                     onDeleteBeforeYear = { yearsAgo ->
-                        if (yearsAgo.isEmpty()) {
-                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
-                                .show()
+                        if (!validateInput(yearsAgo.isEmpty())) {
                             return@CategoryDeveloperPlayGroundScreen
                         }
                         viewModel.deleteBeforeYear(this, yearsAgo.toInt())
                     },
                     onFilter = { year ->
-                        if (year.isEmpty()) {
-                            Toast.makeText(this, "please enter all information", Toast.LENGTH_SHORT)
-                                .show()
+                        if (!validateInput(year.isEmpty())) {
                             return@CategoryDeveloperPlayGroundScreen
                         }
                         viewModel.filterBy(year.toInt())
@@ -129,6 +122,14 @@ class CategoryDeveloperPlayGround : BaseActivity() {
             }
         }
     }
+
+    private fun validateInput(isEmpty: Boolean): Boolean {
+        if (isEmpty) {
+            Toast.makeText(this, "Please enter all information", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
+    }
 }
 
 @Composable
@@ -148,7 +149,7 @@ fun CategoryDeveloperPlayGroundScreen(
     var selectedEntry by remember { mutableStateOf(ENTRY.SINGLE) }
 
     // Keep tracks of top content height to calculate remaining space for table
-    var topContentHeight by remember { mutableStateOf(0) }
+    var topContentHeight by remember { mutableIntStateOf(0) }
     val topContentHeightDp = with(LocalDensity.current) { topContentHeight.toDp() }
 
     // Calculate available height for the entire screen
