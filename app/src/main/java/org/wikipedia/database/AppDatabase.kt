@@ -274,7 +274,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         val MIGRATION_28_29 = object : Migration(28, 29) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                db.execSQL("CREATE TABLE category (" +
+                db.execSQL("CREATE TABLE Category (" +
                         "title TEXT NOT NULL," +
                         "lang TEXT NOT NULL," +
                         "timeStamp INTEGER NOT NULL," +
