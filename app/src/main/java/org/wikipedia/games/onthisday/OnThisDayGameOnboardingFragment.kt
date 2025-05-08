@@ -1,5 +1,6 @@
 package org.wikipedia.games.onthisday
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +11,13 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialCalendar
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.OnSelectionChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -25,6 +29,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.log.L
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
@@ -34,12 +39,35 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
 
+    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
+        @SuppressLint("RestrictedApi")
+        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
+            if (fragment is MaterialDatePicker<*>) {
+                val calendar = getPrivateCalendarFragment(fragment)
+                L.d("calendar: $calendar")
+                @Suppress("UNCHECKED_CAST")
+                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
+                    override fun onSelectionChanged(selection: Long) {
+                        // TODO: handle selection!
+                        L.d("selected: $selection")
+                    }
+                })
+            }
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
+        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = "game_start")
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -124,6 +152,17 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     }
                 }
             }
-            .show(requireActivity().supportFragmentManager, "datePicker")
+            .show(childFragmentManager, "datePicker")
+    }
+
+    private fun getPrivateCalendarFragment(picker: MaterialDatePicker<*>): Any? {
+        try {
+            val field = picker.javaClass.getDeclaredField("calendar")
+            field.isAccessible = true
+            return field.get(picker)
+        } catch (e: Exception) {
+            L.e(e)
+        }
+        return null
     }
 }
