@@ -823,8 +823,6 @@
   <string name="description_edit_voice_input_description">Yelyaga de emmbo</string>
   <string name="description_edit_learn_more">Zanne yɛlɛ yaga kyaare atekele bigruu</string>
   <string name="description_edit_image_caption_learn_more">Zanne yɛlɛ yaga kyaare enfuoni yelzu ŋmaa</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">A sɛgre e la fẽẽ yaga.</string>
   <string name="description_ends_with_punctuation">A sɛgere ba seŋ ka o baare ne tannoo tombiri.</string>
   <string name="description_starts_with_uppercase">Piili neŋ sɛgebi bile see ka o waa yo-meŋa.</string>
