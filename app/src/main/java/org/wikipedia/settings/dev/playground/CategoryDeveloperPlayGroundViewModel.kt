@@ -57,9 +57,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            val categoryCounts = AppDatabase.instance.categoryDao().getCategoriesByYearRange(
-                startOfYear = DateUtil.startOfYearInMillis(year),
-                endOfYear = DateUtil.endOfYearInMillis(year)
+            val categoryCounts = AppDatabase.instance.categoryDao().getCategoriesByTimeRange(
+                startTimeStamp = DateUtil.startOfYearInMillis(year),
+                endTimeStamp = DateUtil.endOfYearInMillis(year)
             )
             _categoryCountState.value = UiState.Success(categoryCounts)
         }
