@@ -823,8 +823,6 @@
   <string name="description_edit_voice_input_description">Masupan suara</string>
   <string name="description_edit_learn_more">Belajarin lebi lanjut pasal jabaran makalah</string>
   <string name="description_edit_image_caption_learn_more">Belajarin lebi lanjut pasal keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tèks – kepèndèkan.</string>
   <string name="description_ends_with_punctuation">Tèks kaga\' bolé akirannya tenger baca.</string>
   <string name="description_starts_with_uppercase">Mulain paké hurup kecil, kecuali kalo kata pertamanya – nama peada dèwèk.</string>

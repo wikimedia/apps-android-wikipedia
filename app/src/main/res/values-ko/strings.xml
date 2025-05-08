@@ -891,8 +891,6 @@
   <string name="description_edit_voice_input_description">음성 입력</string>
   <string name="description_edit_learn_more">문서 설명에 대해 더 알아보기</string>
   <string name="description_edit_image_caption_learn_more">이미지 캡션에 대해 더 알아보기</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_too_long">사용자가 문서의 주제를 바로 이해할 수 있도록 설명은 간결하게 작성하십시오</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>

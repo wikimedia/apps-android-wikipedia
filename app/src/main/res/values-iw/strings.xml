@@ -968,8 +968,6 @@
   <string name="description_edit_voice_input_description">קלט קולי</string>
   <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
   <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_too_long">השתדלו להקפיד שהתיאורים יהיו קצרים כדי שמשתמשים יוכלו להבין מה נושא הערך במבט מהיר</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>

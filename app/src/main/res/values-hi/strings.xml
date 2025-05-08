@@ -910,8 +910,6 @@
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
   <string name="description_edit_image_caption_learn_more">चित्र कैप्शन के बारे में और जानें</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">पाठ बहुत छोटा है।</string>
   <string name="description_too_long">विवरण को संक्षिप्त रखने का प्रयास करें ताकि सदस्य लेख के विषय को एक नज़र में समझ सकें</string>
   <string name="description_ends_with_punctuation">पाठ विराम चिह्न के साथ समाप्त नहीं होना चाहिए।</string>

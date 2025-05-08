@@ -860,8 +860,6 @@
   <string name="description_edit_voice_input_description">Ауаз киргизиу</string>
   <string name="description_edit_learn_more">Статья ачыкълауланы юсюнден аслам бил</string>
   <string name="description_edit_image_caption_learn_more">Сурат тюб джазыуланы юсюнден аслам бил</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст асыры къысхады.</string>
   <string name="description_ends_with_punctuation">Текст тыйгъыч белгиле бла бошалыргъа керек тюлдю.</string>
   <string name="description_starts_with_uppercase">Биринчи сёз энчи ат тюл эсе, гитче хариф бла башла</string>
