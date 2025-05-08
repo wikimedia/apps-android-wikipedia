@@ -1,9 +1,9 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.content.Context
 import android.util.Log
 import androidx.annotation.IdRes
-import androidx.compose.ui.test.junit4.ComposeTestRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
 import androidx.recyclerview.widget.RecyclerView
@@ -26,17 +26,8 @@ import org.junit.Assert.assertTrue
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class SettingsRobot : BaseRobot() {
-
-    private lateinit var composeTestRule: ComposeTestRule
-
-    fun setComposeTestRule(rule: ComposeTestRule) = apply {
-        this.composeTestRule = rule
-        return@apply
-    }
-
     fun verifyTitle() = apply {
         verify.viewWithTextDisplayed("Settings")
     }
