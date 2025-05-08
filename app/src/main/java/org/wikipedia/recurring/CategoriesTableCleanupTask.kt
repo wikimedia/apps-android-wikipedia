@@ -1,6 +1,5 @@
 package org.wikipedia.recurring
 
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.util.log.L
@@ -9,7 +8,7 @@ import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class CategoriesTableCleanupTask(app: WikipediaApp) : RecurringTask() {
-    override val name: String = app.getString(R.string.preference_key_categories_table_cleanup_task_name)
+    override val name = "categoriesTableCleanupTask"
 
     override fun shouldRun(lastRun: Date): Boolean {
         return millisSinceLastRun(lastRun) >= TimeUnit.DAYS.toMillis(DAYS_BETWEEN_RUNS)
@@ -17,12 +16,8 @@ class CategoriesTableCleanupTask(app: WikipediaApp) : RecurringTask() {
 
     override suspend fun run(lastRun: Date) {
         val twoYearsAgoTimeStamp = getTimeStampForYearsAgo()
-        try {
-            AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
-            L.d("Successfully deleted Category data older than $CLEANUP_TIME_IN_YEARS years")
-        } catch (e: Exception) {
-            L.e(e)
-        }
+        AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
+        L.d("Successfully deleted Category data older than $CLEANUP_TIME_IN_YEARS years")
     }
 
     private fun getTimeStampForYearsAgo(years: Int = CLEANUP_TIME_IN_YEARS): Long {
