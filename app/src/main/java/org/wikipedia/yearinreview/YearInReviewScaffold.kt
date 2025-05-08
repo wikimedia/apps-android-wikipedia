@@ -65,7 +65,7 @@ import kotlin.math.absoluteValue
 @Composable
 fun YearInReviewScreen(
     customBottomBar: @Composable (PagerState) -> Unit,
-    screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
+    screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>
 ) {
@@ -119,17 +119,16 @@ fun YearInReviewScreen(
         },
         bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
-        YearInReviewSurvey()
         if (contentData.size > 1) {
             HorizontalPager(
                 verticalAlignment = Alignment.Top,
                 state = pagerState,
                 contentPadding = PaddingValues(0.dp),
             ) { page ->
-                screenContent(innerPadding, contentData[page])
+                screenContent(innerPadding, contentData[page], pagerState)
             }
         } else {
-            screenContent(innerPadding, contentData[0])
+            screenContent(innerPadding, contentData[0], pagerState)
         }
     }
 }

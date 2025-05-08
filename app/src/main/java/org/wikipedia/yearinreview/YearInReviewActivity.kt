@@ -53,7 +53,7 @@ class YearInReviewActivity : BaseActivity() {
                                     }
                                 )
                             },
-                            screenContent = { innerPadding, contentData ->
+                            screenContent = { innerPadding, contentData, pagerState ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData)
@@ -78,7 +78,11 @@ class YearInReviewActivity : BaseActivity() {
                                         },
                                         pagerState = pagerState,
                                         totalPages = screenState.data.size) },
-                                    screenContent = { innerPadding, contentData ->
+                                    screenContent = { innerPadding, contentData, pagerState ->
+                                        YearInReviewSurvey(
+                                            viewModel = viewModel,
+                                            pagerState = pagerState
+                                        )
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
                                             screenData = contentData,

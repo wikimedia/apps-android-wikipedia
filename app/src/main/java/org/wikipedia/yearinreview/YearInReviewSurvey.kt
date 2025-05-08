@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -26,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,7 +37,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import org.wikipedia.R
@@ -43,7 +44,10 @@ import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun YearInReviewSurvey() {
+fun YearInReviewSurvey(
+    viewModel: YearInReviewViewModel,
+    pagerState: PagerState
+) {
     val radioOptions = listOf(
         stringResource(R.string.year_in_review_survey_very_satisfied),
         stringResource(R.string.year_in_review_survey_satisfied),
@@ -51,14 +55,14 @@ fun YearInReviewSurvey() {
         stringResource(R.string.year_in_review_survey_unsatisfied),
         stringResource(R.string.year_in_review_survey_very_unsatisfied)
     )
-    val openSurvey = remember { mutableStateOf(true) }
+    val hasSurveyShown by viewModel.uiHasSurveyShown.collectAsState()
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
     var userInput by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
-    if (openSurvey.value) {
+    if (!hasSurveyShown && pagerState.currentPage > 0) { // TODO: adjust pagerState.currentPage > 2 when more pages are added
         BasicAlertDialog(
-            onDismissRequest = { openSurvey.value = false },
+            onDismissRequest = { viewModel.updateSurveyShownState() },
             properties = DialogProperties(
                 dismissOnBackPress = true,
                 dismissOnClickOutside = true
@@ -140,10 +144,9 @@ fun YearInReviewSurvey() {
                         placeholder = {
                             if (userInput.isEmpty()) {
                                 Text(
-                                    text = "Any additional thoughts?",
+                                    text = stringResource(R.string.year_in_review_survey_placeholder_text),
                                     color = WikipediaTheme.colors.placeholderColor,
                                     style = WikipediaTheme.typography.p
-
                                 )
                             }
                         },
@@ -169,7 +172,7 @@ fun YearInReviewSurvey() {
                             style = WikipediaTheme.typography.button,
                             color = WikipediaTheme.colors.progressiveColor,
                             modifier = Modifier.clickable {
-                                openSurvey.value = false
+                                viewModel.updateSurveyShownState()
                             }
                         )
                         Spacer(modifier = Modifier.width(32.dp))
@@ -184,7 +187,7 @@ fun YearInReviewSurvey() {
                                     "yir_survey_submit",
                                     "$selectedOption $userInput"
                                 ) */
-                                openSurvey.value = false
+                                viewModel.updateSurveyShownState()
                             }
                         )
                     }
@@ -192,10 +195,4 @@ fun YearInReviewSurvey() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewSurvey() {
-    YearInReviewSurvey()
 }

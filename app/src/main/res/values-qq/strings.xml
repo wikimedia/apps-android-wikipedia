@@ -1811,4 +1811,5 @@
   <string name="year_in_review_survey_placeholder_text">Placeholder text for the Year in Review Text input field</string>
   <string name="year_in_review_survey_cancel">Cancel button text for the Year in Review survey</string>
   <string name="year_in_review_survey_submit">Submit button text for the Year in Review survey</string>
+  <String name="year_in_review_survey_input_placeholder">Placeholder text for year in review the survey input field</String>
 </resources>
