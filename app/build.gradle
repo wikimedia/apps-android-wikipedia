@@ -276,7 +276,6 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.view.model)
     implementation(libs.androidx.navigation.compose)
-    implementation libs.androidx.constraintlayout.compose
 
     // Compose Test Library
     androidTestImplementation(libs.compose.test)

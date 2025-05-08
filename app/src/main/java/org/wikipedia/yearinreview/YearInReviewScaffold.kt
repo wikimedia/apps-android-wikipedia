@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -32,6 +33,7 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -280,6 +282,7 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
+
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -317,7 +320,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = String.format(stringResource(screenData.headLineText), 350),
+                    text = processString(screenData.headLineText),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -334,11 +337,36 @@ fun YearInReviewScreenContent(
                 modifier = Modifier
                     .padding(top = 10.dp)
                     .height(IntrinsicSize.Min),
-                text = String.format(stringResource(screenData.bodyText), 350),
+                text = processString(screenData.bodyText),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
         }
+    }
+}
+
+@Composable
+fun LoadingIndicator() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(WikipediaTheme.colors.paperColor)
+    ) {
+        CircularProgressIndicator(
+            modifier = Modifier
+                .padding(24.dp),
+            color = WikipediaTheme.colors.progressiveColor
+        )
+    }
+}
+
+@Composable
+private fun processString(resource: Any?): String {
+    return when (resource) {
+        is Int -> stringResource(resource)
+        else -> resource.toString()
     }
 }
 

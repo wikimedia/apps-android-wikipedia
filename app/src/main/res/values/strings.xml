@@ -1873,13 +1873,18 @@
     <string name="year_in_review_information_icon">Information Icon</string>
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
     <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
-    <string name="year_in_review_read_count_headline">You read %d articles this year</string>
-    <string name="year_in_review_read_count_bodytext">This year, you read %d articles, including Climate change, Dogs, and Cats. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
-    <string name="year_in_review_edit_count_headline">You edited Wikipedia %d times</string>
-    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
     <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
     <string name="year_in_review_entry_dialog_continue">Continue</string>
+    <string name="year_in_review_read_count_headline">You read %s articles this year</string>
+    <string name="year_in_review_read_count_bodytext">This year, you read %s articles, including %s, %s, and %s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
+    <string name="year_in_review_edit_count_headline">You edited Wikipedia %s times</string>
+    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %s times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
+    <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
+    <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
+    <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
+    <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+
     <string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
     <string name="year_in_review_survey_very_satisfied">Very satisfied</string>

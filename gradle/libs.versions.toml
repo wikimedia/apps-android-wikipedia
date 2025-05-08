@@ -1,12 +1,11 @@
 [versions]
 androidPluginAnnotationV9 = "3.0.2"
-androidSdk = "11.8.6"
+androidSdk = "11.8.7"
 appcompat = "1.7.0"
 balloon = "1.6.12"
 browser = "1.8.0"
 commonsLang3 = "3.17.0"
 constraintlayout = "2.2.1"
-constraintlayoutCompose = "1.1.1"
 coreKtx = "1.16.0"
 desugar_jdk_libs = "2.1.5"
 drawerlayout = "1.2.0"
@@ -17,7 +16,7 @@ fragmentKtx = "1.8.6"
 glideVersion = "4.16.0"
 googlePayVersion = "19.4.0"
 googleServices = "4.4.2"
-gradle = "8.9.2"
+gradle = "8.10.0"
 hamcrest = "3.0"
 installreferrer = "2.2"
 jsoup = "1.20.1"
@@ -47,15 +46,14 @@ swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.10.1"
-composeBom = "2025.04.01"
+composeBom = "2025.05.00"
 composeActivity = "1.10.1"
-composeViewModel = "2.8.7"
+composeViewModel = "2.9.0"
 
 
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
 android-plugin-annotation-v9 = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "androidPluginAnnotationV9" }
-androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
