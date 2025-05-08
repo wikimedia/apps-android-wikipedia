@@ -706,8 +706,6 @@
   <string name="description_edit_voice_input_description">Pian\'a nɛ kʋkɔri kpɛn\'ɛs</string>
   <string name="description_edit_learn_more">Zamis atikil pa\'ala bɛdegɔ</string>
   <string name="description_edit_image_caption_learn_more">Zamisim footo pian\'azut yɛla bɛdegʋ</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sɔbʋg la gimnɛ galis.</string>
   <string name="description_starts_with_uppercase">Pin\'ilim nɛ sɔb Biel baanlim asɛɛ yiiga pian\'uk la na an yʋ\'ʋmɛŋir</string>
   <string name="description_starts_with_lowercase">Da pin\'in nɛ sɔb biel baanlʋgɔ.</string>

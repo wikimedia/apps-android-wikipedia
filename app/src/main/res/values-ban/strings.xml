@@ -615,8 +615,6 @@
   <string name="description_edit_translate_image_caption">Alih basa sesirah gambar</string>
   <string name="description_edit_cancel_hint">Wangdé</string>
   <string name="description_edit_help_about_wikidata">Indik Wikidata</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_edit_success_saved">Déskripsi suratan sampun kawedar!</string>
   <string name="description_edit_success_saved_snackbar">Déskripsi suratan sampun kawedar!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Déskripsi suratan sampun kawedar! (%s)</string>

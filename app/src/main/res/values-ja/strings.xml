@@ -915,8 +915,6 @@
   <string name="description_edit_voice_input_description">音声入力</string>
   <string name="description_edit_learn_more">記事の説明に関してもっと知る</string>
   <string name="description_edit_image_caption_learn_more">画像のキャプションに関してもっと知る</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_captions</string>
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_too_long">利用者が記事の主題をひと目で理解できるように説明は短くするようにしてください</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>

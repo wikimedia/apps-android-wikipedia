@@ -881,8 +881,6 @@
   <string name="description_edit_voice_input_description">Entrata vocal</string>
   <string name="description_edit_learn_more">Leger plus sur le descriptiones de articulos</string>
   <string name="description_edit_image_caption_learn_more">Leger plus sur le legendas de imagines</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Le texto es troppo curte.</string>
   <string name="description_too_long">Tenta mantener le descriptiones curte de maniera que le usatores pote comprender le subjecto del articulo a prime vista</string>
   <string name="description_ends_with_punctuation">Le texto non debe terminar per un signo de punctuation.</string>

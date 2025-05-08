@@ -80,7 +80,7 @@
   <string name="error_next">Sonraki</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
-  <string name="history_items_deleted">%d madde, geçmişten kaldırıldı</string>
+  <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
   <string name="history_item_delete_undo">Geri al</string>
   <string name="notification_archive_undo">Geri al</string>
   <string name="app_settings">Uygulama ayarları</string>
@@ -918,8 +918,6 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_learn_more">Madde açıklamaları hakkında daha fazla bilgi edinin</string>
   <string name="description_edit_image_caption_learn_more">Görsel alt yazıları hakkında daha fazla bilgi edinin</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr#Makale_A%C3%A7%C4%B1klamalar%C4%B1</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tr#Resim_Ba%C5%9Fl%C4%B1klar%C4%B1</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_too_long">Açıklamaları kısa tutmaya çalışın, böylece kullanıcılar maddenin konusunu bir bakışta anlayabilirler.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>

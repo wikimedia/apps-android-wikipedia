@@ -860,8 +860,6 @@
   <string name="description_edit_voice_input_description">Kukɔli lahabali kpɛhibu</string>
   <string name="description_edit_learn_more">Bohimmi pahi zaŋkpa atikil buɣisibu lahabalinima polo</string>
   <string name="description_edit_image_caption_learn_more">Bohammi baŋsim zaŋkpa anfooni yuli tibu m-pahi</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sabbu maa ji n-yaɣi.</string>
   <string name="description_ends_with_punctuation">Sabbu maa bi tu ni di naai ni maliniŋ bia.</string>
   <string name="description_starts_with_uppercase">piligimli ni bachikobbila naɣila di tuuli bachi maa nyɛla yuli bachinamdimaŋli.</string>
