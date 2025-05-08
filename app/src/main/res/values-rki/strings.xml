@@ -67,7 +67,7 @@
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d ကို %2$s (%3$s)</item>
-    <item quantity="other"> %2$s (%3$s) ကတည်းက တီးဖြတ်ခရေ</item>
+    <item quantity="other">%1$d ကို %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">နောက်ထပ်တီးဖြတ်မှုတိကိုကြေ့ဖို့ &lt;a href=\"#\"&gt;စစ်ထုတ်မှုတိ&lt;/a&gt;ကို ပြောင်းကြည့်ပါ။</string>
   <string name="menu_page_show_tabs">tab တိကို ပြပါ</string>
@@ -411,7 +411,7 @@
   <string name="error_user_page_does_not_exist">Wikipedia မာ ဒေနာမည်တိုက်ရိုက်ကျနန့် &lt;a href=\"%1$s\"&gt;အသုံးပြုသူစာမျက်နှာ&lt;/a&gt; မဟိပါ။ ယေဘုယျအနိန်နန့်၊ ဒေစာမျက်နှာကို &lt;b&gt;%2$s&lt;/b&gt; မှ ဖန်တီးပြီးကေ တီးဖြတ်သင့်ရေ။ သံသယဟိခကေ \"%3$s\" ဟိရေကို စစ်ဆီးပါ။</string>
   <string name="view_wiki_error_message_offline">အင်တာနက်ပသို့ ချိတ်ဆက်နိုင်ခြင်း မဟိပါ။</string>
   <string name="view_wiki_error_message_timeout">ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်မရနှိုင်ပါ။ သင်ဧ့ နက်ဝတ်ကွန်နက်ယှင်ကို စစ်ဆီးပါ သို့မဟုတ် ကြုံမှထပ်ပနာ ကြိုးစားကြေ့ပါ။</string>
-  <string name="reference_title" fuzzy="true">ကိုးကား $1</string>
+  <string name="reference_title" fuzzy="true">ကိုးကား %s</string>
   <string name="reference_list_title">ကိုးကား</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">ပုံမှိန်ခြင်း (အမိုက်အပြင်အဆင်)</string>
   <string name="preference_title_prefer_offline_content">အော့ဖ်လိုင်း အကြောင်းအရာကို ပိုပြီးကေလိုလားရေ</string>
@@ -447,7 +447,7 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;သင်အကောင့်ဝင်မထားပါ။&lt;/b&gt; သင်တီးဖြတ်ပြီးစွာနန့်၊ သင်ဧ့ IP လိပ်စာစွာ သင်ဧ့တည်းပိုင်းမှုတိနန့် ဆက်စပ်နီဖို့ဖြိုက်ပါရေ။</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;သင်အကောင့်ဝင်မထားပါ။&lt;/b&gt; သင်တီးဖြတ်ပြီးစွာနန့် သင့်ကိုယ်ရီးကိုယ်တာကာကွယ်ဖို့အတွက် ယာယီအကောင့်တစ်ခု ဖန်တီးပီးပါဖို့။ &lt;a href=\"%1$s\"&gt;ပိုပြီးကေလိ့လာရန်&lt;/a&gt;</string>
-  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;သင်အကောင့်ဝင်မထားပါ။&lt;/b&gt; သင်တီးဖြတ်ပြီးစွာနန့် သင့်ကိုယ်ရီးကိုယ်စွာကာကွယ်ဖို့အတွက် ယာယီအကောင့်တစ်ခု ဖန်တီးပီးပါဖို့။ &lt;a href=\"%1$s\"&gt;ပိုပြီးကေလိ့လာရန်&lt;/a&gt;</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;သင်အကောင့်ဝင်မထားပါ။&lt;/b&gt; သင်၏ တည်းဖြတ်မှုကို %1$s ဖြင့် သတ်မှတ်ပါမည်။ &lt;a href=\"%2$s\"&gt;ပိုပြီးကေလိ့လာရန်&lt;/a&gt;</string>
   <string name="temp_account_login_status">&lt;b&gt;သင်ရေ လက်ဟိမာ ယာယီအကောင့်ကို အသုံးပြုနီပါရေ။&lt;/b&gt; ယာယီအကောင့် %1$s နန့် ပြုလုပ်ထားရေ တီဖြတ်မှုတိကို သင်ဝင်ရောက်ရေအခါမှ သင့်ကိုယ်ပိုင်အကောင့်သို့ သယ်ဆောင်လားဖို့မဟုတ်ပါ။ အခြားအကျိုးခံစားခွင့်တိထဲက သင့်အသုံးပြုသူနာမည်ကို ခရက်ဒစ်ရယူဖို့အတွက် အကောင့်တစ်ခုဖန်တီးပါ။</string>
   <string name="temp_account_end_session">ဆက်ယှောင်းက ထွက်ပါ</string>
   <string name="temp_account_end_session_confirm">၎င်းစွာ သင့်ယာယီအကောင့်က သင့်အား အကောင့်က ထွက်လားပါဖို့။ ဆက်လုပ်လိုပါလား။</string>
