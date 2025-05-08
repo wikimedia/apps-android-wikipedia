@@ -830,8 +830,6 @@
   <string name="description_edit_voice_input_description">Raddskipun</string>
   <string name="description_edit_learn_more">Frekari upplýsingar um lýsingar á greinum</string>
   <string name="description_edit_image_caption_learn_more">Frekari upplýsingar um myndatexta</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Textinn er of stuttur.</string>
   <string name="description_ends_with_punctuation">Textinn má ekki enda á greinarmerkjum.</string>
   <string name="description_starts_with_article">Forðastu að byrja greinar með “a” eða “the”.</string>

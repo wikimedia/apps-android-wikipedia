@@ -882,8 +882,6 @@
   <string name="description_edit_voice_input_description">Dữ liệu giọng nói đầu vào.</string>
   <string name="description_edit_learn_more">Tìm hiểu thêm về lời miêu tả bài viết</string>
   <string name="description_edit_image_caption_learn_more">Tìm hiểu thêm về chú thích hình ảnh</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Văn bản quá ngắn.</string>
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
   <string name="description_starts_with_article">Không bắt đầu với các loại từ như “cái”, “chiếc”, …</string>

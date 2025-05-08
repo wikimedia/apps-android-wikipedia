@@ -75,7 +75,7 @@
   <string name="login_activity_title">Кирүү</string>
   <string name="login_in_progress_dialog_message">Кирүүдө…</string>
   <string name="login_success_toast">Кирдиңиз !</string>
-  <string name="preference_title_logout">Чыгуу</string>
+  <string name="preference_title_logout">Аккаунттан чыгуу</string>
   <string name="toast_logout_complete">Аккаунттан чыктыңыз</string>
   <string name="logout_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="logged_out_in_background_title">Чыктыңыз</string>
@@ -166,7 +166,7 @@
   <string name="article_header_edit_hint">Түзөтүү...</string>
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
-  <string name="color_theme_dark">Караңгы</string>
+  <string name="color_theme_dark">Түнкү</string>
   <string name="reading_list_item_delete_undo">Жокко чыгаруу</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>

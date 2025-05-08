@@ -751,8 +751,6 @@
   <string name="description_edit_voice_input_description">ߡߍ߲ߞߊ߲߫ ߠߊߘߏ߲</string>
   <string name="description_edit_learn_more">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߞߊ߬ ߓߍ߲߬ ߞߎߡߘߊ ߛߓߍ߫ ߢߊ ߞߊ߲߬</string>
   <string name="description_edit_image_caption_learn_more">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߞߊ߲߬</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">ߛߓߍߟߌ ߛߘߎ߬ߡߊ߲߬ ߞߏߖߎ߰.</string>
   <string name="description_ends_with_punctuation">ߛߓߍߟߌ ߕߍ߫ ߞߎ߲߭ߝߊ߰ ߟߊ߫ ߕߏ߲ߘߋߦߊߟߌ ߡߊ߬.</string>
   <string name="description_starts_with_uppercase">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߞߟߏߘߋ߲߫ ߢߟߋߢߟߋ ߡߊ߬ ߛߐ߲߬ ߝߏ߫ ߞߟߏߘߋ߲߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߞߍ߫ ߞߟߏ߫ ߓߘߍ ߘߌ߫.</string>
