@@ -12,11 +12,10 @@ import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-class ScoreView @JvmOverloads constructor(
+class ScoreView(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr) {
+) : LinearLayout(context, attrs) {
 
     private val scoreViews = mutableListOf<ShapeableImageView>()
 
@@ -63,32 +62,25 @@ class ScoreView @JvmOverloads constructor(
         isCorrect: Boolean,
         isAnswered: Boolean
     ) {
-        if (!isAnswered) {
-            scoreView.setImageResource(R.drawable.shape_circle)
-            scoreView.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.paper_color)
-            )
-            return
+        val imageResource = when (isAnswered) {
+            true -> if (isCorrect) R.drawable.ic_check_circle_black_24dp else R.drawable.ic_cancel_24px
+            false -> R.drawable.shape_circle
         }
-
-        if (isCorrect) {
-            scoreView.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            scoreView.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.success_color)
-            )
-        } else {
-            scoreView.setImageResource(R.drawable.ic_cancel_24px)
-            scoreView.imageTintList = ColorStateList.valueOf(
-                ResourceUtil.getThemedColor(context, R.attr.destructive_color)
-            )
+        val colorResource = when (isAnswered) {
+            true -> if (isCorrect) R.attr.success_color else R.attr.destructive_color
+            false -> R.attr.paper_color
         }
+        scoreView.setImageResource(imageResource)
+        scoreView.imageTintList = ColorStateList.valueOf(
+            ResourceUtil.getThemedColor(context, colorResource)
+        )
     }
 
     private fun createImageView(): ShapeableImageView {
         val imageView = ShapeableImageView(context)
 
-        val size = DimenUtil.dpToPx(22f).toInt()
-        val marginSize = DimenUtil.dpToPx(2f).toInt()
+        val size = DimenUtil.roundedDpToPx(22f)
+        val marginSize = DimenUtil.roundedDpToPx(2f)
         val layoutParams = LayoutParams(size, size)
         val paddingSize = 2
         layoutParams.marginStart = marginSize
