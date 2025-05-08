@@ -17,7 +17,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
-import org.wikipedia.views.FaceAndColorDetectImageView.OnImageLoadListener
+import org.wikipedia.views.imageservice.ImageLoadListener
 
 class CardLargeHeaderView : ConstraintLayout {
     constructor(context: Context) : super(context)
@@ -41,7 +41,7 @@ class CardLargeHeaderView : ConstraintLayout {
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, cropped = true, listener = ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, cropped = true, listener = CardImageLoadListener())
         return this
     }
 
@@ -60,8 +60,8 @@ class CardLargeHeaderView : ConstraintLayout {
                 ContextCompat.getColor(context, R.color.gray600))
     }
 
-    private inner class ImageLoadListener : OnImageLoadListener {
-        override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+    private inner class CardImageLoadListener : ImageLoadListener {
+        override fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
             var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.gray300))
             var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.gray500))
             if (WikipediaApp.instance.currentTheme.isDark) {
@@ -74,7 +74,7 @@ class CardLargeHeaderView : ConstraintLayout {
             setGradientDrawableBackground(color1, color2)
         }
 
-        override fun onImageFailed() {
+        override fun onError(error: Throwable) {
             resetBackgroundColor()
         }
     }
