@@ -918,8 +918,6 @@
   <string name="description_edit_voice_input_description">Spracheingabe</string>
   <string name="description_edit_learn_more">Erfahre mehr über Artikelbeschreibungen</string>
   <string name="description_edit_image_caption_learn_more">Erfahre mehr über Bildunterschriften</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/de#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/de#Image_captions</string>
   <string name="description_too_short">Der Text ist zu kurz.</string>
   <string name="description_ends_with_punctuation">Der Text darf nicht mit einem Satzzeichen enden.</string>
   <string name="description_starts_with_article">Vermeide Beschreibungen, die mit einem Artikel („Der…“/„Eine…“) beginnen.</string>

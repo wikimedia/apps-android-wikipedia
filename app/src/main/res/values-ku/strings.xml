@@ -785,8 +785,6 @@
   <string name="description_edit_voice_input_description">Xistina dengê</string>
   <string name="description_edit_learn_more">Zêdetir hîn bibe derbarê danasînên gotaran</string>
   <string name="description_edit_image_caption_learn_more">Zêdetir hîn bibe derbarê binnivîsên wêneyan</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Nivîs pir kurt e.</string>
   <string name="description_ends_with_punctuation">Divê nivîs bi niqteşaniyê xilas nebe.</string>
   <string name="description_starts_with_uppercase">Ger peyva pêşî ne navdêreke xisûsî be, bi herfeke hûrdek dest pê bike.</string>

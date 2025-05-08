@@ -27,7 +27,9 @@
 * Mas ady
 * Mnam23
 * MuratTheTurkish
+* N1304xTeamcons
 * Naufal06
+* NikolasKHF
 * NoiX180
 * Pebaryan
 * Polos
@@ -183,8 +185,9 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint" fuzzy="true">Kode Autentikasi Dua Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Perlu autentikasi dua faktor! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
+  <string name="login_2fa_hint">Kode Autentikasi Dua Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Perlu autentikasi dua faktor! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
+  <string name="login_email_auth_hint">Kode verifikasi email</string>
   <string name="onboarding_card_login">Masuk log</string>
   <string name="page_editing_login">Masuk log</string>
   <string name="reading_lists_sync_login">Masuk log</string>
@@ -882,8 +885,6 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>

@@ -180,8 +180,10 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
-  <string name="login_2fa_hint" fuzzy="true">雙重驗證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">需要雙重驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙重驗證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請從主畫面登入，並輸入您的雙重驗證令牌中的代碼。</string>
+  <string name="login_email_auth_hint">電子郵件驗證碼</string>
+  <string name="login_email_auth_other_workflow_error_msg">需要電子郵件驗證！請從主畫面登錄，並輸入您的電子郵件驗證碼。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -289,6 +291,7 @@
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
+  <string name="about_logo_content_description">維基百科拼圖球標誌</string>
   <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -830,7 +833,7 @@
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
-  <string name="view_main_page_card_title">維基百科今日</string>
+  <string name="view_main_page_card_title">維基百科今日焦點</string>
   <string name="view_main_page_card_action">檢視主頁面</string>
   <string name="view_featured_image_card_title">每日圖片</string>
   <string name="view_featured_image_card_download">下載</string>
@@ -913,8 +916,6 @@
   <string name="description_edit_voice_input_description">語音輸入</string>
   <string name="description_edit_learn_more">了解更多關於條目描述的內容</string>
   <string name="description_edit_image_caption_learn_more">了解更多關於圖片說明的內容</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文字太短。</string>
   <string name="description_too_long">請儘量保持描述簡短，使條目的主題一目了然</string>
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
@@ -1182,11 +1183,11 @@
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_maybe_later">稍後再說</string>
-  <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
-  <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-  <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
-  <string name="onboarding_data_privacy_title">資料與隱私</string>
+  <string name="onboarding_explore_title">「探索」頁的新樣貌</string>
+  <string name="onboarding_explore_text">時常更新的「探索」頁，讓您沉迷於維基百科而無法自拔。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
+  <string name="onboarding_reading_list_sync_title">閱讀清單同步更新</string>
+  <string name="onboarding_reading_list_sync_text_v2">對於想要稍後閱讀的條目，您可以建立閱讀清單，即使在離線時也可使用。&lt;br/&gt;登入維基百科帳號後方可同步閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">資料及隱私權</string>
   <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
@@ -1772,5 +1773,4 @@
   <string name="on_this_day_game_share_link_message">我正在遊玩維基百科 Android 應用程式上的每日小知識遊戲「哪一個先開始？」%s</string>
   <string name="on_this_day_game_survey_q1">您對此遊戲的滿意度如何？</string>
   <string name="on_this_day_game_survey_q2">您有興趣遊玩不同的維基百科遊戲嗎？</string>
-  <string name="about_screen_logo_accessibility_text">維基百科拼圖球標誌</string>
 </resources>

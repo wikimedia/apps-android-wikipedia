@@ -290,6 +290,7 @@
   <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-säätiön&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
+  <string name="about_logo_content_description">Wikipedian palapelipallon näköinen logo</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
   <string name="edit_abandon_confirm_yes">Kyllä</string>
   <string name="edit_abandon_confirm_no">Ei</string>
@@ -470,7 +471,7 @@
   <string name="temp_account_anon_dialog_body">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
   <string name="temp_account_temp_dialog_body">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
   <string name="temp_account_dialog_ok">Selvä</string>
-  <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
+  <string name="temp_account_using_title">Käytät tilapäistä tunnusta</string>
   <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
   <plurals name="temp_account_created">
     <item quantity="one">Tilapäinen tunnus %1$s luotiin muokkauksesi julkaisun yhteydessä. Se vanhene %2$d päivän päästästä.</item>
@@ -482,10 +483,10 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, IP-osoitteesi liitetään muokkauksiisi.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Käytät väliaikaista tunnusta.&lt;/b&gt; Muokkauksesi merkitään nimelle %1$s. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;.</string>
-  <string name="temp_account_login_status">&lt;b&gt;Käytät tällä hetkellä väliaikaista tunnusta&lt;/b&gt;. Väliaikaisella tunnuksella %1$s tehtyjä muokkauksia ei siirretä pysyvälle tunnukselle, kun kirjaudut sisään. Kirjaudu sisään tai luo tunnus saadaksesi muokkauksesi omalle käyttäjänimelle sekä muita etuja.</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Käytät tilapäistä tunnusta.&lt;/b&gt; Muokkauksesi merkitään nimelle %1$s. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Käytät tällä hetkellä tilapäistä tunnusta&lt;/b&gt;. Tilapäisellä tunnuksella %1$s tehtyjä muokkauksia ei siirretä pysyvälle tunnukselle, kun kirjaudut sisään. Kirjaudu sisään tai luo tunnus saadaksesi muokkauksesi omalle käyttäjänimelle sekä muita etuja.</string>
   <string name="temp_account_end_session">Lopeta istunto</string>
-  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos väliaikaiselta tililtäsi. Haluatko jatkaa?</string>
+  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos tilapäiseltä tunnukseltasi. Haluatko jatkaa?</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
@@ -787,7 +788,7 @@
   <string name="preference_title_notification_article_linked">Linkit luomiisi artikkeleihin</string>
   <string name="preference_summary_notification_article_linked">Lähetetään kun luomallesi sivulle linkitetään</string>
   <string name="preference_category_push_notifications">Push-ilmoitukset</string>
-  <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
+  <string name="preference_title_customize_push_notifications">Mukauta push-ilmoituksia</string>
   <string name="preference_category_display_settings">Näyttöasetukset</string>
   <string name="preference_title_hide_read_notifications">Piilota luetut ilmoitukset</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
@@ -910,8 +911,6 @@
   <string name="description_edit_voice_input_description">Äänisyöte</string>
   <string name="description_edit_learn_more">Lue lisää artikkelien kuvauksista</string>
   <string name="description_edit_image_caption_learn_more">Lue lisää kuvateksteistä</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Artikkelien_kuvaukset</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatekstit</string>
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_too_long">Yritä pitää kuvaus lyhyenä, jotta käyttäjät ymmärtäisivät artikkelin aiheen yhdellä silmäyksellä</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
@@ -1757,5 +1756,4 @@
   <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Mikä tuli ensin?\" -triviapeliä Wikipedian Android-sovelluksessa %s</string>
   <string name="on_this_day_game_survey_q1">Kuinka tyytyväinen olit tähän peliin?</string>
   <string name="on_this_day_game_survey_q2">Olisitko kiinnostunut pelaamaan muita erilaisia Wikipedia-pelejä?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedian palapelipallon näköinen logo</string>
 </resources>

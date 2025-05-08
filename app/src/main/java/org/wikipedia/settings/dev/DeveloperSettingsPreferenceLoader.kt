@@ -1,6 +1,7 @@
-package org.wikipedia.settings
+package org.wikipedia.settings.dev
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
@@ -13,7 +14,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
@@ -23,6 +23,9 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.BasePreferenceLoader
+import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
@@ -185,10 +188,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             setupLeakCanary()
             true
         }
-        findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            UserContributionEvent.logOpen()
-            true
-        }
         findPreference(R.string.preference_key_feed_yir_onboarding_card_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, isEnabled: Any? ->
             if (isEnabled is Boolean && isEnabled) {
                 Prefs.hiddenCards = emptySet()
@@ -209,6 +208,10 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.otdNotificationState = OnThisDayGameNotificationState.NO_INTERACTED
             OnThisDayGameNotificationManager.cancelDailyGameNotification(activity)
             FeedbackUtil.showMessage(activity, "Notification state reset.")
+            true
+        }
+        findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
     }

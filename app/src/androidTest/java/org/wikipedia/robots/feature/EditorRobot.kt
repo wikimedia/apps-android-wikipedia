@@ -1,8 +1,8 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class EditorRobot : BaseRobot() {
     fun clickEditIntroductionMenuItem() = apply {

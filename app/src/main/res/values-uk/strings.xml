@@ -174,8 +174,10 @@
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint" fuzzy="true">Код двофакторної автентифікації</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Необхідна двофакторна автентифікація! будь ласка, поверніться до основної діяльності та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
+  <string name="login_2fa_hint">Код двофакторної автентифікації</string>
+  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! Будь ласка, увійдіть в систему з головного екрану і введіть свій токен 2FA.</string>
+  <string name="login_email_auth_hint">Код підтвердження електронної пошти</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потрібна перевірка електронної пошти! Увійдіть із головного екрана та введіть код підтвердження електронної пошти.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
   <string name="reading_lists_sync_login">Увійти до системи</string>
@@ -283,6 +285,7 @@
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
+  <string name="about_logo_content_description">Логотип пазла-глобуса Вікіпедії</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
   <string name="edit_abandon_confirm_yes">Так</string>
   <string name="edit_abandon_confirm_no">Ні</string>
@@ -964,8 +967,6 @@
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
-  <string name="description_edit_description_learn_more_url">https\n://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_too_long">Намагайтеся обмежувати обсяг описів, щоб користувачі могли зрозуміти предмет статті з одного погляду</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
@@ -1861,5 +1862,4 @@
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
   <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
-  <string name="about_screen_logo_accessibility_text">Логотип пазла-глобуса Вікіпедії</string>
 </resources>

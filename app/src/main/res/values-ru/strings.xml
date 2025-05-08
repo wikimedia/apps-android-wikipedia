@@ -968,8 +968,6 @@
   <string name="description_edit_voice_input_description">Голосовой ввод</string>
   <string name="description_edit_learn_more">Подробнее об описаниях статей</string>
   <string name="description_edit_image_caption_learn_more">Подробнее о подписях к изображениям</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Описания_статей</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Подписи_к_изображениям</string>
   <string name="description_too_short">Этот текст слишком короткий.</string>
   <string name="description_ends_with_punctuation">Текст не должен заканчиваться знаками препинания.</string>
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>

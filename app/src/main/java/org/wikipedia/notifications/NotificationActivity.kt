@@ -41,7 +41,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
@@ -487,7 +486,6 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
-                        NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
                         linkHandler.onUrlClick(url, null, "")
                     }

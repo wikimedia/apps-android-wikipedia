@@ -261,7 +261,7 @@
   <string name="page_protected_can_not_edit_anon">죄송합니다, 이 문서는 현재 익명 사용자가 편집할 수 없습니다.</string>
   <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">주시문서 목록에 추가</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">관심 가는 문서에 일어나는 변화를 추적해보세요. 메뉴를 &lt;b&gt;주시문서 목록에 추가&lt;/b&gt; 문서의 변경 사항을 확인할 수 있습니다.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">관심 가는 문서에 일어나는 변화를 추적해보세요. 메뉴를 &lt;b&gt;주시문서 목록에 추가&lt;/b&gt; 문서의 변경사항을 확인할 수 있습니다.</string>
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
@@ -540,10 +540,10 @@
   <string name="reading_list_sort_ellipsis">정렬 기준...</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
-  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (가장 오래된 순서)</string>
-  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최근 순서)</string>
-  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (가장 오래된 순서)</string>
+  <string name="reading_list_sort_by_recent">추가한 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_recent_desc">추가한 날짜 순으로 정렬 (최초)</string>
+  <string name="reading_list_sort_by_created">만든 날짜 순으로 정렬 (최신)</string>
+  <string name="reading_list_sort_by_created_desc">만든 날짜 순으로 정렬 (최초)</string>
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_export">목록 내보내기</string>
   <string name="reading_list_menu_select">선택</string>
@@ -891,8 +891,6 @@
   <string name="description_edit_voice_input_description">음성 입력</string>
   <string name="description_edit_learn_more">문서 설명에 대해 더 알아보기</string>
   <string name="description_edit_image_caption_learn_more">이미지 캡션에 대해 더 알아보기</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_too_long">사용자가 문서의 주제를 바로 이해할 수 있도록 설명은 간결하게 작성하십시오</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
@@ -1372,9 +1370,9 @@
   <string name="revision_diff_line_removed">줄 제거됨</string>
   <string name="revision_diff_paragraph_added">문단 추가됨</string>
   <string name="revision_diff_paragraph_removed">문단 제거됨</string>
-  <string name="revision_diff_protected">이 판의 변경 내용은 비공개입니다.</string>
+  <string name="revision_diff_protected">이 판의 변경사항은 비공개입니다.</string>
   <string name="revision_undo_title">정말 이 편집을 취소하시겠습니까?</string>
-  <string name="revision_undo_message">편집 취소는 하나 이상의 편집의 영향을 되돌리는 것을 의미합니다.</string>
+  <string name="revision_undo_message">편집 취소는 하나 이상의 편집을 되돌리는 것을 의미합니다.</string>
   <string name="revision_undo_summary_hint">요약 (선택사항)</string>
   <string name="revision_undo_reason">되돌리는 이유 공유하기</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
@@ -1715,6 +1713,7 @@
   <string name="on_this_day_game_notification_turned_off_snackbar_message">게임 알림이 꺼졌습니다.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">게임 알림이 켜졌습니다.</string>
   <string name="on_this_day_game_report_email_subject">문제 보고 - 위키백과 게임</string>
+  <string name="on_this_day_game_report_email_body">위키백과 게임 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="on_this_day_game_notification_undo">실행 취소</string>
   <string name="on_this_day_game_survey_q1">이 게임에 얼마나 만족하셨나요?</string>
   <string name="on_this_day_game_survey_q2">다양한 위키백과 게임을 해보고 싶으신가요?</string>

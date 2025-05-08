@@ -267,6 +267,7 @@
   <string name="about_app_license">Izvorna koda je na voljo v repozitoriju &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
+  <string name="about_logo_content_description">Logotip globusa sestavljanke Wikipedije</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
   <string name="edit_abandon_confirm_yes">Da</string>
   <string name="edit_abandon_confirm_no">Ne</string>
@@ -948,8 +949,6 @@
   <string name="description_edit_voice_input_description">Glasovni vnos</string>
   <string name="description_edit_learn_more">Več o opisih člankov</string>
   <string name="description_edit_image_caption_learn_more">Več o napisih slik</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Besedilo je prekratko.</string>
   <string name="description_too_long">Poskusite opise ohraniti kratke, da bodo uporabniki lahko takoj razumeli temo članka.</string>
   <string name="description_ends_with_punctuation">Besedilo se ne sme končati z ločilom.</string>
@@ -1847,5 +1846,4 @@
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">Kako zadovoljni ste bili s to igro?</string>
   <string name="on_this_day_game_survey_q2">Bi vas zanimalo igranje različnih iger Wikipedije?</string>
-  <string name="about_screen_logo_accessibility_text">Logotip globusa sestavljanke Wikipedije</string>
 </resources>

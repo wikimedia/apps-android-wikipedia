@@ -1,5 +1,6 @@
 package org.wikipedia.robots.screen
 
+import BaseRobot
 import android.app.Activity
 import android.content.Context
 import android.util.Log
@@ -15,7 +16,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class SavedScreenRobot : BaseRobot() {
 

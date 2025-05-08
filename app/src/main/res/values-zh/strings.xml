@@ -330,6 +330,7 @@
   <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
+  <string name="about_logo_content_description">维基百科拼图地球标志</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -948,8 +949,6 @@
   <string name="description_edit_voice_input_description">语音输入</string>
   <string name="description_edit_learn_more">了解有关条目描述的更多信息</string>
   <string name="description_edit_image_caption_learn_more">了解有关图像说明的更多信息</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
   <string name="description_too_long">请尽量保持描述简短，使条目的主题一目了然</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
@@ -1746,5 +1745,4 @@
   <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
-  <string name="about_screen_logo_accessibility_text">维基百科拼图地球标志</string>
 </resources>

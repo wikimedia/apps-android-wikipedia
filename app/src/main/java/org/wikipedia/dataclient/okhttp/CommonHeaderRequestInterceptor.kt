@@ -4,7 +4,6 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService
-import org.wikipedia.login.LoginClient
 import java.io.IOException
 
 internal class CommonHeaderRequestInterceptor : Interceptor {
@@ -19,9 +18,6 @@ internal class CommonHeaderRequestInterceptor : Interceptor {
             builder.header("Accept", RestService.ACCEPT_HEADER_MOBILE_HTML)
         } else if (url.contains("maps.wikimedia.org")) {
             builder.header("Referer", "https://maps.wikimedia.org/")
-        }
-        if (LoginClient.enqueueForceEmailAuth && url.contains("action=clientlogin")) {
-            builder.removeHeader("User-Agent")
         }
         return chain.proceed(builder.build())
     }

@@ -261,6 +261,7 @@
   <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
+  <string name="about_logo_content_description">Википедиино лого со топка-сложувалка</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -886,8 +887,6 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_too_long">Трудете се описите да бидат кратки, така што читателите би можеле да разберат што обработува статијата со еден поглед</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
@@ -1745,5 +1744,4 @@
   <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
   <string name="on_this_day_game_survey_q1">Колку сте задоволни од оваа игра?</string>
   <string name="on_this_day_game_survey_q2">Дали сте заинтересирани да играте други Википедиини игри?</string>
-  <string name="about_screen_logo_accessibility_text">Википедиино лого со топка-сложувалка</string>
 </resources>

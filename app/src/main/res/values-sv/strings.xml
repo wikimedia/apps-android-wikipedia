@@ -273,6 +273,7 @@
   <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
+  <string name="about_logo_content_description">Wikipedias pusselglob-logotyp</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nej</string>
@@ -897,8 +898,6 @@
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_edit_learn_more">Läs mer om artikelbeskrivningar</string>
   <string name="description_edit_image_caption_learn_more">Läs mer om bildtexter</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_captions</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_too_long">Försök hålla beskrivningar korta så användare lätt kan förstå artikelns ämne med endast ett ögonkast</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
@@ -1756,5 +1755,4 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedias pusselglob-logotyp</string>
 </resources>
