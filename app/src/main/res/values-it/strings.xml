@@ -11,6 +11,7 @@
 * Dbrant
 * Dv103
 * Elitre
+* Emabarto01
 * Emmanuel Fernandess
 * FRacco
 * Federico Mugnaini
@@ -67,6 +68,7 @@
   <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_back_button_content_description">Torna indietro</string>
+  <string name="search_icon_content_description">Cerca</string>
   <string name="filter_hint_filter_my_lists_and_articles">Cerca negli elenchi</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
@@ -199,6 +201,7 @@
   <string name="login_2fa_hint">Codice di autenticazione a due fattori</string>
   <string name="login_2fa_other_workflow_error_msg">È richiesta l\'autenticazione a due fattori! Accedi dalla schermata principale e inserisci il codice del tuo token 2FA.</string>
   <string name="login_email_auth_hint">Codice di verifica e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Richiesta verifica dell’indirizzo email!\nAccedi dalla schermata principale e inserisci il codice di verifica ricevuto.</string>
   <string name="onboarding_card_login">Entra</string>
   <string name="page_editing_login">Entra</string>
   <string name="reading_lists_sync_login">Entra</string>
@@ -932,8 +935,6 @@
   <string name="description_edit_voice_input_description">Input vocale</string>
   <string name="description_edit_learn_more">Ulteriori informazioni sulle descrizioni delle voci</string>
   <string name="description_edit_image_caption_learn_more">Ulteriori informazioni sui sottotitoli delle immagini</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Il testo è troppo breve.</string>
   <string name="description_too_long">Cerca di mantenere le descrizioni brevi in modo che gli utenti possano comprendere a colpo d\'occhio l\'argomento della voce</string>
   <string name="description_ends_with_punctuation">Il testo non deve terminare con il punto.</string>

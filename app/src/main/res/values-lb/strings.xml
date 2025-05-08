@@ -797,8 +797,6 @@
   <string name="description_edit_voice_input_description">Sprooch Input</string>
   <string name="description_edit_learn_more">Méi iwwer Artikelbeschreiwunge gewuer ginn</string>
   <string name="description_edit_image_caption_learn_more">Méi iwwer Bildbeschrëftunge gewuer ginn</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Den Text ass ze kuerz.</string>
   <string name="description_too_long">Probéiert fir d\'Beschreiwunge kuerz ze halen, soudatt d\'Benotzer d\'Theema vum Artikel op ee Bléck erkenne kënnen</string>
   <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>

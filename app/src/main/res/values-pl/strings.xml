@@ -942,8 +942,6 @@
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_edit_learn_more">Dowiedz się więcej o opisach artykułów</string>
   <string name="description_edit_image_caption_learn_more">Dowiedz się więcej o podpisach obrazów</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_too_long">Staraj się, aby opisy były krótkie, aby użytkownicy mogli szybko zrozumieć temat artykułu</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>

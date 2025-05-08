@@ -885,8 +885,6 @@
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>

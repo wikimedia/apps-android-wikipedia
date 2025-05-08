@@ -967,8 +967,6 @@
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
-  <string name="description_edit_description_learn_more_url">https\n://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_too_long">Намагайтеся обмежувати обсяг описів, щоб користувачі могли зрозуміти предмет статті з одного погляду</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>

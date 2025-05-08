@@ -887,8 +887,6 @@
   <string name="description_edit_voice_input_description">صدای ورودی</string>
   <string name="description_edit_learn_more">در خصوص توصیف‌های مقاله بیشتر بدانید</string>
   <string name="description_edit_image_caption_learn_more">در خصوص برنگاشت تصاویر بیشتر بدانید</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">متن بیش از حد کوتاه است.</string>
   <string name="description_ends_with_punctuation">متن نباید با نقطه‌گذاری پایان یابد</string>
   <string name="description_starts_with_uppercase">با حروف کوچک شروع کنید؛ مگر آن که واژهٔ اول یک نام خاص باشد.</string>

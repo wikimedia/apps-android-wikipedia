@@ -64,6 +64,9 @@
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_voice_search">Busca por voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
+  <string name="search_back_button_content_description">Voltar</string>
+  <string name="search_clear_query_content_description">Limpar consulta</string>
+  <string name="search_icon_content_description">Pesquisar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
@@ -143,6 +146,7 @@
   <string name="menu_page_recently_viewed">Visto recentemente</string>
   <string name="menu_page_archive">Arquivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
+  <string name="menu_long_press_open_in_places">Aberto em Locais</string>
   <string name="menu_long_press_open_in_new_tab">Abrir em uma nova guia</string>
   <string name="menu_long_press_copy_page">Copiar endereço da ligação</string>
   <string name="menu_text_select_define">Definir</string>
@@ -174,6 +178,9 @@
   <string name="dialog_message_leaving_edit">As suas alterações ainda não foram publicadas. Tem certeza que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmar exclusão</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Excluir</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Cancelar</string>
   <string name="menu_show_toc">Índice</string>
   <string name="search_no_results_found">Nenhum resultado encontrado</string>
   <string name="search_reading_list_no_results">Nenhum resultado encontrado em “%s”</string>
@@ -190,6 +197,7 @@
   <string name="account_creation_password_hint">Senha</string>
   <string name="login_2fa_hint" fuzzy="true">Código de autenticação de dois fatores</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Autenticação de dois fatores necessária! Volte à atividade principal e autentique-se com sua chave 2FA e, em seguida, tente novamente.</string>
+  <string name="login_email_auth_hint">Código de verificação de e-mail</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
@@ -912,8 +920,6 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Legendas_da_imagem</string>
   <string name="description_too_short">O texto é muito curto.</string>
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>

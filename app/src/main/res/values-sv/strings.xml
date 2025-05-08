@@ -898,8 +898,6 @@
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_edit_learn_more">Läs mer om artikelbeskrivningar</string>
   <string name="description_edit_image_caption_learn_more">Läs mer om bildtexter</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_captions</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_too_long">Försök hålla beskrivningar korta så användare lätt kan förstå artikelns ämne med endast ett ögonkast</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
