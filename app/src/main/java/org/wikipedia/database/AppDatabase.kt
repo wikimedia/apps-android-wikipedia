@@ -11,6 +11,8 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.categories.db.CategoryDao
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.db.DailyGameHistoryDao
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
@@ -47,7 +49,8 @@ const val DATABASE_VERSION = 29
         ReadingListPage::class,
         Notification::class,
         TalkTemplate::class,
-        Category::class
+        Category::class,
+        DailyGameHistory::class
     ],
     version = DATABASE_VERSION
 )
@@ -71,6 +74,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun notificationDao(): NotificationDao
     abstract fun talkTemplateDao(): TalkTemplateDao
     abstract fun categoryDao(): CategoryDao
+    abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -279,7 +283,18 @@ abstract class AppDatabase : RoomDatabase() {
                         "lang TEXT NOT NULL," +
                         "timeStamp INTEGER NOT NULL," +
                         "PRIMARY KEY (title, lang, timeStamp)" +
-                        ");")
+                        ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS DailyGameHistory (" +
+                        "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "    gameName INTEGER NOT NULL," +
+                        "    language TEXT NOT NULL," +
+                        "    year INTEGER NOT NULL," +
+                        "    month INTEGER NOT NULL," +
+                        "    day INTEGER NOT NULL," +
+                        "    score INTEGER NOT NULL," +
+                        "    playType INTEGER NOT NULL," +
+                        "    gameData TEXT" +
+                        ")")
             }
         }
 
