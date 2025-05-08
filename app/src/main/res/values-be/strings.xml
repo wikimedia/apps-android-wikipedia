@@ -946,8 +946,6 @@
   <string name="description_edit_voice_input_description">Галасавы ўвод</string>
   <string name="description_edit_learn_more">Даведайцеся больш пра апісанні артыкулаў</string>
   <string name="description_edit_image_caption_learn_more">Даведайцеся больш пра подпісы выяў</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Тэкст занадта кароткі.</string>
   <string name="description_ends_with_punctuation">Тэкст не павінен сканчацца знакамі прыпынку.</string>
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>

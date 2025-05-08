@@ -1,4 +1,4 @@
-package org.wikipedia.settings
+package org.wikipedia.settings.dev
 
 import android.content.Context
 import android.content.Intent

@@ -44,9 +44,7 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
@@ -63,7 +61,6 @@ import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.text.DecimalFormat
 import java.time.Duration
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
@@ -113,7 +110,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Error -> updateOnError(it.throwable)
-                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data, it.history)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data, it.gameStatistics)
                 else -> {
                     requireActivity().supportFragmentManager.popBackStack()
                 }
@@ -157,7 +154,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.errorView.setError(t)
     }
 
-    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, history: OnThisDayGameViewModel.GameHistory) {
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, gameStatistics: OnThisDayGameViewModel.GameStatistics) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -171,11 +168,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             else -> R.color.green600
         }
         binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
-        val totalGamesPlayed = calculateTotalGamesPlayed(history.history)
-        binding.statsGamePlayed.text = String.format(totalGamesPlayed.toString())
-        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, totalGamesPlayed)
-        binding.statsAverageScore.text = DecimalFormat("0.#").format(calculateAverageScore(history.history))
-        binding.statsCurrentStreak.text = String.format(calculateStreak(history.history).toString())
+        binding.statsGamePlayed.text = String.format(gameStatistics.totalGamesPlayed.toString())
+        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, gameStatistics.totalGamesPlayed)
+        binding.statsAverageScore.text = DecimalFormat("0.#").format(gameStatistics.averageScore ?: 0.0)
+        binding.statsCurrentStreak.text = String.format(gameStatistics.currentStreak.toString())
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
@@ -367,47 +363,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             }
         }
 
-        fun calculateTotalGamesPlayed(): Int {
-            val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it) } ?: TotalGameHistory()
-            return totalHistory.langToHistory.values.sumOf { calculateTotalGamesPlayed(it.history) }
-        }
-
-        fun calculateTotalGamesPlayed(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
-            var total = 0
-            answerStateHistory.forEach { year ->
-                year.value?.forEach { month ->
-                    month.value.forEach { day ->
-                        total++
-                    }
-                }
-            }
-            return total
-        }
-
-        fun calculateStreak(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
-            var streak = 0
-            var date = LocalDate.now()
-            while (answerStateHistory[date.year]?.get(date.monthValue)?.get(date.dayOfMonth) != null) {
-                streak++
-                date = date.minusDays(1)
-            }
-            return streak
-        }
-
-        fun calculateAverageScore(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Float {
-            var total = 0
-            var count = 0
-            answerStateHistory.forEach { year ->
-                year.value?.forEach { month ->
-                    month.value.forEach { day ->
-                        total += day.value.count { it == true }
-                        count++
-                    }
-                }
-            }
-            return total.toFloat() / count
-        }
-
         fun timeUntilNextDay(): Duration {
             val now = LocalDateTime.now()
             val startOfNextDay = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT)
@@ -426,8 +381,9 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         }
 
         private fun maybeShowThanksSnackbar(activity: Activity) {
-            if (activity is PageActivity && calculateTotalGamesPlayed() == 1) {
+            if (activity is PageActivity && !Prefs.otdGameFirstPlayedShown) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+                Prefs.otdGameFirstPlayedShown = true
             }
         }
 

@@ -878,8 +878,6 @@
   <string name="description_edit_voice_input_description">Тауыш ярҙамында мәғлүмәт индереү</string>
   <string name="description_edit_learn_more">Мәҡәләләр тураһында ентекләберәк</string>
   <string name="description_edit_image_caption_learn_more">Рәсемдәр тасуирламаһы тураһында ентекләберәк</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba#Мәҡәлә_тасуирламалары</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba#Һүрәт_яҙмалары</string>
   <string name="description_too_short">Текст бик ҡыҫҡа.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билдәләре менән тамамланырға тейеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренсе һүҙ яңғыҙлыҡ исем булмаһа, бәләкәй хәрефтән башлағыҙ</string>

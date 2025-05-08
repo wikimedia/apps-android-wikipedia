@@ -749,8 +749,6 @@
   <string name="description_edit_voice_input_description">কণ্ঠ ইনপুট</string>
   <string name="description_edit_learn_more">নিবন্ধের বিবরণ সম্পর্কে আরও জানুন</string>
   <string name="description_edit_image_caption_learn_more">চিত্রের ক্যাপশন সম্পর্কে আরও জানুন</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Image_captions</string>
   <string name="description_too_short">আপনার লেখাটি খুবই ছোট।</string>
   <string name="description_ends_with_punctuation">বাক্যের শেষে কোনো বিরামচিহ্ন ব্যবহার করা উচিত নয়।</string>
   <string name="description_starts_with_uppercase">নামবাচক বিশেষ্য না হলে ছোট ছাঁদের অক্ষর দিয়ে শুরু করুন।</string>
