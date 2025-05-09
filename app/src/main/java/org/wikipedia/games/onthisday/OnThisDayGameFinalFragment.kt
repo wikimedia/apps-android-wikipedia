@@ -1,6 +1,10 @@
 package org.wikipedia.games.onthisday
 
 import android.app.Activity
+import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -8,25 +12,36 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
+import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
@@ -39,6 +54,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
@@ -56,6 +72,8 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
+    private var loadedImagesForShare = 0
+    private val dotViews = mutableListOf<ImageView>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -68,10 +86,28 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-
-            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
-                getString(R.string.on_this_day_game_share_url))
-            ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
+            buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
+            lifecycleScope.launch {
+                binding.shareButton.isEnabled = false
+                binding.shareButton.alpha = 0.5f
+                while (loadedImagesForShare < (binding.shareLayout.shareArticlesList.adapter?.itemCount ?: 0)) {
+                    delay(100)
+                    if (!isAdded) return@launch
+                }
+                val shareMessage = getString(
+                    R.string.on_this_day_game_share_link_message,
+                    getString(R.string.on_this_day_game_share_url)
+                )
+                binding.shareLayout.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
+                    ShareUtil.shareImage(lifecycleScope, requireContext(), this,
+                        "wikipedia_on_this_day_game_" + LocalDateTime.now(),
+                        binding.shareLayout.shareResultText.text.toString(), shareMessage)
+                }
+                // Delay just a bit more, while the system share dialog pops up.
+                delay(1000)
+                binding.shareButton.alpha = 1f
+                binding.shareButton.isEnabled = true
+            }
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
@@ -94,9 +130,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.root.setOnApplyWindowInsetsListener { view, insets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(insets, view)
             val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            binding.shareButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                bottomMargin = navBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            }
             binding.resultArticlesList.updatePaddingRelative(bottom = navBarInsets.bottom)
             insets
         }
@@ -150,6 +183,86 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
+    }
+
+    private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
+        val totalCorrect = gameState.answerState.count { it }
+        loadedImagesForShare = 0
+        binding.shareLayout.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
+        createDots(gameState)
+        binding.shareLayout.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.shareLayout.shareArticlesList.isNestedScrollingEnabled = false
+        binding.shareLayout.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned
+            .filter { !it.thumbnailUrl.isNullOrEmpty() }.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
+    }
+
+    private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
+        val dotSize = DimenUtil.roundedDpToPx(20f)
+        dotViews.forEach {
+            binding.shareLayout.scoreContainer.removeView(it)
+        }
+        dotViews.clear()
+        for (i in 0 until gameState.totalQuestions) {
+            val viewId = View.generateViewId()
+            val dotView = ImageView(requireContext())
+            dotViews.add(dotView)
+            dotView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
+            dotView.setPadding(DimenUtil.roundedDpToPx(1f))
+            dotView.setBackgroundResource(R.drawable.shape_circle)
+            dotView.backgroundTintList =
+                if (gameState.answerState.getOrNull(i) == true) {
+                    dotView.setImageResource(R.drawable.ic_check_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.success_color)
+                } else {
+                    dotView.setImageResource(R.drawable.ic_close_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.destructive_color)
+                }
+            dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
+            dotView.id = viewId
+
+            binding.shareLayout.scoreContainer.addView(dotView)
+        }
+        binding.shareLayout.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
+    }
+
+    private inner class ShareRecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<ShareRecyclerViewItemHolder>() {
+        override fun getItemCount(): Int {
+            return pages.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): ShareRecyclerViewItemHolder {
+            return ShareRecyclerViewItemHolder(ItemOnThisDayGameShareTopicBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: ShareRecyclerViewItemHolder, position: Int) {
+            holder.bindItem(pages[position])
+        }
+    }
+
+    private inner class ShareRecyclerViewItemHolder(val binding: ItemOnThisDayGameShareTopicBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindItem(page: PageSummary) {
+            binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
+            binding.listItemDescription.text = StringUtil.fromHtml(page.description)
+            binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
+            page.thumbnailUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoader())
+            } ?: run {
+                loadedImagesForShare++
+            }
+        }
+    }
+
+    private inner class ShareImageLoader : RequestListener<Drawable?> {
+        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+            loadedImagesForShare++
+            return false
+        }
+
+        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>?, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+            loadedImagesForShare++
+            return false
+        }
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {

@@ -159,7 +159,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     val categoriesRequest = async {
                         val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
                         response.query?.pages?.flatMap { page ->
-                            page.categoriesProps?.map { category ->
+                            page.categories?.map { category ->
                                 Category(title = category.title, lang = title.wikiSite.languageCode)
                             }.orEmpty()
                         }.orEmpty()
