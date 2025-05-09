@@ -59,7 +59,7 @@ fun YearInReviewSurvey(
     var userInput by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
-    if (!hasSurveyShown && pagerState.currentPage > 0) { // TODO: adjust pagerState.currentPage > 2 when more pages are added
+    if (!hasSurveyShown && pagerState.currentPage == pagerState.pageCount - 1) {
         BasicAlertDialog(
             onDismissRequest = { viewModel.updateSurveyShownState() }
         ) {
