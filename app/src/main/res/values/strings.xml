@@ -1862,4 +1862,36 @@
     <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
     <string name="on_this_day_game_archive_calendar_title">Choose a game by date to play.</string>
     <string name="on_this_day_game_score_toast_message">You scored %1$d/%2$d on this day.</string>
+
+    <!--Discover -->
+    <string name="discover_title">Discover</string>
+    <string name="discover_onboarding_card_title">Discover articles picked just for you</string>
+    <string name="discover_onboarding_card_message">Your weekly reading list of Wikipedia articles, curated just for you.</string>
+    <string name="discover_onboarding_card_positive_button">Get started</string>
+    <string name="discover_onboarding_card_negative_button">No thanks</string>
+    <string name="discover_interest_source_message">How should we build your recommended reading list?</string>
+    <string name="discover_interest_source_pick">Let me choose based on my interests</string>
+    <string name="discover_interest_source_saved">Choose for me based on my saved articles</string>
+    <string name="discover_interest_source_history">Choose for me based on my reading history</string>
+    <string name="discover_interest_pick_title">What are you interested in?</string>
+    <string name="discover_interest_pick_search_hint">Search for an article</string>
+    <string name="discover_interest_pick_selected_articles">%d selected</string>
+    <string name="discover_interest_pick_random_button_content_description">Randomly select</string>
+    <string name="discover_interest_pick_random_snackbar">We\'ve randomly selected a few articles for you.</string>
+    <string name="discover_interest_pick_random_snackbar_action">Undo</string>
+    <string name="discover_interest_pick_random_dialog_title">Are you sure you want to randomize your selection?</string>
+    <string name="discover_interest_pick_random_dialog_message">This will clear your current selections and choose new articles at random.</string>
+    <string name="discover_interest_pick_random_dialog_positive_button">Yes, choose for me</string>
+    <string name="discover_interest_pick_random_dialog_negative_button">Never mind</string>
+    <string name="discover_page_subtitle_made_for">Made for %s</string>
+    <plurals name="discover_page_subtitle_articles">
+        <item quantity="one">· %d article</item>
+        <item quantity="other">· %d articles</item>
+    </plurals>
+    <string name="discover_page_description_daily">Your daily reading list. Learn about new topics,  picked just for you. Updates at midnight.</string>
+    <string name="discover_page_description_weekly">Your weekly reading list. Learn about new topics, picked just for you. Updates every Monday.</string>
+    <string name="discover_page_description_monthly">Your monthly reading list. Learn about new topics,  picked just for you. Updates on the first of each month.</string>
+    <string name="discover_page_overflow_save_list">Save list</string>
+    <string name="discover_page_overflow_customize">Customize</string>
+    <string name="discover_page_overflow_about">About this feature</string>
 </resources>
