@@ -73,6 +73,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
     private var loadedImagesForShare = 0
+    private val dotViews = mutableListOf<ImageView>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -197,7 +198,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
         val dotSize = DimenUtil.roundedDpToPx(20f)
-        val dotViews = mutableListOf<ImageView>()
+        dotViews.forEach {
+            binding.shareLayout.scoreContainer.removeView(it)
+        }
+        dotViews.clear()
         for (i in 0 until gameState.totalQuestions) {
             val viewId = View.generateViewId()
             val dotView = ImageView(requireContext())
@@ -215,7 +219,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
                 }
             dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
             dotView.id = viewId
-            dotView.isVisible = true
 
             binding.shareLayout.scoreContainer.addView(dotView)
         }
