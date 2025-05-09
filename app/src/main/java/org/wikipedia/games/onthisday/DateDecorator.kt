@@ -43,8 +43,8 @@ class DateDecorator(
         val score = scoreData[dateKey]
 
         return when (score) {
-            0, 1, 2 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow500))
-            3, 4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.orange500))
+            0, 1, 2 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow200))
+            3, 4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.orange200))
             5 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green600))
             else -> null
         }
