@@ -85,24 +85,26 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned()).run {
-                binding.shareLayout.shareContainer.post {
-                    val shareMessage = getString(
-                        R.string.on_this_day_game_share_link_message,
-                        getString(R.string.on_this_day_game_share_url)
-                    )
-                    lifecycleScope.launch {
-                        while (loadedImagesForShare < (binding.shareLayout.shareArticlesList.adapter?.itemCount ?: 0)) {
-                            delay(100)
-                            if (!isAdded) return@launch
-                        }
-                        binding.shareLayout.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
-                            ShareUtil.shareImage(lifecycleScope, requireContext(), this,
-                                "wikipedia_on_this_day_game_" + LocalDateTime.now(),
-                                binding.shareLayout.shareResultText.text.toString(), shareMessage)
-                        }
-                    }
+            lifecycleScope.launch {
+                binding.shareButton.isEnabled = false
+                binding.shareButton.alpha = 0.5f
+                while (loadedImagesForShare < (binding.shareLayout.shareArticlesList.adapter?.itemCount ?: 0)) {
+                    delay(100)
+                    if (!isAdded) return@launch
                 }
+                val shareMessage = getString(
+                    R.string.on_this_day_game_share_link_message,
+                    getString(R.string.on_this_day_game_share_url)
+                )
+                binding.shareLayout.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
+                    ShareUtil.shareImage(lifecycleScope, requireContext(), this,
+                        "wikipedia_on_this_day_game_" + LocalDateTime.now(),
+                        binding.shareLayout.shareResultText.text.toString(), shareMessage)
+                }
+                // Delay just a bit more, while the system share dialog pops up.
+                delay(1000)
+                binding.shareButton.alpha = 1f
+                binding.shareButton.isEnabled = true
             }
         }
 
@@ -132,6 +134,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
+        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
     }
 
@@ -212,7 +215,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
                 }
             dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
             dotView.id = viewId
-            dotView.isVisible = true
 
             binding.shareLayout.scoreContainer.addView(dotView)
         }
