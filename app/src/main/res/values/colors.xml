@@ -41,9 +41,11 @@
     <color name="yellow500">#FFCC33</color>
     <color name="yellow500_40">#66FFCC33</color>
     <color name="yellow700">#AC6600</color>
+    <color name="yellow200">#FFE49C</color>
 
     <color name="orange500">#FF9500</color>
     <color name="orange500_50">#80FF9500</color>
+    <color name="orange200">#FFC894</color>
 
 
     <color name="widget_background">#F8F9FA</color>

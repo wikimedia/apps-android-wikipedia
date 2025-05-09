@@ -75,6 +75,10 @@ object DateUtil {
         return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
     }
 
+    fun getMMMMdYYYY(date: Date): String {
+        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), true).format(date)
+    }
+
     private fun getExtraShortDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }

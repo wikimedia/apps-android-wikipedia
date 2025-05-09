@@ -39,6 +39,7 @@ import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.games.PlayTypes
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
@@ -91,12 +92,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard1.setOnClickListener {
             if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
-                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
+                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
             }
         }
         binding.questionCard2.setOnClickListener {
             if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
-                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
+                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
             }
         }
 
@@ -126,7 +127,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
 
         binding.nextQuestionText.setOnClickListener {
-            viewModel.submitCurrentResponse(0)
+            viewModel.submitCurrentResponse(0, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
             binding.nextQuestionText.isVisible = false
         }
 
@@ -153,6 +154,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
             windowInsets
         }
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .addToBackStack(null)
+            .commit()
 
         viewModel.gameState.observe(this) {
             when (it) {
@@ -289,7 +295,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.errorView.setError(t)
     }
 
-    private fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
+    fun updateGameState(gameState: OnThisDayGameViewModel.GameState) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
@@ -363,21 +369,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.dateText.isVisible = false
         binding.progressText.isVisible = false
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
-            .addToBackStack(null)
-            .commit()
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
-        updateGameState(gameState)
+        if (isOnboardingFragmentVisible()) {
+            return
+        }
 
+        updateGameState(gameState)
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
-        binding.progressText.isVisible = false
-        binding.scoreText.isVisible = false
-        binding.currentQuestionContainer.isVisible = false
+        hideViewsNotRequiredWhenGameEnds()
 
         playSound("sound_logo")
 
@@ -388,6 +390,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
+        if (isOnboardingFragmentVisible()) {
+            return
+        }
+
         if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
             animateQuestionsOut {
                 updateGameState(gameState)
@@ -400,6 +406,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
+        if (isOnboardingFragmentVisible()) {
+            return
+        }
+
         updateGameState(gameState)
 
         updateQuestionEndLayout()
@@ -420,6 +430,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
+        if (isOnboardingFragmentVisible()) {
+            return
+        }
+
         updateGameState(gameState)
 
         updateQuestionEndLayout()
@@ -493,6 +507,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.whichCameFirstText.isVisible = false
         binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
         binding.nextQuestionText.isVisible = true
+    }
+
+    fun hideViewsNotRequiredWhenGameEnds() {
+        binding.progressText.isVisible = false
+        binding.scoreText.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
     }
 
     fun animateQuestionsIn() {

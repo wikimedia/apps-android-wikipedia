@@ -51,6 +51,7 @@
             android:text="@string/on_this_day_game_title"/>
 
         <TextView
+            android:id="@+id/gameMessageText"
             style="@style/P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,14 +63,24 @@
 
         <Button
             android:id="@+id/playGameButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/on_this_day_game_dialog_button"
+            android:text="Play today’s game"
             android:textColor="?attr/progressive_color"
-            android:paddingStart="64dp"
-            android:paddingEnd="64dp"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="48dp"
             android:backgroundTint="?attr/paper_color"/>
+
+        <Button
+            style="@style/OutlinedButton"
+            android:id="@+id/playArchiveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Play the archive"
+            android:textColor="?attr/paper_color"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 
