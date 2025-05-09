@@ -85,7 +85,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
             lifecycleScope.launch {
                 binding.shareButton.isEnabled = false
                 binding.shareButton.alpha = 0.5f
@@ -135,6 +134,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
+        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
     }
 
@@ -215,7 +215,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
                 }
             dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
             dotView.id = viewId
-            dotView.isVisible = true
 
             binding.shareLayout.scoreContainer.addView(dotView)
         }
