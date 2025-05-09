@@ -147,9 +147,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                             langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
                     }
+                    val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
                     val watchedRequest = async {
-                        if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
-                            ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)
+                        if (makeWatchRequest) {
+                            ServiceFactory.get(title.wikiSite).getWatchedStatusWithCategories(title.prefixedText)
                         } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
                             AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
                         } else {
@@ -157,12 +158,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         }
                     }
                     val categoriesRequest = async {
-                        val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
-                        response.query?.pages?.flatMap { page ->
-                            page.categoriesProps?.map { category ->
-                                Category(title = category.title, lang = title.wikiSite.languageCode)
-                            }.orEmpty()
-                        }.orEmpty()
+                        if (!makeWatchRequest) {
+                            ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+                        } else {
+                            MwQueryResponse()
+                        }
                     }
                     val pageSummaryResponse = pageSummaryRequest.await()
                     val watchedResponse = watchedRequest.await()
@@ -177,9 +177,14 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                         showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                     }
-                    if (categoriesResponse.isNotEmpty()) {
-                        AppDatabase.instance.categoryDao().insertAll(categoriesResponse)
+
+                    val categoryList = (categoriesResponse.query ?: watchedResponse.query)?.firstPage()?.categories?.map { category ->
+                        Category(title = category.title, lang = title.wikiSite.languageCode)
+                    }.orEmpty()
+                    if (categoryList.isNotEmpty()) {
+                        AppDatabase.instance.categoryDao().insertAll(categoryList)
                     }
+
                     if (delayLoadHtml) {
                         bridge.resetHtml(title)
                     }

@@ -24,7 +24,7 @@ class MwQueryPage {
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
-    @SerialName("categories") val categoriesProps: List<CategoryResponse>? = null
+    val categories: List<CategoryResponse>? = null
 
     val ns = 0
     val coordinates: List<Coordinates>? = null
