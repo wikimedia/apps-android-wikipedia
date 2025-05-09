@@ -62,11 +62,7 @@ fun YearInReviewSurvey(
 
     if (!hasSurveyShown && pagerState.currentPage > 0) { // TODO: adjust pagerState.currentPage > 2 when more pages are added
         BasicAlertDialog(
-            onDismissRequest = { viewModel.updateSurveyShownState() },
-            properties = DialogProperties(
-                dismissOnBackPress = true,
-                dismissOnClickOutside = true
-            )
+            onDismissRequest = { viewModel.updateSurveyShownState() }
         ) {
             Surface(
                 tonalElevation = AlertDialogDefaults.TonalElevation,
