@@ -1894,5 +1894,5 @@
     <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
     <string name="year_in_review_survey_cancel">Cancel</string>
     <string name="year_in_review_survey_submit">Submit</string>
-    <String name="year_in_review_survey_input_placeholder">Any additional thoughts?</String>
+    <string name="year_in_review_survey_input_placeholder">Any additional thoughts?</string>
 </resources>
