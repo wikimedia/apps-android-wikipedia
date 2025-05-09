@@ -841,8 +841,6 @@
   <string name="description_edit_voice_input_description">Ovoz bilan kiritmoq</string>
   <string name="description_edit_learn_more">Maqola tavsiflari haqida koʻproq bilib oling</string>
   <string name="description_edit_image_caption_learn_more">Tasvir izohi haqida batafsil maʼlumot oling</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>

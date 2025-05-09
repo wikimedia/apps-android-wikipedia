@@ -834,8 +834,6 @@
   <string name="description_edit_voice_input_description">Shigar da murya</string>
   <string name="description_edit_learn_more">Ƙari koyo game da bayanin labarin</string>
   <string name="description_edit_image_caption_learn_more">Koyi ƙarin bayani game da rubutun hoto</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
   <string name="description_too_short">Rubutun ya yi gajeren lokaci.</string>
   <string name="description_ends_with_punctuation">Dole ne rubutun ya ƙare da alamar rubutu ba.</string>
   <string name="description_starts_with_uppercase">Farawa da ƙananan harafi sai dai idan kalmar farko ta dace.</string>

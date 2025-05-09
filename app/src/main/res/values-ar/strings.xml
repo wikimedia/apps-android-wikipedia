@@ -1049,8 +1049,6 @@
   <string name="description_edit_voice_input_description">مدخل صوتي</string>
   <string name="description_edit_learn_more">تعرف على المزيد حول أوصاف المقالة</string>
   <string name="description_edit_image_caption_learn_more">تعرف على المزيد حول التسميات التوضيحية للصور</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_too_long">حاول أن تجعل الأوصاف قصيرة حتى يتمكن المستخدمون من فهم موضوع المقالة في لمحة واحدة</string>
   <string name="description_ends_with_punctuation">النص يجب أن لا ينتهي بعلامة ترقيم.</string>

@@ -17,7 +17,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
-import org.wikipedia.settings.DeveloperSettingsActivity.Companion.newIntent
+import org.wikipedia.settings.dev.DeveloperSettingsActivity.Companion.newIntent
 
 class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     private lateinit var preferenceLoader: SettingsPreferenceLoader
