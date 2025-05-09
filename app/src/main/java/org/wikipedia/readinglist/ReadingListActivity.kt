@@ -8,13 +8,13 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = Color.TRANSPARENT
+        updateStatusBarColor(false)
         title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
     }
 
@@ -27,8 +27,12 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
         }
     }
 
+    fun updateStatusBarColor(inActionMode: Boolean) {
+        setStatusBarColor(if (!inActionMode) Color.TRANSPARENT else ResourceUtil.getThemedColor(this, R.attr.paper_color))
+    }
+
     fun updateNavigationBarColor() {
-        setNavigationBarColor(getThemedColor(this, R.attr.paper_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
     }
 
     override fun onBackPressed() {
