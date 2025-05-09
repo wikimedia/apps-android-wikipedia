@@ -73,7 +73,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
     private var loadedImagesForShare = 0
-    private val dotViews = mutableListOf<ImageView>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -86,7 +85,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         binding.shareButton.setOnClickListener {
             WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
-            buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
             lifecycleScope.launch {
                 binding.shareButton.isEnabled = false
                 binding.shareButton.alpha = 0.5f
@@ -136,6 +134,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
+        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
     }
 
@@ -198,10 +197,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
 
     private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
         val dotSize = DimenUtil.roundedDpToPx(20f)
-        dotViews.forEach {
-            binding.shareLayout.scoreContainer.removeView(it)
-        }
-        dotViews.clear()
+        val dotViews = mutableListOf<ImageView>()
         for (i in 0 until gameState.totalQuestions) {
             val viewId = View.generateViewId()
             val dotView = ImageView(requireContext())
