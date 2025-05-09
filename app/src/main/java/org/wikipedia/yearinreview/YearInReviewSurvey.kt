@@ -56,7 +56,7 @@ fun YearInReviewSurvey(
         stringResource(R.string.year_in_review_survey_very_unsatisfied)
     )
     val hasSurveyShown by viewModel.uiHasSurveyShown.collectAsState()
-    val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
+    val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[2]) }
     var userInput by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
@@ -66,7 +66,7 @@ fun YearInReviewSurvey(
             properties = DialogProperties(
                 dismissOnBackPress = true,
                 dismissOnClickOutside = true
-            ),
+            )
         ) {
             Surface(
                 tonalElevation = AlertDialogDefaults.TonalElevation,
@@ -77,7 +77,9 @@ fun YearInReviewSurvey(
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.verticalScroll(scrollState)
+                    modifier = Modifier
+                        .verticalScroll(scrollState)
+                        .background(color = WikipediaTheme.colors.paperColor)
 
                 ) {
                     Text(
@@ -89,7 +91,7 @@ fun YearInReviewSurvey(
                     Text(
                         text = stringResource(R.string.year_in_review_survey_subtitle),
                         style = WikipediaTheme.typography.p,
-                        color = WikipediaTheme.colors.placeholderColor,
+                        color = WikipediaTheme.colors.secondaryColor,
                         modifier = Modifier.padding(top = 5.dp, bottom = 10.dp)
                     )
                     HorizontalDivider(
@@ -128,6 +130,7 @@ fun YearInReviewSurvey(
                                 Text(
                                     text = text,
                                     style = WikipediaTheme.typography.p,
+                                    color = WikipediaTheme.colors.primaryColor,
                                     modifier = Modifier.padding(start = 16.dp)
                                 )
                             }
@@ -139,18 +142,22 @@ fun YearInReviewSurvey(
                         textStyle = WikipediaTheme.typography.button,
                         colors = TextFieldDefaults.colors(
                             focusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
-                            unfocusedIndicatorColor = WikipediaTheme.colors.progressiveColor
+                            unfocusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
+                            focusedContainerColor = WikipediaTheme.colors.backgroundColor,
+                            unfocusedContainerColor = WikipediaTheme.colors.backgroundColor,
+                            focusedTextColor = WikipediaTheme.colors.primaryColor
                         ),
                         placeholder = {
                             if (userInput.isEmpty()) {
                                 Text(
                                     text = stringResource(R.string.year_in_review_survey_placeholder_text),
-                                    color = WikipediaTheme.colors.placeholderColor,
+                                    color = WikipediaTheme.colors.secondaryColor,
                                     style = WikipediaTheme.typography.p
                                 )
                             }
                         },
-                        modifier = Modifier.padding(bottom = 8.dp)
+                        modifier = Modifier
+                            .padding(bottom = 8.dp)
                     )
                     HorizontalDivider(
                         modifier = Modifier
