@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -28,7 +29,10 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.time.Instant
 import java.time.LocalDate
+import java.time.Year
+import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.Date
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -47,7 +51,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private lateinit var currentState: GameState
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
-    val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
+    var currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
 
@@ -125,8 +129,20 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
-                currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
+            val isTodayGamePlayed = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = WikipediaApp.instance.wikiSite.languageCode,
+                year = Year.now().value,
+                month = currentMonth,
+                day = currentDay
+            )
+
+            if (isTodayGamePlayed != null) {
+                currentState = currentState.copy(
+                    answerState = JsonUtil.decodeFromString<List<Boolean>>(isTodayGamePlayed.gameData) ?: listOf()
+                )
+                _gameState.postValue(GameEnded(currentState, getGameStatistics()))
+            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
                 // we're just starting today's game.
                 currentState = currentState.copy()
                 _gameState.postValue(GameStarted(currentState))
@@ -144,7 +160,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 if (currentState.currentQuestionState.goToNext) {
                     // the user must have exited the activity before going to the next question,
                     // so we can fake submitting the current question.
-                    submitCurrentResponse(0)
+                    submitCurrentResponse(0, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
                 } else {
                     // we're truly in the middle of a game, and in the middle of the current question.
                     _gameState.postValue(CurrentQuestion(currentState))
@@ -205,7 +221,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             AppDatabase.instance.dailyGameHistoryDao().update(gameHistory)
                         }
                     }
-
+                    if (Prefs.isArchiveGamePlaying) {
+                        Prefs.lastOtdGameDateOverride = ""
+                    }
                     _gameState.postValue(GameEnded(currentState, getGameStatistics()))
                 } else {
                     currentState = currentState.copy(
@@ -277,6 +295,22 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
+    }
+
+    suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
+        val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
+        val map = history.associate {
+            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
+           scoreKey to it.score
+        }
+        return map
+    }
+
+    suspend fun getFirstPlayDate(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Date {
+        val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
+        val initialData = history.last()
+        val localDate = LocalDate.of(initialData.year, initialData.month, initialData.day)
+        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
@@ -399,6 +433,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
     class GameStarted(val data: GameState) : Resource<GameState>()
     class GameEnded(val data: GameState, val gameStatistics: GameStatistics) : Resource<GameState>()
+    class ArchiveGameStarted() : Resource<GameState>()
 
     companion object {
         const val MAX_QUESTIONS = 5

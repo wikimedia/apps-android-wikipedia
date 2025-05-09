@@ -39,7 +39,7 @@ class DateDecorator(
             return null
         }
 
-        val dateKey = getDateKey(year, month, day)
+        val dateKey = getDateKey(year, month + 1, day)
         val score = scoreData[dateKey]
 
         return when (score) {
