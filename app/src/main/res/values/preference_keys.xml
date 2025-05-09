@@ -26,7 +26,6 @@
     <string name="preference_key_retrofit_log_level">retrofitLog</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
     <string name="preference_key_talk_offline_cleanup_task_name">talkOfflineCleanupTask</string>
-    <string name="preference_key_categories_table_cleanup_task_name">categoriesTableCleanupTask</string>
     <string name="preference_key_login_groups">groups</string>
     <string name="preference_key_login_force_email_auth">loginForceEmailAuth</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>

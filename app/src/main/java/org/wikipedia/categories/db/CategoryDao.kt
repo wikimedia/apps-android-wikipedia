@@ -13,11 +13,11 @@ interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(categories: List<Category>): List<Long>
 
-    @Query("SELECT title, lang, COUNT(*) as count FROM category where timeStamp >= :startOfYear AND timeStamp <= :endOfYear " +
+    @Query("SELECT title, lang, COUNT(*) as count FROM Category where timeStamp >= :startTimeStamp AND timeStamp <= :endTimeStamp " +
             "GROUP BY title, lang ORDER BY count DESC")
-    suspend fun getCategoriesByYearRange(startOfYear: Long, endOfYear: Long): List<CategoryCount>
+    suspend fun getCategoriesByTimeRange(startTimeStamp: Long, endTimeStamp: Long): List<CategoryCount>
 
-    @Query("SELECT * FROM category")
+    @Query("SELECT * FROM Category")
     suspend fun getAllCategories(): List<Category>
 
     @Query("DELETE FROM Category")

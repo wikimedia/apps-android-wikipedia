@@ -59,16 +59,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val savedPages = mutableListOf<PageSummary>()
 
     init {
-
-        // Migrate from Prefs.otdGameHistory to use database
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _gameState.postValue(Resource.Error(throwable))
-        }) {
-            // TODO: remove this in May, 2026
-            migrateGameHistoryFromPrefsToDatabase()
-            loadGameState()
-        }
+        loadGameState()
     }
 
     fun loadGameState() {
@@ -77,6 +68,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _gameState.postValue(Resource.Error(throwable))
         }) {
             _gameState.postValue(Resource.Loading())
+
+            // Migrate from Prefs.otdGameHistory to use database
+            // TODO: remove this in May, 2026
+            migrateGameHistoryFromPrefsToDatabase()
 
             val eventsFromApi = ServiceFactory.getRest(wikiSite).getOnThisDay(currentMonth, currentDay).events
 
@@ -313,6 +308,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())
     }
 
+    fun getCurrentGameState(): GameState {
+        return currentState
+    }
+
     private fun composeQuestionState(index: Int): QuestionState {
         return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
@@ -345,7 +344,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 )
             }
 
-            // get data fro GameStatistics
             GameStatistics(
                 totalGamesPlayed.await(),
                 averageScore.await(),
@@ -433,7 +431,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class CurrentQuestionIncorrect(val data: GameState) : Resource<GameState>()
     class GameStarted(val data: GameState) : Resource<GameState>()
     class GameEnded(val data: GameState, val gameStatistics: GameStatistics) : Resource<GameState>()
-    class ArchiveGameStarted() : Resource<GameState>()
 
     companion object {
         const val MAX_QUESTIONS = 5
