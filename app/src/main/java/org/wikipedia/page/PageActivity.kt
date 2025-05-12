@@ -14,6 +14,7 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -22,7 +23,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.core.view.updatePadding
+import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -37,10 +38,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
-import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -97,7 +96,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
-    private var app = WikipediaApp.instance
+    private lateinit var app: WikipediaApp
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
@@ -171,7 +170,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         startActivity(FilePageActivity.newIntent(this, imageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                         pageFragment.title?.let { pageTitle ->
-                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0))
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite))
                         }
                     }
                 }
@@ -181,6 +180,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!DeviceUtil.assertAppContext(this)) {
+            return
+        }
+
+        app = WikipediaApp.instance
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -247,11 +251,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
         binding.containerWithNavTrigger.callback = this
-        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { _, insets ->
-            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            binding.pageToolbarContainer.updatePadding(top = systemWindowInsets.top)
-            pageFragment.updateInsets(systemWindowInsets)
-            insets
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { view, insets ->
+            val insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updateLayoutParams<MarginLayoutParams> {
+                topMargin = insets.top
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+            WindowInsetsCompat.CONSUMED
         }
 
         // WikiArticleCard setup
@@ -460,8 +468,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
     }
 
-    override fun onPageRequestLangLinks(title: PageTitle) {
-        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title))
+    override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title, historyEntryId))
     }
 
     override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
@@ -519,7 +527,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     // ...Except if the URL came as a result of a successful donation, in which case
                     // treat it differently:
                     if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
-                        CampaignCollection.addDonationResult(fromWeb = true)
+                        CampaignCollection.addDonationResult(fromWeb = true,
+                            amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
+                            currency = uri.getQueryParameter("currency") ?: "",
+                            recurring = uri.getQueryParameter("recurring") == "1")
                         // Check if the donation started from the app, but completed via web, in which case
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
@@ -584,13 +595,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
-            val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
-                pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
-            articleLinkPreviewInteractionEvent.logNavigate()
-
-            ArticleLinkPreviewInteraction(pageFragment, entry.source).logNavigate()
-        }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
@@ -615,7 +619,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
-            app.appSessionEvent.pageViewed(entry)
         }
     }
 

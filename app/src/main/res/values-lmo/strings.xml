@@ -134,8 +134,8 @@
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parolla ciav</string>
   <string name="account_creation_password_hint">Parolla ciav</string>
-  <string name="login_2fa_hint">Codes de autenticazzion a du fattor</string>
-  <string name="login_2fa_other_workflow_error_msg">A gh\'è besogn de l\'autenticazzion a du fattor! Per piesè, torna indrée a l\'attività principal e va dent cont el to token per la 2FA, e poeu proeuva ancamò.</string>
+  <string name="login_2fa_hint" fuzzy="true">Codes de autenticazzion a du fattor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">A gh\'è besogn de l\'autenticazzion a du fattor! Per piesè, torna indrée a l\'attività principal e va dent cont el to token per la 2FA, e poeu proeuva ancamò.</string>
   <string name="onboarding_card_login">Và dent</string>
   <string name="page_editing_login">Và dent</string>
   <string name="reading_lists_sync_login">Và dent</string>
@@ -222,14 +222,14 @@
   <string name="privacy_policy_description">Politega de la \'\'riservatezza\'\'</string>
   <string name="terms_of_use_description">Condizzion de utilizazzion</string>
   <string name="about_wikipedia_url">https://lmo.wikipedia.org/wiki/Wikipedia:A proposit de wikipedia</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Jut:Come_registràss</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie doprade</string>
   <string name="about_contributors_heading">Contributor</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del grup&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del grup&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>

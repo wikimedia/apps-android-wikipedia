@@ -142,8 +142,8 @@
   <string name="login_username_hint">Хутшӑнакан ячӗ</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Икӗ факторлӑ аутентификацин кочӗ</string>
-  <string name="login_2fa_other_workflow_error_msg">Икӗ факторлӑ аутентификаци кирлӗ! Тархасшӑн, тӗп ӗҫ патне таврӑнӑр та системӑна хӑвӑрӑн 2FA-токенпа кӗрӗр. Кайран тепӗр хут туса пӑхӑр.</string>
+  <string name="login_2fa_hint" fuzzy="true">Икӗ факторлӑ аутентификацин кочӗ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Икӗ факторлӑ аутентификаци кирлӗ! Тархасшӑн, тӗп ӗҫ патне таврӑнӑр та системӑна хӑвӑрӑн 2FA-токенпа кӗрӗр. Кайран тепӗр хут туса пӑхӑр.</string>
   <string name="onboarding_card_login">Кӗр</string>
   <string name="page_editing_login">Кӗр</string>
   <string name="reading_lists_sync_login">Кӗр</string>
@@ -207,8 +207,8 @@
   <string name="privacy_policy_description">Конфиденциальность йĕркисем</string>
   <string name="terms_of_use_description">Усӑ курмалли условисем</string>
   <string name="about_wikipedia_url">https://cv.wikipedia.org/wiki/Википеди:Википеди_çинчен</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнра_вуласси_тата_даннӑйсем</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cv</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнра_вуласси_тата_даннӑйсем</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cv</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cv</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>

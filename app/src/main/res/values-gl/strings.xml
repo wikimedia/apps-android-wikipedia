@@ -67,7 +67,7 @@
   <string name="page_edit_history_filter_by">Filtrar por</string>
   <string name="page_edit_history_filter_by_all">Todas as edicións (%s)</string>
   <string name="page_edit_history_filter_by_user">Edicións do usuario (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edicións de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edicións feitas por usuarios sen rexistrar (%s)</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page">Atopar no artigo</string>
@@ -139,8 +139,8 @@
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="account_creation_password_hint">Contrasinal</string>
-  <string name="login_2fa_hint">Autenticación en dous factores</string>
-  <string name="login_2fa_other_workflow_error_msg">Autenticación en dous factores obrigatoriaǃ Por favor, volva á actividade principal e conéctese co seu identificador 2FA, despois inténteo de novo.</string>
+  <string name="login_2fa_hint">Código de autenticación de dous factores</string>
+  <string name="login_2fa_other_workflow_error_msg">A autenticación en dous factores é obrigatoria! Por favor, volva á pantalla principal e escriba o seu código de autenticación en dous factores.</string>
   <string name="onboarding_card_login">Acceder ao sistema</string>
   <string name="page_editing_login">Acceder ao sistema</string>
   <string name="reading_lists_sync_login">Acceder ao sistema</string>
@@ -227,22 +227,22 @@
   <string name="privacy_policy_description">Política de protección de datos</string>
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://gl.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/gl</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/gl</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/gl</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/gl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas empregadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina do equipo&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina do equipo&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license" fuzzy="true">O código fonte está dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.gl\"&gt;licenza Creative Commons recoñecemento compartir igual&lt;/a&gt;.</string>
+  <string name="about_app_license">O código fonte está dispoñible en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.gl\"&gt;licenza Creative Commons recoñecemento compartir igual&lt;/a&gt;.</string>
   <string name="about_wmf">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>
@@ -327,7 +327,7 @@
   <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Nova lapela</string>
   <string name="menu_close_all_tabs">Pechar tódalas lapelas</string>
-  <string name="close_all_tabs_confirm">Está seguro de que quere pechar tódalas lapelas?</string>
+  <string name="close_all_tabs_confirm">Quere pechar tódalas lapelas?</string>
   <string name="close_all_tabs_confirm_yes">Si</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Pechar a lapela</string>
@@ -447,8 +447,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Desexa activar a sincronización das listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Agora os artigos gardados nas listas de lectura poden sincronizarse coa súa conta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;saber máis.&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Agora é posible sincronizar as listas de lectura en varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Máis información&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Agora os artigos gardados nas listas de lectura poden sincronizarse coa súa conta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;saber máis.&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora é posible sincronizar as listas de lectura en varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Máis información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Agora é posible sincronizar as listas de lectura entre varios dispositivos. Acceda á súa conta de Wikipedia e permita que se garden as súas listas.</string>
@@ -458,7 +458,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="reading_list_articles_added_to_named">Engadidos %1$d artigos a %2$s</string>
-  <string name="reading_list_delete_confirm">Está seguro de que quere eliminar %s?</string>
+  <string name="reading_list_delete_confirm">Quere eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Acceda para activar a sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Acceda para permitir que as súas listas de lectura se garden na súa conta.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancelar</string>
@@ -644,7 +644,7 @@
   <string name="description_edit_help_title">Infoː descricións de artigos</string>
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Grazas polo seu continuo interese en editar descricións de artigosǃ Para facer edicións adicionais, por favor, inicie sesión na súa conta da Wikipedia.</string>
   <string name="description_edit_license_notice">Ao cambiar a descrición do artigo, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalmente comeza cunha letra minúscula</string>
@@ -723,8 +723,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda de imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Engada etiquetas á imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi a súa experiencia editando? Por favor, adique un momento a cubrir a enquisa de edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Comezar a enquisa</string>
   <string name="suggested_edits_task_action_text_add">Engadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Lendas das imaxes</string>

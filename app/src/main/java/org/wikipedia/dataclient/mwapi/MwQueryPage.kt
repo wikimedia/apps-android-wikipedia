@@ -24,8 +24,9 @@ class MwQueryPage {
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
+    val categories: List<CategoryResponse>? = null
 
-    private val ns = 0
+    val ns = 0
     val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
     val varianttitles: Map<String, String>? = null
@@ -147,4 +148,10 @@ class MwQueryPage {
         val label: List<String> = emptyList()
         val description: List<String> = emptyList()
     }
+
+    @Serializable
+    data class CategoryResponse(
+        val ns: Int,
+        val title: String
+    )
 }

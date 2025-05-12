@@ -136,8 +136,8 @@
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="account_creation_password_hint">సంకేతపదం</string>
-  <string name="login_2fa_hint">రెండంచెల (Two-factor) ధ్రువీకరణ కోడ్:</string>
-  <string name="login_2fa_other_workflow_error_msg">రెండంచెల ధ్రువీకరణ అవసరం! తిరిగి ప్రధాన కార్యకలాపాలకు వెళ్ళి రెండంచెల ధ్రువీకరణతో లాగినై, మళ్ళీ ప్రయత్నించండి.</string>
+  <string name="login_2fa_hint" fuzzy="true">రెండంచెల (Two-factor) ధ్రువీకరణ కోడ్:</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">రెండంచెల ధ్రువీకరణ అవసరం! తిరిగి ప్రధాన కార్యకలాపాలకు వెళ్ళి రెండంచెల ధ్రువీకరణతో లాగినై, మళ్ళీ ప్రయత్నించండి.</string>
   <string name="onboarding_card_login">లాగినవండి</string>
   <string name="page_editing_login">లాగినవండి</string>
   <string name="reading_lists_sync_login">లాగినవండి</string>
@@ -223,16 +223,16 @@
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
   <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
@@ -491,8 +491,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">వ్యాసం అనేక జాబితాల్లో ఉంది</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">ఇక %s, చదివే జాబితా లన్నిటినీ లోనూ ఆఫ్‌లైనులో అందుబాటులో ఉండదు:</string>
   <string name="reading_lists_sync_reminder_title">చదివే జాబితా సింకును ఆన్ చేస్తారా?</string>
-  <string name="reading_lists_sync_reminder_text">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">సింకును చేతనం చెయ్యండి</string>
   <string name="reading_list_login_reminder_title">చదివే జాబితాలను సింకు చెయ్యండి</string>
   <string name="reading_lists_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>
@@ -560,7 +560,7 @@
   <string name="notification_syncing_resume_button">కొనసాగించు</string>
   <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
   <string name="notification_syncing_reading_list_channel_title">చదివే జాబితాలను సింకు చేస్తున్నాం</string>
-  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడాం పురోగతిలో ఉంది</string>
+  <string name="notification_syncing_reading_list_channel_description">చదివే జాబితాలను సింకు చెయ్యడం పురోగతిలో ఉంది</string>
   <string name="notification_many_unread">మీకు %d చదవని గమనింపు లున్నాయి</string>
   <plurals name="notification_channel_name">
     <item quantity="one">వ్యాసాన్ని దించుతున్నాం</item>
@@ -833,8 +833,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="suggested_edits_feed_card_translate_image_caption">బొమ్మకు వ్యాఖ్య చేర్చండి (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">బొమ్మకు ట్యాగులు చేర్చండి</string>
-  <string name="suggested_edits_snackbar_survey_text">మీ దిద్దుబాటు అనుభవం ఎలా ఉంది? కొద్ది క్షణాలు సమయం తీసుకుని, ఈ యాప్‌లో దిద్దుబాట్లు చెయ్యడంపై సర్వే ఫారం నింపండి.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">సర్వేలో పాల్గొనండి</string>
   <string name="suggested_edits_task_action_text_add">చేర్చండి</string>
   <string name="suggested_edits_task_action_text_translate">అనువదించండి</string>
   <string name="suggested_edits_image_captions">బొమ్మ వ్యాఖ్యలు</string>
@@ -1062,7 +1060,7 @@
   <string name="menu_option_share_talk_page">చర్చ పేజీని పంచుకోండి</string>
   <string name="menu_option_share_edit">దిద్దుబాటును పంచుకోండి</string>
   <string name="menu_option_user_contributions">%s మార్పుచేర్పులు</string>
-  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించండి</string>
+  <string name="menu_option_edit_source">మూలపాఠ్యాన్ని సవరించు</string>
   <string name="watchlist_details_watching_label">వీక్షిస్తున్నారు</string>
   <string name="watchlist_details_watch_label">వీక్షించు</string>
   <string name="watchlist_details_next_edit">తరువాతి దిద్దుబాటు</string>
@@ -1089,14 +1087,12 @@
   <string name="revision_undo_success">ఈ కూర్పును వెనక్కి తిప్పాం.</string>
   <string name="revision_compare_button">పోల్చిచూడు</string>
   <string name="revision_compare_two_only">రెండే కూర్పులను ఎంచుకోవచ్చు.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s నీ, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా %2$s లో చేర్చాం.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">మార్చు</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">శాశ్వతంగా</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 వారం పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 నెల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 నెలల పాటు</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 నెలల పాటు</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ని, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా నుండి తీసేసాం.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 వారం పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 నెల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 నెలల పాటు</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 నెలల పాటు</string>
   <string name="watchlist_expiry_dialog_title">వీక్షణ జాబితా వ్యవధిని ఎంచుకోండి</string>
   <string name="watchlist_expiry_dialog_permanent">శాశ్వతంగా</string>
   <string name="watchlist_expiry_dialog_one_week">1 వారం</string>

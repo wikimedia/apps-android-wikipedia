@@ -49,6 +49,7 @@
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কথা দ্বারা অনুসন্ধান</string>
   <string name="search_hint_search_languages">ভাষার জন্য অনুসন্ধান</string>
+  <string name="search_back_button_content_description">ফিরে যান</string>
   <string name="filter_hint_filter_my_lists_and_articles">আমার তালিকা ছাঁকুন</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
@@ -171,8 +172,8 @@
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
   <string name="account_creation_password_hint">পাসওয়ার্ড</string>
-  <string name="login_2fa_hint">দুই-ধাপের প্রমাণীকরণ কোড</string>
-  <string name="login_2fa_other_workflow_error_msg">দুই-ধাপের প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-ধাপের প্রমানীকরণ টোকেন দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন।</string>
+  <string name="login_2fa_hint" fuzzy="true">দুই-ধাপের প্রমাণীকরণ কোড</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">দুই-ধাপের প্রমানীকরণ প্রয়োজন! দয়া করে প্রধান কার্যকলাপে ফেরত যান এবং ২-ধাপের প্রমানীকরণ টোকেন দ্বারা প্রবেশ করুন, তারপর পুনরায় চেষ্টা করুন।</string>
   <string name="onboarding_card_login">প্রবেশ করুন</string>
   <string name="page_editing_login">প্রবেশ করুন</string>
   <string name="reading_lists_sync_login">প্রবেশ করুন</string>
@@ -258,18 +259,18 @@
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="about_wikipedia_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Image_tags</string>
   <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
@@ -741,15 +742,13 @@
   <string name="description_edit_help_title">তথ্য: নিবন্ধের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
   <string name="description_edit_helper_text_lowercase_warning">সাধারণত একটি ছোট ছাঁদের অক্ষর দিয়ে শুরু করা উচিত</string>
   <string name="description_edit_voice_input_description">কণ্ঠ ইনপুট</string>
   <string name="description_edit_learn_more">নিবন্ধের বিবরণ সম্পর্কে আরও জানুন</string>
   <string name="description_edit_image_caption_learn_more">চিত্রের ক্যাপশন সম্পর্কে আরও জানুন</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Image_captions</string>
   <string name="description_too_short">আপনার লেখাটি খুবই ছোট।</string>
   <string name="description_ends_with_punctuation">বাক্যের শেষে কোনো বিরামচিহ্ন ব্যবহার করা উচিত নয়।</string>
   <string name="description_starts_with_uppercase">নামবাচক বিশেষ্য না হলে ছোট ছাঁদের অক্ষর দিয়ে শুরু করুন।</string>
@@ -823,8 +822,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ছবির ক্যাপশন যোগ করুন</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ছবিতে ট্যাগ যোগ করুন</string>
-  <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_add">যোগ করুন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
   <string name="suggested_edits_image_captions">ছবির ক্যাপশন</string>
@@ -1120,11 +1117,10 @@
   <string name="revision_compare_two_only">শুধুমাত্র দুটি সংশোধন নির্বাচন করা যাবে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">পরিবর্তন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীভাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাসের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাসের জন্য</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাসের জন্য</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ও এর আলাপ পাতা আপনার নজরতালিকা থেকে সরিয়ে ফেলা হয়েছে।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">১ সপ্তাহের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">১ মাসের জন্য</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাস</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">৬ মাসের জন্য</string>
   <string name="watchlist_expiry_dialog_title">নজরতালিকার সময়কাল নির্বাচন করুন</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ীভাবে</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>
@@ -1203,36 +1199,6 @@
   <string name="places_toggle_buttons_map">মানচিত্র</string>
   <string name="places_toggle_buttons_list">তালিকা</string>
   <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
-  <string name="donor_history_title">দাতার ইতিহাস</string>
-  <string name="donor_history_save_button">সংরক্ষণ করুন</string>
-  <string name="donor_history_update_donor_status_default">দাতার অবস্থা হালনাগাদ করুন</string>
-  <string name="donor_history_update_donor_status_donor">দাতা</string>
-  <string name="donor_history_update_donor_status_not_a_donor">দাতা নয়</string>
-  <string name="donor_history_last_donated">শেষ দান</string>
-  <string name="donor_history_last_donated_hint">শেষ দানের তারিখ যোগ করুন</string>
-  <string name="donor_history_last_donated_date_picker_title">তারিখ নির্বাচন করুন</string>
-  <string name="donor_history_last_donated_date_picker_label">তারিখ লিখুন</string>
-  <string name="donor_history_recurring_donor">পুনরাবৃত্ত দাতা</string>
-  <string name="donor_history_donate_button">উইকিমিডিয়া ফাউন্ডেশনে দান করুন</string>
-  <string name="donor_history_about_this_experiment">এই পরীক্ষা সম্পর্কে</string>
-  <string name="donor_history_updated_message_snackbar">দাতার ইতিহাস আপডেট করা হয়েছে</string>
-  <string name="contributions_dashboard_survey_dialog_title">অবদানের ড্যাশবোর্ড উন্নত করতে সহায়তা করুন</string>
-  <string name="contributions_dashboard_survey_dialog_message">ড্যাশবোর্ডের এই আপডেটটি একটি পরীক্ষামূলক বৈশিষ্ট্য। আপনি কি এই বৈশিষ্ট্যটি উন্নত বা সরানো দেখতে চান?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">কোন মতামত নেই</string>
-  <string name="contributions_dashboard_survey_dialog_ok">মতামত শেয়ার করুন</string>
-  <string name="contributions_dashboard_donation_dialog_title">বিনামূল্যে জ্ঞানকে সমর্থন করার জন্য আপনাকে ধন্যবাদ</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">না, ধন্যবাদ</string>
-  <string name="contributions_dashboard_donation_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
-  <string name="contributions_dashboard_entry_dialog_title" fuzzy="true">আপনার অবদান ড্যাশবোর্ড আপডেট করা হয়েছে</string>
-  <string name="contributions_dashboard_entry_dialog_message" fuzzy="true">অবদান ড্যাশবোর্ড এখন আপনার দাতার অবস্থা সম্পর্কে বিশদ বিবরণ প্রদর্শন করে। এই পরীক্ষামূলক বৈশিষ্ট্য পর্যালোচনা করতে চান?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">না, ধন্যবাদ</string>
-  <string name="contributions_dashboard_entry_dialog_ok">হ্যাঁ, আমাকে সেখানে নিয়ে যান</string>
-  <string name="contributions_dashboard_badge_donor">দাতা</string>
-  <string name="contributions_dashboard_badge_become_a_donor">দাতা হোন</string>
-  <string name="contributions_dashboard_badge_update">দাতার অবস্থা হালনাগাদ করুন</string>
-  <string name="contributions_dashboard_app_icon_title">অ্যাপ আইকন</string>
-  <string name="contributions_dashboard_app_icon_subtitle">দাতার সুবিধা</string>
-  <string name="contributions_dashboard_logged_out_user">লগ আউট ব্যবহারকারী</string>
   <string name="survey_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
   <string name="survey_dialog_option_satisfied">সন্তুষ্ট</string>
   <string name="survey_dialog_option_neutral">নিরপেক্ষ</string>
@@ -1240,5 +1206,10 @@
   <string name="survey_dialog_option_very_satisfied">খুবই সন্তুষ্ট</string>
   <string name="survey_dialog_option_very_unsatisfied">খুবই অসন্তুষ্ট</string>
   <string name="survey_dialog_submit">জমা দিন</string>
+  <string name="survey_dialog_next">পরবর্তী</string>
+  <string name="survey_dialog_general_no">না</string>
   <string name="survey_dialog_submitted_snackbar">প্রতিক্রিয়া জমা দেওয়া হয়েছে। ধন্যবাদ!</string>
+  <string name="on_this_day_game_score">স্কোর: %d</string>
+  <string name="on_this_day_game_correct">সঠিক!</string>
+  <string name="on_this_day_game_point">+১ পয়েন্ট</string>
 </resources>

@@ -145,8 +145,8 @@
   <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
-  <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
-  <string name="login_2fa_other_workflow_error_msg">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
+  <string name="login_2fa_hint" fuzzy="true">ٻہ-مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -231,14 +231,14 @@
   <string name="privacy_policy_description">نويڪلائي نِيَمَ</string>
   <string name="terms_of_use_description">استعمال جا شرط</string>
   <string name="about_wikipedia_url">https://sd.wikipedia.org/wiki/Wikipedia:بابت</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
   <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
   <string name="about_contributors_heading">ڀاڱيدارَ</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;جٿي جو صفحو&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;جٿي جو صفحو&lt;/a&gt;</string>
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
@@ -778,7 +778,7 @@
   <string name="description_edit_help_title">مدد: مضمون تشريحون</string>
   <string name="description_edit_help_about_wikidata">وڪيڊيٽا بابت</string>
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">مضمونن جي تشريحن کي سنوارڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ سنوارون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
   <string name="description_edit_license_notice">مضمون جي تشريح بدلائڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون بغير رد ڪئي &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="description_edit_helper_text_lowercase_warning">عام طور تي ننڍن اکرن کان شروع ڪريو</string>
@@ -879,8 +879,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_add_image_tags">عڪس جا ٽيڪ وجهو</string>
-  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجهو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
@@ -1261,14 +1259,12 @@
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>
   <string name="revision_compare_button">ڀيٽيو</string>
   <string name="revision_compare_two_only">رڳو ٻہ ورجاءَ چونڊي سگهجن ٿا.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ھفتي لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 مھيني لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 مھينن لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 مھينن لاءِ</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ۽ ان جو بحث صفحو توھان جي نظر۾فھرست مان ڪڍيا ويا آھن.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ھفتي لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 مھيني لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 مھينن لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 مھينن لاءِ</string>
   <string name="watchlist_expiry_dialog_title">نظر۾فھرست جو عرصو چونڊيو</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">1 ھفتو</string>
@@ -1499,5 +1495,5 @@
   <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
   <string name="survey_dialog_cancel">رد ڪريو</string>
   <string name="survey_dialog_submit">اماڻيو</string>
-  <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">موٽ اماڻجي وئي.</string>
 </resources>

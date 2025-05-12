@@ -48,6 +48,8 @@
         android:id="@+id/recent_searches"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:paddingTop="8dp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,9 +57,9 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/recentSearchesHeaderContainer"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp">
+            android:layout_height="48dp">
 
             <TextView
                 android:id="@+id/list_title"

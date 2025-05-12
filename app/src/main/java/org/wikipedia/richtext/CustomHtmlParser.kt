@@ -111,7 +111,6 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
         private var lastAClass = ""
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
-        private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -218,7 +217,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                     val spanStart = output.getSpanStart(span)
                     output.removeSpan(span)
                     output.insert(spanStart, "$count. ")
-                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize), spanStart, output.length, 0)
+                    output.setSpan(LeadingMarginSpan.Standard(DimenUtil.roundedDpToPx(16f)), spanStart, output.length, 0)
                 }
             }
         }
@@ -265,6 +264,10 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
             sourceStr = sourceStr.replace("&#8206;", "\u200E")
                 .replace("&#8207;", "\u200F")
                 .replace("&amp;", "&")
+
+            // Add <small> tag in the <sub> or <sup> tags to make the text 3 times smaller
+            sourceStr = sourceStr.replace("<sub>", "<sub><small><small><small>").replace("</sub>", "</small></small></small></sub>")
+                .replace("<sup>", "<sup><small><small><small>").replace("</sup>", "</small></small></small></sup>")
 
             // TODO: Investigate if it's necessary to inject a dummy tag at the beginning of the
             // text, since there are reports that XmlReader ignores the first tag by default?

@@ -1,31 +1,31 @@
 [versions]
 androidPluginAnnotationV9 = "3.0.2"
-androidSdk = "11.6.1"
+androidSdk = "11.8.7"
 appcompat = "1.7.0"
-balloon = "1.6.11"
+balloon = "1.6.12"
 browser = "1.8.0"
 commonsLang3 = "3.17.0"
-constraintlayout = "2.2.0"
-coreKtx = "1.13.1"
-desugar_jdk_libs = "2.1.3"
+constraintlayout = "2.2.1"
+coreKtx = "1.16.0"
+desugar_jdk_libs = "2.1.5"
 drawerlayout = "1.2.0"
 espressoVersion = "3.6.1"
-firebaseMessagingVersion = "24.1.0"
+firebaseMessagingVersion = "24.1.1"
 flexbox = "3.0.0"
-fragmentKtx = "1.8.5"
+fragmentKtx = "1.8.6"
 glideVersion = "4.16.0"
 googlePayVersion = "19.4.0"
 googleServices = "4.4.2"
-gradle = "8.7.2"
+gradle = "8.10.0"
 hamcrest = "3.0"
 installreferrer = "2.2"
-jsoup = "1.18.1"
+jsoup = "1.20.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-kotlinCoroutinesVersion = "1.9.0"
-kotlinStdlibJdk8 = "2.0.21"
-kotlinxSerializationJson = "1.7.3"
-kspPlugin = "2.0.21-1.0.28"
+kotlinCoroutinesVersion = "1.10.2"
+kotlinStdlibJdk8 = "2.1.20"
+kotlinxSerializationJson = "1.8.1"
+kspPlugin = "2.1.20-1.0.32"
 leakCanaryVersion = "2.14"
 material = "1.12.0"
 metricsVersion = "2.9"
@@ -33,18 +33,22 @@ mlKitVersion = "17.0.6"
 mockitoVersion = "5.2.0"
 okHttpVersion = "4.12.0"
 orchestrator = "1.5.1"
-pagingRuntimeKtx = "3.3.4"
+pagingRuntimeKtx = "3.3.6"
 paletteKtx = "1.0.0"
-photoview = "1.0.2"
+photoview = "1.0.3"
 preferenceKtx = "1.2.1"
-recyclerview = "1.3.2"
+recyclerview = "1.4.0"
 retrofitVersion = "2.11.0"
-robolectric = "4.14"
-roomVersion = "2.6.1"
+robolectric = "4.14.1"
+roomVersion = "2.7.1"
 swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
-workRuntimeKtx = "2.9.1"
+workRuntimeKtx = "2.10.1"
+composeBom = "2025.05.00"
+composeActivity = "1.10.1"
+composeViewModel = "2.9.0"
+
 
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
@@ -108,6 +112,15 @@ room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersi
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
+compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
+compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
@@ -115,3 +128,4 @@ gms-plugin = { id = 'com.google.gms.google-services', version.ref = "googleServi
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinStdlibJdk8" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinStdlibJdk8" }
 ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinStdlibJdk8" }

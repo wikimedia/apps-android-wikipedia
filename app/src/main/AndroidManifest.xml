@@ -65,6 +65,7 @@
         android:fullBackupContent="@xml/full_backup_rules"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
+        android:icon="@mipmap/launcher"
         android:label="@string/app_name"
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
@@ -87,13 +88,9 @@
 
         <activity
             android:name=".main.MainActivity"
+            android:icon="@mipmap/launcher"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
-            android:exported="true"/>
-        <activity-alias
-            android:name=".DefaultIcon"
-            android:targetActivity=".main.MainActivity"
-            android:icon="@mipmap/launcher"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -106,25 +103,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
             </intent-filter>
-        </activity-alias>
-        <activity-alias
-            android:name=".DonorIcon"
-            android:icon="@mipmap/ic_launcher_donor_benefit"
-            android:targetActivity=".main.MainActivity"
-            android:exported="true"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wikipedia" />
-            </intent-filter>
-        </activity-alias>
+        </activity>
         <activity
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
@@ -157,7 +136,7 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".settings.DeveloperSettingsActivity"
+            android:name=".settings.dev.DeveloperSettingsActivity"
             android:label="@string/developer_settings_activity_title"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
@@ -165,22 +144,15 @@
             android:name=".settings.NotificationSettingsActivity"
             android:label="@string/notification_preferences_title"
             android:theme="@style/AppTheme.ActionBar" />
-        <activity
-            android:name=".settings.AboutActivity"
-            android:label="@string/about_activity_title"
-            android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".settings.languages.WikipediaLanguagesActivity"
             android:label="@string/wikipedia_languages_title"/>
+        <activity android:name=".language.LangLinksActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
-            android:name=".language.LangLinksActivity"
-            android:label="@string/langlinks_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
-        <activity
-            android:name=".language.LanguagesListActivity"
-            android:label="@string/languages_list_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+            android:name=".language.addlanguages.AddLanguagesListActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"/>
         <activity
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
@@ -211,17 +183,9 @@
             android:name=".gallery.GalleryActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.FullScreen" />
+
         <activity
-            android:name=".settings.LicenseActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            tools:ignore="GoogleAppIndexingUrlError"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:pathPrefix="/android_asset/licenses/" android:scheme="content" />
-            </intent-filter>
-        </activity>
+            android:name=".settings.LicenseActivity"/>
 
         <activity
             android:name=".feed.news.NewsActivity"
@@ -324,7 +288,7 @@
         <activity
             android:name=".commons.FilePageActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".talk.TalkTopicsActivity"
@@ -394,7 +358,12 @@
             android:name=".donate.GooglePayActivity"/>
 
         <activity
-            android:name=".donate.DonorHistoryActivity" />
+            android:name=".settings.AboutActivity"/>
+
+        <activity
+            android:name=".games.onthisday.OnThisDayGameActivity"/>
+        <activity
+            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <provider
             android:name=".WikipediaFileProvider"

@@ -9,7 +9,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.settings.Prefs
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import java.time.Duration
@@ -57,12 +56,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNegativeAction() {
         DonorExperienceEvent.logAction("already_donated_click", "article_banner", campaignId = campaign.id)
-        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            ContributionsDashboardHelper.showDonationCompletedDialog(context)
-            Prefs.contributionsDashboardEntryDialogShown = true
-        } else {
-            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
-        }
+        FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
         dismissDialog()
     }
 

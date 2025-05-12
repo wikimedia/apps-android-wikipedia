@@ -16,7 +16,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +25,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.databinding.ActivityCategoryBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -62,7 +62,7 @@ class CategoryActivity : BaseActivity() {
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = viewModel.pageTitle.displayText
+        supportActionBar?.title = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText)
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false))
@@ -72,12 +72,12 @@ class CategoryActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.categoryMembersFlow.collectLatest {
-                        categoryMembersAdapter.submitData(it)
+                        categoryMembersAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
                     viewModel.subcategoriesFlow.collectLatest {
-                        subcategoriesAdapter.submitData(it)
+                        subcategoriesAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -175,7 +175,7 @@ class CategoryActivity : BaseActivity() {
         }
     }
 
-    private inner class CategoryMembersAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(CategoryMemberDiffCallback()) {
+    private inner class CategoryMembersAdapter : PagingDataAdapterPatched<PageTitle, RecyclerView.ViewHolder>(CategoryMemberDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
             val view = PageItemView<PageTitle>(this@CategoryActivity)
             view.callback = itemCallback

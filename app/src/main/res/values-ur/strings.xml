@@ -31,6 +31,7 @@
   <string name="nav_item_suggested_edits">ترامیم</string>
   <string name="nav_item_more">مزید</string>
   <string name="nav_item_search">تلاش</string>
+  <string name="nav_item_contribute">شراکت کیجیے</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
   <string name="page_error_retry">دوبارہ کوشش کریں</string>
   <string name="card_offline_error_retry">دوبارہ کوشش کریں</string>
@@ -39,6 +40,7 @@
   <string name="offline_load_error_retry">دوبارہ کوشش کریں</string>
   <string name="page_error_back_to_main">پیچھے جائیں</string>
   <string name="error_back">پیچھے جائیں</string>
+  <string name="error_next">اگلا</string>
   <string name="menu_clear_all_history">تاریخچہ مٹائیں</string>
   <string name="history_item_deleted">%s کو تاریخچے سے حذف کر دیا گیا</string>
   <string name="history_items_deleted">%d مضامین تاریخچے سے حذف کر دیے گئے</string>
@@ -47,6 +49,10 @@
   <string name="app_settings">ایپ ترتیبات</string>
   <string name="search_tab_tooltip">تلاش کرنے کے لیے تلاش کے خانے پر دوبارہ کلک کریں</string>
   <string name="history_list_title">تاریخ</string>
+  <string name="image_content_description">تصویر: %s</string>
+  <string name="page_content_description">صفحہ: %s</string>
+  <string name="wikimedia_commons">ویکی ذخائر</string>
+  <string name="wikidata">ویکی ڈیٹا</string>
   <string name="dialog_title_clear_history">تاریخچہ مٹائیں</string>
   <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
@@ -54,6 +60,15 @@
   <string name="share_via">ارسال بذریعہ</string>
   <string name="image_share_via">اشتراک بذریعہ</string>
   <string name="search_redirect_from">%s سے رجوع مکرر</string>
+  <string name="page_edit_history_activity_title">تاریخچہ ترمیم: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;م&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">خلاصہ ترمیم کوئی نہیں</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ترامیم تلاش کریں یا فلٹر کریں</string>
+  <string name="page_edit_history_filter_by">فلٹر از</string>
+  <string name="page_edit_history_filter_by_all">تمام ترامیم (%s)</string>
+  <string name="page_edit_history_filter_by_user">صارف ترامیم (%s)</string>
+  <string name="page_edit_history_filter_by_anon">غیر مندرج ترامیم (%s)</string>
+  <string name="page_edit_history_filter_by_bot">روبہ ترامیم (%s)</string>
   <string name="menu_page_show_tabs">ٹیب دکھائیں</string>
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
   <string name="menu_page_find_in_page">مضمون میں تلاش کریں</string>
@@ -115,8 +130,8 @@
   <string name="login_username_hint">صارف نام</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint">دوہری تصدیق کا کوڈ</string>
-  <string name="login_2fa_other_workflow_error_msg">دوہری تصدیق درکار ہے! براہ کرم واپس لوٹیں، اپنے ٹوکن کے ذریعہ داخل ہوں اور پھر کوشش کریں۔</string>
+  <string name="login_2fa_hint" fuzzy="true">دوہری تصدیق کا کوڈ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">دوہری تصدیق درکار ہے! براہ کرم واپس لوٹیں، اپنے ٹوکن کے ذریعہ داخل ہوں اور پھر کوشش کریں۔</string>
   <string name="onboarding_card_login">لاگ ان</string>
   <string name="page_editing_login">لاگ ان</string>
   <string name="reading_lists_sync_login">لاگ ان</string>
@@ -200,14 +215,14 @@
   <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
   <string name="about_wikipedia_url">https://ur.wikipedia.org/wiki/ویکیپیڈیا:تعارف</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
   <string name="about_contributors_heading">مشارکت کنندگان</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ٹیم page&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ٹیم page&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;ٹرانسلیٹ ویکی ڈاٹ نیٹ&lt;/a&gt; کے رضاکار مترجمین اس اطلاقیہ کا ترجمہ کیا ہے۔</string>
   <string name="about_app_license_heading">اجازت نامہ</string>
@@ -685,6 +700,7 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="watchlist_expiry_dialog_title">زیر نظر فہرست میں شامل رکھنے کی مدت کا انتخاب کیجیے</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="action_item_view_on_map">نقشے پر دیکھیں</string>
   <string name="reading_list_share_menu_label">شیئر کریں...</string>
@@ -704,5 +720,5 @@
   <string name="survey_dialog_option_very_satisfied">بہت مطمئن</string>
   <string name="survey_dialog_option_very_unsatisfied">بہت غیر مطمئن</string>
   <string name="survey_dialog_submit">جمع کریں</string>
-  <string name="survey_dialog_submitted_snackbar">رائے دی گئ۔ شکریہ!</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">رائے دی گئ۔ شکریہ!</string>
 </resources>
