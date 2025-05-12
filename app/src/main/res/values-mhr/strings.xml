@@ -227,15 +227,15 @@
   <string name="privacy_policy_description">Шолыплык политике</string>
   <string name="terms_of_use_description">Кучылтмо келшык</string>
   <string name="about_wikipedia_url">https://mhr.wikipedia.org/wiki/Википедий:Палемдымаш</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr#Офлайныште_лудмаш_да_данный</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr#Офлайныште_лудмаш_да_данный</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>
   <string name="about_contributors_heading">Автор-влак</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
   <string name="about_translators_heading">Кусарыше-влак</string>
   <string name="about_translators_translatewiki">Тиде приложенийым &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; платформышто вӱмазе-влак кусареныт.</string>
   <string name="about_app_license_heading">Лицензий</string>

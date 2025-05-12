@@ -245,14 +245,14 @@
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
   <string name="about_wikipedia_url">https://ba.wikipedia.org/wiki/Википедия:Тасуирлама</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba#Һүрәт_тегтары</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ba#Һүрәт_тегтары</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -575,8 +575,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Мәҡәлә бер-нисә исемлеккә индерелгән</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">барлыҡ уҡыу исемлектәрендә  %s бите башҡаса офлайн-режимда  булмаясаҡ</string>
   <string name="reading_lists_sync_reminder_title">Уҡыу исемлеген синхронлаштырыуҙы ҡабыҙырғамы?</string>
-  <string name="reading_lists_sync_reminder_text">Уҡыу исемлегендә һаҡланған мәҡәләләрҙе хәҙер Википедиялағы иҫәп яҙмаһы менән синхронлаштырырға мөмкин. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Уҡыу өсөн исемлектәрҙе хәҙер ҡулайламалар араһында синхронлаштырырға мөмкин. Википедияның иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Уҡыу исемлегендә һаҡланған мәҡәләләрҙе хәҙер Википедиялағы иҫәп яҙмаһы менән синхронлаштырырға мөмкин. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Уҡыу өсөн исемлектәрҙе хәҙер ҡулайламалар араһында синхронлаштырырға мөмкин. Википедияның иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштырыуҙы ҡабыҙырға</string>
   <string name="reading_list_login_reminder_title">Уҡыу исемлектәрен синхронлаштырырға</string>
   <string name="reading_lists_login_reminder_text">Уҡыу исемлеге хәҙер ҡоролмалар араһында синхронлаштырыла. Үҙегеҙҙең иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ.</string>

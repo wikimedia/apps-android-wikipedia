@@ -333,18 +333,18 @@
   <string name="privacy_policy_description">Normativa de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/es</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/es</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/es</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/es</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt; Página del equipo &lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt; Página del equipo &lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
@@ -669,8 +669,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de tus listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Ahora es posible sincronizar los artículos guardados en listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Ahora es posible sincronizar los artículos guardados en listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
@@ -968,7 +968,7 @@
   <string name="description_edit_help_title">Información: descripción de artículos</string>
   <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/es</string>
   <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones de artículos! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al cambiar la descripción del artículo, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">típicamente comienza por una letra minúscula</string>
@@ -1779,7 +1779,6 @@
   <string name="on_this_day_game_point">+1 punto</string>
   <string name="on_this_day_game_next">Siguiente pregunta</string>
   <string name="on_this_day_game_finish">Resultado final</string>
-  <string name="on_this_day_game_share">Compartir con amigos</string>
   <string name="on_this_day_game_pause_title">¿Quieres pausar el juego?</string>
   <string name="on_this_day_game_pause_body">Tu progreso de hoy se guardará. El juego se encuentra en la sección Explorar.</string>
   <string name="on_this_day_game_pause_negative">Seguir jugando</string>
