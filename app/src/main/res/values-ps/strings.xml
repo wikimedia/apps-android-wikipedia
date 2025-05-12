@@ -222,7 +222,7 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلار</string>
   <string name="terms_of_use_description">د کارولو منښتونه</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ps</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ps</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
   <string name="about_contributors_heading">ونډه‌وال</string>
   <string name="about_translators_heading">ژباړونکي</string>
