@@ -227,7 +227,7 @@
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -482,8 +482,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Straipsnis yra keliuose sąrašuose</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s toliau nenebus prieinamas neprisijungus visiems skaitymo sąrašams:</string>
   <string name="reading_lists_sync_reminder_title">Įjungti skaitymo sąrašo sinchronizavimą?</string>
-  <string name="reading_lists_sync_reminder_text">Straipsniai, išsaugoti jūsų skaitymo sąrašuose, dabar gali būti sinchronizuojami su jūsų Vikipedijos paskyrą.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Straipsniai, išsaugoti jūsų skaitymo sąrašuose, dabar gali būti sinchronizuojami su jūsų Vikipedijos paskyrą.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Įgalinti sinchronizavimą</string>
   <string name="reading_list_login_reminder_title">Sinchronizuoti skaitymo sąrašus</string>
   <string name="reading_lists_login_reminder_text">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus.</string>
