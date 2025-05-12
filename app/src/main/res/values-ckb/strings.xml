@@ -243,16 +243,16 @@
   <string name="privacy_policy_description">سیاسەتی تایبەتێتی</string>
   <string name="terms_of_use_description">مەرجەکانی بەکارھێنان</string>
   <string name="about_wikipedia_url">https://ckb.wikipedia.org/wiki/ویکیپیدیا:سەبارەت</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/سیاسەتی تایبەتێتی</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/سیاسەتی تایبەتێتی</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتێبخانە بەکارھاتووەکان</string>
   <string name="about_contributors_heading">بەشداربووان</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;پەڕەی تیم&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;پەڕەی تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_translators_translatewiki">ئەم نەرمەواڵەیە وەرگێڕدراوە لەلایەن وەرگێڕە خۆبەخشەکان لە &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">مۆڵەت</string>
@@ -536,8 +536,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">وتارەکە لە چەند پێڕستێکدا دەردەکەوێت</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s چی تر بەردەست نابێت بۆ خوێندنەوە بەبێ ئینتەرنێت لە ھیچ کامێک لە پێڕستی خوێندنەوەکان:</string>
   <string name="reading_lists_sync_reminder_title">هاوکاتکردنی پێڕستی خوێندنەوە هەڵدەکەیت؟</string>
-  <string name="reading_lists_sync_reminder_text">ئەو وتارانەی کە لە پێڕستی خوێندنەوەدا هەڵگیراوە ئێستا دەتوانرێت هاوکات بکرێن بۆ هەژماری ویکیپیدیاکەت. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">ئێستا دەکرێت پێڕستی خوێندنەوە هاودەم بکرێت لە هەموو ئامێرەکان. بچۆ ژوورەوە بۆ هەژماری ویکیپیدیاکەت و ڕێگە بدە پێڕستەکانت هەڵبگیرێن. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">ئەو وتارانەی کە لە پێڕستی خوێندنەوەدا هەڵگیراوە ئێستا دەتوانرێت هاوکات بکرێن بۆ هەژماری ویکیپیدیاکەت. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ئێستا دەکرێت پێڕستی خوێندنەوە هاودەم بکرێت لە هەموو ئامێرەکان. بچۆ ژوورەوە بۆ هەژماری ویکیپیدیاکەت و ڕێگە بدە پێڕستەکانت هەڵبگیرێن. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;زیاتر فێربه&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">هاوکاتکردن چالاک بکە</string>
   <string name="reading_list_login_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە</string>
   <string name="reading_lists_login_reminder_text">ئێستا دەکرێت پێڕستی خوێندنەوە هاودەم بکرێت لە هەموو ئامێرەکان. بچۆ ژوورەوە بۆ هەژماری ویکیپیدیاکەت و ڕێگە بدە پێڕستەکانت هەڵبگیرێن.</string>
@@ -787,7 +787,7 @@
   <string name="description_edit_help_title">زانیاری: وەسفەکانی وتار</string>
   <string name="description_edit_help_about_wikidata">دەربارەی ویکیدراوە</string>
   <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیدراوە بۆ نووسینی وەسفەکان</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
   <string name="description_edit_license_notice">بە گۆڕینی ناوی وتارەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">زۆر جار بە پیتێکی بچووک دەست پێ دەکات</string>
@@ -1400,7 +1400,6 @@
   <string name="on_this_day_game_point">+١ خاڵ</string>
   <string name="on_this_day_game_next">پرسیاری دواتر</string>
   <string name="on_this_day_game_finish">ئەنجامی کۆتایی</string>
-  <string name="on_this_day_game_share">لەگەڵ ھاوڕێیان بەشی بکە</string>
   <string name="on_this_day_game_pause_positive">تێگەیشتم</string>
   <string name="on_this_day_game_your_stats">ئامارەکانت</string>
   <string name="on_this_day_game_article_read_button">وتارەکە بخوێنەوە</string>

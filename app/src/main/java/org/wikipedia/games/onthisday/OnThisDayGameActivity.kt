@@ -155,6 +155,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             windowInsets
         }
 
+        binding.infoIcon.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
+        }
+
+        binding.scoreView.generateViews(OnThisDayGameViewModel.MAX_QUESTIONS)
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
@@ -282,8 +288,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
-        binding.progressText.isVisible = false
-        binding.scoreText.isVisible = false
+        binding.infoIcon.isVisible = false
+        binding.scoreView.isVisible = false
         binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
         binding.progressBar.isVisible = true
@@ -291,8 +297,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun updateOnError(t: Throwable) {
         binding.progressBar.isVisible = false
-        binding.progressText.isVisible = false
-        binding.scoreText.isVisible = false
+        binding.infoIcon.isVisible = false
+        binding.scoreView.isVisible = false
         binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
         binding.errorView.isVisible = true
@@ -303,8 +309,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
-        binding.progressText.isVisible = true
-        binding.scoreText.isVisible = true
+        binding.infoIcon.isVisible = true
+        binding.scoreView.isVisible = true
         binding.dateText.isVisible = true
         binding.questionDate1.isVisible = false
         binding.questionDate2.isVisible = false
@@ -315,8 +321,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.dateText.text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
         }
 
-        binding.progressText.text = getString(R.string.on_this_day_game_progress, gameState.currentQuestionIndex + 1, gameState.totalQuestions)
-        binding.scoreText.text = getString(R.string.on_this_day_game_score, gameState.answerState.count { it })
+        binding.scoreView.updateScore(gameState.answerState, gameState.currentQuestionIndex, gameState.currentQuestionState.goToNext)
 
         val event1 = gameState.currentQuestionState.event1
         val event2 = gameState.currentQuestionState.event2
@@ -371,9 +376,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         if (isOnboardingFragmentVisible()) {
             binding.dateText.isVisible = false
-            binding.progressText.isVisible = false
+            binding.infoIcon.isVisible = false
             return
         }
+        binding.scoreView.updateInitialScores(gameState.answerState, gameState.currentQuestionIndex)
         updateGameState(gameState)
     }
 
@@ -385,7 +391,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         updateGameState(gameState)
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
-        hideViewsNotRequiredWhenGameEnds()
+        binding.infoIcon.isVisible = false
+        binding.scoreView.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
 
         playSound("sound_logo")
 
@@ -400,6 +408,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             return
         }
 
+        binding.scoreView.updateInitialScores(gameState.answerState, gameState.currentQuestionIndex)
         if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
             animateQuestionsOut {
                 updateGameState(gameState)
@@ -515,17 +524,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.nextQuestionText.isVisible = true
     }
 
-    fun hideViewsNotRequiredWhenGameEnds() {
-        binding.progressText.isVisible = false
-        binding.scoreText.isVisible = false
-        binding.currentQuestionContainer.isVisible = false
-    }
-
     fun animateQuestionsIn() {
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
         binding.dateText.isVisible = true
-        binding.progressText.isVisible = true
-
+        binding.infoIcon.isVisible = true
         binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
