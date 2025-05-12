@@ -23,7 +23,6 @@ import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.time.Instant
@@ -402,6 +401,14 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
-        val LANG_CODES_SUPPORTED = if (ReleaseUtil.isPreBetaRelease) listOf("en", "de") else listOf("de")
+        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
+
+        fun isLangSupported(lang: String): Boolean {
+            return LANG_CODES_SUPPORTED.contains(lang)
+        }
+
+        fun dateReleasedForLang(lang: String): LocalDate {
+            return if (lang == "de") LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
+        }
     }
 }
