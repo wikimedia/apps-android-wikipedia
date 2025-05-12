@@ -379,7 +379,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             binding.infoIcon.isVisible = false
             return
         }
-        binding.scoreView.updateInitialScores(gameState.answerState, gameState.currentQuestionIndex)
+        updateInitialScores(gameState)
         updateGameState(gameState)
     }
 
@@ -391,9 +391,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         updateGameState(gameState)
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
-        binding.infoIcon.isVisible = false
-        binding.scoreView.isVisible = false
-        binding.currentQuestionContainer.isVisible = false
+        hideViewsNotRequiredWhenGameEnds()
 
         playSound("sound_logo")
 
@@ -407,8 +405,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         if (isOnboardingFragmentVisible()) {
             return
         }
-
-        binding.scoreView.updateInitialScores(gameState.answerState, gameState.currentQuestionIndex)
+        updateInitialScores(gameState)
         if (gameState.currentQuestionIndex > 0 && binding.questionText1.text.isNotEmpty()) {
             animateQuestionsOut {
                 updateGameState(gameState)
@@ -524,6 +521,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.nextQuestionText.isVisible = true
     }
 
+    fun updateInitialScores(gameState: OnThisDayGameViewModel.GameState) {
+        binding.scoreView.updateInitialScores(gameState.answerState, gameState.currentQuestionIndex)
+    }
+
     fun animateQuestionsIn() {
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
         binding.dateText.isVisible = true
@@ -631,6 +632,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         } catch (e: Exception) {
             L.e(e)
         }
+    }
+
+    fun hideViewsNotRequiredWhenGameEnds() {
+        binding.infoIcon.isVisible = false
+        binding.scoreView.isVisible = false
+        binding.currentQuestionContainer.isVisible = false
     }
 
     companion object {

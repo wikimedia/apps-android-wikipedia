@@ -117,7 +117,6 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
-                requireActivity().supportFragmentManager.popBackStack()
                 startGame(state)
             }
 
@@ -150,6 +149,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
         requireActivity().supportFragmentManager.popBackStack()
         getGameActivity()?.apply {
+            updateInitialScores(state)
             updateGameState(state)
             animateQuestionsIn()
         }
