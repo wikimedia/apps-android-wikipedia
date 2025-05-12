@@ -187,14 +187,13 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
-            menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
-        }
+        menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
         return true
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         val notificationItem = menu.findItem(R.id.menu_notifications)
+        notificationItem?.isVisible = false
         notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
         return super.onPrepareOptionsMenu(menu)
     }

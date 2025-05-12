@@ -4,12 +4,18 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -42,6 +48,8 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
+import androidx.core.view.size
+import androidx.lifecycle.Lifecycle
 
 class OnThisDayGameOnboardingFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -81,6 +89,21 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider{
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {}
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return false
+            }
+
+            override fun onPrepareMenu(menu: Menu) {
+                super.onPrepareMenu(menu)
+                for (i in 0 until menu.size) {
+                    menu[i].isVisible = false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
         observeGameState()
     }
