@@ -2,7 +2,11 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -13,19 +17,23 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
-        fun onClick(readingList: ReadingList)
-        fun onRename(readingList: ReadingList)
-        fun onDelete(readingList: ReadingList)
-        fun onSaveAllOffline(readingList: ReadingList)
-        fun onRemoveAllOffline(readingList: ReadingList)
-        fun onSelectList(readingList: ReadingList)
-        fun onChecked(readingList: ReadingList)
-        fun onShare(readingList: ReadingList)
+        fun onClick(readingList: ReadingList) {}
+        fun onRename(readingList: ReadingList) {}
+        fun onDelete(readingList: ReadingList) {}
+        fun onSaveAllOffline(readingList: ReadingList) {}
+        fun onRemoveAllOffline(readingList: ReadingList) {}
+        fun onSelectList(readingList: ReadingList) {}
+        fun onChecked(readingList: ReadingList) {}
+        fun onShare(readingList: ReadingList) {}
     }
 
     enum class Description {

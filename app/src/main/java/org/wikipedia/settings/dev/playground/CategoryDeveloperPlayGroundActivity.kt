@@ -55,8 +55,8 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.extensions.toYear
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
 
 class CategoryDeveloperPlayGround : BaseActivity() {
@@ -669,7 +669,7 @@ fun CategoryTable(
                         modifier = Modifier.weight(0.3f)
                     )
                     Text(
-                        text = category.timeStamp.time.toYear().toString(),
+                        text = DateUtil.epochMilliToYear(category.timeStamp.time).toString(),
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.weight(0.3f)
                     )

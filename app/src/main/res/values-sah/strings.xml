@@ -219,8 +219,8 @@
   <string name="privacy_policy_description">Бүк охсунуу</string>
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
   <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
@@ -452,8 +452,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
-  <string name="reading_lists_sync_reminder_text">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_login_reminder_text">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ.</string>
@@ -630,7 +630,7 @@
   <string name="description_edit_help_title">Көмө: ыстатыйалар тустарынан суруйуу</string>
   <string name="description_edit_help_about_wikidata">Биики-Билии туһунан</string>
   <string name="description_edit_help_wikidata_guide">Биики-Билиигэ ойуулааһыны оҥоруу туһунан ыйыы-кэрдии</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ойуулааһыны уларытыыга болҕомтоҥ иһин махтанабыт! Салгыы уларытарга Бикипиэдьийэҕэ бэлиэ-ааккынан киириэхтээххин.</string>
   <string name="description_edit_license_notice">Бигэргэттэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="description_edit_helper_text_lowercase_warning">үксүн кыраа буукубаттан суруллар</string>
