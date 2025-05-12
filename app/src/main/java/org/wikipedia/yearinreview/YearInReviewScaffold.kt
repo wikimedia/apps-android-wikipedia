@@ -159,7 +159,18 @@ fun MainBottomBar(
                             .clickable(onClick = { /* TODO() */ })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
-                            .align(Alignment.CenterStart),
+                            .align(Alignment.CenterStart)
+                            .clickable(onClick = {
+                                EventPlatformClient.submit(
+                                    BreadCrumbLogEvent(
+                                        screen_name = "year_in_review",
+                                        action = "donate_click")
+                                )
+                                DonorExperienceEvent.logAction(
+                                    action = "donate_start_click_yir",
+                                    activeInterface = "wiki_yir"
+                                )
+                            }),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
