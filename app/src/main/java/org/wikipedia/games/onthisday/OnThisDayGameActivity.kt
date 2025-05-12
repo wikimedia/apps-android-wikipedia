@@ -156,7 +156,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
 
@@ -181,7 +181,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
+        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded && !isGameFinalFragmentVisible()) {
             menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
         }
         return true
@@ -230,6 +230,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     override fun onBackPressed() {
         WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
+        if (isGameFinalFragmentVisible()) {
+            binding.dateText.isVisible = false
+            supportFragmentManager.popBackStack()
+            supportInvalidateOptionsMenu()
+            return
+        }
         if (viewModel.gameState.value !is Resource.Loading &&
             !isOnboardingFragmentVisible() &&
             viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
@@ -242,6 +248,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun isOnboardingFragmentVisible(): Boolean {
         return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameOnboardingFragment
+    }
+
+    private fun isGameFinalFragmentVisible(): Boolean {
+        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameFinalFragment
     }
 
     private fun onFinish() {
@@ -365,10 +375,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
+        if (isOnboardingFragmentVisible()) {
+            binding.dateText.isVisible = false
+            binding.progressText.isVisible = false
+            return
+        }
         updateGameState(gameState)
-
-        binding.dateText.isVisible = false
-        binding.progressText.isVisible = false
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {

@@ -775,6 +775,10 @@ object Prefs {
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
 
     var isArchiveGamePlaying: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_archive_game_playing, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_archive_game_playing, value)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_is_archive_game_playing, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_is_archive_game_playing, value)
+
+    var lastActiveDate: String
+        get() = PrefsIoUtil.getString(R.string.pref_key_otd_last_active_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.pref_key_otd_last_active_date, value)
 }

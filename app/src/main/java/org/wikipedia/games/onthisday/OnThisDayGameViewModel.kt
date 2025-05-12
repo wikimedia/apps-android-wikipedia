@@ -32,6 +32,7 @@ import java.time.LocalDate
 import java.time.Year
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import kotlin.math.abs
 import kotlin.math.max
@@ -63,6 +64,29 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun loadGameState() {
+        if (Prefs.isArchiveGamePlaying) {
+            val dateRightNow = LocalDate.now()
+            val lastActiveDate = try {
+                    LocalDate.parse(Prefs.lastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
+                } catch (e: Exception) {
+                    dateRightNow
+                }
+            Prefs.lastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
+
+            // If user returns on a different day than when they were last active
+            if (dateRightNow.isAfter(lastActiveDate)) {
+                // Reset to current day's game
+                Prefs.lastOtdGameDateOverride = ""
+                Prefs.lastActiveDate = ""
+                Prefs.isArchiveGamePlaying = false
+
+                // Restart with current day's game
+                currentDate = LocalDate.now()
+            }
+        } else {
+            Prefs.lastActiveDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+        }
+
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _gameState.postValue(Resource.Error(throwable))
@@ -131,7 +155,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 month = currentMonth,
                 day = currentDay
             )
-
+            // for case when user finishes today's game and finishes archive game shows today's game result
             if (isTodayGamePlayed != null) {
                 currentState = currentState.copy(
                     answerState = JsonUtil.decodeFromString<List<Boolean>>(isTodayGamePlayed.gameData) ?: listOf()
@@ -146,10 +170,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 // we're already done for today.
 
                 _gameState.postValue(GameEnded(currentState, getGameStatistics()))
-            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
-                // we're coming back from a previous day's game (whether it was finished or not), so start a new day's game.
-                currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
-                _gameState.postValue(GameStarted(currentState))
             } else {
                 // we're in the middle of a game.
                 if (currentState.currentQuestionState.goToNext) {
@@ -437,5 +457,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         const val EXTRA_DATE = "date"
 
         val LANG_CODES_SUPPORTED = if (ReleaseUtil.isPreBetaRelease) listOf("en", "de") else listOf("de")
+        // HARDCODED start date for each supported language
+        val START_DATE_BASED_ON_LANG = LANG_CODES_SUPPORTED.associateWith { langCode ->
+            when (langCode) {
+                "en" -> LocalDate.of(2025, 1, 15)
+                "de" -> LocalDate.of(2024, 2, 10)
+                else -> LocalDate.now()
+            }
+        }
     }
 }

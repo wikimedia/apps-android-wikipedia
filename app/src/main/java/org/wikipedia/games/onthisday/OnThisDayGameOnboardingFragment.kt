@@ -31,11 +31,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.START_DATE_BASED_ON_LANG
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
@@ -94,13 +96,21 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun handleGameStarted(state: OnThisDayGameViewModel.GameState) {
-        binding.playGameButton.setOnClickListener {
-            WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
-            requireActivity().supportFragmentManager.popBackStack()
-            (requireActivity() as? OnThisDayGameActivity)?.updateGameState(state)
-            (requireActivity() as? OnThisDayGameActivity)?.animateQuestionsIn()
+        with(binding) {
+            playGameButton.setOnClickListener {
+                WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+                requireActivity().supportFragmentManager.popBackStack()
+                getGameActivity()?.apply {
+                    updateGameState(state)
+                    animateQuestionsIn()
+                }
+            }
+            // @TODO: remove after confirming
+//            playArchiveButton.isVisible = true
+//            playArchiveButton.setOnClickListener {
+//                prepareAndOpenArchiveCalendar(state)
+//            }
         }
-        binding.playArchiveButton.isVisible = false
     }
 
     private fun handleCurrentQuestion(state: OnThisDayGameViewModel.GameState) {
@@ -112,12 +122,13 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
+                requireActivity().supportFragmentManager.popBackStack()
                 startGame(state)
             }
 
             if (Prefs.isArchiveGamePlaying) {
-                binding.playArchiveButton.isVisible = true
-                binding.playArchiveButton.setOnClickListener {
+                playArchiveButton.isVisible = true
+                playArchiveButton.setOnClickListener {
                     prepareAndOpenArchiveCalendar(state)
                 }
             }
@@ -155,7 +166,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         }
 
         requireActivity().supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
     }
@@ -167,7 +178,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
         lifecycleScope.launch {
             val scoreData = viewModel.getDataForArchiveCalendar(language = WikipediaApp.instance.wikiSite.languageCode)
-            val startDate = viewModel.getFirstPlayDate(language = WikipediaApp.instance.wikiSite.languageCode)
+            val localDate = START_DATE_BASED_ON_LANG[WikipediaApp.instance.wikiSite.languageCode]
+            val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             this@OnThisDayGameOnboardingFragment.scoreData = scoreData
             showArchiveCalendar(startDate, Date(), scoreData, state)
         }
@@ -238,8 +250,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         binding.gameMessageText.text = "Guess which event came first on this day in history."
         binding.playGameButton.text = "Play"
         binding.playGameButton.setOnClickListener {
-            Prefs.lastOtdGameDateOverride = viewModel.currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
             Prefs.isArchiveGamePlaying = true
+            Prefs.lastOtdGameDateOverride = viewModel.currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
             WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
             viewModel.loadGameState()
             requireActivity().supportFragmentManager.popBackStack()
