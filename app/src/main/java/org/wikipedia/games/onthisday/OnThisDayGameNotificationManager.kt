@@ -114,7 +114,7 @@ object OnThisDayGameNotificationManager {
 
     fun showNotification(context: Context) {
         if (WikipediaApp.instance.currentResumedActivity !is OnThisDayGameActivity &&
-            OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) {
             NotificationPresenter.showNotification(
                 context = context,
                 builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
