@@ -291,18 +291,18 @@
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Contributori</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
@@ -628,8 +628,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
   <string name="reading_lists_sync_reminder_title">Attiva la sincronizzazione degli elenchi di lettura?</string>
-  <string name="reading_lists_sync_reminder_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_login_reminder_text">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati.</string>
@@ -928,7 +928,7 @@
   <string name="description_edit_help_title">Informazioni: descrizioni della voce</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
   <string name="description_edit_license_notice">Modificando la descrizione della voce, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
@@ -1749,7 +1749,6 @@
   <string name="on_this_day_game_point">+1 punto</string>
   <string name="on_this_day_game_next">Domanda successiva</string>
   <string name="on_this_day_game_finish">Risultato finale</string>
-  <string name="on_this_day_game_share">Condividi con gli amici</string>
   <string name="on_this_day_game_pause_title">Mettere in pausa il gioco?</string>
   <string name="on_this_day_game_pause_body">I tuoi progressi saranno salvati per la giornata. Puoi trovare il gioco nel tuo feed Esplora.</string>
   <string name="on_this_day_game_pause_negative">Continua a giocare</string>

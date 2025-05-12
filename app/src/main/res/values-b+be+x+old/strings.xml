@@ -353,7 +353,7 @@
   </plurals>
   <string name="reading_list_name_hint">Назва гэтага сьпісу</string>
   <string name="reading_list_description_hint">Апісаньне (неабавязкова)</string>
-  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў сьпісы чытаньня, цяпер можна сынхранізаваць з вашым уліковым запісам Вікіпэдыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведацца болей&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Артыкулы, захаваныя ў сьпісы чытаньня, цяпер можна сынхранізаваць з вашым уліковым запісам Вікіпэдыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведацца болей&lt;/a&gt;</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увайсьці</string>
   <string name="reading_list_saved_list_rename">%1$s (створана ўдзельнікам)</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добра</string>
