@@ -228,8 +228,8 @@
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อกำหนดการใช้งาน</string>
   <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
@@ -237,7 +237,7 @@
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
   <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
@@ -488,8 +488,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">บทความปรากฏในหลายแท็บ</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
   <string name="reading_lists_sync_reminder_title">เปิดการซิงค์รายการอ่านหรือไม่</string>
-  <string name="reading_lists_sync_reminder_text">คุณสามารถซิงค์บทความที่บันทึกลงในรายการอ่านกับบัญชีวิกิพีเดียของคุณได้แล้วตอนนี้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">คุณสามารถซิงค์บทความที่บันทึกลงในรายการอ่านกับบัญชีวิกิพีเดียของคุณได้แล้วตอนนี้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;เรียนรู้เพิ่มเติม&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">เปิดใช้งานการซิงค์</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_lists_login_reminder_text">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้</string>

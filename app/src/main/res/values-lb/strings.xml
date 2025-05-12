@@ -231,12 +231,12 @@
   <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
@@ -361,7 +361,9 @@
   <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
+  <string name="preference_title_customize_explore_feed">Entdecke-Feed</string>
   <string name="preference_title_show_link_previews">Weisen, wéi de Link ausgesi wäert</string>
+  <string name="preference_summary_customize_explore_feed">Den Entdecke-Feed personaliséieren</string>
   <string name="preference_summary_show_link_previews">Kuerz weisen, wéi den Artikel ausgesäit, wann een op d\'Linken tippt.</string>
   <string name="preference_title_collapse_tables">Tabellen zesummeklappen</string>
   <string name="preference_summary_collapse_tables">Automatesch Tabelle wéi Infoboxen, Referenzen an Notten an Artikelen zesummeklappen.</string>
@@ -689,6 +691,8 @@
   <string name="preference_summary_notification_email_user">Et huet een Iech eng E-Mail iwwer d\'Wiki geschéckt</string>
   <string name="preference_title_notification_user_rights">Ännerunge vun de Benotzerrechter</string>
   <string name="preference_title_notification_article_linked">Linken op Artikelen, déi Dir ugeluecht hutt</string>
+  <string name="preference_category_push_notifications">Push-Notifikatiounen</string>
+  <string name="preference_title_customize_push_notifications">Push-Notifikatioune personaliséieren</string>
   <string name="preference_title_hide_read_notifications">Notifikatioune verstoppen</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikatioune vu Wikipedia</string>
@@ -750,7 +754,7 @@
   <string name="view_continue_reading_card_subtitle_today">haut</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
-  <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
+  <string name="view_offline_card_text">Et ka keen Inhalt geluede ginn, wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="feed_configure_activity_title">De Feed upassen</string>
@@ -759,11 +763,13 @@
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
-  <string name="feed_item_type_suggested_edits">Virschléi fir Inhalter op Wikipedia derbäizesetzen</string>
+  <string name="feed_item_type_suggested_edits">Virschléi fir Inhalt op Wikipedia derbäizesetzen</string>
   <string name="feed_item_type_places">Artikelen an der Géigend baséiert op dem aktuelle Standuert</string>
+  <string name="feed_empty_message">Et gëtt näischt an Ärem Entdecke-Feed</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliséiert Ären Entdecke-Feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Dir kënnt elo eraussichen, wat Dir an Ärem Feed gesi wëllt, an och Är Liblingsinhalter prioriséieren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
@@ -791,7 +797,7 @@
   <string name="description_edit_help_title">Info: Artikelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-Guide fir d\'Schreiwe vu Beschreiwungen</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Artikelbeschreiwung z\'änneren! Fir méi Ännerungen ze maache loggt Iech wgl. mat Ärem Wikipedia-Benotzerkont an.</string>
   <string name="description_edit_helper_text_lowercase_warning">fänkt normalerweis mat engem klenge Buschtaf un</string>
   <string name="description_edit_voice_input_description">Sprooch Input</string>
@@ -991,7 +997,7 @@
     <item quantity="other">Dir hutt %d Zeechen dobäigesat</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Artikelbiller</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Setzt a Wikipedia-Artikelen virgeschloe Biller derbäi fir d\'Verständnis ze verbesseren.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Setzt virgeschloe Biller a Wikipedia-Artikelen derbäi fir d\'Verständnis ze verbesseren.</string>
   <string name="image_recommendation_task_instruction">Géift Dir dëst Bild an den Artikel derbäisetzen?</string>
   <string name="image_recommendation_tutorial">Uleedung</string>
   <string name="image_recommendation_accept">Jo</string>
@@ -1014,6 +1020,7 @@
   <string name="image_recommendation_tooltip_3">Entscheet, ob d\'Bild dem Lieser dobäi hëlleft d\'Theema besser ze verstoen</string>
   <string name="image_recommendation_tooltip_next">Nächst</string>
   <string name="image_recommendation_tooltip_warning">Liest Iech wgl. den Artikel duerch, fir d\'Theema ze verstoen, a kuckt Iech d\'Bild un</string>
+  <string name="image_recommendation_depleted">Et deet eis Leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zréckkommen.</string>
   <string name="suggested_edits_report_feature">Problem mat der Funktioun</string>
   <string name="suggested_edits_report_feature_subject">Problem mat den Ännerungsvirschléi</string>
   <string name="edit_summary_added_image">Bild derbäigesat</string>
@@ -1499,7 +1506,7 @@
   <string name="on_this_day_game_entry_dialog_title">Mir presentéieren</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiller</string>
   <string name="on_this_day_game_entry_dialog_button">Spillt d\'Spill vun haut</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiller sinn iwwer den Entdecken-Feed ze fannen.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiller sinn iwwer den Entdecke-Feed ze fannen.</string>
   <string name="on_this_day_game_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_dialog_button">Spillen</string>
   <string name="on_this_day_game_splash_message">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
@@ -1510,9 +1517,8 @@
   <string name="on_this_day_game_point">+ 1 Punkt</string>
   <string name="on_this_day_game_next">Nächst Fro</string>
   <string name="on_this_day_game_finish">Endresultat</string>
-  <string name="on_this_day_game_share">Mat Kolleegen deelen</string>
   <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
-  <string name="on_this_day_game_pause_body">Äre Fortschrëtt gëtt fir den Dag gespäichert. Dir kënnt d\'Spill an Ärem Entdecken-Feed fannen.</string>
+  <string name="on_this_day_game_pause_body">Äre Fortschrëtt gëtt fir den Dag gespäichert. Dir kënnt d\'Spill an Ärem Entdecke-Feed fannen.</string>
   <string name="on_this_day_game_pause_negative">Weiderspillen</string>
   <string name="on_this_day_game_pause_positive">Verstanen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiller</string>
@@ -1528,7 +1534,7 @@
   <string name="on_this_day_game_stats_average_score">Punktenduerchschnëtt</string>
   <string name="on_this_day_game_stats_streak">Aktuelle Laf</string>
   <string name="on_this_day_game_result_subtitle">Artikelen, déi am Spill vun haut referenzéiert goufen</string>
-  <string name="on_this_day_game_completed_message">Merci fir d\'Spillen. Dir fannt all Dag en neit Spill vu „Wat koum als éischt?“ am Entdecken-Feed.</string>
+  <string name="on_this_day_game_completed_message">Merci fir d\'Spillen. Dir fannt all Dag en neit Spill vu „Wat koum als éischt?“ am Entdecke-Feed.</string>
   <string name="on_this_day_game_menu_notifications">Spillnotifikatiounen</string>
   <string name="on_this_day_game_menu_info">Méi gewuer ginn</string>
   <string name="on_this_day_game_menu_feedback">Problem mat der Funktioun</string>
