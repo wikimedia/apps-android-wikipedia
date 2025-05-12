@@ -117,7 +117,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             override fun onSuccess(text: String, description: String) {
                 addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
             }
-            override fun onCancel() { }
         }).show()
     }
 
