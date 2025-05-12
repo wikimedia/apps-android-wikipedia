@@ -58,6 +58,9 @@ import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.WikipediaTheme
 import kotlin.math.absoluteValue
 
