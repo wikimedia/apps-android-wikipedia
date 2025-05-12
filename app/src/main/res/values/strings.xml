@@ -1894,8 +1894,8 @@
     <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Never mind</string>
     <string name="recommended_reading_list_page_subtitle_made_for">Made for %s</string>
     <plurals name="recommended_reading_list_page_subtitle_articles">
-        <item quantity="one">· %d article</item>
-        <item quantity="other">· %d articles</item>
+        <item quantity="one">• %d article</item>
+        <item quantity="other">• %d articles</item>
     </plurals>
     <string name="recommended_reading_list_page_description_daily">Your daily reading list. Learn about new topics,  picked just for you. Updates at midnight.</string>
     <string name="recommended_reading_list_page_description_weekly">Your weekly reading list. Learn about new topics, picked just for you. Updates every Monday.</string>
@@ -1903,6 +1903,8 @@
     <string name="recommended_reading_list_page_overflow_save_list">Save list</string>
     <string name="recommended_reading_list_page_overflow_customize">Customize</string>
     <string name="recommended_reading_list_page_overflow_about">About this feature</string>
+    <string name="recommended_reading_list_page_snackbar">Discover will update with five new articles each %s. Your recommendations are stored locally on your device.</string>
+    <string name="recommended_reading_list_page_snackbar_action">Customize Discover</string>
     <string name="recommended_reading_list_settings_title">Discover settings</string>
     <string name="recommended_reading_list_settings_toggle">Discover reading list</string>
     <string name="recommended_reading_list_settings_toggle_disable_message">Discover is off. Wikipedia won\'t recommend you articles to read.</string>
@@ -1943,4 +1945,6 @@
     <string name="recommended_reading_list_settings_notifications_snackbar_disable">You will no longer receive a notification when Discover is updated.</string>
     <string name="recommended_reading_list_settings_notifications_snackbar_action">Undo</string>
     <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
+    <string name="recommended_reading_list_notification_subtitle">Including articles on %s, and more.</string>
+    <string name="recommended_reading_list_notification_subtitle_few">Tap to see your latest recommendations.</string>
 </resources>
