@@ -242,16 +242,16 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
@@ -576,8 +576,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Articulo appare in plure listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Activar le synchronisation de listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lege plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lege plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchronisar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
@@ -881,8 +881,6 @@
   <string name="description_edit_voice_input_description">Entrata vocal</string>
   <string name="description_edit_learn_more">Leger plus sur le descriptiones de articulos</string>
   <string name="description_edit_image_caption_learn_more">Leger plus sur le legendas de imagines</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Le texto es troppo curte.</string>
   <string name="description_too_long">Tenta mantener le descriptiones curte de maniera que le usatores pote comprender le subjecto del articulo a prime vista</string>
   <string name="description_ends_with_punctuation">Le texto non debe terminar per un signo de punctuation.</string>
@@ -1696,7 +1694,6 @@
   <string name="on_this_day_game_point">+1 puncto</string>
   <string name="on_this_day_game_next">Proxime question</string>
   <string name="on_this_day_game_finish">Resultatos final</string>
-  <string name="on_this_day_game_share">Condivider con amicos</string>
   <string name="on_this_day_game_pause_title">Pausar le joco?</string>
   <string name="on_this_day_game_pause_body">Tu progresso essera salveguardate pro le die. Tu pote retrovar le joco sur tu fluxo Explorar.</string>
   <string name="on_this_day_game_pause_negative">Continuar a jocar</string>

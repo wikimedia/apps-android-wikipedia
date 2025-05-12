@@ -312,24 +312,25 @@
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
-  <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
-  <string name="about_contributors">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
   <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
+  <string name="about_logo_content_description">维基百科拼图地球标志</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -644,8 +645,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再对所有阅读列表都可离线使用：</string>
   <string name="reading_lists_sync_reminder_title">开启阅读列表同步功能？</string>
-  <string name="reading_lists_sync_reminder_text">保存到阅读列表的条目现在可以同步到您的维基百科账号。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">阅读列表现在可以跨设备同步。登录您的维基百科账号以保存您的列表。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">保存到阅读列表的条目现在可以同步到您的维基百科账号。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">阅读列表现在可以跨设备同步。登录您的维基百科账号以保存您的列表。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">启用同步</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
   <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账号以保存您的列表。</string>
@@ -941,15 +942,13 @@
   <string name="description_edit_help_title">帮助：条目描述</string>
   <string name="description_edit_help_about_wikidata">关于维基数据</string>
   <string name="description_edit_help_wikidata_guide">维基数据编写描述的指南</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感谢您一直以来对编辑条目描述的关注！要进行其他编辑，请登录您的维基百科账号。</string>
   <string name="description_edit_license_notice">一旦修改条目描述，即表示我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并按照&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小写字母开头</string>
   <string name="description_edit_voice_input_description">语音输入</string>
   <string name="description_edit_learn_more">了解有关条目描述的更多信息</string>
   <string name="description_edit_image_caption_learn_more">了解有关图像说明的更多信息</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文本过短。</string>
   <string name="description_too_long">请尽量保持描述简短，使条目的主题一目了然</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
@@ -1746,5 +1745,4 @@
   <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
-  <string name="about_logo_content_description">维基百科拼图地球标志</string>
 </resources>

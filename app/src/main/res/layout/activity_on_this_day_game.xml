@@ -24,15 +24,14 @@
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp">
 
-            <TextView
-                android:id="@+id/progressText"
+            <ImageView
+                android:id="@+id/infoIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/baseline_info_24"
                 android:layout_gravity="center_vertical|end"
-                style="@style/P"
-                android:text="@string/on_this_day_game_progress"
                 android:layout_marginEnd="16dp"
-                android:textColor="?attr/paper_color"/>
+                app:tint="?attr/paper_color" />
 
             <TextView
                 android:id="@+id/dateText"
@@ -268,15 +267,12 @@
             android:animateLayoutChanges="true"
             android:background="?attr/progressive_color">
 
-            <TextView
-                android:id="@+id/scoreText"
+            <org.wikipedia.games.onthisday.ScoreView
+                android:id="@+id/scoreView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginVertical="20dp"
-                style="@style/P"
-                android:text="@string/on_this_day_game_score"
-                android:textColor="?attr/paper_color"/>
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:id="@+id/nextQuestionText"

@@ -267,17 +267,17 @@
   <string name="terms_of_use_description">Condicions d’ús</string>
   <string name="about_wikipedia_url">https://ca.wikipedia.org/wiki/Viquipèdia:Quant_a_la_Viquipèdia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ca</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ca</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ca</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags/ca</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ca</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags/ca</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
@@ -576,8 +576,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Voleu activar la sincronització de les llistes de lectura?</string>
-  <string name="reading_lists_sync_reminder_text">Els articles que es desen a les llistes de lectura ara poden sincronitzar-se amb el vostre compte de Viquipèdia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ara és possible sincronitzar les llistes de lectura amb diferents dispositius. Entreu al vostre compte de la Viquipèdia i permeteu que s’hi desin les vostres llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Els articles que es desen a les llistes de lectura ara poden sincronitzar-se amb el vostre compte de Viquipèdia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ara és possible sincronitzar les llistes de lectura amb diferents dispositius. Entreu al vostre compte de la Viquipèdia i permeteu que s’hi desin les vostres llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Més informació&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Habilita la sincronització</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
   <string name="reading_lists_login_reminder_text">Les llistes de lectura poden sincronitzar-se entre dispositius. Inicieu una sessió amb el vostre compte de Viquipèdia i permeteu desar les llistes.</string>
@@ -870,15 +870,13 @@
   <string name="description_edit_help_title">Ajuda: descripcions d\'article</string>
   <string name="description_edit_help_about_wikidata">Quant a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guia de Wikidata per a escriure descripcions</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
   <string name="description_edit_license_notice">En canviar la descripció de l\'article, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalment comença amb una lletra en minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de veu</string>
   <string name="description_edit_learn_more">Quant a les descripcions dels articles</string>
   <string name="description_edit_image_caption_learn_more">Quant a les llegendes de les imatges</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>

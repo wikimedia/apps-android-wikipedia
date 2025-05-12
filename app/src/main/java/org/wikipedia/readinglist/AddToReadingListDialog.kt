@@ -157,17 +157,9 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(readingList: ReadingList) {
             addAndDismiss(readingList, titles)
         }
-
-        override fun onRename(readingList: ReadingList) {}
-        override fun onDelete(readingList: ReadingList) {}
-        override fun onSaveAllOffline(readingList: ReadingList) {}
-        override fun onRemoveAllOffline(readingList: ReadingList) {}
-        override fun onSelectList(readingList: ReadingList) {}
-        override fun onChecked(readingList: ReadingList) {}
-        override fun onShare(readingList: ReadingList) {}
     }
 
-    private class ReadingListItemHolder constructor(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {
+    private class ReadingListItemHolder(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(readingList: ReadingList) {
             (itemView as ReadingListItemView).setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
         }

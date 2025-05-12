@@ -188,8 +188,8 @@
   <string name="privacy_policy_description">კონფიდენციალურობაშ პოლიტიკა</string>
   <string name="terms_of_use_description">გჷმორინაფაშ წესეფი</string>
   <string name="about_wikipedia_url">https://xmf.wikipedia.org/wiki/ვიკიპედია:შენი</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf#ოფლაინს_კითხირი_დო_მუნაჩემეფი</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf#ოფლაინს_კითხირი_დო_მუნაჩემეფი</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">გჷმორინაფილი ბიბლიოთეკეფი</string>
   <string name="about_contributors_heading">ავტორეფი</string>

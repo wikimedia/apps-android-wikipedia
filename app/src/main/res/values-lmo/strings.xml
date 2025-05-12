@@ -222,14 +222,14 @@
   <string name="privacy_policy_description">Politega de la \'\'riservatezza\'\'</string>
   <string name="terms_of_use_description">Condizzion de utilizazzion</string>
   <string name="about_wikipedia_url">https://lmo.wikipedia.org/wiki/Wikipedia:A proposit de wikipedia</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Jut:Come_registràss</string>
   <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie doprade</string>
   <string name="about_contributors_heading">Contributor</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del grup&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del grup&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
