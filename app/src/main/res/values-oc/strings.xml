@@ -304,7 +304,7 @@
   <string name="description_edit_help_title" fuzzy="true">Ajuda : descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_too_short">Lo tèxt es tròp cort.</string>
   <string name="description_starts_with_article" fuzzy="true">Comencetz pas los articles amb « a » o « lo ».</string>
   <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
