@@ -105,18 +105,13 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                     animateQuestionsIn()
                 }
             }
-            // @TODO: remove after confirming
-//            playArchiveButton.isVisible = true
-//            playArchiveButton.setOnClickListener {
-//                prepareAndOpenArchiveCalendar(state)
-//            }
         }
     }
 
     private fun handleCurrentQuestion(state: OnThisDayGameViewModel.GameState) {
         with(binding) {
             val questionIndex = state.currentQuestionIndex + 1
-            gameMessageText.text = "You're on question $questionIndex."
+            gameMessageText.text = "You're on question $questionIndex." // @TODO: replace with string resource
 
             val playGameButtonText = if (Prefs.isArchiveGamePlaying) "Continue playing" else "Continue today's game"
             playGameButton.text = playGameButtonText
@@ -138,6 +133,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun handleGameEnded(state: OnThisDayGameViewModel.GameState) {
         with(binding) {
             val score = state.answerState.count { it }
+            // @TODO: replace with string resource
             binding.gameMessageText.text = "You scored $score/${state.totalQuestions} on today's game."
             playGameButton.text = "Review results"
             playGameButton.setOnClickListener {
@@ -167,7 +163,6 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
-            .addToBackStack(null)
             .commit()
     }
 
@@ -247,10 +242,12 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun startArchiveGamePlayMode(year: Int, month: Int, day: Int, state: OnThisDayGameViewModel.GameState) {
         viewModel.currentDate = LocalDate.of(year, month + 1, day)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        // @TODO: replace with string resource
         binding.gameMessageText.text = "Guess which event came first on this day in history."
         binding.playGameButton.text = "Play"
         binding.playGameButton.setOnClickListener {
             Prefs.isArchiveGamePlaying = true
+            Prefs.otdGameState = ""
             Prefs.lastOtdGameDateOverride = viewModel.currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
             WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
             viewModel.loadGameState()

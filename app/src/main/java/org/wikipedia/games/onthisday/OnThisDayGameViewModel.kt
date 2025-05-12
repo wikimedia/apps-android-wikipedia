@@ -78,6 +78,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 // Reset to current day's game
                 Prefs.lastOtdGameDateOverride = ""
                 Prefs.lastActiveDate = ""
+                Prefs.otdGameState = ""
                 Prefs.isArchiveGamePlaying = false
 
                 // Restart with current day's game
@@ -168,7 +169,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
-
                 _gameState.postValue(GameEnded(currentState, getGameStatistics()))
             } else {
                 // we're in the middle of a game.
@@ -460,8 +460,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         // HARDCODED start date for each supported language
         val START_DATE_BASED_ON_LANG = LANG_CODES_SUPPORTED.associateWith { langCode ->
             when (langCode) {
-                "en" -> LocalDate.of(2025, 1, 15)
-                "de" -> LocalDate.of(2024, 2, 10)
+                // @TODO: replace 1, 21 with May 21 before release
+                "en" -> LocalDate.of(2025, 1, 21)
+                "de" -> LocalDate.of(2025, 2, 21)
                 else -> LocalDate.now()
             }
         }

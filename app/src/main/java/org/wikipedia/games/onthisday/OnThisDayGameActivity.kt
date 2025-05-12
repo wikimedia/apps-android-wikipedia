@@ -181,7 +181,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded && !isGameFinalFragmentVisible()) {
+        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
             menuInflater.inflate(R.menu.menu_on_this_day_game, menu)
         }
         return true
@@ -230,28 +230,19 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     override fun onBackPressed() {
         WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
-        if (isGameFinalFragmentVisible()) {
-            binding.dateText.isVisible = false
-            supportFragmentManager.popBackStack()
-            supportInvalidateOptionsMenu()
-            return
-        }
         if (viewModel.gameState.value !is Resource.Loading &&
             !isOnboardingFragmentVisible() &&
             viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
         }
+
         super.onBackPressed()
         onFinish()
     }
 
     private fun isOnboardingFragmentVisible(): Boolean {
         return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameOnboardingFragment
-    }
-
-    private fun isGameFinalFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameFinalFragment
     }
 
     private fun onFinish() {
@@ -278,6 +269,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
                 WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
+                if (viewModel.getCurrentGameState().currentQuestionIndex == 0) {
+                    Prefs.lastOtdGameDateOverride = ""
+                }
                 finish()
             }
             .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
