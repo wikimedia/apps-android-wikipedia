@@ -171,7 +171,8 @@ fun MainBottomBar(
                                 )
                                 DonorExperienceEvent.logAction(
                                     action = "donate_start_click_yir",
-                                    activeInterface = "wiki_yir"
+                                    activeInterface = "wiki_yir",
+                                    campaignId = "enUS_appmenu_yir_android"
                                 )
                             }),
                         verticalAlignment = Alignment.CenterVertically,
