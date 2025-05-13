@@ -165,6 +165,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             }
                             is PageDownloadEvent -> {
                                 val pagePosition = getPagePositionInList(event.page)
+                                if (pagePosition < 0) {
+                                    return@collectLatest
+                                }
                                 val readingLisPage = displayedLists[pagePosition]
                                 if (readingLisPage is ReadingListPage) {
                                     readingLisPage.downloadProgress = event.page.downloadProgress
