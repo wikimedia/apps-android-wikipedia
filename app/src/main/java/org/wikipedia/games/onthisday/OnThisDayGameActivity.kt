@@ -155,10 +155,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             windowInsets
         }
 
-        binding.infoIcon.setOnClickListener {
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
-        }
-
         binding.scoreView.generateViews(OnThisDayGameViewModel.MAX_QUESTIONS)
 
         supportFragmentManager.beginTransaction()
@@ -193,8 +189,15 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         val notificationItem = menu.findItem(R.id.menu_notifications)
-        notificationItem?.isVisible = false
-        notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
+        val volume = menu.findItem(R.id.menu_volume)
+        volume.setIcon(if (Prefs.isOtdSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp)
+        volume.setTitle(if (Prefs.isOtdSoundOn) "Turn sound off" else "Turn sound on")
+        if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
+            notificationItem?.isVisible = true
+            notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
+        } else {
+            notificationItem?.isVisible = false
+        }
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -221,6 +224,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName())
 
                 OnThisDayGameNotificationManager.handleNotificationClick(this)
+                true
+            }
+            R.id.menu_volume -> {
+                Prefs.isOtdSoundOn = !Prefs.isOtdSoundOn
+                invalidateOptionsMenu()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -287,7 +295,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun updateOnLoading() {
         binding.errorView.isVisible = false
-        binding.infoIcon.isVisible = false
         binding.scoreView.isVisible = false
         binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
@@ -296,7 +303,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     private fun updateOnError(t: Throwable) {
         binding.progressBar.isVisible = false
-        binding.infoIcon.isVisible = false
         binding.scoreView.isVisible = false
         binding.dateText.isVisible = false
         binding.currentQuestionContainer.isVisible = false
@@ -308,7 +314,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
 
-        binding.infoIcon.isVisible = true
         binding.scoreView.isVisible = true
         binding.dateText.isVisible = true
         binding.questionDate1.isVisible = false
@@ -375,7 +380,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         if (isOnboardingFragmentVisible()) {
             binding.dateText.isVisible = false
-            binding.infoIcon.isVisible = false
             return
         }
         updateInitialScores(gameState)
@@ -391,8 +395,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
         hideViewsNotRequiredWhenGameEnds()
-
-        playSound("sound_logo")
 
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
@@ -527,7 +529,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     fun animateQuestionsIn() {
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
         binding.dateText.isVisible = true
-        binding.infoIcon.isVisible = true
         binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
         binding.questionCard2.alpha = 0f
@@ -622,19 +623,20 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    private fun playSound(soundName: String) {
+    fun playSound(soundName: String) {
         try {
-            mediaPlayer.reset()
-            mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
-            mediaPlayer.prepare()
-            mediaPlayer.start()
+            if (Prefs.isOtdSoundOn) {
+                mediaPlayer.reset()
+                mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
+                mediaPlayer.prepare()
+                mediaPlayer.start()
+            }
         } catch (e: Exception) {
             L.e(e)
         }
     }
 
     fun hideViewsNotRequiredWhenGameEnds() {
-        binding.infoIcon.isVisible = false
         binding.scoreView.isVisible = false
         binding.currentQuestionContainer.isVisible = false
     }
