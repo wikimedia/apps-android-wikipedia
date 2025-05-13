@@ -6,6 +6,7 @@ import android.accounts.AccountManager
 import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
+import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -125,7 +126,7 @@ object AccountUtil {
     }
 
     fun isUserNameTemporary(userName: String): Boolean {
-        return userName.startsWith("~")
+        return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
