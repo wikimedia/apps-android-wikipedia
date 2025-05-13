@@ -272,8 +272,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val wikiSite = WikipediaApp.instance.wikiSite
             // Both of the primary language and the article language should be in the supported languages list.
             if (!Prefs.otdEntryDialogShown &&
-                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
-                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode) &&
+                OnThisDayGameViewModel.isLangSupported(wikiSite.languageCode) &&
+                OnThisDayGameViewModel.isLangSupported(articleWikiSite.languageCode) &&
                 (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
