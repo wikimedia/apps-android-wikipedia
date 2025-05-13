@@ -1805,5 +1805,6 @@
   <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
   <string name="year_in_review_non_english_collective_editcount_bodytext">Body text for the year in review non-english collective edit count screen</string>
-  <string name="year_in_review_screenshot_error"> A generic error idicator with \"%s\" representing the actual error thrown</string>
+  <string name="year_in_review_screenshot_error">A generic error idicator with \"%s\" representing the actual error thrown</string>
+  <string name="year_in_review_share_subject">The subject line for sharing the year in review</string>
 </resources>

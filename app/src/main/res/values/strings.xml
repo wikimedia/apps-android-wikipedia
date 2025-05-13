@@ -1887,4 +1887,5 @@
     <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
     <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
+    <string name="year_in_review_share_subject">Year In Review Image and Link</string>
 </resources>

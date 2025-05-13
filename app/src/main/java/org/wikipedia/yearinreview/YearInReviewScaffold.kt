@@ -70,7 +70,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.ShareUtil
-import java.io.File
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -402,9 +401,6 @@ fun captureScreenAndShare(
     currentView: View,
     scope: CoroutineScope
 ) {
-    val fileName = "year_in_review.jpeg"
-    val subject = "Sharing Image and Link"
-    val text = "Link"
     scope.launch(imageHandler(context)) {
         val screenShotJob = async {
             val image = createBitmap(
@@ -413,13 +409,6 @@ fun captureScreenAndShare(
                 Bitmap.Config.ARGB_8888).applyCanvas {
                 currentView.draw(this)
             }
-            image.let {
-                File(context.filesDir, fileName).apply {
-                    outputStream().use { out ->
-                        image.compress(Bitmap.CompressFormat.JPEG, 85, out)
-                    }
-                }
-            }
             image
         }
         val screenShotBitmap = screenShotJob.await()
@@ -427,9 +416,9 @@ fun captureScreenAndShare(
             coroutineScope = scope,
             context = context,
             bmp = screenShotBitmap,
-            imageFileName = fileName,
-            subject = subject,
-            text = text
+            imageFileName = "year_in_review",
+            subject = context.getString(R.string.year_in_review_share_subject),
+            text = context.getString(R.string.year_in_review_share_url)
         )
     }
 }
