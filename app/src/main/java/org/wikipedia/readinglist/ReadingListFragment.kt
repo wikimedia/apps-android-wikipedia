@@ -308,7 +308,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.isClickable = false
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.H2)
-        headerView.setOverflowViewVisibility(View.VISIBLE)
+        headerView.setOverflowViewVisibility(true)
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
