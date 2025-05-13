@@ -159,7 +159,6 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = { /* TODO() */ })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
                             .align(Alignment.CenterStart)
