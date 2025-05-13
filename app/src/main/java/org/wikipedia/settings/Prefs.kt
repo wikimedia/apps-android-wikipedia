@@ -781,4 +781,8 @@ object Prefs {
     var lastActiveDate: String
         get() = PrefsIoUtil.getString(R.string.pref_key_otd_last_active_date, "").orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.pref_key_otd_last_active_date, value)
+
+    var isOtdSoundOn: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.pref_key_otd_sound_on, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
 }

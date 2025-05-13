@@ -156,14 +156,15 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun showGameResults(state: OnThisDayGameViewModel.GameState) {
-        getGameActivity()?.apply {
-            updateGameState(state)
-            hideViewsNotRequiredWhenGameEnds()
-        }
-
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .commit()
+
+        getGameActivity()?.apply {
+            playSound("sound_logo")
+            updateGameState(state)
+            hideViewsNotRequiredWhenGameEnds()
+        }
     }
 
     private fun getGameActivity(): OnThisDayGameActivity? {
