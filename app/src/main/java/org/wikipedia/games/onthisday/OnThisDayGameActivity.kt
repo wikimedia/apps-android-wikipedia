@@ -38,7 +38,6 @@ import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.games.PlayTypes
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
@@ -112,9 +111,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 val event = (selectedCardView!!.tag as OnThisDay.Event)
                 resetCardBorders()
                 selectedCardView = null
-                viewModel.submitCurrentResponse(event.year, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
+                viewModel.submitCurrentResponse(event.year)
             } else {
-                viewModel.submitCurrentResponse(0, playType = if (Prefs.isArchiveGamePlaying) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal)
+                viewModel.submitCurrentResponse(0)
                 binding.nextQuestionText.isVisible = false
             }
         }
@@ -263,9 +262,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
                 WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
-                if (viewModel.getCurrentGameState().currentQuestionIndex == 0) {
-                    Prefs.lastOtdGameDateOverride = ""
-                }
                 finish()
             }
             .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->

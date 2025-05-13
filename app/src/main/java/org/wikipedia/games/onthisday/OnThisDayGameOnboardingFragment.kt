@@ -36,6 +36,8 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleas
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.ZoneId
@@ -89,14 +91,36 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun observeGameState() {
         viewModel.gameState.observe(viewLifecycleOwner) { state ->
             when (state) {
+                is Resource.Loading -> updateOnLoading()
                 is OnThisDayGameViewModel.GameStarted -> handleGameStarted(state.data)
                 is OnThisDayGameViewModel.CurrentQuestion -> handleCurrentQuestion(state.data)
                 is OnThisDayGameViewModel.GameEnded -> handleGameEnded(state.data)
+                is Resource.Error -> updateOnError(state.throwable)
             }
         }
     }
 
+    private fun updateOnLoading() {
+        binding.gameMenuContainer.isVisible = false
+        binding.progressBar.isVisible = true
+        binding.errorView.isVisible = false
+    }
+
+    private fun showGameMenu() {
+        binding.gameMenuContainer.isVisible = true
+        binding.progressBar.isVisible = false
+        binding.errorView.isVisible = false
+    }
+
+    private fun updateOnError(t: Throwable) {
+        binding.errorView.isVisible = true
+        binding.gameMenuContainer.isVisible = false
+        binding.errorView.setError(t)
+        binding.errorView.setIconColorFilter(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+    }
+
     private fun handleGameStarted(state: OnThisDayGameViewModel.GameState) {
+        showGameMenu()
         with(binding) {
             playGameButton.setOnClickListener {
                 WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
@@ -110,18 +134,19 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun handleCurrentQuestion(state: OnThisDayGameViewModel.GameState) {
+        showGameMenu()
         with(binding) {
             val questionIndex = state.currentQuestionIndex + 1
             gameMessageText.text = getString(R.string.on_this_day_game_current_progress_message, questionIndex)
 
-            val playGameButtonText = if (Prefs.isArchiveGamePlaying) getString(R.string.on_this_day_game_continue_playing_btn_text) else getString(R.string.on_this_day_game_continue_btn_text)
+            val playGameButtonText = if (state.archiveGamePlayDate.isNotEmpty()) getString(R.string.on_this_day_game_continue_playing_btn_text) else getString(R.string.on_this_day_game_continue_btn_text)
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
                 startGame(state)
             }
 
-            if (Prefs.isArchiveGamePlaying) {
+            if (state.archiveGamePlayDate.isNotEmpty()) {
                 playArchiveButton.isVisible = true
                 playArchiveButton.setOnClickListener {
                     prepareAndOpenArchiveCalendar(state)
@@ -131,6 +156,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun handleGameEnded(state: OnThisDayGameViewModel.GameState) {
+        showGameMenu()
         with(binding) {
             val score = state.answerState.count { it }
             binding.gameMessageText.text = getString(R.string.on_this_day_game_score_message, score, state.totalQuestions)
@@ -172,9 +198,9 @@ class OnThisDayGameOnboardingFragment : Fragment() {
 
     private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
         lifecycleScope.launch {
-            val scoreData = viewModel.getDataForArchiveCalendar(language = WikipediaApp.instance.wikiSite.languageCode)
+            val scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
             val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[WikipediaApp.instance.wikiSite.languageCode]
+            val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             this@OnThisDayGameOnboardingFragment.scoreData = scoreData
             showArchiveCalendar(startDate, Date(), scoreData, state)
@@ -243,12 +269,9 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         viewModel.currentDate = LocalDate.of(year, month + 1, day)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
         binding.gameMessageText.text = getString(R.string.on_this_day_game_splash_message)
-        // @TODO: replace with string resource
-        binding.playGameButton.text = "Play"
+        binding.playGameButton.text = getString(R.string.on_this_day_game_dialog_button)
         binding.playGameButton.setOnClickListener {
-            Prefs.isArchiveGamePlaying = true
-            Prefs.otdGameState = ""
-            Prefs.lastOtdGameDateOverride = viewModel.currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            viewModel.persistArchiveDate(viewModel.currentDate.format(DateTimeFormatter.ISO_LOCAL_DATE))
             WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
             viewModel.loadGameState()
             requireActivity().supportFragmentManager.popBackStack()
