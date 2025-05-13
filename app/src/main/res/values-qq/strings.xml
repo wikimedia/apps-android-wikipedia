@@ -1787,6 +1787,8 @@
   <string name="on_this_day_game_review_results_btn_text">Label for the review result button.</string>
   <string name="on_this_day_game_score_message">Text that shows the user\'s score of the current game.The %1$d parameter is the user\'s score and the %2$d parameter is the total number of questions.</string>
   <string name="on_this_day_game_continue_playing_btn_text">label for continue playing button.</string>
+  <string name="on_this_day_game_sound_on">Menu item label when game sound is turned off.</string>
+  <string name="on_this_day_game_sound_off">Menu item label when game sound is turned on./</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>
@@ -1869,5 +1871,4 @@
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_notification_subtitle">Subtitle of the notification, briefly mentioning some of the topics included. %s will be replaced by a list of articles.</string>
   <string name="recommended_reading_list_notification_subtitle_few">Shortened subtitle for the notification when the topic list is short.</string>
-
 </resources>
