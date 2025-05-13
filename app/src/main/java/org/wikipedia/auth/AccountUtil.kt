@@ -41,7 +41,7 @@ object AccountUtil {
         get() = account() != null || isTemporaryAccount
 
     val isTemporaryAccount: Boolean
-        get() = account() == null && getUserNameFromCookie().isNotEmpty()
+        get() = account() == null && isUserNameTemporary(getUserNameFromCookie())
 
     val userName: String
         get() = account()?.name ?: getUserNameFromCookie()
