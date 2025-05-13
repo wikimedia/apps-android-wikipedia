@@ -31,7 +31,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.START_DATE_BASED_ON_LANG
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -111,9 +112,9 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun handleCurrentQuestion(state: OnThisDayGameViewModel.GameState) {
         with(binding) {
             val questionIndex = state.currentQuestionIndex + 1
-            gameMessageText.text = "You're on question $questionIndex." // @TODO: replace with string resource
+            gameMessageText.text = getString(R.string.on_this_day_game_current_progress_message, questionIndex)
 
-            val playGameButtonText = if (Prefs.isArchiveGamePlaying) "Continue playing" else "Continue today's game"
+            val playGameButtonText = if (Prefs.isArchiveGamePlaying) getString(R.string.on_this_day_game_continue_playing_btn_text) else getString(R.string.on_this_day_game_continue_btn_text)
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
@@ -132,9 +133,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun handleGameEnded(state: OnThisDayGameViewModel.GameState) {
         with(binding) {
             val score = state.answerState.count { it }
-            // @TODO: replace with string resource
-            binding.gameMessageText.text = "You scored $score/${state.totalQuestions} on today's game."
-            playGameButton.text = "Review results"
+            binding.gameMessageText.text = getString(R.string.on_this_day_game_score_message, score, state.totalQuestions)
+            playGameButton.text = getString(R.string.on_this_day_game_review_results_btn_text)
             playGameButton.setOnClickListener {
                 showGameResults(state)
             }
@@ -174,7 +174,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
         lifecycleScope.launch {
             val scoreData = viewModel.getDataForArchiveCalendar(language = WikipediaApp.instance.wikiSite.languageCode)
-            val localDate = START_DATE_BASED_ON_LANG[WikipediaApp.instance.wikiSite.languageCode]
+            val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
+            val localDate = startDateBasedOnLanguage[WikipediaApp.instance.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             this@OnThisDayGameOnboardingFragment.scoreData = scoreData
             showArchiveCalendar(startDate, Date(), scoreData, state)
@@ -203,7 +204,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             .build()
 
         MaterialDatePicker.Builder.datePicker()
-            .setTitleText("Choose a game by date to play.") // @TODO: replace this with string resource later
+            .setTitleText(getString(R.string.on_this_day_game_archive_calendar_title))
             .setTheme(R.style.MaterialDatePickerStyle)
             .setDayViewDecorator(DateDecorator(
                 startDate,
@@ -230,9 +231,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         val score = scoreData[scoreDataKey]
         val total = OnThisDayGameViewModel.MAX_QUESTIONS
         if (scoreData[scoreDataKey] != null) {
-            val formattedDate = DateUtil.getMMMMdYYYY(calendar.time)
-            // @TODO: replace this with string resource later
-            Toast.makeText(requireContext(), "You score $score/$total on $formattedDate", Toast.LENGTH_SHORT).show()
+            val toastMessage = getString(R.string.on_this_day_game_score_toast_message, score, total)
+            Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
         } else {
             state?.let {
                 startArchiveGamePlayMode(year, month, day, it)
@@ -243,8 +243,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     private fun startArchiveGamePlayMode(year: Int, month: Int, day: Int, state: OnThisDayGameViewModel.GameState) {
         viewModel.currentDate = LocalDate.of(year, month + 1, day)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        binding.gameMessageText.text = getString(R.string.on_this_day_game_splash_message)
         // @TODO: replace with string resource
-        binding.gameMessageText.text = "Guess which event came first on this day in history."
         binding.playGameButton.text = "Play"
         binding.playGameButton.setOnClickListener {
             Prefs.isArchiveGamePlaying = true
@@ -273,8 +273,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val wikiSite = WikipediaApp.instance.wikiSite
             // Both of the primary language and the article language should be in the supported languages list.
             if (!Prefs.otdEntryDialogShown &&
-                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(wikiSite.languageCode) &&
-                OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(articleWikiSite.languageCode) &&
+                OnThisDayGameViewModel.isLangSupported(wikiSite.languageCode) &&
+                OnThisDayGameViewModel.isLangSupported(articleWikiSite.languageCode) &&
                 (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")

@@ -24,7 +24,6 @@ import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.time.Instant
@@ -64,28 +63,23 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun loadGameState() {
-        if (Prefs.isArchiveGamePlaying) {
-            val dateRightNow = LocalDate.now()
-            val lastActiveDate = try {
-                    LocalDate.parse(Prefs.lastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
-                } catch (e: Exception) {
-                    dateRightNow
-                }
-            Prefs.lastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
+        val dateRightNow = LocalDate.now()
+        val lastActiveDate = try {
+            LocalDate.parse(Prefs.lastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
+        } catch (e: Exception) {
+            dateRightNow
+        }
+        Prefs.lastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
+        // If user returns the next day from when they were last active
+        if (dateRightNow.isAfter(lastActiveDate)) {
+            // Reset to current day's game
+            Prefs.lastOtdGameDateOverride = ""
+            Prefs.lastActiveDate = ""
+            Prefs.otdGameState = ""
+            Prefs.isArchiveGamePlaying = false
 
-            // If user returns on a different day than when they were last active
-            if (dateRightNow.isAfter(lastActiveDate)) {
-                // Reset to current day's game
-                Prefs.lastOtdGameDateOverride = ""
-                Prefs.lastActiveDate = ""
-                Prefs.otdGameState = ""
-                Prefs.isArchiveGamePlaying = false
-
-                // Restart with current day's game
-                currentDate = LocalDate.now()
-            }
-        } else {
-            Prefs.lastActiveDate = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+            // Restart with current day's game
+            currentDate = LocalDate.now()
         }
 
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -456,15 +450,14 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
-        val LANG_CODES_SUPPORTED = if (ReleaseUtil.isPreBetaRelease) listOf("en", "de") else listOf("de")
-        // HARDCODED start date for each supported language
-        val START_DATE_BASED_ON_LANG = LANG_CODES_SUPPORTED.associateWith { langCode ->
-            when (langCode) {
-                // @TODO: replace 1, 21 with May 21 before release
-                "en" -> LocalDate.of(2025, 1, 21)
-                "de" -> LocalDate.of(2025, 2, 21)
-                else -> LocalDate.now()
-            }
+        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
+
+        fun isLangSupported(lang: String): Boolean {
+            return LANG_CODES_SUPPORTED.contains(lang)
+        }
+
+        fun dateReleasedForLang(lang: String): LocalDate {
+            return if (lang == "de") LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
         }
     }
 }
