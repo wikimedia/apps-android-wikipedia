@@ -178,8 +178,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         val notificationItem = menu.findItem(R.id.menu_notifications)
         val volume = menu.findItem(R.id.menu_volume)
-        volume.setIcon(if (Prefs.isOtdSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp)
-        volume.setTitle(if (Prefs.isOtdSoundOn) "Turn sound off" else "Turn sound on")
+        val volumeIcon = if (Prefs.isOtdSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp
+        val volumeTitle = if (Prefs.isOtdSoundOn) getString(R.string.on_this_day_game_sound_off) else getString(R.string.on_this_day_game_sound_on)
+        volume.setIcon(volumeIcon)
+        volume.setTitle(volumeTitle)
         if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
             notificationItem?.isVisible = true
             notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())
@@ -378,15 +380,15 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             return
         }
 
-        updateGameState(gameState)
-        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
-
-        hideViewsNotRequiredWhenGameEnds()
-
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
+
+        updateGameState(gameState)
+        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
+
+        hideViewsNotRequiredWhenGameEnds()
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
