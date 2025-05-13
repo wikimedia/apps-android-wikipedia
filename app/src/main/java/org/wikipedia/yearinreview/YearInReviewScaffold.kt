@@ -405,21 +405,14 @@ fun captureScreenAndShare(
     val fileName = "year_in_review.jpeg"
     val subject = "Sharing Image and Link"
     val text = "Link"
-    scope.launch(CoroutineExceptionHandler { _, msg ->
-        Toast.makeText(
-            context,
-            context.getString(R.string.year_in_review_screenshot_error, msg.localizedMessage),
-            Toast.LENGTH_SHORT
-        ).show()
-    }) {
-        val screenShot = async {
+    scope.launch(imageHandler(context)) {
+        val screenShotJob = async {
             val image = createBitmap(
                 currentView.width,
                 currentView.height,
                 Bitmap.Config.ARGB_8888).applyCanvas {
                 currentView.draw(this)
             }
-
             image.let {
                 File(context.filesDir, fileName).apply {
                     outputStream().use { out ->
@@ -429,13 +422,24 @@ fun captureScreenAndShare(
             }
             image
         }
+        val screenShotBitmap = screenShotJob.await()
         ShareUtil.shareImage(
             coroutineScope = scope,
             context = context,
-            bmp = screenShot.await(),
+            bmp = screenShotBitmap,
             imageFileName = fileName,
             subject = subject,
             text = text
         )
+    }
+}
+
+fun imageHandler(context: Context): CoroutineExceptionHandler {
+    return CoroutineExceptionHandler { _, msg ->
+        Toast.makeText(
+            context,
+            context.getString(R.string.year_in_review_screenshot_error, msg.localizedMessage),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
