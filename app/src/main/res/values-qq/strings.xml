@@ -1800,7 +1800,10 @@
   <string name="recommended_reading_list_interest_source_history">Option to build the reading list based on the reading history from user.</string>
   <string name="recommended_reading_list_interest_pick_title">Title of the screen where user can select their interests.</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Hint text for the search bar to find articles of interest.</string>
-  <string name="recommended_reading_list_interest_pick_selected_articles">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
+    <item quantity="other">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
+  </plurals>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Content description for the button that randomly selects articles as interests.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Snackbar message shown when the app randomly selects articles for the interests.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Action label on the snackbar to undo the random selection of interests.</string>
@@ -1819,13 +1822,16 @@
   <string name="recommended_reading_list_page_overflow_save_list">Menu item label to save the current recommended reading list.</string>
   <string name="recommended_reading_list_page_overflow_customize">Menu item label to customize the recommended reading list settings.</string>
   <string name="recommended_reading_list_page_overflow_about">Menu item label to learn more about the recommended reading list feature.</string>
-  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %s is replaced by the update frequency.</string>
+  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %d is replaced by the number of articles, and %s is replaced by the update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_action">Action label on the snackbar to navigate to the customization settings.</string>
+  <string name="recommended_reading_list_page_snackbar_day">Text for the snackbar message that indicates a daily update frequency.</string>
+  <string name="recommended_reading_list_page_snackbar_week">Text for the snackbar message that indicates a weekly update frequency.</string>
+  <string name="recommended_reading_list_page_snackbar_month">Text for the snackbar message that indicates a monthly update frequency.</string>
   <string name="recommended_reading_list_settings_title">Title of the settings screen for the recommended reading list feature.</string>
   <string name="recommended_reading_list_settings_toggle">Label for the switch to enable or disable the recommended reading list.</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Message displayed below the toggle when recommended reading list is disabled.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Title of the dialog asking the user to confirm turning off the recommended reading list.</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">Message in the dialog explaining what happens when the recommended reading list is turned off.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Message in the dialog explaining what happens when the recommended reading list is turned off. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Positive action button in the dialog to turn off the recommended reading list.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Negative action button in the dialog to keep the recommended reading list on.</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">Snackbar message shown when the user turns off the recommended reading list.</string>

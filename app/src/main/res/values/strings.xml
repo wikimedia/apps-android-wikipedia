@@ -1884,7 +1884,10 @@
     <string name="recommended_reading_list_interest_source_history">Choose for me based on my reading history</string>
     <string name="recommended_reading_list_interest_pick_title">What are you interested in?</string>
     <string name="recommended_reading_list_interest_pick_search_hint">Search for an article</string>
-    <string name="recommended_reading_list_interest_pick_selected_articles">%d selected</string>
+    <plurals name="recommended_reading_list_interest_pick_selected_articles">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
     <string name="recommended_reading_list_interest_pick_random_button_content_description">Randomly select</string>
     <string name="recommended_reading_list_interest_pick_random_snackbar">We\'ve randomly selected a few articles for you.</string>
     <string name="recommended_reading_list_interest_pick_random_snackbar_action">Undo</string>
@@ -1903,13 +1906,16 @@
     <string name="recommended_reading_list_page_overflow_save_list">Save list</string>
     <string name="recommended_reading_list_page_overflow_customize">Customize</string>
     <string name="recommended_reading_list_page_overflow_about">About this feature</string>
-    <string name="recommended_reading_list_page_snackbar">Discover will update with five new articles each %s. Your recommendations are stored locally on your device.</string>
+    <string name="recommended_reading_list_page_snackbar">Discover will update with %d new articles each %s. Your recommendations are stored locally on your device.</string>
     <string name="recommended_reading_list_page_snackbar_action">Customize Discover</string>
+    <string name="recommended_reading_list_page_snackbar_day">Day</string>
+    <string name="recommended_reading_list_page_snackbar_week">Week</string>
+    <string name="recommended_reading_list_page_snackbar_month">Month</string>
     <string name="recommended_reading_list_settings_title">Discover settings</string>
     <string name="recommended_reading_list_settings_toggle">Discover reading list</string>
     <string name="recommended_reading_list_settings_toggle_disable_message">Discover is off. Wikipedia won\'t recommend you articles to read.</string>
     <string name="recommended_reading_list_settings_turn_off_dialog_title">Turn off Discover?</string>
-    <string name="recommended_reading_list_settings_turn_off_dialog_message">If you turn off Discover, you\'ll stop receiving weekly reading recommendations from Wikipedia.</string>
+    <string name="recommended_reading_list_settings_turn_off_dialog_message">If you turn off Discover, you\'ll stop receiving %s reading recommendations from Wikipedia.</string>
     <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Turn it off</string>
     <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">No, keep it on</string>
     <string name="recommended_reading_list_settings_turn_off_snackbar">Discover has been turned off. You can turn it back on anytime in settings.</string>
