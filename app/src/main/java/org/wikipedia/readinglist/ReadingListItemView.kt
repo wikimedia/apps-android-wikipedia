@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.PopupMenu
@@ -127,16 +126,16 @@ class ReadingListItemView : ConstraintLayout {
         binding.itemReadingListStatisticalDescription.text = text
         binding.itemTitleIndicator.isVisible = newImport
         updateDetails(selectMode)
-        if (binding.itemImage1.visibility == VISIBLE) {
+        if (binding.itemImage1.isVisible) {
             updateThumbnails()
         }
     }
 
     fun setThumbnailVisible(visible: Boolean) {
         imageViews.forEach {
-            it.visibility = if (visible) VISIBLE else GONE
+            it.isVisible = visible
         }
-        binding.defaultListEmptyImage.visibility = if (visible) VISIBLE else GONE
+        binding.defaultListEmptyImage.isVisible = visible
     }
 
     fun setTitleTextAppearance(@StyleRes id: Int) {
@@ -148,14 +147,14 @@ class ReadingListItemView : ConstraintLayout {
         StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), searchQuery)
     }
 
-    fun setOverflowViewVisibility(visibility: Int) {
-        binding.itemOverflowMenu.visibility = visibility
+    fun setOverflowViewVisibility(isVisible: Boolean) {
+        binding.itemOverflowMenu.isVisible = isVisible
     }
 
     fun setPreviewMode(isPreview: Boolean) {
         binding.itemPreviewSaveButton.isVisible = isPreview
         binding.itemOverflowMenu.isVisible = !isPreview
-        binding.itemReadingListStatisticalDescription.visibility = if (isPreview) View.GONE else View.VISIBLE
+        binding.itemReadingListStatisticalDescription.isVisible = !isPreview
         setOnLongClickListener {
             // Ignore onLongClick action
             false
@@ -164,16 +163,16 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun updateDetails(showCheckBoxes: Boolean) {
         readingList?.let {
-            binding.defaultListEmptyImage.visibility = if (it.isDefault && it.pages.size == 0 && binding.itemImage1.visibility == VISIBLE) VISIBLE else GONE
+            binding.defaultListEmptyImage.isVisible = it.isDefault && it.pages.isEmpty() && binding.itemImage1.isVisible
             binding.itemTitle.text = it.title
             if (it.isDefault) {
                 binding.itemDescription.text = context.getString(R.string.default_reading_list_description)
-                binding.itemDescription.visibility = VISIBLE
+                binding.itemDescription.isVisible = true
             } else {
                 binding.itemDescription.text = it.description
-                binding.itemDescription.visibility = if (it.description.isNullOrEmpty()) GONE else VISIBLE
+                binding.itemDescription.isVisible = !it.description.isNullOrEmpty()
             }
-            binding.itemSelectCheckbox.visibility = if (showCheckBoxes) VISIBLE else GONE
+            binding.itemSelectCheckbox.isVisible = showCheckBoxes
             binding.itemSelectCheckbox.isChecked = it.selected
         }
     }
@@ -218,38 +217,46 @@ class ReadingListItemView : ConstraintLayout {
     private inner class OverflowMenuClickListener(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
             BreadCrumbLogEvent.logClick(context, item)
-            when (item.itemId) {
-                R.id.menu_reading_list_rename -> {
-                    list?.let { callback?.onRename(it) }
-                    return true
+            return list?.let {
+                when (item.itemId) {
+                    R.id.menu_reading_list_rename -> {
+                        callback?.onRename(it)
+                        true
+                    }
+
+                    R.id.menu_reading_list_delete -> {
+                        callback?.onDelete(it)
+                        true
+                    }
+
+                    R.id.menu_reading_list_save_all_offline -> {
+                        callback?.onSaveAllOffline(it)
+                        true
+                    }
+
+                    R.id.menu_reading_list_remove_all_offline -> {
+                        callback?.onRemoveAllOffline(it)
+                        true
+                    }
+
+                    R.id.menu_reading_list_export -> {
+                        ReadingListsExportImportHelper.exportLists(context as BaseActivity, listOf(it))
+                        true
+                    }
+
+                    R.id.menu_reading_list_select -> {
+                        callback?.onSelectList(it)
+                        true
+                    }
+
+                    R.id.menu_reading_list_share -> {
+                        callback?.onShare(it)
+                        return true
+                    }
+
+                    else -> false
                 }
-                R.id.menu_reading_list_delete -> {
-                    list?.let { callback?.onDelete(it) }
-                    return true
-                }
-                R.id.menu_reading_list_save_all_offline -> {
-                    list?.let { callback?.onSaveAllOffline(it) }
-                    return true
-                }
-                R.id.menu_reading_list_remove_all_offline -> {
-                    list?.let { callback?.onRemoveAllOffline(it) }
-                    return true
-                }
-                R.id.menu_reading_list_export -> {
-                    list?.let { ReadingListsExportImportHelper
-                        .exportLists(context as BaseActivity, listOf(it)) }
-                    return true
-                }
-                R.id.menu_reading_list_select -> {
-                    list?.let { callback?.onSelectList(it) }
-                    return true
-                }
-                R.id.menu_reading_list_share -> {
-                    list?.let { callback?.onShare(it) }
-                    return true
-                }
-                else -> return false
-            }
+            } == true
         }
     }
 }
