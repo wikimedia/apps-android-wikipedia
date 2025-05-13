@@ -89,7 +89,6 @@
             android:id="@+id/page_list_item_selected_image"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:background="@drawable/button_shape_gray"
             android:contentDescription="@null"
             android:padding="8dp"

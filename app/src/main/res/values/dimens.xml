@@ -62,7 +62,7 @@
     <dimen name="view_list_card_margin_vertical">12dp</dimen>
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
-    <dimen name="view_list_card_item_image">40dp</dimen>
+    <dimen name="view_list_card_item_image">56dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
 
     <!-- Description editing -->

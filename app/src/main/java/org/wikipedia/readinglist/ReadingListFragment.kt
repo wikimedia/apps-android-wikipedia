@@ -56,7 +56,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -668,7 +667,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
-            view.setListItemImageDimensions(imageDimension, imageDimension)
             PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
@@ -695,9 +693,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun isSwipeable(): Boolean { return !isPreview }
-
-        private val imageDimension
-            get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())
     }
 
     private inner class ReadingListHeaderHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
