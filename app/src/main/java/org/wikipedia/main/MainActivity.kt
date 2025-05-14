@@ -9,7 +9,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.metrics.performance.PerformanceMetricsState
 import org.wikipedia.Constants
+import org.wikipedia.JankStatsAggregator
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
@@ -38,6 +40,15 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
     }
 
+    private lateinit var jankStatsAggregator: JankStatsAggregator
+    private val jankReportListener = JankStatsAggregator.OnJankReportListener { reason, totalFrames, jankFrameData ->
+        println("JankStats: " +
+                "reason $reason" +
+                "totalFrames = $totalFrames" +
+                "jankFrames = ${jankFrameData.size}")
+        println("JankStats --> $jankFrameData")
+    }
+
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -48,6 +59,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (!DeviceUtil.assertAppContext(this)) {
             return
         }
+        val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
+        jankStatsAggregator = JankStatsAggregator(window, jankReportListener)
+        metricsStateHolder.state?.putState("screen", javaClass.simpleName)
+        metricsStateHolder.state?.putState("device", android.os.Build.MODEL)
 
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null &&
@@ -67,7 +82,14 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onResume() {
         super.onResume()
+        jankStatsAggregator.jankStats.isTrackingEnabled = true
         invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        jankStatsAggregator.issueJankReport("Activity paused")
+        jankStatsAggregator.jankStats.isTrackingEnabled = false
     }
 
     override fun createFragment(): MainFragment {
