@@ -13,15 +13,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
@@ -49,6 +48,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.WikiCardView
 import java.time.LocalDate
 import java.time.MonthDay
 import java.time.ZoneOffset
@@ -64,6 +64,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val cardAnimatorSetIn = AnimatorSet()
     private val cardAnimatorSetOut = AnimatorSet()
     private lateinit var mediaPlayer: MediaPlayer
+    private var selectedCardView: WikiCardView? = null
 
     @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,44 +91,30 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
 
         binding.questionCard1.setOnClickListener {
-            if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
-                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
-            }
+            enqueueSubmit(it as WikiCardView)
         }
         binding.questionCard2.setOnClickListener {
-            if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
-                viewModel.submitCurrentResponse((it.tag as OnThisDay.Event).year)
-            }
+            enqueueSubmit(it as WikiCardView)
         }
-
-        // Add long-press listeners to the cards
-        binding.questionCard1.setOnLongClickListener {
-            showFullCardText(binding.questionText1, binding.questionThumbnail1, true)
-            binding.questionText1.tag = true
-            true
+        binding.questionText1.setOnClickListener {
+            enqueueSubmit(binding.questionCard1)
         }
-        binding.questionCard1.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP && (binding.questionText1.tag as? Boolean) == true) {
-                showFullCardText(binding.questionText1, binding.questionThumbnail1, false)
-            }
-            false
+        binding.questionText2.setOnClickListener {
+            enqueueSubmit(binding.questionCard2)
         }
-
-        binding.questionCard2.setOnLongClickListener {
-            showFullCardText(binding.questionText2, binding.questionThumbnail2, true)
-            binding.questionText2.tag = true
-            true
-        }
-        binding.questionCard2.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP && (binding.questionText2.tag as? Boolean) == true) {
-                showFullCardText(binding.questionText2, binding.questionThumbnail2, false)
-            }
-            false
-        }
+        binding.questionText1.movementMethod = ScrollingMovementMethod()
+        binding.questionText2.movementMethod = ScrollingMovementMethod()
 
         binding.nextQuestionText.setOnClickListener {
-            viewModel.submitCurrentResponse(0)
-            binding.nextQuestionText.isVisible = false
+            if (selectedCardView != null) {
+                val event = (selectedCardView!!.tag as OnThisDay.Event)
+                resetCardBorders()
+                selectedCardView = null
+                viewModel.submitCurrentResponse(event.year)
+            } else {
+                viewModel.submitCurrentResponse(0)
+                binding.nextQuestionText.isVisible = false
+            }
         }
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
@@ -316,13 +303,13 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         val event1 = gameState.currentQuestionState.event1
         val event2 = gameState.currentQuestionState.event2
 
+        resetCardBorders()
         binding.questionCard1.tag = event1
         binding.questionCard2.tag = event2
 
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
         binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText1.text = event1.text
-        layoutTextViewForEllipsize(binding.questionText1)
 
         val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
         binding.questionThumbnail1.tag = thumbnailUrl1.isNullOrEmpty()
@@ -336,7 +323,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
         binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText2.text = event2.text
-        layoutTextViewForEllipsize(binding.questionText2)
 
         val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
         binding.questionThumbnail2.tag = thumbnailUrl2.isNullOrEmpty()
@@ -462,21 +448,25 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    private fun layoutTextViewForEllipsize(textView: TextView, ellipsize: Boolean = true) {
-        textView.maxLines = Int.MAX_VALUE
-        textView.post {
-            if (!isDestroyed && ellipsize) {
-                // this seems to be the only way to properly ellipsize the text in its layout.
-                if (textView.lineHeight > 0) {
-                    textView.maxLines = (textView.measuredHeight / textView.lineHeight)
-                }
-            }
-        }
+    private fun resetCardBorders() {
+        val otherCardView = if (selectedCardView == binding.questionCard1) binding.questionCard2 else binding.questionCard1
+        binding.questionCard1.setStrokeColor(otherCardView.strokeColorStateList)
+        binding.questionCard1.setStrokeWidth(otherCardView.strokeWidth)
+        binding.questionCard2.setStrokeColor(otherCardView.strokeColorStateList)
+        binding.questionCard2.setStrokeWidth(otherCardView.strokeWidth)
     }
 
-    private fun showFullCardText(textView: TextView, imageView: ImageView, showFullText: Boolean) {
-        imageView.isVisible = !showFullText && (imageView.tag as? Boolean) == false
-        layoutTextViewForEllipsize(textView, !showFullText)
+    private fun enqueueSubmit(cardView: WikiCardView) {
+        if (viewModel.gameState.value is OnThisDayGameViewModel.CurrentQuestion || viewModel.gameState.value is OnThisDayGameViewModel.GameStarted) {
+            resetCardBorders()
+
+            binding.nextQuestionText.setText(R.string.on_this_day_game_submit)
+            binding.nextQuestionText.isVisible = true
+
+            cardView.setStrokeColor(ResourceUtil.getThemedColorStateList(this, R.attr.progressive_color))
+            cardView.setStrokeWidth(DimenUtil.roundedDpToPx(2f))
+            selectedCardView = cardView
+        }
     }
 
     private fun setCorrectIcon(view: ImageView) {
@@ -496,6 +486,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.isVisible = true
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
+        binding.questionText1.isEnabled = false
+        binding.questionText2.isEnabled = false
 
         binding.whichCameFirstText.isVisible = false
         binding.nextQuestionText.setText(if (gameState.currentQuestionIndex >= gameState.totalQuestions - 1) R.string.on_this_day_game_finish else R.string.on_this_day_game_next)
@@ -538,12 +530,16 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
         binding.questionCard1.isEnabled = false
         binding.questionCard2.isEnabled = false
+        binding.questionText1.isEnabled = false
+        binding.questionText2.isEnabled = false
         cardAnimatorSetIn.removeAllListeners()
         cardAnimatorSetIn.cancel()
         cardAnimatorSetIn.playTogether(textA1, translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetIn.doOnEnd {
             binding.questionCard1.isEnabled = true
             binding.questionCard2.isEnabled = true
+            binding.questionText1.isEnabled = true
+            binding.questionText2.isEnabled = true
         }
         cardAnimatorSetIn.start()
     }

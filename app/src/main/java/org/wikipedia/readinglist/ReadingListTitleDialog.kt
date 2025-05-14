@@ -7,7 +7,7 @@ import org.wikipedia.views.TextInputDialog
 object ReadingListTitleDialog {
     interface Callback {
         fun onSuccess(text: String, description: String)
-        fun onCancel()
+        fun onCancel() {}
     }
 
     fun readingListTitleDialog(activity: Activity,
