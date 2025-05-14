@@ -23,6 +23,7 @@ import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.time.Instant
@@ -408,7 +409,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
 
         fun dateReleasedForLang(lang: String): LocalDate {
-            return if (lang == "de") LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
+            return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
         }
     }
 }
