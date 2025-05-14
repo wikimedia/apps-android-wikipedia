@@ -52,7 +52,6 @@ import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
@@ -85,6 +84,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
+import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -387,13 +387,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+        ImageService.imagePipeLineBitmapGetter(requireContext(), thumbUrl, onSuccess = { bitmap ->
             if (!isAdded) {
-                return@ImagePipelineBitmapGetter
+                return@imagePipeLineBitmapGetter
             }
             ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                 ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-        }
+        })
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
