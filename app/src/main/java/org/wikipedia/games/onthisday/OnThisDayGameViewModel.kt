@@ -71,6 +71,15 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // TODO: remove this in May, 2026
             migrateGameHistoryFromPrefsToDatabase()
 
+            // See if this game exists in the database, i.e. if this day has already been played.
+            var dbGameResults = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = wikiSite.languageCode,
+                year = currentDate.year,
+                month = currentMonth,
+                day = currentDay
+            )
+
             val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
             if (useDateFromState && !overrideDate) {
                 val languageState = totalState.langToState[wikiSite.languageCode]
@@ -79,7 +88,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 } catch (e: Exception) {
                     LocalDate.now()
                 }
-                if (LocalDate.now().isAfter(lastActiveDate)) {
+                if (LocalDate.now().isAfter(lastActiveDate) || dbGameResults != null) {
+                    // Reset to today's game, if we're coming back from an archived game, or if coming back on a future day.
                     persistState(removeCurrentState = true)
                     currentDate = LocalDate.now()
                 } else {
@@ -88,7 +98,17 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     }
                 }
             }
+
             isArchiveGame = currentDate.isBefore(LocalDate.now())
+
+            // Check again if this game exists in the database, i.e. if this day has already been finished.
+            dbGameResults = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = wikiSite.languageCode,
+                year = currentDate.year,
+                month = currentMonth,
+                day = currentDay
+            )
 
             val eventsFromApi = ServiceFactory.getRest(wikiSite).getOnThisDay(currentMonth, currentDay).events
 
@@ -140,21 +160,17 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            val dbGameResults = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
-                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                language = wikiSite.languageCode,
-                year = currentDate.year,
-                month = currentMonth,
-                day = currentDay
-            )
-
-            // for case when user finishes today's game and finishes archive game shows today's game result
             if (dbGameResults != null) {
+                // If this game exists in the database, meaning it's already been finished, then
+                // compose a "finished" state that will trigger a GameEnded event.
                 currentState = currentState.copy(
-                    answerState = JsonUtil.decodeFromString<List<Boolean>>(dbGameResults.gameData) ?: listOf()
+                    answerState = JsonUtil.decodeFromString<List<Boolean>>(dbGameResults.gameData) ?: listOf(),
+                    currentQuestionState = composeQuestionState(0),
+                    currentQuestionIndex = currentState.totalQuestions
                 )
-                _gameState.postValue(GameEnded(currentState, getGameStatistics()))
-            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
+            }
+
+            if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
                 // we're just starting the current game.
                 _gameState.postValue(GameStarted(currentState))
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
