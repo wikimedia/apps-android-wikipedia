@@ -64,11 +64,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
         val languageState = totalState.langToState[wikiSite.languageCode]
         val lastActiveDate = try {
-            LocalDate.parse(languageState?.otdGameLastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
+            LocalDate.parse(Prefs.otdGameLastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
         } catch (e: Exception) {
             dateRightNow
         }
         if (dateRightNow.isAfter(lastActiveDate)) {
+            // resetting game states for all language
+            Prefs.otdGameState = ""
             currentDate = LocalDate.now()
         } else {
             languageState?.archiveGamePlayDate?.takeIf { it.isNotEmpty() }?.let { dateString ->
@@ -122,7 +124,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
             totalState.langToState[wikiSite.languageCode]?.let {
                 currentState = it
             } ?: run {
@@ -221,7 +222,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                         score = currentState.answerState.count { it }
                         gameData = JsonUtil.encodeToString(currentState.answerState)
                     }
-
+                    if (currentState.archiveGamePlayDate.isNotEmpty()) {
+                        currentState.archiveGamePlayDate = ""
+                    }
                     // Update or insert the game history in the database.
                     withContext(Dispatchers.IO) {
                         if (shouldInsert) {
@@ -331,7 +334,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private fun persistState() {
         val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
         val langToState = totalState.langToState.toMutableMap()
-        currentState.otdGameLastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
+        Prefs.otdGameLastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
     }
@@ -421,7 +424,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         val currentQuestionState: QuestionState,
         var archiveGamePlayDate: String = "",
-        var otdGameLastActiveDate: String = "",
     )
 
     @Serializable
