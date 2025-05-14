@@ -402,6 +402,14 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
-        val LANG_CODES_SUPPORTED = if (ReleaseUtil.isPreBetaRelease) listOf("en", "de") else listOf("de")
+        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
+
+        fun isLangSupported(lang: String): Boolean {
+            return LANG_CODES_SUPPORTED.contains(lang)
+        }
+
+        fun dateReleasedForLang(lang: String): LocalDate {
+            return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
+        }
     }
 }

@@ -101,12 +101,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/questionText1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ellipsize="end"
+                    android:scrollbars="vertical"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     style="@style/P"
                     android:textColor="?attr/primary_color"
                     tools:text="Lorem ipsum"/>
@@ -209,12 +212,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/questionText2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ellipsize="end"
+                    android:scrollbars="vertical"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     style="@style/P"
                     android:textColor="?attr/primary_color"
                     tools:text="Lorem ipsum"/>
