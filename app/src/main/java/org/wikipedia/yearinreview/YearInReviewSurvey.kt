@@ -46,6 +46,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -207,12 +208,11 @@ fun YearInReviewSurvey(
                             SurveyButton(
                                 buttonText = R.string.year_in_review_survey_submit,
                                 onClick = {
-                                    /*
                                     PatrollerExperienceEvent.logAction(
                                         "yir_survey_form",
                                         "yir_survey_submit",
                                         "$selectedOption $userInput"
-                                    ) */
+                                    )
                                     viewModel.updateSurveyShownState()
                                 }
                             )
