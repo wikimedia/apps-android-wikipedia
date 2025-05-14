@@ -135,9 +135,9 @@ fun YearInReviewScreen(
 
 @Composable
 fun MainBottomBar(
-    onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
     totalPages: Int,
+    onNavigationRightClick: () -> Unit,
     onDonateClick: () -> Unit
 ) {
     Column {
