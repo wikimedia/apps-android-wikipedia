@@ -77,7 +77,9 @@ class YearInReviewActivity : BaseActivity() {
                                             }
                                         },
                                         pagerState = pagerState,
-                                        totalPages = screenState.data.size) },
+                                        totalPages = screenState.data.size,
+                                        onDonateClick = this@YearInReviewActivity
+                                    ) },
                                     screenContent = { innerPadding, contentData ->
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,

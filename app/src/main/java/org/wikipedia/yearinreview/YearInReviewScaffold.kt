@@ -54,14 +54,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.donate.DonateDialog
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -140,10 +137,9 @@ fun YearInReviewScreen(
 fun MainBottomBar(
     onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
-    totalPages: Int
+    totalPages: Int,
+    onDonateClick: YearInReviewActivity
 ) {
-    val context = LocalContext.current
-    val donateActivity = context as? FragmentActivity
     Column {
         HorizontalDivider(
             modifier = Modifier
@@ -161,16 +157,7 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = {
-                                donateActivity?.let {
-                                    ExclusiveBottomSheetPresenter.show(
-                                        it.supportFragmentManager,
-                                        DonateDialog.newInstance(
-                                            campaignId = "enUS_appmenu_yir_android"
-                                        )
-                                    )
-                                }
-                            })
+                            .clickable(onClick = { onDonateClick.launchDonateDialog("yir") })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
                             .align(Alignment.CenterStart),
