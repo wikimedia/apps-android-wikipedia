@@ -24,8 +24,10 @@ import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.readinglist.db.ReadingListDao
 import org.wikipedia.readinglist.db.ReadingListPageDao
+import org.wikipedia.readinglist.db.RecommendedPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.staticdata.MainPageNameData
@@ -50,7 +52,8 @@ const val DATABASE_VERSION = 29
         Notification::class,
         TalkTemplate::class,
         Category::class,
-        DailyGameHistory::class
+        DailyGameHistory::class,
+        RecommendedPage::class
     ],
     version = DATABASE_VERSION
 )
@@ -75,6 +78,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun talkTemplateDao(): TalkTemplateDao
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
+    abstract fun recommendedPageDao(): RecommendedPageDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -295,6 +299,20 @@ abstract class AppDatabase : RoomDatabase() {
                         "    playType INTEGER NOT NULL," +
                         "    gameData TEXT" +
                         ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS RecommendedPage (" +
+                        "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "    wiki TEXT NOT NULL," +
+                        "    lang TEXT NOT NULL DEFAULT 'en'," +
+                        "    namespace TEXT NOT NULL," +
+                        "    timestamp INTEGER NOT NULL," +
+                        "    apiTitle TEXT NOT NULL," +
+                        "    displayTitle TEXT NOT NULL," +
+                        "    description TEXT," +
+                        "    thumbUrl TEXT," +
+                        "    read INTEGER NOT NULL DEFAULT 0," +
+                        "    expire INTEGER NOT NULL DEFAULT 0" +
+                        ")")
+
             }
         }
 
