@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -198,24 +199,13 @@ fun YearInReviewSurvey(
                                 .align(Alignment.Center)
                                 .padding(start = 16.dp, end = 24.dp, top = 16.dp, bottom = 24.dp)
                         ) {
-                            Button(
-                                onClick = { viewModel.updateSurveyShownState() },
-                                shape = RectangleShape,
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = WikipediaTheme.colors.paperColor,
-                                ),
-                                contentPadding = PaddingValues( horizontal = 12.dp),
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.year_in_review_survey_cancel),
-                                    style = WikipediaTheme.typography.button,
-                                    color = WikipediaTheme.colors.progressiveColor
-                                )
-                            }
-
+                            SurveyButton(
+                                buttonText = R.string.year_in_review_survey_cancel,
+                                onClick = { viewModel.updateSurveyShownState() }
+                            )
                             Spacer(modifier = Modifier.width(8.dp))
-
-                            Button(
+                            SurveyButton(
+                                buttonText = R.string.year_in_review_survey_submit,
                                 onClick = {
                                     /*
                                     PatrollerExperienceEvent.logAction(
@@ -224,23 +214,33 @@ fun YearInReviewSurvey(
                                         "$selectedOption $userInput"
                                     ) */
                                     viewModel.updateSurveyShownState()
-                                },
-                                shape = RectangleShape,
-                                colors = ButtonDefaults.buttonColors(
-                                    containerColor = WikipediaTheme.colors.paperColor
-                                ),
-                                contentPadding = PaddingValues(horizontal = 12.dp)
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.year_in_review_survey_submit),
-                                    style = WikipediaTheme.typography.button,
-                                    color = WikipediaTheme.colors.progressiveColor
-                                )
-                            }
+                                }
+                            )
                         }
                     }
                 }
             }
         }
+    }
+}
+
+@Composable
+fun SurveyButton(
+    @StringRes buttonText: Int,
+    onClick: () -> Unit,
+){
+    Button(
+        onClick = onClick,
+        shape = RectangleShape,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = WikipediaTheme.colors.paperColor,
+        ),
+        contentPadding = PaddingValues( horizontal = 12.dp),
+    ) {
+        Text(
+            text = stringResource(buttonText),
+            style = WikipediaTheme.typography.button,
+            color = WikipediaTheme.colors.progressiveColor
+        )
     }
 }
