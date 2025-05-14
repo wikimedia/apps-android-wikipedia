@@ -266,12 +266,12 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun startArchiveGamePlayMode(year: Int, month: Int, day: Int, state: OnThisDayGameViewModel.GameState) {
-        viewModel.currentDate = LocalDate.of(year, month + 1, day)
-        binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        val archiveDate = LocalDate.of(year, month + 1, day)
+        binding.dateText.text = DateUtil.getShortDateString(archiveDate)
         binding.gameMessageText.text = getString(R.string.on_this_day_game_splash_message)
         binding.playGameButton.text = getString(R.string.on_this_day_game_dialog_button)
         binding.playGameButton.setOnClickListener {
-            viewModel.persistArchiveDate(viewModel.currentDate.format(DateTimeFormatter.ISO_LOCAL_DATE))
+            viewModel.persistArchiveDate(archiveDate.format(DateTimeFormatter.ISO_LOCAL_DATE))
             WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
             viewModel.loadGameState()
             requireActivity().supportFragmentManager.popBackStack()

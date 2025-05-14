@@ -153,28 +153,17 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     answerState = JsonUtil.decodeFromString<List<Boolean>>(isTodayGamePlayed.gameData) ?: listOf()
                 )
                 _gameState.postValue(GameEnded(currentState, getGameStatistics()))
-            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
-                // we're just starting today's game.
+            } else if (isStartingTodayGame()) {
                 currentState = currentState.copy()
                 _gameState.postValue(GameStarted(currentState))
-            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
-                currentState.currentQuestionIndex >= currentState.totalQuestions) {
-                // we're already done for today.
+            } else if (isTodayGameAlreadyCompleted()) {
                 _gameState.postValue(GameEnded(currentState, getGameStatistics()))
-            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
-                // we're coming back from a previous day's game (whether it was finished or not), so start a new day's game.
+            } else if (isDifferentDay()) {
+                // when user selects a date from the archive calendar start new game
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
                 _gameState.postValue(GameStarted(currentState))
             } else {
-                // we're in the middle of a game.
-                if (currentState.currentQuestionState.goToNext) {
-                    // the user must have exited the activity before going to the next question,
-                    // so we can fake submitting the current question.
-                    submitCurrentResponse(0)
-                } else {
-                    // we're truly in the middle of a game, and in the middle of the current question.
-                    _gameState.postValue(CurrentQuestion(currentState))
-                }
+                handleContinuingGame()
             }
 
             persistState()
@@ -226,6 +215,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     if (currentState.archiveGamePlayDate.isNotEmpty()) {
                         currentState.archiveGamePlayDate = ""
                     }
+
                     // Update or insert the game history in the database.
                     withContext(Dispatchers.IO) {
                         if (shouldInsert) {
@@ -326,6 +316,31 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         currentState.archiveGamePlayDate = date
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
+    }
+
+    private fun isStartingTodayGame(): Boolean {
+        return currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext
+    }
+
+    private fun isTodayGameAlreadyCompleted(): Boolean {
+        return currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
+                currentState.currentQuestionIndex >= currentState.totalQuestions
+    }
+
+    private fun isDifferentDay(): Boolean {
+        return currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay
+    }
+
+    private fun handleContinuingGame() {
+        // we're in the middle of a game.
+        if (currentState.currentQuestionState.goToNext) {
+            // the user must have exited the activity before going to the next question,
+            // so we can fake submitting the current question.
+            submitCurrentResponse(0)
+        } else {
+            // we're truly in the middle of a game, and in the middle of the current question.
+            _gameState.postValue(CurrentQuestion(currentState))
+        }
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
