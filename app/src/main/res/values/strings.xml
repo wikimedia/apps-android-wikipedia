@@ -1905,7 +1905,6 @@
     <string name="recommended_reading_list_page_description_daily">Your daily reading list. Learn about new topics,  picked just for you. Updates at midnight.</string>
     <string name="recommended_reading_list_page_description_weekly">Your weekly reading list. Learn about new topics, picked just for you. Updates every Monday.</string>
     <string name="recommended_reading_list_page_description_monthly">Your monthly reading list. Learn about new topics,  picked just for you. Updates on the first of each month.</string>
-    <string name="recommended_reading_list_page_overflow_save_list">Save list</string>
     <string name="recommended_reading_list_page_overflow_customize">Customize</string>
     <string name="recommended_reading_list_page_overflow_about">About this feature</string>
     <string name="recommended_reading_list_page_snackbar">Discover will update with %d new articles each %s. Your recommendations are stored locally on your device.</string>
@@ -1913,6 +1912,7 @@
     <string name="recommended_reading_list_page_snackbar_day">Day</string>
     <string name="recommended_reading_list_page_snackbar_week">Week</string>
     <string name="recommended_reading_list_page_snackbar_month">Month</string>
+    <string name="recommended_reading_list_settings_section_header">Recommendations</string>
     <string name="recommended_reading_list_settings_title">Discover settings</string>
     <string name="recommended_reading_list_settings_toggle">Discover reading list</string>
     <string name="recommended_reading_list_settings_toggle_disable_message">Discover is off. Wikipedia won\'t recommend you articles to read.</string>
@@ -1949,10 +1949,6 @@
     <string name="recommended_reading_list_settings_notifications_dialog_message">If you turn off notifications, you will no longer receive reminders when Discover is updated.</string>
     <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Turn them off</string>
     <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, keep them on</string>
-    <string name="recommended_reading_list_settings_notifications_snackbar_enable">You will now receive notifications when Discover is updated.</string>
-    <string name="recommended_reading_list_settings_notifications_snackbar_disable">You will no longer receive a notification when Discover is updated.</string>
-    <string name="recommended_reading_list_settings_notifications_snackbar_action">Undo</string>
     <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
-    <string name="recommended_reading_list_notification_subtitle">Including articles on %s, and more.</string>
-    <string name="recommended_reading_list_notification_subtitle_few">Tap to see your latest recommendations.</string>
+    <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
 </resources>

@@ -1821,7 +1821,6 @@
   <string name="recommended_reading_list_page_description_daily">Description of the daily reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_description_weekly">Description of the weekly reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_description_monthly">Description of the monthly reading list, explaining its purpose and update frequency.</string>
-  <string name="recommended_reading_list_page_overflow_save_list">Menu item label to save the current recommended reading list.</string>
   <string name="recommended_reading_list_page_overflow_customize">Menu item label to customize the recommended reading list settings.</string>
   <string name="recommended_reading_list_page_overflow_about">Menu item label to learn more about the recommended reading list feature.</string>
   <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %d is replaced by the number of articles, and %s is replaced by the update frequency.</string>
@@ -1829,6 +1828,7 @@
   <string name="recommended_reading_list_page_snackbar_day">Text for the snackbar message that indicates a daily update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_week">Text for the snackbar message that indicates a weekly update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_month">Text for the snackbar message that indicates a monthly update frequency.</string>
+  <string name="recommended_reading_list_settings_section_header">Text of the section in the settings screen for recommended reading list feature.</string>
   <string name="recommended_reading_list_settings_title">Title of the settings screen for the recommended reading list feature.</string>
   <string name="recommended_reading_list_settings_toggle">Label for the switch to enable or disable the recommended reading list.</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Message displayed below the toggle when recommended reading list is disabled.</string>
@@ -1865,10 +1865,6 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Message in the dialog explaining what happens when the recommended reading list notifications are turned off.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Positive action button in the dialog to turn off the recommended reading list notifications.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Negative action button in the dialog to keep the recommended reading list notifications on.</string>
-  <string name="recommended_reading_list_settings_notifications_snackbar_enable">Snackbar message shown when the user turns on notifications for the recommended reading list.</string>
-  <string name="recommended_reading_list_settings_notifications_snackbar_disable">Snackbar message shown when the user turns off notifications for the recommended reading list.</string>
-  <string name="recommended_reading_list_settings_notifications_snackbar_action">Action label on the snackbar to undo the change in notification settings.</string>
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
-  <string name="recommended_reading_list_notification_subtitle">Subtitle of the notification, briefly mentioning some of the topics included. %s will be replaced by a list of articles.</string>
-  <string name="recommended_reading_list_notification_subtitle_few">Shortened subtitle for the notification when the topic list is short.</string>
+  <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
 </resources>
