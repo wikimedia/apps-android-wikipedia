@@ -199,8 +199,8 @@
   <string name="privacy_policy_description">Polasaí príobháideachais</string>
   <string name="terms_of_use_description">Coinníollacha úsáide</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
   <string name="about_libraries_heading">Leabharlanna a úsáidtear</string>
   <string name="about_contributors_heading">Rannchuiditheoirí</string>
@@ -419,8 +419,8 @@
   <string name="reading_list_select_item">Roghnaigh</string>
   <string name="reading_list_confirm_remove_article_from_offline">Bain ón ábhar as líne</string>
   <string name="reading_lists_sync_reminder_title">Cas air sioncronú liostaí léitheoireachta?</string>
-  <string name="reading_lists_sync_reminder_text">Anois is féidir ailt atá sábháilte ar liostaí léitheoireaechta a sioncronú chuig do chuntas Vicipéide. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Anois is féidir ailt atá sábháilte ar liostaí léitheoireaechta a sioncronú chuig do chuntas Vicipéide. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Cumasaigh sioncronú</string>
   <string name="reading_list_login_reminder_title">Sioncronaigh liostaí léitheoireachta</string>
   <string name="reading_lists_login_reminder_text">Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí.</string>

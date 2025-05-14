@@ -239,8 +239,8 @@
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
   <string name="about_wikipedia_url">https://eu.wikipedia.org/wiki/Laguntza:Wikipediari_buruz</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
@@ -446,8 +446,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikulua zerrenda anitzetan agertzen da</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ez da erabilgarri egongo konexiorik gabe hurrengo zerrendetan:</string>
   <string name="reading_lists_sync_reminder_title">Irakurketa zerrendaren sinkronizazioa piztu?</string>
-  <string name="reading_lists_sync_reminder_text">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="reading_lists_login_reminder_text">Irakurketa-zerrendak gailu guztietan sinkronizatu daitezke. Hasi saioa zure Wikipedia kontuan, zure zerrendak gorde ahal izateko.</string>
