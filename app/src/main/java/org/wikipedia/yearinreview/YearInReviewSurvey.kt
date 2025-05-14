@@ -68,7 +68,7 @@ fun YearInReviewSurvey(
 
     if (!hasSurveyShown && pagerState.currentPage == pagerState.pageCount - 1) {
         BasicAlertDialog(
-            onDismissRequest = { viewModel.updateSurveyShownState() }
+            onDismissRequest = { /* no dismissal unless SurveyButton used */ }
         ) {
             Surface(
                 tonalElevation = AlertDialogDefaults.TonalElevation,
