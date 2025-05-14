@@ -138,7 +138,7 @@ fun MainBottomBar(
     onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
     totalPages: Int,
-    onDonateClick: YearInReviewActivity
+    onDonateClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -157,7 +157,7 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = { onDonateClick.launchDonateDialog("yir") })
+                            .clickable(onClick = onDonateClick)
                             .padding(start = 15.dp)
                             .wrapContentWidth()
                             .align(Alignment.CenterStart),
