@@ -25,6 +25,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -619,15 +620,18 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     fun playSound(soundName: String) {
-        try {
-            if (Prefs.isOtdSoundOn) {
+        if (Prefs.isOtdSoundOn) {
+            try {
                 mediaPlayer.reset()
-                mediaPlayer.setDataSource(this, Uri.parse("android.resource://$packageName/raw/$soundName"))
+                mediaPlayer.setDataSource(
+                    this,
+                    "android.resource://$packageName/raw/$soundName".toUri()
+                )
                 mediaPlayer.prepare()
                 mediaPlayer.start()
+            } catch (e: Exception) {
+                L.e(e)
             }
-        } catch (e: Exception) {
-            L.e(e)
         }
     }
 

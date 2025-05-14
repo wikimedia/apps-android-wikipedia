@@ -57,11 +57,10 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
             if (fragment is MaterialDatePicker<*>) {
                 val calendar = getPrivateCalendarFragment(fragment)
-                L.d("calendar: $calendar")
                 @Suppress("UNCHECKED_CAST")
                 (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
                     override fun onSelectionChanged(selection: Long) {
-                        handleDateSelection(selection, null)
+                        handleDateSelection(selection)
                     }
                 })
             }
@@ -247,7 +246,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             .show(childFragmentManager, "datePicker")
     }
 
-    private fun handleDateSelection(selectedDateInMillis: Long, state: OnThisDayGameViewModel.GameState?) {
+    private fun handleDateSelection(selectedDateInMillis: Long, state: OnThisDayGameViewModel.GameState? = null) {
         val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
         calendar.timeInMillis = selectedDateInMillis
         val year = calendar.get(Calendar.YEAR)
