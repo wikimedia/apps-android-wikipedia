@@ -24,15 +24,6 @@
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp">
 
-            <ImageView
-                android:id="@+id/infoIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_info_24"
-                android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="16dp"
-                app:tint="?attr/paper_color" />
-
             <TextView
                 android:id="@+id/dateText"
                 android:layout_width="wrap_content"
