@@ -41,6 +41,10 @@ class YearInReviewViewModel() : ViewModel() {
     val uiHasSurveyShown: StateFlow<Boolean> = _uiHasSurveyShown.asStateFlow()
 
     init {
+        PrefsIoUtil.setBoolean(
+            key = "has_yir_survey_shown",
+            value = false
+        )
         hasSurveyShown()
         fetchPersonalizedData()
     }

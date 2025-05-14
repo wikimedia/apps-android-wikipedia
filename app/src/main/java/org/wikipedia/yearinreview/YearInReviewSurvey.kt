@@ -1,15 +1,18 @@
 package org.wikipedia.yearinreview
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -18,6 +21,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.RadioButton
@@ -35,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -75,26 +81,40 @@ fun YearInReviewSurvey(
                     modifier = Modifier
                         .verticalScroll(scrollState)
                         .background(color = WikipediaTheme.colors.paperColor)
-
                 ) {
-                    Text(
-                        text = stringResource(R.string.year_in_review_survey_title),
-                        style = WikipediaTheme.typography.h2,
-                        color = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier.padding(top = 20.dp, bottom = 5.dp)
-                    )
-                    Text(
-                        text = stringResource(R.string.year_in_review_survey_subtitle),
-                        style = WikipediaTheme.typography.p,
-                        color = WikipediaTheme.colors.secondaryColor,
-                        modifier = Modifier.padding(top = 5.dp, bottom = 10.dp)
-                    )
-                    HorizontalDivider(
+                    Box(
                         modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth(),
-                        color = WikipediaTheme.colors.inactiveColor
-                    )
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.Start,
+                            modifier = Modifier
+                                .wrapContentHeight()
+                                .align(Alignment.Center)
+                        ){
+                            Text(
+                                text = stringResource(R.string.year_in_review_survey_title),
+                                style = WikipediaTheme.typography.h2,
+                                color = WikipediaTheme.colors.primaryColor,
+                                modifier = Modifier.padding(top = 12.dp)
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = stringResource(R.string.year_in_review_survey_subtitle),
+                                style = WikipediaTheme.typography.p,
+                                color = WikipediaTheme.colors.secondaryColor,
+                                modifier = Modifier.padding(bottom = 12.dp)
+                            )
+                        }
+                        HorizontalDivider(
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth()
+                                .align(Alignment.BottomCenter),
+                            color = WikipediaTheme.colors.inactiveColor
+                        )
+                    }
 
                     Column(
                         modifier = Modifier.selectableGroup()
@@ -109,7 +129,7 @@ fun YearInReviewSurvey(
                                         onClick = { onOptionSelected(text) },
                                         role = Role.RadioButton
                                     )
-                                    .padding(horizontal = 16.dp),
+                                    .padding(start = 8.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 RadioButton(
@@ -120,13 +140,14 @@ fun YearInReviewSurvey(
                                         disabledSelectedColor = WikipediaTheme.colors.inactiveColor,
                                         disabledUnselectedColor = WikipediaTheme.colors.inactiveColor
                                     ),
-                                    onClick = null
+                                    onClick = null,
+                                    modifier = Modifier.padding(8.dp)
                                 )
+                                Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = text,
                                     style = WikipediaTheme.typography.p,
                                     color = WikipediaTheme.colors.primaryColor,
-                                    modifier = Modifier.padding(start = 16.dp)
                                 )
                             }
                         }
@@ -152,46 +173,71 @@ fun YearInReviewSurvey(
                             }
                         },
                         modifier = Modifier
-                            .padding(bottom = 8.dp)
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
                     )
-                    HorizontalDivider(
+                    Box(
                         modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth(),
-                        color = WikipediaTheme.colors.inactiveColor
-                    )
-                    Row(
-                        horizontalArrangement = Arrangement.End,
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .padding(end = 32.dp)
                             .fillMaxWidth()
                             .height(72.dp)
-
                     ) {
-                        Text(
-                            text = stringResource(R.string.year_in_review_survey_cancel),
-                            style = WikipediaTheme.typography.button,
-                            color = WikipediaTheme.colors.progressiveColor,
-                            modifier = Modifier.clickable {
-                                viewModel.updateSurveyShownState()
-                            }
+                        HorizontalDivider(
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth()
+                                .align(Alignment.TopCenter),
+                            color = WikipediaTheme.colors.inactiveColor
                         )
-                        Spacer(modifier = Modifier.width(32.dp))
-                        Text(
-                            text = stringResource(R.string.year_in_review_survey_submit),
-                            style = WikipediaTheme.typography.button,
-                            color = WikipediaTheme.colors.progressiveColor,
-                            modifier = Modifier.clickable {
-                                /*
-                                PatrollerExperienceEvent.logAction(
-                                    "yir_survey_form",
-                                    "yir_survey_submit",
-                                    "$selectedOption $userInput"
-                                ) */
-                                viewModel.updateSurveyShownState()
+
+                        Row(
+                            horizontalArrangement = Arrangement.End,
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .fillMaxHeight()
+                                .align(Alignment.Center)
+                                .padding(start = 16.dp, end = 24.dp, top = 16.dp, bottom = 24.dp)
+                        ) {
+                            Button(
+                                onClick = { viewModel.updateSurveyShownState() },
+                                shape = RectangleShape,
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = WikipediaTheme.colors.paperColor,
+                                ),
+                                contentPadding = PaddingValues( horizontal = 12.dp),
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.year_in_review_survey_cancel),
+                                    style = WikipediaTheme.typography.button,
+                                    color = WikipediaTheme.colors.progressiveColor
+                                )
                             }
-                        )
+
+                            Spacer(modifier = Modifier.width(8.dp))
+
+                            Button(
+                                onClick = {
+                                    /*
+                                    PatrollerExperienceEvent.logAction(
+                                        "yir_survey_form",
+                                        "yir_survey_submit",
+                                        "$selectedOption $userInput"
+                                    ) */
+                                    viewModel.updateSurveyShownState()
+                                },
+                                shape = RectangleShape,
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = WikipediaTheme.colors.paperColor
+                                ),
+                                contentPadding = PaddingValues(horizontal = 12.dp)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.year_in_review_survey_submit),
+                                    style = WikipediaTheme.typography.button,
+                                    color = WikipediaTheme.colors.progressiveColor
+                                )
+                            }
+                        }
                     }
                 }
             }
