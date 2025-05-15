@@ -242,6 +242,8 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 }
             }
             .show(childFragmentManager, "datePicker")
+
+        WikiGamesEvent.submit("impression", "game_play", slideName = "archive_calendar")
     }
 
     private fun maybeShowToastForDate(selectedDateInMillis: Long) {
@@ -269,12 +271,15 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         if (scoreData[scoreDataKey] != null) {
             return
         }
-        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
+        WikiGamesEvent.submit("date_select", "game_play", slideName = "archive_calendar")
         viewModel.relaunchForDate(LocalDate.of(year, month, day))
-        requireActivity().supportFragmentManager.popBackStack()
-        getGameActivity()?.apply {
-            updateGameState(state)
-            animateQuestionsIn()
+        getGameActivity()?.let {
+            it.supportFragmentManager.popBackStack()
+            binding.root.post {
+                if (!it.isDestroyed) {
+                    it.animateQuestionsIn()
+                }
+            }
         }
     }
 

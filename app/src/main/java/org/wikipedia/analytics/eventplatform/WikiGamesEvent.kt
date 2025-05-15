@@ -12,7 +12,7 @@ object WikiGamesEvent {
         slideName: String? = null,
         feedbackSelect: String? = null,
         feedbackText: String? = null,
-        isArchive: Boolean = false,
+        isArchive: Boolean? = null,
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
     ) {
         EventPlatformClient.submit(
@@ -35,7 +35,7 @@ object WikiGamesEvent {
     @Serializable
     class ActionData(
         val slide: String? = null,
-        val archive: Boolean = false,
+        val archive: Boolean? = null,
         @SerialName("feedback_select") val feedbackSelect: String? = null,
         @SerialName("feedback_text") val feedbackText: String? = null,
     )
