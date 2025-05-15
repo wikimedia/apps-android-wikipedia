@@ -28,6 +28,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
@@ -296,6 +297,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val wikiSite = WikipediaApp.instance.wikiSite
             // Both of the primary language and the article language should be in the supported languages list.
             if (!Prefs.otdEntryDialogShown &&
+                OnThisDayGameABCTest().group != ABTest.GROUP_1 &&
                 OnThisDayGameViewModel.isLangSupported(wikiSite.languageCode) &&
                 OnThisDayGameViewModel.isLangSupported(articleWikiSite.languageCode) &&
                 (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {

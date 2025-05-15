@@ -468,6 +468,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             return LANG_CODES_SUPPORTED.contains(lang)
         }
 
+        fun isLangABTested(lang: String): Boolean {
+            return isLangSupported(lang) && lang != "de"
+        }
+
         fun dateReleasedForLang(lang: String): LocalDate {
             return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
         }
