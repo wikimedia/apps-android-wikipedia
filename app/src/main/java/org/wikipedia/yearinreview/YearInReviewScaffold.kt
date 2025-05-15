@@ -170,7 +170,6 @@ fun MainBottomBar(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = ripple(bounded = true),
                                 onClick = {
-                                    onDonateClick
                                     EventPlatformClient.submit(
                                         BreadCrumbLogEvent(
                                             screen_name = "year_in_review",
@@ -181,6 +180,7 @@ fun MainBottomBar(
                                         activeInterface = "wiki_yir",
                                         campaignId = "yir"
                                     )
+                                    onDonateClick()
                                 }
                             ),
                         verticalAlignment = Alignment.CenterVertically,
