@@ -153,9 +153,10 @@ fun YearInReviewScreen(
 
 @Composable
 fun MainBottomBar(
-    onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
-    totalPages: Int
+    totalPages: Int,
+    onNavigationRightClick: () -> Unit,
+    onDonateClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -174,7 +175,7 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = { /* TODO() */ })
+                            .clickable(onClick = onDonateClick)
                             .padding(start = 15.dp)
                             .wrapContentWidth()
                             .align(Alignment.CenterStart),
