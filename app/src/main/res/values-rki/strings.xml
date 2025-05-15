@@ -244,8 +244,6 @@
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီးပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https\n://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">အသုံးပြုထားရေ စာကြေ့တိုက်တိ</string>
   <string name="about_contributors_heading">ပံ့ပိုးကူညီသူတိ</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;အဖွိ့စာမျက်နှာ&lt;/a&gt;</string>
