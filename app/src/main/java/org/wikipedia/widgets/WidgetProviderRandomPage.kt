@@ -111,7 +111,7 @@ class WidgetProviderRandomPage : AppWidgetProvider() {
     class WidgetRandomPageWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
         override suspend fun doWork(): Result {
             return try {
-                val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandom()
+                val result = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
                 val pageTitle = result.getPageTitle(WikipediaApp.instance.wikiSite)
                 pageTitle.displayText = result.displayTitle
 
