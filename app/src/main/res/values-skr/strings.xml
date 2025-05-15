@@ -2,6 +2,7 @@
 <!-- Authors:
 * Dbrant
 * Saraiki
+* Umar Shahid
 -->
 <resources>
   <string name="app_name_prod">وکیپیڈیا</string>
@@ -13,6 +14,7 @@
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
+  <string name="search_icon_content_description">ڳولو</string>
   <string name="filter_hint_filter_my_lists_and_articles">میݙیاں تندیراں چھاݨو</string>
   <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>
@@ -99,6 +101,9 @@
   <string name="dialog_message_leaving_edit" fuzzy="true">تہاݙیاں تبدیلیاں اڄݨ محفوظ کائنی تھیاں۔بھلا تساں ایہ ورقہ چھوڑݨ چاہندے ہو؟</string>
   <string name="dialog_message_leaving_edit_leave">چھوڑو</string>
   <string name="dialog_message_leaving_edit_stay">رکو</string>
+  <string name="dialog_confirm_delete_donation_history_title">مٹاوݨ دی توثیق کرو؟</string>
+  <string name="dialog_confirm_delete_donation_history_delete">مٹاؤ</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">منسوخ</string>
   <string name="menu_show_toc">فہرست</string>
   <string name="search_no_results_found">کوئی نتیجہ نی لبھا</string>
   <string name="search_history_no_results">تاریخ وچ کائی نتیجہ نی لبھا</string>
@@ -108,7 +113,7 @@
   <string name="login_username_hint">صارف دا ناں</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint">ݙو جزی تصیدیقی کوڈ</string>
+  <string name="login_2fa_hint" fuzzy="true">ݙو جزی تصیدیقی کوڈ</string>
   <string name="onboarding_card_login">لاگ ان تھیوو</string>
   <string name="page_editing_login">لاگ ان تھیوو</string>
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>
@@ -161,6 +166,7 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="about_contributors_heading">ونگاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
@@ -412,6 +418,7 @@
   <string name="description_edit_add_image_caption">تصویر عنوان شامل کرو</string>
   <string name="description_edit_cancel_hint">منسوخ</string>
   <string name="description_edit_help_about_wikidata">وکیڈیٹا بارے</string>
+  <string name="description_too_long">تفصیل کوں مختصر رکھݨ دی کوشش کرو تاں جو صارف مضمون دے موضوع کوں ہک نظر وچ سمجھ سڳے</string>
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_keep_it_short">ایں کوں مختصر رکھو</string>
@@ -447,7 +454,6 @@
   <string name="suggested_edits_image_preview_dialog_more_info">ٻیاں معلومات</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
-  <string name="suggested_edits_snackbar_survey_action_text">سروے کرو</string>
   <string name="suggested_edits_task_action_text_add">شامل کرو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمہ کرو</string>
   <string name="suggested_edits_image_captions">تصویر کیپشن</string>
@@ -621,10 +627,10 @@
   <string name="revision_compare_button">موازنہ کرو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">وٹاؤ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">١ ہفتے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">١ مہینے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">٣ مہینیاں کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">٦ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">١ ہفتے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">١ مہینے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">٣ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">٦ مہینیاں کیتے</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">ہک ہفتہ</string>
   <string name="watchlist_expiry_dialog_one_month">ہک مہیناں</string>
@@ -710,8 +716,29 @@
   <string name="places_card_action">نیڑے دیاں ٻیاں جاہیں</string>
   <string name="places_card_enable_location_card_button">لوکیشن فعال کرو</string>
   <string name="places_card_distance_unknown">نامعلوم فاصلہ</string>
-  <string name="rabbit_holes_experiment">تجربہ</string>
   <string name="survey_dialog_option_very_satisfied">ݙاڈھا تسلی بخش</string>
   <string name="survey_dialog_submit">جمع کرواؤ</string>
+  <string name="survey_dialog_next">اڳلا</string>
+  <string name="survey_dialog_general_no">کو</string>
   <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
+  <string name="on_this_day_game_dialog_button">چلاؤ</string>
+  <string name="on_this_day_game_next">اڳلا سوال</string>
+  <string name="on_this_day_game_share_button">شیئر</string>
+  <string name="on_this_day_game_pause_title">کِھیݙ کوں روکو؟</string>
+  <string name="on_this_day_game_pause_body">تُہاݙی اَڳوتری کوں ݙینہہ کیتے محفوظ کیتا ویسی۔ تساں گیم کوں اپݨی ایکسپلور فیڈ تے ڳول سڳدو۔</string>
+  <string name="on_this_day_game_pause_positive">سمجھ ڳئے</string>
+  <string name="on_this_day_game_menu_notifications">گیم دیاں اطلاعات</string>
+  <string name="on_this_day_game_menu_info">مزید ڄاݨو</string>
+  <string name="on_this_day_game_menu_feedback">خصوصیت دے نال ڳنڈھ</string>
+  <string name="on_this_day_game_article_read_button">مضمون پڑھو</string>
+  <string name="on_this_day_game_article_related_event_title">ایں مضمون کنوں متعلق واقعہ۔</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">تہاکوں ایہ سوال غلط مِلیا</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">جے تساں پُش اطلاعات کوں بند کر ݙیندو، تاں  تُہاکوں ہر روز ہک یاد دہانی موصول کائنا تھیسی جݙݨ کوئی نویں گیم کھیݙݨ کیتے دستیاب تھیسی۔</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">گیم دیاں اطلاعات  آن کرو؟</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">جݙݨ کوئی نویں گیم کھیݙݨ کیتے دستیاب تھیندی ہے تاں گیم دیاں اطلاعات روزانہ تُہاکوں آگاہ کریندی ہِن۔</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">اُنہاں کوں بند کر ݙیوو</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">جیا، انہاں کوں آن کرو</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
+  <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
+  <string name="on_this_day_game_notification_undo">واپس</string>
 </resources>

@@ -33,6 +33,8 @@
   <string name="share_via">аркылуу бөлүшүү</string>
   <string name="menu_page_other_languages">Тилди өзгөртүү</string>
   <string name="menu_page_find_in_page" fuzzy="true">Бул барактан табуу</string>
+  <string name="menu_page_talk_page">Талкуу барагы</string>
+  <string name="menu_page_edit_history">Түзөтүү тарыхы</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="menu_page_add_to_default_list">Сактоо</string>
   <string name="feed_card_add_to_default_list">Сактоо</string>
@@ -73,8 +75,8 @@
   <string name="login_activity_title">Кирүү</string>
   <string name="login_in_progress_dialog_message">Кирүүдө…</string>
   <string name="login_success_toast">Кирдиңиз !</string>
-  <string name="preference_title_logout">Чыгуу</string>
-  <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
+  <string name="preference_title_logout">Аккаунттан чыгуу</string>
+  <string name="toast_logout_complete">Аккаунттан чыктыңыз</string>
   <string name="logout_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="logged_out_in_background_title">Чыктыңыз</string>
   <string name="logged_out_in_background_login">Кирүү</string>
@@ -121,7 +123,7 @@
   <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
   <string name="about_app_license_heading">Лицензия</string>
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
-  <string name="about_activity_title">Тиркеме жөнүндө</string>
+  <string name="about_activity_title">Колдонмо тууралуу</string>
   <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
   <string name="edit_abandon_confirm_yes">Ооба</string>
   <string name="edit_abandon_confirm_no">Жок</string>
@@ -153,17 +155,18 @@
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
   <string name="dialog_close_description">Жабуу</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Уруксат берүү</string>
   <string name="gallery_menu_share">Бөлүшүү</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
-  <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясына ылайык жеткиликтүү.</string>
+  <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясы боюнча жеткиликтүү.</string>
   <string name="article_menu_bar_language_button">Тил</string>
   <string name="article_menu_bar_search_button">Издөө</string>
   <string name="article_header_edit_hint">Түзөтүү...</string>
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
-  <string name="color_theme_dark">Караңгы</string>
+  <string name="color_theme_dark">Түнкү</string>
   <string name="reading_list_item_delete_undo">Жокко чыгаруу</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>

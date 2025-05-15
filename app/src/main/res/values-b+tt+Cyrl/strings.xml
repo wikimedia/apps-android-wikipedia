@@ -25,6 +25,7 @@
   <string name="nav_item_suggested_edits">Төзәтмәләр</string>
   <string name="nav_item_more">Тагын</string>
   <string name="nav_item_search">Эзләү</string>
+  <string name="nav_item_contribute">Кертем</string>
   <string name="error_network_error">Интернетка тоташтырып булмый.</string>
   <string name="page_error_retry">Кабатлау</string>
   <string name="card_offline_error_retry">Кабатлау</string>
@@ -60,7 +61,7 @@
   <string name="page_edit_history_filter_by">... буенча фильтрлау:</string>
   <string name="page_edit_history_filter_by_all">Барлык төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_user">Кулланучылар төзәтмәләр (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Аноним төзәтмәләр (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Аноним төзәтмәләр (%s)</string>
   <string name="page_edit_history_filter_by_bot">Бот төзәтмәләре (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s-%2$s кадәрге күрсәткечләр</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -130,6 +131,9 @@
   <string name="dialog_message_leaving_edit">Үзгәрешләрегез сакланмады әле. Бу битне ташлап китәсегез киләме?</string>
   <string name="dialog_message_leaving_edit_leave">Ташлап китү</string>
   <string name="dialog_message_leaving_edit_stay">Калу</string>
+  <string name="dialog_confirm_delete_donation_history_title">Берерүне раслау</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Бетер</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Артка</string>
   <string name="menu_show_toc">Эчтәлек</string>
   <string name="search_no_results_found">Берни дә табылмаган</string>
   <string name="search_reading_list_no_results">«%s» эчендә берни дә табылмаган</string>
@@ -144,8 +148,8 @@
   <string name="login_username_hint">Кулланучы исеме</string>
   <string name="login_password_hint">Серсүз</string>
   <string name="account_creation_password_hint">Серсүз</string>
-  <string name="login_2fa_hint">Ике факторлы аутентификация коды</string>
-  <string name="login_2fa_other_workflow_error_msg">Ике факторлы аутентификация таләп ителә! Зинһар, төп гамәлгә кире кайтыгыз, үзегезнең 2FA токены ярдәмендә системага керегез һәм аннан соң омтылышны кабатлагыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ике факторлы аутентификация коды</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ике факторлы аутентификация таләп ителә! Зинһар, төп гамәлгә кире кайтыгыз, үзегезнең 2FA токены ярдәмендә системага керегез һәм аннан соң омтылышны кабатлагыз.</string>
   <string name="onboarding_card_login">Керү</string>
   <string name="page_editing_login">Керү</string>
   <string name="reading_lists_sync_login">Керү</string>
@@ -234,14 +238,12 @@
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tt</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -554,8 +556,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Мәкалә берничә исемлектә күрсәтелә</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s башка барлык уку исемлекләре өчен автоном режимда кулланылмаячак:</string>
   <string name="reading_lists_sync_reminder_title">Уку исемлеген синхронлаштыруны кабызыргамы?</string>
-  <string name="reading_lists_sync_reminder_text">Уку исемлекләрендә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисап язмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Уку исемлекләрен хәзер җайланмалар арасында синхронлаштырырга мөмкин. Үзегезнең Википедиялагы хисап язмасына керегез һәм исемлекләрегезне сакларга рөхсәт бирегез. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Уку исемлекләрендә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисап язмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Уку исемлекләрен хәзер җайланмалар арасында синхронлаштырырга мөмкин. Үзегезнең Википедиялагы хисап язмасына керегез һәм исемлекләрегезне сакларга рөхсәт бирегез. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштыруны кабызырга</string>
   <string name="reading_list_login_reminder_title">Уку исемлекләрен синхронлаштырырга</string>
   <string name="reading_lists_login_reminder_text">Уку исемлекләрен хәзер төрле җайланмаларда синхронлаштырырга мөмкин. Үзегезнең Википедия хисап язмасына керегез һәм сезнең исемлекләрне сакларга рөхсәт бирегез.</string>
@@ -857,8 +859,6 @@
   <string name="description_edit_voice_input_description">Тавышлы язма</string>
   <string name="description_edit_learn_more">Мәкаләләрнең тасвирламалары турында тулырак</string>
   <string name="description_edit_image_caption_learn_more">Сурәтләргә язмалар турында тулырак</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст бик кыска.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билгеләре белән тәмамланырга тиеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренче сүз ялгызлык исем булмаса, юл хрефтән башлагыз.</string>
@@ -957,8 +957,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурәткә аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурәткә %s аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурәт тегларын өстәгез</string>
-  <string name="suggested_edits_snackbar_survey_text">Сезнең мөхәррирләү тәҗрибәсе нинди иде? \nЗинһар, кушымтада мөхәррирләү буенча сораштыру узу өчен бер генә минут вакытыгызны сарыф итегез.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Сораштыру үткәрү</string>
   <string name="suggested_edits_task_action_text_add">Өстәргә</string>
   <string name="suggested_edits_task_action_text_translate">Тәрҗемә итәргә</string>
   <string name="suggested_edits_image_captions">Сурәт аңлатмасы</string>
@@ -1006,6 +1004,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Кертем</item>
     <item quantity="other">Кертемнәр</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Төзәтмә</item>
+    <item quantity="other">Төзәтмә</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d көн</item>
@@ -1126,6 +1128,7 @@
   <string name="onboarding_explore_text">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылган уку исемлекләре</string>
   <string name="onboarding_reading_list_sync_text_v2">Сез автоном режимда булып та соңрак укырга теләгән мәкаләләрдән уку өчен исемлекләр төзи аласыз.&lt;br/&gt;Үзегезнең уку исемлекләрен синхронлаштыру өчен Википедиядәге хисап язмагызга керегез. &lt;a href=\"#login\"&gt;Википедиягә кушылыгыз&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Мәгълүмат һәм конфиденциальлек</string>
   <string name="onboarding_analytics_switch_title">Куллану турында мәгълүматны җибәрергә</string>
   <string name="onboarding_got_it">Аңладым</string>
   <string name="onboarding_multilingual_secondary_text">Без сезнең җайланмада түбәндәгеләрне таптык:</string>
@@ -1134,6 +1137,7 @@
   <string name="app_shortcuts_random">Очраклы</string>
   <string name="app_shortcuts_continue_reading">Алга таба укырга</string>
   <string name="app_shortcuts_search">Эзләү</string>
+  <string name="app_shortcuts_places">Урыннар</string>
   <string name="on_this_day_card_title">Бу көнне</string>
   <string name="more_events_text">Бу көн турында тулырак</string>
   <string name="events_count_text">%2$s–%3$d еллар өчен %1$s вакыйга</string>
@@ -1351,14 +1355,12 @@
   <string name="revision_rollback_success">Төзәтмәләр гамәлдән чыгарылды.</string>
   <string name="revision_compare_button">Чагыштырырга</string>
   <string name="revision_compare_two_only">Бары тик ике редакцияне генә сайларга мөмкин.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s исемле кулланучы  һәм уның фикер алышыу бите %2$s көнендә сезнең күзәтү исемлегенә өстәлде.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Үзгәртергә</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">даими</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 атна дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">бер ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ай дәвамында</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">\"%s\" исемле мәкаләсе һәм аның фикер алышу бите сезнең күзәтү исемлегеннән алынды.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 атна дәвамында</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">бер ай дәвамында</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ай дәвамында</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ай дәвамында</string>
   <string name="watchlist_expiry_dialog_title">Күзәтү исемлегендә вакыт аралыгын сайлагыз</string>
   <string name="watchlist_expiry_dialog_permanent">Даими</string>
   <string name="watchlist_expiry_dialog_one_week">1 атна</string>
@@ -1548,8 +1550,11 @@
   <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
   <string name="patroller_onboarding_two_talk_content">Башка төзәтүчеләр белән аралашыгыз. Еш кулланылган битләрне фикер алышу битендә саклагыз яки калыпны кулланыгыз.</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
+  <string name="patroller_diff_menu_edit_history_title">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кире элемтә</string>
   <string name="patroller_diff_feedback_tooltip">«Функциясе белән проблема» бүлегендә бәяләмәләрне теләсә кайсы вакытта җибәрү өчен өстәмә менюга басыгыз.</string>
+  <string name="patroller_saved_message_title_vandalism">Вандализм турында кисәтү</string>
+  <string name="patroller_saved_message_title_npov">Нейтраль караш</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматик тәрҗемә</string>
   <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
   <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>

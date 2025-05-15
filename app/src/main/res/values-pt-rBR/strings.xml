@@ -14,6 +14,7 @@
 * Dianakc
 * Dr03ramos
 * Duke of Wikipädia
+* EGobi
 * EVinente
 * Eduardo Addad de Oliveira
 * Eduardoaddad
@@ -27,6 +28,7 @@
 * Iohanen
 * Isabelle Belato
 * JPLSilva
+* Jessicamss93
 * Lc97
 * Lowvy
 * Luk3
@@ -36,6 +38,7 @@
 * Mellogabi03
 * Mordecool
 * MuratTheTurkish
+* PPenloglou-WMF
 * Peter Fernando
 * Ppena
 * Re demz
@@ -62,6 +65,9 @@
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_voice_search">Busca por voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
+  <string name="search_back_button_content_description">Voltar</string>
+  <string name="search_clear_query_content_description">Limpar consulta</string>
+  <string name="search_icon_content_description">Pesquisar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
@@ -141,6 +147,7 @@
   <string name="menu_page_recently_viewed">Visto recentemente</string>
   <string name="menu_page_archive">Arquivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
+  <string name="menu_long_press_open_in_places">Aberto em Locais</string>
   <string name="menu_long_press_open_in_new_tab">Abrir em uma nova guia</string>
   <string name="menu_long_press_copy_page">Copiar endereço da ligação</string>
   <string name="menu_text_select_define">Definir</string>
@@ -172,6 +179,9 @@
   <string name="dialog_message_leaving_edit">As suas alterações ainda não foram publicadas. Tem certeza que pretende sair desta página?</string>
   <string name="dialog_message_leaving_edit_leave">Sair</string>
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmar exclusão</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Excluir</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Cancelar</string>
   <string name="menu_show_toc">Índice</string>
   <string name="search_no_results_found">Nenhum resultado encontrado</string>
   <string name="search_reading_list_no_results">Nenhum resultado encontrado em “%s”</string>
@@ -187,7 +197,9 @@
   <string name="login_password_hint">Senha</string>
   <string name="account_creation_password_hint">Senha</string>
   <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
-  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores necessária! Volte à atividade principal e autentique-se com sua chave 2FA e, em seguida, tente novamente.</string>
+  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores solicitada! Por favor, faça o login de outro dispositivo e entre com o seu código do token 2 FA.</string>
+  <string name="login_email_auth_hint">Código de verificação de e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Verificação de e-mail solicitada! Por favor, faça o login da tela principal e entre com o código de verificação do seu e-mail.</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
@@ -277,24 +289,23 @@
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Tags_de_imagem</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
   <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
+  <string name="about_logo_content_description">Logotipo de globo em formato de quebra-cabeça da Wikipédia</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
   <string name="edit_abandon_confirm_yes">Sim</string>
   <string name="edit_abandon_confirm_no">Não</string>
@@ -321,6 +332,8 @@
   <string name="edit_summary_tag_links">Adicionou ligações</string>
   <string name="edit_summary_tag_other">Outro</string>
   <string name="edit_summary_tag_other_hint">Outras maneiras de como você melhorou a página</string>
+  <string name="edit_summary_added_short_description">Breve descrição adicionada</string>
+  <string name="edit_summary_updated_short_description">Atualizar breve descrição</string>
   <string name="edit_conflict_title">Conflito de edição</string>
   <string name="edit_conflict_message">A página já foi modificada por outro usuário e a sua edição está em conflito com o estado presente dela. Copie a sua edição, volte atrás, atualize a página e depois tente refazer a edição.</string>
   <string name="edit_notices">Avisos de edição</string>
@@ -453,6 +466,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento de imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
+  <string name="preference_title_delete_local_donation_history">Deletar histórico de doações locais</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Corresponder tema do sistema</string>
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
@@ -609,8 +623,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em várias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title">Deseja ativar a sincronização das listas de leitura?</string>
-  <string name="reading_lists_sync_reminder_text">Os artigos salvados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta da Wikipédia e permita que suas listas sejam salvas &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber mais&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Os artigos salvos nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta da Wikipédia e permita que suas listas sejam salvas &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber mais&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta da Wikipédia e permita que suas listas sejam salvas.</string>
@@ -903,15 +917,13 @@
   <string name="description_edit_help_title">Info: Descrições de artigos</string>
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guia do Wikidata para escrever descrições</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Obrigado pelo seu interesse contínuo em editar descrições de artigos! Para fazer edições adicionais, faça o login na sua conta da Wikipédia.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do artigo, concordo com as &lt;a href=\"%1$s\"&gt;Condições de Uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">geralmente começam com uma letra minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Legendas_da_imagem</string>
   <string name="description_too_short">O texto é muito curto.</string>
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>
@@ -1010,8 +1022,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adicionar marcações de imagem</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi sua experiência de edição? Reserve um momento para preencher a pesquisa sobre edição no aplicativo.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Responder a pesquisa</string>
   <string name="suggested_edits_task_action_text_add">Adicionar</string>
   <string name="suggested_edits_task_action_text_translate">Traduzir</string>
   <string name="suggested_edits_image_captions">Legendas da imagem</string>
@@ -1407,14 +1417,12 @@
   <string name="revision_rollback_success">Edições revertidas.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">por 1 semana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">por 1 mês</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Por 3 meses</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Por 6 meses</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e sua página de discussão foi removida de sua lista de páginas vigiadas.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">por 1 semana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">por 1 mês</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">Por 3 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">Por 6 meses</string>
   <string name="watchlist_expiry_dialog_title">Selecione o período da lista de páginas vigiadas</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semana</string>
@@ -1617,8 +1625,15 @@
   <string name="email_report_image_recommendations_body">Encontrei um problema com a funcionalidade \"Recomendações de imagens\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]</string>
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
-  <string name="donation_campaign_maybe_later_snackbar">Iremos lembrá-lo novamente amanhã.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Vamos exibir outro lembrete amanhã.</string>
+  <string name="donation_campaign_donated_snackbar">Obrigado, prezado(a) apoiador(a)! Sua generosidade ajuda a manter a Wikipédia e seus projetos irmãos prosperando.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
+  <string name="menu_single_webview_open_external">Abrir no navegador do sistema</string>
+  <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
+  <string name="donate_gpay_activity_title">Escolha um valor</string>
+  <string name="donate_gpay_check_transaction_fee">Gostaria de acrescentar %s para cobrir as taxas operacionais para que vocês possam receber 100%% da minha doação.</string>
+  <string name="donate_gpay_check_recurring">Fazer uma doação mensal recorrente.</string>
+  <string name="donate_gpay_check_send_email">Sim, a Wikimedia Foundation pode me mandar um e-mail ocasionalmente.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
   <string name="places_search_hint">Procurar lugares</string>

@@ -144,8 +144,8 @@
   <string name="login_username_hint">Uzeronomo</string>
   <string name="login_password_hint">Pasovorto</string>
   <string name="account_creation_password_hint">pasovorto</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
   <string name="onboarding_card_login">Enirar</string>
   <string name="page_editing_login">Enirar</string>
   <string name="reading_lists_sync_login">Enirar</string>
@@ -168,7 +168,7 @@
   <string name="logged_out_in_background_cancel">Anular</string>
   <string name="account_vanish_request_title">Efacar konto</string>
   <string name="account_vanish_request_confirm_title">Avizo pri efaco di konto</string>
-  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte deziras ne pluse redaktar permanante&lt;/b&gt;, ed anke celar la maxim multa kam posibla de vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altrei ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Efaco di konto esas &lt;b&gt;lasta resurso&lt;/b&gt; e devas uzesar &lt;b&gt;nur se vu fakte e permanante ne pluse deziras redaktar&lt;/b&gt;, ed anke celar la maxim multa kam posibla ek vua pasinta asocii.&lt;br/&gt;&lt;br/&gt;Efaco di konto che Wikipedia facesas modifikanta la nomo di vua konto, por ke altri ne povas agnoskar vua kontributadi, en procedo nomizita Angle \'\'vanishing\'\' (\"desaparo\"). &lt;b&gt;\'\'Vanishing\'\' ne grantas kompleta anonimeso, o removo di kontributadi ad omna projeti&lt;/b&gt;.</string>
   <string name="history_empty_title">Nula artiklo vidita recente</string>
   <string name="history_empty_message">Hike tu povas vidar la kozi quin tu lektabis.</string>
   <string name="history_offline_articles_toast">Kelka artikli en la historio povas ne esar videbla \'\'offline\'\'.</string>
@@ -235,14 +235,12 @@
   <string name="privacy_policy_description">Politiki pri privateso</string>
   <string name="terms_of_use_description">Uzo-termini</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteki uzita</string>
   <string name="about_contributors_heading">Kontributeri</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagino dil esquado&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagino dil esquado&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
@@ -266,8 +264,8 @@
   <string name="edit_damage">Domajo %s</string>
   <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s bicoko*</item>
-    <item quantity="other">%s bicoki*</item>
+    <item quantity="one">%s bicoko</item>
+    <item quantity="other">%s bicoki</item>
   </plurals>
   <string name="edit_zoom_in">Augmentez la videbleso</string>
   <string name="edit_zoom_out">Diminutez la videbleso</string>
@@ -548,8 +546,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Ca artiklo aparas en multa listi</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne divenos disponebla \'\'offline\'\' por omna lekto-listi:</string>
   <string name="reading_lists_sync_reminder_title">Ka sinkronigar listi pri lektado?</string>
-  <string name="reading_lists_sync_reminder_text">Artikli konservita che lektado-listi nun povas sinkronigesar a vua Wikipedio-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Savez pluse&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Nun vu povas sinkronigar vua listi pri lektado. Facez \'log in\' en vua konto che Wikipedio, e permisez konservar vua listi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikli konservita che lektado-listi nun povas sinkronigesar a vua Wikipedio-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Savez pluse&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Nun vu povas sinkronigar vua listi pri lektado. Facez \'log in\' en vua konto che Wikipedio, e permisez konservar vua listi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Permisar sinkronigo</string>
   <string name="reading_list_login_reminder_title">Sinkronigo di listi pri lektado</string>
   <string name="reading_lists_login_reminder_text">Listi pri lektado nun povas sinkronigesar en multa utensili. Facez \'\'log in\'\' en vua Wikipedio-konto, e permisez konservar la listi.</string>
@@ -828,8 +826,6 @@
   <string name="description_edit_voice_input_description">Eniro di voco</string>
   <string name="description_edit_learn_more">Lektez pluse pri deskripto di artikli</string>
   <string name="description_edit_image_caption_learn_more">Lektez pluse pri texti (\'\'captions\'\') pri imaji</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">La texto esas tro kurta.</string>
   <string name="description_ends_with_punctuation">La texto ne povas finar per puntizosigno.</string>
   <string name="description_starts_with_uppercase">Komencez skribanta minuskula litero, ecepte se l\'unesma vorto esas propra nomo.</string>
@@ -868,7 +864,7 @@
   <string name="suggested_edits_review_description">Revizar deskripto dil artiklo</string>
   <string name="suggested_edits_add_description_button">Adjuntar deskripto</string>
   <string name="suggested_edits_edit_description_button">Modifikar deskripto</string>
-  <string name="suggested_edits_add_translation_button">Adjuntar tradukuro</string>
+  <string name="suggested_edits_add_translation_button">Adjuntez tradukuro</string>
   <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>
   <string name="suggested_edits_add_caption_button">Adjuntar titulo</string>
   <string name="suggested_edits_edit_caption_button">Modifikar titulo</string>
@@ -922,8 +918,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adjuntez informo pri imajo</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez informo pri imajo (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adjuntez etiketi ad imaji</string>
-  <string name="suggested_edits_snackbar_survey_text">Quale vu sentis dum redaktado? Respondez nia inquesto pri l\'uzo dil \'\'app\'\' por redaktar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Respondez l\'inquesto</string>
   <string name="suggested_edits_task_action_text_add">Adjuntar</string>
   <string name="suggested_edits_task_action_text_translate">Tradukez</string>
   <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
@@ -1193,14 +1187,12 @@
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua diskuto-pagino adjuntesis a vua surveyo-listo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifikar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanante</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">dum 1 semano</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">dum 1 monato</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">dum 3 monati</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">dum 6 monati</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e lua diskuto-pagino efacesis de vua surveyo-listo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">dum 1 semano</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">dum 1 monato</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">dum 3 monati</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">dum 6 monati</string>
   <string name="watchlist_expiry_dialog_title">Selektez periodo di tempo di la surveyo-listo</string>
   <string name="watchlist_expiry_dialog_permanent">Permananta</string>
   <string name="watchlist_expiry_dialog_one_week">1 semano</string>

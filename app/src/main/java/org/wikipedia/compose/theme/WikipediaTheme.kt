@@ -1,28 +1,30 @@
 package org.wikipedia.compose.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-
-enum class WikipediaThemeType {
-    SYSTEM, LIGHT, DARK, BLACK, SEPIA
-}
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import org.wikipedia.WikipediaApp
+import org.wikipedia.theme.Theme
 
 @Composable
 fun BaseTheme(
-    wikipediaThemeType: WikipediaThemeType = WikipediaThemeType.SYSTEM,
+    currentTheme: Theme = WikipediaApp.instance.currentTheme,
     content: @Composable () -> Unit
 ) {
-    val wikipediaColorSystem = when (wikipediaThemeType) {
-        WikipediaThemeType.LIGHT -> LightColors
-        WikipediaThemeType.DARK -> DarkColors
-        WikipediaThemeType.BLACK -> BlackColors
-        WikipediaThemeType.SEPIA -> SepiaColors
-        WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) DarkColors else LightColors
+    val appTheme by remember { mutableStateOf(currentTheme) }
+
+    val wikipediaColorSystem = when (appTheme) {
+        Theme.LIGHT -> LightColors
+        Theme.DARK -> DarkColors
+        Theme.BLACK -> BlackColors
+        Theme.SEPIA -> SepiaColors
     }
 
     CompositionLocalProvider(
-        LocalWikipediaColor provides wikipediaColorSystem
+        LocalWikipediaColor provides wikipediaColorSystem,
+        LocalWikipediaTypography provides Typography
     ) {
         content()
     }
@@ -32,4 +34,8 @@ object WikipediaTheme {
     val colors: WikipediaColor
         @Composable
         get() = LocalWikipediaColor.current
+
+    val typography: WikipediaTypography
+        @Composable
+        get() = LocalWikipediaTypography.current
 }

@@ -35,8 +35,6 @@ class BecauseYouReadClient(
             } else {
                 val entry = entries[age]
                 val langCode = entry.title.wikiSite.languageCode
-                // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
-                // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
                 val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 

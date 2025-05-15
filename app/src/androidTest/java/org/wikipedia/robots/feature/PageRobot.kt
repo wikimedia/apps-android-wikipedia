@@ -1,11 +1,14 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -25,9 +28,8 @@ import androidx.test.espresso.web.webdriver.Locator
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.containsString
 import org.wikipedia.R
-import org.wikipedia.base.AssertJavascriptAction
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.utils.AssertJavascriptAction
 
 class PageRobot(private val context: Context) : BaseRobot() {
 
@@ -39,60 +41,60 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun clickLink(linkTitle: String) = apply {
-        clickWebLink(linkTitle)
+        web.clickWebLink(linkTitle)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun verifyArticleTitle(expectedTitle: String) = apply {
-        verifyH1Title(expectedTitle)
+        web.verifyH1Title(expectedTitle)
     }
 
     fun verifyPreviewArticleDialogAppears() = apply {
-        clickOnDisplayedView(R.id.link_preview_toolbar)
+        click.onDisplayedView(R.id.link_preview_toolbar)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun openPreviewLinkInNewTab() = apply {
-        clickOnDisplayedView(R.id.link_preview_secondary_button)
+        click.onDisplayedView(R.id.link_preview_secondary_button)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
-        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyHeaderViewWithLeadImage() = apply {
-        checkViewExists(R.id.page_header_view)
+        verify.viewExists(R.id.page_header_view)
     }
 
     fun clickLeadImage() = apply {
         delay(TestConfig.DELAY_SHORT)
-        clickOnDisplayedView(R.id.view_page_header_image)
+        click.onDisplayedView(R.id.view_page_header_image)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickOverflowMenu(description: String) = apply {
-        clickOnDisplayedViewWithContentDescription(description)
+        click.onDisplayedViewWithContentDescription(description)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun visitImagePage() = apply {
-        clicksOnDisplayedViewWithText(viewId = R.id.title, text = "Go to image page")
+        click.onDisplayedViewWithText(viewId = R.id.title, text = "Go to image page")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun verifyLeadImageIsNotVisible() = apply {
-        checkViewDoesNotExist(R.id.page_header_view)
+        verify.viewWithIdIsNotVisible(R.id.page_header_view)
     }
 
     fun swipePagerLeft() = apply {
-        swipeLeft(R.id.pager)
+        swipe.left(R.id.pager)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun swipeLeftToShowTableOfContents() = apply {
-        swipeLeft(R.id.page_web_view)
+        swipe.left(R.id.page_web_view)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -116,19 +118,19 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun clickOnPreviewTabInTheList(position: Int) = apply {
-        clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
+        list.clickRecyclerViewItemAtPosition(R.id.tabRecyclerView, position)
     }
 
     fun swipeDownOnTheWebView() = apply {
-        swipeDownOnTheWebView(R.id.page_contents_container)
+        web.swipeDownOnTheWebView(R.id.page_contents_container)
     }
 
     fun verifyTopMostItemInTableOfContentIs(text: String) = apply {
-        checkViewWithIdAndText(viewId = R.id.page_toc_item_text, text)
+        verify.viewWithIdAndText(viewId = R.id.page_toc_item_text, text)
     }
 
     fun clickOnTOCItem(position: Int) = apply {
-        clickOnListView(
+        list.clickOnListView(
             viewId = R.id.toc_list,
             childView = R.id.page_toc_item_text,
             position = position
@@ -136,12 +138,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
-        swipeUp(R.id.toc_list)
+        swipe.up(R.id.toc_list)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickAboutThisArticleTextInTOC() = apply {
-        clickOnViewWithText("About this article")
+        click.onViewWithText("About this article")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -152,32 +154,27 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun clickThirdTopic() = apply {
-        clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun clickLanguageListedAtFourthPosition() = apply {
-        clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
+        list.clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun openOverflowMenu() = apply {
-        clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
+        click.onViewWithId(R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun navigateBackToExploreFeed() = apply {
-        clickOnViewWithText("Explore")
+        click.onViewWithText("Explore")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun removeArticleFromReadingList() = apply {
-        clickOnViewWithText("Remove from Saved")
+        click.onViewWithText("Remove from Saved")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun navigateUp() = apply {
-        clickOnDisplayedViewWithContentDescription("Navigate up")
+        click.onDisplayedViewWithContentDescription("Navigate up")
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -188,7 +185,8 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     private fun assertEditIconProtection(elementSelector: String, expectedLabel: String) {
         onView(withId(R.id.page_web_view))
-            .perform(AssertJavascriptAction(
+            .perform(
+                AssertJavascriptAction(
                 script = """
                     (function checkEdit() {
                         const element = document.querySelector("$elementSelector")
@@ -197,11 +195,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
                     })();
                 """.trimIndent(),
                 expectedResult = expectedLabel
-            ))
+            )
+            )
     }
 
     fun verifyPreviewDialogAppears() = apply {
-        checkViewExists(R.id.link_preview_title)
+        verify.viewExists(R.id.link_preview_title)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -257,20 +256,20 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun saveArticleToReadingList() = apply {
         delay(TestConfig.DELAY_SHORT)
-        clickOnViewWithId(R.id.page_save)
+        click.onViewWithId(R.id.page_save)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun confirmArticleSaved(text: String) = apply {
-        checkPartialString(text)
+        verify.partialString(text)
     }
 
     fun openLanguageSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
+        click.onDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
     }
 
     fun openFindInArticle() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
+        click.onDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
     }
 
     fun verifyFindInArticleCount(count: String) = apply {
@@ -282,22 +281,18 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun openThemeSelector() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
+        click.onDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
     }
 
     fun openTableOfContents() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
+        click.onDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun selectSpanishLanguage() = apply {
         val language = "Spanish"
-        scrollToRecyclerView(
-            recyclerViewId = R.id.langlinks_recycler,
-            title = language,
-            textViewId = R.id.non_localized_language_name
-        )
-        clickOnViewWithText(language)
+        composeTestRule.onNodeWithText(language)
+            .performClick()
     }
 
     fun scrollToAboutThisArticle() = apply {
@@ -354,23 +349,23 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun clickOutside() = apply {
         onView(withId(R.id.navigation_drawer))
-            .perform(clickXY(800, 500))
+            .perform(click.xyPosition(800, 500))
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickOverFlowMenuToolbar() = apply {
-        clickOnViewWithId(viewId = R.id.page_toolbar_button_show_overflow_menu)
+        click.onViewWithId(viewId = R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToNonLeadImage() = apply {
         onView(withId(R.id.page_web_view))
-            .perform(scrollToImageInWebView(1))
+            .perform(web.scrollToImageInWebView(1))
             .perform(click())
     }
 
     fun isGalleryActivityOffline(context: Context, action: () -> Unit) = apply {
-        performActionIfSnackbarVisible(
+        system.performActionIfSnackbarVisible(
             text = context.getString(R.string.gallery_not_available_offline_snackbar),
             action = action
         )
@@ -385,7 +380,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun test() = apply {
         delay(TestConfig.DELAY_SHORT)
-        clickOnViewWithText("Got it")
+        click.onViewWithText("Got it")
         delay(TestConfig.DELAY_SHORT)
     }
 }

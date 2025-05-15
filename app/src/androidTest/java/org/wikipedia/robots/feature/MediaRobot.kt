@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.app.Activity
 import android.app.Instrumentation
 import android.content.Context
@@ -17,9 +18,9 @@ import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
 import org.hamcrest.CoreMatchers.allOf
 import org.wikipedia.R
-import org.wikipedia.base.BaseRobot
-import org.wikipedia.base.GifMatchers
 import org.wikipedia.base.TestConfig
+import org.wikipedia.base.utils.GifMatchers
+import org.wikipedia.base.utils.waitForAsyncLoading
 
 class MediaRobot : BaseRobot() {
 
@@ -37,7 +38,7 @@ class MediaRobot : BaseRobot() {
     }
 
     fun doubleTapToZoomOut() = apply {
-        doubleClickOnViewWithId(viewId = R.id.imageView)
+        click.doubleClickOnViewWithId(viewId = R.id.imageView)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -53,26 +54,26 @@ class MediaRobot : BaseRobot() {
 
     fun verifyOverlayVisibility(isVisible: Boolean) = apply {
         if (isVisible) {
-            checkViewExists(R.id.toolbar_container)
+            verify.viewExists(R.id.toolbar_container)
             delay(TestConfig.DELAY_MEDIUM)
             return@apply
         }
 
-        checkViewDoesNotExist(R.id.toolbar_container)
+        verify.viewWithIdIsNotVisible(R.id.toolbar_container)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun navigateUp() = apply {
-        clickOnDisplayedViewWithContentDescription("Navigate up")
+        click.onDisplayedViewWithContentDescription("Navigate up")
     }
 
     fun clickCC() = apply {
-        clickOnViewWithId(R.id.license_icon)
+        click.onViewWithId(R.id.license_icon)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyCCisClicked() = apply {
-        checkPartialString("CC")
+        verify.partialString("CC")
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -82,13 +83,13 @@ class MediaRobot : BaseRobot() {
     }
 
     fun goToImagePage(context: Context) = apply {
-        clickOnViewWithText(context.getString(R.string.menu_gallery_visit_image_page))
+        click.onViewWithText(context.getString(R.string.menu_gallery_visit_image_page))
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyImagePageIsVisible() = apply {
         try {
-            clickOnViewWithId(R.id.filePageView)
+            click.onViewWithId(R.id.filePageView)
         } catch (e: Exception) {
             Log.e("MediaRobot:", "filePageView must not be visible.")
         }
@@ -102,7 +103,7 @@ class MediaRobot : BaseRobot() {
         intending(hasAction(Intent.ACTION_CHOOSER)).respondWith(
             Instrumentation.ActivityResult(Activity.RESULT_OK, null)
         )
-        clickOnViewWithId(R.id.menu_gallery_share)
+        click.onViewWithId(R.id.menu_gallery_share)
         delay(TestConfig.DELAY_SHORT)
     }
 }

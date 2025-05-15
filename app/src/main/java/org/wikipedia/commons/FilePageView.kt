@@ -157,7 +157,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(context)
             view.binding.titleText.text = titleString
-            view.binding.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
+            view.binding.contentText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(detail)).trim()
             if (!externalLink.isNullOrEmpty()) {
                 view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
                 view.binding.contentText.setTextIsSelectable(false)

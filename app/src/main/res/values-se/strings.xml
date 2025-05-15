@@ -60,7 +60,7 @@
   <string name="page_edit_history_filter_by">Sille</string>
   <string name="page_edit_history_filter_by_all">Buot rievdadusat (%s)</string>
   <string name="page_edit_history_filter_by_user">Geavaheddjiid rievdadusat (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonyma rievdadusat (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Registrerekeahtes rievdadusat (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bohta rievdadusat (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mihtideamit %1$s:as %2$s:ii</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -131,6 +131,8 @@
   <string name="dialog_message_leaving_edit">Du rievdadeamit eai leat vel almmuhuvvon. Áiggutgo duođaid guođđit dán siiddu?</string>
   <string name="dialog_message_leaving_edit_leave">Guođe</string>
   <string name="dialog_message_leaving_edit_stay">Biso dás</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Sihko</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Gaskkalduhte</string>
   <string name="menu_show_toc">Sisdoallologahallan</string>
   <string name="search_no_results_found">Eai bohtosat.</string>
   <string name="search_reading_list_no_results">Eai bohtosat ohcamii \"%s\"</string>
@@ -145,8 +147,8 @@
   <string name="login_username_hint">Geavaheaddjinamma</string>
   <string name="login_password_hint">Beassansátni</string>
   <string name="account_creation_password_hint">Beassansátni</string>
-  <string name="login_2fa_hint">Guovtteceahkat autentiserenkoda</string>
-  <string name="login_2fa_other_workflow_error_msg">Guovtteceahkat autentiseren gáibiduvvo! Máhca mat iežat váldodoibmii ja čálit sisa iežat guovtteceahkat čoavdagiin, ja geahččal ođđasit.</string>
+  <string name="login_2fa_hint" fuzzy="true">Guovtteceahkat autentiserenkoda</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Guovtteceahkat autentiseren gáibiduvvo! Máhca mat iežat váldodoibmii ja čálit sisa iežat guovtteceahkat čoavdagiin, ja geahččal ođđasit.</string>
   <string name="onboarding_card_login">Čálit sisa</string>
   <string name="page_editing_login">Čálit sisa</string>
   <string name="reading_lists_sync_login">Čálit sisa</string>
@@ -237,7 +239,7 @@
   <string name="about_wikipedia_url">https://se.wikipedia.org/wiki/Wikipedia:Birra</string>
   <string name="about_libraries_heading">Girjerádju geavahuvvon</string>
   <string name="about_contributors_heading">Čálusveahkit</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
   <string name="about_translators_heading">Jorgaleaddjit</string>
   <string name="about_translators_translatewiki">Áppa jorgaluvvui eaktodáhtolaš jorgaleddjiin &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;:s.</string>
   <string name="about_app_license_heading">Liseansa</string>
@@ -418,8 +420,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Heivet reaidoholgga</string>
   <string name="error_blocked_footer_no_blocker">Sáhtát váldit oktavuođa ovttain &lt;a href=\"https://se.wikipedia.org/wiki/Wikipedia:Administráhtorat\"&gt;hálddašeddjiin&lt;/a&gt; digaštallat hehttema birra.</string>
   <string name="temp_account_not_logged_in">It leat čálihuvvon sisa</string>
-  <string name="temp_account_anon_dialog_body" fuzzy="true">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje, iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid, ja beassanlobi eará doaimmaide.</string>
-  <string name="temp_account_temp_dialog_body" fuzzy="true">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus boahtá lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#login\"&gt;ásahat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, oktan eará ovdamuniin.</string>
+  <string name="temp_account_anon_dialog_body">Go dagat rievdademiid, de ásahuvvo &lt;b&gt;gaskaboddosaš geavaheaddjidovddaldat&lt;/b&gt; dutnje iežat persovdnasuodjalusa dihte. &lt;a href=\"%1$s\"&gt;Oahpa eambbo&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Čálit sisa&lt;/a&gt; dahje &lt;a href=\"https://#createaccount\"&gt;ráhkat geavaheaddjidovddaldaga&lt;/a&gt; oažžun dihte boahttevaš rievdademiid ektui krediteremiid ja beassanlobi eará doaimmaide.</string>
+  <string name="temp_account_temp_dialog_body">Du rievdadeapmi šaddá %1$s nammii. Du IP-čujuhus lea oidnosis hálddašeddjiide.&lt;br /&gt;&lt;br /&gt;Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt; dahje &lt;a href=\"https://#createaccount\"&gt;ráhkadat geavaheaddjidovddaldaga&lt;/a&gt;, de du rievdadeamit biddjojuvvojit ovtta nammii man don válljet, ja oaččut eará ovdamuniidge.</string>
   <string name="temp_account_dialog_ok">Ok, ipmirdin.</string>
   <string name="temp_account_using_title">Don anát gaskaboddosaš geavaheaddjidovddaldaga.</string>
   <string name="temp_account_dialog_discard">Healbat rievdadusaid ja čálit sisa</string>
@@ -477,7 +479,7 @@
   <string name="reading_list_title_exists">«%s» lohkanlistu juo gávdno.</string>
   <string name="reading_list_article_added_to_named">Artihkal %1$s lasihuvvui lohkanlistui %2$s</string>
   <string name="reading_list_article_added_to_default_list">%s lea vurkejuvvon. Háliidatgo dan listui lasihit?</string>
-  <string name="reading_list_article_moved_to_named">Sirdojuvvon %1$s, %2$s:ii</string>
+  <string name="reading_list_article_moved_to_named">Sirdojuvvon artihkkala %1$s nammii %2$s</string>
   <string name="reading_list_article_already_exists_message">%1$s sisttisdoallá juo %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s sisttisdoallá juo visot artihkkaliid.</string>
   <string name="reading_list_added_view_button">Čájet listtu</string>
@@ -565,17 +567,17 @@
   <string name="reading_list_confirm_remove_article_from_offline">Sihko báikkálaš máŋgema</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artihkal gávdno máŋgga listtus</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ii šat boađe leat olámuttos offline guđege lohkanlisttu bokte:</string>
-  <string name="reading_lists_sync_reminder_text">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Váldde synkroniserema atnui</string>
   <string name="reading_list_login_reminder_title">Synkronisere lohkanlisttuid</string>
   <string name="reading_lists_login_button">Čálit sisa / searvva Wikipediai</string>
   <string name="reading_lists_ignore_button">Ii dál</string>
   <string name="reading_list_article_save_in_progress">Artihkal vižžojuvvo ja šaddá olámuttos offline go lea geargan.</string>
-  <string name="reading_list_articles_added_to_named" fuzzy="true">Artihkkalat %1$d lasihuvvojedje lohkanlistui %2$s</string>
-  <string name="reading_list_articles_moved_to_named">Sirdojuvvon %1$d artihkkalat %2$s:ii</string>
+  <string name="reading_list_articles_added_to_named">Lasihuvvon %1$d artihkkala lohkanlistui %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Sirdojuvvon %1$d artihkkala lohkanlistui %2$s</string>
   <string name="reading_list_delete_confirm">Áiggutgo don duođaid %s sihkkut?</string>
-  <string name="reading_list_delete_lists_confirm_dialog_title">Sihko válljejuvvon list(t)u(id)?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Sihko válljejuvvon listtu(id)?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
     <item quantity="one">Leat go sihkar ahte áiggut sihkkut %d listtu?</item>
     <item quantity="two">Leat go sihkar ahte áiggut sihkkut %d listtuid?</item>
@@ -597,7 +599,7 @@
   <string name="default_reading_list_description">Vurkejuvvon artihkkaliid standárdalistu</string>
   <string name="no_user_lists_title">Organisere artihkkaliid listtuide</string>
   <string name="reading_list_saved_list_rename">%1$s (geavaheaddji ásahuvvon)</string>
-  <string name="split_reading_list_message" fuzzy="true">Lea rádji %d artihkkala juohke lohkanlisttus. Dálá listtut main leat máŋga artihkkala juhkkojuvvojit máŋgga listui.</string>
+  <string name="split_reading_list_message">Juohke lohkanlisttus ožžot leat eanemustá %d artihkkala. Dálá listtut main leat eanet artihkkalat juhkkojuvvojit máŋgga listui.</string>
   <string name="reading_list_move_article_limit_message">Ii sáhttán sirdit listtu. Don leat olahan ráji mii lea %2$d artihkkala juoge listtu nammii «%1$s»:s.</string>
   <string name="reading_list_article_limit_message">Ii sáhte lasihit dán listtu. Don leat olahan ráji mii lea %2$d artihkkala juohke listtus «%1$s» namas.</string>
   <string name="reading_lists_limit_message">Ii sáhte ásahit ođđa listtu. Don leat olahan ráji mii lea 100 lohkanlisttu juohke geavaheaddjidovddaldaga namas.</string>
@@ -633,7 +635,7 @@
   <string name="reading_lists_action_menu_export_lists">Olggosfievrrit</string>
   <string name="reading_lists_import_file_picker_title">Vállje fiilla mii galgá sisafievrriduvvot</string>
   <string name="reading_lists_import_failure_message">Lohkanlisttuid sisafievrrideapmi ii menestuvvan</string>
-  <string name="reading_lists_export_select_lists_message">Vállje list(t)u(id) mat galget olggosfievrriduvvot</string>
+  <string name="reading_lists_export_select_lists_message">Vállje listtu(id) mat galget olggosfievrriduvvot</string>
   <string name="reading_lists_export_completed_message">Lohkanlist(t)u(t) olggosfievrriduvvon</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Lohkanlisttu olggosfievrrideapmi ii menestuvvan</item>
@@ -977,8 +979,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lasit govvateavstta</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lasit govvateavstta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Lasit govvagilkoriid</string>
-  <string name="suggested_edits_snackbar_survey_text">Movt lei rievdadanvásáhus dutnje? Bija áinnas moadde minuhta deavdit jearranskovi mii lea áppa bokte rievdadeami birra.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Searvva iskkadeapmái</string>
   <string name="suggested_edits_task_action_text_add">Lasit</string>
   <string name="suggested_edits_task_action_text_translate">Jorgal</string>
   <string name="suggested_edits_image_captions">Govvateavsttat</string>
@@ -1383,14 +1383,12 @@
   <string name="revision_rollback_success">Rievdadusat máhcahuvvon.</string>
   <string name="revision_compare_button">Buohtastahtte</string>
   <string name="revision_compare_two_only">Dušše guokte revišuvnna sáhttet válljejuvvot.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ja daid ságastallansiidu lea lasihuvvon du čuovvunlistui %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Rievdat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Bissovaš</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 vahkku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mánu</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ja dat gullevaš ságastallansiidu lea sihkkojuvvon du čuovvunlisttus.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 vahkku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 mánu</string>
   <string name="watchlist_expiry_dialog_title">Vállje áigodaga čuovvunlistui</string>
   <string name="watchlist_expiry_dialog_permanent">Bissovaš</string>
   <string name="watchlist_expiry_dialog_one_week">1 vahkku</string>

@@ -15,17 +15,16 @@ open class WikiCardView(context: Context, attrs: AttributeSet? = null) : Materia
 
     init {
         if (!isInEditMode) {
-            val (hasBorder, elevation) = context
-                .obtainStyledAttributes(attrs, R.styleable.WikiCardView)
+            context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
                 .use {
-                    Pair(
-                        it.getBoolean(R.styleable.WikiCardView_hasBorder, true),
-                        it.getDimension(R.styleable.WikiCardView_elevation,
-                            DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f))
+                    setup(
+                        it.getDimension(
+                            R.styleable.WikiCardView_elevation,
+                            DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f)
+                        ),
+                        it.getBoolean(R.styleable.WikiCardView_hasBorder, true)
                     )
                 }
-
-            setup(elevation, hasBorder)
         }
     }
 
@@ -33,7 +32,6 @@ open class WikiCardView(context: Context, attrs: AttributeSet? = null) : Materia
         if (hasBorder) {
             setDefaultBorder()
         }
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             if (WikipediaApp.instance.currentTheme.isDark) {
                 cardElevation = 0f
@@ -45,8 +43,6 @@ open class WikiCardView(context: Context, attrs: AttributeSet? = null) : Materia
         } else {
             cardElevation = elevation
         }
-
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         rippleColor = ResourceUtil.getThemedColorStateList(context, R.attr.overlay_color)
     }
 

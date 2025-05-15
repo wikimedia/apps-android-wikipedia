@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* A100Star
 * Amire80
 * Cooltey
 * Dbrant
@@ -38,6 +39,9 @@
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
+  <string name="search_back_button_content_description">חזרה</string>
+  <string name="search_clear_query_content_description">ניקוי שאילתה</string>
+  <string name="search_icon_content_description">חיפוש</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
@@ -153,6 +157,10 @@
   <string name="dialog_message_leaving_edit">השינויים שלך עוד לא פורסמו. האם ברצונך לעזוב את הדף הזה?</string>
   <string name="dialog_message_leaving_edit_leave">לעזוב</string>
   <string name="dialog_message_leaving_edit_stay">להישאר</string>
+  <string name="dialog_confirm_delete_donation_history_title">אישור המחיקה</string>
+  <string name="dialog_confirm_delete_donation_history_message">זה יחול רק על תרומות שנעשו מהמכשיר הזה.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">מחיקה</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ביטול</string>
   <string name="menu_show_toc">תוכן עניינים</string>
   <string name="search_no_results_found">אין תוצאות</string>
   <string name="search_reading_list_no_results">לא נמצאו תוצרות ב\"%s\"</string>
@@ -168,7 +176,9 @@
   <string name="login_password_hint">סיסמה</string>
   <string name="account_creation_password_hint">סיסמה</string>
   <string name="login_2fa_hint">קוד אימות דו־שלבי</string>
-  <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא לחזור לפעילות הראשית ולהיכנס עם קוד האימות הדו־שלבי (2FA) שלך ואז לנסות שוב.</string>
+  <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא להתחבר מהמסך הראשי ולהזין את קוד האימות הדו־שלבי (2FA) שלך.</string>
+  <string name="login_email_auth_hint">קוד אימות בדוא״ל</string>
+  <string name="login_email_auth_other_workflow_error_msg">נדרש אימות דוא\"ל! נא להתחבר מהמסך הראשי ולהזין את קוד אימות הדוא\"ל שלך.</string>
   <string name="onboarding_card_login">כניסה</string>
   <string name="page_editing_login">כניסה</string>
   <string name="reading_lists_sync_login">כניסה</string>
@@ -191,7 +201,7 @@
   <string name="logged_out_in_background_cancel">ביטול</string>
   <string name="account_vanish_request_title">העלמת החשבון שלך</string>
   <string name="account_vanish_request_confirm_title">אזהרת העלמת חשבון</string>
-  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לתמיד&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה מתבצעת על ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לנצח&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה נעשית על־ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -258,24 +268,23 @@
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_tags</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;גיטהאב&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
+  <string name="about_logo_content_description">סמול גלובוס הפאזל של ויקיפדיה</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
   <string name="edit_abandon_confirm_no">לא</string>
@@ -443,6 +452,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
+  <string name="preference_title_delete_local_donation_history">מחיקת היסטוריית תרומות מקומית</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
@@ -617,8 +627,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
-  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
@@ -949,16 +959,15 @@
   <string name="description_edit_help_title">מידע: תיאורי ערכים</string>
   <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורי ערכים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הערך מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">על פי רוב מתחיל באות קטנה</string>
   <string name="description_edit_voice_input_description">קלט קולי</string>
   <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
   <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
+  <string name="description_too_long">השתדלו להקפיד שהתיאורים יהיו קצרים כדי שמשתמשים יוכלו להבין מה נושא הערך במבט מהיר</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
@@ -1058,8 +1067,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">הוספת תגי תמונה</string>
-  <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
   <string name="suggested_edits_image_captions">כיתובי תמונה</string>
@@ -1489,14 +1496,12 @@
   <string name="revision_rollback_success">העריכות שוחזרו.</string>
   <string name="revision_compare_button">השוואה</string>
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">לשבוע</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">לחודש</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ל־3 חודשים</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ל־6 חודשים</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">הדף %s ודף השיחה שלו הוסרו מרשימת המעקב שלך.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">שבוע אחד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">חודש אחד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 חודשים</string>
   <string name="watchlist_expiry_dialog_title">נא לבחור את הזמן לשמירה ברשימת המעקב</string>
   <string name="watchlist_expiry_dialog_permanent">קבוע</string>
   <string name="watchlist_expiry_dialog_one_week">שבוע</string>
@@ -1744,9 +1749,9 @@
   <string name="page_issues_title">בעיות בדף</string>
   <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
   <string name="email_report_image_recommendations_subject">דו\"ח בעיה – תכונת המלצות תמונה</string>
-  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
   <string name="email_report_patroller_tasks_subject">דו\"ח בעיה - תכונת משימות ניטור</string>
-  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור עריכות:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]\n\n[צילומי מסך או קישורים]</string>
+  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור עריכות:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]\n\n[צילומי מסך או קישורים]</string>
   <string name="donation_campaign_maybe_later_snackbar">נזכיר לך שוב מחר.</string>
   <string name="donation_campaign_donated_snackbar">תודה, תורם יקר! הנדיבות שלך עוזרת להבטיח את צמיחתם של ויקיפדיה ושל האתרים הקשורים אליה.</string>
   <string name="donation_campaign_go_back_button">חזרה</string>
@@ -1766,6 +1771,7 @@
   <string name="donate_gpay_help_other_ways">דרכים אחרות לתת</string>
   <string name="donate_gpay_help_faq">שאלות ותשובות</string>
   <string name="donate_gpay_help_tax">מידע על פטור ממס</string>
+  <string name="donation_history_deleted_message_snackbar">היסטוריית התרומה נמחקה</string>
   <string name="places_title">מקומות</string>
   <string name="places_permissions_denied">נדרשת הרשאת מיקום כדי לראות את מיקומך על המפה. נא לנסות שוב.</string>
   <string name="places_search_hint">חיפוש מקומות</string>
@@ -1780,23 +1786,6 @@
   <string name="places_card_distance_suffix">%s מכאן</string>
   <string name="places_card_distance_unknown">מרחק בלתי־ידוע</string>
   <string name="places_empty_message_snackbar">אין ערכים על דברים בסביבה. נא לנסות להקטין ולהזיז את המפה.</string>
-  <string name="recent_searches_title">חיפושים אחרונים</string>
-  <string name="recent_searches_related_to_reading">קשור למה שקראת</string>
-  <string name="rabbit_holes_experiment">ניסיוני</string>
-  <string name="rabbit_holes_experiment_about">על הניסוי הזה</string>
-  <string name="rabbit_holes_survey_dialog_title">עזרו לנו לשפר את \"מחילת הארנב\"</string>
-  <string name="rabbit_holes_survey_dialog_body">האם תוצאת החיפוש המומלצת מוצאת חן בעיניך?</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_title">עזרו לנו לשפר את רשימות הקריאה המומלצת</string>
-  <string name="rabbit_holes_reading_list_survey_dialog_body">האם רשימת הקריאה המומלצת נושאת חן בעיניך?</string>
-  <string name="suggested_reading_list_title">על סמך מה שקראת</string>
-  <string name="suggested_reading_list_description">בהשראת \"%s\"</string>
-  <string name="suggested_reading_list_description_multi">בהשראת %1$s וגם %2$s</string>
-  <string name="suggested_reading_list_later_snackbar">כדי לבקר ברשימת הקריאה שלך מאוחר יותר, יש לעבור ללשונית \"שמורים\" במסך הבית.</string>
-  <string name="suggested_reading_list_dialog_title">יש לך רשימת קריאה מוצעת חדשה.</string>
-  <string name="suggested_reading_list_dialog_body">זוהי אפשרות ניסיונית. התוכן מבוסס על היסטוריית הקריאה האחרונה שלך. האם לבדוק את רשימת הקריאה החדשה הזאת?</string>
-  <string name="suggested_reading_list_dialog_positive">לנסות את זה עכשיו</string>
-  <string name="suggested_reading_list_dialog_negative">אולי מאוחר יותר</string>
-  <string name="suggested_reading_list_back_cancel">ר\' את רשימת הקריאה המוצעת שלך בכל עת בלשונית \"שמורים\" במסך הבית.</string>
   <string name="survey_dialog_title">עִזרו לנו לשפר את דפי השיחה</string>
   <string name="survey_dialog_message">מרוצה מהתכונה הזאת?</string>
   <string name="survey_dialog_option_satisfied">מרוצה</string>
@@ -1806,6 +1795,63 @@
   <string name="survey_dialog_option_very_unsatisfied">מאוד לא מרוצה</string>
   <string name="survey_dialog_cancel">ביטול</string>
   <string name="survey_dialog_submit">שליחה</string>
+  <string name="survey_dialog_next">הבא</string>
+  <string name="survey_dialog_general_yes">כן</string>
+  <string name="survey_dialog_general_no">לא</string>
+  <string name="survey_dialog_general_maybe">אולי</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
+  <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">משחקי ויקיפדיה</string>
+  <string name="on_this_day_game_entry_dialog_button">לשחק במשחק של היום</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">משחקי ויקיפדיה זמינים בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_title">מה היה קודם?</string>
+  <string name="on_this_day_game_dialog_button">לשחק</string>
+  <string name="on_this_day_game_splash_message">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
+  <string name="on_this_day_game_progress">%1$d מתוך %2$d</string>
+  <string name="on_this_day_game_score">נקודות: %d</string>
+  <string name="on_this_day_game_correct">נכון!</string>
+  <string name="on_this_day_game_incorrect">לא נכון!</string>
+  <string name="on_this_day_game_point">הרווחת נקודה</string>
+  <string name="on_this_day_game_next">השאלה הבאה</string>
+  <string name="on_this_day_game_finish">תוצאה סופית</string>
+  <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
+  <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
+  <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
+  <string name="on_this_day_game_pause_positive">הבנתי</string>
+  <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
+  <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
+  <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
+  <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
+  <string name="on_this_day_game_stats_games_played">{{PLURAL|one=משחק ששוחק|two=משחקים ששוחקו|many=משחקים ששוחקו|other=משחקים ששוחקו)}</string>
+  <string name="on_this_day_game_stats_average_score">תוצאה ממוצעת</string>
+  <string name="on_this_day_game_stats_streak">רצף נוכחי</string>
+  <string name="on_this_day_game_result_subtitle">ערכים שהוזכרו במשחק של היום</string>
+  <string name="on_this_day_game_completed_message">תודה ששיחקתם. משחק חדש של \"מה היה קודם?\" זמין מדי יום בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_menu_notifications">התראות משחק</string>
+  <string name="on_this_day_game_menu_info">מידע נוסף</string>
+  <string name="on_this_day_game_menu_feedback">בעיה עם תכונה</string>
+  <string name="on_this_day_game_article_read_button">לקרוא את הערך</string>
+  <string name="on_this_day_game_article_related_event_title">אירוע שקשור לערך הזה</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">ענית את השאלה הזאת נכון</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">ענית את השאלה הזאת לא נכון</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">לכבות את התראות המשחק?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">כיבוי הודעות הדחיפה יגרום לכך שלא יגיעו אליך עוד תזכורות בכל יום כש זמיןמשחק חדש.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">להפעיל את התראות המשק?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">התראות המשחק מדויעות לך מדי יום כאשר זמין משחק חדש.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">לא, להשאיר אותן דלוקות</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">לכבות אותן</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">כן, להפעיל אותן</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">להשאיר אותן כבויות</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">התראות משחק כבויות.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">התראות משחק מופעלות.</string>
+  <string name="on_this_day_game_notification_text">משחק היום של \"מה היה קודם?\" מוכן.</string>
+  <string name="on_this_day_game_report_email_subject">דו\"ח בעיה - משחקי ויקיפדיה</string>
+  <string name="on_this_day_game_report_email_body">נתקלתי בבעיה בתכונת משחקי ויקיפדיה:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="on_this_day_game_notification_undo">ביטול</string>
+  <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
+  <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
+  <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
 </resources>

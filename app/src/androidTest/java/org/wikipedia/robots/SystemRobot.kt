@@ -1,5 +1,6 @@
 package org.wikipedia.robots
 
+import BaseRobot
 import android.app.Activity
 import android.content.Context
 import android.util.Log
@@ -10,7 +11,6 @@ import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiSelector
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.base.BaseRobot
 import org.wikipedia.base.TestConfig
 
 class SystemRobot : BaseRobot() {
@@ -21,6 +21,16 @@ class SystemRobot : BaseRobot() {
 
     fun turnOffAirplaneMode() = apply {
         TestUtil.setAirplaneMode(false)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun turnOffInternet() = apply {
+        TestUtil.toggleInternet(false)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun turnOnInternet() = apply {
+        TestUtil.toggleInternet(true)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -65,7 +75,11 @@ class SystemRobot : BaseRobot() {
     }
 
     fun dismissTooltip(activity: Activity) = apply {
-        dismissTooltipIfAny(activity, viewId = R.id.buttonView)
+        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun pressBack() = apply {
+        goBack()
     }
 }
