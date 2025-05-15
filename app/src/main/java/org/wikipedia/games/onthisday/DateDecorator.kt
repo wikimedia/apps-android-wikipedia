@@ -50,6 +50,23 @@ class DateDecorator(
         }
     }
 
+    override fun getTextColor(
+        context: Context,
+        year: Int,
+        month: Int,
+        day: Int,
+        valid: Boolean,
+        selected: Boolean
+    ): ColorStateList? {
+        val dateKey = getDateKey(year, month + 1, day)
+        val score = scoreData[dateKey]
+
+        return when (score) {
+            null -> super.getTextColor(context, year, month, day, valid, selected)
+            else -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.gray700))
+        }
+    }
+
     constructor(parcel: Parcel) : this(
         Date(),
         Date(),
