@@ -8,6 +8,7 @@ import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import org.wikipedia.R
+import org.wikipedia.util.log.L
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
@@ -70,5 +71,16 @@ object ArchiveCalendarManager {
                     scoreData[scoreDataKey],
                     OnThisDayGameViewModel.MAX_QUESTIONS), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun getPrivateCalendarFragment(picker: MaterialDatePicker<*>): Any? {
+        try {
+            val field = picker.javaClass.getDeclaredField("calendar")
+            field.isAccessible = true
+            return field.get(picker)
+        } catch (e: Exception) {
+            L.e(e)
+        }
+        return null
     }
 }

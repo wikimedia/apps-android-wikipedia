@@ -33,7 +33,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Calendar
@@ -50,7 +49,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         @SuppressLint("RestrictedApi")
         override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
             if (fragment is MaterialDatePicker<*>) {
-                val calendar = getPrivateCalendarFragment(fragment)
+                val calendar = ArchiveCalendarManager.getPrivateCalendarFragment(fragment)
                 @Suppress("UNCHECKED_CAST")
                 (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
                     override fun onSelectionChanged(selection: Long) {
@@ -264,16 +263,5 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun getPrivateCalendarFragment(picker: MaterialDatePicker<*>): Any? {
-        try {
-            val field = picker.javaClass.getDeclaredField("calendar")
-            field.isAccessible = true
-            return field.get(picker)
-        } catch (e: Exception) {
-            L.e(e)
-        }
-        return null
     }
 }
