@@ -20,5 +20,4 @@ interface RecommendedPageDao {
 
     @Query("DELETE FROM RecommendedPage")
     suspend fun deleteAll()
-
 }

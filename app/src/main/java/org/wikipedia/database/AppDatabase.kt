@@ -312,7 +312,6 @@ abstract class AppDatabase : RoomDatabase() {
                         "    read INTEGER NOT NULL DEFAULT 0," +
                         "    expire INTEGER NOT NULL DEFAULT 0" +
                         ")")
-
             }
         }
 
