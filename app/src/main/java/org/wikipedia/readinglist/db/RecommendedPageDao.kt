@@ -9,7 +9,7 @@ import org.wikipedia.readinglist.database.RecommendedPage
 
 @Dao
 interface RecommendedPageDao {
-    @Query("SELECT * FROM RecommendedPage WHERE expire = 0 ORDER BY timestamp DESC")
+    @Query("SELECT * FROM RecommendedPage WHERE status = 0 ORDER BY timestamp DESC")
     suspend fun getNewRecommendedPages(): List<RecommendedPage>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

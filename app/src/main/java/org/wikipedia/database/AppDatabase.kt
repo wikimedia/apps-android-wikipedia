@@ -309,8 +309,7 @@ abstract class AppDatabase : RoomDatabase() {
                         "    displayTitle TEXT NOT NULL," +
                         "    description TEXT," +
                         "    thumbUrl TEXT," +
-                        "    read INTEGER NOT NULL DEFAULT 0," +
-                        "    expire INTEGER NOT NULL DEFAULT 0" +
+                        "    status INTEGER NOT NULL DEFAULT 0" +
                         ")")
             }
         }

@@ -17,6 +17,5 @@ data class RecommendedPage(
     var displayTitle: String,
     var description: String? = null,
     var thumbUrl: String? = null,
-    val read: Boolean = false,
-    var expire: Boolean = false
+    var status: Int = 0 // 0 = new, 1 = expired
 )
