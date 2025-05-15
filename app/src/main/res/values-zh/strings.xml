@@ -319,8 +319,6 @@
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
