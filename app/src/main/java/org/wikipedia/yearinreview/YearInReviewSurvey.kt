@@ -117,7 +117,6 @@ fun YearInReviewSurvey(
                             color = WikipediaTheme.colors.inactiveColor
                         )
                     }
-
                     Column(
                         modifier = Modifier.selectableGroup()
                     ) {
@@ -190,7 +189,6 @@ fun YearInReviewSurvey(
                                 .align(Alignment.TopCenter),
                             color = WikipediaTheme.colors.inactiveColor
                         )
-
                         Row(
                             horizontalArrangement = Arrangement.End,
                             verticalAlignment = Alignment.CenterVertically,
