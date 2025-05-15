@@ -81,10 +81,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
         binding.shareButton.setOnClickListener {
-            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             lifecycleScope.launch {
                 binding.shareButton.isEnabled = false
                 binding.shareButton.alpha = 0.5f
@@ -293,12 +293,12 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
-                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(viewModel.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.setOnClickListener {
-                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
@@ -318,7 +318,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         }
 
         override fun onClick(v: View) {
-            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
         }
     }
