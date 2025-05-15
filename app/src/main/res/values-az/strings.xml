@@ -250,14 +250,12 @@
   <string name="privacy_policy_description">Məxfilik siyasəti</string>
   <string name="terms_of_use_description">İstifadə şərtləri</string>
   <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
@@ -583,8 +581,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Məqalə bir neçə siyahıda görünür</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artıq bütün oxuma siyahıları üçün oflayn olaraq əlçatan olmayacaq:</string>
   <string name="reading_lists_sync_reminder_title">Oxuma siyahısı sinxronizasiyası aktiv edilsin?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronizasiyanı aktivləşdir</string>
   <string name="reading_list_login_reminder_title">Oxuma siyahılarını sinxronlaşdır</string>
   <string name="reading_lists_login_reminder_text">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin.</string>
@@ -1691,11 +1689,13 @@
   <string name="on_this_day_game_splash_message">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
   <string name="on_this_day_game_progress">%1$d/%2$d</string>
   <string name="on_this_day_game_score">Xal: %d</string>
+  <string name="on_this_day_game_submit">Göndər</string>
   <string name="on_this_day_game_correct">Düzdür!</string>
   <string name="on_this_day_game_incorrect">Səhvdir!</string>
   <string name="on_this_day_game_point">+1 xal</string>
   <string name="on_this_day_game_next">Növbəti sual</string>
   <string name="on_this_day_game_finish">Son nəticələr</string>
+  <string name="on_this_day_game_share_button">Paylaş</string>
   <string name="on_this_day_game_pause_title">Oyuna fasilə verilsin?</string>
   <string name="on_this_day_game_pause_body">Sizin irəliləyişiniz bu gün üçün yadda saxlanılacaq. Siz oyunu Kəşf et lentinizdə tapa bilərsiniz.</string>
   <string name="on_this_day_game_pause_negative">Oynamağa davam et</string>
@@ -1736,6 +1736,18 @@
   <string name="on_this_day_game_report_email_body">Mən Vikipediya oyunları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Problemi təsvir edin]\n\nBaş verməsini gözlədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
   <string name="on_this_day_game_notification_undo">Geri qaytar</string>
   <string name="on_this_day_game_share_link_message">Mən Vikipediya Android tətbiqində \"Hansı birinci baş verib?\" gündəlik trivia oyununu oynayıram %s</string>
+  <string name="on_this_day_game_share_screen_title">Mən bu gün \"Hansı birinci baş verib?\" oyununda %1$d/%2$d xal topladım.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Daxil olan mövzular:</string>
   <string name="on_this_day_game_survey_q1">Bu oyundan nə dərəcədə razı qaldınız?</string>
   <string name="on_this_day_game_survey_q2">Fərqli Vikipediya oyunlarını oynamaqda maraqlanırsınız?</string>
+  <string name="on_this_day_game_archive_calendar_title">Oynamaq üçün tarixə görə oyun seçin.</string>
+  <string name="on_this_day_game_score_toast_message">Bu gün %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_btn_text">Bugünkü oyuna davam edin</string>
+  <string name="on_this_day_game_current_progress_message">Sizin qaldığınız sual: %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Arxivi oyna</string>
+  <string name="on_this_day_game_review_results_btn_text">Nəticələrə bax</string>
+  <string name="on_this_day_game_score_message">Bugünkü oyunda %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
+  <string name="on_this_day_game_sound_on">Səsi aç</string>
+  <string name="on_this_day_game_sound_off">Səsi söndür</string>
 </resources>
