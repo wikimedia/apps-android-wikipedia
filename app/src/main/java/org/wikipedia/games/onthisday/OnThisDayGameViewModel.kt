@@ -198,7 +198,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _gameState.postValue(Resource.Error(throwable))
         }) {
             if (currentState.currentQuestionState.goToNext) {
-                WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName())
+                WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName(), isArchive = isArchiveGame)
 
                 val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
@@ -251,11 +251,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     _gameState.postValue(CurrentQuestion(currentState))
                 }
             } else {
-                WikiGamesEvent.submit(
-                    "select_click",
-                    "game_play",
-                    slideName = getCurrentScreenName()
-                )
+                WikiGamesEvent.submit("select_click", "game_play", slideName = getCurrentScreenName(), isArchive = isArchiveGame)
 
                 currentState = currentState.copy(
                     currentQuestionState = currentState.currentQuestionState.copy(
