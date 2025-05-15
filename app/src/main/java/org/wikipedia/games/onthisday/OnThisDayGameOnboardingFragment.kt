@@ -71,7 +71,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
         childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = "game_start")
+        WikiGamesEvent.submit("impression", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         return binding.root
     }
 
@@ -121,7 +121,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         showGameMenu()
         with(binding) {
             playGameButton.setOnClickListener {
-                WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+                WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
                 requireActivity().supportFragmentManager.popBackStack()
                 getGameActivity()?.apply {
                     updateGameState(state)
@@ -170,7 +170,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
     }
 
     private fun startGame(state: OnThisDayGameViewModel.GameState) {
-        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         requireActivity().supportFragmentManager.popBackStack()
         getGameActivity()?.apply {
             updateInitialScores(state)
@@ -269,7 +269,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
         if (scoreData[scoreDataKey] != null) {
             return
         }
-        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         viewModel.relaunchForDate(LocalDate.of(year, month, day))
         requireActivity().supportFragmentManager.popBackStack()
         getGameActivity()?.apply {
