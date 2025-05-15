@@ -271,7 +271,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .setTitle(R.string.on_this_day_game_pause_title)
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame))
+                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 if (viewModel.isArchiveGame) {
                     viewModel.loadGameState()
                     supportFragmentManager.beginTransaction()
