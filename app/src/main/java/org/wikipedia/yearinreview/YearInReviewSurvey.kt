@@ -94,7 +94,7 @@ fun YearInReviewSurvey(
                             modifier = Modifier
                                 .wrapContentHeight()
                                 .align(Alignment.Center)
-                        ){
+                        ) {
                             Text(
                                 text = stringResource(R.string.year_in_review_survey_title),
                                 style = WikipediaTheme.typography.h2,
@@ -228,14 +228,14 @@ fun YearInReviewSurvey(
 fun SurveyButton(
     @StringRes buttonText: Int,
     onClick: () -> Unit,
-){
+) {
     Button(
         onClick = onClick,
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = WikipediaTheme.colors.paperColor,
         ),
-        contentPadding = PaddingValues( horizontal = 12.dp),
+        contentPadding = PaddingValues(horizontal = 12.dp),
     ) {
         Text(
             text = stringResource(buttonText),
