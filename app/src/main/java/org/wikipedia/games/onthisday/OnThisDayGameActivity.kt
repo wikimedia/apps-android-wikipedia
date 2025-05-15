@@ -385,6 +385,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         updateGameState(gameState)
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
+        playSound("sound_logo")
         hideViewsNotRequiredWhenGameEnds()
     }
 
