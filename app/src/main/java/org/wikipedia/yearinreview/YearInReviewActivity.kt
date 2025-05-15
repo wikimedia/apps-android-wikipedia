@@ -77,8 +77,10 @@ class YearInReviewActivity : BaseActivity() {
                                             }
                                         },
                                         pagerState = pagerState,
-                                        totalPages = screenState.data.size) },
-                                    screenContent = { innerPadding, contentData, pagerState ->
+                                        totalPages = screenState.data.size,
+                                        onDonateClick = { launchDonateDialog("yir") }
+                                    ) },
+                                    screenContent = { innerPadding, contentData, pagerState->
                                         YearInReviewSurvey(
                                             viewModel = viewModel,
                                             pagerState = pagerState

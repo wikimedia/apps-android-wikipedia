@@ -28,7 +28,9 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import java.time.Instant
 import java.time.LocalDate
+import java.time.Year
 import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -47,9 +49,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private lateinit var currentState: GameState
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
-    val currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
+    var currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
+    private val dateRightNow = LocalDate.now()
 
     private val events = mutableListOf<OnThisDay.Event>()
     val savedPages = mutableListOf<PageSummary>()
@@ -59,6 +62,23 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun loadGameState() {
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+        val languageState = totalState.langToState[wikiSite.languageCode]
+        val lastActiveDate = try {
+            LocalDate.parse(Prefs.otdGameLastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
+        } catch (e: Exception) {
+            dateRightNow
+        }
+        if (dateRightNow.isAfter(lastActiveDate)) {
+            // resetting game states for all language
+            Prefs.otdGameState = ""
+            currentDate = LocalDate.now()
+        } else {
+            languageState?.archiveGamePlayDate?.takeIf { it.isNotEmpty() }?.let { dateString ->
+                currentDate = LocalDate.parse(dateString, DateTimeFormatter.ISO_LOCAL_DATE)
+            }
+        }
+
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _gameState.postValue(Resource.Error(throwable))
@@ -105,7 +125,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
             totalState.langToState[wikiSite.languageCode]?.let {
                 currentState = it
             } ?: run {
@@ -120,41 +139,43 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 }
             }
 
-            if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
-                currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
-                // we're just starting today's game.
+            val isTodayGamePlayed = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
+                gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                language = wikiSite.languageCode,
+                year = Year.now().value,
+                month = currentMonth,
+                day = currentDay
+            )
+
+            // for case when user finishes today's game and finishes archive game shows today's game result
+            if (isTodayGamePlayed != null) {
+                currentState = currentState.copy(
+                    answerState = JsonUtil.decodeFromString<List<Boolean>>(isTodayGamePlayed.gameData) ?: listOf()
+                )
+                _gameState.postValue(GameEnded(currentState, getGameStatistics()))
+            } else if (isStartingTodayGame()) {
                 currentState = currentState.copy()
                 _gameState.postValue(GameStarted(currentState))
-            } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
-                currentState.currentQuestionIndex >= currentState.totalQuestions) {
-                // we're already done for today.
-
+            } else if (isTodayGameAlreadyCompleted()) {
                 _gameState.postValue(GameEnded(currentState, getGameStatistics()))
-            } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
-                // we're coming back from a previous day's game (whether it was finished or not), so start a new day's game.
+            } else if (isDifferentDay()) {
+                // when user selects a date from the archive calendar start new game
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
                 _gameState.postValue(GameStarted(currentState))
             } else {
-                // we're in the middle of a game.
-                if (currentState.currentQuestionState.goToNext) {
-                    // the user must have exited the activity before going to the next question,
-                    // so we can fake submitting the current question.
-                    submitCurrentResponse(0)
-                } else {
-                    // we're truly in the middle of a game, and in the middle of the current question.
-                    _gameState.postValue(CurrentQuestion(currentState))
-                }
+                handleContinuingGame()
             }
 
             persistState()
         }
     }
 
-    fun submitCurrentResponse(selectedYear: Int, playType: Int = PlayTypes.PLAYED_ON_SAME_DAY.ordinal) {
+    fun submitCurrentResponse(selectedYear: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             _gameState.postValue(Resource.Error(throwable))
         }) {
+            val currentPlayType = if (currentState.archiveGamePlayDate.isNotEmpty()) PlayTypes.PLAYED_ON_ARCHIVE.ordinal else PlayTypes.PLAYED_ON_SAME_DAY.ordinal
             if (currentState.currentQuestionState.goToNext) {
                 WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName())
 
@@ -181,7 +202,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                                 month = currentDate.monthValue,
                                 day = currentDate.dayOfMonth,
                                 score = 0,
-                                playType = playType,
+                                playType = currentPlayType,
                                 gameData = null
                             )
                         }
@@ -190,6 +211,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     gameHistory.apply {
                         score = currentState.answerState.count { it }
                         gameData = JsonUtil.encodeToString(currentState.answerState)
+                    }
+                    if (currentState.archiveGamePlayDate.isNotEmpty()) {
+                        currentState.archiveGamePlayDate = ""
                     }
 
                     // Update or insert the game history in the database.
@@ -200,7 +224,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             AppDatabase.instance.dailyGameHistoryDao().update(gameHistory)
                         }
                     }
-
                     _gameState.postValue(GameEnded(currentState, getGameStatistics()))
                 } else {
                     currentState = currentState.copy(
@@ -274,8 +297,50 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
+    suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
+        val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
+        val map = history.associate {
+            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
+           scoreKey to it.score
+        }
+        return map
+    }
+
     fun getCurrentGameState(): GameState {
         return currentState
+    }
+
+    fun persistArchiveDate(date: String) {
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
+        val langToState = totalState.langToState.toMutableMap()
+        currentState.archiveGamePlayDate = date
+        langToState[wikiSite.languageCode] = currentState
+        Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
+    }
+
+    private fun isStartingTodayGame(): Boolean {
+        return currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext
+    }
+
+    private fun isTodayGameAlreadyCompleted(): Boolean {
+        return currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
+                currentState.currentQuestionIndex >= currentState.totalQuestions
+    }
+
+    private fun isDifferentDay(): Boolean {
+        return currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay
+    }
+
+    private fun handleContinuingGame() {
+        // we're in the middle of a game.
+        if (currentState.currentQuestionState.goToNext) {
+            // the user must have exited the activity before going to the next question,
+            // so we can fake submitting the current question.
+            submitCurrentResponse(0)
+        } else {
+            // we're truly in the middle of a game, and in the middle of the current question.
+            _gameState.postValue(CurrentQuestion(currentState))
+        }
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
@@ -285,6 +350,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private fun persistState() {
         val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: TotalGameState()
         val langToState = totalState.langToState.toMutableMap()
+        Prefs.otdGameLastActiveDate = dateRightNow.format(DateTimeFormatter.ISO_LOCAL_DATE)
         langToState[wikiSite.languageCode] = currentState
         Prefs.otdGameState = JsonUtil.encodeToString(TotalGameState(langToState)).orEmpty()
     }
@@ -372,7 +438,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
 
-        val currentQuestionState: QuestionState
+        val currentQuestionState: QuestionState,
+        var archiveGamePlayDate: String = "",
     )
 
     @Serializable
