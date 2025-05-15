@@ -141,9 +141,10 @@ fun YearInReviewScreen(
 
 @Composable
 fun MainBottomBar(
-    onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
-    totalPages: Int
+    totalPages: Int,
+    onNavigationRightClick: () -> Unit,
+    onDonateClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -169,6 +170,7 @@ fun MainBottomBar(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = ripple(bounded = true),
                                 onClick = {
+                                    onDonateClick
                                     EventPlatformClient.submit(
                                         BreadCrumbLogEvent(
                                             screen_name = "year_in_review",

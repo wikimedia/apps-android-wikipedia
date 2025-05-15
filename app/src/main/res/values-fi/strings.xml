@@ -272,18 +272,18 @@
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia Apps/Android FAQ/fi</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia Apps/Android FAQ/fi</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatunnisteet</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatunnisteet</string>
   <string name="about_libraries_heading">Käytetyt kirjastot</string>
   <string name="about_contributors_heading">Tekijät</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimin sivu&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimin sivu&lt;/a&gt;</string>
   <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-sivuston vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
@@ -344,7 +344,7 @@
     <item quantity="other">%d hakutulosta</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Tyhjennä viimeisimmät haut</string>
-  <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
+  <string name="clear_recent_searches_confirm">Tyhjennetäänkö hakuhistoria?</string>
   <string name="clear_recent_searches_confirm_yes">Kyllä</string>
   <string name="clear_recent_searches_confirm_no">Ei</string>
   <string name="error_browser_not_found">Sivua ei voi avata, koska selainohjelmaa ei löydy.</string>
@@ -390,7 +390,7 @@
   <string name="gallery_not_available_offline_snackbar_dismiss">Piilota</string>
   <string name="menu_new_tab">Uusi välilehti</string>
   <string name="menu_close_all_tabs">Sulje kaikki välilehdet</string>
-  <string name="close_all_tabs_confirm">Haluatko varmasti sulkea kaikki välilehdet?</string>
+  <string name="close_all_tabs_confirm">Suljetaanko kaikki välilehdet?</string>
   <string name="close_all_tabs_confirm_yes">Kyllä</string>
   <string name="close_all_tabs_confirm_no">Ei</string>
   <string name="button_close_tab">Sulje välilehti</string>
@@ -471,7 +471,7 @@
   <string name="temp_account_anon_dialog_body">Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Kirjaudu sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;Luo tunnus&lt;/a&gt; saadaksesi tulevat muokkauksesi omiin nimiisi sekä saadaksesi muita etuja.</string>
   <string name="temp_account_temp_dialog_body">Muokkauksesi merkitään nimellä %1$s. IP-osoitteesi tulee näkymään ylläpitäjille.&lt;br /&gt;&lt;br /&gt;Jos &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt; tai &lt;a href=\"https://#createaccount\"&gt;luot tunnuksen&lt;/a&gt;, muokkauksesi merkitään valitsemallesi nimelle, ja saat muita etuja.</string>
   <string name="temp_account_dialog_ok">Selvä</string>
-  <string name="temp_account_using_title">Käytät väliaikaista käyttäjätunnusta</string>
+  <string name="temp_account_using_title">Käytät tilapäistä tunnusta</string>
   <string name="temp_account_dialog_discard">Hylkää muutokset ja kirjaudu sisään</string>
   <plurals name="temp_account_created">
     <item quantity="one">Tilapäinen tunnus %1$s luotiin muokkauksesi julkaisun yhteydessä. Se vanhene %2$d päivän päästästä.</item>
@@ -483,10 +483,10 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, IP-osoitteesi liitetään muokkauksiisi.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Et ole kirjautunut sisään.&lt;/b&gt; Kun teet muokkauksen, sinulle luodaan &lt;b&gt;tilapäinen tunnus&lt;/b&gt; yksityisyytesi suojelemiseksi. &lt;a href=\"%1$s\"&gt;Lisätietoja&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Käytät väliaikaista tunnusta.&lt;/b&gt; Muokkauksesi merkitään nimelle %1$s. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;.</string>
-  <string name="temp_account_login_status">&lt;b&gt;Käytät tällä hetkellä väliaikaista tunnusta&lt;/b&gt;. Väliaikaisella tunnuksella %1$s tehtyjä muokkauksia ei siirretä pysyvälle tunnukselle, kun kirjaudut sisään. Kirjaudu sisään tai luo tunnus saadaksesi muokkauksesi omalle käyttäjänimelle sekä muita etuja.</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Käytät tilapäistä tunnusta.&lt;/b&gt; Muokkauksesi merkitään nimelle %1$s. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Käytät tällä hetkellä tilapäistä tunnusta&lt;/b&gt;. Tilapäisellä tunnuksella %1$s tehtyjä muokkauksia ei siirretä pysyvälle tunnukselle, kun kirjaudut sisään. Kirjaudu sisään tai luo tunnus saadaksesi muokkauksesi omalle käyttäjänimelle sekä muita etuja.</string>
   <string name="temp_account_end_session">Lopeta istunto</string>
-  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos väliaikaiselta tililtäsi. Haluatko jatkaa?</string>
+  <string name="temp_account_end_session_confirm">Tämä kirjaa sinut ulos tilapäiseltä tunnukseltasi. Haluatko jatkaa?</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
@@ -606,8 +606,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta listasta</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
   <string name="reading_lists_sync_reminder_title">Otetaanko lukulistan synkronointi käyttöön?</string>
-  <string name="reading_lists_sync_reminder_text">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli listojesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli listojesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
   <string name="reading_lists_login_reminder_text">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja ota listojen tallentaminen käyttöön.</string>
@@ -618,11 +618,11 @@
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_articles_moved_to_named">Siirrettiin %1$d artikkelia listaan %2$s</string>
-  <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
+  <string name="reading_list_delete_confirm">Poistetaanko %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Poistetaanko valitut listat?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">Haluatko varmasti poistaa %d listan?</item>
-    <item quantity="other">Haluatko varmasti poistaa %d listaa?</item>
+    <item quantity="one">Poistetaanko %d lista?</item>
+    <item quantity="other"> Poistetaanko %d listaa?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen käyttäjätunnuksellesi.</string>
@@ -788,7 +788,7 @@
   <string name="preference_title_notification_article_linked">Linkit luomiisi artikkeleihin</string>
   <string name="preference_summary_notification_article_linked">Lähetetään kun luomallesi sivulle linkitetään</string>
   <string name="preference_category_push_notifications">Push-ilmoitukset</string>
-  <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
+  <string name="preference_title_customize_push_notifications">Mukauta push-ilmoituksia</string>
   <string name="preference_category_display_settings">Näyttöasetukset</string>
   <string name="preference_title_hide_read_notifications">Piilota luetut ilmoitukset</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
@@ -904,15 +904,13 @@
   <string name="description_edit_help_title">Ohje: Artikkelien kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisää muokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvausta, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_voice_input_description">Äänisyöte</string>
   <string name="description_edit_learn_more">Lue lisää artikkelien kuvauksista</string>
   <string name="description_edit_image_caption_learn_more">Lue lisää kuvateksteistä</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Artikkelien_kuvaukset</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fi#Kuvatekstit</string>
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_too_long">Yritä pitää kuvaus lyhyenä, jotta käyttäjät ymmärtäisivät artikkelin aiheen yhdellä silmäyksellä</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
@@ -1345,7 +1343,7 @@
   <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
   <string name="talk_overflow_sort_date_updated">Viimeksi päivitetty</string>
   <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
-  <string name="talk_new_topic_exit_dialog_title">Haluatko varmasti poistua?</string>
+  <string name="talk_new_topic_exit_dialog_title">Poistutaanko?</string>
   <string name="talk_new_topic_exit_dialog_message">Aihetta ja sisältötekstiä ei tallenneta.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Näytä vastaus</item>
@@ -1406,12 +1404,12 @@
   <string name="revision_diff_paragraph_added">Kappale lisätty</string>
   <string name="revision_diff_paragraph_removed">Kappale poistettu</string>
   <string name="revision_diff_protected">Tässä versiossa tehdyt muutokset eivät ole julkisesti saatavilla.</string>
-  <string name="revision_undo_title">Haluatko varmasti kumota tämän muokkauksen?</string>
+  <string name="revision_undo_title">Kumotaanko muokkaus?</string>
   <string name="revision_undo_message">Kumoamisella tarkoitetaan yhden tai useamman muokkauksen vaikutusten kumoamista.</string>
   <string name="revision_undo_summary_hint">Yhteenveto (vapaaehtoinen)</string>
   <string name="revision_undo_reason">Jaa syy kumoamiselle</string>
   <string name="revision_undo_success">Versio kumottiin.</string>
-  <string name="revision_rollback_dialog_title">Haluatko varmasti kumota muokkaukset?</string>
+  <string name="revision_rollback_dialog_title">Kumotaanko muokkaukset?</string>
   <string name="revision_rollback_success">Muokkaukset palautettu.</string>
   <string name="revision_compare_button">Vertaile</string>
   <string name="revision_compare_two_only">Vain kaksi versiota voidaan valita.</string>
@@ -1539,8 +1537,8 @@
   <string name="talk_templates_edit_message_updated">Viesti on päivitetty</string>
   <string name="talk_templates_menu_remove_message">Poista viesti</string>
   <plurals name="talk_templates_message_delete_description">
-    <item quantity="one">Haluatko varmasti poistaa viestin luettelosta?</item>
-    <item quantity="other">Haluatko varmasti poistaa viestit luettelosta?</item>
+    <item quantity="one">Poistetaanko viesti luettelosta?</item>
+    <item quantity="other">Poistetaanko viestit luettelosta?</item>
   </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Viesti on poistettu</item>
@@ -1657,9 +1655,9 @@
   <string name="donation_campaign_donated_snackbar">Kiitos, lahjoittaja! Anteliaisuutesi auttaa pitämään Wikipedian ja sen sisarsivustot menestyvinä.</string>
   <string name="donation_campaign_go_back_button">Takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
-  <string name="donate_gpay_dialog_title">Lahjoita Google Payllä?</string>
-  <string name="donate_gpay_dialog_description">Lahjoita Google Payllä tai valite toinen maksutapa.</string>
-  <string name="donate_gpay_dialog_pay_button">Lahjoita Google Payllä</string>
+  <string name="donate_gpay_dialog_title">Lahjoitetaanko Google Paylla?</string>
+  <string name="donate_gpay_dialog_description">Lahjoita Google Paylla tai valitse toinen maksutapa.</string>
+  <string name="donate_gpay_dialog_pay_button">Lahjoita Google Paylla</string>
   <string name="donate_gpay_dialog_other_button">Muu maksutapa</string>
   <string name="donate_gpay_activity_title">Valitse summa</string>
   <string name="donate_gpay_check_transaction_fee">Lisään avokätisesti %s kattamaan siirtokulut, jotta voitte pitää 100 %% lahjoituksestani.</string>
@@ -1715,7 +1713,6 @@
   <string name="on_this_day_game_point">+1 piste</string>
   <string name="on_this_day_game_next">Seuraava kysymys</string>
   <string name="on_this_day_game_finish">Lopputulokset</string>
-  <string name="on_this_day_game_share">Jaa ystäville</string>
   <string name="on_this_day_game_pause_title">Keskeytetäänkö peli?</string>
   <string name="on_this_day_game_pause_body">Edistymisesi tallennetaan tämän päivän ajaksi. Löydät pelin Tutki-syötteestäsi.</string>
   <string name="on_this_day_game_pause_negative">Jatka pelaamista</string>

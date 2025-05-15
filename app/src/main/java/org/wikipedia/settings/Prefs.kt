@@ -740,10 +740,6 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var lastOtdGameVisitDate
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_last_visit_date, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_last_visit_date, value)
-
     var lastOtdGameDateOverride
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value)
@@ -768,9 +764,21 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_survey_shown, value)
 
+    var otdGameFirstPlayedShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_first_played_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_first_played_shown, value)
+
     var otdNotificationState: OnThisDayGameNotificationState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_notification_state, null)?.let {
             OnThisDayGameNotificationState.valueOf(it)
         } ?: OnThisDayGameNotificationState.NO_INTERACTED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
+
+    var isOtdSoundOn: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.pref_key_otd_sound_on, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
+
+    var otdGameLastActiveDate: String
+        get() = PrefsIoUtil.getString(R.string.pref_key_otd_last_active_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.pref_key_otd_last_active_date, value)
 }

@@ -242,15 +242,15 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="about_wikipedia_url">https://br.wikipedia.org/wiki/Wikipedia:Diwar-benn</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
   <string name="about_contributors_heading">Kenlabourerien</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
@@ -553,8 +553,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Pennadoù o tont wel e meur a roll</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Ne c\'haller ket mui kaout %s er mod digevreet en holl rolloù lenn :</string>
   <string name="reading_lists_sync_reminder_title">Gweredekaat sinkroneladur ar roll lenn ?</string>
-  <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Gallout a reer sinkronelaat ar rolloù lenn etre meur a ardivink. Kevreit ouzh ho kont Wikipedia hag aotreit enrollañ ho rolloù. a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Gallout a reer sinkronelaat ar rolloù lenn etre meur a ardivink. Kevreit ouzh ho kont Wikipedia hag aotreit enrollañ ho rolloù. a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Gweredekaat ar sinkroneladur</string>
   <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
   <string name="reading_lists_login_reminder_text">Ar rolloù lenn a c\'hall bremañ bezañ sinkronelaet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
@@ -840,11 +840,9 @@
   <string name="description_edit_help_title">ditour : deskrivadurioù pennadoù</string>
   <string name="description_edit_help_about_wikidata">Diwar-benn Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù e deskrivadurioù pennadoù. Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia mar plij ganeoc\'h.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur ar pennad e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Re verr eo an destenn-mañ.</string>
   <string name="description_edit_success_saved">Embannet eo bet deskrivadur ar pennad !</string>
   <string name="description_edit_success_saved_snackbar">Embannet eo bet deskrivadur ar pennad !</string>

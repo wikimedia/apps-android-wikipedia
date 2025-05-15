@@ -272,14 +272,14 @@
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
   <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
@@ -604,8 +604,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
   <string name="reading_lists_sync_reminder_title">पठन सूची को सिंक करना चालू करें?</string>
-  <string name="reading_lists_sync_reminder_text">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">पठन सूचियों में सहेजे गए लेख अब आपके विकिपीडिया खाते से सिंक किए जा सकते हैं। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">सिंक चालू करें</string>
   <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
   <string name="reading_lists_login_reminder_text">पठन सूचियां अब सभी उपकरणों में सिंक की जा सकती हैं। अपने विकिपीडिया खाते में लॉग इन करें और अपनी सूचियों को सहेजने दें।</string>
@@ -903,15 +903,13 @@
   <string name="description_edit_help_title">जानकारी: लेख विवरण</string>
   <string name="description_edit_help_about_wikidata">विकिडेटा के बारे में</string>
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">लेख विवरण संपादित करने में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए, कृपया अपने विकिपीडिया खाते में लॉग इन करें।</string>
   <string name="description_edit_license_notice">लेख विवरण को बदलकर, मैं &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt;से सहमत हूँ और &lt;a href=\"%2$s\"&gt;क्रिएटिव काॅमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत अपने योगदान को अपरिवर्तनीय रूप से जारी करता/करती हूँ।</string>
   <string name="description_edit_helper_text_lowercase_warning">आमतौर पर लोअरकेस अक्षर से शुरू होता है</string>
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
   <string name="description_edit_image_caption_learn_more">चित्र कैप्शन के बारे में और जानें</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">पाठ बहुत छोटा है।</string>
   <string name="description_too_long">विवरण को संक्षिप्त रखने का प्रयास करें ताकि सदस्य लेख के विषय को एक नज़र में समझ सकें</string>
   <string name="description_ends_with_punctuation">पाठ विराम चिह्न के साथ समाप्त नहीं होना चाहिए।</string>
