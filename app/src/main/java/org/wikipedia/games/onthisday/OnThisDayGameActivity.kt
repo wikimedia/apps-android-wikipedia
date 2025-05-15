@@ -272,7 +272,14 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
                 WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
-                finish()
+                if (viewModel.isArchiveGame) {
+                    viewModel.loadGameState()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+                        .addToBackStack(null)
+                        .commit()
+                } else
+                    finish()
             }
             .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
                 WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName())

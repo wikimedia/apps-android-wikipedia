@@ -1,5 +1,6 @@
 package org.wikipedia.games.onthisday
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
@@ -23,6 +24,7 @@ import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +35,9 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.datepicker.MaterialCalendar
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.OnSelectionChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -44,6 +49,8 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -57,13 +64,19 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.text.DecimalFormat
 import java.time.Duration
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.ZoneId
+import java.util.Calendar
+import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
@@ -73,6 +86,22 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
     private var loadedImagesForShare = 0
+    private var scoreData: Map<Long, Int> = emptyMap()
+
+    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
+        @SuppressLint("RestrictedApi")
+        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
+            if (fragment is MaterialDatePicker<*>) {
+                val calendar = getPrivateCalendarFragment(fragment)
+                @Suppress("UNCHECKED_CAST")
+                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
+                    override fun onSelectionChanged(selection: Long) {
+                        ArchiveCalendarManager.maybeShowToastForDate(fragment, selection, scoreData)
+                    }
+                })
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -80,6 +109,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
+        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
 
@@ -132,15 +162,58 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             insets
         }
 
+        binding.archiveGameContainer.setOnClickListener {
+            prepareAndOpenArchiveCalendar(viewModel.getCurrentGameState())
+        }
+
         handler.post(timeUpdateRunnable)
         updateOnLoading()
         buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
     }
 
+    private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
+        lifecycleScope.launch {
+            val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
+            val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
+            val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
+            scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
+            ArchiveCalendarManager.showArchiveCalendar(
+                this@OnThisDayGameFinalFragment,
+                startDate,
+                Date(),
+                scoreData,
+                onDateSelected = { selectedDateInMillis ->
+                    handleDateSelection(selectedDateInMillis, state)
+                }
+            )
+        }
+    }
+
+    private fun handleDateSelection(selectedDateInMillis: Long, state: OnThisDayGameViewModel.GameState) {
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        calendar.timeInMillis = selectedDateInMillis
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val scoreDataKey = DateDecorator.getDateKey(year, month, day)
+        if (scoreData[scoreDataKey] != null) {
+            return
+        }
+        // hiding this fragment as it is not added to back stack and updating the state
+        binding.root.isVisible = false
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        viewModel.relaunchForDate(LocalDate.of(year, month, day))
+        (requireActivity() as? OnThisDayGameActivity)?.apply {
+            updateGameState(state)
+            animateQuestionsIn()
+        }
+    }
+
     override fun onDestroyView() {
         handler.removeCallbacks(timeUpdateRunnable)
         _binding = null
+        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
         super.onDestroyView()
     }
 
@@ -444,6 +517,17 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             dialog.findViewById<TextView>(id)?.let {
                 it.isSingleLine = false
             }
+        }
+
+        private fun getPrivateCalendarFragment(picker: MaterialDatePicker<*>): Any? {
+            try {
+                val field = picker.javaClass.getDeclaredField("calendar")
+                field.isAccessible = true
+                return field.get(picker)
+            } catch (e: Exception) {
+                L.e(e)
+            }
+            return null
         }
     }
 }

@@ -8,17 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.CompositeDateValidator
-import com.google.android.material.datepicker.DateValidatorPointBackward
-import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialCalendar
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.OnSelectionChangedListener
@@ -59,7 +54,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 @Suppress("UNCHECKED_CAST")
                 (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
                     override fun onSelectionChanged(selection: Long) {
-                        maybeShowToastForDate(selection)
+                        ArchiveCalendarManager.maybeShowToastForDate(fragment, selection, scoreData)
                     }
                 })
             }
@@ -201,61 +196,15 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            showArchiveCalendar(startDate, Date(), scoreData, state)
-        }
-    }
-
-    private fun showArchiveCalendar(
-        startDate: Date,
-        endDate: Date,
-        scoreData: Map<Long, Int>,
-        state: OnThisDayGameViewModel.GameState
-    ) {
-        val startTimeInMillis = startDate.time
-        val endTimeInMillis = endDate.time
-        val calendarConstraints = CalendarConstraints.Builder()
-            .setStart(startDate.time)
-            .setEnd(endTimeInMillis)
-            .setValidator(
-                CompositeDateValidator.allOf(
-                    listOf(
-                        DateValidatorPointForward.from(startTimeInMillis - (24 * 60 * 60 * 1000)),
-                        DateValidatorPointBackward.before(endTimeInMillis)
-                    )
-                )
-            )
-            .build()
-
-        MaterialDatePicker.Builder.datePicker()
-            .setTitleText(getString(R.string.on_this_day_game_archive_calendar_title))
-            .setTheme(R.style.MaterialDatePickerStyle)
-            .setDayViewDecorator(DateDecorator(
+            ArchiveCalendarManager.showArchiveCalendar(
+                this@OnThisDayGameOnboardingFragment,
                 startDate,
-                endDate,
-                scoreData))
-            .setCalendarConstraints(calendarConstraints)
-            .setSelection(endTimeInMillis)
-            .build()
-            .apply {
-                addOnPositiveButtonClickListener { selectedDateInMillis ->
+                Date(),
+                scoreData,
+                onDateSelected = { selectedDateInMillis ->
                     handleDateSelection(selectedDateInMillis, state)
                 }
-            }
-            .show(childFragmentManager, "datePicker")
-    }
-
-    private fun maybeShowToastForDate(selectedDateInMillis: Long) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month + 1, day)
-        if (scoreData[scoreDataKey] != null) {
-            Toast.makeText(requireContext(),
-                getString(R.string.on_this_day_game_score_toast_message,
-                    scoreData[scoreDataKey],
-                    OnThisDayGameViewModel.MAX_QUESTIONS), Toast.LENGTH_SHORT).show()
+            )
         }
     }
 
