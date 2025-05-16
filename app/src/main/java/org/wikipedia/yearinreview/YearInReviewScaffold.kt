@@ -1,6 +1,11 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Bitmap.createBitmap
+import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -50,15 +55,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.graphics.applyCanvas
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.ShareUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,6 +83,7 @@ fun YearInReviewScreen(
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
     val context = LocalContext.current
+    val view = LocalView.current
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -106,7 +118,13 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (contentData.size > 1) {
-                        IconButton(onClick = { /* TODO() */ }) {
+                        IconButton(onClick = {
+                            captureScreenAndShare(
+                                context = context,
+                                currentView = view,
+                                scope = coroutineScope
+                            )
+                        }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -376,5 +394,42 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
         (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
         (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
         else -> 2
+    }
+}
+
+fun captureScreenAndShare(
+    context: Context,
+    currentView: View,
+    scope: CoroutineScope
+) {
+    scope.launch(imageHandler(context)) {
+        val screenShotJob = async {
+            val image = createBitmap(
+                currentView.width,
+                currentView.height,
+                Bitmap.Config.ARGB_8888).applyCanvas {
+                currentView.draw(this)
+            }
+            image
+        }
+        val screenShotBitmap = screenShotJob.await()
+        ShareUtil.shareImage(
+            coroutineScope = scope,
+            context = context,
+            bmp = screenShotBitmap,
+            imageFileName = "year_in_review",
+            subject = context.getString(R.string.year_in_review_share_subject),
+            text = context.getString(R.string.year_in_review_share_url)
+        )
+    }
+}
+
+fun imageHandler(context: Context): CoroutineExceptionHandler {
+    return CoroutineExceptionHandler { _, msg ->
+        Toast.makeText(
+            context,
+            context.getString(R.string.year_in_review_screenshot_error, msg.localizedMessage),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
