@@ -1,6 +1,5 @@
 package org.wikipedia.games.onthisday
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,20 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.CompositeDateValidator
-import com.google.android.material.datepicker.DateValidatorPointBackward
-import com.google.android.material.datepicker.DateValidatorPointForward
-import com.google.android.material.datepicker.MaterialCalendar
-import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.datepicker.OnSelectionChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -38,46 +27,24 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
 
-class OnThisDayGameOnboardingFragment : Fragment() {
+class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
-    private var scoreData: Map<Long, Int> = emptyMap()
-
-    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
-        @SuppressLint("RestrictedApi")
-        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
-            if (fragment is MaterialDatePicker<*>) {
-                val calendar = getPrivateCalendarFragment(fragment)
-                @Suppress("UNCHECKED_CAST")
-                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
-                    override fun onSelectionChanged(selection: Long) {
-                        maybeShowToastForDate(selection)
-                    }
-                })
-            }
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
-        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -201,68 +168,19 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            showArchiveCalendar(startDate, Date(), scoreData, state)
-        }
-    }
-
-    private fun showArchiveCalendar(
-        startDate: Date,
-        endDate: Date,
-        scoreData: Map<Long, Int>,
-        state: OnThisDayGameViewModel.GameState
-    ) {
-        val startTimeInMillis = startDate.time
-        val endTimeInMillis = endDate.time
-        val calendarConstraints = CalendarConstraints.Builder()
-            .setStart(startDate.time)
-            .setEnd(endTimeInMillis)
-            .setValidator(
-                CompositeDateValidator.allOf(
-                    listOf(
-                        DateValidatorPointForward.from(startTimeInMillis - (24 * 60 * 60 * 1000)),
-                        DateValidatorPointBackward.before(endTimeInMillis)
-                    )
-                )
-            )
-            .build()
-
-        MaterialDatePicker.Builder.datePicker()
-            .setTitleText(getString(R.string.on_this_day_game_archive_calendar_title))
-            .setTheme(R.style.MaterialDatePickerStyle)
-            .setDayViewDecorator(DateDecorator(
+            showArchiveCalendar(
                 startDate,
-                endDate,
-                scoreData))
-            .setCalendarConstraints(calendarConstraints)
-            .setSelection(endTimeInMillis)
-            .build()
-            .apply {
-                addOnPositiveButtonClickListener { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis, state)
+                Date(),
+                scoreData,
+                onDateSelected = { selectedDateInMillis ->
+                    handleDateSelection(selectedDateInMillis)
                 }
-            }
-            .show(childFragmentManager, "datePicker")
-
-        WikiGamesEvent.submit("impression", "game_play", slideName = "archive_calendar")
-    }
-
-    private fun maybeShowToastForDate(selectedDateInMillis: Long) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month + 1, day)
-        if (scoreData[scoreDataKey] != null) {
-            Toast.makeText(requireContext(),
-                getString(R.string.on_this_day_game_score_toast_message,
-                    scoreData[scoreDataKey],
-                    OnThisDayGameViewModel.MAX_QUESTIONS), Toast.LENGTH_SHORT).show()
+            )
         }
     }
 
-    private fun handleDateSelection(selectedDateInMillis: Long, state: OnThisDayGameViewModel.GameState) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+    private fun handleDateSelection(selectedDateInMillis: Long) {
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
         calendar.timeInMillis = selectedDateInMillis
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH) + 1
@@ -317,16 +235,5 @@ class OnThisDayGameOnboardingFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun getPrivateCalendarFragment(picker: MaterialDatePicker<*>): Any? {
-        try {
-            val field = picker.javaClass.getDeclaredField("calendar")
-            field.isAccessible = true
-            return field.get(picker)
-        } catch (e: Exception) {
-            L.e(e)
-        }
-        return null
     }
 }
