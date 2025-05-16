@@ -782,9 +782,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
 
-    var isRecommendedReadingListArticlesNumbers: Int
-        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_numbers, 5)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_numbers, value)
+    var isRecommendedReadingListArticlesNumber: Int
+        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_number, 5)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_number, value)
 
     var isRecommendedReadingListUpdateFrequency: Int
         get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_update_frequency, 0)
