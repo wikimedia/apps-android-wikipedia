@@ -779,7 +779,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
 
     var isRecommendedReadingListEnabled: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, true)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
 
     var recommendedReadingListArticlesNumber: Int
