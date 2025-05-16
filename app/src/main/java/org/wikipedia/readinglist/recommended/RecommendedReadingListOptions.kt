@@ -1,7 +1,13 @@
 package org.wikipedia.readinglist.recommended
 
 enum class UpdateFrequency {
-    DAILY, WEEKLY, MONTHLY
+    DAILY, WEEKLY, MONTHLY;
+
+    companion object {
+        fun fromInt(value: Int): UpdateFrequency {
+            return entries[value]
+        }
+    }
 }
 
 enum class UpdateSource {

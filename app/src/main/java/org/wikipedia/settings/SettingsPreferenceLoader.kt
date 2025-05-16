@@ -62,7 +62,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 )
                 true
         }
-        findPreference(R.string.preference_key_discover_reading_list).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+        findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, DiscoverSettingsActivity::class.java))
             true
         }
@@ -109,9 +109,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     fun updateDiscoverReadingListSummary() {
-        findPreference(R.string.preference_key_discover_reading_list).summary = if (!Prefs.isDiscoverReadingListOn)
+        findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = if (!Prefs.isRecommendedReadingListEnabled)
             activity.getString(R.string.recommended_reading_list_settings_toggle_disable_message) else
-                "Discover is on." // @TODO: replace it with copy provided from the design
+                "Discover is on. Wikipedia will recommend you articles to read." // @TODO: replace it string resource
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

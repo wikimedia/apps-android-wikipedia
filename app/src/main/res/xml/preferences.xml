@@ -32,7 +32,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/recommended_reading_list_settings_section_header">
         <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_discover_reading_list"
+            android:key="@string/preference_key_recommended_reading_list_enabled"
             android:title="@string/recommended_reading_list_settings_toggle" />
     </PreferenceCategory>
     <PreferenceCategory
