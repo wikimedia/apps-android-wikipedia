@@ -29,6 +29,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDate
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
@@ -168,19 +169,18 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
             showArchiveCalendar(
-                this@OnThisDayGameOnboardingFragment,
                 startDate,
                 Date(),
                 scoreData,
                 onDateSelected = { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis, state)
+                    handleDateSelection(selectedDateInMillis)
                 }
             )
         }
     }
 
-    private fun handleDateSelection(selectedDateInMillis: Long, state: OnThisDayGameViewModel.GameState) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+    private fun handleDateSelection(selectedDateInMillis: Long) {
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
         calendar.timeInMillis = selectedDateInMillis
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH) + 1
