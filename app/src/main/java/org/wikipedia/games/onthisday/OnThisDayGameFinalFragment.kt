@@ -22,7 +22,6 @@ import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -61,11 +60,12 @@ import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.text.DecimalFormat
 import java.time.Duration
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -132,10 +132,24 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             insets
         }
 
+        binding.archiveGameContainer.setOnClickListener {
+            prepareAndOpenArchiveCalendar(viewModel)
+        }
+
         handler.post(timeUpdateRunnable)
         updateOnLoading()
         buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
+    }
+
+    override fun onArchiveDateSelected(date: LocalDate) {
+        // hiding this fragment as it is not added to back stack and updating the state
+        binding.root.isVisible = false
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        viewModel.relaunchForDate(date)
+        (requireActivity() as? OnThisDayGameActivity)?.apply {
+            animateQuestionsIn()
+        }
     }
 
     override fun onDestroyView() {
