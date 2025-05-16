@@ -1,6 +1,5 @@
 package org.wikipedia.games.onthisday
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.datepicker.MaterialCalendar
-import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.datepicker.OnSelectionChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -39,39 +33,17 @@ import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
 
-class OnThisDayGameOnboardingFragment : Fragment() {
+class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
-    private var scoreData: Map<Long, Int> = emptyMap()
-
-    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
-        @SuppressLint("RestrictedApi")
-        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
-            if (fragment is MaterialDatePicker<*>) {
-                val calendar = ArchiveCalendarManager.getPrivateCalendarFragment(fragment)
-                @Suppress("UNCHECKED_CAST")
-                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
-                    override fun onSelectionChanged(selection: Long) {
-                        ArchiveCalendarManager.maybeShowToastForDate(fragment, selection, scoreData)
-                    }
-                })
-            }
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
-        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -195,7 +167,7 @@ class OnThisDayGameOnboardingFragment : Fragment() {
             val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            ArchiveCalendarManager.showArchiveCalendar(
+            showArchiveCalendar(
                 this@OnThisDayGameOnboardingFragment,
                 startDate,
                 Date(),

@@ -1,19 +1,51 @@
 package org.wikipedia.games.onthisday
 
+import android.annotation.SuppressLint
+import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.CompositeDateValidator
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.DateValidatorPointForward
+import com.google.android.material.datepicker.MaterialCalendar
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.OnSelectionChangedListener
 import org.wikipedia.R
 import org.wikipedia.util.log.L
 import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
 
-object ArchiveCalendarManager {
+abstract class OnThisDayGameBaseFragment : Fragment() {
+    protected var scoreData: Map<Long, Int> = emptyMap()
+
+    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
+        @SuppressLint("RestrictedApi")
+        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
+            if (fragment is MaterialDatePicker<*>) {
+                val calendar = getPrivateCalendarFragment(fragment)
+                @Suppress("UNCHECKED_CAST")
+                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
+                    override fun onSelectionChanged(selection: Long) {
+                        maybeShowToastForDate(fragment, selection, scoreData)
+                    }
+                })
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
+    }
+
+    override fun onDestroyView() {
+        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
+        super.onDestroyView()
+    }
+
     fun showArchiveCalendar(
         fragment: Fragment,
         startDate: Date,
@@ -48,7 +80,7 @@ object ArchiveCalendarManager {
             .build()
             .apply {
                 addOnPositiveButtonClickListener { selectedDateInMillis ->
-                   onDateSelected(selectedDateInMillis)
+                    onDateSelected(selectedDateInMillis)
                 }
             }
 

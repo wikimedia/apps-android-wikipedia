@@ -1,6 +1,5 @@
 package org.wikipedia.games.onthisday
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
@@ -23,8 +22,6 @@ import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -35,9 +32,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.google.android.material.datepicker.MaterialCalendar
-import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.datepicker.OnSelectionChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -77,7 +71,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -85,22 +79,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
     private var loadedImagesForShare = 0
-    private var scoreData: Map<Long, Int> = emptyMap()
-
-    private val fragmentLifecycleCallbacks = object : FragmentManager.FragmentLifecycleCallbacks() {
-        @SuppressLint("RestrictedApi")
-        override fun onFragmentStarted(fm: FragmentManager, fragment: Fragment) {
-            if (fragment is MaterialDatePicker<*>) {
-                val calendar = ArchiveCalendarManager.getPrivateCalendarFragment(fragment)
-                @Suppress("UNCHECKED_CAST")
-                (calendar as MaterialCalendar<Long>?)?.addOnSelectionChangedListener(object : OnSelectionChangedListener<Long>() {
-                    override fun onSelectionChanged(selection: Long) {
-                        ArchiveCalendarManager.maybeShowToastForDate(fragment, selection, scoreData)
-                    }
-                })
-            }
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -108,7 +86,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
-        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
@@ -177,7 +154,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            ArchiveCalendarManager.showArchiveCalendar(
+            showArchiveCalendar(
                 this@OnThisDayGameFinalFragment,
                 startDate,
                 Date(),
@@ -212,7 +189,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
     override fun onDestroyView() {
         handler.removeCallbacks(timeUpdateRunnable)
         _binding = null
-        childFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
         super.onDestroyView()
     }
 
