@@ -37,7 +37,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 29
+const val DATABASE_VERSION = 30
 
 @Database(
     entities = [
@@ -299,6 +299,10 @@ abstract class AppDatabase : RoomDatabase() {
                         "    playType INTEGER NOT NULL," +
                         "    gameData TEXT" +
                         ")")
+            }
+        }
+        val MIGRATION_29_30 = object : Migration(29, 30) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS RecommendedPage (" +
                         "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                         "    wiki TEXT NOT NULL," +
@@ -318,7 +322,7 @@ abstract class AppDatabase : RoomDatabase() {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
-                    MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29)
+                    MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()
