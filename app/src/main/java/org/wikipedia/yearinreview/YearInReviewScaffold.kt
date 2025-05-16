@@ -7,6 +7,7 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,8 +44,10 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,6 +61,9 @@ import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.WikipediaTheme
 import kotlin.math.absoluteValue
 
@@ -157,10 +163,26 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = onDonateClick)
                             .padding(start = 15.dp)
                             .wrapContentWidth()
-                            .align(Alignment.CenterStart),
+                            .align(Alignment.CenterStart)
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = ripple(bounded = true),
+                                onClick = {
+                                    EventPlatformClient.submit(
+                                        BreadCrumbLogEvent(
+                                            screen_name = "year_in_review",
+                                            action = "donate_click")
+                                    )
+                                    DonorExperienceEvent.logAction(
+                                        action = "donate_start_click_yir",
+                                        activeInterface = "wiki_yir",
+                                        campaignId = "yir"
+                                    )
+                                    onDonateClick()
+                                }
+                            ),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
