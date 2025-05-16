@@ -364,7 +364,8 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
-
+        <activity
+            android:name=".settings.discover.DiscoverSettingsActivity"/>
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

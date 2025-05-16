@@ -777,4 +777,8 @@ object Prefs {
     var isOtdSoundOn: Boolean
         get() = PrefsIoUtil.getBoolean(R.string.pref_key_otd_sound_on, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
+
+    var isDiscoverReadingListOn: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_discover_reading_list, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_discover_reading_list, value)
 }

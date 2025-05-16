@@ -30,6 +30,11 @@
             android:title="@string/preference_title_app_theme"
             android:summary="@string/preference_summary_color_theme" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/recommended_reading_list_settings_section_header">
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_discover_reading_list"
+            android:title="@string/recommended_reading_list_settings_toggle" />
+    </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_sync"
         android:title="@string/preferences_heading_syncing">
