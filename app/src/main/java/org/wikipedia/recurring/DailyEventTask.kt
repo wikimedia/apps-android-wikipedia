@@ -6,6 +6,7 @@ import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.games.onthisday.OnThisDayGameABCTest
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -20,6 +21,8 @@ class DailyEventTask(private val app: WikipediaApp) : RecurringTask() {
         DailyStatsEvent.log(app)
         EventPlatformClient.refreshStreamConfigs()
 
-        WikiGamesEvent.submit("group_assign", "none", OnThisDayGameABCTest().getGroupName())
+        if (OnThisDayGameViewModel.isLangABTested(app.appOrSystemLanguageCode)) {
+            WikiGamesEvent.submit("group_assign", OnThisDayGameABCTest().getGroupName())
+        }
     }
 }
