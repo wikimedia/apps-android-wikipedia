@@ -777,4 +777,24 @@ object Prefs {
     var isOtdSoundOn: Boolean
         get() = PrefsIoUtil.getBoolean(R.string.pref_key_otd_sound_on, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
+
+    var isRecommendedReadingListEnabled: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
+
+    var isRecommendedReadingListArticlesNumbers: Int
+        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_numbers, 5)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_numbers, value)
+
+    var isRecommendedReadingListUpdateFrequency: Int
+        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_update_frequency, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_update_frequency, value)
+
+    var isRecommendedReadingListSource: Int
+        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_source, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_source, value)
+
+    var isRecommendedReadingListNotificationEnabled: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
 }
