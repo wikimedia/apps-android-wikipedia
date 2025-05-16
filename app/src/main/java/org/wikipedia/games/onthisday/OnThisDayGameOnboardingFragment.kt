@@ -10,9 +10,7 @@ import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -21,19 +19,12 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDate
-import java.time.ZoneId
-import java.time.ZoneOffset
-import java.util.Calendar
-import java.util.Date
-import java.util.TimeZone
 
 class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
     private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
@@ -115,7 +106,7 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
             if (viewModel.isArchiveGame) {
                 playArchiveButton.isVisible = true
                 playArchiveButton.setOnClickListener {
-                    prepareAndOpenArchiveCalendar(state)
+                    prepareAndOpenArchiveCalendar(viewModel)
                 }
             }
         }
@@ -132,7 +123,7 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
             }
             playArchiveButton.isVisible = true
             playArchiveButton.setOnClickListener {
-                prepareAndOpenArchiveCalendar(state)
+                prepareAndOpenArchiveCalendar(viewModel)
             }
         }
     }
@@ -163,35 +154,8 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
         return requireActivity() as? OnThisDayGameActivity
     }
 
-    private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
-        lifecycleScope.launch {
-            val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
-            val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
-            scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            showArchiveCalendar(
-                startDate,
-                Date(),
-                scoreData,
-                onDateSelected = { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis)
-                }
-            )
-        }
-    }
-
-    private fun handleDateSelection(selectedDateInMillis: Long) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month, day)
-        if (scoreData[scoreDataKey] != null) {
-            return
-        }
-        WikiGamesEvent.submit("date_select", "game_play", slideName = "archive_calendar")
-        viewModel.relaunchForDate(LocalDate.of(year, month, day))
+    override fun onArchiveDateSelected(date: LocalDate) {
+        viewModel.relaunchForDate(date)
         getGameActivity()?.let {
             it.supportFragmentManager.popBackStack()
             binding.root.post {
