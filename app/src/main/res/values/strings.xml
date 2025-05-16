@@ -1869,7 +1869,7 @@
     <string name="on_this_day_game_archive_btn_text">Play the archive</string>
     <string name="on_this_day_game_review_results_btn_text">Review results</string>
     <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
-    <string name="on_this_day_game_continue_playing_btn_text">Continue Playing</string>
+    <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
 

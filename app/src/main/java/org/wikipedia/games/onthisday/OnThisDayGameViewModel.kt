@@ -86,8 +86,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 } else {
                     languageState?.let { langState ->
                         currentDate = when {
-                            // if today's or archive game is completed reset to today's date
-                            langState.currentQuestionIndex >= langState.totalQuestions -> LocalDate.now()
+                            // if user opened the game and did not play or did not press next question or today's or archive game is completed reset to today's date
+                            (langState.currentQuestionIndex == 0 && !langState.currentQuestionState.goToNext) || langState.currentQuestionIndex >= langState.totalQuestions -> LocalDate.now()
                             langState.gamePlayDate.isNotEmpty() -> LocalDate.parse(langState.gamePlayDate, DateTimeFormatter.ISO_LOCAL_DATE)
                             else -> LocalDate.now()
                         }
@@ -198,7 +198,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _gameState.postValue(Resource.Error(throwable))
         }) {
             if (currentState.currentQuestionState.goToNext) {
-                WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName())
+                WikiGamesEvent.submit("next_click", "game_play", slideName = getCurrentScreenName(), isArchive = isArchiveGame)
 
                 val nextQuestionIndex = currentState.currentQuestionIndex + 1
 
@@ -251,11 +251,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     _gameState.postValue(CurrentQuestion(currentState))
                 }
             } else {
-                WikiGamesEvent.submit(
-                    "select_click",
-                    "game_play",
-                    slideName = getCurrentScreenName()
-                )
+                WikiGamesEvent.submit("select_click", "game_play", slideName = getCurrentScreenName(), isArchive = isArchiveGame)
 
                 currentState = currentState.copy(
                     currentQuestionState = currentState.currentQuestionState.copy(
@@ -470,6 +466,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         fun isLangSupported(lang: String): Boolean {
             return LANG_CODES_SUPPORTED.contains(lang)
+        }
+
+        fun isLangABTested(lang: String): Boolean {
+            return isLangSupported(lang) && lang != "de"
         }
 
         fun dateReleasedForLang(lang: String): LocalDate {
