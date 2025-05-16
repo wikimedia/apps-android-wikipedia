@@ -43,8 +43,6 @@ import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -65,12 +63,7 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.ZoneId
-import java.time.ZoneOffset
-import java.util.Calendar
-import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 
 class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
@@ -140,7 +133,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
         }
 
         binding.archiveGameContainer.setOnClickListener {
-            prepareAndOpenArchiveCalendar(viewModel.getCurrentGameState())
+            prepareAndOpenArchiveCalendar(viewModel)
         }
 
         handler.post(timeUpdateRunnable)
@@ -149,37 +142,11 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
         return binding.root
     }
 
-    private fun prepareAndOpenArchiveCalendar(state: OnThisDayGameViewModel.GameState) {
-        lifecycleScope.launch {
-            val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
-            val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
-            scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            showArchiveCalendar(
-                startDate,
-                Date(),
-                scoreData,
-                onDateSelected = { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis)
-                }
-            )
-        }
-    }
-
-    private fun handleDateSelection(selectedDateInMillis: Long) {
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
-        calendar.timeInMillis = selectedDateInMillis
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val scoreDataKey = DateDecorator.getDateKey(year, month, day)
-        if (scoreData[scoreDataKey] != null) {
-            return
-        }
+    override fun onArchiveDateSelected(date: LocalDate) {
         // hiding this fragment as it is not added to back stack and updating the state
         binding.root.isVisible = false
         WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
-        viewModel.relaunchForDate(LocalDate.of(year, month, day))
+        viewModel.relaunchForDate(date)
         (requireActivity() as? OnThisDayGameActivity)?.apply {
             animateQuestionsIn()
         }
