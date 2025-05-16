@@ -86,8 +86,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 } else {
                     languageState?.let { langState ->
                         currentDate = when {
-                            // if today's or archive game is completed reset to today's date
-                            langState.currentQuestionIndex >= langState.totalQuestions -> LocalDate.now()
+                            // if user opened the game and did not play or did not press next question or today's or archive game is completed reset to today's date
+                            (langState.currentQuestionIndex == 0 && !langState.currentQuestionState.goToNext) || langState.currentQuestionIndex >= langState.totalQuestions -> LocalDate.now()
                             langState.gamePlayDate.isNotEmpty() -> LocalDate.parse(langState.gamePlayDate, DateTimeFormatter.ISO_LOCAL_DATE)
                             else -> LocalDate.now()
                         }
@@ -466,6 +466,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         fun isLangSupported(lang: String): Boolean {
             return LANG_CODES_SUPPORTED.contains(lang)
+        }
+
+        fun isLangABTested(lang: String): Boolean {
+            return isLangSupported(lang) && lang != "de"
         }
 
         fun dateReleasedForLang(lang: String): LocalDate {
