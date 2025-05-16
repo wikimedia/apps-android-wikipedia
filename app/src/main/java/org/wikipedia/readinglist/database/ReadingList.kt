@@ -54,7 +54,7 @@ class ReadingList(
         return (other is ReadingList &&
                 id == other.id &&
                 pages.size == other.pages.size &&
-                numPagesOffline == numPagesOffline &&
+                numPagesOffline == other.numPagesOffline &&
                 title == other.title &&
                 description == other.description)
     }
