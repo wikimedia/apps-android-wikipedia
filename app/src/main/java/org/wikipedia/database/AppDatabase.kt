@@ -307,7 +307,7 @@ abstract class AppDatabase : RoomDatabase() {
                         "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                         "    wiki TEXT NOT NULL," +
                         "    lang TEXT NOT NULL DEFAULT 'en'," +
-                        "    namespace TEXT NOT NULL," +
+                        "    namespace INTEGER NOT NULL," +
                         "    timestamp INTEGER NOT NULL," +
                         "    apiTitle TEXT NOT NULL," +
                         "    displayTitle TEXT NOT NULL," +
