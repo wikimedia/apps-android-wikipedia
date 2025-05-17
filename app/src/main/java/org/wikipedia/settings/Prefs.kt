@@ -17,6 +17,8 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -774,27 +776,31 @@ object Prefs {
         } ?: OnThisDayGameNotificationState.NO_INTERACTED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
 
-    var isOtdSoundOn: Boolean
+    var isOtdSoundOn
         get() = PrefsIoUtil.getBoolean(R.string.pref_key_otd_sound_on, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.pref_key_otd_sound_on, value)
 
-    var isRecommendedReadingListEnabled: Boolean
+    var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
 
-    var recommendedReadingListArticlesNumber: Int
+    var recommendedReadingListArticlesNumber
         get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_articles_number, 5)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_articles_number, value)
 
-    var recommendedReadingListUpdateFrequency: Int
-        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_update_frequency, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_update_frequency, value)
+    var recommendedReadingListUpdateFrequency: RecommendedReadingListUpdateFrequency
+        get() = PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_update_frequency, null)?.let {
+            RecommendedReadingListUpdateFrequency.valueOf(it)
+        } ?: RecommendedReadingListUpdateFrequency.WEEKLY
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_update_frequency, value.name)
 
-    var recommendedReadingListSource: Int
-        get() = PrefsIoUtil.getInt(R.string.preference_key_recommended_reading_list_source, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_recommended_reading_list_source, value)
+    var recommendedReadingListSource: RecommendedReadingListSource
+        get() = PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_source, null)?.let {
+            RecommendedReadingListSource.valueOf(it)
+        } ?: RecommendedReadingListSource.INTERESTS
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_source, value.name)
 
-    var isRecommendedReadingListNotificationEnabled: Boolean
+    var isRecommendedReadingListNotificationEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
 }
