@@ -1,9 +1,9 @@
 package org.wikipedia.readinglist.recommended
 
-enum class UpdateFrequency {
+enum class RecommendedReadingListUpdateFrequency {
     DAILY, WEEKLY, MONTHLY
 }
 
-enum class UpdateSource {
+enum class RecommendedReadingListSource {
     INTERESTS, READING_LIST, HISTORY
 }
