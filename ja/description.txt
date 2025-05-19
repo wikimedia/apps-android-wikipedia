@@ -24,7 +24,7 @@
 
 アプリに関するご意見をお送りください！メニューの「設定」、次に「Wikipediaアプリについて」、次に「アプリのフィードバックを送信」を押してください。
 
-コードは100%オープンソースです。JavaとAndroid SDKの経験があれば、私たちはあなたの貢献を楽しみにしています！ https://github.com/wikimedia/apps-android-wikipedia
+コードは100%オープンソースです。JavaとAndroid SDKのご経験がおありなら、我々は貴殿の御貢献をお待ちしております！ https://github.com/wikimedia/apps-android-wikipedia
 
 このアプリを使用することによって、あなたは、サードパーティのサービスプロバイダーにクラッシュレポートの自動送信することに同意します。この機能を無効にしたい場合は、「設定」を押して、全般セクション下の「クラッシュレポートを送信」をオフしてください。アプリで必要なアクセス許可の説明: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
