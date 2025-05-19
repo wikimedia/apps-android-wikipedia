@@ -184,7 +184,8 @@
     <string name="preference_key_recommended_reading_list_enabled">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number">recommendedReadingListArticlesNumber</string>
     <string name="preference_key_recommended_reading_list_update_frequency">recommendedReadingListUpdateFrequency</string>
+    <string name="preference_key_recommended_reading_list_interests">recommendedReadingListInterests</string>
     <string name="preference_key_recommended_reading_list_source">recommendedReadingListSource</string>
     <string name="preference_key_recommended_reading_list_notification_enabled">recommendedReadingListNotificationEnabled</string>
-    <string name="preference_key_recommended_reading_list_source_titles">recommendedReadingListSourceTitles</string>
+    <string name="preference_key_recommended_reading_list_titles_with_offset">recommendedReadingListTitlesWithOffset</string>
 </resources>

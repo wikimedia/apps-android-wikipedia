@@ -19,7 +19,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
-import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel.RecommendedSource
+import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel.SourceWithOffset
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -801,11 +801,15 @@ object Prefs {
         } ?: RecommendedReadingListSource.INTERESTS
         set(value) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_source, value.name)
 
+    var recommendedReadingListInterests
+        get() = JsonUtil.decodeFromString<List<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_interests, null)) ?: emptyList()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_interests, JsonUtil.encodeToString(types))
+
     var isRecommendedReadingListNotificationEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
 
-    var recommendedReadingListSourceTitles
-        get() = JsonUtil.decodeFromString<List<RecommendedSource>>(PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_source_titles, null)) ?: emptyList()
-        set(types) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_source_titles, JsonUtil.encodeToString(types))
+    var recommendedReadingListSourceTitlesWithOffset
+        get() = JsonUtil.decodeFromString<List<SourceWithOffset>>(PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_titles_with_offset, null)) ?: emptyList()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_titles_with_offset, JsonUtil.encodeToString(types))
 }

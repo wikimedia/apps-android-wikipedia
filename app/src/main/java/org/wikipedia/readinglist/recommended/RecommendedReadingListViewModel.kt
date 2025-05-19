@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
@@ -32,14 +33,13 @@ class RecommendedReadingListViewModel : ViewModel() {
             if (numberOfArticles <= 0) {
                 return
             }
-            // First: get titles from the source by number of articles
+            // Step 1: get titles from the source by number of articles
             val titles = when (Prefs.recommendedReadingListSource) {
                 RecommendedReadingListSource.INTERESTS -> {
-                    // TODO: Query from the RecommendedPageDao
-                    emptyList()
+                    Prefs.recommendedReadingListInterests.shuffled().take(numberOfArticles)
                 }
                 RecommendedReadingListSource.READING_LIST -> {
-                    AppDatabase.instance.readingListPageDao().getPagesByNumber(numberOfArticles).map {
+                    AppDatabase.instance.readingListPageDao().getPagesByRandom(numberOfArticles).map {
                         PageTitle(it.apiTitle, it.wiki).apply {
                             namespace = it.namespace.name
                             displayText = it.displayTitle
@@ -49,50 +49,67 @@ class RecommendedReadingListViewModel : ViewModel() {
                     }
                 }
                 RecommendedReadingListSource.HISTORY -> {
-                    AppDatabase.instance.historyEntryDao().getHistoryEntriesByNumber(numberOfArticles).map {
+                    AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(numberOfArticles).map {
                         it.title
                     }
                 }
             }
 
+            // Step 2: combine the titles with the offsite from Prefs.
+            // TODO: think about having a table for this, too?
+            val sourcesWithOffset = mutableListOf<SourceWithOffset>()
+            titles.forEach { pageTitle ->
+                val offset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.prefixedText }?.offset ?: 0
+                sourcesWithOffset.add(SourceWithOffset(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, offset))
+            }
+
+            val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
             val recommendedPages = mutableListOf<PageTitle>()
-            // Second: uses morelike API to get recommended article, but excludes the articles from database.
-            // TODO: discuss the logic of possible re-query for duplicates
-            // TODO: maybe we can use gsrsort=random to get random articles
-            titles.forEach {
+            // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
+            // and update the offset everytime when re-query the API.
+            sourcesWithOffset.forEach { sourcesWithOffset ->
                 var recommendedPage: PageTitle? = null
                 var retryCount = 0
+                var offset = sourcesWithOffset.offset
                 while (recommendedPage == null && retryCount < MAX_RETRIES) {
-                    recommendedPage = getRecommendedPage(it)
+                    recommendedPage = getRecommendedPage(sourcesWithOffset, offset)
+                    // Cannot find any recommended articles, so update the offset and retry.
+                    if (recommendedPage == null) {
+                        offset += Constants.SUGGESTION_REQUEST_ITEMS
+                    }
                     retryCount++
                 }
                 recommendedPage?.let {
                     recommendedPages.add(recommendedPage)
+                    // Update the offset in the source list
+                    newSourcesWithOffset.add(SourceWithOffset(sourcesWithOffset.title, sourcesWithOffset.language, offset))
                 }
             }
 
-            // Third: save the recommended articles to the database
+            // Step 4: save the recommended articles to the database
             // TODO: use RecommendedPageDao to save the recommended articles
         }
 
-        private suspend fun getRecommendedPage(pageTitles: PageTitle): PageTitle? {
-            val moreLikeResponse = ServiceFactory.get(pageTitles.wikiSite).searchMoreLike(
-                searchTerm = "morelike:${pageTitles.prefixedText}",
+        private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {
+            val wikiSite = WikiSite.forLanguageCode(sourceWithOffset.language)
+            val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike(
+                searchTerm = "morelike:${sourceWithOffset.title}",
                 gsrLimit = Constants.SUGGESTION_REQUEST_ITEMS,
-                piLimit = Constants.SUGGESTION_REQUEST_ITEMS
+                piLimit = Constants.SUGGESTION_REQUEST_ITEMS,
+                gsrOffset = offset
             )
 
             // Logic to check if the article is already in the database, if it exists, check the next one.
             val firstRecommendedPage = moreLikeResponse.query?.pages.orEmpty()
                 .map { page ->
-                    PageTitle(page.title, pageTitles.wikiSite).apply {
+                    PageTitle(page.title, wikiSite).apply {
                         displayText = page.displayTitle(wikiSite.languageCode)
                         description = page.description
                         thumbUrl = page.thumbUrl()
                     }
                 }
                 .filterNot {
-                    // TODO: filter wfrom the RecommendedPageDao
+                    // TODO: filter from the RecommendedPageDao
                     it != null
                 }
                 .firstOrNull()
@@ -100,9 +117,9 @@ class RecommendedReadingListViewModel : ViewModel() {
         }
     }
 
-    class RecommendedSource(
+    class SourceWithOffset(
         val title: String,
         val language: String,
-        val offset: Int
+        var offset: Int
     )
 }
