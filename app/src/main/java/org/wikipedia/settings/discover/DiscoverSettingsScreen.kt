@@ -1,16 +1,21 @@
 package org.wikipedia.settings.discover
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
@@ -43,6 +48,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 
 @Composable
@@ -50,6 +56,9 @@ fun DiscoverScreen(
     modifier: Modifier = Modifier,
     viewModel: DiscoverSettingsViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
+    onDiscoverSourceClick: () -> Unit,
+    onInterestClick: () -> Unit,
+    onNotificationChange: (Boolean) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -81,11 +90,19 @@ fun DiscoverScreen(
                     },
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
+                    discoverSource = uiState.recommendedReadingListSource,
+                    isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = {
                         viewModel.updateArticleNumberForRecommendingReadingList(it)
                     },
                     onUpdateFrequency = {
                         viewModel.updateFrequency(it)
+                    },
+                    onDiscoverSourceClick = onDiscoverSourceClick,
+                    onInterestClick = onInterestClick,
+                    onNotificationChange = {
+                        onNotificationChange(it)
+                        viewModel.toggleNotification(it)
                     }
                 )
             }
@@ -119,33 +136,65 @@ fun DiscoverSettingsOffState(
 fun DiscoverSettingsOnState(
     articlesNumber: Int,
     selectedFrequency: RecommendedReadingListUpdateFrequency,
+    discoverSource: RecommendedReadingListSource,
+    isNotificationEnabled: Boolean,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     onCheckedChange: ((Boolean) -> Unit),
     onArticleNumberChanged: (Int) -> Unit,
+    onDiscoverSourceClick: () -> Unit,
+    onInterestClick: () -> Unit,
+    onNotificationChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        DiscoverReadingListSwitch(
-            isDiscoverReadingOn = true,
-            onCheckedChange = onCheckedChange
-        )
-        ArticlesOption(
-            articlesNumber = articlesNumber,
-            onArticleNumberChanged = onArticleNumberChanged
-        )
-        UpdatesFrequencyView(
-            selectedFrequency = selectedFrequency,
-            onUpdateFrequency = onUpdateFrequency
-        )
+        SettingsSection {
+            DiscoverReadingListSwitch(
+                isDiscoverReadingOn = true,
+                onCheckedChange = onCheckedChange
+            )
+            ArticlesNumberView(
+                articlesNumber = articlesNumber,
+                onArticleNumberChanged = onArticleNumberChanged
+            )
+            UpdatesFrequencyView(
+                selectedFrequency = selectedFrequency,
+                onUpdateFrequency = onUpdateFrequency
+            )
+        }
+
+        SettingsSection {
+            DiscoverSourceView(
+                source = discoverSource,
+                onDiscoverSourceClick = onDiscoverSourceClick
+            )
+        }
+
+        if (discoverSource == RecommendedReadingListSource.INTERESTS) {
+            SettingsSection {
+                InterestsSourceView(
+                    onInterestClick = onInterestClick
+                )
+            }
+        }
+
+        SettingsSection(
+            canShowDivider = false
+        ) {
+            DiscoverNotificationView(
+                isNotificationEnabled = isNotificationEnabled,
+                onNotificationChange = onNotificationChange
+            )
+        }
     }
 }
 
 @Composable
-fun ArticlesOption(
+fun ArticlesNumberView(
     articlesNumber: Int,
     onArticleNumberChanged: (Int) -> Unit,
     modifier: Modifier = Modifier
@@ -159,8 +208,7 @@ fun ArticlesOption(
         ),
         leadingContent = {
             Icon(
-                modifier = Modifier
-                    .size(24.dp),
+                modifier = Modifier,
                 painter = painterResource(R.drawable.newsstand_24dp),
                 tint = WikipediaTheme.colors.primaryColor,
                 contentDescription = stringResource(R.string.recommended_reading_list_settings_articles)
@@ -173,8 +221,9 @@ fun ArticlesOption(
             ) {
                 OutlinedTextField(
                     modifier = Modifier
-                        .size(width = 41.dp, height = 56.dp),
+                        .size(width = 56.dp, height = 56.dp),
                     value = textFieldInput,
+                    singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     onValueChange = {
                         textFieldInput = it
@@ -223,8 +272,7 @@ fun UpdatesFrequencyView(
         ),
         leadingContent = {
             Icon(
-                modifier = Modifier
-                    .size(24.dp),
+                modifier = Modifier,
                 painter = painterResource(R.drawable.refresh_24dp),
                 tint = WikipediaTheme.colors.primaryColor,
                 contentDescription = stringResource(R.string.recommended_reading_list_settings_articles)
@@ -295,6 +343,134 @@ fun DiscoverReadingListSwitch(
 }
 
 @Composable
+fun DiscoverSourceView(
+    source: RecommendedReadingListSource,
+    onDiscoverSourceClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    ListItem(
+        modifier = modifier
+            .clickable {
+                onDiscoverSourceClick()
+            },
+        colors = ListItemDefaults.colors(
+            containerColor = WikipediaTheme.colors.paperColor
+        ),
+        leadingContent = {
+            Icon(
+                modifier = Modifier,
+                painter = painterResource(R.drawable.build_24dp),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.recommended_reading_list_settings_updates_base_title)
+            )
+        },
+        headlineContent = {
+            Text(
+                text = stringResource(R.string.recommended_reading_list_settings_updates_base_title),
+                style = WikipediaTheme.typography.p,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        },
+        supportingContent = {
+            Text(
+                text = stringResource(source.type),
+                style = MaterialTheme.typography.bodySmall,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+        }
+    )
+}
+
+@Composable
+fun InterestsSourceView(
+    modifier: Modifier = Modifier,
+    onInterestClick: () -> Unit
+) {
+    ListItem(
+        modifier = modifier
+            .clickable {
+                onInterestClick()
+            },
+        colors = ListItemDefaults.colors(
+            containerColor = WikipediaTheme.colors.paperColor
+        ),
+        leadingContent = {
+            Icon(
+                modifier = Modifier
+                    .size(24.dp),
+                painter = painterResource(R.drawable.interests_24dp),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.recommended_reading_list_settings_updates_base_title)
+            )
+        },
+        headlineContent = {
+            Text(
+                text = stringResource(R.string.recommended_reading_list_settings_interests),
+                style = WikipediaTheme.typography.p,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
+    )
+}
+
+@Composable
+fun DiscoverNotificationView(
+    modifier: Modifier = Modifier,
+    isNotificationEnabled: Boolean,
+    onNotificationChange: (Boolean) -> Unit
+) {
+    var checked by remember { mutableStateOf(false) }
+    val subtitle = if (isNotificationEnabled) stringResource(R.string.recommended_reading_list_settings_notification_subtitle_enable)
+    else stringResource(R.string.recommended_reading_list_settings_notifications_subtitle_disable)
+    ListItem(
+        modifier = modifier,
+        colors = ListItemDefaults.colors(
+            containerColor = WikipediaTheme.colors.paperColor
+        ),
+        leadingContent = {
+            Icon(
+                modifier = Modifier
+                    .size(24.dp),
+                painter = painterResource(R.drawable.notifications_24dp),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.recommended_reading_list_settings_updates_base_title)
+            )
+        },
+        headlineContent = {
+            Text(
+                text = stringResource(R.string.recommended_reading_list_settings_notifications_title),
+                style = WikipediaTheme.typography.p,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        },
+        supportingContent = {
+            Text(
+                text = subtitle,
+                style = MaterialTheme.typography.bodySmall,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+        },
+        trailingContent = {
+            Switch(
+                checked = checked,
+                onCheckedChange = {
+                    checked = it
+                    onNotificationChange(checked)
+                },
+                colors = SwitchDefaults.colors(
+                    uncheckedTrackColor = WikipediaTheme.colors.inactiveColor,
+                    uncheckedThumbColor = WikipediaTheme.colors.borderColor,
+                    uncheckedBorderColor = WikipediaTheme.colors.borderColor,
+                    checkedTrackColor = WikipediaTheme.colors.progressiveColor,
+                    checkedThumbColor = WikipediaTheme.colors.paperColor,
+                    checkedBorderColor = WikipediaTheme.colors.borderColor
+                )
+            )
+        }
+    )
+}
+
+@Composable
 fun RadioListDialog(
     modifier: Modifier = Modifier,
     options: List<String>,
@@ -338,6 +514,22 @@ fun RadioListDialog(
                         )
                     }
                 }
+            }
+        }
+    )
+}
+
+@Composable
+private fun SettingsSection(
+    canShowDivider: Boolean = true,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        content = {
+            content()
+            if (canShowDivider) {
+                HorizontalDivider()
             }
         }
     )

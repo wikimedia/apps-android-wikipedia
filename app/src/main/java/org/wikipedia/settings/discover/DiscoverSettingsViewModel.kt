@@ -15,6 +15,9 @@ class DiscoverSettingsViewModel : ViewModel() {
     fun toggleRecommendedReadingList(enabled: Boolean) {
         Prefs.isRecommendedReadingListEnabled = enabled
         _uiState.value = _uiState.value.copy(isRecommendedReadingListEnabled = enabled)
+        if (!enabled) {
+            Prefs.isRecommendedReadingListNotificationEnabled = false
+        }
     }
 
     fun updateArticleNumberForRecommendingReadingList(number: Int) {
@@ -25,6 +28,11 @@ class DiscoverSettingsViewModel : ViewModel() {
     fun updateFrequency(frequency: RecommendedReadingListUpdateFrequency) {
         Prefs.recommendedReadingListUpdateFrequency = frequency
         _uiState.value = _uiState.value.copy(updateFrequency = frequency)
+    }
+
+    fun toggleNotification(enabled: Boolean) {
+        Prefs.isRecommendedReadingListNotificationEnabled = enabled
+        _uiState.value = _uiState.value.copy(isRecommendedReadingListNotificationEnabled = enabled)
     }
 }
 

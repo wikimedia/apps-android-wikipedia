@@ -1951,4 +1951,5 @@
     <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, keep them on</string>
     <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
     <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
+    <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>
 </resources>
