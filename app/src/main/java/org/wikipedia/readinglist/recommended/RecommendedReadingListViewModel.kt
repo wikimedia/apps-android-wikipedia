@@ -99,4 +99,10 @@ class RecommendedReadingListViewModel : ViewModel() {
             return firstRecommendedPage
         }
     }
+
+    class RecommendedSource(
+        val title: String,
+        val language: String,
+        val offset: Int
+    )
 }
