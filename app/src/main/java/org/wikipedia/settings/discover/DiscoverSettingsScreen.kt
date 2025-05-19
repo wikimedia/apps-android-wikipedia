@@ -197,9 +197,15 @@ fun DiscoverSettingsOnState(
 fun ArticlesNumberView(
     articlesNumber: Int,
     onArticleNumberChanged: (Int) -> Unit,
-    modifier: Modifier = Modifier
-) {
+    modifier: Modifier = Modifier,
+    maxArticleNumber: Int = 20,
+    ) {
     var textFieldInput by remember { mutableStateOf(articlesNumber.toString()) }
+    var hasUserEdited by remember { mutableStateOf(false) }
+    if (!hasUserEdited) {
+        hasUserEdited = true
+        textFieldInput = ""
+    }
 
     ListItem(
         modifier = modifier,
@@ -225,14 +231,30 @@ fun ArticlesNumberView(
                     value = textFieldInput,
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    onValueChange = {
-                        textFieldInput = it
-                        onArticleNumberChanged(if (it.isNotEmpty()) it.toInt() else 0)
+                    onValueChange = { newValue ->
+                        val intValue = newValue.toIntOrNull()
+                        when {
+                            newValue.isEmpty() -> {
+                                textFieldInput = newValue
+                                onArticleNumberChanged(0)
+                            }
+                            intValue != null && intValue <= maxArticleNumber -> {
+                                textFieldInput = newValue
+                                onArticleNumberChanged(intValue)
+                            }
+                            intValue != null && intValue > maxArticleNumber -> {
+                                textFieldInput = maxArticleNumber.toString()
+                                onArticleNumberChanged(maxArticleNumber)
+                            }
+                        }
                     },
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
                         focusedBorderColor = MaterialTheme.colorScheme.outline,
-                    )
+                    ),
+                    placeholder = {
+                        Text(articlesNumber.toString())
+                    }
                 )
                 Text(
                     text = stringResource(R.string.recommended_reading_list_settings_articles),
