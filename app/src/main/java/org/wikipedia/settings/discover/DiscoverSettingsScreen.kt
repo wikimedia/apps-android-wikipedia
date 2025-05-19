@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -28,6 +29,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -58,10 +60,11 @@ fun DiscoverScreen(
     onBackButtonClick: () -> Unit,
     onDiscoverSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
-    onNotificationChange: (Boolean) -> Unit
+    onNotificationDialogButtonClicked: (Boolean) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
-
+    var showAlertDialog by remember { mutableStateOf(false) }
+    val isDiscoverReadingOn = uiState.isRecommendedReadingListEnabled
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -77,12 +80,25 @@ fun DiscoverScreen(
                 .padding(paddingValues)
                 .padding(horizontal = 16.dp)
         ) {
-            if (!uiState.isRecommendedReadingListEnabled) {
-                DiscoverSettingsOffState(
-                    onCheckedChange = {
-                        viewModel.toggleRecommendedReadingList(it)
+            DiscoverReadingListSwitch(
+                modifier = Modifier.noRippleClickable {
+                    if (!isDiscoverReadingOn) {
+                        showAlertDialog = true
+                        return@noRippleClickable
                     }
-                )
+                    viewModel.toggleRecommendedReadingList(true)
+                },
+                isDiscoverReadingOn = isDiscoverReadingOn,
+                onCheckedChange = {
+                    if (!isDiscoverReadingOn) {
+                        showAlertDialog = true
+                        return@DiscoverReadingListSwitch
+                    }
+                    viewModel.toggleRecommendedReadingList(it)
+                }
+            )
+            if (!uiState.isRecommendedReadingListEnabled) {
+                DiscoverSettingsOffState()
             } else {
                 DiscoverSettingsOnState(
                     onCheckedChange = {
@@ -100,30 +116,58 @@ fun DiscoverScreen(
                     },
                     onDiscoverSourceClick = onDiscoverSourceClick,
                     onInterestClick = onInterestClick,
-                    onNotificationChange = {
-                        onNotificationChange(it)
+                    onNotificationDialogButtonClicked = {
+                        onNotificationDialogButtonClicked(it)
                         viewModel.toggleNotification(it)
                     }
                 )
             }
+        }
+
+        if (showAlertDialog) {
+            AlertDialog(
+                title = {
+                    Text(text = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_title))
+                },
+                text = {
+                    Text(text = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_message))
+                },
+                onDismissRequest = {
+                    showAlertDialog = false
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            showAlertDialog = false
+                            viewModel.toggleRecommendedReadingList(false)
+                        }
+                    ) {
+                        Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button))
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = {
+                            showAlertDialog = false
+                            viewModel.toggleRecommendedReadingList(true)
+                        }
+                    ) {
+                        Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button))
+                    }
+                }
+            )
         }
     }
 }
 
 @Composable
 fun DiscoverSettingsOffState(
-    onCheckedChange: ((Boolean) -> Unit),
     modifier: Modifier = Modifier
-
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        DiscoverReadingListSwitch(
-            isDiscoverReadingOn = false,
-            onCheckedChange = onCheckedChange
-        )
         Text(
             text = stringResource(R.string.recommended_reading_list_settings_toggle_disable_message),
             style = MaterialTheme.typography.bodySmall,
@@ -143,7 +187,7 @@ fun DiscoverSettingsOnState(
     onArticleNumberChanged: (Int) -> Unit,
     onDiscoverSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
-    onNotificationChange: (Boolean) -> Unit,
+    onNotificationDialogButtonClicked: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 
 ) {
@@ -153,10 +197,6 @@ fun DiscoverSettingsOnState(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         SettingsSection {
-            DiscoverReadingListSwitch(
-                isDiscoverReadingOn = true,
-                onCheckedChange = onCheckedChange
-            )
             ArticlesNumberView(
                 articlesNumber = articlesNumber,
                 onArticleNumberChanged = onArticleNumberChanged
@@ -187,7 +227,7 @@ fun DiscoverSettingsOnState(
         ) {
             DiscoverNotificationView(
                 isNotificationEnabled = isNotificationEnabled,
-                onNotificationChange = onNotificationChange
+                onNotificationDialogButtonClicked = onNotificationDialogButtonClicked
             )
         }
     }
@@ -328,11 +368,10 @@ fun UpdatesFrequencyView(
 fun DiscoverReadingListSwitch(
     isDiscoverReadingOn: Boolean,
     onCheckedChange: ((Boolean) -> Unit),
+    modifier: Modifier = Modifier
     ) {
-    var checked by remember { mutableStateOf(isDiscoverReadingOn) }
-
     ListItem(
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(16.dp)),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.backgroundColor
@@ -346,10 +385,9 @@ fun DiscoverReadingListSwitch(
         },
         trailingContent = {
             Switch(
-                checked = checked,
+                checked = isDiscoverReadingOn,
                 onCheckedChange = {
-                    checked = it
-                    onCheckedChange(checked)
+                    onCheckedChange(it)
                 },
                 colors = SwitchDefaults.colors(
                     uncheckedTrackColor = WikipediaTheme.colors.inactiveColor,
@@ -439,13 +477,21 @@ fun InterestsSourceView(
 fun DiscoverNotificationView(
     modifier: Modifier = Modifier,
     isNotificationEnabled: Boolean,
-    onNotificationChange: (Boolean) -> Unit
+    onNotificationDialogButtonClicked: (Boolean) -> Unit,
 ) {
-    var checked by remember { mutableStateOf(false) }
+    var showAlertDialog by remember { mutableStateOf(false) }
+    var checked by remember(isNotificationEnabled) { mutableStateOf(isNotificationEnabled) }
     val subtitle = if (isNotificationEnabled) stringResource(R.string.recommended_reading_list_settings_notification_subtitle_enable)
     else stringResource(R.string.recommended_reading_list_settings_notifications_subtitle_disable)
     ListItem(
-        modifier = modifier,
+        modifier = modifier
+            .noRippleClickable {
+                if (!isNotificationEnabled) {
+                    onNotificationDialogButtonClicked(true)
+                    return@noRippleClickable
+                }
+                showAlertDialog = true
+            },
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),
@@ -477,7 +523,7 @@ fun DiscoverNotificationView(
                 checked = checked,
                 onCheckedChange = {
                     checked = it
-                    onNotificationChange(checked)
+                    showAlertDialog = true
                 },
                 colors = SwitchDefaults.colors(
                     uncheckedTrackColor = WikipediaTheme.colors.inactiveColor,
@@ -490,6 +536,40 @@ fun DiscoverNotificationView(
             )
         }
     )
+
+    if (showAlertDialog) {
+        AlertDialog(
+            title = {
+                Text(text = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_title))
+            },
+            text = {
+                Text(text = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_message))
+            },
+            onDismissRequest = {
+                showAlertDialog = false
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showAlertDialog = false
+                        onNotificationDialogButtonClicked(false)
+                    }
+                ) {
+                    Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showAlertDialog = false
+                        onNotificationDialogButtonClicked(true)
+                    }
+                ) {
+                    Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button))
+                }
+            }
+        )
+    }
 }
 
 @Composable

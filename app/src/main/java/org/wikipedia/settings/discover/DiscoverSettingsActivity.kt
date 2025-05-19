@@ -33,7 +33,7 @@ class DiscoverSettingsActivity : BaseActivity(), BaseActivity.Callback {
                     onInterestClick = {
                         // @TODO: implement when interest screen is complete
                     },
-                    onNotificationChange = {
+                    onNotificationDialogButtonClicked = {
                         // @TODO: implement after notification ticket is merged
                     }
                 )
