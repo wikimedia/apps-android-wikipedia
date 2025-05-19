@@ -24,6 +24,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,24 +32,26 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.readinglist.recommended.UpdateFrequency
-import org.wikipedia.settings.Prefs
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 
 @Composable
 fun DiscoverScreen(
+    modifier: Modifier = Modifier,
+    viewModel: DiscoverSettingsViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
-    var isDiscoverReadingOn by remember { mutableStateOf(Prefs.isRecommendedReadingListEnabled) }
+    val uiState by viewModel.uiState.collectAsState()
 
     Scaffold(
         modifier = modifier,
@@ -65,18 +68,24 @@ fun DiscoverScreen(
                 .padding(paddingValues)
                 .padding(horizontal = 16.dp)
         ) {
-            if (!isDiscoverReadingOn) {
+            if (!uiState.isRecommendedReadingListEnabled) {
                 DiscoverSettingsOffState(
                     onCheckedChange = {
-                        isDiscoverReadingOn = it
-                        Prefs.isRecommendedReadingListEnabled = it
+                        viewModel.toggleRecommendedReadingList(it)
                     }
                 )
             } else {
                 DiscoverSettingsOnState(
                     onCheckedChange = {
-                        isDiscoverReadingOn = it
-                        Prefs.isRecommendedReadingListEnabled = it
+                        viewModel.toggleRecommendedReadingList(it)
+                    },
+                    articlesNumber = uiState.articlesNumber,
+                    selectedFrequency = uiState.updateFrequency,
+                    onArticleNumberChanged = {
+                        viewModel.updateArticleNumberForRecommendingReadingList(it)
+                    },
+                    onUpdateFrequency = {
+                        viewModel.updateFrequency(it)
                     }
                 )
             }
@@ -108,7 +117,11 @@ fun DiscoverSettingsOffState(
 
 @Composable
 fun DiscoverSettingsOnState(
+    articlesNumber: Int,
+    selectedFrequency: RecommendedReadingListUpdateFrequency,
+    onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     onCheckedChange: ((Boolean) -> Unit),
+    onArticleNumberChanged: (Int) -> Unit,
     modifier: Modifier = Modifier
 
 ) {
@@ -120,16 +133,24 @@ fun DiscoverSettingsOnState(
             isDiscoverReadingOn = true,
             onCheckedChange = onCheckedChange
         )
-        ArticlesOption()
-        UpdatesFrequencyView()
+        ArticlesOption(
+            articlesNumber = articlesNumber,
+            onArticleNumberChanged = onArticleNumberChanged
+        )
+        UpdatesFrequencyView(
+            selectedFrequency = selectedFrequency,
+            onUpdateFrequency = onUpdateFrequency
+        )
     }
 }
 
 @Composable
 fun ArticlesOption(
+    articlesNumber: Int,
+    onArticleNumberChanged: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var articlesNumber by remember { mutableStateOf(Prefs.recommendedReadingListArticlesNumber.toString()) }
+    var textFieldInput by remember { mutableStateOf(articlesNumber.toString()) }
 
     ListItem(
         modifier = modifier,
@@ -153,11 +174,11 @@ fun ArticlesOption(
                 OutlinedTextField(
                     modifier = Modifier
                         .size(width = 41.dp, height = 56.dp),
-                    value = articlesNumber,
+                    value = textFieldInput,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     onValueChange = {
-                        articlesNumber = it
-                        Prefs.recommendedReadingListArticlesNumber = if (it.isNotEmpty()) it.toInt() else 0
+                        textFieldInput = it
+                        onArticleNumberChanged(if (it.isNotEmpty()) it.toInt() else 0)
                     },
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -177,34 +198,19 @@ fun ArticlesOption(
 
 @Composable
 fun UpdatesFrequencyView(
+    selectedFrequency: RecommendedReadingListUpdateFrequency,
+    onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     var showDialog by remember { mutableStateOf(false) }
-    var selectedFrequency by remember { mutableStateOf(UpdateFrequency.fromInt(Prefs.recommendedReadingListUpdateFrequency)) }
-    val options = listOf(
-        stringResource(R.string.recommended_reading_list_settings_updates_frequency_dialog_daily),
-        stringResource(R.string.recommended_reading_list_settings_updates_frequency_dialog_weekly),
-        stringResource(R.string.recommended_reading_list_settings_updates_frequency_dialog_monthly)
+    val frequencies = RecommendedReadingListUpdateFrequency.entries.toTypedArray()
+    val dialogOptions = frequencies.map { context.getString(it.dialogStringRes) }
+    val selectedDialogOption = stringResource(selectedFrequency.dialogStringRes)
+    val updateFrequencyString = stringResource(
+        R.string.recommended_reading_list_settings_updates_frequency,
+        stringResource(selectedFrequency.displayStringRes)
     )
-    val frequencyToString = mapOf(
-        UpdateFrequency.DAILY to options[0],
-        UpdateFrequency.WEEKLY to options[1],
-        UpdateFrequency.MONTHLY to options[2]
-    )
-
-    val stringToFrequency = mapOf(
-        options[0] to UpdateFrequency.DAILY,
-        options[1] to UpdateFrequency.WEEKLY,
-        options[2] to UpdateFrequency.MONTHLY
-    )
-
-    val updatesFrequencyString = mapOf(
-        UpdateFrequency.DAILY to stringResource(R.string.recommended_reading_list_settings_updates_frequency_daily),
-        UpdateFrequency.WEEKLY to stringResource(R.string.recommended_reading_list_settings_updates_frequency_weekly),
-        UpdateFrequency.MONTHLY to stringResource(R.string.recommended_reading_list_settings_updates_frequency_monthly)
-    )
-
-    val updateFrequencyString = stringResource(R.string.recommended_reading_list_settings_updates_frequency, updatesFrequencyString[selectedFrequency] ?: "")
     ListItem(
         modifier = modifier
             .noRippleClickable(
@@ -235,13 +241,14 @@ fun UpdatesFrequencyView(
 
     if (showDialog) {
         RadioListDialog(
-            options = options,
-            selectedOption = frequencyToString[selectedFrequency] ?: options[0],
+            options = dialogOptions,
+            selectedOption = selectedDialogOption,
             onDismissRequest = { showDialog = false },
-            onOptionSelected = {
-                val option = stringToFrequency[it]
-                selectedFrequency = option ?: UpdateFrequency.DAILY
-                Prefs.recommendedReadingListUpdateFrequency = selectedFrequency.ordinal
+            onOptionSelected = { selectedOptionString ->
+                val newSelectedFrequency = frequencies.find {
+                    context.getString(it.dialogStringRes) == selectedOptionString
+                } ?: RecommendedReadingListUpdateFrequency.DAILY
+                onUpdateFrequency(newSelectedFrequency)
             }
         )
     }
