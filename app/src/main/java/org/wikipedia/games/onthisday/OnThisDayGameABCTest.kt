@@ -19,7 +19,7 @@ class OnThisDayGameABCTest : ABTest("onThisDayGame", GROUP_SIZE_3) {
 
     override fun assignGroup() {
         val installAgeMillis = DailyStatsEvent.getInstallTime(WikipediaApp.instance)
-        val installDate = LocalDate.ofInstant(Instant.ofEpochMilli(installAgeMillis), ZoneOffset.UTC).plusDays(10)
+        val installDate = LocalDate.ofInstant(Instant.ofEpochMilli(installAgeMillis), ZoneOffset.UTC)
 
         val gameDate = OnThisDayGameViewModel.dateReleasedForLang(WikipediaApp.instance.appOrSystemLanguageCode)
         val isAbTested = OnThisDayGameViewModel.isLangABTested(WikipediaApp.instance.appOrSystemLanguageCode)
