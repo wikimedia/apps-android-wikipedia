@@ -74,18 +74,16 @@
         app:tint="?attr/placeholder_color"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/page_list_item_image"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:contentDescription="@null"
+        style="@style/ImageViewDefault.Thumb"
         app:layout_constraintEnd_toEndOf="@id/page_list_image_guide"
         app:layout_constraintTop_toTopOf="@id/page_list_image_guide" />
 
     <Space
         android:id="@+id/page_list_image_guide"
         android:layout_width="0dp"
-        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/defaultThumbnailSize"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

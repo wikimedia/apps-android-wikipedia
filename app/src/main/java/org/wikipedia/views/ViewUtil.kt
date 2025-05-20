@@ -20,27 +20,17 @@ import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewActionModeCloseButtonBinding
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.util.WhiteBackgroundTransformation
 
 object ViewUtil {
-    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
-
-    fun loadImageWithRoundedCorners(view: ImageView, url: String?) {
-        loadImage(view, url, roundedCorners = true)
-    }
-
-    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, force: Boolean = false,
+    fun loadImage(view: ImageView, url: String?, force: Boolean = false,
                   @DrawableRes placeholderId: Int? = null, listener: RequestListener<Drawable?>? = null) {
         var builder = Glide.with(view)
                 .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
@@ -53,11 +43,7 @@ object ViewUtil {
             builder = builder.placeholder(placeholder).error(placeholder)
         }
 
-        builder = if (roundedCorners) {
-            builder.transform(CENTER_CROP_ROUNDED_CORNERS)
-        } else {
-            builder.transform(WhiteBackgroundTransformation())
-        }
+        builder = builder.transform(WhiteBackgroundTransformation())
         if (listener != null) {
             builder = builder.listener(listener)
         }

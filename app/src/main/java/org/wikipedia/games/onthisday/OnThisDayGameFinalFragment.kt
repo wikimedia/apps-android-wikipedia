@@ -257,7 +257,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoader())
+                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoader())
             } ?: run {
                 loadedImagesForShare++
             }

@@ -44,7 +44,8 @@
         android:layout_marginEnd="16dp"
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/page_list_item_image_container"
-        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:visibility="visible">
 
         <org.wikipedia.views.CircularProgressBar
@@ -73,25 +74,23 @@
         android:id="@+id/page_list_item_image_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/view_list_card_item_image"
-        android:layout_gravity="center"
+        android:minHeight="@dimen/defaultThumbnailSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/page_list_item_image"
-            style="@style/ImageViewDefault"
-            android:layout_width="@dimen/view_list_card_item_image"
-            android:layout_height="@dimen/view_list_card_item_image"
+            style="@style/ImageViewDefault.Thumb"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding" />
 
         <ImageView
             android:id="@+id/page_list_item_selected_image"
-            android:layout_width="@dimen/view_list_card_item_image"
-            android:layout_height="@dimen/view_list_card_item_image"
-            android:background="@drawable/button_shape_gray"
+            android:layout_width="@dimen/defaultThumbnailSize"
+            android:layout_height="@dimen/defaultThumbnailSize"
+            android:background="@drawable/shape_circle"
             android:contentDescription="@null"
             android:padding="8dp"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             app:tint="@android:color/white"
             android:visibility="gone"
             app:backgroundTint="@color/blue600"
