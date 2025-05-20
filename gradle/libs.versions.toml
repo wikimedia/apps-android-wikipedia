@@ -4,6 +4,7 @@ androidSdk = "11.8.8"
 appcompat = "1.7.0"
 balloon = "1.6.12"
 browser = "1.8.0"
+coilCompose = "3.1.0"
 commonsLang3 = "3.17.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.16.0"
@@ -12,8 +13,7 @@ drawerlayout = "1.2.0"
 espressoVersion = "3.6.1"
 firebaseMessagingVersion = "24.1.1"
 flexbox = "3.0.0"
-fragmentKtx = "1.8.6"
-glideVersion = "4.16.0"
+fragmentKtx = "1.8.7"
 googlePayVersion = "19.4.0"
 googleServices = "4.4.2"
 gradle = "8.10.0"
@@ -45,7 +45,7 @@ swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.10.1"
-composeBom = "2025.05.00"
+composeBom = "2025.05.01"
 composeActivity = "1.10.1"
 composeViewModel = "2.9.0"
 
@@ -62,6 +62,10 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
 balloon = { module = "com.github.skydoves:balloon", version.ref = "balloon" }
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coilCompose" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coilCompose" }
 com-google-android-gms-play-services-wallet2 = { module = "com.google.android.gms:play-services-wallet", version.ref = "googlePayVersion" }
 com-google-firebase-firebase-messaging-ktx3 = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebaseMessagingVersion" }
 com-google-mlkit-language-id = { module = "com.google.mlkit:language-id", version.ref = "mlKitVersion" }
@@ -76,8 +80,6 @@ espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref =
 espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "espressoVersion" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
-glide-ksp = { module = "com.github.bumptech.glide:ksp", version.ref = "glideVersion" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
@@ -96,7 +98,6 @@ metrics-platform = { module = "org.wikimedia.metrics:metrics-platform", version.
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoVersion" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okHttpVersion" }
 okhttp-tls = { module = "com.squareup.okhttp3:okhttp-tls", version.ref = "okHttpVersion" }
-okhttp3-integration = { module = "com.github.bumptech.glide:okhttp3-integration", version.ref = "glideVersion" }
 okhttp3-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpVersion" }
 okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okHttpVersion" }
 palette-ktx = { module = "androidx.palette:palette-ktx", version.ref = "paletteKtx" }
