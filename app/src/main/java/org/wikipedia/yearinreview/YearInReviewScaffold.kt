@@ -1,8 +1,13 @@
 package org.wikipedia.yearinreview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Bitmap.createBitmap
+import android.graphics.PixelFormat
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -483,6 +488,7 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
+@SuppressLint("ServiceCast")
 fun captureScreenAndShare(
     context: Context,
     scope: CoroutineScope,
@@ -494,28 +500,49 @@ fun captureScreenAndShare(
         setContent {
             ScreenShotScaffold(screenContent = screenData)
         }
+        layoutParams = ViewGroup.LayoutParams(layoutWidth, layoutHeight)
     }
 
-    scope.launch(imageHandler(context)) {
-        val screenShotJob = async {
-            val image = createBitmap(
-                layoutWidth,
-                layoutHeight,
-                Bitmap.Config.ARGB_8888).applyCanvas {
-                currentView.draw(this)
-            }
-            image
-        }
-        val screenShotBitmap = screenShotJob.await()
-        ShareUtil.shareImage(
-            coroutineScope = scope,
-            context = context,
-            bmp = screenShotBitmap,
-            imageFileName = "year_in_review",
-            subject = context.getString(R.string.year_in_review_share_subject),
-            text = context.getString(R.string.year_in_review_share_url)
-        )
+    val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val params = WindowManager.LayoutParams().apply {
+        this.width = width
+        this.height = height
+        this.format = PixelFormat.TRANSLUCENT
+        this.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        this.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
     }
+
+    wm.addView(currentView, params)
+    currentView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        override fun onGlobalLayout() {
+            currentView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+
+            scope.launch(imageHandler(context)) {
+                val screenShotJob = async {
+                    val image = createBitmap(
+                        layoutWidth,
+                        layoutHeight,
+                        Bitmap.Config.ARGB_8888
+                    ).applyCanvas {
+                        currentView.draw(this)
+                    }
+                    image
+                }
+                val screenShotBitmap = screenShotJob.await()
+                ShareUtil.shareImage(
+                    coroutineScope = scope,
+                    context = context,
+                    bmp = screenShotBitmap,
+                    imageFileName = "year_in_review",
+                    subject = context.getString(R.string.year_in_review_share_subject),
+                    text = context.getString(R.string.year_in_review_share_url)
+                )
+            }
+            wm.removeView(currentView)
+        }
+    })
 }
 
 fun imageHandler(context: Context): CoroutineExceptionHandler {
