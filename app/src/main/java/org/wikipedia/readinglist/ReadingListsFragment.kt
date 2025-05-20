@@ -799,12 +799,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
-            binding.onboardingView.setImageResource(
-                ResourceUtil.getThemedAttributeId(
-                    requireContext(),
-                    R.attr.sync_reading_list_prompt_drawable
-                ), true
-            )
+            binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
             binding.onboardingView.setPositiveButton(R.string.reading_lists_login_button, {
                 if (isAdded && requireParentFragment() is FeedFragment.Callback) {
                     (requireParentFragment() as FeedFragment.Callback).onLoginRequested()
