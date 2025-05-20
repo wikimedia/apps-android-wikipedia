@@ -87,12 +87,14 @@ interface ImageServiceLoader {
         context: Context,
         imageUrl: String?,
         imageTransformer: ImageTransformer? = null,
-        onSuccess: (Bitmap) -> Unit)
+        onSuccess: (Bitmap) -> Unit
+    )
 
     fun getBitmapForWidget(
         context: Context,
         imageUrl: String?,
-        onSuccess: (Bitmap) -> Unit)
+        onSuccess: (Bitmap) -> Unit
+    )
 
     fun getBitmapForMarker(context: Context): Bitmap
 

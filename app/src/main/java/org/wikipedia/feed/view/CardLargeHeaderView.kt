@@ -17,6 +17,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
+import org.wikipedia.views.imageservice.ImageLoadListener
 
 class CardLargeHeaderView : ConstraintLayout {
     constructor(context: Context) : super(context)
@@ -40,7 +41,7 @@ class CardLargeHeaderView : ConstraintLayout {
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, cropped = true, listener = ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, cropped = true, listener = CardImageLoadListener())
         return this
     }
 
@@ -59,7 +60,7 @@ class CardLargeHeaderView : ConstraintLayout {
                 ContextCompat.getColor(context, R.color.gray600))
     }
 
-    private inner class ImageLoadListener : org.wikipedia.views.imageservice.ImageLoadListener {
+    private inner class CardImageLoadListener : ImageLoadListener {
         override fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
             var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.gray300))
             var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.gray500))

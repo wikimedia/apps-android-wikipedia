@@ -58,6 +58,7 @@ class GalleryItemFragment : Fragment(), MenuProvider {
     private val activityViewModel: GalleryViewModel by activityViewModels()
 
     private var mediaController: MediaController? = null
+    private val galleryItemImageLoadListener = GalleryItemImageLoadListener()
 
     val imageTitle get() = viewModel.imageTitle
     val mediaPage get() = viewModel.mediaPage
@@ -241,7 +242,7 @@ class GalleryItemFragment : Fragment(), MenuProvider {
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = createImageLoadListener())
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = galleryItemImageLoadListener)
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
@@ -249,7 +250,7 @@ class GalleryItemFragment : Fragment(), MenuProvider {
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
         onLoading(true)
-        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = createImageLoadListener())
+        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = galleryItemImageLoadListener)
     }
 
     private fun shareImage() {
@@ -273,18 +274,16 @@ class GalleryItemFragment : Fragment(), MenuProvider {
         return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
-    private fun createImageLoadListener(): ImageLoadListener {
-        return object : ImageLoadListener {
-            override fun onSuccess(view: ImageView) {
-                if (view.id == binding.imageView.id) {
-                    binding.imageView.visibility = View.VISIBLE
-                    (requireActivity() as GalleryActivity).onMediaLoaded()
-                }
+    private inner class GalleryItemImageLoadListener : ImageLoadListener {
+        override fun onSuccess(view: ImageView) {
+            if (view.id == binding.imageView.id) {
+                binding.imageView.visibility = View.VISIBLE
+                (requireActivity() as GalleryActivity).onMediaLoaded()
             }
+        }
 
-            override fun onError(error: Throwable) {
-                callback()?.onError(error.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
-            }
+        override fun onError(error: Throwable) {
+            callback()?.onError(error.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
         }
     }
 
