@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
 import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
@@ -54,18 +55,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
-    customBottomBar: @Composable (PagerState) -> Unit,
-    screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
+    customBottomBar: @Composable (PagerState, Context) -> Unit,
+    screenContent: @Composable (PaddingValues, YearInReviewScreenData, Context) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>
 ) {
@@ -117,7 +120,7 @@ fun YearInReviewScreen(
                 }
             )
         },
-        bottomBar = { customBottomBar(pagerState) },
+        bottomBar = { customBottomBar(pagerState, context) },
     ) { innerPadding ->
         if (contentData.size > 1) {
             HorizontalPager(
@@ -125,10 +128,10 @@ fun YearInReviewScreen(
                 state = pagerState,
                 contentPadding = PaddingValues(0.dp),
             ) { page ->
-                screenContent(innerPadding, contentData[page])
+                screenContent(innerPadding, contentData[page], context)
             }
         } else {
-            screenContent(innerPadding, contentData[0])
+            screenContent(innerPadding, contentData[0], context)
         }
     }
 }
@@ -233,7 +236,8 @@ fun MainBottomBar(
 
 @Composable
 fun OnboardingBottomBar(
-    onGetStartedClick: () -> Unit
+    onGetStartedClick: () -> Unit,
+    context: Context
 ) {
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -251,7 +255,12 @@ fun OnboardingBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { /* TODO() */ }
+                    onClick = {
+                        UriUtil.handleExternalLink(
+                            context = context,
+                            uri = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used".toUri()
+                        )
+                    }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -282,7 +291,8 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
-
+    context: Context,
+    isInfoIconVisible: Boolean = true
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -324,13 +334,20 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                IconButton(
-                    onClick = { /* TODO() */ }) {
-                    Icon(
-                        painter = painterResource(R.drawable.baseline_info_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_information_icon)
-                    )
+                if (isInfoIconVisible) {
+                    IconButton(
+                        onClick = {
+                            UriUtil.handleExternalLink(
+                                context = context,
+                                uri = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used".toUri()
+                            )
+                        }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
                 }
             }
             Text(

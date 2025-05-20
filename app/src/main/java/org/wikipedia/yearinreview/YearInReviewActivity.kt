@@ -44,19 +44,23 @@ class YearInReviewActivity : BaseActivity() {
                         YearInReviewScreen(
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
-                            customBottomBar = {
+                            customBottomBar = { pagerState, context ->
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
                                         navController.navigate(
                                             route = YearInReviewNavigation.ScreenDeck.name
                                         )
-                                    }
+                                    },
+                                    context = context
                                 )
                             },
-                            screenContent = { innerPadding, contentData ->
+                            screenContent = { innerPadding, contentData, context ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    screenData = contentData)
+                                    screenData = contentData,
+                                    context = context,
+                                    isInfoIconVisible = false
+                                )
                             },
                         )
                     }
@@ -70,7 +74,7 @@ class YearInReviewActivity : BaseActivity() {
                                 YearInReviewScreen(
                                     contentData = screenState.data,
                                     navController = navController,
-                                    customBottomBar = { pagerState -> MainBottomBar(
+                                    customBottomBar = { pagerState, context -> MainBottomBar(
                                         onNavigationRightClick = {
                                             coroutineScope.launch {
                                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
@@ -80,9 +84,10 @@ class YearInReviewActivity : BaseActivity() {
                                         totalPages = screenState.data.size,
                                         onDonateClick = { launchDonateDialog("yir") }
                                     ) },
-                                    screenContent = { innerPadding, contentData ->
+                                    screenContent = { innerPadding, contentData, context ->
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
+                                            context = context,
                                             screenData = contentData,
                                         )
                                     },
