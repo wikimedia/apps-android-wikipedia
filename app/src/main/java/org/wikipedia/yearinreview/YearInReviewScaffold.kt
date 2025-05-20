@@ -50,6 +50,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -319,13 +320,16 @@ fun YearInReviewScreenContent(
                     modifier = Modifier
                         .padding(top = 10.dp)
                         .height(IntrinsicSize.Min)
-                        .weight(1f),
+                        .weight(1f)
+                        .testTag("headline_text"),
                     text = processString(screenData.headLineText),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
                 IconButton(
-                    onClick = { /* TODO() */ }) {
+                    onClick = { /* TODO() */ },
+                    modifier = Modifier.testTag("information_icon")
+                ) {
                     Icon(
                         painter = painterResource(R.drawable.baseline_info_24),
                         tint = WikipediaTheme.colors.primaryColor,
@@ -336,7 +340,8 @@ fun YearInReviewScreenContent(
             Text(
                 modifier = Modifier
                     .padding(top = 10.dp)
-                    .height(IntrinsicSize.Min),
+                    .height(IntrinsicSize.Min)
+                    .testTag("body_text"),
                 text = processString(screenData.bodyText),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
