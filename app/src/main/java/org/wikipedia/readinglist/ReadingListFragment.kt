@@ -164,6 +164,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             }
                             is PageDownloadEvent -> {
                                 val pagePosition = getPagePositionInList(event.page)
+                                if (pagePosition < 0) {
+                                    return@collectLatest
+                                }
                                 val readingLisPage = displayedLists[pagePosition]
                                 if (readingLisPage is ReadingListPage) {
                                     readingLisPage.downloadProgress = event.page.downloadProgress
@@ -304,7 +307,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.isClickable = false
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.H2)
-        headerView.setOverflowViewVisibility(View.VISIBLE)
+        headerView.setOverflowViewVisibility(true)
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {

@@ -91,6 +91,66 @@
 
             </androidx.cardview.widget.CardView>
 
+            <org.wikipedia.views.WikiCardView
+                android:id="@+id/archiveGameContainer"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
+                app:layout_constraintStart_toStartOf="@id/resultTextContainer"
+                app:layout_constraintEnd_toEndOf="@id/resultTextContainer"
+                android:minHeight="120dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="?attr/background_color"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="16dp">
+                    
+                    <ImageView
+                        android:id="@+id/historyImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_history_24"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:tint="?attr/primary_color" />
+
+                    <TextView
+                        android:id="@+id/playArchiveText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="16dp"
+                        android:textColor="?attr/primary_color"
+                        style="@style/TextAppearance.Material3.BodyLarge"
+                        android:text="@string/on_this_day_game_archive_btn_text"
+                        app:layout_constraintStart_toEndOf="@+id/historyImageView"
+                        app:layout_constraintEnd_toStartOf="@+id/rightArrowImageView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <ImageView
+                        android:id="@+id/rightArrowImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_arrow_right_alt_24px"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tint="?attr/primary_color" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </org.wikipedia.views.WikiCardView>
+
+
             <TextView
                 android:id="@+id/yourStatsText"
                 android:layout_width="wrap_content"
@@ -99,7 +159,7 @@
                 android:textColor="?attr/primary_color"
                 android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="16dp"
-                app:layout_constraintTop_toBottomOf="@id/resultTextContainer"
+                app:layout_constraintTop_toBottomOf="@id/archiveGameContainer"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="@string/on_this_day_game_your_stats"/>
 

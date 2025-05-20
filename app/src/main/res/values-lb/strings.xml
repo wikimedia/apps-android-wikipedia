@@ -233,7 +233,6 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
@@ -763,6 +762,7 @@
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
+  <string name="feed_item_type_because_you_read">Virschléi baséierend op engem Artikel aus Ärem Historique, deen Dir viru Kuerzem gelies hutt</string>
   <string name="feed_item_type_suggested_edits">Virschléi fir Inhalt op Wikipedia derbäizesetzen</string>
   <string name="feed_item_type_places">Artikelen an der Géigend baséiert op dem aktuelle Standuert</string>
   <string name="feed_empty_message">Et gëtt näischt an Ärem Entdecke-Feed</string>
@@ -1517,6 +1517,7 @@
   <string name="on_this_day_game_point">+ 1 Punkt</string>
   <string name="on_this_day_game_next">Nächst Fro</string>
   <string name="on_this_day_game_finish">Endresultat</string>
+  <string name="on_this_day_game_share_button">Deelen</string>
   <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
   <string name="on_this_day_game_pause_body">Äre Fortschrëtt gëtt fir den Dag gespäichert. Dir kënnt d\'Spill an Ärem Entdecke-Feed fannen.</string>
   <string name="on_this_day_game_pause_negative">Weiderspillen</string>
@@ -1559,4 +1560,44 @@
   <string name="on_this_day_game_share_link_message">Ech spille „Wat koum als éischt?“, en deeglecht Quiz-Spill an der Wikipedia-Android-App %s</string>
   <string name="on_this_day_game_survey_q1">Wéi zefridde waart Dir mat dësem Spill?</string>
   <string name="on_this_day_game_survey_q2">Wier Dir interesséiert fir nach aner Wikipedia-Spiller ze spillen?</string>
+  <string name="on_this_day_game_current_progress_message">Dir sidd bei der Fro %d.</string>
+  <string name="on_this_day_game_review_results_btn_text">Resultater nokucken</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Virufuere mat Spillen</string>
+  <string name="on_this_day_game_sound_on">Toun ausmaachen</string>
+  <string name="on_this_day_game_sound_off">Toun umaachen</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nei!</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nee, merci</string>
+  <string name="recommended_reading_list_interest_pick_title">Wat interesséiert Iech?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">No engem Artikel sichen</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Réckgängeg maachen</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d Artikel</item>
+    <item quantity="other">• %d Artikelen</item>
+  </plurals>
+  <string name="recommended_reading_list_page_overflow_about">Iwwer dës Funktioun</string>
+  <string name="recommended_reading_list_page_snackbar_day">Dag</string>
+  <string name="recommended_reading_list_page_snackbar_week">Woch</string>
+  <string name="recommended_reading_list_page_snackbar_month">Mount</string>
+  <string name="recommended_reading_list_settings_section_header">Recommandatiounen</string>
+  <string name="recommended_reading_list_settings_articles">Artikelen</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Aktualiséierungen %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">all Dag</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">all Woch</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">all Mount</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">All Dag</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">All Woch</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">All Mount</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Baséiert op Ären Interessen</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Baséiert op Äre gespäicherten Artikelen</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Baséiert op Ärem Lieshistorique</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Upassen</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Är Recommandatioune baséieren elo op Ären Interessen.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Är Recommandatioune baséieren elo op Äre gespäicherten Artikelen.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Är Recommandatioune baséieren elo op Ärem Lieshistorique.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Réckgängeg maachen</string>
+  <string name="recommended_reading_list_settings_interests">Interessen</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notifikatiounen</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Notifikatiounen desaktivéieren?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desaktivéieren</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Neen, aktivéiert loossen</string>
 </resources>

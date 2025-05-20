@@ -179,4 +179,6 @@
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
     <string name="preference_key_playground_category">categoryPlayground</string>
+    <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
+    <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
 </resources>
