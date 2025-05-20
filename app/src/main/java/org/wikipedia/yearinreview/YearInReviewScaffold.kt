@@ -61,9 +61,6 @@ import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.WikipediaTheme
 import kotlin.math.absoluteValue
 
@@ -169,19 +166,7 @@ fun MainBottomBar(
                             .clickable(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = ripple(bounded = true),
-                                onClick = {
-                                    EventPlatformClient.submit(
-                                        BreadCrumbLogEvent(
-                                            screen_name = "year_in_review",
-                                            action = "donate_click")
-                                    )
-                                    DonorExperienceEvent.logAction(
-                                        action = "donate_start_click_yir",
-                                        activeInterface = "wiki_yir",
-                                        campaignId = "yir"
-                                    )
-                                    onDonateClick()
-                                }
+                                onClick = { onDonateClick() }
                             ),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
