@@ -137,12 +137,6 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         binding.pageListItemAction.contentDescription = context.getString(id)
     }
 
-    fun setListItemImageDimensions(width: Int, height: Int) {
-        binding.pageListItemImage.layoutParams.width = width
-        binding.pageListItemImage.layoutParams.height = height
-        requestLayout()
-    }
-
     fun setUpChipGroup(readingLists: List<ReadingList>) {
         binding.chipsScrollview.visibility = VISIBLE
         binding.chipsScrollview.setFadingEdgeLength(0)

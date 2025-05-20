@@ -85,7 +85,7 @@
     <Space
         android:id="@+id/page_list_image_guide"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/view_list_card_item_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
