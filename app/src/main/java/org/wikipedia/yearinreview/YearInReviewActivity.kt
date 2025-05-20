@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -89,6 +90,11 @@ class YearInReviewActivity : BaseActivity() {
                                 )
                             }
                         }
+                    }
+                    composable(route = "screen_test") {
+                        ScreenShotScaffold(
+                            screenContent = nonEnglishCollectiveEditCountData
+                        )
                     }
                 }
             }
