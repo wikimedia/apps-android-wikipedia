@@ -12,15 +12,15 @@ class DiscoverSettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(DiscoverSettingsState())
     val uiState: StateFlow<DiscoverSettingsState> = _uiState.asStateFlow()
 
-    fun toggleRecommendedReadingList(enabled: Boolean) {
+    fun toggleDiscoverReadingList(enabled: Boolean) {
         Prefs.isRecommendedReadingListEnabled = enabled
-        _uiState.value = _uiState.value.copy(isRecommendedReadingListEnabled = enabled)
         if (!enabled) {
             Prefs.isRecommendedReadingListNotificationEnabled = false
         }
+        _uiState.value = _uiState.value.copy(isRecommendedReadingListEnabled = enabled, isRecommendedReadingListNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled)
     }
 
-    fun updateArticleNumberForRecommendingReadingList(number: Int) {
+    fun updateArticleNumbers(number: Int) {
         Prefs.recommendedReadingListArticlesNumber = number
         _uiState.value = _uiState.value.copy(articlesNumber = number)
     }
@@ -33,6 +33,11 @@ class DiscoverSettingsViewModel : ViewModel() {
     fun toggleNotification(enabled: Boolean) {
         Prefs.isRecommendedReadingListNotificationEnabled = enabled
         _uiState.value = _uiState.value.copy(isRecommendedReadingListNotificationEnabled = enabled)
+    }
+
+    fun updateDiscoverSource(source: RecommendedReadingListSource) {
+        Prefs.recommendedReadingListSource = source
+        _uiState.value = _uiState.value.copy(recommendedReadingListSource = source)
     }
 }
 

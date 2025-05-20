@@ -21,16 +21,8 @@ enum class RecommendedReadingListUpdateFrequency(
     )
 }
 
-enum class RecommendedReadingListSource(
-    @StringRes val type: Int
-) {
-    INTERESTS(
-        R.string.recommended_reading_list_settings_updates_base_subtitle_interests
-    ),
-    READING_LIST(
-        R.string.recommended_reading_list_settings_updates_base_subtitle_saved
-    ),
-    HISTORY(
-        R.string.recommended_reading_list_settings_updates_base_subtitle_history
-    )
+enum class RecommendedReadingListSource {
+    INTERESTS,
+    READING_LIST,
+    HISTORY
 }
