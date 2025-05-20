@@ -138,7 +138,6 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
-        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
     }
 
@@ -196,6 +195,8 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
+
+        buildSharableContent(gameState, viewModel.getArticlesMentioned())
     }
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
