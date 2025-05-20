@@ -210,13 +210,11 @@
   <string name="privacy_policy_description">Mirapuraçawa politika</string>
   <string name="terms_of_use_description">Puruçawa rekô\'etá</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yawá reçé</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="about_contributors_heading">Pitimũgara\'etá</string>
   <string name="about_translators_heading">Sinimukanhẽẽgara\'etá</string>
   <string name="about_app_license_heading">Mutarawa</string>

@@ -533,6 +533,12 @@
     <style name="RoundedCornerOverlay.BottomRight">
         <item name="cornerSizeBottomRight">16dp</item>
     </style>
+    <style name="RoundedCornerOverlay.All.Small">
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+    </style>
     <style name="RoundedCornerOverlay.All">
         <item name="cornerSizeTopLeft">16dp</item>
         <item name="cornerSizeTopRight">16dp</item>
@@ -656,6 +662,11 @@
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">?attr/paper_color</item>
+    </style>
+
+    <style name="OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeWidth">1dp</item>
         <item name="strokeColor">?attr/paper_color</item>
     </style>
 

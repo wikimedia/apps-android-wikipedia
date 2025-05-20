@@ -170,12 +170,15 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state">otdGameState</string>
     <string name="preference_key_otd_game_history">otdGameHistory</string>
-    <string name="preference_key_otd_game_last_visit_date">otdGameLastVisitDate</string>
     <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state">otdNotificationState</string>
     <string name="preference_key_otd_game_survey_shown">otdGameSurveyShown</string>
+    <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
+    <string name="preference_key_playground_category">categoryPlayground</string>
+    <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
+    <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
 </resources>

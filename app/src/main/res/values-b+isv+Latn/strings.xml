@@ -242,14 +242,12 @@
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranica družiny&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranica družiny&lt;/a&gt;</string>
   <string name="about_translators_heading">Prěvoditelji</string>
   <string name="about_translators_translatewiki">Tuta aplikacija byla prěvedena dobrovoljnymi prěvoditeljami na projektu &lt;a href=\"https://translatewiki.net\"&gt;&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
@@ -598,8 +596,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Članok jest na několikyh spiskah</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s veče ne bude dostupny oflajn za vse spisky za čitanje:</string>
   <string name="reading_lists_sync_reminder_title">Vključiti sinhronizaciju spiskov za čitanje?</string>
-  <string name="reading_lists_sync_reminder_text">Članky, zapisane v spisky za čitanje, tutčas mogut byti sinhronizovane s vašim koristničskym kontom v Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Članky, zapisane v spisky za čitanje, tutčas mogut byti sinhronizovane s vašim koristničskym kontom v Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Vključiti sinhronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinhronizovati spisky za čitanje</string>
   <string name="reading_lists_login_reminder_text">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov.</string>
@@ -857,5 +855,77 @@
   <string name="view_featured_image_card_download">Daunlodovati</string>
   <string name="view_featured_image_card_share">Poděliti</string>
   <string name="menu_feed_card_dismiss">Skryti tutu kartu</string>
-  <string name="menu_feed_card_dismissed">Karta jest skryta.</string>
+  <string name="menu_feed_card_dismissed">Kartka jest skryta.</string>
+  <string name="menu_feed_card_edit_card_languages">Praviti jezyky kartok</string>
+  <string name="menu_feed_overflow_label">Veče opcij</string>
+  <string name="feed_featured_image_share_subject">Izbrany obrazok iz Vikisklada</string>
+  <string name="feed">Odkryvati</string>
+  <string name="home">Glavna</string>
+  <string name="view_static_card_icon_content_description">Ikonka kartky</string>
+  <string name="view_card_news_title">V novinah</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">včera</item>
+    <item quantity="few">%d dni tomu nazad</item>
+    <item quantity="many">%d dnjev tomu nazad</item>
+    <item quantity="other">%d dnjev tomu nazad</item>
+  </plurals>
+  <string name="view_continue_reading_card_subtitle_today">dnes</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Pročitany %s</string>
+  <string name="view_announcement_card_negative_action">Ne, hvala.</string>
+  <string name="view_offline_card_text">Včitanje sodržanja jest nemožno v režimu oflajn.</string>
+  <string name="view_featured_article_card_title">Izbrany članok</string>
+  <string name="view_static_card_save_button_label">Zapisati</string>
+  <string name="feed_configure_activity_title">Prisposobiti kanal</string>
+  <string name="feed_configure_menu_reset">Vratiti standardny izgled</string>
+  <string name="feed_configure_menu_select_all">Pokazati vse</string>
+  <string name="feed_configure_menu_deselect_all">Skryti vse</string>
+  <string name="feed_configure_language_warning">Imajte v vidu, že ne vse tipy kartok sut dostupne vo vsih jezykah Vikipedije. Pravite svoje izbrane jezyky v nastavjenjah.</string>
+  <string name="feed_item_type_news">Članky o tekučih sobytjah</string>
+  <string name="feed_item_type_on_this_day">Historične sobytja v tutoj denj</string>
+  <string name="feed_item_type_because_you_read">Prědloženja na osnově nedavno pročitanogo članka iz vašej historije</string>
+  <string name="feed_item_type_featured_article">Izbrany članok dnja v Vikipediji</string>
+  <string name="feed_item_type_trending">Najbolje čitajeme članky za dnes</string>
+  <string name="feed_item_type_featured_image">Izbrany obrazok dnja iz Vikisklada</string>
+  <string name="feed_item_type_main_page">Glavna stranica Vikipedije s izbranym sodržanjem dnja</string>
+  <string name="feed_item_type_randomizer">Generovati slučajne članky za čitanje</string>
+  <string name="feed_item_type_suggested_edits">Prědloženja za dodanje sodržanja v Vikipediju</string>
+  <string name="feed_item_type_places">Članky o poblizkyh temah na osnově aktualnoj lokazije</string>
+  <string name="feed_empty_message">V vašem kanalu «Odkryvati» nemaje ničego</string>
+  <string name="feed_configure_onboarding_action">Prisposobiti</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Anulovati</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prisposobite svoj kanal «Odkryvati»&lt;/strong&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Anulovati</string>
+  <string name="feed_accessibility_card_text">Vy jeste dosegli konca kanala.</string>
+  <string name="feed_accessibility_card_load_more_button">Včitati veče</string>
+  <string name="feed_language_variants_removal_dialog_title">Izberite regionalny variant jezyka za lěpše čitanje</string>
+  <string name="feed_language_variants_removal_dialog_message">Vy tutčas koristajete nepoddrživany generičny variant kitajskogo jezyka kako vaš glavny jezyk v Vikipediji</string>
+  <string name="feed_language_variants_removal_dialog_save">Zapisati</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Prosimo, obnovite vaše dodatočne jezyky</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Vy tutčas koristaje nepoddržimy generičny variant kitajskogo jezyka kako dodatočny jezyk. Prosimo, prějdite do nastavjenij i izberite novy dodatočny jezyk ili potvrdite vaš spisok jezykov.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Prějdite do nastavjenij</string>
+  <string name="top_read_activity_title">Najbolje čitajeme v %s</string>
+  <string name="tabs_activity_title">Zakladky</string>
+  <string name="description_edit_text_hint">Opis članka</string>
+  <string name="description_edit_article_description_label">Članok</string>
+  <string name="description_edit_translate_article_description_label_per_language">Opis članka (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
+  <string name="description_edit_add_caption_label">Opis obrazka</string>
+  <string name="description_edit_add_caption_hint">Nadpis obrazka</string>
+  <string name="description_edit_translate_caption_label_per_language">Nadpis obrazka (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Nadpis obrazka (%s)</string>
+  <string name="description_edit_save">Publikovati</string>
+  <string name="description_edit_read">Čitati</string>
+  <string name="description_edit_add_description">Dodati opis članka</string>
+  <string name="description_edit_translate_description">Prěvesti opis članka</string>
+  <string name="description_edit_edit_description">Praviti opis članka</string>
+  <string name="description_edit_add_image_caption">Dodati nadpis obrazka</string>
+  <string name="description_edit_edit_image_caption">Praviti nadpis obrazka</string>
+  <string name="description_edit_translate_image_caption">Prěvesti nadpis obrazka</string>
+  <string name="description_edit_cancel_hint">Anulovati</string>
+  <string name="description_edit_help_title">Informacija: opisy člankov</string>
+  <string name="description_edit_help_about_wikidata">O Vikidanyh</string>
+  <string name="description_edit_help_wikidata_guide">Provodnik Vikidanyh za pisanje opisov</string>
+  <string name="description_edit_anon_limit">Hvala za vaš postojanny interes do pravjena opisov člankov! Da byste sdělali dodatočne pravky, prosimo, že prijavite se v svoje koristničsko konto v Vikipediji.</string>
 </resources>
