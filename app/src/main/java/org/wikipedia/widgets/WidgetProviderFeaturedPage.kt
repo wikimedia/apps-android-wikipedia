@@ -15,21 +15,15 @@ import androidx.work.BackoffPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.target.AppWidgetTarget
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
+import org.wikipedia.views.imageservice.ImageService
 import java.util.concurrent.TimeUnit
 
 class WidgetProviderFeaturedPage : AppWidgetProvider() {
@@ -71,13 +65,9 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             if (pageTitle.thumbUrl.isNullOrEmpty()) {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
             } else {
-                Glide.with(context).asBitmap()
-                    .load(pageTitle.thumbUrl)
-                    .override(256)
-                    .downsample(DownsampleStrategy.CENTER_INSIDE)
-                    .transform(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
-                    .into(AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId))
-
+                ImageService.getBitmapForWidget(context, pageTitle.thumbUrl, onSuccess = { bitmap ->
+                    remoteViews.setImageViewBitmap(R.id.widget_content_thumbnail, bitmap)
+                })
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
             }
 

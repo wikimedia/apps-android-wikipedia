@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -22,17 +21,12 @@ import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -59,13 +53,15 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.imageservice.ImageLoadListener
 import java.text.DecimalFormat
 import java.time.Duration
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -81,10 +77,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
         binding.shareButton.setOnClickListener {
-            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             lifecycleScope.launch {
                 binding.shareButton.isEnabled = false
                 binding.shareButton.alpha = 0.5f
@@ -132,10 +128,23 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             insets
         }
 
+        binding.archiveGameContainer.setOnClickListener {
+            prepareAndOpenArchiveCalendar(viewModel)
+        }
+
         handler.post(timeUpdateRunnable)
         updateOnLoading()
-        buildSharableContent(viewModel.getCurrentGameState(), viewModel.getArticlesMentioned())
         return binding.root
+    }
+
+    override fun onArchiveDateSelected(date: LocalDate) {
+        // hiding this fragment as it is not added to back stack and updating the state
+        binding.root.isVisible = false
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        viewModel.relaunchForDate(date)
+        (requireActivity() as? OnThisDayGameActivity)?.apply {
+            animateQuestionsIn()
+        }
     }
 
     override fun onDestroyView() {
@@ -182,6 +191,8 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
+
+        buildSharableContent(gameState, viewModel.getArticlesMentioned())
     }
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
@@ -242,22 +253,20 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoader())
+                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoadListener())
             } ?: run {
                 loadedImagesForShare++
             }
         }
     }
 
-    private inner class ShareImageLoader : RequestListener<Drawable?> {
-        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+    private inner class ShareImageLoadListener : ImageLoadListener {
+        override fun onSuccess(view: ImageView) {
             loadedImagesForShare++
-            return false
         }
 
-        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>?, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+        override fun onError(error: Throwable) {
             loadedImagesForShare++
-            return false
         }
     }
 
@@ -293,12 +302,12 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
-                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(viewModel.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.setOnClickListener {
-                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
@@ -318,7 +327,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         }
 
         override fun onClick(v: View) {
-            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
         }
     }

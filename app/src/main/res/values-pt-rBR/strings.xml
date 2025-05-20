@@ -28,6 +28,7 @@
 * Iohanen
 * Isabelle Belato
 * JPLSilva
+* Jessicamss93
 * Lc97
 * Lowvy
 * Luk3
@@ -195,9 +196,10 @@
   <string name="login_username_hint">Nome de usuário</string>
   <string name="login_password_hint">Senha</string>
   <string name="account_creation_password_hint">Senha</string>
-  <string name="login_2fa_hint" fuzzy="true">Código de autenticação de dois fatores</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Autenticação de dois fatores necessária! Volte à atividade principal e autentique-se com sua chave 2FA e, em seguida, tente novamente.</string>
+  <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
+  <string name="login_2fa_other_workflow_error_msg">Autenticação de dois fatores solicitada! Por favor, faça o login de outro dispositivo e entre com o seu código do token 2 FA.</string>
   <string name="login_email_auth_hint">Código de verificação de e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Verificação de e-mail solicitada! Por favor, faça o login da tela principal e entre com o código de verificação do seu e-mail.</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
@@ -294,8 +296,6 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pt-br#Tags_de_imagem</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
@@ -305,6 +305,7 @@
   <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
+  <string name="about_logo_content_description">Logotipo de globo em formato de quebra-cabeça da Wikipédia</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
   <string name="edit_abandon_confirm_yes">Sim</string>
   <string name="edit_abandon_confirm_no">Não</string>
@@ -331,6 +332,8 @@
   <string name="edit_summary_tag_links">Adicionou ligações</string>
   <string name="edit_summary_tag_other">Outro</string>
   <string name="edit_summary_tag_other_hint">Outras maneiras de como você melhorou a página</string>
+  <string name="edit_summary_added_short_description">Breve descrição adicionada</string>
+  <string name="edit_summary_updated_short_description">Atualizar breve descrição</string>
   <string name="edit_conflict_title">Conflito de edição</string>
   <string name="edit_conflict_message">A página já foi modificada por outro usuário e a sua edição está em conflito com o estado presente dela. Copie a sua edição, volte atrás, atualize a página e depois tente refazer a edição.</string>
   <string name="edit_notices">Avisos de edição</string>
@@ -463,6 +466,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento de imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
+  <string name="preference_title_delete_local_donation_history">Deletar histórico de doações locais</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Corresponder tema do sistema</string>
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
@@ -619,7 +623,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em várias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title">Deseja ativar a sincronização das listas de leitura?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Os artigos salvados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Os artigos salvos nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta da Wikipédia e permita que suas listas sejam salvas &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber mais&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
