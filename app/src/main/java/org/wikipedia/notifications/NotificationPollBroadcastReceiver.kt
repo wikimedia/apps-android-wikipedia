@@ -28,6 +28,7 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
@@ -77,6 +78,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ACTION_DAILY_GAME == intent.action -> {
                 OnThisDayGameNotificationManager.showNotification(context)
             }
+
+            ACTION_DISCOVER_READING_LIST == intent.action -> {
+                RecommendedReadingListNotificationManager.showNotification(context)
+            }
         }
     }
 
@@ -85,6 +90,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val ACTION_DAILY_GAME = "action_daily_game"
+        const val ACTION_DISCOVER_READING_LIST = "action_discover_reading_list"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
