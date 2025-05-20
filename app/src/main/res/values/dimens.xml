@@ -48,9 +48,6 @@
     <item type="dimen" format="float" name="linkPreviewThumbPressScale">1.03</item>
     <item type="dimen" format="float" name="linkPreviewThumbPressOverScale">1.05</item>
 
-    <!-- Crash report -->
-    <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
-
     <!-- The Feed -->
     <dimen name="view_feed_padding_top">-12dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
