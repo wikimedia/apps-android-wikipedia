@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -55,6 +56,7 @@ fun LanguagesListScreen(
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     var searchQuery by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
         // Handle IME (keyboard) insets
