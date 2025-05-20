@@ -276,18 +276,16 @@
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست_ایجاد_حساب_کاربری</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fa</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fa</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده است.</string>
   <string name="about_app_license_heading">مجوز</string>
@@ -599,8 +597,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های مطالعه موجود نخواهد بود:</string>
   <string name="reading_lists_sync_reminder_title">همگام‌سازی فهرست مطالعه فعال شود؟</string>
-  <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">فعال‌کردن همگام‌سازی</string>
   <string name="reading_list_login_reminder_title">همگام‌سازی فهرست‌های مطالعه</string>
   <string name="reading_lists_login_reminder_text">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید.</string>
@@ -880,15 +878,13 @@
   <string name="description_edit_help_title">راهنما:توضیحات مقاله</string>
   <string name="description_edit_help_about_wikidata">دربارهٔ ویکی‌داده</string>
   <string name="description_edit_help_wikidata_guide">راهنمای ویکی‌داده برای نوشتن توضیحات</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ممنون برای علاقه ادامه‌دارتان در ویرایش توضیحات مقاله! لطفاً برای ویرایش‌های بیشتر، با حساب ویکی‌پدیا خودتان وارد شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار برگشت‌ناپذیر مشارکت‌هایم تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; موافقت می‌کنم.</string>
   <string name="description_edit_helper_text_lowercase_warning">معمولاً با حرف کوچک آغاز می‌شود</string>
   <string name="description_edit_voice_input_description">صدای ورودی</string>
   <string name="description_edit_learn_more">در خصوص توصیف‌های مقاله بیشتر بدانید</string>
   <string name="description_edit_image_caption_learn_more">در خصوص برنگاشت تصاویر بیشتر بدانید</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">متن بیش از حد کوتاه است.</string>
   <string name="description_ends_with_punctuation">متن نباید با نقطه‌گذاری پایان یابد</string>
   <string name="description_starts_with_uppercase">با حروف کوچک شروع کنید؛ مگر آن که واژهٔ اول یک نام خاص باشد.</string>
@@ -1577,7 +1573,6 @@
   <string name="survey_dialog_general_no">خیر</string>
   <string name="survey_dialog_general_maybe">شاید</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">بازخورد ارسال شد.</string>
-  <string name="on_this_day_game_share">اشتراک‌گذاری با دوستان</string>
   <string name="on_this_day_game_pause_title">بازی متوقف شود؟</string>
   <string name="on_this_day_game_pause_body">پیشرفت شما برای امروز ذخیره خواهد شد. بازی را می‌توانید در خوراک مشاهدهٔ خود بیابید.</string>
   <string name="on_this_day_game_pause_negative">ادامه دادن به بازی</string>

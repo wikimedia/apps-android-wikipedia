@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Aca
 * Acamicamacaraca
 * Aktron
 * BadDog
@@ -251,17 +252,12 @@
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
   <string name="about_contributors_heading">Сарадници</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница тима&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели волонтери &lt;a href=\"https://translatewiki.net\"&gt;Транслејтвикија&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
@@ -575,8 +571,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више листа</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Страница „%s” више неће бити доступна офлајн за све листе за читање:</string>
   <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листе за читање?</string>
-  <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
   <string name="reading_lists_login_reminder_text">Листе за читање се сада могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
@@ -866,7 +862,7 @@
   <string name="description_edit_help_title">Информације: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланака. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
   <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и неопозиво прихватате објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">уобичајено почиње са малим словом</string>
@@ -1648,7 +1644,6 @@
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следеће питање</string>
   <string name="on_this_day_game_finish">Коначни резултат</string>
-  <string name="on_this_day_game_share">Подели са пријатељима</string>
   <string name="on_this_day_game_pause_title">Паузирање игрице?</string>
   <string name="on_this_day_game_pause_negative">Настави играње</string>
   <string name="on_this_day_game_pause_positive">Разумео</string>
@@ -1657,6 +1652,7 @@
   <string name="on_this_day_game_next_in">Следећа игра %s</string>
   <string name="on_this_day_game_your_stats">Статистика</string>
   <string name="on_this_day_game_stats_average_score">Просечан резултат</string>
+  <string name="on_this_day_game_stats_streak">Тренутни низ</string>
   <string name="on_this_day_game_menu_info">Сазнајте више</string>
   <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Одговор је тачан</string>

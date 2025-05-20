@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -28,7 +29,6 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.ColorAssertions
 import org.wikipedia.theme.Theme
 

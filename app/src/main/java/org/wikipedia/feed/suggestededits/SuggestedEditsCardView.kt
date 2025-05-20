@@ -58,7 +58,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private inner class SECardsPagerAdapter(private val card: SuggestedEditsCard) : PositionAwareFragmentStateAdapter(context as AppCompatActivity) {
         override fun getItemCount(): Int {
-            return 3 // description, caption, image tags
+            return card.cardTypes.size
         }
 
         override fun createFragment(position: Int): Fragment {

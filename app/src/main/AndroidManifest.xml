@@ -136,7 +136,7 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".settings.DeveloperSettingsActivity"
+            android:name=".settings.dev.DeveloperSettingsActivity"
             android:label="@string/developer_settings_activity_title"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
@@ -362,6 +362,8 @@
 
         <activity
             android:name=".games.onthisday.OnThisDayGameActivity"/>
+        <activity
+            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <provider
             android:name=".WikipediaFileProvider"
