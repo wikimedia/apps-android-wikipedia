@@ -198,12 +198,12 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 true
             }
             R.id.menu_learn_more -> {
-                WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
                 true
             }
             R.id.menu_report_feature -> {
-                WikiGamesEvent.submit("report_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("report_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
                 FeedbackUtil.composeEmail(this,
                     subject = getString(R.string.on_this_day_game_report_email_subject),
@@ -211,7 +211,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 true
             }
             R.id.menu_notifications -> {
-                WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("notification_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
                 OnThisDayGameNotificationManager.handleNotificationClick(this)
                 true
@@ -232,7 +232,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     override fun onBackPressed() {
-        WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
         if (viewModel.gameState.value !is Resource.Loading &&
             !isOnboardingFragmentVisible() &&
             viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
@@ -265,17 +265,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun showPauseDialog() {
-        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
             .setIcon(R.drawable.ic_pause_filled_24)
             .setTitle(R.string.on_this_day_game_pause_title)
             .setMessage(R.string.on_this_day_game_pause_body)
             .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 finish()
             }
             .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
-                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             }
             .show()
     }
@@ -385,6 +385,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         updateGameState(gameState)
         setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
 
+        playSound("sound_logo")
         hideViewsNotRequiredWhenGameEnds()
     }
 
@@ -519,7 +520,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     fun animateQuestionsIn() {
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
         binding.dateText.isVisible = true
         binding.whichCameFirstText.alpha = 0f
         binding.questionCard1.alpha = 0f
