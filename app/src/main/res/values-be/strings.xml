@@ -254,16 +254,14 @@
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
   <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
   <string name="about_contributors_heading">Суаўтары</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэта праграма была перакладзена валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
@@ -609,8 +607,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Артыкул знаходзіцца ў некалькіх спісах</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больш не будзе дасяжны па-за сеткай для ўсіх спісаў чытання:</string>
   <string name="reading_lists_sync_reminder_title">Уключыць сінхранізацыю спіса чытання?</string>
-  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Уключыць сінхранізацыю</string>
   <string name="reading_list_login_reminder_title">Сінхранізацыя спісаў чытання</string>
   <string name="reading_lists_login_reminder_text">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы.</string>
@@ -946,8 +944,6 @@
   <string name="description_edit_voice_input_description">Галасавы ўвод</string>
   <string name="description_edit_learn_more">Даведайцеся больш пра апісанні артыкулаў</string>
   <string name="description_edit_image_caption_learn_more">Даведайцеся больш пра подпісы выяў</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Тэкст занадта кароткі.</string>
   <string name="description_ends_with_punctuation">Тэкст не павінен сканчацца знакамі прыпынку.</string>
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>

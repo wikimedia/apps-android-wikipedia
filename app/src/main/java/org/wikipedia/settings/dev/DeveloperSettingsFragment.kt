@@ -1,4 +1,4 @@
-package org.wikipedia.settings
+package org.wikipedia.settings.dev
 
 import android.content.Context
 import android.os.Bundle
@@ -14,6 +14,7 @@ import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import org.wikipedia.R
 import org.wikipedia.history.SearchActionModeCallback
+import org.wikipedia.settings.PreferenceLoaderFragment
 
 class DeveloperSettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 

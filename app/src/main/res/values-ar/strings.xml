@@ -48,6 +48,7 @@
 * أيوب
 * أَحمد
 * بدارين
+* بدر
 * جودت
 * ديفيد
 * عبد الإله صديقي
@@ -300,24 +301,23 @@
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
   <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جيت هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;رخصة أباتشي 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;رخصة المشاع الإبداعي الملزمة بنسبة العمل لمؤلفه وبترخيص الأعمال المشتقة بالمثل&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
+  <string name="about_logo_content_description">شعار لغز ويكيبيديا</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="edit_abandon_confirm_yes">نعم</string>
   <string name="edit_abandon_confirm_no">لا</string>
@@ -346,7 +346,7 @@
   <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
-  <string name="edit_summary_tag_links">تمت إضافة وصلات</string>
+  <string name="edit_summary_tag_links">أضفتُ وصلات</string>
   <string name="edit_summary_tag_other">أخرى</string>
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_summary_added_short_description">أُضيف وصف مختصر</string>
@@ -684,8 +684,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
   <string name="reading_lists_sync_reminder_title">تشغيل مزامنة قائمة القراءة؟</string>
-  <string name="reading_lists_sync_reminder_text">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
@@ -1040,15 +1040,13 @@
   <string name="description_edit_help_title">معلومات: وصف المقالة</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرا لاهتمامك المستمر بتحرير أوصاف المقالات! لإجراء تعديلات إضافية؛ يُرجَى تسجيل الدخول إلى حساب ويكيبيديا الخاص بك.</string>
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
   <string name="description_edit_voice_input_description">مدخل صوتي</string>
   <string name="description_edit_learn_more">تعرف على المزيد حول أوصاف المقالة</string>
   <string name="description_edit_image_caption_learn_more">تعرف على المزيد حول التسميات التوضيحية للصور</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_too_long">حاول أن تجعل الأوصاف قصيرة حتى يتمكن المستخدمون من فهم موضوع المقالة في لمحة واحدة</string>
   <string name="description_ends_with_punctuation">النص يجب أن لا ينتهي بعلامة ترقيم.</string>
@@ -1935,7 +1933,6 @@
   <string name="on_this_day_game_point">+1 نقطة</string>
   <string name="on_this_day_game_next">السؤال التالي</string>
   <string name="on_this_day_game_finish">النتائج النهائية</string>
-  <string name="on_this_day_game_share">شارك مع الأصدقاء</string>
   <string name="on_this_day_game_pause_title">إيقاف اللعبة مؤقتًا؟</string>
   <string name="on_this_day_game_pause_body">سيتم حفظ تقدمك لهذا اليوم. يمكنك العثور على اللعبة في موجز Explore الخاص بك.</string>
   <string name="on_this_day_game_pause_negative">استمر باللعب</string>
@@ -1982,5 +1979,4 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
-  <string name="about_screen_logo_accessibility_text">شعار لغز ويكيبيديا</string>
 </resources>

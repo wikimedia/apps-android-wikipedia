@@ -218,7 +218,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         AppDatabase.instance.readingListDao().createList(text, description)
                         updateLists()
                     }
-                    override fun onCancel() { }
                 }).show()
         }
 

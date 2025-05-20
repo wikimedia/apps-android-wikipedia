@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -17,7 +18,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {

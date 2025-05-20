@@ -12,6 +12,7 @@
 * SHaran (WMF)
 * Sky Harbor
 * Stranger195
+* Ysrael214
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -234,14 +235,12 @@
   <string name="privacy_policy_description">Patakaran sa Pagkapribado</string>
   <string name="terms_of_use_description">Kasunduan sa Paggamit</string>
   <string name="about_wikipedia_url">https://tl.wikipedia.org/wiki/Wikipedia:Patungkol</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Mga ginamit na library</string>
   <string name="about_contributors_heading">Mga nag-ambag</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
@@ -534,8 +533,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Makikita ang artikulo sa maraming listahan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Di na mababasa offline ang %s sa mga ito:</string>
   <string name="reading_lists_sync_reminder_title">Buksan ang pag-sync ng mga babasahin?</string>
-  <string name="reading_lists_sync_reminder_text">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Buksan ang pag-sync</string>
   <string name="reading_list_login_reminder_title">I-sync ang mga babasahin</string>
   <string name="reading_lists_login_reminder_text">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo.</string>
@@ -926,7 +925,7 @@
   <string name="suggested_edits_image_tags_add_tag">Mag-tag</string>
   <string name="suggested_edits_image_zoom_tooltip">I-pinch para makalapit sa larawang ito.</string>
   <string name="suggested_edits_encouragement_message">%s, salamat sa mga edit mo. Nasa baba yung iba pang mga paraan para makatulong sa Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Kamusta %s&lt;/b&gt;, nasa baba yung mga mabibilis at madadaling paraan para makatulong sa Wikipedia. Kita mo agad yung pagbabagong magagawa mo pagkasimula mo. Tara, edit na!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Kumusta %s&lt;/b&gt;, nasa baba yung mga mabibilis at madadaling paraan para makatulong sa Wikipedia. Kita mo agad yung pagbabagong magagawa mo pagkasimula mo. Tara, edit na!</string>
   <string name="suggested_edits_image_captions_task_detail">Ilarawan ang larawan para matulungan ang mga mambabasa kung ano ba talaga ito.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Magbigay ng buod ng artikulo para matulungan ang mga mambabasa kung ano ba talaga ito agad.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Mga naambag mo hanggang sa puntong ito.</string>
@@ -1093,7 +1092,7 @@
   <string name="wikitext_preview_link">Link sa pagsilip</string>
   <string name="main_drawer_help">Tulong</string>
   <string name="main_drawer_login">Mag-login / Sumali sa Wikipedia</string>
-  <string name="main_tooltip_text">Kamusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
+  <string name="main_tooltip_text">Kumusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
   <string name="main_tooltip_text_v2">Alam mo bang pwedeng baguhin ng kahit sinuman ang Wikipedia?</string>
   <string name="main_tooltip_action_button">Magsimula</string>
   <string name="main_tooltip_watchlist_title">Binabantayan</string>

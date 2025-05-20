@@ -215,13 +215,11 @@
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/eo</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/eo</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eo</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eo</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/eo</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotekoj uzataj</string>
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_translators_heading">Tradukantoj</string>
@@ -454,8 +452,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">La artikolo aperas en pluraj listoj</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s estos ne plu havebla eksterrete en ĉiuj legolistoj:</string>
   <string name="reading_lists_sync_reminder_title">Ĉu ŝalti sinkronigadon de legolisto?</string>
-  <string name="reading_lists_sync_reminder_text">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikoloj konservitaj en legoliston nun povas esti sinkronigataj al via Vikipedia konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ŝalti sinkronigadon</string>
   <string name="reading_list_login_reminder_title">Sinkronigi la legolistojn</string>
   <string name="reading_lists_login_reminder_text">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>

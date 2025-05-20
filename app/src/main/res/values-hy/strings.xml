@@ -179,7 +179,7 @@
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
   <string name="terms_of_use_description">Օգտագործման պայմաններ</string>
   <string name="about_wikipedia_url">https://hy.wikipedia.org/wiki/Վիքիպեդիա:Վիքիպեդիայի_մասին</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hy#Ընթերցանության_ցուցակներ_և_անցանց_ընթերցում</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hy#Ընթերցանության_ցուցակներ_և_անցանց_ընթերցում</string>
   <string name="about_contributors_heading">Հեղինակներ</string>
   <string name="about_translators_heading">Թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>

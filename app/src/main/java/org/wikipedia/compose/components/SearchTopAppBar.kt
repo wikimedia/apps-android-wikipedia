@@ -21,6 +21,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -49,7 +50,8 @@ fun SearchTopAppBar(
         title = {
             OutlinedTextField(
                 modifier = Modifier
-                    .padding(top = 2.dp),
+                    .padding(top = 2.dp)
+                    .testTag("search_text_field"),
                 value = searchQuery,
                 onValueChange = onSearchQueryChange,
                 placeholder = {

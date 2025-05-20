@@ -220,15 +220,13 @@
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
   <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကြောင်း</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/my</string>
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/my</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
   <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;အဖွဲ့စာမျက်နှာ&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;အဖွဲ့စာမျက်နှာ&lt;/a&gt;</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
@@ -468,8 +466,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">ဆောင်းပါးသည် စာရင်းများစွာ၌ ပေါ်နေသည်</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s သည် စာဖတ်စာရင်းများအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရရှိနိုင်တော့မည်မဟုတ်ပါ:</string>
   <string name="reading_lists_sync_reminder_title">စာဖတ်စာရင်း sync လုပ်ခြင်းကို ဖွင့်မည်လော</string>
-  <string name="reading_lists_sync_reminder_text">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများသည် ယခုအခါ ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">စာဖတ်စာရင်းများသို့ သိမ်းထားသောဆောင်းပါးများသည် ယခုအခါ ဝီကီပီးဒီးယားအကောင့်သို့ sync လုပ်နိုင်ပါပြီ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;ပို၍လေ့လာရန်&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ရန်</string>
   <string name="reading_list_login_reminder_title">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
   <string name="reading_lists_login_reminder_text">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
@@ -692,7 +690,7 @@
   <string name="description_edit_help_title">အကူအညီ:ဆောင်းပါး ဖော်ပြချက်များ</string>
   <string name="description_edit_help_about_wikidata">ဝီကီဒေတာအကြောင်း</string>
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
   <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
   <string name="description_edit_voice_input_description">အသံ ထည့်သွင်းမှု</string>

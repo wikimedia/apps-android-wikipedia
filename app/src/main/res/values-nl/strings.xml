@@ -282,24 +282,23 @@
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
   <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licentie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
+  <string name="about_logo_content_description">Wikipedia-logo met puzzel en wereldbol</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nee</string>
@@ -618,8 +617,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Het artikel komt in meerdere lijsten voor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal niet langer offline beschikbaar zijn voor alle leeslijsten:</string>
   <string name="reading_lists_sync_reminder_title">Leeslijstsynchronisatie inschakelen?</string>
-  <string name="reading_lists_sync_reminder_text">Artikelen die zijn opgeslagen in leeslijsten, kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leer meer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lees meer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikelen die zijn opgeslagen in leeslijsten, kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leer meer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lees meer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Leeslijsten synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Leeslijsten kunnen nu gesynchroniseerd worden met verschillende apparaten. Meld u aan met uw Wikipedia-account en sta toe dat uw lijsten opgeslagen worden.</string>
@@ -917,15 +916,13 @@
   <string name="description_edit_help_title">Info: artikelbeschrijvingen</string>
   <string name="description_edit_help_about_wikidata">Over Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-gids voor het schrijven van beschrijvingen</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Bedankt voor je belangstelling voor het bewerken van artikelbeschrijvingen! Log in op je Wikipedia-account om meer bewerkingen uit te voeren.</string>
   <string name="description_edit_license_notice">Door de beschrijving van het artikel te wijzigen ga ik akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geef ik onherroepelijk mijn bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">begint meestal met een kleine letter</string>
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
   <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
   <string name="description_too_long">Probeer beschrijvingen kort te houden, zodat gebruikers het onderwerp van het artikel in één oogopslag kunnen begrijpen</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
@@ -1739,7 +1736,6 @@
   <string name="on_this_day_game_point">+1 punt</string>
   <string name="on_this_day_game_next">Volgende vraag</string>
   <string name="on_this_day_game_finish">Eindresultaten</string>
-  <string name="on_this_day_game_share">Met vrienden delen</string>
   <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
   <string name="on_this_day_game_pause_body">Je voortgang wordt voor de dag opgeslagen. Je kunt het spel vinden onder Verkennen.</string>
   <string name="on_this_day_game_pause_negative">Doorspelen</string>
@@ -1782,5 +1778,4 @@
   <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hoe tevreden was u met dit spel?</string>
   <string name="on_this_day_game_survey_q2">Zou u geïnteresseerd zijn in het spelen van andere Wikipedia-spellen?</string>
-  <string name="about_screen_logo_accessibility_text">Wikipedia-logo met puzzel en wereldbol</string>
 </resources>

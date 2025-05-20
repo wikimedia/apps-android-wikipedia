@@ -179,15 +179,13 @@
   <string name="terms_of_use_description">Condiciones d\'usu</string>
   <string name="about_wikipedia_url">https://ast.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ast</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
   <string name="about_contributors_heading">Collaboradores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina del equipu&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina del equipu&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación traduxéronla traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicencia</string>
@@ -384,8 +382,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'artículu apaez en delles llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s yá nun tará disponible sin conexón pa nenguna llista de llectura:</string>
   <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de llistes de llectura?</string>
-  <string name="reading_lists_sync_reminder_text">Los artículos guardaos en llistes de llectura agora pueden sincronizase cola to cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber más&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Agora ye posible sincronizar les llistes de llectura ente preseos. Anicia sesión na to cuenta de Wikipedia y permite guardar les tos llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Los artículos guardaos en llistes de llectura agora pueden sincronizase cola to cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saber más&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora ye posible sincronizar les llistes de llectura ente preseos. Anicia sesión na to cuenta de Wikipedia y permite guardar les tos llistes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Más información&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar llistes de llectura</string>
   <string name="reading_lists_login_reminder_text">Agora pueden sincronizase les llistes de llectura ente preseos. Anicia sesión na to cuenta de Wikipedia y permite guardar les tos llistes.</string>
@@ -574,7 +572,7 @@
   <string name="description_edit_help_title">Información: descripciones d\'artículos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata pa escribir descripciones</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">¡Gracies pol to interés continuu n\'editar descripciones d\'artículos! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al camudar la descripción del artículu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalmente principia con una lletra en minúscula</string>

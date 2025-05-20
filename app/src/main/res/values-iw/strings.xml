@@ -40,6 +40,8 @@
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_back_button_content_description">חזרה</string>
+  <string name="search_clear_query_content_description">ניקוי שאילתה</string>
+  <string name="search_icon_content_description">חיפוש</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
@@ -173,8 +175,10 @@
   <string name="login_username_hint">שם משתמש</string>
   <string name="login_password_hint">סיסמה</string>
   <string name="account_creation_password_hint">סיסמה</string>
-  <string name="login_2fa_hint" fuzzy="true">קוד אימות דו־שלבי</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">נדרש אימות דו־שלבי! נא לחזור לפעילות הראשית ולהיכנס עם קוד האימות הדו־שלבי (2FA) שלך ואז לנסות שוב.</string>
+  <string name="login_2fa_hint">קוד אימות דו־שלבי</string>
+  <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא להתחבר מהמסך הראשי ולהזין את קוד האימות הדו־שלבי (2FA) שלך.</string>
+  <string name="login_email_auth_hint">קוד אימות בדוא״ל</string>
+  <string name="login_email_auth_other_workflow_error_msg">נדרש אימות דוא\"ל! נא להתחבר מהמסך הראשי ולהזין את קוד אימות הדוא\"ל שלך.</string>
   <string name="onboarding_card_login">כניסה</string>
   <string name="page_editing_login">כניסה</string>
   <string name="reading_lists_sync_login">כניסה</string>
@@ -264,24 +268,23 @@
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_tags</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;גיטהאב&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
+  <string name="about_logo_content_description">סמול גלובוס הפאזל של ויקיפדיה</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
   <string name="edit_abandon_confirm_no">לא</string>
@@ -624,8 +627,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
-  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
@@ -956,15 +959,13 @@
   <string name="description_edit_help_title">מידע: תיאורי ערכים</string>
   <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורי ערכים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הערך מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">על פי רוב מתחיל באות קטנה</string>
   <string name="description_edit_voice_input_description">קלט קולי</string>
   <string name="description_edit_learn_more">מידע נוסף על תיאורי ערכים</string>
   <string name="description_edit_image_caption_learn_more">מידע נוסף על כיתובי תמונה</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/he#Image_captions</string>
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_too_long">השתדלו להקפיד שהתיאורים יהיו קצרים כדי שמשתמשים יוכלו להבין מה נושא הערך במבט מהיר</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
@@ -1497,10 +1498,10 @@
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">לשבוע</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">לחודש</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ל־3 חודשים</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ל־6 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">שבוע אחד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">חודש אחד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 חודשים</string>
   <string name="watchlist_expiry_dialog_title">נא לבחור את הזמן לשמירה ברשימת המעקב</string>
   <string name="watchlist_expiry_dialog_permanent">קבוע</string>
   <string name="watchlist_expiry_dialog_one_week">שבוע</string>
@@ -1814,7 +1815,6 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
-  <string name="on_this_day_game_share">לשתף עם חברים</string>
   <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
   <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
   <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
@@ -1854,5 +1854,4 @@
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
   <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
   <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
-  <string name="about_screen_logo_accessibility_text">סמול גלובוס הפאזל של ויקיפדיה</string>
 </resources>
