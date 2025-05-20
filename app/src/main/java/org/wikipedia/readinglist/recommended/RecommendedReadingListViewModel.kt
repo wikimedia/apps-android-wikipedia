@@ -9,6 +9,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 
@@ -56,7 +57,6 @@ class RecommendedReadingListViewModel : ViewModel() {
             }
 
             // Step 2: combine the titles with the offsite from Prefs.
-            // TODO: think about having a table for this, too?
             val sourcesWithOffset = mutableListOf<SourceWithOffset>()
             titles.forEach { pageTitle ->
                 val offset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.prefixedText }?.offset ?: 0
@@ -64,7 +64,7 @@ class RecommendedReadingListViewModel : ViewModel() {
             }
 
             val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
-            val recommendedPages = mutableListOf<PageTitle>()
+            val recommendedPages = mutableListOf<RecommendedPage>()
             // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
             // and update the offset everytime when re-query the API.
             sourcesWithOffset.forEach { sourcesWithOffset ->
@@ -80,14 +80,24 @@ class RecommendedReadingListViewModel : ViewModel() {
                     retryCount++
                 }
                 recommendedPage?.let {
-                    recommendedPages.add(recommendedPage)
+                    recommendedPages.add(
+                        RecommendedPage(
+                            wiki = it.wikiSite,
+                            lang = it.wikiSite.languageCode,
+                            namespace = it.namespace(),
+                            apiTitle = it.prefixedText,
+                            displayTitle = it.displayText,
+                            description = it.description,
+                            thumbUrl = it.thumbUrl
+                        )
+                    )
                     // Update the offset in the source list
                     newSourcesWithOffset.add(SourceWithOffset(sourcesWithOffset.title, sourcesWithOffset.language, offset))
                 }
             }
 
             // Step 4: save the recommended articles to the database
-            // TODO: use RecommendedPageDao to save the recommended articles
+            AppDatabase.instance.recommendedPageDao().insertAll(recommendedPages)
         }
 
         private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {
@@ -107,12 +117,10 @@ class RecommendedReadingListViewModel : ViewModel() {
                         description = page.description
                         thumbUrl = page.thumbUrl()
                     }
+                }.firstOrNull {
+                    AppDatabase.instance.recommendedPageDao()
+                        .findIfAny(apiTitle = it.prefixedText, wiki = wikiSite) == 0
                 }
-                .filterNot {
-                    // TODO: filter from the RecommendedPageDao
-                    it != null
-                }
-                .firstOrNull()
             return firstRecommendedPage
         }
     }
