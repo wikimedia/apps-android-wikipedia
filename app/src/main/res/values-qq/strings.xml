@@ -1868,4 +1868,5 @@
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled. </string>
 </resources>
