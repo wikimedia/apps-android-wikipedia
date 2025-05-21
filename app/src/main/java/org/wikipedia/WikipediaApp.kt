@@ -32,7 +32,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
@@ -157,7 +156,6 @@ class WikipediaApp : Application() {
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this)
-        RecommendedReadingListNotificationManager.scheduleDiscoverReadingListNotification(this)
         InstallReferrerListener.newInstance(this)
 
         // For good measure, explicitly call our token subscription function, in case the

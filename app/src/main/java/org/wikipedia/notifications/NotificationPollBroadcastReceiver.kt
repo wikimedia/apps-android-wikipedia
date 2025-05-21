@@ -80,7 +80,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_DISCOVER_READING_LIST == intent.action -> {
-                RecommendedReadingListNotificationManager.showNotification(context)
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
     }

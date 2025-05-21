@@ -20,7 +20,7 @@ object RecommendedReadingListNotificationManager {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(ACTION_DISCOVER_READING_LIST)
-        val triggerUpdateMillis = System.currentTimeMillis() + timeUntilNextUpdate(RecommendedReadingListUpdateFrequency.MONTHLY).toMillis()
+        val triggerUpdateMillis = System.currentTimeMillis() + timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency).toMillis()
         val nextUpdateIntervalInMillis = when (Prefs.recommendedReadingListUpdateFrequency) {
             RecommendedReadingListUpdateFrequency.DAILY -> AlarmManager.INTERVAL_DAY
             RecommendedReadingListUpdateFrequency.WEEKLY -> 7 * AlarmManager.INTERVAL_DAY
@@ -34,8 +34,8 @@ object RecommendedReadingListNotificationManager {
         )
     }
 
-    fun showNotification(context: Context) {
-        val frequency = when (Prefs.recommendedReadingListUpdateFrequency) {
+    fun showNotification(context: Context, source: RecommendedReadingListUpdateFrequency) {
+        val frequency = when (source) {
             RecommendedReadingListUpdateFrequency.DAILY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_daily)
             RecommendedReadingListUpdateFrequency.WEEKLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_weekly)
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
