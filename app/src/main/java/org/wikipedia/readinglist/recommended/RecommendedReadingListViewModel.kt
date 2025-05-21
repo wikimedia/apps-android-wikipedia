@@ -30,10 +30,19 @@ class RecommendedReadingListViewModel : ViewModel() {
             if (!Prefs.isRecommendedReadingListEnabled) {
                 return
             }
-            val numberOfArticles = Prefs.recommendedReadingListArticlesNumber
+            var numberOfArticles = Prefs.recommendedReadingListArticlesNumber
             if (numberOfArticles <= 0) {
                 return
             }
+            // Check if amount of new articles to see if we really need to generate a new list
+            val newArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().size
+            if (newArticles >= numberOfArticles) {
+                return
+            } else {
+                // If the number of articles is less than the number of new articles, adjust the number of articles
+                numberOfArticles -= newArticles
+            }
+
             // Step 1: get titles from the source by number of articles
             val titles = when (Prefs.recommendedReadingListSource) {
                 RecommendedReadingListSource.INTERESTS -> {
