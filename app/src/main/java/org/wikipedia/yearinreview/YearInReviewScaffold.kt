@@ -64,6 +64,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
@@ -258,7 +259,7 @@ fun OnboardingBottomBar(
                     onClick = {
                         UriUtil.handleExternalLink(
                             context = context,
-                            uri = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used".toUri()
+                            uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
                         )
                     }
                 ) {
@@ -339,7 +340,7 @@ fun YearInReviewScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = "https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used".toUri()
+                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
                             )
                         }) {
                         Icon(
