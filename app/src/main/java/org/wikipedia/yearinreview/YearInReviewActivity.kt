@@ -19,6 +19,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -104,6 +105,11 @@ class YearInReviewActivity : BaseActivity() {
                                 )
                             }
                         }
+                    }
+                    composable(route = "screen_test") {
+                        ScreenShotScaffold(
+                            screenContent = nonEnglishCollectiveEditCountData
+                        )
                     }
                 }
             }

@@ -1,10 +1,15 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Bitmap.createBitmap
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -33,6 +38,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -52,16 +59,25 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.graphics.applyCanvas
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -109,7 +125,15 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (contentData.size > 1) {
-                        IconButton(onClick = { /* TODO() */ }) {
+                        IconButton(onClick = {
+                            captureScreenAndShare(
+                                context = context,
+                                scope = coroutineScope,
+                                screenData = contentData[pagerState.currentPage],
+                                layoutHeight = context.resources.displayMetrics.heightPixels,
+                                layoutWidth = context.resources.displayMetrics.widthPixels
+                            )
+                        }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -289,7 +313,7 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
-
+    isInfoIconVisible: Boolean = true
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -331,13 +355,15 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                IconButton(
-                    onClick = { /* TODO() */ }) {
-                    Icon(
-                        painter = painterResource(R.drawable.baseline_info_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_information_icon)
-                    )
+                if (isInfoIconVisible) {
+                    IconButton(
+                        onClick = { /* TODO() */ }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
                 }
             }
             Text(
@@ -349,6 +375,84 @@ fun YearInReviewScreenContent(
                 style = MaterialTheme.typography.bodyLarge
             )
         }
+    }
+}
+
+@Composable
+fun ScreenShotScaffold(
+    screenContent: YearInReviewScreenData
+) {
+    Scaffold(
+        modifier = Modifier.padding(top = 24.dp),
+        containerColor = WikipediaTheme.colors.paperColor,
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(113.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_wikipedia_b),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_navigate_left),
+                    modifier = Modifier
+                        .height(32.dp)
+                        .width(50.dp)
+                )
+            }
+        },
+        bottomBar = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                   .fillMaxWidth()
+                   .height(113.dp)
+                    .padding(bottom = 32.dp)
+            ) {
+                Card(
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = WikipediaTheme.colors.paperColor
+                    ),
+                    modifier = Modifier
+                        .width(312.dp)
+                        .shadow(
+                            elevation = 20.dp,
+                            spotColor = WikipediaTheme.colors.primaryColor,
+                            ambientColor = WikipediaTheme.colors.primaryColor
+                        )
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .wrapContentHeight()
+                            .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
+
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.globe),
+                            contentDescription = "Globe"
+                        )
+                        Text(
+                            text = "#WikipediaYearInReview",
+                            color = WikipediaTheme.colors.progressiveColor,
+                            style = WikipediaTheme.typography.button
+                        )
+                    }
+                }
+            }
+        }
+    ) { innerPadding ->
+        YearInReviewScreenContent(
+            innerPadding = innerPadding,
+            screenData = screenContent,
+            isInfoIconVisible = false
+        )
     }
 }
 
@@ -384,4 +488,57 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
         (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
         else -> 2
     }
+}
+
+fun captureScreenAndShare(
+    context: Context,
+    scope: CoroutineScope,
+    screenData: YearInReviewScreenData,
+    layoutHeight: Int,
+    layoutWidth: Int
+) {
+    val currentView = ComposeView(context).apply {
+        setContent {
+            ScreenShotScaffold(screenContent = screenData)
+        }
+    }
+
+    scope.launch(imageHandler(context)) {
+        val screenShotJob = async {
+            val image = createBitmap(
+                layoutWidth,
+                layoutHeight,
+                Bitmap.Config.ARGB_8888).applyCanvas {
+                currentView.draw(this)
+            }
+            image
+        }
+        val screenShotBitmap = screenShotJob.await()
+        ShareUtil.shareImage(
+            coroutineScope = scope,
+            context = context,
+            bmp = screenShotBitmap,
+            imageFileName = "year_in_review",
+            subject = context.getString(R.string.year_in_review_share_subject),
+            text = context.getString(R.string.year_in_review_share_url)
+        )
+    }
+}
+
+fun imageHandler(context: Context): CoroutineExceptionHandler {
+    return CoroutineExceptionHandler { _, msg ->
+        Toast.makeText(
+            context,
+            context.getString(R.string.year_in_review_screenshot_error, msg.localizedMessage),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+}
+
+@Preview
+@Composable
+fun PreviewScreenShot() {
+    ScreenShotScaffold(
+        screenContent = nonEnglishCollectiveEditCountData
+    )
 }
