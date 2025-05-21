@@ -1,21 +1,12 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Bitmap.createBitmap
-import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.with
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -75,13 +66,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.zIndex
-import androidx.core.graphics.applyCanvas
 import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -102,91 +90,80 @@ fun YearInReviewScreen(
     val context = LocalContext.current
     val view = LocalView.current
 
-    AnimatedVisibility() { }
-
-
-
-    AnimatedContent(
-        targetState = startCapture,
-        transitionSpec = {
-            fadeIn(animationSpec = tween(300))
-                    fadeOut(animationSpec = tween(300))
-        }
-    ) { currentState ->
-        if (currentState) {
-            ScreenShotScaffold(
-                screenContent = contentData[pagerState.currentPage]
-            )
-            val screenShotBitmap = view.drawToBitmap()
+    if (startCapture) {
+        ScreenShotScaffold(
+            screenContent = contentData[pagerState.currentPage]
+        )
+       view.drawToBitmap().run {
             ShareUtil.shareImage(
                 coroutineScope = coroutineScope,
                 context = context,
-                bmp = screenShotBitmap,
+                bmp = this,
                 imageFileName = "year_in_review",
                 subject = context.getString(R.string.year_in_review_share_subject),
                 text = context.getString(R.string.year_in_review_share_url)
             )
-            startCapture = false
-        } else {
-            Scaffold(
-                containerColor = WikipediaTheme.colors.paperColor,
-                topBar = {
-                    CenterAlignedTopAppBar(
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = WikipediaTheme.colors.paperColor),
-                        title = {
+        }
+        startCapture = false
+    } else {
+        Scaffold(
+            containerColor = WikipediaTheme.colors.paperColor,
+            topBar = {
+                CenterAlignedTopAppBar(
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        containerColor = WikipediaTheme.colors.paperColor),
+                    title = {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_w_transparent),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            if (contentData.size > 1 && pagerState.currentPage != 0) {
+                                coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
+                            } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
+                                (context as? ComponentActivity)?.finish()
+                            } else {
+                                navController.navigate(
+                                    route = YearInReviewNavigation.Onboarding.name)
+                            }
+                        }) {
                             Icon(
-                                painter = painterResource(R.drawable.ic_w_transparent),
+                                painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                                 tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+                                contentDescription = stringResource(R.string.year_in_review_navigate_left)
                             )
-                        },
-                        navigationIcon = {
+                        }
+                    },
+                    actions = {
+                        if (contentData.size > 1) {
                             IconButton(onClick = {
-                                if (contentData.size > 1 && pagerState.currentPage != 0) {
-                                    coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
-                                } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                                    (context as? ComponentActivity)?.finish()
-                                } else {
-                                    navController.navigate(
-                                        route = YearInReviewNavigation.Onboarding.name)
-                                }
+                                startCapture = true
                             }) {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    painter = painterResource(R.drawable.ic_share),
                                     tint = WikipediaTheme.colors.primaryColor,
-                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                    contentDescription = stringResource(R.string.year_in_review_share_icon)
                                 )
                             }
-                        },
-                        actions = {
-                            if (contentData.size > 1) {
-                                IconButton(onClick = {
-                                    startCapture = true
-                                }) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_share),
-                                        tint = WikipediaTheme.colors.primaryColor,
-                                        contentDescription = stringResource(R.string.year_in_review_share_icon)
-                                    )
-                                }
-                            }
                         }
-                    )
-                },
-                bottomBar = { customBottomBar(pagerState) },
-            ) { innerPadding ->
-                if (contentData.size > 1) {
-                    HorizontalPager(
-                        verticalAlignment = Alignment.Top,
-                        state = pagerState,
-                        contentPadding = PaddingValues(0.dp),
-                    ) { page ->
-                        screenContent(innerPadding, contentData[page])
                     }
-                } else {
-                    screenContent(innerPadding, contentData[0])
+                )
+            },
+            bottomBar = { customBottomBar(pagerState) },
+        ) { innerPadding ->
+            if (contentData.size > 1) {
+                HorizontalPager(
+                    verticalAlignment = Alignment.Top,
+                    state = pagerState,
+                    contentPadding = PaddingValues(0.dp),
+                ) { page ->
+                    screenContent(innerPadding, contentData[page])
                 }
+            } else {
+                screenContent(innerPadding, contentData[0])
             }
         }
     }
