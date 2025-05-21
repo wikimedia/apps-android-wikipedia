@@ -7,11 +7,10 @@ import org.wikipedia.activity.SingleFragmentActivity
 class RecommendedReadingListOnboardingActivity : SingleFragmentActivity<RecommendedReadingListSourceFragment>() {
 
     public override fun createFragment(): RecommendedReadingListSourceFragment {
-        return  RecommendedReadingListSourceFragment.newInstance()
+        return RecommendedReadingListSourceFragment.newInstance()
     }
 
     companion object {
-
         fun newIntent(context: Context): Intent {
             return Intent(context, RecommendedReadingListOnboardingActivity::class.java)
         }

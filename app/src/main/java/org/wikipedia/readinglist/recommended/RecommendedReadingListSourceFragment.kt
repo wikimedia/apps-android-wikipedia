@@ -12,7 +12,6 @@ class RecommendedReadingListSourceFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentRecommendedReadingListSourceBinding.inflate(inflater, container, false)
