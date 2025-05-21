@@ -1,19 +1,21 @@
 package org.wikipedia.yearinreview
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Bitmap.createBitmap
-import android.graphics.PixelFormat
-import android.view.ViewGroup
-import android.view.ViewTreeObserver
-import android.view.WindowManager
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.with
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -57,19 +59,24 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.ui.zIndex
 import androidx.core.graphics.applyCanvas
+import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -79,7 +86,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -92,72 +98,96 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
+    var startCapture by remember { mutableStateOf(false) }
     val context = LocalContext.current
+    val view = LocalView.current
 
-    Scaffold(
-        containerColor = WikipediaTheme.colors.paperColor,
-        topBar = {
-            CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = WikipediaTheme.colors.paperColor),
-                title = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_w_transparent),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+    AnimatedVisibility() { }
+
+
+
+    AnimatedContent(
+        targetState = startCapture,
+        transitionSpec = {
+            fadeIn(animationSpec = tween(300))
+                    fadeOut(animationSpec = tween(300))
+        }
+    ) { currentState ->
+        if (currentState) {
+            ScreenShotScaffold(
+                screenContent = contentData[pagerState.currentPage]
+            )
+            val screenShotBitmap = view.drawToBitmap()
+            ShareUtil.shareImage(
+                coroutineScope = coroutineScope,
+                context = context,
+                bmp = screenShotBitmap,
+                imageFileName = "year_in_review",
+                subject = context.getString(R.string.year_in_review_share_subject),
+                text = context.getString(R.string.year_in_review_share_url)
+            )
+            startCapture = false
+        } else {
+            Scaffold(
+                containerColor = WikipediaTheme.colors.paperColor,
+                topBar = {
+                    CenterAlignedTopAppBar(
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = WikipediaTheme.colors.paperColor),
+                        title = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_w_transparent),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+                            )
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                if (contentData.size > 1 && pagerState.currentPage != 0) {
+                                    coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
+                                } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
+                                    (context as? ComponentActivity)?.finish()
+                                } else {
+                                    navController.navigate(
+                                        route = YearInReviewNavigation.Onboarding.name)
+                                }
+                            }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                )
+                            }
+                        },
+                        actions = {
+                            if (contentData.size > 1) {
+                                IconButton(onClick = {
+                                    startCapture = true
+                                }) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_share),
+                                        tint = WikipediaTheme.colors.primaryColor,
+                                        contentDescription = stringResource(R.string.year_in_review_share_icon)
+                                    )
+                                }
+                            }
+                        }
                     )
                 },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        if (contentData.size > 1 && pagerState.currentPage != 0) {
-                            coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
-                        } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            (context as? ComponentActivity)?.finish()
-                        } else {
-                            navController.navigate(
-                                route = YearInReviewNavigation.Onboarding.name)
-                        }
-                    }) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_navigate_left)
-                        )
+                bottomBar = { customBottomBar(pagerState) },
+            ) { innerPadding ->
+                if (contentData.size > 1) {
+                    HorizontalPager(
+                        verticalAlignment = Alignment.Top,
+                        state = pagerState,
+                        contentPadding = PaddingValues(0.dp),
+                    ) { page ->
+                        screenContent(innerPadding, contentData[page])
                     }
-                },
-                actions = {
-                    if (contentData.size > 1) {
-                        IconButton(onClick = {
-                            captureScreenAndShare(
-                                context = context,
-                                scope = coroutineScope,
-                                screenData = contentData[pagerState.currentPage],
-                                layoutHeight = context.resources.displayMetrics.heightPixels,
-                                layoutWidth = context.resources.displayMetrics.widthPixels
-                            )
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_share),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_share_icon)
-                            )
-                        }
-                    }
+                } else {
+                    screenContent(innerPadding, contentData[0])
                 }
-            )
-        },
-        bottomBar = { customBottomBar(pagerState) },
-    ) { innerPadding ->
-        if (contentData.size > 1) {
-            HorizontalPager(
-                verticalAlignment = Alignment.Top,
-                state = pagerState,
-                contentPadding = PaddingValues(0.dp),
-            ) { page ->
-                screenContent(innerPadding, contentData[page])
             }
-        } else {
-            screenContent(innerPadding, contentData[0])
         }
     }
 }
@@ -378,10 +408,14 @@ fun YearInReviewScreenContent(
 
 @Composable
 fun ScreenShotScaffold(
-    screenContent: YearInReviewScreenData
+    screenContent: YearInReviewScreenData,
 ) {
     Scaffold(
-        modifier = Modifier.padding(top = 24.dp),
+        modifier = Modifier
+            .padding(top = 24.dp)
+            .pointerInput(Unit) {}
+            .zIndex(-1f)
+            .fillMaxSize(),
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
             Row(
@@ -488,62 +522,6 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
-@SuppressLint("ServiceCast")
-fun captureScreenAndShare(
-    context: Context,
-    scope: CoroutineScope,
-    screenData: YearInReviewScreenData,
-    layoutHeight: Int,
-    layoutWidth: Int
-) {
-    val currentView = ComposeView(context).apply {
-        setContent {
-            ScreenShotScaffold(screenContent = screenData)
-        }
-        layoutParams = ViewGroup.LayoutParams(layoutWidth, layoutHeight)
-    }
-
-    val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-    val params = WindowManager.LayoutParams().apply {
-        this.width = width
-        this.height = height
-        this.format = PixelFormat.TRANSLUCENT
-        this.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        this.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-    }
-
-    wm.addView(currentView, params)
-    currentView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-        override fun onGlobalLayout() {
-            currentView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-
-            scope.launch(imageHandler(context)) {
-                val screenShotJob = async {
-                    val image = createBitmap(
-                        layoutWidth,
-                        layoutHeight,
-                        Bitmap.Config.ARGB_8888
-                    ).applyCanvas {
-                        currentView.draw(this)
-                    }
-                    image
-                }
-                val screenShotBitmap = screenShotJob.await()
-                ShareUtil.shareImage(
-                    coroutineScope = scope,
-                    context = context,
-                    bmp = screenShotBitmap,
-                    imageFileName = "year_in_review",
-                    subject = context.getString(R.string.year_in_review_share_subject),
-                    text = context.getString(R.string.year_in_review_share_url)
-                )
-            }
-            wm.removeView(currentView)
-        }
-    })
-}
 
 fun imageHandler(context: Context): CoroutineExceptionHandler {
     return CoroutineExceptionHandler { _, msg ->
@@ -554,7 +532,7 @@ fun imageHandler(context: Context): CoroutineExceptionHandler {
         ).show()
     }
 }
-
+/*
 @Preview
 @Composable
 fun PreviewScreenShot() {
@@ -562,3 +540,4 @@ fun PreviewScreenShot() {
         screenContent = nonEnglishCollectiveEditCountData
     )
 }
+*/
