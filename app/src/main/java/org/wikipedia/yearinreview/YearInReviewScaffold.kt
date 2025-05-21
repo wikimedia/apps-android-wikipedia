@@ -68,14 +68,14 @@ import kotlin.math.absoluteValue
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
-    customBottomBar: @Composable (PagerState, Context) -> Unit,
-    screenContent: @Composable (PaddingValues, YearInReviewScreenData, Context) -> Unit,
+    context: Context = LocalContext.current,
+    customBottomBar: @Composable (PagerState) -> Unit,
+    screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    val context = LocalContext.current
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -121,7 +121,7 @@ fun YearInReviewScreen(
                 }
             )
         },
-        bottomBar = { customBottomBar(pagerState, context) },
+        bottomBar = { customBottomBar(pagerState) },
     ) { innerPadding ->
         if (contentData.size > 1) {
             HorizontalPager(
@@ -129,10 +129,10 @@ fun YearInReviewScreen(
                 state = pagerState,
                 contentPadding = PaddingValues(0.dp),
             ) { page ->
-                screenContent(innerPadding, contentData[page], context)
+                screenContent(innerPadding, contentData[page])
             }
         } else {
-            screenContent(innerPadding, contentData[0], context)
+            screenContent(innerPadding, contentData[0])
         }
     }
 }
