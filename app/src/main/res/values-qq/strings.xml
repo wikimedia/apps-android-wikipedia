@@ -1814,6 +1814,7 @@
   <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
   <string name="year_in_review_non_english_collective_editcount_bodytext">Body text for the year in review non-english collective edit count screen</string>
+  <string name="year_in_review_media_wiki_url">Url for the year in review media wiki page that explains how a user's data is used</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>

@@ -1896,6 +1896,7 @@
     <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
     <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
     <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used</string>
 
 
     <!--Recommended Reading list -->
