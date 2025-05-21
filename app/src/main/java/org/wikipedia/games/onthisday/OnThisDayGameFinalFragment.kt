@@ -261,7 +261,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
     }
 
     private inner class ShareImageLoadListener : ImageLoadListener {
-        override fun onSuccess(view: ImageView) {
+        override fun onSuccess(image: Any, width: Int, height: Int) {
             loadedImagesForShare++
         }
 
