@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -28,10 +27,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -58,6 +53,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.imageservice.ImageLoadListener
 import java.text.DecimalFormat
 import java.time.Duration
 import java.time.LocalDate
@@ -257,22 +253,20 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoader())
+                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoadListener())
             } ?: run {
                 loadedImagesForShare++
             }
         }
     }
 
-    private inner class ShareImageLoader : RequestListener<Drawable?> {
-        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+    private inner class ShareImageLoadListener : ImageLoadListener {
+        override fun onSuccess(view: ImageView) {
             loadedImagesForShare++
-            return false
         }
 
-        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>?, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+        override fun onError(error: Throwable) {
             loadedImagesForShare++
-            return false
         }
     }
 
