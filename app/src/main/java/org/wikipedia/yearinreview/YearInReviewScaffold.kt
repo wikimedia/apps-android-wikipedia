@@ -511,7 +511,6 @@ fun imageHandler(context: Context): CoroutineExceptionHandler {
     }
 }
 
-
 @Composable
 fun CaptureComposableToBitmap(
     screen: @Composable () -> Unit,
