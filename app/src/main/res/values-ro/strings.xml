@@ -547,8 +547,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Articolul apare în mai multe liste</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s nu va mai fi disponibil offline pentru toate listele de citire:</string>
   <string name="reading_lists_sync_reminder_title">Activați sincronizarea listelor de citire?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Articolele salvate pe listele de citire pot fi acum sincronizate cu contul dvs. Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Aflați mai multe&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listele de citire pot fi sincronizate pe dispozitive. Conectați-vă la contul dvs. Wikipedia și permiteți salvarea listelor dvs. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Aflați mai multe&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Articolele salvate pe listele de citire pot fi acum sincronizate cu contul dvs. Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Aflați mai multe&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Listele de citire pot fi sincronizate pe dispozitive. Conectați-vă la contul dvs. Wikipedia și permiteți salvarea listelor dvs. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Aflați mai multe&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activați sincronizarea</string>
   <string name="reading_list_login_reminder_title">Sincronizați listele de citire</string>
   <string name="reading_lists_login_reminder_text">Listele de citire pot fi sincronizate pe dispozitive. Conectați-vă la contul dvs. Wikipedia și permiteți salvarea listelor dvs.</string>

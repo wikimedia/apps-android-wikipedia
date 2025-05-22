@@ -334,21 +334,22 @@
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/es</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt; Página del equipo &lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
   <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de &lt;a href=\"https://wikimediafoundation.org/es/?noredirect=es_ES\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
+  <string name="about_logo_content_description">Logotipo globo-rombecabezas de Wikipedia</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Confirmas que quieres salir sin guardar los cambios?</string>
   <string name="edit_abandon_confirm_yes">Sí</string>
   <string name="edit_abandon_confirm_no">No</string>
@@ -526,7 +527,7 @@
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="temp_account_not_logged_in">No has iniciado sesión</string>
   <string name="temp_account_anon_ip_dialog_body">Una vez que realice una edición, su dirección IP se asociará con sus ediciones.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicie sesión&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;cree una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y acceder a otras funciones.</string>
-  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;. &lt;a href=\"https://#login\"&gt;Ingrese&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crear una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y para acceder a otras características.&lt;br/&gt;&lt;br/&gt;</string>
+  <string name="temp_account_anon_dialog_body">Una vez que realice una edición, se creará una &lt;b&gt;cuenta temporal&lt;/b&gt; para proteger su privacidad. &lt;a href=\"%1$s\"&gt;Aprenda más&lt;/a&gt;. &lt;a href=\"https://#login\"&gt;Ingrese&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crear una cuenta&lt;/a&gt; para obtener crédito por futuras ediciones y para acceder a otras funciones.&lt;br/&gt;&lt;br/&gt;</string>
   <string name="temp_account_temp_dialog_body">Tu edición se atribuirá a %1$s . Su dirección IP será visible para los administradores.&lt;br /&gt;&lt;br /&gt; Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt; o &lt;a href=\"https://#login\"&gt;creas una cuenta&lt;/a&gt; , tus ediciones se atribuirán al nombre que elijas, entre otros beneficios.</string>
   <string name="temp_account_dialog_ok">Conseguido</string>
   <string name="temp_account_using_title">Estás usando una cuenta temporal</string>
@@ -667,8 +668,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
   <string name="reading_lists_sync_reminder_title">¿Activar la sincronización de tus listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Ahora es posible sincronizar los artículos guardados en listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es\"&gt;Más información&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Ahora es posible sincronizar los artículos guardados en listas de lectura en tu cuenta de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Ahora es posible sincronizar las listas de lectura en varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
@@ -1013,7 +1014,7 @@
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Subtitular imágenes</string>
   <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
-  <string name="suggested_edits_edit_patrol">Patruya de ediciones</string>
+  <string name="suggested_edits_edit_patrol">Patrullaje de ediciones</string>
   <string name="suggested_edits_edit_patrol_hint">Revisa las ediciones recientes y determina si son constructivas o no.</string>
   <string name="suggested_edits_edit_patrol_review">Revisar</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
@@ -1673,7 +1674,7 @@
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">¿Estás seguro que quieres deshacer la edición?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Reversión completada</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ver</string>
-  <string name="patroller_tasks_overflow_report">Problema con la función</string>
+  <string name="patroller_tasks_overflow_report">Problema con función</string>
   <string name="patroller_tasks_overflow_learn">Más información</string>
   <string name="patroller_onboarding_one_title">Contribuir a la supervisión y aprobación de las ediciones de Wikipedia.</string>
   <string name="patroller_onboarding_one_content">Mejora la calidad del contenido de Wikipedia revisando activamente el canal de ediciones recientes y brindando orientación, control de calidad y animando a otros editores.</string>
@@ -1691,6 +1692,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">¿Cómo podemos mejorar la función?</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentarios</string>
+  <string name="patroller_diff_feedback_tooltip">Toque el menú desplegable para enviar comentarios en cualquier momento en \'Problema con función\'.</string>
   <string name="patroller_saved_message_title_vandalism">Advertencia de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Pestañas de edición</string>
   <string name="patroller_saved_message_title_npov">Punto de vista neutral</string>
@@ -1720,6 +1722,8 @@
   <string name="generic_release_notes">Pequeñas correcciones de bugs y mejoras</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="email_report_patroller_tasks_subject">Informe de problemas - Función Patrullaje de ediciones</string>
+  <string name="email_report_patroller_tasks_body">Tuve un problema con la función Patrullaje de ediciones:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]\n\n[Capturas de pantalla o enlaces]</string>
   <string name="donation_campaign_maybe_later_snackbar">Volveremos a intentarlo mañana.</string>
   <string name="donation_campaign_donated_snackbar">¡Gracias por tu donación! Tu generosidad mantiene viva la Wikipedia y otros proyectos relacionados.</string>
   <string name="donation_campaign_go_back_button">Atrás</string>
@@ -1739,6 +1743,7 @@
   <string name="donate_gpay_help_other_ways">Otras maneras de donar</string>
   <string name="donate_gpay_help_faq">Preguntas frecuentes</string>
   <string name="donate_gpay_help_tax">Información sobre desgravación de impuestos</string>
+  <string name="donation_history_deleted_message_snackbar">Historial de donantes eliminado</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">Se requiere permiso de Ubicación para ver tu ubicación en el mapa.  Por favor, inténtalo de nuevo.</string>
   <string name="places_search_hint">Buscar lugares</string>
@@ -1748,8 +1753,13 @@
   <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
   <string name="places_card_title">Lugares cercanos</string>
   <string name="places_card_action">Más lugares cercanos</string>
+  <string name="places_card_enable_location_card_message">Lugares es una forma de explorar Wikipedia a través de un mapa</string>
+  <string name="places_card_enable_location_card_button">Activar la ubicación</string>
+  <string name="places_card_distance_suffix">%s de distancia</string>
+  <string name="places_card_distance_unknown">Distancia desconocida</string>
+  <string name="places_empty_message_snackbar">No hay artículos de lugares cercanos. Aleja la vista del mapa y navega en él.</string>
   <string name="survey_dialog_title">Ayúdanos a mejorar esta función</string>
-  <string name="survey_dialog_message">¿Esta característica te ha satisfecho?</string>
+  <string name="survey_dialog_message">¿Esta función te ha satisfecho?</string>
   <string name="survey_dialog_option_satisfied">Satisfecho</string>
   <string name="survey_dialog_option_neutral">Neutral</string>
   <string name="survey_dialog_option_unsatisfied">Insatisfecho</string>
@@ -1765,18 +1775,20 @@
   <string name="survey_dialog_submitted_snackbar">Comentarios enviados. ¡Gracias!</string>
   <string name="on_this_day_game_entry_dialog_title">Te presentamos</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia juegos</string>
-  <string name="on_this_day_game_entry_dialog_button">Juega el de hoy</string>
+  <string name="on_this_day_game_entry_dialog_button">Inicia el juego de hoy</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia juegos está disponible en la sección Explorar.</string>
   <string name="on_this_day_game_title">¿Qué fue primero?</string>
   <string name="on_this_day_game_dialog_button">Jugar</string>
   <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero en este día.</string>
   <string name="on_this_day_game_progress">%1$d de %2$d</string>
   <string name="on_this_day_game_score">Puntuación: %d</string>
+  <string name="on_this_day_game_submit">Enviar</string>
   <string name="on_this_day_game_correct">¡Correcto!</string>
   <string name="on_this_day_game_incorrect">¡Incorrecto!</string>
   <string name="on_this_day_game_point">+1 punto</string>
   <string name="on_this_day_game_next">Siguiente pregunta</string>
   <string name="on_this_day_game_finish">Resultado final</string>
+  <string name="on_this_day_game_share_button">Compartir</string>
   <string name="on_this_day_game_pause_title">¿Quieres pausar el juego?</string>
   <string name="on_this_day_game_pause_body">Tu progreso de hoy se guardará. El juego se encuentra en la sección Explorar.</string>
   <string name="on_this_day_game_pause_negative">Seguir jugando</string>
@@ -1785,7 +1797,7 @@
   <string name="on_this_day_game_feed_entry_card_title">¿Qué fue primero?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero en este día.</string>
   <string name="on_this_day_game_result">Obtuviste %1$d/%2$d.</string>
-  <string name="on_this_day_game_next_in">Siguiente juego en %s</string>
+  <string name="on_this_day_game_next_in">Más preguntas en %s</string>
   <string name="on_this_day_game_your_stats">Tus estadísticas</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="one">Jugado</item>
@@ -1794,7 +1806,7 @@
   <string name="on_this_day_game_stats_average_score">Puntuación promedio</string>
   <string name="on_this_day_game_stats_streak">Racha actual</string>
   <string name="on_this_day_game_result_subtitle">Artículos referenciados en el juego de hoy</string>
-  <string name="on_this_day_game_completed_message">Gracias por jugar. Otro juego de «¿Cuál fue primero?» está disponible a diario en la sección Explorar.</string>
+  <string name="on_this_day_game_completed_message">Gracias por jugar. Cada día hay preguntas nuevas en «¿Cuál fue primero?», disponible en la sección Explorar.</string>
   <string name="on_this_day_game_menu_notifications">Notificaciones del juego</string>
   <string name="on_this_day_game_menu_info">Más información</string>
   <string name="on_this_day_game_menu_feedback">Problema con función</string>
@@ -1803,13 +1815,112 @@
   <string name="on_this_day_game_article_answer_correct_stats_message">Acertaste esta pregunta</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Te equivocaste en esta pregunta</string>
   <string name="on_this_day_game_turn_off_notification_dialog_title">¿Desactivar las notificaciones del juego?</string>
-  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si desactivas las notificaciones push, ya no recibirás recordatorios diarios cuando haya un nuevo juego disponible.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si desactivas las notificaciones, ya no recibirás recordatorios diarios cuando haya nuevas preguntas para jugar.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">¿Activar las notificaciones?</string>
-  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Las notificaciones del juego te avisan diariamente cuando hay un nuevo juego disponible.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Las notificaciones del juego te avisan diariamente cuando hay más preguntas para jugar.</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">No, mantener activas</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Desactivar</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Sí, activar</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Mantener desactivadas</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificaciones del juego desactivadas.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificaciones del juego activadas.</string>
+  <string name="on_this_day_game_notification_text">El las preguntas de hoy en «¿Qué fue primero?» ya están disponibles para jugar.</string>
+  <string name="on_this_day_game_report_email_subject">Informe de problemas - Wikipedia juegos</string>
+  <string name="on_this_day_game_report_email_body">Tuve un problema con la función Wikipedia juegos:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]</string>
+  <string name="on_this_day_game_notification_undo">Deshacer</string>
+  <string name="on_this_day_game_share_link_message">Estoy jugando «¿Qué fue primero?», un juego de trivias diarias en la aplicación de Wikipedia para Android %s</string>
+  <string name="on_this_day_game_share_screen_title">Hoy obtuve %1$d/%2$d en \n«¿Qué fue primero?».</string>
+  <string name="on_this_day_game_share_screen_subtitle">Temas incluidos:</string>
+  <string name="on_this_day_game_survey_q1">¿Qué tanto te ha satisfecho este juego?</string>
+  <string name="on_this_day_game_survey_q2">¿Te gustaría que hubiera otros juegos de Wikipedia?</string>
+  <string name="on_this_day_game_archive_calendar_title">Elige un juego de acuerdo a la fecha para empezar.</string>
+  <string name="on_this_day_game_score_toast_message">Hoy obtuviste %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Continuar el juego de hoy</string>
+  <string name="on_this_day_game_current_progress_message">Vas en la pregunta %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Abrir el archivo</string>
+  <string name="on_this_day_game_review_results_btn_text">Ver resultados</string>
+  <string name="on_this_day_game_score_message">Hoy obtuviste %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
+  <string name="on_this_day_game_sound_on">Activar el sonido</string>
+  <string name="on_this_day_game_sound_off">Desactivar el sonido</string>
+  <string name="recommended_reading_list_title">Descubrir</string>
+  <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
+  <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
+  <string name="recommended_reading_list_onboarding_card_new">¡Nuevo!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Comenzar</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">No, gracias</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Para configurar más tarde tu lista de lecturas recomendadas, ve a Configuración.</string>
+  <string name="recommended_reading_list_interest_source_message">¿Cómo quieres generar tu lista de lecturas recomendadas?</string>
+  <string name="recommended_reading_list_interest_source_interests">Elegir según mis intereses</string>
+  <string name="recommended_reading_list_interest_source_saved">Autogenerar según mis artículos guardados</string>
+  <string name="recommended_reading_list_interest_source_history">Autogenerar según mi historial de lectura</string>
+  <string name="recommended_reading_list_interest_pick_title">¿Qué te interesa?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Buscar un artículo</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d artículo seleccionado</item>
+    <item quantity="other">%d artículos seleccionados</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Seleccionar de forma aleatoria</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Seleccionamos aleatoriamente algunos artículos para ti.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Deshacer</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">¿Estás seguro de querer seleccionar de forma aleatoria?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Esto borrará lo que hayas seleccionado y elegirá nuevos artículos al azar.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Sí, elegir aleatoriamente</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Mejor no</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Hecho para %s</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d artículo</item>
+    <item quantity="other">• %d artículos</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Tu lista de lectura diaria. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a medianoche.</string>
+  <string name="recommended_reading_list_page_description_weekly">Tu lista de lectura semanal. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a inicio de semana.</string>
+  <string name="recommended_reading_list_page_description_monthly">Tu lista de lectura mensual. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones el día primero de cada mes.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalizar</string>
+  <string name="recommended_reading_list_page_overflow_about">Acerca de esta función</string>
+  <string name="recommended_reading_list_page_snackbar">Descubrir mostrará %d artículos nuevos cada %s. Tus recomendaciones se almacenan localmente en tu dispositivo.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalizar Descubrir</string>
+  <string name="recommended_reading_list_page_snackbar_day">Día</string>
+  <string name="recommended_reading_list_page_snackbar_week">Semana</string>
+  <string name="recommended_reading_list_page_snackbar_month">Mes</string>
+  <string name="recommended_reading_list_settings_section_header">Recomendaciones</string>
+  <string name="recommended_reading_list_settings_title">Configuración de Descubrir</string>
+  <string name="recommended_reading_list_settings_toggle">Lista de lectura de Descubrir</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Discover está desactivado. Wikipedia no te recomendará artículos para leer.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">¿Quieres desactivar Descubrir?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si desactivas Descubrir, dejarás de recibir %s recomendaciones de lectura de Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desactivar</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">No, mantener activado</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Descubrir se ha desactivado. Puedes volver a activarlo en cualquier momento desde la configuración.</string>
+  <string name="recommended_reading_list_settings_articles">artículos</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Actualizaciones %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">diario</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">semanal</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">mensual</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Todos los días</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Cada semana</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Cada mes</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Cómo se construye Descubrir</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Basado en tus intereses</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Basado en tus artículos guardados</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Basado en tu historial de lectura</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">¿Ajustar lo que se muestra en Descubrir?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Si ajustas la forma en que Descubrir genera recomendaciones, se reemplazarán tus recomendaciones actuales.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajustar</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Mejor no</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Tus recomendaciones ahora se basarán en tus intereses.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Tus recomendaciones ahora se basarán en tus artículos guardados.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Tus recomendaciones ahora se basarán en tu historial de lectura.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Deshacer</string>
+  <string name="recommended_reading_list_settings_interests">Intereses</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notificaciones</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia no te enviará notificaciones cuando se actualice Descubrir.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Las notificaciones de Descubrir están desactivadas. No recibirás ninguna notificación cuando Descubrir se actualice.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">¿Desactivar las notificaciones?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Si desactivas las notificaciones ya no recibirás recordatorios cuando se actualice Descubrir.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desactivar</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, mantener activas</string>
+  <string name="recommended_reading_list_notification_title">Tu lista de lectura %s de Descubrir está lista.</string>
+  <string name="recommended_reading_list_notification_subtitle">Toca para ver tus recomendaciones más recientes.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Cuando Discover se actualice Wikipedia te enviará una notificación.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Discover está activado. Wikipedia te recomendará artículos para leer.</string>
 </resources>
