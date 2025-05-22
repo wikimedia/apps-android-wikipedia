@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.widget.ImageView
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,8 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import com.bumptech.glide.Glide
+import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 
@@ -63,15 +61,9 @@ fun YearInReviewEntryDialogScreen() {
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
         )
-        AndroidView(
-            factory = {
-                ImageView(it).apply {
-                    Glide.with(this)
-                        .asGif()
-                        .load(R.drawable.wyir_puzzle_4_v2)
-                        .into(this)
-                }
-            },
+        AsyncImage(
+            model = R.drawable.wyir_puzzle_4_v2,
+            contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
                 .heightIn(max = 240.dp)
