@@ -1907,7 +1907,7 @@
     <string name="recommended_reading_list_page_description_monthly">Your monthly reading list. Learn about new topics,  picked just for you. Updates on the first of each month.</string>
     <string name="recommended_reading_list_page_overflow_customize">Customize</string>
     <string name="recommended_reading_list_page_overflow_about">About this feature</string>
-    <string name="recommended_reading_list_page_snackbar">Discover will update with %d new articles each %s. Your recommendations are stored locally on your device.</string>
+    <string name="recommended_reading_list_page_snackbar">Discover will update with %1$d new articles each %2$s. Your recommendations are stored locally on your device.</string>
     <string name="recommended_reading_list_page_snackbar_action">Customize Discover</string>
     <string name="recommended_reading_list_page_snackbar_day">Day</string>
     <string name="recommended_reading_list_page_snackbar_week">Week</string>

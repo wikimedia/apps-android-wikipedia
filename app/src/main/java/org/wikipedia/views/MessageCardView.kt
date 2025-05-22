@@ -99,6 +99,11 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
         binding.containerClickArea.setOnClickListener(onClickListener)
     }
 
+    fun setMessageLabel(message: String?) {
+        binding.messageLabel.text = message
+        binding.messageLabel.visibility = if (message.isNullOrEmpty()) GONE else VISIBLE
+    }
+
     private fun setDefaultState() {
         binding.imageView.visibility = VISIBLE
         binding.messageTitleView.visibility = VISIBLE
