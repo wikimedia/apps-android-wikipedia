@@ -85,11 +85,12 @@
 
         <ImageView
             android:id="@+id/page_list_item_selected_image"
-            android:layout_width="@dimen/defaultThumbnailSize"
-            android:layout_height="@dimen/defaultThumbnailSize"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/shape_circle"
             android:contentDescription="@null"
             android:padding="8dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             app:tint="@android:color/white"
             android:visibility="gone"
