@@ -18,6 +18,13 @@
         android:background="?attr/selectableItemBackground"
         android:orientation="vertical">
 
+        <com.google.android.material.chip.Chip
+            android:id="@+id/messageLabel"
+            style="@style/Chip.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"

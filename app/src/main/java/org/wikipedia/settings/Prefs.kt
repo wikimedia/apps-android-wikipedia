@@ -803,4 +803,8 @@ object Prefs {
     var isRecommendedReadingListNotificationEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
+
+    var isRecommendedReadingListOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, value)
 }
