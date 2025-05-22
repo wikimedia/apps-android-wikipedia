@@ -301,16 +301,16 @@
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ar</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
@@ -684,8 +684,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
   <string name="reading_lists_sync_reminder_title">تشغيل مزامنة قائمة القراءة؟</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">يمكنك الآن مزامنة المقالات المحفوظة في قوائم القراءة مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">يمكنك الآن مزامنة قوائم القراءة عبر الأجهزة. سجّل دخولك إلى حسابك على ويكيبيديا واحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
@@ -1040,7 +1040,7 @@
   <string name="description_edit_help_title">معلومات: وصف المقالة</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرا لاهتمامك المستمر بتحرير أوصاف المقالات! لإجراء تعديلات إضافية؛ يُرجَى تسجيل الدخول إلى حساب ويكيبيديا الخاص بك.</string>
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
@@ -1859,6 +1859,7 @@
   <string name="patroller_saved_message_body_edit_summary">مرحبًا {{{username}}}، يبدو أنك قمت بإزالة محتوى من ويكيبيديا دون ترك ملخص التحرير. يُرجى ترك ملخص التحرير كلما قمت بإضافة أو إزالة محتوى إلى ويكيبيديا.</string>
   <string name="patroller_saved_message_body_do_not_censor">مرحبًا {{{username}}}، يبدو أنك قمت بإزالة المحتوى دون مناقشته على صفحة نقاش المقال. يرجى ملاحظة أن ويكيبيديا ليست خاضعة للرقابة، ولا ينبغي إزالة المحتوى لأنه مثير للجدل. إذا كنت تعتقد أن المعلومات غير دقيقة، فيرجى التوصل إلى إجماع على صفحة نقاش المقال.</string>
   <string name="talk_warn_learn_more_label">تعرف على عناصر نائبة الرسائل</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">استخدم رسالة المثال أدناه لتخصيصها وإرسالها وحفظها في رسائلك.</string>
   <string name="patroller_saved_message_body_art_imp">مرحبًا {{{username}}}. مقالتك بداية رائعة! ولجعلها أفضل، فكر في إضافة المزيد من المراجع إلى مصادر موثوقة. يساعد هذا في التحقق من المعلومات وتحسين جودة المقالة. راجع إرشادات ويكيبيديا هذه حول [[Wikipedia:Reliable_sources|مصادر موثوقة]] لمزيد من التفاصيل.</string>
   <string name="talk_templates_menu_edit_title">عدل</string>
@@ -1928,11 +1929,13 @@
   <string name="on_this_day_game_splash_message">خمّن أيّ حدث جاء أولاً في هذا اليوم في التاريخ</string>
   <string name="on_this_day_game_progress">%1$d من %2$d</string>
   <string name="on_this_day_game_score">النتيجة: %d</string>
+  <string name="on_this_day_game_submit">إرسال</string>
   <string name="on_this_day_game_correct">صحيح!</string>
   <string name="on_this_day_game_incorrect">خطأ!</string>
   <string name="on_this_day_game_point">+1 نقطة</string>
   <string name="on_this_day_game_next">السؤال التالي</string>
   <string name="on_this_day_game_finish">النتائج النهائية</string>
+  <string name="on_this_day_game_share_button">شارك</string>
   <string name="on_this_day_game_pause_title">إيقاف اللعبة مؤقتًا؟</string>
   <string name="on_this_day_game_pause_body">سيتم حفظ تقدمك لهذا اليوم. يمكنك العثور على اللعبة في موجز Explore الخاص بك.</string>
   <string name="on_this_day_game_pause_negative">استمر باللعب</string>
@@ -1977,6 +1980,106 @@
   <string name="on_this_day_game_report_email_body">لقد واجهت مشكلة مع ميزة ألعاب ويكيبيديا:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="on_this_day_game_notification_undo">رجوع</string>
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
+  <string name="on_this_day_game_share_screen_title">لقد حصلت على %1$d/%2$d في \n\"أيهما جاء أولاً؟\" \nاليوم.</string>
+  <string name="on_this_day_game_share_screen_subtitle">المواضيع المتضمنة:</string>
   <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
   <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
+  <string name="on_this_day_game_archive_calendar_title">اختر لعبة حسب التاريخ للعب.</string>
+  <string name="on_this_day_game_score_toast_message">لقد حصلت على %1$d/%2$d في هذا اليوم.</string>
+  <string name="on_this_day_game_continue_btn_text">تابع مباراة اليوم</string>
+  <string name="on_this_day_game_current_progress_message">أنت في السؤال %d.</string>
+  <string name="on_this_day_game_archive_btn_text">تشغيل الأرشيف</string>
+  <string name="on_this_day_game_review_results_btn_text">نتائج المراجعة</string>
+  <string name="on_this_day_game_score_message">لقد أحرزت %1$d/%2$d في مباراة اليوم.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">استمر باللعب</string>
+  <string name="on_this_day_game_sound_on">تشغيل الصوت</string>
+  <string name="on_this_day_game_sound_off">إيقاف الصوت</string>
+  <string name="recommended_reading_list_title">يكتشف</string>
+  <string name="recommended_reading_list_onboarding_card_title">اكتشف المقالات المختارة خصيصًا لك</string>
+  <string name="recommended_reading_list_onboarding_card_message">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>
+  <string name="recommended_reading_list_onboarding_card_new">جديد!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">البدء</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">ًلا شكرا</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">لإعداد قائمة القراءة الموصى بها لاحقًا، انتقل إلى الإعدادات.</string>
+  <string name="recommended_reading_list_interest_source_message">كيف يمكننا بناء قائمة القراءة الموصى بها؟</string>
+  <string name="recommended_reading_list_interest_source_interests">دعني أختار بناءً على اهتماماتي</string>
+  <string name="recommended_reading_list_interest_source_saved">اختر لي بناءً على مقالاتي المحفوظة</string>
+  <string name="recommended_reading_list_interest_source_history">اختر لي بناءً على تاريخ قراءتي</string>
+  <string name="recommended_reading_list_interest_pick_title">ما الذي يثير اهتمامك؟</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">ابحث عن مقال</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="zero">...</item>
+    <item quantity="one">%d محددة</item>
+    <item quantity="two">...</item>
+    <item quantity="few">...</item>
+    <item quantity="many">...</item>
+    <item quantity="other">%d محددة</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">اختيار عشوائي</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">لقد قمنا باختيار عدد قليل من المقالات لك بشكل عشوائي.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">التراجع</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">هل أنت متأكد أنك تريد اختيارك بشكل عشوائي؟</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">سيؤدي هذا إلى مسح اختياراتك الحالية واختيار مقالات جديدة بشكل عشوائي.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">نعم اختر لي</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">لا تهتم</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">مصنوع لـ %s</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="zero">لا مقال</item>
+    <item quantity="one">• %d مقال</item>
+    <item quantity="two">مقالان</item>
+    <item quantity="few">مقالات قليلة</item>
+    <item quantity="many">مقالات كثيرة</item>
+    <item quantity="other">• %d مقال</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">قائمة قراءاتك اليومية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات منتصف الليل.</string>
+  <string name="recommended_reading_list_page_description_weekly">قائمة قراءاتك الأسبوعية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في بداية الأسبوع.</string>
+  <string name="recommended_reading_list_page_description_monthly">قائمة قراءاتك الشهرية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في أول كل شهر.</string>
+  <string name="recommended_reading_list_page_overflow_customize">تخصيص</string>
+  <string name="recommended_reading_list_page_overflow_about">حول هذه الميزة</string>
+  <string name="recommended_reading_list_page_snackbar">سيتم تحديث تطبيق Discover بإضافة %1$d مقالة جديدة كل %2$s . سيتم تخزين توصياتك محليًا على جهازك.</string>
+  <string name="recommended_reading_list_page_snackbar_action">تخصيص الاكتشاف</string>
+  <string name="recommended_reading_list_page_snackbar_day">يوم</string>
+  <string name="recommended_reading_list_page_snackbar_week">أسبوع</string>
+  <string name="recommended_reading_list_page_snackbar_month">شهر</string>
+  <string name="recommended_reading_list_settings_section_header">التوصيات</string>
+  <string name="recommended_reading_list_settings_title">اكتشف الإعدادات</string>
+  <string name="recommended_reading_list_settings_toggle">اكتشف قائمة القراءة</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">خاصية \"اكتشف\" مُعطّلة. لن تُوصي ويكيبيديا بقراءة مقالاتك.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">إيقاف تشغيل Discover؟</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">إذا قمت بإيقاف تشغيل Discover، فسوف تتوقف عن تلقي %s من توصيات القراءة من Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">أطفئه</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">لا، استمر في ذلك</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">تم إيقاف ميزة \"اكتشف\". يمكنك إعادة تفعيلها في أي وقت من الإعدادات.</string>
+  <string name="recommended_reading_list_settings_articles">المقالات</string>
+  <string name="recommended_reading_list_settings_updates_frequency">التحديثات %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">يوميًا</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">أسبوعي</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">شهريا</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">كل يوم</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">كل اسبوع</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">كل شهر</string>
+  <string name="recommended_reading_list_settings_updates_base_title">كيف تم بناء Discover</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">بناءً على اهتماماتك</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">استنادًا إلى المقالات المحفوظة لديك</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">بناءً على تاريخ قراءتك</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">تعديل كيفية بناء Discover؟</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">إذا قمت بتعديل كيفية إنشاء Discover للتوصيات، فسيتم استبدال توصياتك الحالية.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">تعديل</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">لا تهتم</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">توصياتك الآن تعتمد على اهتماماتك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">تعتمد توصياتك الآن على المقالات المحفوظة لديك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">تعتمد توصياتك الآن على سجل القراءة الخاص بك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">التراجع</string>
+  <string name="recommended_reading_list_settings_interests">الاهتمامات</string>
+  <string name="recommended_reading_list_settings_notifications_title">إشعارات</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">لن ترسل لك ويكيبيديا إشعارًا عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">تم إيقاف إشعارات Discover. لن تتلقى إشعارًا عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">إيقاف تشغيل الإشعارات؟</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">إذا قمت بإيقاف تشغيل الإشعارات، فلن تتلقى بعد الآن تذكيرات عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">أطفئهم</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">لا، ابقهم على حالهم</string>
+  <string name="recommended_reading_list_notification_title">قائمة القراءة %s Discover الخاصة بك جاهزة.</string>
+  <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>
 </resources>
