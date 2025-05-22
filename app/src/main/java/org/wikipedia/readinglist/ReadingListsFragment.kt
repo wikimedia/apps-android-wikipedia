@@ -15,6 +15,13 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
@@ -36,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
@@ -50,6 +58,8 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
@@ -335,6 +345,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 maybeShowPreviewSavedReadingListsSnackbar()
                 currentSearchQuery = searchQuery
                 maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
+
+                // Recommended Reading List discover card
+                val images = RecommendedReadingListViewModel.getNewRecommendedArticleThumbnails()
+                if (Prefs.isRecommendedReadingListEnabled && images.isNotEmpty()) {
+                    setupDiscoverCardView(images)
+                } else {
+                    binding.discoverCardView.isVisible = false
+                }
             }
         }
     }
@@ -839,6 +857,31 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
             importMode = true
+        }
+    }
+
+    private fun setupDiscoverCardView(images: List<String>) {
+        binding.discoverCardView.isVisible = true
+        binding.discoverCardView.setContent {
+            var images by remember { mutableStateOf(images) }
+            val userName = AccountUtil.userName
+            val subtitle = getString(R.string.recommended_reading_list_page_subtitle_made_for, userName)
+            val description = when (Prefs.recommendedReadingListUpdateFrequency) {
+                RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
+                RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
+                RecommendedReadingListUpdateFrequency.MONTHLY -> R.string.recommended_reading_list_page_description_monthly
+            }
+            BaseTheme {
+                DiscoverReadingListView(
+                    modifier = Modifier
+                        .padding(16.dp),
+                    title = getString(R.string.recommended_reading_list_title),
+                    subtitleIcon = R.drawable.ic_wikipedia_w,
+                    subtitle = subtitle,
+                    description = getString(description),
+                    images = images
+                )
+            }
         }
     }
 

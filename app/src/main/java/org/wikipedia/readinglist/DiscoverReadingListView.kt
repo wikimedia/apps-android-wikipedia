@@ -1,0 +1,139 @@
+package org.wikipedia.readinglist
+
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
+import org.wikipedia.compose.components.WikiCard
+import org.wikipedia.compose.theme.WikipediaTheme
+
+@Composable
+fun DiscoverReadingListView(
+    modifier: Modifier = Modifier,
+    title: String,
+    @DrawableRes subtitleIcon: Int,
+    subtitle: String,
+    description: String,
+    images: List<String>,
+    canShowRedDot: Boolean = false
+) {
+    WikiCard(
+        elevation = 4.dp
+    ) {
+        Row(
+            modifier = modifier,
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Column(
+                modifier = Modifier
+                    .weight(1.1f),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = title,
+                        style = WikipediaTheme.typography.h3,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                    if (canShowRedDot) {
+                        Box(
+                            modifier = Modifier
+                                .size(6.dp)
+                                .clip(CircleShape)
+                                .background(WikipediaTheme.colors.destructiveColor)
+                        )
+                    }
+                }
+
+                Row(
+                    verticalAlignment = Alignment.Top,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .size(20.dp),
+                        painter = painterResource(subtitleIcon),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                    Text(
+                        text = buildAnnotatedString {
+                            val userNameStartIndex = subtitle.lastIndexOf(" ") + 1
+                            append(subtitle)
+                            addStyle(
+                                style = SpanStyle(fontWeight = FontWeight.Bold),
+                                start = userNameStartIndex,
+                                end = subtitle.length
+                            )
+                        },
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 14.sp,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                }
+
+                Text(
+                    text = description,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 12.sp,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+
+            if (images.isNotEmpty()) {
+                LazyVerticalGrid(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(12.dp))
+                        .weight(0.9f),
+                    columns = GridCells.Fixed(2)
+                ) {
+                    items(images) { imageUrl ->
+                        if (imageUrl.isEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .size(70.dp)
+                                    .background(WikipediaTheme.colors.borderColor)
+                            )
+                        } else {
+                            AsyncImage(
+                                model = imageUrl,
+                                modifier = Modifier
+                                    .size(70.dp),
+                                contentScale = ContentScale.Crop,
+                                contentDescription = null,
+                                placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
+                                error = ColorPainter(WikipediaTheme.colors.borderColor),
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
