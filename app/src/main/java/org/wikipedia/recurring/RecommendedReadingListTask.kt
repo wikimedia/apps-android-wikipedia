@@ -3,6 +3,7 @@ package org.wikipedia.recurring
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel
 import org.wikipedia.settings.Prefs
+import java.time.LocalDate
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -10,10 +11,16 @@ class RecommendedReadingListTask() : RecurringTask() {
     override val name = "generateRecommendedReadingListTask"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        return millisSinceLastRun(lastRun) >= when (Prefs.recommendedReadingListUpdateFrequency) {
-            RecommendedReadingListUpdateFrequency.DAILY -> TimeUnit.DAYS.toMillis(1)
-            RecommendedReadingListUpdateFrequency.WEEKLY -> TimeUnit.DAYS.toMillis(7)
-            RecommendedReadingListUpdateFrequency.MONTHLY -> TimeUnit.DAYS.toMillis(31)
+        // Make sure at least one day has passed
+        if (millisSinceLastRun(lastRun) < TimeUnit.DAYS.toMillis(1)) {
+            return false
+        }
+        // And run either every day, or on the first day of the week or month
+        val now = LocalDate.now()
+        return when (Prefs.recommendedReadingListUpdateFrequency) {
+            RecommendedReadingListUpdateFrequency.DAILY -> true
+            RecommendedReadingListUpdateFrequency.WEEKLY -> now.dayOfWeek.value == 1
+            RecommendedReadingListUpdateFrequency.MONTHLY -> now.dayOfMonth == 1
         }
     }
 
