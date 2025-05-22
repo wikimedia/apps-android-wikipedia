@@ -26,9 +26,9 @@ class RecommendedReadingListViewModel : ViewModel() {
 
         private const val MAX_RETRIES = 10
 
-        suspend fun getNewRecommendedArticleThumbnails(): List<String> {
-            val recommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().take(4)
-            return recommendedPages.map { it.thumbUrl.orEmpty() }
+        suspend fun getNewRecommendedArticles(): List<RecommendedPage> {
+            val recommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+            return recommendedPages.filter { it.status == 0 }
         }
 
         suspend fun generateRecommendedReadingList() {

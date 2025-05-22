@@ -106,14 +106,23 @@ fun DiscoverReadingListView(
                 )
             }
 
-            if (images.isNotEmpty()) {
-                LazyVerticalGrid(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(12.dp))
-                        .weight(0.9f),
-                    columns = GridCells.Fixed(2)
-                ) {
-                    items(images) { imageUrl ->
+            LazyVerticalGrid(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(12.dp))
+                    .weight(0.9f),
+                columns = GridCells.Fixed(2)
+            ) {
+                if (images.isEmpty()) {
+                    items(4) {
+                        Box(
+                            modifier = Modifier
+                                .size(70.dp)
+                                .background(WikipediaTheme.colors.borderColor)
+                        )
+                    }
+                } else {
+                    items(4) { index ->
+                        val imageUrl = images.getOrNull(index) ?: ""
                         if (imageUrl.isEmpty()) {
                             Box(
                                 modifier = Modifier

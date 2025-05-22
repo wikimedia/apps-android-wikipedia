@@ -58,6 +58,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -347,9 +348,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
 
                 // Recommended Reading List discover card
-                val images = RecommendedReadingListViewModel.getNewRecommendedArticleThumbnails()
-                if (Prefs.isRecommendedReadingListEnabled && images.isNotEmpty()) {
-                    setupDiscoverCardView(images)
+                val recommendedArticles = RecommendedReadingListViewModel.getNewRecommendedArticles()
+                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                    setupDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
                 }
@@ -860,10 +861,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun setupDiscoverCardView(images: List<String>) {
+    private fun setupDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
         binding.discoverCardView.isVisible = true
         binding.discoverCardView.setContent {
-            var images by remember { mutableStateOf(images) }
+            var images by remember { mutableStateOf(recommendedArticles.map { it.thumbUrl.orEmpty() }) }
+            val hasAllArticlesBeenRead by remember { mutableStateOf(recommendedArticles.all { it.status == 1 }) }
             val userName = AccountUtil.userName
             val subtitle = getString(R.string.recommended_reading_list_page_subtitle_made_for, userName)
             val description = when (Prefs.recommendedReadingListUpdateFrequency) {
@@ -879,7 +881,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     subtitleIcon = R.drawable.ic_wikipedia_w,
                     subtitle = subtitle,
                     description = getString(description),
-                    images = images
+                    images = images,
+                    canShowRedDot = hasAllArticlesBeenRead
                 )
             }
         }
