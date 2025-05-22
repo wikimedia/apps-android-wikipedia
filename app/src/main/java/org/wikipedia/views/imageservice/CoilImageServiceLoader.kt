@@ -2,10 +2,10 @@ package org.wikipedia.views.imageservice
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.graphics.createBitmap
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import coil3.Image
 import coil3.ImageLoader
@@ -24,7 +24,7 @@ import coil3.toBitmap
 import org.wikipedia.R
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.ResourceUtil
 
 class CoilImageServiceLoader : ImageServiceLoader {
     private var factory = SingletonImageLoader.Factory { context ->
@@ -62,7 +62,7 @@ class CoilImageServiceLoader : ImageServiceLoader {
         if (placeholderId != null) {
             requestBuilder.placeholder(placeholderId).error(placeholderId)
         } else {
-            val placeHolder = ColorDrawable(getThemedColor(context, R.attr.border_color))
+            val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
             requestBuilder.placeholder(placeHolder).error(placeHolder)
         }
 
