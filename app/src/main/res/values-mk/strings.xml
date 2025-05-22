@@ -1789,7 +1789,7 @@
   <string name="recommended_reading_list_page_description_monthly">Вшаиот месечен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на почетокот на секој месец.</string>
   <string name="recommended_reading_list_page_overflow_customize">Прилагоди</string>
   <string name="recommended_reading_list_page_overflow_about">За функцијава</string>
-  <string name="recommended_reading_list_page_snackbar">Откриј ќе се подновува со %d нови статии на секој %s. Вашите препораки се складираат месно на вашиот уред.</string>
+  <string name="recommended_reading_list_page_snackbar">Откриј ќе се подновува со %1$d нови статии на секој %2$s. Вашите препораки се складираат месно на вашиот уред.</string>
   <string name="recommended_reading_list_page_snackbar_action">Прилагоди го Откриј</string>
   <string name="recommended_reading_list_page_snackbar_day">Ден</string>
   <string name="recommended_reading_list_page_snackbar_week">Недела</string>
