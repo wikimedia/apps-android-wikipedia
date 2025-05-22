@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.RecommendedPage
 
 @Dao
@@ -17,6 +18,9 @@ interface RecommendedPageDao {
 
     @Update
     suspend fun updateAll(recommendedPages: List<RecommendedPage>)
+
+    @Query("SELECT COUNT(*) FROM RecommendedPage WHERE apiTitle = :apiTitle AND wiki = :wiki")
+    suspend fun findIfAny(apiTitle: String, wiki: WikiSite): Int
 
     @Query("DELETE FROM RecommendedPage")
     suspend fun deleteAll()
