@@ -812,4 +812,8 @@ object Prefs {
     var recommendedReadingListSourceTitlesWithOffset
         get() = JsonUtil.decodeFromString<List<SourceWithOffset>>(PrefsIoUtil.getString(R.string.preference_key_recommended_reading_list_titles_with_offset, null)) ?: emptyList()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_titles_with_offset, JsonUtil.encodeToString(types))
+
+    var isRecommendedReadingListOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, value)
 }

@@ -188,4 +188,5 @@
     <string name="preference_key_recommended_reading_list_source">recommendedReadingListSource</string>
     <string name="preference_key_recommended_reading_list_notification_enabled">recommendedReadingListNotificationEnabled</string>
     <string name="preference_key_recommended_reading_list_titles_with_offset">recommendedReadingListTitlesWithOffset</string>
+    <string name="preference_key_recommended_reading_list_onboarding_shown">recommendedReadingListOnboardingShown</string>
 </resources>

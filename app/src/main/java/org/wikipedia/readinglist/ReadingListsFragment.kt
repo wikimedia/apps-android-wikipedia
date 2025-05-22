@@ -787,6 +787,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -797,6 +798,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }, false)
             binding.onboardingView.isVisible = true
         } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -809,6 +811,21 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 binding.onboardingView.isVisible = false
                 Prefs.isReadingListLoginReminderEnabled = false
                 updateEmptyState(null)
+            }, false)
+            binding.onboardingView.isVisible = true
+        } else if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
+            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
+            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
+            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+                // TODO: open Recommended reading list onboarding page
+                Prefs.isRecommendedReadingListOnboardingShown = true
+            }, true)
+            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+                binding.onboardingView.isVisible = false
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                updateEmptyState(null)
+                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
             }, false)
             binding.onboardingView.isVisible = true
         } else {
