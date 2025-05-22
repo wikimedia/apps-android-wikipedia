@@ -53,11 +53,11 @@ class YearInReviewViewModel() : ViewModel() {
                         .map { StringUtil.fromHtml(it).toString() }
                     readCountData.headLineText = WikipediaApp.instance.getString(
                         R.string.year_in_review_read_count_headline,
-                        personalizedStatistics.readCount.toString()
+                        personalizedStatistics.readCount
                     )
                     readCountData.bodyText = WikipediaApp.instance.getString(
                         R.string.year_in_review_read_count_bodytext,
-                        personalizedStatistics.readCount.toString(),
+                        personalizedStatistics.readCount,
                         personalizedStatistics.readCountApiTitles[0],
                         personalizedStatistics.readCountApiTitles[1],
                         personalizedStatistics.readCountApiTitles[2]
@@ -108,11 +108,11 @@ class YearInReviewViewModel() : ViewModel() {
 
             editCountData.headLineText = WikipediaApp.instance.getString(
                 R.string.year_in_review_edit_count_headline,
-                personalizedStatistics.editCount.toString()
+                personalizedStatistics.editCount
             )
             editCountData.bodyText = WikipediaApp.instance.getString(
                 R.string.year_in_review_edit_count_bodytext,
-                personalizedStatistics.editCount.toString()
+                personalizedStatistics.editCount
             )
 
             _uiScreenListState.value = Resource.Success(

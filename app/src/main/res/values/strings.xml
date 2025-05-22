@@ -1888,10 +1888,10 @@
     <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
     <string name="year_in_review_entry_dialog_continue">Continue</string>
-    <string name="year_in_review_read_count_headline">You read %s articles this year</string>
-    <string name="year_in_review_read_count_bodytext">This year, you read %1$s articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
-    <string name="year_in_review_edit_count_headline">You edited Wikipedia %s times</string>
-    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %s times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
+    <string name="year_in_review_read_count_headline">You read %d articles this year</string>
+    <string name="year_in_review_read_count_bodytext">This year, you read %1$d articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
+    <string name="year_in_review_edit_count_headline">You edited Wikipedia %d times</string>
+    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
     <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
     <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
     <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>

@@ -1806,10 +1806,10 @@
   <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
-  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. \"%s\" represents the total number of articles in the HistoryEntry table for the current year</string>
-  <string name="year_in_review_read_count_bodytext">Body text for the year in review readcount page. The first \"%1\$s\" represents the total number of articles in the HistoryEntry table for the current year. The second \"%2$\s\ is one article, the third \"%3$\s\ is an additional article, and the 4th \"%4$\s\ is a the last artcile</string>
-  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
-  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
+  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. %d represents the total number of articles in the HistoryEntry table for the current year</string>
+  <string name="year_in_review_read_count_bodytext">Body text for the year in review readcount page. The first %1$d represents the total number of articles in the HistoryEntry table for the current year. The second %2$s is one article, the third %3$s is an additional article, and the 4th %4$s is a the last artcile</string>
+  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. %d represents the total number of userContribs for the current year</string>
+  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. %d represents the total number of userContribs for the current year</string>
   <string name="year_in_review_non_english_collective_readcount_headline">Headline text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
