@@ -288,7 +288,6 @@ fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
 ) {
-    val context = LocalContext.current
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
 
