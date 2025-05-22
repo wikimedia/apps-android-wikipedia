@@ -63,7 +63,7 @@ fun YearInReviewEntryDialogScreen() {
         )
         AsyncImage(
             model = R.drawable.wyir_puzzle_4_v2,
-            contentDescription = null,
+            contentDescription = stringResource(R.string.year_in_review_entry_dialog_screen_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
                 .heightIn(max = 240.dp)

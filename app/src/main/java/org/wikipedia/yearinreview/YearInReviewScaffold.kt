@@ -299,7 +299,7 @@ fun YearInReviewScreenContent(
     ) {
         AsyncImage(
             model = screenData.imageResource,
-            contentDescription = null,
+            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(gifAspectRatio)
