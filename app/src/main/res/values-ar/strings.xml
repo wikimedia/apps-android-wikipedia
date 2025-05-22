@@ -2036,7 +2036,7 @@
   <string name="recommended_reading_list_page_description_monthly">قائمة قراءاتك الشهرية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في أول كل شهر.</string>
   <string name="recommended_reading_list_page_overflow_customize">تخصيص</string>
   <string name="recommended_reading_list_page_overflow_about">حول هذه الميزة</string>
-  <string name="recommended_reading_list_page_snackbar">سيتم تحديث تطبيق Discover بإضافة %d مقالة جديدة كل %s . سيتم تخزين توصياتك محليًا على جهازك.</string>
+  <string name="recommended_reading_list_page_snackbar">سيتم تحديث تطبيق Discover بإضافة %1$d مقالة جديدة كل %2$s . سيتم تخزين توصياتك محليًا على جهازك.</string>
   <string name="recommended_reading_list_page_snackbar_action">تخصيص الاكتشاف</string>
   <string name="recommended_reading_list_page_snackbar_day">يوم</string>
   <string name="recommended_reading_list_page_snackbar_week">أسبوع</string>

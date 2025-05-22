@@ -1802,7 +1802,7 @@
   <string name="recommended_reading_list_page_description_monthly">Kuukausittainen lukulistasi. Opi uusista aiheista, juuri sinulle valittuina. Päivittyy kuukauden alussa.</string>
   <string name="recommended_reading_list_page_overflow_customize">Mukauta</string>
   <string name="recommended_reading_list_page_overflow_about">Tietoja tästä ominaisuudesta</string>
-  <string name="recommended_reading_list_page_snackbar">Löydä artikkeleita -lukulista päivittyy %d uudella artikkelilla joka %s. Artikkelisuosituksesi on tallennettu paikallisesti laitteellesi.</string>
+  <string name="recommended_reading_list_page_snackbar">Löydä artikkeleita -lukulista päivittyy %1$d uudella artikkelilla joka %2$s. Artikkelisuosituksesi on tallennettu paikallisesti laitteellesi.</string>
   <string name="recommended_reading_list_page_snackbar_action">Mukauta Löydä artikkeleita</string>
   <string name="recommended_reading_list_page_snackbar_day">päivä</string>
   <string name="recommended_reading_list_page_snackbar_week">viikko</string>
