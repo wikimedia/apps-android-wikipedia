@@ -1814,6 +1814,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Positive action button in the dialog to proceed with random selection.</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Negative action button in the dialog to cancel random selection.</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Subtitle on the Discover page indicating the user for whom the list is generated. %s is replaced by the username.</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Subtitle on the Discover page indicating that the list is generated for the logged out user.</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
     <item quantity="other">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
