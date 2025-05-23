@@ -223,16 +223,14 @@
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
   <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
@@ -491,8 +489,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">వ్యాసం అనేక జాబితాల్లో ఉంది</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">ఇక %s, చదివే జాబితా లన్నిటినీ లోనూ ఆఫ్‌లైనులో అందుబాటులో ఉండదు:</string>
   <string name="reading_lists_sync_reminder_title">చదివే జాబితా సింకును ఆన్ చేస్తారా?</string>
-  <string name="reading_lists_sync_reminder_text">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">చదివే జాబితాల్లోకి చేర్చిన వ్యాసాలను ఇపుడు మీ వికీపీడియా ఖాతాకు సింకు చేసుకోవచ్చు. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">చదివే జాబితాలను ఇపుడు అన్ని డివైసుల లోకీ సింకు చేసుకోవచ్చు. మీ వికీపీడియా ఖాతా లోకి లాగినై జాబితాలను భద్రపరచండి. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">సింకును చేతనం చెయ్యండి</string>
   <string name="reading_list_login_reminder_title">చదివే జాబితాలను సింకు చెయ్యండి</string>
   <string name="reading_lists_login_button">వికీపీడియాలో లాగినవండి / చేరండి</string>

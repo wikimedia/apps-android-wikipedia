@@ -1,8 +1,8 @@
 package org.wikipedia.robots
 
+import BaseRobot
 import android.content.Context
 import org.wikipedia.R
-import org.wikipedia.base.base.BaseRobot
 
 class DialogRobot : BaseRobot() {
 

@@ -235,14 +235,12 @@
   <string name="privacy_policy_description">Patakaran sa Pagkapribado</string>
   <string name="terms_of_use_description">Kasunduan sa Paggamit</string>
   <string name="about_wikipedia_url">https://tl.wikipedia.org/wiki/Wikipedia:Patungkol</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Mga ginamit na library</string>
   <string name="about_contributors_heading">Mga nag-ambag</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
@@ -535,8 +533,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Makikita ang artikulo sa maraming listahan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Di na mababasa offline ang %s sa mga ito:</string>
   <string name="reading_lists_sync_reminder_title">Buksan ang pag-sync ng mga babasahin?</string>
-  <string name="reading_lists_sync_reminder_text">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Buksan ang pag-sync</string>
   <string name="reading_list_login_reminder_title">I-sync ang mga babasahin</string>
   <string name="reading_lists_login_reminder_text">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo.</string>
