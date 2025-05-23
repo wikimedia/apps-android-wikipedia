@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -84,39 +86,46 @@ fun SourceSelectionScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .background(WikipediaTheme.colors.paperColor),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+                .padding(paddingValues),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Text(
-                text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
-                color = WikipediaTheme.colors.primaryColor,
-                fontSize = 22.sp,
-                textAlign = TextAlign.Center
-            )
+            Spacer(modifier = Modifier.weight(1f))
 
-            SourceOptionCard(
+            Column (
                 modifier = Modifier
-                    .clickable(onClick = onInterestsClick),
-                iconRes = R.drawable.outline_interests_24,
-                textRes = R.string.recommended_reading_list_interest_source_interests,
-            )
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                Text(
+                    text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
+                    color = WikipediaTheme.colors.primaryColor,
+                    fontSize = 22.sp,
+                    textAlign = TextAlign.Center
+                )
 
-            SourceOptionCard(
-                modifier = Modifier
-                    .clickable(onClick = onSavedClick),
-                iconRes = R.drawable.ic_bookmark_border_white_24dp,
-                textRes = R.string.recommended_reading_list_interest_source_saved,
-            )
+                SourceOptionCard(
+                    modifier = Modifier
+                        .clickable(onClick = onInterestsClick),
+                    iconRes = R.drawable.outline_interests_24,
+                    textRes = R.string.recommended_reading_list_interest_source_interests,
+                )
 
-            SourceOptionCard(
-                modifier = Modifier
-                    .clickable(onClick = onHistoryClick),
-                iconRes = R.drawable.ic_history_24,
-                textRes = R.string.recommended_reading_list_interest_source_history,
-            )
+                SourceOptionCard(
+                    modifier = Modifier
+                        .clickable(onClick = onSavedClick),
+                    iconRes = R.drawable.ic_bookmark_border_white_24dp,
+                    textRes = R.string.recommended_reading_list_interest_source_saved,
+                )
+
+                SourceOptionCard(
+                    modifier = Modifier
+                        .clickable(onClick = onHistoryClick),
+                    iconRes = R.drawable.ic_history_24,
+                    textRes = R.string.recommended_reading_list_interest_source_history,
+                )
+            }
 
             Spacer(modifier = Modifier.weight(1f))
 
@@ -166,17 +175,14 @@ fun SourceOptionCard(
             color = WikipediaTheme.colors.borderColor
         )
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            ListItem(
-                modifier = modifier,
-                colors = ListItemDefaults.colors(
-                    containerColor = WikipediaTheme.colors.paperColor
-                ),
-                leadingContent = {
+        ListItem(
+            modifier = modifier
+                .fillMaxWidth(),
+            colors = ListItemDefaults.colors(
+                containerColor = WikipediaTheme.colors.paperColor
+            ),
+            headlineContent = {
+                Row {
                     Icon(
                         modifier = Modifier
                             .size(24.dp),
@@ -184,16 +190,15 @@ fun SourceOptionCard(
                         tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = stringResource(textRes)
                     )
-                },
-                headlineContent = {
                     Text(
+                        modifier = Modifier.padding(horizontal = 16.dp),
                         text = stringResource(textRes),
-                        style = WikipediaTheme.typography.p,
+                        style = MaterialTheme.typography.bodyLarge,
                         color = WikipediaTheme.colors.primaryColor
                     )
                 }
-            )
-        }
+            }
+        )
     }
 }
 
