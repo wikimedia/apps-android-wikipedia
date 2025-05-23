@@ -208,9 +208,9 @@ class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
     private fun shareImage() {
         viewModel.pageSummaryForEdit?.let { summary ->
             val thumbUrl = summary.getPreferredSizeThumbnailUrl()
-            ImageService.imagePipeLineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+            ImageService.loadImage(requireContext(), thumbUrl) { bitmap ->
                 if (!isAdded) {
-                    return@imagePipeLineBitmapGetter
+                    return@loadImage
                 }
                 shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                     summary.displayTitle, summary.pageTitle.uri)

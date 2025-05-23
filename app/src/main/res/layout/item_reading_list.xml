@@ -133,8 +133,8 @@
 
     <CheckBox
         android:id="@+id/item_select_checkbox"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
         android:contentDescription="@null"

@@ -533,6 +533,12 @@
     <style name="RoundedCornerOverlay.BottomRight">
         <item name="cornerSizeBottomRight">16dp</item>
     </style>
+    <style name="RoundedCornerOverlay.All.Thumb">
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+    </style>
     <style name="RoundedCornerOverlay.All.Small">
         <item name="cornerSizeTopLeft">12dp</item>
         <item name="cornerSizeTopRight">12dp</item>
@@ -544,6 +550,11 @@
         <item name="cornerSizeTopRight">16dp</item>
         <item name="cornerSizeBottomLeft">16dp</item>
         <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="ImageViewDefault.Thumb">
+        <item name="android:layout_width">@dimen/defaultThumbnailSize</item>
+        <item name="android:layout_height">@dimen/defaultThumbnailSize</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedCornerOverlay.All.Thumb</item>
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">

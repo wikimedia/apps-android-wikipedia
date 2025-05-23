@@ -12,7 +12,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -58,7 +57,6 @@ class GalleryItemFragment : Fragment(), MenuProvider {
     private val activityViewModel: GalleryViewModel by activityViewModels()
 
     private var mediaController: MediaController? = null
-    private val galleryItemImageLoadListener = GalleryItemImageLoadListener()
 
     val imageTitle get() = viewModel.imageTitle
     val mediaPage get() = viewModel.mediaPage
@@ -242,7 +240,7 @@ class GalleryItemFragment : Fragment(), MenuProvider {
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, force = true, listener = galleryItemImageLoadListener)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, force = true, listener = GalleryItemImageLoadListener(binding.videoThumbnail))
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
@@ -250,15 +248,15 @@ class GalleryItemFragment : Fragment(), MenuProvider {
     private fun loadImage(url: String) {
         binding.imageView.visibility = View.INVISIBLE
         onLoading(true)
-        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, force = true, listener = galleryItemImageLoadListener)
+        ViewUtil.loadImage(binding.imageView, url, force = true, listener = GalleryItemImageLoadListener(binding.imageView))
     }
 
     private fun shareImage() {
         mediaInfo?.let {
             val imageUrl = ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)
-            ImageService.imagePipeLineBitmapGetter(requireContext(), imageUrl, onSuccess = { bitmap ->
+            ImageService.loadImage(requireContext(), imageUrl, onSuccess = { bitmap ->
                 if (!isAdded) {
-                    return@imagePipeLineBitmapGetter
+                    return@loadImage
                 }
                 callback()?.onShare(this@GalleryItemFragment, bitmap,
                     StringUtil.removeHTMLTags(viewModel.imageTitle.displayText), imageTitle)
@@ -274,8 +272,8 @@ class GalleryItemFragment : Fragment(), MenuProvider {
         return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
-    private inner class GalleryItemImageLoadListener : ImageLoadListener {
-        override fun onSuccess(view: ImageView) {
+    private inner class GalleryItemImageLoadListener(val view: View) : ImageLoadListener {
+        override fun onSuccess(image: Any, width: Int, height: Int) {
             if (view.id == binding.imageView.id) {
                 binding.imageView.visibility = View.VISIBLE
                 (requireActivity() as GalleryActivity).onMediaLoaded()
