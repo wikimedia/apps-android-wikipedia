@@ -2,7 +2,6 @@ package org.wikipedia.readinglist.recommended
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,7 +13,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Card
@@ -36,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -84,6 +87,8 @@ fun SourceSelectionScreen(
 
         is Resource.Success -> {
             SourceSelectionContent(
+                fromSettings = uiState.data.fromSettings,
+                selectedSource = uiState.data.selectedSource,
                 isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
                 isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
                 onCloseClick = onCloseClick,
@@ -99,6 +104,8 @@ fun SourceSelectionScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionContent(
+    fromSettings: Boolean,
+    selectedSource: RecommendedReadingListSource,
     isSavedOptionEnabled: Boolean,
     isHistoryOptionEnabled: Boolean,
     onCloseClick: () -> Unit = {},
@@ -115,14 +122,22 @@ fun SourceSelectionContent(
             .background(WikipediaTheme.colors.paperColor),
         topBar = {
             TopAppBar(
-                title = { },
+                title = {
+                    if (fromSettings) {
+                        Text(
+                            text = stringResource(id = R.string.recommended_reading_list_settings_updates_base_title),
+                            color = WikipediaTheme.colors.primaryColor,
+                            style = WikipediaTheme.typography.h1.copy(lineHeight = 24.sp)
+                        )
+                    }
+                },
                 navigationIcon = {
                     Icon(
-                        imageVector = Icons.Default.Close,
-                        contentDescription = stringResource(id = R.string.table_close),
+                        imageVector = if (fromSettings) Icons.AutoMirrored.Filled.ArrowBack else Icons.Default.Close,
+                        contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
-                            .clickable(onClick = onCloseClick)
+                            .clickableWithRipple(onClick = onCloseClick)
                             .padding(12.dp),
                         tint = WikipediaTheme.colors.primaryColor
                     )
@@ -139,11 +154,13 @@ fun SourceSelectionContent(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
-            Spacer(modifier = Modifier.weight(1f))
+            if (!fromSettings) {
+                Spacer(modifier = Modifier.weight(1f))
+            }
 
             Column(
                 modifier = Modifier
@@ -151,18 +168,21 @@ fun SourceSelectionContent(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
-                Text(
-                    text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
-                    color = WikipediaTheme.colors.primaryColor,
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
-                )
+                if (!fromSettings) {
+                    Text(
+                        text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
+                        color = WikipediaTheme.colors.primaryColor,
+                        fontSize = 22.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
 
                 SourceOptionCard(
                     modifier = Modifier
                         .clickableWithRipple(onClick = onInterestsClick),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
+                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
                 )
 
                 if (isSavedOptionEnabled) {
@@ -171,6 +191,7 @@ fun SourceSelectionContent(
                             .clickableWithRipple(onClick = onSavedClick),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
+                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                     )
                 }
 
@@ -180,43 +201,46 @@ fun SourceSelectionContent(
                             .clickableWithRipple(onClick = onHistoryClick),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
+                        selectedSource == RecommendedReadingListSource.HISTORY
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.weight(1f))
+            if (!fromSettings) {
+                Spacer(modifier = Modifier.weight(1f))
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Spacer(
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(1.dp)
-                        .background(WikipediaTheme.colors.borderColor)
-                )
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    contentDescription = stringResource(id = R.string.nav_item_forward),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    modifier = Modifier
-                        .size(48.dp)
-                        .align(Alignment.CenterEnd)
-                        .clickable(onClick = onNextClick)
-                        .padding(8.dp)
-                )
+                ) {
+                    Spacer(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(1.dp)
+                            .background(WikipediaTheme.colors.borderColor)
+                    )
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = stringResource(id = R.string.nav_item_forward),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        modifier = Modifier
+                            .size(48.dp)
+                            .align(Alignment.CenterEnd)
+                            .clickableWithRipple(onClick = onNextClick)
+                            .padding(8.dp)
+                    )
+                }
             }
         }
     }
 }
 
-// TODO: handle selected state
 @Composable
 fun SourceOptionCard(
     modifier: Modifier,
     iconRes: Int,
     textRes: Int,
+    isSelected: Boolean = false
 ) {
     Card(
         modifier = Modifier
@@ -237,7 +261,7 @@ fun SourceOptionCard(
                 .fillMaxWidth()
                 .heightIn(min = 88.dp),
             colors = ListItemDefaults.colors(
-                containerColor = WikipediaTheme.colors.paperColor
+                containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
             ),
             headlineContent = {
                 Row {
@@ -252,6 +276,7 @@ fun SourceOptionCard(
                         modifier = Modifier.padding(horizontal = 16.dp),
                         text = stringResource(textRes),
                         style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                         color = WikipediaTheme.colors.primaryColor
                     )
                 }
@@ -267,6 +292,7 @@ fun DefaultPreviewSourceSelectionScreen() {
         SourceSelectionScreen(
             uiState = Resource.Success(
                 RecommendedReadingListViewModel.SourceSelectionUiState(
+                    fromSettings = false,
                     isSavedOptionEnabled = true,
                     isHistoryOptionEnabled = true,
                     selectedSource = RecommendedReadingListSource.INTERESTS

@@ -812,13 +812,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 updateEmptyState(null)
             }, false)
             binding.onboardingView.isVisible = true
-        } else if (true) { // !Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled
+        } else if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
             binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
                 requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
-                // Prefs.isRecommendedReadingListOnboardingShown = true
+                Prefs.isRecommendedReadingListOnboardingShown = true
             }, true)
             binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
                 binding.onboardingView.isVisible = false

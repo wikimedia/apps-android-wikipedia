@@ -8,6 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.Constants
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 
@@ -23,6 +24,9 @@ class RecommendedReadingListSourceFragment : Fragment() {
                     SourceSelectionScreen(
                         uiState = viewModel.uiSourceState.collectAsState().value,
                         onCloseClick = {
+                            if (viewModel.fromSettings) {
+                                viewModel.saveSourceSelection()
+                            }
                             requireActivity().finish()
                         },
                         onInterestsClick = {
@@ -35,7 +39,13 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.HISTORY)
                         },
                         onNextClick = {
-                            // viewModel.handleNextAction()
+                            viewModel.saveSourceSelection().let { shouldGoToInterests ->
+                                if (shouldGoToInterests) {
+                                    // TODO: Navigate to interests screen
+                                } else {
+                                    // TODO: Navigate to Discover screen
+                                }
+                            }
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             backClickListener = {
@@ -52,8 +62,12 @@ class RecommendedReadingListSourceFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): RecommendedReadingListSourceFragment {
-            return RecommendedReadingListSourceFragment()
+        fun newInstance(fromSettings: Boolean = false): RecommendedReadingListSourceFragment {
+            return RecommendedReadingListSourceFragment().apply {
+                arguments = Bundle().apply {
+                    putBoolean(Constants.ARG_BOOLEAN, fromSettings)
+                }
+            }
         }
     }
 }
