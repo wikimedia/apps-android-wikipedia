@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.extensions.setLayoutDirectionByLang
-import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -40,6 +39,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil.shareImage
+import org.wikipedia.views.imageservice.ImageService
 import java.io.File
 
 class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
@@ -208,9 +208,9 @@ class FilePageFragment : Fragment(), FilePageView.Callback, MenuProvider {
     private fun shareImage() {
         viewModel.pageSummaryForEdit?.let { summary ->
             val thumbUrl = summary.getPreferredSizeThumbnailUrl()
-            ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+            ImageService.loadImage(requireContext(), thumbUrl) { bitmap ->
                 if (!isAdded) {
-                    return@ImagePipelineBitmapGetter
+                    return@loadImage
                 }
                 shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                     summary.displayTitle, summary.pageTitle.uri)

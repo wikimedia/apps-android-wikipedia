@@ -1806,10 +1806,22 @@
   <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
-  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. \"%s\" represents the total number of articles in the HistoryEntry table for the current year</string>
-  <string name="year_in_review_read_count_bodytext">Body text for the year in review readcount page. The first \"%s\" represents the total number of articles in the HistoryEntry table for the current year. The second \"%s\ is one article, the third \"%s\ is an additional article, and the 4th \"%s\ is a the last artcile</string>
-  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
-  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. \"%s\" represents the total number of userContribs for the current year</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Headline text for the year in review readcount page. %d represents how many article a user read for the current year</item>
+    <item quantity="other">Headline text for the year in review readcount page. %d represents how many article a user read for the current year</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</item>
+    <item quantity="other">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
+    <item quantity="other">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
+    <item quantity="other">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
+  </plurals>
   <string name="year_in_review_non_english_collective_readcount_headline">Headline text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
@@ -1825,6 +1837,8 @@
   <string name="year_in_review_survey_cancel">Cancel button text for the Year in Review survey</string>
   <string name="year_in_review_survey_submit">Submit button text for the Year in Review survey</string>
   <string name="year_in_review_survey_input_placeholder">Placeholder text for year in review the survey input field</string>
+  <string name="year_in_review_screendeck_image_content_description">Content description for the image used in the Year in Review main screendeck</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Content description for the image used in the Year in Review entry dialog screen</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>
@@ -1850,6 +1864,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Positive action button in the dialog to proceed with random selection.</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Negative action button in the dialog to cancel random selection.</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Subtitle on the Discover page indicating the user for whom the list is generated. %s is replaced by the username.</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Subtitle on the Discover page indicating that the list is generated for the logged out user.</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
     <item quantity="other">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
@@ -1859,7 +1874,7 @@
   <string name="recommended_reading_list_page_description_monthly">Description of the monthly reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_overflow_customize">Menu item label to customize the recommended reading list settings.</string>
   <string name="recommended_reading_list_page_overflow_about">Menu item label to learn more about the recommended reading list feature.</string>
-  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %d is replaced by the number of articles, and %s is replaced by the update frequency.</string>
+  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %1$d is replaced by the number of articles, and %2$s is replaced by the update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_action">Action label on the snackbar to navigate to the customization settings.</string>
   <string name="recommended_reading_list_page_snackbar_day">Text for the snackbar message that indicates a daily update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_week">Text for the snackbar message that indicates a weekly update frequency.</string>
@@ -1903,4 +1918,6 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Negative action button in the dialog to keep the recommended reading list notifications on.</string>
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
 </resources>

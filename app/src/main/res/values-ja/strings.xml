@@ -306,8 +306,6 @@
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_tags</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
@@ -1645,7 +1643,7 @@
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
   <string name="donation_campaign_maybe_later_snackbar">明日、再度お知らせいたします。</string>
-  <string name="donation_campaign_donated_snackbar">ご寄付をしてくださり、ありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
+  <string name="donation_campaign_donated_snackbar">ご支援いただきましてありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">規定のブラウザで開く</string>
   <string name="donate_gpay_dialog_title">Google Payで寄付しますか?</string>

@@ -274,8 +274,6 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_tags</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
@@ -1812,6 +1810,7 @@
   <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
   <string name="on_this_day_game_progress">%1$d з %2$d</string>
   <string name="on_this_day_game_score">Рахунок: %d</string>
+  <string name="on_this_day_game_submit">Надіслати</string>
   <string name="on_this_day_game_correct">Правильно!</string>
   <string name="on_this_day_game_incorrect">Неправильно!</string>
   <string name="on_this_day_game_point">+1 бал</string>
@@ -1866,4 +1865,12 @@
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
   <string name="on_this_day_game_archive_calendar_title">Виберіть гру за датою.</string>
   <string name="on_this_day_game_score_toast_message">Ваш результат цього дня — %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Продовжити сьогоднішню гру</string>
+  <string name="on_this_day_game_current_progress_message">Ви на %d питанні.</string>
+  <string name="on_this_day_game_archive_btn_text">Відграти архів</string>
+  <string name="on_this_day_game_review_results_btn_text">Переглянути результати</string>
+  <string name="on_this_day_game_score_message">Ваш результат сьогодні — %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Продовжити гру</string>
+  <string name="on_this_day_game_sound_on">Увімкнути звук</string>
+  <string name="on_this_day_game_sound_off">Вимкнути звук</string>
 </resources>
