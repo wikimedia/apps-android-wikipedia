@@ -259,6 +259,19 @@
         <item name="lineHeight">24sp</item>
     </style>
 
+    <style name="Chip.Label">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="chipBackgroundColor">?attr/background_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">?attr/border_color</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipMinHeight">24dp</item>
+        <item name="chipStartPadding">0dp</item>
+        <item name="chipEndPadding">0dp</item>
+    </style>
+
     <style name="Chip.Accessible">
         <item name="chipBackgroundColor">?attr/background_color</item>
         <item name="chipStrokeWidth">1dp</item>

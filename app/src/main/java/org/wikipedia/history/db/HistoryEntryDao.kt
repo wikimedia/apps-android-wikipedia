@@ -18,6 +18,9 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
+    @Query("SELECT * FROM HistoryEntry ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getHistoryEntriesByRandom(limit: Int): List<HistoryEntry>
+
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
