@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -55,16 +56,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
+    context: Context = LocalContext.current,
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
@@ -72,7 +76,6 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    val context = LocalContext.current
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -238,7 +241,8 @@ fun MainBottomBar(
 
 @Composable
 fun OnboardingBottomBar(
-    onGetStartedClick: () -> Unit
+    onGetStartedClick: () -> Unit,
+    context: Context
 ) {
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -256,7 +260,12 @@ fun OnboardingBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { /* TODO() */ }
+                    onClick = {
+                        UriUtil.handleExternalLink(
+                            context = context,
+                            uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                        )
+                    }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -287,6 +296,8 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
+    context: Context,
+    isInfoIconVisible: Boolean = true
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -322,13 +333,20 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                IconButton(
-                    onClick = { /* TODO() */ }) {
-                    Icon(
-                        painter = painterResource(R.drawable.baseline_info_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_information_icon)
-                    )
+                if (isInfoIconVisible) {
+                    IconButton(
+                        onClick = {
+                            UriUtil.handleExternalLink(
+                                context = context,
+                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                            )
+                        }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
                 }
             }
             Text(
