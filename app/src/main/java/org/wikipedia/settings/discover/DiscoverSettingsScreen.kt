@@ -15,7 +15,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -29,7 +28,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import org.wikipedia.R
 import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -119,35 +118,21 @@ fun DiscoverScreen(
         }
 
         if (showAlertDialog) {
-            AlertDialog(
-                title = {
-                    Text(text = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_title))
-                },
-                text = {
-                    Text(text = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_message, uiState.updateFrequency.name.lowercase()))
-                },
+            WikipediaAlertDialog(
+                title = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_title),
+                message = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_message, uiState.updateFrequency.name.lowercase()),
+                confirmButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button),
+                dismissButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button),
                 onDismissRequest = {
                     showAlertDialog = false
                 },
-                confirmButton = {
-                    TextButton(
-                        onClick = {
-                            showAlertDialog = false
-                            onDiscoverReadingListClicked(false)
-                        }
-                    ) {
-                        Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button))
-                    }
+                onConfirmBtnClick = {
+                    showAlertDialog = false
+                    onDiscoverReadingListClicked(false)
                 },
-                dismissButton = {
-                    TextButton(
-                        onClick = {
-                            showAlertDialog = false
-                            onDiscoverReadingListClicked(true)
-                        }
-                    ) {
-                        Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button))
-                    }
+                onDismissBtnClick = {
+                    showAlertDialog = false
+                    onDiscoverReadingListClicked(true)
                 }
             )
         }
@@ -182,7 +167,6 @@ fun DiscoverSettingsOnState(
     onInterestClick: () -> Unit,
     onNotificationStateChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier
-
 ) {
     Column(
         modifier = modifier
@@ -239,7 +223,8 @@ fun ArticlesNumberView(
     onArticleNumberChanged: (Int) -> Unit,
     modifier: Modifier = Modifier,
     maxArticleNumber: Int = 20,
-    ) {
+    minArticleNumber: Int = 1,
+) {
     var textFieldInput by remember { mutableStateOf(articlesNumber.toString()) }
     var hasUserEdited by remember { mutableStateOf(false) }
     if (!hasUserEdited) {
@@ -276,15 +261,19 @@ fun ArticlesNumberView(
                         when {
                             newValue.isEmpty() -> {
                                 textFieldInput = newValue
-                                onArticleNumberChanged(1)
+                                onArticleNumberChanged(minArticleNumber)
                             }
-                            intValue != null && intValue <= maxArticleNumber -> {
-                                textFieldInput = newValue
-                                onArticleNumberChanged(intValue)
+                            intValue != null && intValue < minArticleNumber -> {
+                                textFieldInput = minArticleNumber.toString()
+                                onArticleNumberChanged(minArticleNumber)
                             }
                             intValue != null && intValue > maxArticleNumber -> {
                                 textFieldInput = maxArticleNumber.toString()
                                 onArticleNumberChanged(maxArticleNumber)
+                            }
+                            intValue != null -> { // valid range
+                                textFieldInput = newValue
+                                onArticleNumberChanged(intValue)
                             }
                         }
                     },
@@ -304,8 +293,7 @@ fun ArticlesNumberView(
                     color = WikipediaTheme.colors.primaryColor
                 )
             }
-        },
-
+        }
     )
 }
 
@@ -537,35 +525,21 @@ fun DiscoverNotificationView(
     )
 
     if (showAlertDialog) {
-        AlertDialog(
-            title = {
-                Text(text = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_title))
-            },
-            text = {
-                Text(text = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_message))
-            },
+        WikipediaAlertDialog(
+            title = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_title),
+            message = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_message),
+            confirmButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button),
+            dismissButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button),
             onDismissRequest = {
                 showAlertDialog = false
             },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        showAlertDialog = false
-                        onNotificationStateChanged(false)
-                    }
-                ) {
-                    Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button))
-                }
+            onConfirmBtnClick = {
+                showAlertDialog = false
+                onNotificationStateChanged(false)
             },
-            dismissButton = {
-                TextButton(
-                    onClick = {
-                        showAlertDialog = false
-                        onNotificationStateChanged(true)
-                    }
-                ) {
-                    Text(stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button))
-                }
+            onDismissBtnClick = {
+                showAlertDialog = false
+                onNotificationStateChanged(true)
             }
         )
     }

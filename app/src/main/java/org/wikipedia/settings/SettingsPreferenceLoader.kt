@@ -109,9 +109,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     }
 
     fun updateDiscoverReadingListSummary() {
-        findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = if (!Prefs.isRecommendedReadingListEnabled)
-            activity.getString(R.string.recommended_reading_list_settings_toggle_disable_message) else
-                "Discover is on. Wikipedia will recommend you articles to read." // @TODO: replace it string resource
+        val summary = if (Prefs.isRecommendedReadingListEnabled) {
+            R.string.recommended_reading_list_settings_toggle_enable_message
+        } else R.string.recommended_reading_list_settings_toggle_disable_message
+        findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = activity.getString(summary)
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
