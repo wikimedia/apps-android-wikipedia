@@ -14,6 +14,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
 
@@ -82,7 +85,19 @@ class YearInReviewActivity : BaseActivity() {
                                         },
                                         pagerState = pagerState,
                                         totalPages = screenState.data.size,
-                                        onDonateClick = { launchDonateDialog("yir") }
+                                        onDonateClick = {
+                                            EventPlatformClient.submit(
+                                                BreadCrumbLogEvent(
+                                                    screen_name = "year_in_review",
+                                                    action = "donate_click")
+                                            )
+                                            DonorExperienceEvent.logAction(
+                                                action = "donate_start_click_yir",
+                                                activeInterface = "wiki_yir",
+                                                campaignId = "yir"
+                                            )
+                                            launchDonateDialog("yir")
+                                        }
                                     ) },
                                     screenContent = { innerPadding, contentData ->
                                         YearInReviewScreenContent(

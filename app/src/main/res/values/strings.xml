@@ -1888,15 +1888,29 @@
     <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
     <string name="year_in_review_entry_dialog_continue">Continue</string>
-    <string name="year_in_review_read_count_headline">You read %s articles this year</string>
-    <string name="year_in_review_read_count_bodytext">This year, you read %s articles, including %s, %s, and %s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics.</string>
-    <string name="year_in_review_edit_count_headline">You edited Wikipedia %s times</string>
-    <string name="year_in_review_edit_count_bodytext">You edited Wikipedia %s times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</string>
+    <plurals name="year_in_review_read_count_headline">
+        <item quantity="one">You read %d article this year</item>
+        <item quantity="other">You read %d articles this year</item>
+    </plurals>
+    <plurals name="year_in_review_read_count_bodytext">
+        <item quantity="one">This year, you read %1$d article, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+        <item quantity="other">This year, you read %1$d articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_headline">
+        <item quantity="one">You edited Wikipedia %d time</item>
+        <item quantity="other">You edited Wikipedia %d times</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_bodytext">
+        <item quantity="one">You edited Wikipedia %d time. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+        <item quantity="other">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+    </plurals>
     <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
     <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
     <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
     <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used</string>
+    <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
+    <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
 
 
     <!--Recommended Reading list -->
@@ -1934,7 +1948,7 @@
     <string name="recommended_reading_list_page_description_monthly">Your monthly reading list. Learn about new topics,  picked just for you. Updates on the first of each month.</string>
     <string name="recommended_reading_list_page_overflow_customize">Customize</string>
     <string name="recommended_reading_list_page_overflow_about">About this feature</string>
-    <string name="recommended_reading_list_page_snackbar">Discover will update with %d new articles each %s. Your recommendations are stored locally on your device.</string>
+    <string name="recommended_reading_list_page_snackbar">Discover will update with %1$d new articles each %2$s. Your recommendations are stored locally on your device.</string>
     <string name="recommended_reading_list_page_snackbar_action">Customize Discover</string>
     <string name="recommended_reading_list_page_snackbar_day">Day</string>
     <string name="recommended_reading_list_page_snackbar_week">Week</string>
@@ -1978,4 +1992,6 @@
     <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, keep them on</string>
     <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
     <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
+    <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>
+    <string name="recommended_reading_list_settings_toggle_enable_message">Discover is on. Wikipedia will recommend you articles to read.</string>
 </resources>

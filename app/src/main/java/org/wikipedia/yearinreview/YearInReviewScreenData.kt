@@ -9,5 +9,5 @@ data class YearInReviewScreenData(
 data class YearInReviewStatistics(
     var readCount: Int = -1,
     var readCountApiTitles: List<String> = emptyList(),
-    var editCount: Int = -1
+    var editCount: Int = 0
 )
