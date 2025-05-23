@@ -6,4 +6,9 @@
         <item>HEADERS</item>
         <item>BODY</item>
     </string-array>
+    <string-array name="preference_recommended_reading_list_frequency">
+        <item>DAILY</item>
+        <item>WEEKLY</item>
+        <item>MONTHLY</item>
+    </string-array>
 </resources>

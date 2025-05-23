@@ -23,8 +23,10 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
@@ -214,6 +216,17 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
+        findPreference(R.string.preference_key_recommended_reading_list_notification_enabled)
+            .setOnPreferenceChangeListener { _, newValue ->
+                val selectedFrequency = newValue as String
+                val source = when (selectedFrequency) {
+                    "DAILY" -> RecommendedReadingListUpdateFrequency.DAILY
+                    "WEEKLY" -> RecommendedReadingListUpdateFrequency.WEEKLY
+                    else -> RecommendedReadingListUpdateFrequency.MONTHLY
+                }
+                RecommendedReadingListNotificationManager.showNotification(context = activity, source)
+                true
+            }
     }
 
     private fun setUpMediaWikiSettings() {
