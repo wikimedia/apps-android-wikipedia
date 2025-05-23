@@ -362,6 +362,10 @@
 
         <activity
             android:name=".games.onthisday.OnThisDayGameActivity"/>
+
+        <activity
+            android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
+
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
