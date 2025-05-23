@@ -25,7 +25,6 @@ class ThemeFittingRoomFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentThemeFittingRoomBinding.inflate(inflater, container, false)
-        binding.themeTestImage.loadImage(R.drawable.w_nav_mark)
         updateTextSize()
         updateFontFamily()
 

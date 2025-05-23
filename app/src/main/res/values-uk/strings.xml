@@ -1870,7 +1870,7 @@
   <string name="on_this_day_game_archive_btn_text">Відграти архів</string>
   <string name="on_this_day_game_review_results_btn_text">Переглянути результати</string>
   <string name="on_this_day_game_score_message">Ваш результат сьогодні — %1$d/%2$d.</string>
-  <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
+  <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Продовжити гру</string>
   <string name="on_this_day_game_sound_on">Увімкнути звук</string>
   <string name="on_this_day_game_sound_off">Вимкнути звук</string>
 </resources>

@@ -55,7 +55,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
@@ -411,7 +410,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             view.setDescription(page.description)
             view.setDescriptionMaxLines(2)
             view.setDescriptionEllipsis()
-            view.setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()))
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp, !page.offline || page.saving)
@@ -787,6 +785,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -797,6 +796,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }, false)
             binding.onboardingView.isVisible = true
         } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -809,6 +809,21 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 binding.onboardingView.isVisible = false
                 Prefs.isReadingListLoginReminderEnabled = false
                 updateEmptyState(null)
+            }, false)
+            binding.onboardingView.isVisible = true
+        } else if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
+            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
+            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
+            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+                // TODO: open Recommended reading list onboarding page
+                Prefs.isRecommendedReadingListOnboardingShown = true
+            }, true)
+            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+                binding.onboardingView.isVisible = false
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                updateEmptyState(null)
+                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
             }, false)
             binding.onboardingView.isVisible = true
         } else {
@@ -829,7 +844,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_PAGE_ITEM = 1
         private const val SAVE_COUNT_LIMIT = 3
-        const val ARTICLE_ITEM_IMAGE_DIMENSION = 57
 
         fun newInstance(): ReadingListsFragment {
             return ReadingListsFragment()

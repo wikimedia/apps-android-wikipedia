@@ -741,4 +741,9 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
+  <string name="recommended_reading_list_page_snackbar_day">ݙین٘ہ</string>
+  <string name="recommended_reading_list_page_snackbar_week">ہفتہ</string>
+  <string name="recommended_reading_list_page_snackbar_month">مہینہ</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">روزانہ</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">ہفتہ وار</string>
 </resources>

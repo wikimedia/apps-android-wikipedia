@@ -56,6 +56,9 @@ interface ReadingListPageDao {
     fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
+    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 

@@ -56,6 +56,9 @@
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
+  <string name="search_back_button_content_description">Powróć</string>
+  <string name="search_clear_query_content_description">Wyczyść zapytanie</string>
+  <string name="search_icon_content_description">Szukaj</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
@@ -139,6 +142,7 @@
   <string name="menu_page_recently_viewed">Ostatnio oglądane</string>
   <string name="menu_page_archive">Archiwum</string>
   <string name="menu_long_press_open_page">Otwórz</string>
+  <string name="menu_long_press_open_in_places">Otwórz w Miejscach</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Kopiuj adres linka</string>
   <string name="menu_text_select_define">Definicja</string>
@@ -188,8 +192,10 @@
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
   <string name="account_creation_password_hint">Hasło</string>
-  <string name="login_2fa_hint" fuzzy="true">Kod uwierzytelniania dwuskładnikowego</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Wymagane uwierzytelnianie dwuskładnikowe! Wróć do głównej aktywności i zaloguj się za pomocą tokena 2FA, a następnie spróbuj ponownie.</string>
+  <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
+  <string name="login_2fa_other_workflow_error_msg">Wymagane jest uwierzytelnianie dwuskładnikowe! Zaloguj się z ekranu głównego i wprowadź kod z tokena 2FA.</string>
+  <string name="login_email_auth_hint">Kod weryfikacyjny z e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Wymagana weryfikacja e-maila! Zaloguj się z ekranu głównego i wprowadź swój kod weryfikacyjny adresu e-mail.</string>
   <string name="onboarding_card_login">Zaloguj się</string>
   <string name="page_editing_login">Zaloguj się</string>
   <string name="reading_lists_sync_login">Zaloguj się</string>
