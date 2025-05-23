@@ -3,7 +3,6 @@ package org.wikipedia.base.utils
 import android.view.View
 import android.widget.ImageView
 import androidx.test.espresso.matcher.BoundedMatcher
-import com.bumptech.glide.load.resource.gif.GifDrawable
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 
@@ -18,7 +17,7 @@ object GifMatchers {
                 val drawable = imageView.drawable
 
                 return when (drawable) {
-                    is GifDrawable -> true
+                    // @TODO: Add a way to identify if image is drwable
                     else -> false
                 }
             }
