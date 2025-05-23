@@ -25,6 +25,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.os.bundleOf
 import androidx.core.view.WindowCompat
@@ -695,13 +696,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             return
         }
 
-        ImageService.imagePipeLineBitmapGetter(
+        ImageService.loadImage(
             requireContext(),
             url,
-            ImageService.getWhiteBackgroundTransformer(),
+            whiteBackground = true,
             onSuccess = { bitmap ->
                 if (!isAdded) {
-                    return@imagePipeLineBitmapGetter
+                    return@loadImage
                 }
                 annotationCache.find { it.pageId == page.pageId }?.let {
                     val bmp = getMarkerBitmap(bitmap)
@@ -719,14 +720,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
-        // Retrieve an unused bitmap from the pool
-        val result = ImageService.getBitmapForMarker(requireContext())
-
-        result.applyCanvas {
+        val markerSize = DimenUtil.roundedDpToPx(40f)
+        val bmp = createBitmap(markerSize, markerSize, Bitmap.Config.ARGB_8888)
+        bmp.applyCanvas {
             this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
             drawMarker(this, thumbnailBitmap)
         }
-        return result
+        return bmp
     }
 
     private fun drawMarker(canvas: Canvas, thumbnailBitmap: Bitmap? = null) {
