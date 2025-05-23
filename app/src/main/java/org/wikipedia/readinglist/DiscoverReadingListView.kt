@@ -38,7 +38,8 @@ fun DiscoverReadingListView(
     subtitle: String,
     description: String,
     images: List<String>,
-    canShowRedDot: Boolean = false
+    canShowRedDot: Boolean = false,
+    isUserLoggedIn: Boolean = false,
 ) {
     WikiCard(
         elevation = 4.dp
@@ -86,11 +87,13 @@ fun DiscoverReadingListView(
                         text = buildAnnotatedString {
                             val userNameStartIndex = subtitle.lastIndexOf(" ") + 1
                             append(subtitle)
-                            addStyle(
-                                style = SpanStyle(fontWeight = FontWeight.Bold),
-                                start = userNameStartIndex,
-                                end = subtitle.length
-                            )
+                            if (isUserLoggedIn) {
+                                addStyle(
+                                    style = SpanStyle(fontWeight = FontWeight.Bold),
+                                    start = userNameStartIndex,
+                                    end = subtitle.length
+                                )
+                            }
                         },
                         fontWeight = FontWeight.Normal,
                         fontSize = 14.sp,

@@ -349,7 +349,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 // Recommended Reading List discover card
                 val recommendedArticles = RecommendedReadingListViewModel.getNewRecommendedArticles()
-                if (true || Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
                     setupDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
@@ -865,8 +865,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.discoverCardView.setContent {
             var images by remember { mutableStateOf(recommendedArticles.map { it.thumbUrl.orEmpty() }) }
             val hasAllArticlesBeenRead by remember { mutableStateOf(recommendedArticles.all { it.status == 1 }) }
-            val userName = AccountUtil.userName
-            val subtitle = getString(R.string.recommended_reading_list_page_subtitle_made_for, userName)
+            val subtitle = when (AccountUtil.isLoggedIn) {
+                true -> { getString(R.string.recommended_reading_list_page_subtitle_made_for,
+                    AccountUtil.userName) }
+                false -> { getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you) }
+            }
+
             val description = when (Prefs.recommendedReadingListUpdateFrequency) {
                 RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
                 RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
@@ -883,13 +887,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     subtitleIcon = R.drawable.ic_wikipedia_w,
                     subtitle = subtitle,
                     description = getString(description),
-                    images = listOf(
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Huvudsta_May_2014_01.jpg/1920px-Huvudsta_May_2014_01.jpg",
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Rosa_%27Rosengr%C3%A4fin_Marie_Henriette%27_%28actm%29.jpg/640px-Rosa_%27Rosengr%C3%A4fin_Marie_Henriette%27_%28actm%29.jpg",
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Blackpink_Pink_Carpet_Event_4.jpg/640px-Blackpink_Pink_Carpet_Event_4.jpg",
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Aespa_%28%EC%97%90%EC%8A%A4%ED%8C%8C%29_31st_HMA_2024_%286%29.png/640px-Aespa_%28%EC%97%90%EC%8A%A4%ED%8C%8C%29_31st_HMA_2024_%286%29.png"
-                    ),
-                    canShowRedDot = hasAllArticlesBeenRead
+                    images = images,
+                    canShowRedDot = hasAllArticlesBeenRead,
+                    isUserLoggedIn = AccountUtil.isLoggedIn
                 )
             }
         }
