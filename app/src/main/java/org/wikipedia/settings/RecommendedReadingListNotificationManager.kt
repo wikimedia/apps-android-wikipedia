@@ -40,12 +40,11 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.WEEKLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_weekly)
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
-        val title = context.getString(R.string.recommended_reading_list_notification_title, frequency)
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
             id = 1,
-            title = title,
+            title = context.getString(R.string.recommended_reading_list_notification_title, frequency),
             text = context.getString(R.string.recommended_reading_list_notification_subtitle),
             longText = null,
             lang = null,
