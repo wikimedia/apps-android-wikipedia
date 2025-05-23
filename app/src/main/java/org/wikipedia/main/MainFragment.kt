@@ -387,9 +387,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        ImageService.imagePipeLineBitmapGetter(requireContext(), thumbUrl, onSuccess = { bitmap ->
+        ImageService.loadImage(requireContext(), thumbUrl, onSuccess = { bitmap ->
             if (!isAdded) {
-                return@imagePipeLineBitmapGetter
+                return@loadImage
             }
             ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                 ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)

@@ -4,20 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:focusable="true"
     android:paddingVertical="12dp">
-
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/listItemThumbnail"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:padding="0.5dp"
         android:contentDescription="@null"
         android:src="@drawable/ic_w_logo_circle"
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All.Small"
-        android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
