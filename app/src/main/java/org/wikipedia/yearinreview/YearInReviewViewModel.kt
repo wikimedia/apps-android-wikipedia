@@ -108,25 +108,32 @@ class YearInReviewViewModel() : ViewModel() {
             personalizedStatistics.editCount += wikidataResponse.query?.userInfo!!.editCount
             personalizedStatistics.editCount += commonsResponse.query?.userInfo!!.editCount
 
-            editCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
-                R.plurals.year_in_review_edit_count_headline,
-                personalizedStatistics.editCount,
-                personalizedStatistics.editCount
-            )
-            editCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
-                R.plurals.year_in_review_edit_count_bodytext,
-                personalizedStatistics.editCount,
-                personalizedStatistics.editCount
-            )
+            if (personalizedStatistics.editCount >= MINIMUM_EDIT_COUNT) {
+                editCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
+                    R.plurals.year_in_review_edit_count_headline,
+                    personalizedStatistics.editCount,
+                    personalizedStatistics.editCount
+                )
+                editCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
+                    R.plurals.year_in_review_edit_count_bodytext,
+                    personalizedStatistics.editCount,
+                    personalizedStatistics.editCount
+                )
 
-            _uiScreenListState.value = Resource.Success(
-                data = listOf(readCountJob.await(), editCountData)
-            )
+                _uiScreenListState.value = Resource.Success(
+                    data = listOf(readCountJob.await(), editCountData)
+                )
+            } else {
+                _uiScreenListState.value = Resource.Success(
+                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData)
+                )
+            }
         }
     }
 
     companion object {
         private const val MINIMUM_READ_COUNT = 3
+        private const val MINIMUM_EDIT_COUNT = 1
 
         val getStartedData = YearInReviewScreenData(
             imageResource = R.drawable.year_in_review_block_10_resize,
