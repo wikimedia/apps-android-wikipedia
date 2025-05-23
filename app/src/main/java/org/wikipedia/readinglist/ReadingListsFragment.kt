@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.extensions.rippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -349,7 +350,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 // Recommended Reading List discover card
                 val recommendedArticles = RecommendedReadingListViewModel.getNewRecommendedArticles()
-                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                if (true || Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
                     setupDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
@@ -876,12 +877,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             BaseTheme {
                 DiscoverReadingListView(
                     modifier = Modifier
+                        .rippleClickable {
+                           // @TODO: open recommended list screen
+                        }
                         .padding(16.dp),
                     title = getString(R.string.recommended_reading_list_title),
                     subtitleIcon = R.drawable.ic_wikipedia_w,
                     subtitle = subtitle,
                     description = getString(description),
-                    images = images,
+                    images = listOf(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Huvudsta_May_2014_01.jpg/1920px-Huvudsta_May_2014_01.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Rosa_%27Rosengr%C3%A4fin_Marie_Henriette%27_%28actm%29.jpg/640px-Rosa_%27Rosengr%C3%A4fin_Marie_Henriette%27_%28actm%29.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Blackpink_Pink_Carpet_Event_4.jpg/640px-Blackpink_Pink_Carpet_Event_4.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Aespa_%28%EC%97%90%EC%8A%A4%ED%8C%8C%29_31st_HMA_2024_%286%29.png/640px-Aespa_%28%EC%97%90%EC%8A%A4%ED%8C%8C%29_31st_HMA_2024_%286%29.png"
+                    ),
                     canShowRedDot = hasAllArticlesBeenRead
                 )
             }

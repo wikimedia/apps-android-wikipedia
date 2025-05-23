@@ -4,10 +4,13 @@ import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableFloatStateOf
@@ -58,6 +61,23 @@ fun Modifier.pulse(
     scale(scale.floatValue, scale.floatValue).also {
         TransformOrigin(pivot, pivot)
     }
+}
+
+fun Modifier.rippleClickable(
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    onClick: () -> Unit
+): Modifier = composed {
+    clickable(
+        interactionSource = remember { MutableInteractionSource() },
+        indication = ripple(
+            bounded = true,
+            color = WikipediaTheme.colors.overlayColor
+        ),
+        enabled = enabled,
+        onClickLabel = onClickLabel,
+        onClick = onClick
+    )
 }
 
 @Preview
