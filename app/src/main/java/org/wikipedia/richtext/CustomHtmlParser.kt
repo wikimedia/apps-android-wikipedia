@@ -26,7 +26,6 @@ import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -148,13 +147,12 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                             uri = Service.COMMONS_URL + uri.replace("./", "")
                         }
 
-                        ImageService.imagePipeLineBitmapGetter(view.context, uri, onSuccess = { bitmap ->
+                        ImageService.loadImage(view.context, uri, onSuccess = { bitmap ->
                         val newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
                         if (!drawable.bitmap.isRecycled) {
                                 drawable.bitmap.applyCanvas {
                                     drawBitmap(newBitmap, Rect(0, 0, bitmap.width, bitmap.height), drawable.bounds, null)
                                 }
-                                drawable.bitmap.maybeDimImage()
                                 view.postInvalidate()
                             }
                         })

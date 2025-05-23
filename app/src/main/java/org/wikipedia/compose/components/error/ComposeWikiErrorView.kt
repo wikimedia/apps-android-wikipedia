@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
@@ -30,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.mwapi.MwException
@@ -51,6 +53,7 @@ fun WikiErrorView(
     errorClickEvents: WikiErrorClickEvents? = null,
 ) {
     val errorType = getErrorType(caught, pageTitle)
+    val context = LocalContext.current
 
     val errorMessage = when {
         caught is MwException -> caught.message
@@ -118,7 +121,12 @@ fun WikiErrorView(
             modifier = Modifier
                 .heightIn(min = 48.dp)
                 .widthIn(min = 0.dp),
-            onClick = { getClickEventForErrorType(errorClickEvents, errorType)?.invoke() },
+
+            onClick = {
+                BreadCrumbLogEvent.logClick(context, "errorButton")
+                getClickEventForErrorType(errorClickEvents, errorType)?.invoke()
+            },
+
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.backgroundColor,
                 contentColor = WikipediaTheme.colors.placeholderColor

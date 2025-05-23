@@ -75,7 +75,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
             } else {
                 binding.pageListItemImage.visibility = VISIBLE
                 binding.pageListItemImage.contentDescription = context.getString(R.string.image_content_description, binding.pageListItemTitle.text)
-                ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
+                ViewUtil.loadImage(binding.pageListItemImage, imageUrl)
             }
             binding.pageListItemSelectedImage.visibility = GONE
             binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
@@ -135,12 +135,6 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
 
     fun setActionHint(@StringRes id: Int) {
         binding.pageListItemAction.contentDescription = context.getString(id)
-    }
-
-    fun setListItemImageDimensions(width: Int, height: Int) {
-        binding.pageListItemImage.layoutParams.width = width
-        binding.pageListItemImage.layoutParams.height = height
-        requestLayout()
     }
 
     fun setUpChipGroup(readingLists: List<ReadingList>) {

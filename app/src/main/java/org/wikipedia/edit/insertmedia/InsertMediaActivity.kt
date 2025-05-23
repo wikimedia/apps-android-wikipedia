@@ -18,7 +18,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -251,8 +250,8 @@ class InsertMediaActivity : BaseActivity() {
             binding.progressBar.isVisible = true
             binding.selectedImage.loadImage(
                 Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
-                cropped = false, emptyPlaceholder = true, listener = object : ImageLoadListener {
-                    override fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+                listener = object : ImageLoadListener {
+                    override fun onSuccess(image: Any, bmpWidth: Int, bmpHeight: Int) {
                         if (!isDestroyed) {
                             val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
                             val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
@@ -310,7 +309,7 @@ class InsertMediaActivity : BaseActivity() {
 
     private inner class InsertMediaItemHolder(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(pageTitle: PageTitle) {
-            ViewUtil.loadImageWithRoundedCorners(binding.imageView, pageTitle.thumbUrl)
+            ViewUtil.loadImage(binding.imageView, pageTitle.thumbUrl)
             binding.imageDescription.text = StringUtil.removeHTMLTags(pageTitle.description.orEmpty().ifEmpty { pageTitle.displayText })
 
             binding.selectedIcon.isVisible = pageTitle == viewModel.selectedImage
