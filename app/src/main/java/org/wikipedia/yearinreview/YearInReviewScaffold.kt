@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -56,9 +55,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
-import com.bumptech.glide.Glide
+import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -289,26 +287,19 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
-
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
+
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        AndroidView(
-            factory = { context ->
-                ImageView(context).apply {
-                    Glide.with(context)
-                        .asGif()
-                        .load(screenData.imageResource)
-                        .centerCrop()
-                        .into(this)
-                }
-            },
+        AsyncImage(
+            model = screenData.imageResource,
+            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(gifAspectRatio)
