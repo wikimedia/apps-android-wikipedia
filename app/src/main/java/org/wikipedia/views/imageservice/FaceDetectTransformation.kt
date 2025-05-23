@@ -12,13 +12,10 @@ import coil3.Bitmap
 import coil3.size.Size
 import coil3.size.pxOrElse
 import coil3.transform.Transformation
-import org.wikipedia.extensions.applyMatrixWithBackground
-import org.wikipedia.extensions.maybeDimImage
 import org.wikipedia.util.log.L
 
-class CenterCropWithFaceTransformation : Transformation() {
-    override val cacheKey: String
-        get() = "CenterCropWithFaceTransformation"
+class FaceDetectTransformation : Transformation() {
+    override val cacheKey = "FaceDetectTransformation"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val width = size.width.pxOrElse { 0 }
@@ -67,8 +64,11 @@ class CenterCropWithFaceTransformation : Transformation() {
             input.config ?: android.graphics.Bitmap.Config.RGB_565)
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         result.setHasAlpha(input.hasAlpha())
-        result.applyMatrixWithBackground(input, m)
-        return result.maybeDimImage()
+        result.applyCanvas {
+            drawPaint(Paint().apply { color = Color.WHITE })
+            drawBitmap(input, m, Paint(Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG))
+        }
+        return result
     }
 
     private fun detectFace(testBitmap: android.graphics.Bitmap): PointF? {

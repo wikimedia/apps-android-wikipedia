@@ -45,11 +45,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="language" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/articleThumbnail"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:contentDescription="@null"
+        style="@style/ImageViewDefault.Thumb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

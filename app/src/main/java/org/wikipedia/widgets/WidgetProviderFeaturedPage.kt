@@ -65,7 +65,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             if (pageTitle.thumbUrl.isNullOrEmpty()) {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
             } else {
-                ImageService.getBitmapForWidget(context, pageTitle.thumbUrl, onSuccess = { bitmap ->
+                ImageService.loadImage(context, pageTitle.thumbUrl, onSuccess = { bitmap ->
                     remoteViews.setImageViewBitmap(R.id.widget_content_thumbnail, bitmap)
                 })
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
