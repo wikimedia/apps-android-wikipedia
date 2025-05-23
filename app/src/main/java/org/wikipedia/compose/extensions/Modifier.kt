@@ -4,6 +4,8 @@ import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -58,6 +60,20 @@ fun Modifier.pulse(
     scale(scale.floatValue, scale.floatValue).also {
         TransformOrigin(pivot, pivot)
     }
+}
+
+fun Modifier.noRippleClickable(
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    onClick: () -> Unit
+): Modifier = composed {
+    clickable(
+        enabled = enabled,
+        indication = null,
+        interactionSource = remember { MutableInteractionSource() },
+        onClickLabel = onClickLabel,
+        onClick = onClick
+    )
 }
 
 @Preview
