@@ -47,7 +47,7 @@ class YearInReviewActivity : BaseActivity() {
                         YearInReviewScreen(
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
-                            customBottomBar = { pagerState ->
+                            customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
                                         navController.navigate(
