@@ -2,9 +2,8 @@ package org.wikipedia.views.imageservice
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.net.Uri
 import android.widget.ImageView
-import androidx.palette.graphics.Palette
+import androidx.annotation.DrawableRes
 
 object ImageService {
     private var _implementation: ImageServiceLoader? = null
@@ -19,48 +18,29 @@ object ImageService {
     fun loadImage(
         imageView: ImageView,
         url: String?,
-        roundedCorners: Boolean = false,
-        force: Boolean = false,
-        placeholderId: Int? = null,
+        detectFace: Boolean? = false,
+        force: Boolean? = false,
+        @DrawableRes placeholderId: Int? = null,
         listener: ImageLoadListener? = null
     ) {
-        implementation.loadImage(imageView, url, roundedCorners, force, placeholderId, listener)
+        implementation.loadImage(imageView, url, detectFace, force, placeholderId, listener)
     }
 
-    fun loadImageWithFaceDetect(
-        imageView: ImageView,
-        url: Uri?,
-        shouldDetectFace: Boolean = true,
-        cropped: Boolean = true,
-        emptyPlaceholder: Boolean = false,
-        listener: ImageLoadListener? = null
-    ) {
-        implementation.loadImageWithFaceDetect(imageView, url, shouldDetectFace, cropped, emptyPlaceholder, listener)
-    }
-
-    fun imagePipeLineBitmapGetter(context: Context, imageUrl: String?, imageTransformer: ImageTransformer? = null, onSuccess: (Bitmap) -> Unit) {
-        implementation.imagePipeLineBitmapGetter(context, imageUrl, imageTransformer, onSuccess)
-    }
-
-    fun getBitmapForMarker(context: Context): Bitmap {
-        return implementation.getBitmapForMarker(context)
-    }
-
-    fun getWhiteBackgroundTransformer(): ImageTransformer {
-        return implementation.getWhiteBackgroundTransformer()
-    }
-
-    fun getBitmapForWidget(
+    fun loadImage(
         context: Context,
-        imageUrl: String?,
+        url: String?,
+        whiteBackground: Boolean = false,
         onSuccess: (Bitmap) -> Unit) {
-        implementation.getBitmapForWidget(context, imageUrl, onSuccess)
+        implementation.loadImage(context, url, whiteBackground, onSuccess)
+    }
+
+    fun getBitmap(image: Any): Bitmap {
+        return implementation.getBitmap(image)
     }
 }
 
 interface ImageLoadListener {
-    fun onSuccess(view: ImageView) {}
-    fun onSuccess(palette: Palette, bmpWidth: Int, bmpHeight: Int) {}
+    fun onSuccess(image: Any, width: Int, height: Int) {}
     fun onError(error: Throwable) {}
 }
 
@@ -68,35 +48,18 @@ interface ImageServiceLoader {
     fun loadImage(
         imageView: ImageView,
         url: String?,
-        roundedCorners: Boolean = false,
-        force: Boolean = false,
-        placeholderId: Int? = null,
+        detectFace: Boolean? = false,
+        force: Boolean? = false,
+        @DrawableRes placeholderId: Int? = null,
         listener: ImageLoadListener? = null
     )
 
-    fun loadImageWithFaceDetect(
-        imageView: ImageView,
-        uri: Uri?,
-        shouldDetectFace: Boolean = true,
-        cropped: Boolean = true,
-        emptyPlaceholder: Boolean = false,
-        listener: ImageLoadListener? = null
-    )
-
-    fun imagePipeLineBitmapGetter(
+    fun loadImage(
         context: Context,
         imageUrl: String?,
-        imageTransformer: ImageTransformer? = null,
+        whiteBackground: Boolean = false,
         onSuccess: (Bitmap) -> Unit
     )
 
-    fun getBitmapForWidget(
-        context: Context,
-        imageUrl: String?,
-        onSuccess: (Bitmap) -> Unit
-    )
-
-    fun getBitmapForMarker(context: Context): Bitmap
-
-    fun getWhiteBackgroundTransformer(): ImageTransformer
+    fun getBitmap(image: Any): Bitmap
 }

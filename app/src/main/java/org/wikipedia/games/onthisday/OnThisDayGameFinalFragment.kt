@@ -2,7 +2,6 @@ package org.wikipedia.games.onthisday
 
 import android.app.Activity
 import android.content.res.ColorStateList
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -88,11 +87,12 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
                     delay(100)
                     if (!isAdded) return@launch
                 }
+
                 val shareMessage = getString(
                     R.string.on_this_day_game_share_link_message,
                     getString(R.string.on_this_day_game_share_url)
                 )
-                binding.shareLayout.shareContainer.drawToBitmap(Bitmap.Config.RGB_565).run {
+                binding.shareLayout.shareContainer.drawToBitmap().run {
                     ShareUtil.shareImage(lifecycleScope, requireContext(), this,
                         "wikipedia_on_this_day_game_" + LocalDateTime.now(),
                         binding.shareLayout.shareResultText.text.toString(), shareMessage)
@@ -253,7 +253,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             page.thumbnailUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it, roundedCorners = true, listener = ShareImageLoadListener())
+                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoadListener())
             } ?: run {
                 loadedImagesForShare++
             }
@@ -261,7 +261,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
     }
 
     private inner class ShareImageLoadListener : ImageLoadListener {
-        override fun onSuccess(view: ImageView) {
+        override fun onSuccess(image: Any, width: Int, height: Int) {
             loadedImagesForShare++
         }
 
