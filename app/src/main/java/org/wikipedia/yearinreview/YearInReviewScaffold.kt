@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
-import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -57,7 +56,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
@@ -66,7 +64,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
