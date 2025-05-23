@@ -51,12 +51,14 @@ class YearInReviewViewModel() : ViewModel() {
                 if (personalizedStatistics.readCount >= MINIMUM_READ_COUNT) {
                     personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
                         .map { StringUtil.fromHtml(it).toString() }
-                    readCountData.headLineText = WikipediaApp.instance.getString(
-                        R.string.year_in_review_read_count_headline,
+                    readCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_headline,
+                        personalizedStatistics.readCount,
                         personalizedStatistics.readCount
                     )
-                    readCountData.bodyText = WikipediaApp.instance.getString(
-                        R.string.year_in_review_read_count_bodytext,
+                    readCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_bodytext,
+                        personalizedStatistics.readCount,
                         personalizedStatistics.readCount,
                         personalizedStatistics.readCountApiTitles[0],
                         personalizedStatistics.readCountApiTitles[1],
@@ -106,12 +108,14 @@ class YearInReviewViewModel() : ViewModel() {
             personalizedStatistics.editCount += wikidataResponse.query?.userInfo!!.editCount
             personalizedStatistics.editCount += commonsResponse.query?.userInfo!!.editCount
 
-            editCountData.headLineText = WikipediaApp.instance.getString(
-                R.string.year_in_review_edit_count_headline,
+            editCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
+                R.plurals.year_in_review_edit_count_headline,
+                personalizedStatistics.editCount,
                 personalizedStatistics.editCount
             )
-            editCountData.bodyText = WikipediaApp.instance.getString(
-                R.string.year_in_review_edit_count_bodytext,
+            editCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
+                R.plurals.year_in_review_edit_count_bodytext,
+                personalizedStatistics.editCount,
                 personalizedStatistics.editCount
             )
 
