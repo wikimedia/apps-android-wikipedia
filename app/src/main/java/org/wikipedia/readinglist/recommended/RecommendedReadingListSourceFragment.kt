@@ -8,6 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 
 class RecommendedReadingListSourceFragment : Fragment() {
@@ -18,29 +19,32 @@ class RecommendedReadingListSourceFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         return ComposeView(requireContext()).apply {
             setContent {
-                val uiState = viewModel.uiSourceState.collectAsState().value
-                // TODO: add loading and error
                 BaseTheme {
                     SourceSelectionScreen(
+                        uiState = viewModel.uiSourceState.collectAsState().value,
                         onCloseClick = {
                             requireActivity().finish()
                         },
                         onInterestsClick = {
-                            // Handle interests option click, e.g., navigate to interests screen
-                            // viewModel.handleInterestsSelection()
+                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.INTERESTS)
                         },
                         onSavedClick = {
-                            // Handle saved option click, e.g., navigate to saved articles
-                            // viewModel.handleSavedSelection()
+                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.READING_LIST)
                         },
                         onHistoryClick = {
-                            // Handle history option click, e.g., navigate to history
-                            // viewModel.handleHistorySelection()
+                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.HISTORY)
                         },
                         onNextClick = {
-                            // Handle next button click
                             // viewModel.handleNextAction()
-                        }
+                        },
+                        wikiErrorClickEvents = WikiErrorClickEvents(
+                            backClickListener = {
+                                requireActivity().finish()
+                            },
+                            retryClickListener = {
+                                viewModel.setupSourceSelection()
+                            }
+                        )
                     )
                 }
             }

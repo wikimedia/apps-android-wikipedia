@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -18,10 +19,10 @@ import org.wikipedia.util.Resource
 class RecommendedReadingListViewModel : ViewModel() {
 
     private val _uiSourceState = MutableStateFlow(Resource<SourceSelectionUiState>())
-    val uiSourceState = _uiSourceState.asStateFlow()
+    val uiSourceState: StateFlow<Resource<SourceSelectionUiState>> = _uiSourceState.asStateFlow()
 
     init {
-        // Get information from
+        setupSourceSelection()
     }
 
     fun setupSourceSelection() {
@@ -32,10 +33,25 @@ class RecommendedReadingListViewModel : ViewModel() {
             // TODO: discuss about using the same title to get recommended articles
             val isSavedOptionEnabled = AppDatabase.instance.readingListPageDao().getPagesCount() > 0
             val isHistoryOptionEnabled = AppDatabase.instance.historyEntryDao().getHistoryCount() > 0
+            val selectedSource = Prefs.recommendedReadingListSource
             _uiSourceState.value = Resource.Success(
                 SourceSelectionUiState(
                     isSavedOptionEnabled = isSavedOptionEnabled,
-                    isHistoryOptionEnabled = isHistoryOptionEnabled
+                    isHistoryOptionEnabled = isHistoryOptionEnabled,
+                    selectedSource = selectedSource
+                )
+            )
+        }
+    }
+
+    fun updateSourceSelection(newSource: RecommendedReadingListSource) {
+        val stateValue = _uiSourceState.value
+        if (stateValue is Resource.Success) {
+            _uiSourceState.value = Resource.Success(
+                SourceSelectionUiState(
+                    isSavedOptionEnabled = stateValue.data.isSavedOptionEnabled,
+                    isHistoryOptionEnabled = stateValue.data.isHistoryOptionEnabled,
+                    selectedSource = newSource
                 )
             )
         }
@@ -155,7 +171,8 @@ class RecommendedReadingListViewModel : ViewModel() {
 
     data class SourceSelectionUiState(
         val isSavedOptionEnabled: Boolean,
-        val isHistoryOptionEnabled: Boolean
+        val isHistoryOptionEnabled: Boolean,
+        val selectedSource: RecommendedReadingListSource
     )
 
     class SourceWithOffset(

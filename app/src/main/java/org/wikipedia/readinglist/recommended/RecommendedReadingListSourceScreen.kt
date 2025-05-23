@@ -21,6 +21,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -40,15 +41,65 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.Resource
+
+@Composable
+fun SourceSelectionScreen(
+    uiState: Resource<RecommendedReadingListViewModel.SourceSelectionUiState>,
+    onCloseClick: () -> Unit = {},
+    onInterestsClick: () -> Unit = {},
+    onSavedClick: () -> Unit = {},
+    onHistoryClick: () -> Unit = {},
+    onNextClick: () -> Unit = {},
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
+) {
+    when (uiState) {
+        is Resource.Loading -> {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 64.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                LinearProgressIndicator(
+                    color = WikipediaTheme.colors.progressiveColor,
+                )
+            }
+        }
+
+        is Resource.Error -> {
+            WikiErrorView(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                caught = uiState.throwable,
+                errorClickEvents = wikiErrorClickEvents
+            )
+        }
+
+        is Resource.Success -> {
+            SourceSelectionContent(
+                isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
+                isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
+                onCloseClick = onCloseClick,
+                onInterestsClick = onInterestsClick,
+                onSavedClick = onSavedClick,
+                onHistoryClick = onHistoryClick,
+                onNextClick = onNextClick
+            )
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SourceSelectionScreen(
-    isSavedOptionEnabled: Boolean = false,
-    isHistoryOptionEnabled: Boolean = false,
+fun SourceSelectionContent(
+    isSavedOptionEnabled: Boolean,
+    isHistoryOptionEnabled: Boolean,
     onCloseClick: () -> Unit = {},
     onInterestsClick: () -> Unit = {},
     onSavedClick: () -> Unit = {},
@@ -56,7 +107,6 @@ fun SourceSelectionScreen(
     onNextClick: () -> Unit = {}
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -160,6 +210,7 @@ fun SourceSelectionScreen(
     }
 }
 
+// TODO: handle selected state
 @Composable
 fun SourceOptionCard(
     modifier: Modifier,
@@ -213,8 +264,13 @@ fun SourceOptionCard(
 fun DefaultPreviewSourceSelectionScreen() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         SourceSelectionScreen(
-            isSavedOptionEnabled = true,
-            isHistoryOptionEnabled = true
+            uiState = Resource.Success(
+                RecommendedReadingListViewModel.SourceSelectionUiState(
+                    isSavedOptionEnabled = true,
+                    isHistoryOptionEnabled = true,
+                    selectedSource = RecommendedReadingListSource.INTERESTS
+                )
+            )
         )
     }
 }
