@@ -242,12 +242,12 @@
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranica družiny&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stranica družiny&lt;/a&gt;</string>
   <string name="about_translators_heading">Prěvoditelji</string>
   <string name="about_translators_translatewiki">Tuta aplikacija byla prěvedena dobrovoljnymi prěvoditeljami na projektu &lt;a href=\"https://translatewiki.net\"&gt;&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
@@ -596,8 +596,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Članok jest na několikyh spiskah</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s veče ne bude dostupny oflajn za vse spisky za čitanje:</string>
   <string name="reading_lists_sync_reminder_title">Vključiti sinhronizaciju spiskov za čitanje?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Članky, zapisane v spisky za čitanje, tutčas mogut byti sinhronizovane s vašim koristničskym kontom v Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Članky, zapisane v spiskah za čitanje, tutčas mogut byti sinhronizovane s vašim koristničskym kontom v Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Podrobnosti&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Vključiti sinhronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinhronizovati spisky za čitanje</string>
   <string name="reading_lists_login_reminder_text">Spisky za čitanje tutčas mogut byti sinhronizovane medžu raznymi aparatami. Prijavite se k svojemu koristničskomu kontu v Vikipediji i dozvolite zapisanje vaših spiskov.</string>
@@ -928,4 +928,123 @@
   <string name="description_edit_help_about_wikidata">O Vikidanyh</string>
   <string name="description_edit_help_wikidata_guide">Provodnik Vikidanyh za pisanje opisov</string>
   <string name="description_edit_anon_limit">Hvala za vaš postojanny interes do pravjena opisov člankov! Da byste sdělali dodatočne pravky, prosimo, že prijavite se v svoje koristničsko konto v Vikipediji.</string>
+  <string name="description_edit_license_notice">Izměnjajuči opis članka, ja suglašaju s &lt;a href=\"%1$s\"&gt;Uslovjami upotrěbjanja&lt;/a&gt; i bezpovratno izpuščaju svoj vklad pod licencijeju &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">obyčno začinaje se s maloj bukvy</string>
+  <string name="description_edit_voice_input_description">Glasovy vvod</string>
+  <string name="description_edit_learn_more">Daljše informacije o opisah člankov</string>
+  <string name="description_edit_image_caption_learn_more">Daljše informacije o nadpisah obrazkov</string>
+  <string name="description_too_short">Tekst jest prěkratky.</string>
+  <string name="description_too_long">Probujte ograničati razměr opisov, da by koristniki mogli srazuměti prědmet članka na prvy pogled</string>
+  <string name="description_ends_with_punctuation">Tekst ne može končiti se interpunkcijnym znakom.</string>
+  <string name="description_starts_with_uppercase">Začinajte s maloj bukvy, ako prvo slovo ne jest vlastno ime.</string>
+  <string name="description_starts_with_lowercase">Izběgajte začinati s maloj bukvy.</string>
+  <string name="description_is_in_different_language">Izdavaje se, že tekst jest napisany na neočekyvanom jezyku. Jezyk jest povinny byti: %s.</string>
+  <string name="description_verification_notice">Prosimo, prověrite, že jezyk vašego opisa jest %1$s. Vy možete spokojno ignorovati tuto prěduprědženje, ako jezyk vašego jest %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Pokazati prědlagajame opisy</string>
+  <string name="description_edit_suggested_description_button_tooltip">Poprobujte avtomatično prědlagajeme opisy člankov</string>
+  <string name="description_edit_success_saved">Opis članka jest publikovany!</string>
+  <string name="description_edit_success_saved_snackbar">Opis članka jest publikovany!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Opis članka jest publikovany! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Nadpis obrazka jest publikovany!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Nadpis obrazka jest publikovany! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Tagy obrazka sut publikovany!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Spodobalo se? Pomožite nam dodati veče.</string>
+  <string name="description_edit_success_encouragement">Prěd hviljeju vy jeste sdělali Vikipediju lěpšeju za vsih</string>
+  <string name="description_edit_success_done">Gotovo</string>
+  <string name="description_edit_success_did_you_know">Jeste li znali?</string>
+  <string name="description_edit_success_article_edit_hint">Vy takože možete praviti članky s tutoj aplikacije. Slědujuči raz poprobujte izpraviti tipografične pogrěšky i kratke rěčenja naklikanjem ikonky ^1</string>
+  <string name="description_edit_tutorial_title_descriptions">Opisy člankov</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Rezjumuje članok i pomagaje čitateljam srazuměti prědmet na prvy pogled</string>
+  <string name="description_edit_tutorial_keep_it_short">Pišite kratko</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealno jedin redok, od dvoh do dvanadseti slov</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Začinati pravjenje</string>
+  <string name="description_edit_tutorial_promise">Začinajuči, ja oběčaju, že ne budu zloupotrěbjati tutu funkciju.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Avtomatične prědloženja</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Prědloženja generujut se mašinoju, ne dobrovoljcami ili Fundacijeju Wikimedia</string>
+  <string name="customize_toolbar_title">Prisposobiti panel orudij</string>
+  <string name="customize_toolbar_shortcut_description_text">Prisposobite sobě dolny panel orudij pětju najpomočnějšimi vam skratami.</string>
+  <string name="customize_toolbar_category_toolbar">Panel orudij</string>
+  <string name="customize_toolbar_category_menu">Menju</string>
+  <string name="customize_toolbar_reset_to_default_button">Obnoviti standardne nastavjenja</string>
+  <string name="suggested_edits_describe_articles">Dodavanje opisov člankom</string>
+  <string name="suggested_edits_caption_images">Dodavanje nadpisov obrazkam</string>
+  <string name="suggested_edits_tag_images">Dodavanje tagov obrazkom</string>
+  <string name="suggested_edits_edit_patrol">Dozor pravok</string>
+  <string name="suggested_edits_edit_patrol_hint">Prěgledajte nedavne pravky i oprědělite, sut li one konstruktivne ili ne.</string>
+  <string name="suggested_edits_edit_patrol_review">Prověriti</string>
+  <string name="suggested_edits_review_description">Prověriti opis članka</string>
+  <string name="suggested_edits_add_description_button">Dodati opis</string>
+  <string name="suggested_edits_edit_description_button">Praviti opis</string>
+  <string name="suggested_edits_add_translation_button">Dodati prěvod</string>
+  <string name="suggested_edits_edit_translation_button">Praviti prěvod</string>
+  <string name="suggested_edits_add_caption_button">Dodati nadpis</string>
+  <string name="suggested_edits_edit_caption_button">Praviti nadpis</string>
+  <string name="suggested_edits_review_image_caption">Prověriti nadpis obrazka</string>
+  <string name="suggested_edits_my_contributions">Moj vklad</string>
+  <string name="suggested_edits_no_description">Tutoj fajl ne imaje opis</string>
+  <string name="suggested_edits_license_notice">Dodavajuči opis, ja suglašaju s &lt;a href=\"%1$s\"&gt;Uslovjami upotrěbjanja&lt;/a&gt; i bezpovratno izpuščaju svoj vklad pod licencijeju &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Dodavajuči nadpis obrazka, ja suglašaju s &lt;a href=\"%1$s\"&gt;Uslovjami upotrěbjanja&lt;/a&gt; i bezpovratno izpuščaju svoj vklad pod licencijeju &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_menu_info">Informacije</string>
+  <string name="suggested_edits_task_add_description_title">Dodavanje opisov k člankam</string>
+  <string name="suggested_edits_task_add_description_description">Dodavanje informacije člankam bez opisov</string>
+  <string name="suggested_edits_task_image_caption_title">Dodavanje nadpisov obrazkam</string>
+  <string name="suggested_edits_task_translate_caption_title">Prěvodženje nadpisov obrazkov</string>
+  <string name="suggested_edits_task_translate_caption_description">Prěvodženje nadpisov obrazkov na druge jezyky</string>
+  <string name="suggested_edits_task_multilingual_title">Veče zadanij za mnogojezyčnyh redaktorov</string>
+  <string name="suggested_edits_task_multilingual_description">Zadanja za prěvodženje sut dostupne, ako vy čitajete i pišite v veče neželi jednom jezyku Vikipedije.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Tute funkcije sut zablokovane, dopoka ne sdělajete %d pravok v nadpisah obrazkov</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Tute funkcije sut zablokovane, dopoka ne sdělajete %d (prověrjenyh) pravok v člankah</string>
+  <string name="suggested_edits_task_multilingual_negative">Ne za mene</string>
+  <string name="suggested_edits_task_multilingual_positive">Dodati jezyky</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Obrazok</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Umětnik</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Avtor</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">jedna pravka</item>
+    <item quantity="few">%d pravky</item>
+    <item quantity="many">%d pravok</item>
+    <item quantity="other">%d pravok</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">Prědlagajeme pravky</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodati opis članka</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodati opis članka (%s)</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Začeti</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Nadpis obrazka (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Obrazok</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fajl s Vikisklada</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Umětnik</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
+  <string name="suggested_edits_image_preview_dialog_date">Data</string>
+  <string name="suggested_edits_image_preview_dialog_source">Izvor/Fotograf</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licensovanje</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Veče informacij</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica fajla na Vikiskladu</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stranica fajla v Vikipediji</string>
+  <string name="suggested_edits_article_cta_image_tags">Dodati značky obrazku</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodati nadpis obrazku</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodati nadpis obrazku (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Izobraziti</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodati nadpis obrazka</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Dodati nadpis obrazka (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Dodati značky obrazku</string>
+  <string name="suggested_edits_task_action_text_add">Dodati</string>
+  <string name="suggested_edits_task_action_text_translate">Prěvesti</string>
+  <string name="suggested_edits_image_captions">Nadpisy obrazkov</string>
+  <string name="suggested_edits_image_tags">Značky obrazkov</string>
+  <string name="suggested_edits_image_tags_publishing">Publikacija</string>
+  <string name="suggested_edits_image_tags_published">Publikovano</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Označkovanje obrazkov ulegšaje jih najdti.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Dodavajuči značky obrazkam, vy pomožete ulegšiti nahodženje obrazkov na Vikiskladu, hranilišču obrazkov s svobodnoju licencijeju, ktoro Vikipedija koristaje za obrazky v svojih člankah.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">K obrazkam budut dodane samo izbrane vami značky.</string>
+  <string name="suggested_edits_image_tags_task_detail">Dodajte k obrazku vlastne značky, da byste go legše našli.</string>
+  <string name="suggested_edits_image_tags_choose">Dodati ili izbrati uměstne značky</string>
+  <string name="suggested_edits_image_tags_published_list">Publikovane značky</string>
+  <string name="suggested_edits_image_tags_search">Iskati značky</string>
+  <string name="suggested_edits_image_tags_select_title">Vy ne jeste izbrali nijednu značku za tutoj obrazok</string>
+  <string name="suggested_edits_image_tags_select_text">K obrazkam budut dodane samo izbrane vami značky. Značky, ktore vy ne izberite, budut označene kako odkydnute. Jeste li uvěrjeni, že hočete označiti vse značky kako odkydnute?</string>
+  <string name="suggested_edits_image_tags_add_tag">Dodati značku</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nepublikovane značky ne budut zapisane</string>
 </resources>
