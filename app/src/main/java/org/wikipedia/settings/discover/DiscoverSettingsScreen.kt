@@ -359,7 +359,7 @@ fun DiscoverReadingListSwitch(
     isDiscoverReadingOn: Boolean,
     onCheckedChange: ((Boolean) -> Unit),
     modifier: Modifier = Modifier
-    ) {
+) {
     ListItem(
         modifier = modifier
             .clip(RoundedCornerShape(16.dp)),
