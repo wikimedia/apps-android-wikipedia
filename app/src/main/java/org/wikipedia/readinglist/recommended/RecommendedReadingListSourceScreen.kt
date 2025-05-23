@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.extensions.clickableWithRipple
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -159,7 +160,7 @@ fun SourceSelectionContent(
 
                 SourceOptionCard(
                     modifier = Modifier
-                        .clickable(onClick = onInterestsClick),
+                        .clickableWithRipple(onClick = onInterestsClick),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
                 )
@@ -167,7 +168,7 @@ fun SourceSelectionContent(
                 if (isSavedOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickable(onClick = onSavedClick),
+                            .clickableWithRipple(onClick = onSavedClick),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
                     )
@@ -176,7 +177,7 @@ fun SourceSelectionContent(
                 if (isHistoryOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickable(onClick = onHistoryClick),
+                            .clickableWithRipple(onClick = onHistoryClick),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
                     )
@@ -218,9 +219,8 @@ fun SourceOptionCard(
     textRes: Int,
 ) {
     Card(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
-            .heightIn(min = 88.dp)
             .padding(horizontal = 16.dp),
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
@@ -234,7 +234,8 @@ fun SourceOptionCard(
     ) {
         ListItem(
             modifier = modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .heightIn(min = 88.dp),
             colors = ListItemDefaults.colors(
                 containerColor = WikipediaTheme.colors.paperColor
             ),
