@@ -47,6 +47,8 @@ import org.wikipedia.theme.Theme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
+    isSavedOptionEnabled: Boolean = false,
+    isHistoryOptionEnabled: Boolean = false,
     onCloseClick: () -> Unit = {},
     onInterestsClick: () -> Unit = {},
     onSavedClick: () -> Unit = {},
@@ -92,7 +94,7 @@ fun SourceSelectionScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            Column (
+            Column(
                 modifier = Modifier
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -112,19 +114,23 @@ fun SourceSelectionScreen(
                     textRes = R.string.recommended_reading_list_interest_source_interests,
                 )
 
-                SourceOptionCard(
-                    modifier = Modifier
-                        .clickable(onClick = onSavedClick),
-                    iconRes = R.drawable.ic_bookmark_border_white_24dp,
-                    textRes = R.string.recommended_reading_list_interest_source_saved,
-                )
+                if (isSavedOptionEnabled) {
+                    SourceOptionCard(
+                        modifier = Modifier
+                            .clickable(onClick = onSavedClick),
+                        iconRes = R.drawable.ic_bookmark_border_white_24dp,
+                        textRes = R.string.recommended_reading_list_interest_source_saved,
+                    )
+                }
 
-                SourceOptionCard(
-                    modifier = Modifier
-                        .clickable(onClick = onHistoryClick),
-                    iconRes = R.drawable.ic_history_24,
-                    textRes = R.string.recommended_reading_list_interest_source_history,
-                )
+                if (isHistoryOptionEnabled) {
+                    SourceOptionCard(
+                        modifier = Modifier
+                            .clickable(onClick = onHistoryClick),
+                        iconRes = R.drawable.ic_history_24,
+                        textRes = R.string.recommended_reading_list_interest_source_history,
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.weight(1f))
@@ -206,6 +212,9 @@ fun SourceOptionCard(
 @Composable
 fun DefaultPreviewSourceSelectionScreen() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        SourceSelectionScreen()
+        SourceSelectionScreen(
+            isSavedOptionEnabled = true,
+            isHistoryOptionEnabled = true
+        )
     }
 }

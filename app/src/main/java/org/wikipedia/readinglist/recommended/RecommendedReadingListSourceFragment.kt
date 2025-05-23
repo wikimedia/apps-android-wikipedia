@@ -4,28 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import org.wikipedia.databinding.FragmentRecommendedReadingListSourceBinding
+import androidx.fragment.app.viewModels
+import org.wikipedia.compose.theme.BaseTheme
 
 class RecommendedReadingListSourceFragment : Fragment() {
-    private var _binding: FragmentRecommendedReadingListSourceBinding? = null
 
-    private val binding get() = _binding!!
+    private val viewModel: RecommendedReadingListViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentRecommendedReadingListSourceBinding.inflate(inflater, container, false)
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return ComposeView(requireContext()).apply {
+            setContent {
+                val uiState = viewModel.uiSourceState.collectAsState().value
+                // TODO: add loading and error
+                BaseTheme {
+                    SourceSelectionScreen(
+                        onCloseClick = {
+                            requireActivity().finish()
+                        },
+                        onInterestsClick = {
+                            // Handle interests option click, e.g., navigate to interests screen
+                            // viewModel.handleInterestsSelection()
+                        },
+                        onSavedClick = {
+                            // Handle saved option click, e.g., navigate to saved articles
+                            // viewModel.handleSavedSelection()
+                        },
+                        onHistoryClick = {
+                            // Handle history option click, e.g., navigate to history
+                            // viewModel.handleHistorySelection()
+                        },
+                        onNextClick = {
+                            // Handle next button click
+                            // viewModel.handleNextAction()
+                        }
+                    )
+                }
+            }
+        }
     }
 
     companion object {

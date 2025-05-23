@@ -1,9 +1,11 @@
 package org.wikipedia.readinglist.recommended
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -15,12 +17,29 @@ import org.wikipedia.util.Resource
 
 class RecommendedReadingListViewModel : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = Resource.Error(throwable)
+    private val _uiSourceState = MutableStateFlow(Resource<SourceSelectionUiState>())
+    val uiSourceState = _uiSourceState.asStateFlow()
+
+    init {
+        // Get information from
     }
 
-    private val _uiState = MutableStateFlow(Resource<Unit>())
-    val uiState = _uiState.asStateFlow()
+    fun setupSourceSelection() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiSourceState.value = Resource.Error(throwable)
+        }) {
+            _uiSourceState.value = Resource.Loading()
+            // TODO: discuss about using the same title to get recommended articles
+            val isSavedOptionEnabled = AppDatabase.instance.readingListPageDao().getPagesCount() > 0
+            val isHistoryOptionEnabled = AppDatabase.instance.historyEntryDao().getHistoryCount() > 0
+            _uiSourceState.value = Resource.Success(
+                SourceSelectionUiState(
+                    isSavedOptionEnabled = isSavedOptionEnabled,
+                    isHistoryOptionEnabled = isHistoryOptionEnabled
+                )
+            )
+        }
+    }
 
     companion object {
 
@@ -133,6 +152,11 @@ class RecommendedReadingListViewModel : ViewModel() {
             return firstRecommendedPage
         }
     }
+
+    data class SourceSelectionUiState(
+        val isSavedOptionEnabled: Boolean,
+        val isHistoryOptionEnabled: Boolean
+    )
 
     class SourceWithOffset(
         val title: String,
