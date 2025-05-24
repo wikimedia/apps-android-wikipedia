@@ -10,7 +10,19 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textAppearance="@style/H2.AppBar"
+            android:textColor="?attr/primary_color"
+            tools:text="Category:People executed by the Roman Empire." />
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <FrameLayout
         android:layout_width="match_parent"
