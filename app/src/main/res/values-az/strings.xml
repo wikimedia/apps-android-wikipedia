@@ -1747,7 +1747,7 @@
   <string name="on_this_day_game_archive_btn_text">Arxivi oyna</string>
   <string name="on_this_day_game_review_results_btn_text">Nəticələrə bax</string>
   <string name="on_this_day_game_score_message">Bugünkü oyunda %1$d/%2$d xal topladınız.</string>
-  <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Oynamağa davam et</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
   <string name="on_this_day_game_sound_on">Səsi aç</string>
   <string name="on_this_day_game_sound_off">Səsi söndür</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
@@ -1775,6 +1775,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Bəli, mənim üçün seç</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Boşver</string>
   <string name="recommended_reading_list_page_subtitle_made_for">%s üçün hazırlanıb</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Sizin üçün hazırlanıb</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d məqalə</item>
     <item quantity="other">• %d məqalə</item>
@@ -1828,4 +1829,6 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Xeyr, açıq saxla</string>
   <string name="recommended_reading_list_notification_title">%s oxuma siyahınız hazırdır.</string>
   <string name="recommended_reading_list_notification_subtitle">Ən son tövsiyələrinizə baxmaq üçün toxunun.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Kəşf et bölməsi yeniləndikdə, Vikipediya sizə bildiriş göndərəcək.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Kəşf etmə aktivdir. Vikipediya sizə oxumağınız üçün məqalələr tövsiyə edəcək.</string>
 </resources>
