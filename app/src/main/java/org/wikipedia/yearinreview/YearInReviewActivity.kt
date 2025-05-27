@@ -53,13 +53,17 @@ class YearInReviewActivity : BaseActivity() {
                                         navController.navigate(
                                             route = YearInReviewNavigation.ScreenDeck.name
                                         )
-                                    }
+                                    },
+                                    context = this@YearInReviewActivity
                                 )
                             },
                             screenContent = { innerPadding, contentData, pagerState ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
-                                    screenData = contentData)
+                                    screenData = contentData,
+                                    context = this@YearInReviewActivity,
+                                    isInfoIconVisible = false
+                                )
                             },
                         )
                     }
@@ -102,6 +106,7 @@ class YearInReviewActivity : BaseActivity() {
                                         )
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
+                                            context = this@YearInReviewActivity,
                                             screenData = contentData,
                                         )
                                     },

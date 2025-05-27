@@ -480,4 +480,5 @@
   <string name="talk_templates_new_message_save">خوندي کول</string>
   <string name="on_this_day_game_menu_info">نور مالومات</string>
   <string name="on_this_day_game_notification_undo">ناکړل</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">ستاسو لپاره جوړ شوی</string>
 </resources>
