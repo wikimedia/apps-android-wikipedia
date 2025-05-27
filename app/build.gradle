@@ -168,7 +168,6 @@ apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
-    implementation libs.androidx.navigation.runtime.android
 
 
     // To keep the Maven Central dependencies up-to-date

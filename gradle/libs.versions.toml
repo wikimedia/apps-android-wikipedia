@@ -49,7 +49,6 @@ workRuntimeKtx = "2.10.1"
 composeBom = "2025.05.01"
 composeActivity = "1.10.1"
 composeViewModel = "2.9.0"
-navigationRuntimeAndroid = "2.9.0"
 
 
 [libraries]
@@ -125,7 +124,6 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
-androidx-navigation-runtime-android = { group = "androidx.navigation", name = "navigation-runtime-android", version.ref = "navigationRuntimeAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
