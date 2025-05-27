@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -84,6 +85,8 @@ fun DiscoverReadingListView(
                         contentDescription = null
                     )
                     Text(
+                        modifier = Modifier
+                            .padding(top = 2.dp),
                         text = buildAnnotatedString {
                             val userNameStartIndex = subtitle.lastIndexOf(" ") + 1
                             append(subtitle)
