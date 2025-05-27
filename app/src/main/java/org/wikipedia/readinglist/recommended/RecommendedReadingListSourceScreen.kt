@@ -121,7 +121,6 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    val source by remember { mutableStateOf(selectedSource) }
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -191,7 +190,7 @@ fun SourceSelectionContent(
                         }),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
-                    isSelected = source == RecommendedReadingListSource.INTERESTS,
+                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS,
                     isDarkTheme = isDarkTheme
                 )
 
@@ -203,7 +202,7 @@ fun SourceSelectionContent(
                             }),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
-                        isSelected = source == RecommendedReadingListSource.READING_LIST,
+                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST,
                         isDarkTheme = isDarkTheme
                     )
                 }
@@ -216,7 +215,7 @@ fun SourceSelectionContent(
                             }),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
-                        isSelected = source == RecommendedReadingListSource.HISTORY,
+                        isSelected = selectedSource == RecommendedReadingListSource.HISTORY,
                         isDarkTheme = isDarkTheme
                     )
                 }
