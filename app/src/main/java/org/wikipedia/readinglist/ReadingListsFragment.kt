@@ -812,7 +812,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 updateEmptyState(null)
             }, false)
             binding.onboardingView.isVisible = true
-        } else if (true) {
+        } else if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
