@@ -149,8 +149,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     suspend fun deleteOldDataInBatches(timeStamp: Long, batchSize: Int) {
+        var deletedCount = 0
         do {
-            val deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(timeStamp, batchSize)
+            deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(timeStamp, batchSize)
             L.d("category deletedCount --> $deletedCount")
             delay(1000)
         } while (deletedCount > 0)
