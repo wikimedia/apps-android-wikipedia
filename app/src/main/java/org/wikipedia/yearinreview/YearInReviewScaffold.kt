@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
