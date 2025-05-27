@@ -508,4 +508,11 @@
             android:title="Category" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Year in Review">
+        <Preference
+            android:key="@string/preference_key_yir_survey_shown"
+            android:title="@string/preference_key_yir_survey_shown" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

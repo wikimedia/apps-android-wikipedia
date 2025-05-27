@@ -224,7 +224,6 @@ fun YearInReviewSurvey(
                                                 feedbackOption = selectedOption,
                                                 feedbackText = userInput
                                             )
-
                                     )
                                     viewModel.updateSurveyShownState()
                                 }
