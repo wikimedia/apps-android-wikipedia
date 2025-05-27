@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -25,13 +25,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -53,6 +56,7 @@ fun LanguagesListScreen(
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     var searchQuery by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
         // Handle IME (keyboard) insets
@@ -131,9 +135,10 @@ fun LanguagesListScreen(
                 LazyColumn(
                     modifier = modifier
                         .fillMaxSize()
-                        .padding(paddingValues),
+                        .padding(paddingValues)
+                        .testTag("language_list"),
                 ) {
-                    items(languagesItems) { languageItem ->
+                    itemsIndexed(languagesItems) { index, languageItem ->
                         if (languageItem.headerText.isNotEmpty()) {
                             ListHeader(
                                 modifier = Modifier
@@ -151,11 +156,13 @@ fun LanguagesListScreen(
                                         interactionSource = remember { MutableInteractionSource() },
                                         indication = ripple(bounded = true),
                                         onClick = {
+                                            BreadCrumbLogEvent.logClick(context, "listItem.$index")
                                             onListItemClick(languageItem.code)
                                         }
                                     )
                                     .fillMaxWidth()
-                                    .padding(16.dp),
+                                    .padding(16.dp)
+                                    .testTag(languageItem.canonicalName),
                                 localizedLanguageName = localizedLanguageName,
                                 subtitle = languageItem.canonicalName
                             )

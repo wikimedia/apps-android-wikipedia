@@ -40,12 +40,13 @@
                     android:text="@string/color_theme_test_text"
                     android:textColor="?attr/primary_color" />
 
-                <org.wikipedia.views.FaceAndColorDetectImageView
+                <ImageView
                     android:id="@+id/theme_test_image"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="8dp"
                     android:contentDescription="@null"
+                    android:src="@drawable/w_nav_mark"
                     android:scaleType="centerInside" />
 
             </LinearLayout>

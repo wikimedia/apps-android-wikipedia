@@ -55,7 +55,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
@@ -218,7 +217,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         AppDatabase.instance.readingListDao().createList(text, description)
                         updateLists()
                     }
-                    override fun onCancel() { }
                 }).show()
         }
 
@@ -412,7 +410,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             view.setDescription(page.description)
             view.setDescriptionMaxLines(2)
             view.setDescriptionEllipsis()
-            view.setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()))
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp, !page.offline || page.saving)
@@ -830,7 +827,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_PAGE_ITEM = 1
         private const val SAVE_COUNT_LIMIT = 3
-        const val ARTICLE_ITEM_IMAGE_DIMENSION = 57
 
         fun newInstance(): ReadingListsFragment {
             return ReadingListsFragment()

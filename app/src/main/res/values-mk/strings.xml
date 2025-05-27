@@ -243,24 +243,23 @@
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
+  <string name="about_logo_content_description">Википедиино лого со топка-сложувалка</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -579,8 +578,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
   <string name="reading_lists_sync_reminder_title">Да го вклучам усогласувањето на списоците за читање?</string>
-  <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списоците за читање сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите списоци. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списоците за читање сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите списоци. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
@@ -879,15 +878,13 @@
   <string name="description_edit_help_title">Инфо: Описи на статии</string>
   <string name="description_edit_help_about_wikidata">За Википодатоците</string>
   <string name="description_edit_help_wikidata_guide">Водич за пишување описи на Википодатоците</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описи на статиите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на статијата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_helper_text_lowercase_warning">обично почнува со мала буква</string>
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_too_long">Трудете се описите да бидат кратки, така што читателите би можеле да разберат што обработува статијата со еден поглед</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
@@ -1697,12 +1694,13 @@
   <string name="on_this_day_game_splash_message">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
   <string name="on_this_day_game_progress">%1$d од %2$d</string>
   <string name="on_this_day_game_score">Бодови: %d</string>
+  <string name="on_this_day_game_submit">Поднеси</string>
   <string name="on_this_day_game_correct">Точно!</string>
   <string name="on_this_day_game_incorrect">Погрешно!</string>
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следно прашање</string>
   <string name="on_this_day_game_finish">Конечен исход</string>
-  <string name="on_this_day_game_share">Сподели со пријатели</string>
+  <string name="on_this_day_game_share_button">Сподели</string>
   <string name="on_this_day_game_pause_title">Да се паузира играта?</string>
   <string name="on_this_day_game_pause_body">Напредокот постигнат денес ќе биде зачуван. Играта ќе ја најдете во вашиот тековник „Истражи“.</string>
   <string name="on_this_day_game_pause_negative">Продолжи со играње</string>
@@ -1743,7 +1741,99 @@
   <string name="on_this_day_game_report_email_body">Наидов на проблем со функцијата Википедиини игри:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
   <string name="on_this_day_game_notification_undo">Врати</string>
   <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
+  <string name="on_this_day_game_share_screen_title">Денес освоив %1$d/%2$d на \n„Што се случило попрво?“.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Вклучени теми:</string>
   <string name="on_this_day_game_survey_q1">Колку сте задоволни од оваа игра?</string>
   <string name="on_this_day_game_survey_q2">Дали сте заинтересирани да играте други Википедиини игри?</string>
-  <string name="about_logo_content_description">Википедиино лого со топка-сложувалка</string>
+  <string name="on_this_day_game_archive_calendar_title">Изберете игра за играње според датум.</string>
+  <string name="on_this_day_game_score_toast_message">На овој ден освоивте %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Продолжи со денешната игра</string>
+  <string name="on_this_day_game_current_progress_message">Сега сте напрашањето %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Играј од архивата</string>
+  <string name="on_this_day_game_review_results_btn_text">Преглед на исходот</string>
+  <string name="on_this_day_game_score_message">На денешната игра освоивте %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Продолжи со играта</string>
+  <string name="on_this_day_game_sound_on">Вклучи звук</string>
+  <string name="on_this_day_game_sound_off">Исклучи звук</string>
+  <string name="recommended_reading_list_title">Откриј</string>
+  <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
+  <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвен токму за вас.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Започнете</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Не, благодарам</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">За да го поставите вашиот препорачан список на читање подоцна, одете на Поставки.</string>
+  <string name="recommended_reading_list_interest_source_message">Како да го составиме вашиот препорачан список за читање?</string>
+  <string name="recommended_reading_list_interest_source_interests">Сакам да изберам според моите интереси</string>
+  <string name="recommended_reading_list_interest_source_saved">Избери ми според моите зачувани статии</string>
+  <string name="recommended_reading_list_interest_source_history">Избери ми според мојата историја на читање</string>
+  <string name="recommended_reading_list_interest_pick_title">Што ве интересира?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Пребарајте статија</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">Избрана %d</item>
+    <item quantity="other">Избрани %d</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Избери случајно</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Еве неколку статии по случаен избор.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Врати</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Дали сигурно сакате да го направите изборот случаен?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Ова ќе ги тргне вашите тековни избори и ќе избере нови статии по случаен избор.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Да, избери ми</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Заборави</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Направено за %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Направено за вас</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d статија</item>
+    <item quantity="other">• %d статии</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Вшаиот дневен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на полноќ.</string>
+  <string name="recommended_reading_list_page_description_weekly">Вшаиот неделен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на почетокот на неделата.</string>
+  <string name="recommended_reading_list_page_description_monthly">Вшаиот месечен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на почетокот на секој месец.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Прилагоди</string>
+  <string name="recommended_reading_list_page_overflow_about">За функцијава</string>
+  <string name="recommended_reading_list_page_snackbar">Откриј ќе се подновува со %1$d нови статии на секој %2$s. Вашите препораки се складираат месно на вашиот уред.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Прилагоди го Откриј</string>
+  <string name="recommended_reading_list_page_snackbar_day">Ден</string>
+  <string name="recommended_reading_list_page_snackbar_week">Недела</string>
+  <string name="recommended_reading_list_page_snackbar_month">Месец</string>
+  <string name="recommended_reading_list_settings_section_header">Препораки</string>
+  <string name="recommended_reading_list_settings_title">Поставки за Откриј</string>
+  <string name="recommended_reading_list_settings_toggle">Список на читање од Откриј</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Откриј е исклучен. Википедија нема да ви препорачува статии за читање.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Да го исклучам Откриј?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Ако го исклучите Откриј, ќе престанете да добивате препораки за читање од Википедија %s.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Исклучи</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Не, задржи</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Откриј е исклучен. Можете повторно да го вклучите во секое време во поставките.</string>
+  <string name="recommended_reading_list_settings_articles">статии</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Се подновува %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">неделно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Секој ден</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Секоја недела</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Секој месец</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Како се изготвува Откриј</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Според вашите интереси</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Според вашите зачувани статии</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Според вашата историја на читање</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Да прилагодиме како се изготвува Откриј?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Ако прилагодите како Откриј создава препораки, вашите тековни препораки ќе бидат заменети.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Прилагоди</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Заборави</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Вашите препораки сега се засноваат на вашите интереси.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Вашите препораки сега се засноваат на вашите зачувани статии.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Вашите препораки сега се засноваат на вашата историја на читање.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Врати</string>
+  <string name="recommended_reading_list_settings_interests">Интереси</string>
+  <string name="recommended_reading_list_settings_notifications_title">Известувања</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Википедија нема да ви праќа известувања секојпат кога ќе се поднови Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Известувањата за Откриј се исклучени. Нема да добивате известувања секојпат кога ќе се поднови Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Да ги искучам известувањата?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Ако ги ислкучите известувањата, повеќе неам да добивате потсетници кога ќе се подновува Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Исклучи ги</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Не, задржи ги</string>
+  <string name="recommended_reading_list_notification_title">Вашиот %s список за читање од Откриј е готов.</string>
+  <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Откриј е вклучен. Википедија ќе ви препорачува статии за читање.</string>
 </resources>

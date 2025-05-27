@@ -11,6 +11,7 @@
 * Dbrant
 * Dv103
 * Elitre
+* Emabarto01
 * Emmanuel Fernandess
 * FRacco
 * Federico Mugnaini
@@ -67,6 +68,8 @@
   <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_back_button_content_description">Torna indietro</string>
+  <string name="search_clear_query_content_description">Pulisci query</string>
+  <string name="search_icon_content_description">Cerca</string>
   <string name="filter_hint_filter_my_lists_and_articles">Cerca negli elenchi</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
@@ -199,6 +202,7 @@
   <string name="login_2fa_hint">Codice di autenticazione a due fattori</string>
   <string name="login_2fa_other_workflow_error_msg">È richiesta l\'autenticazione a due fattori! Accedi dalla schermata principale e inserisci il codice del tuo token 2FA.</string>
   <string name="login_email_auth_hint">Codice di verifica e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Richiesta verifica dell’indirizzo email!\nAccedi dalla schermata principale e inserisci il codice di verifica ricevuto.</string>
   <string name="onboarding_card_login">Entra</string>
   <string name="page_editing_login">Entra</string>
   <string name="reading_lists_sync_login">Entra</string>
@@ -288,24 +292,23 @@
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Contributori</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
   <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.it\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
+  <string name="about_logo_content_description">Logo del globo puzzle di Wikipedia</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
   <string name="edit_abandon_confirm_yes">Sì</string>
   <string name="edit_abandon_confirm_no">No</string>
@@ -624,8 +627,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
   <string name="reading_lists_sync_reminder_title">Attiva la sincronizzazione degli elenchi di lettura?</string>
-  <string name="reading_lists_sync_reminder_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzate con la tua utenza Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_login_reminder_text">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati.</string>
@@ -924,15 +927,13 @@
   <string name="description_edit_help_title">Informazioni: descrizioni della voce</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
   <string name="description_edit_license_notice">Modificando la descrizione della voce, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
   <string name="description_edit_voice_input_description">Input vocale</string>
   <string name="description_edit_learn_more">Ulteriori informazioni sulle descrizioni delle voci</string>
   <string name="description_edit_image_caption_learn_more">Ulteriori informazioni sui sottotitoli delle immagini</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Il testo è troppo breve.</string>
   <string name="description_too_long">Cerca di mantenere le descrizioni brevi in modo che gli utenti possano comprendere a colpo d\'occhio l\'argomento della voce</string>
   <string name="description_ends_with_punctuation">Il testo non deve terminare con il punto.</string>
@@ -1742,12 +1743,13 @@
   <string name="on_this_day_game_splash_message">Indovinate quale evento si è verificato per primo in questo giorno della storia.</string>
   <string name="on_this_day_game_progress">%1$d di %2$d</string>
   <string name="on_this_day_game_score">Punteggio: %d</string>
+  <string name="on_this_day_game_submit">Invia</string>
   <string name="on_this_day_game_correct">Corretto!</string>
   <string name="on_this_day_game_incorrect">Sbagliato!</string>
   <string name="on_this_day_game_point">+1 punto</string>
   <string name="on_this_day_game_next">Domanda successiva</string>
   <string name="on_this_day_game_finish">Risultato finale</string>
-  <string name="on_this_day_game_share">Condividi con gli amici</string>
+  <string name="on_this_day_game_share_button">Condividi</string>
   <string name="on_this_day_game_pause_title">Mettere in pausa il gioco?</string>
   <string name="on_this_day_game_pause_body">I tuoi progressi saranno salvati per la giornata. Puoi trovare il gioco nel tuo feed Esplora.</string>
   <string name="on_this_day_game_pause_negative">Continua a giocare</string>
@@ -1788,7 +1790,79 @@
   <string name="on_this_day_game_report_email_body">Ho riscontrato un problema con la funzione Giochi di Wikipedia:\n- [Descrivi il problema specifico]\n\nIl comportamento che vorrei vedere è:\n- [Descrivi la soluzione proposta]</string>
   <string name="on_this_day_game_notification_undo">Annulla</string>
   <string name="on_this_day_game_share_link_message">Sto giocando a \"Chi è arrivato prima?\", un quiz giornaliero sull\'app Android di Wikipedia %s</string>
+  <string name="on_this_day_game_share_screen_title">Oggi ho ottenuto %1$d/%2$d su \n\"Qual è arrivato prima?\"</string>
+  <string name="on_this_day_game_share_screen_subtitle">Argomenti trattati:</string>
   <string name="on_this_day_game_survey_q1">Quanto sei soddisfatto di questo gioco?</string>
   <string name="on_this_day_game_survey_q2">Ti piacerebbe provare diversi giochi di Wikipedia?</string>
-  <string name="about_logo_content_description">Logo del globo puzzle di Wikipedia</string>
+  <string name="on_this_day_game_archive_calendar_title">Scegli una partita in base alla data a cui giocare.</string>
+  <string name="on_this_day_game_score_toast_message">Hai totalizzato %1$d/%2$d in questo giorno.</string>
+  <string name="on_this_day_game_continue_btn_text">Continua la partita di oggi</string>
+  <string name="on_this_day_game_current_progress_message">Sei alla domanda %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Gioca dall\'archivio</string>
+  <string name="on_this_day_game_review_results_btn_text">Esamina i risultati</string>
+  <string name="on_this_day_game_score_message">Hai totalizzato %1$d/%2$d nella partita di oggi.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Continua a giocare</string>
+  <string name="on_this_day_game_sound_on">Attiva l\'audio</string>
+  <string name="on_this_day_game_sound_off">Disattiva l\'audio</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nuovo!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Inizia</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">No, grazie</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Per impostare in un secondo momento l\'elenco delle letture consigliate, vai su Impostazioni.</string>
+  <string name="recommended_reading_list_interest_source_interests">Lasciami scegliere in base ai miei interessi</string>
+  <string name="recommended_reading_list_interest_source_saved">Scegli per me in base alle mie voci salvate</string>
+  <string name="recommended_reading_list_interest_source_history">Scegli per me in base alla mia cronologia di lettura</string>
+  <string name="recommended_reading_list_interest_pick_title">Cosa ti interessa?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Cerca una voce</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d selezionato</item>
+    <item quantity="other">%d selezionati</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Seleziona casualmente</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Abbiamo selezionato casualmente alcune voci per voi.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Annulla</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Sei sicuro di voler casualizzare la selezione?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">In questo modo verranno cancellate le selezioni correnti e verranno scelte nuove voci in modo casuale.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Sì, scegli per me</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Non importa</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Fatto per %s</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d voce</item>
+    <item quantity="other">• %d voci</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Il tuo elenco di lettura quotidiana. Scopri nuovi argomenti, scelti apposta per te. Aggiornamenti a mezzanotte.</string>
+  <string name="recommended_reading_list_page_description_weekly">Il tuo elenco di lettura settimanale. Scopri nuovi argomenti, scelti apposta per te. Aggiornamenti a inizio settimana.</string>
+  <string name="recommended_reading_list_page_description_monthly">Il tuo elenco di lettura mensile. Scopri nuovi argomenti, scelti apposta per te. Aggiornamenti il primo giorno di ogni mese.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalizza</string>
+  <string name="recommended_reading_list_page_snackbar_day">Giorno</string>
+  <string name="recommended_reading_list_page_snackbar_week">Settimana</string>
+  <string name="recommended_reading_list_page_snackbar_month">Mese</string>
+  <string name="recommended_reading_list_settings_section_header">Consigli</string>
+  <string name="recommended_reading_list_settings_title">Scopri le impostazioni</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Spegnilo</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">No, tienilo acceso</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Discover è stato disattivato. Puoi riavviarlo in qualsiasi momento nelle impostazioni.</string>
+  <string name="recommended_reading_list_settings_articles">voci</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Aggiornamenti %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">giornaliero</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">settimanale</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">mensile</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Ogni giorno</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Ogni settimana</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Ogni mese</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Come è costruito Discover</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">In base ai tuoi interessi</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">In base alle tue voci salvate</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">In base alla tua cronologia di letture</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Come modificare il modo in cui è strutturato Discover?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Se modifichi il modo in cui Discover genera i suggerimenti, i tuoi suggerimenti attuali verranno sostituiti.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Non importa</string>
+  <string name="recommended_reading_list_settings_interests">Interessi</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notifiche</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia non ti invierà una notifica quando Discover verrà aggiornato.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Le notifiche per Discover sono disattivate. Non riceverai notifiche quando Discover verrà aggiornato.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Disattivare le notifiche?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Se disattivi le notifiche, non riceverai più promemoria quando Discover viene aggiornato.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Spegnili</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, tienili accesi</string>
+  <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
 </resources>

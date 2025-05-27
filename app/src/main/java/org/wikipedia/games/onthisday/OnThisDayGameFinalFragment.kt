@@ -1,6 +1,8 @@
 package org.wikipedia.games.onthisday
 
 import android.app.Activity
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -8,30 +10,34 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
+import androidx.core.view.setPadding
 import androidx.core.view.updatePaddingRelative
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel.TotalGameHistory
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
@@ -41,10 +47,12 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.imageservice.ImageLoadListener
 import java.text.DecimalFormat
 import java.time.Duration
 import java.time.LocalDate
@@ -52,13 +60,14 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
+    private var loadedImagesForShare = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -67,21 +76,39 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
 
-        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName())
+        WikiGamesEvent.submit("impression", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
 
         binding.shareButton.setOnClickListener {
-            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("share_game_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
+            lifecycleScope.launch {
+                binding.shareButton.isEnabled = false
+                binding.shareButton.alpha = 0.5f
+                while (loadedImagesForShare < (binding.shareLayout.shareArticlesList.adapter?.itemCount ?: 0)) {
+                    delay(100)
+                    if (!isAdded) return@launch
+                }
 
-            val shareMessage = getString(R.string.on_this_day_game_share_link_message,
-                getString(R.string.on_this_day_game_share_url))
-            ShareUtil.shareText(context = requireContext(), subject = "", text = shareMessage)
+                val shareMessage = getString(
+                    R.string.on_this_day_game_share_link_message,
+                    getString(R.string.on_this_day_game_share_url)
+                )
+                binding.shareLayout.shareContainer.drawToBitmap().run {
+                    ShareUtil.shareImage(lifecycleScope, requireContext(), this,
+                        "wikipedia_on_this_day_game_" + LocalDateTime.now(),
+                        binding.shareLayout.shareResultText.text.toString(), shareMessage)
+                }
+                // Delay just a bit more, while the system share dialog pops up.
+                delay(1000)
+                binding.shareButton.alpha = 1f
+                binding.shareButton.isEnabled = true
+            }
         }
 
         viewModel.gameState.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> updateOnLoading()
                 is Resource.Error -> updateOnError(it.throwable)
-                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data, it.history)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data, it.gameStatistics)
                 else -> {
                     requireActivity().supportFragmentManager.popBackStack()
                 }
@@ -97,16 +124,27 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.root.setOnApplyWindowInsetsListener { view, insets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(insets, view)
             val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            binding.shareButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                bottomMargin = navBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            }
             binding.resultArticlesList.updatePaddingRelative(bottom = navBarInsets.bottom)
             insets
+        }
+
+        binding.archiveGameContainer.setOnClickListener {
+            prepareAndOpenArchiveCalendar(viewModel)
         }
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
         return binding.root
+    }
+
+    override fun onArchiveDateSelected(date: LocalDate) {
+        // hiding this fragment as it is not added to back stack and updating the state
+        binding.root.isVisible = false
+        WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
+        viewModel.relaunchForDate(date)
+        (requireActivity() as? OnThisDayGameActivity)?.apply {
+            animateQuestionsIn()
+        }
     }
 
     override fun onDestroyView() {
@@ -128,7 +166,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         binding.errorView.setError(t)
     }
 
-    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, history: OnThisDayGameViewModel.GameHistory) {
+    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, gameStatistics: OnThisDayGameViewModel.GameStatistics) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -142,11 +180,10 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             else -> R.color.green600
         }
         binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
-        val totalGamesPlayed = calculateTotalGamesPlayed(history.history)
-        binding.statsGamePlayed.text = String.format(totalGamesPlayed.toString())
-        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, totalGamesPlayed)
-        binding.statsAverageScore.text = DecimalFormat("0.#").format(calculateAverageScore(history.history))
-        binding.statsCurrentStreak.text = String.format(calculateStreak(history.history).toString())
+        binding.statsGamePlayed.text = String.format(gameStatistics.totalGamesPlayed.toString())
+        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, gameStatistics.totalGamesPlayed)
+        binding.statsAverageScore.text = DecimalFormat("0.#").format(gameStatistics.averageScore ?: 0.0)
+        binding.statsCurrentStreak.text = String.format(gameStatistics.currentStreak.toString())
 
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
@@ -154,6 +191,83 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal))
         binding.resultArticlesList.isNestedScrollingEnabled = false
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
+
+        buildSharableContent(gameState, viewModel.getArticlesMentioned())
+    }
+
+    private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
+        val totalCorrect = gameState.answerState.count { it }
+        loadedImagesForShare = 0
+        binding.shareLayout.shareResultText.text = getString(R.string.on_this_day_game_share_screen_title, totalCorrect, gameState.totalQuestions)
+        createDots(gameState)
+        binding.shareLayout.shareArticlesList.layoutManager = LinearLayoutManager(requireContext())
+        binding.shareLayout.shareArticlesList.isNestedScrollingEnabled = false
+        binding.shareLayout.shareArticlesList.adapter = ShareRecyclerViewAdapter(articlesMentioned
+            .filter { !it.thumbnailUrl.isNullOrEmpty() }.filterIndexed { index, _ -> index % 2 == 0 }.take(5))
+    }
+
+    private fun createDots(gameState: OnThisDayGameViewModel.GameState) {
+        val dotSize = DimenUtil.roundedDpToPx(20f)
+        val dotViews = mutableListOf<ImageView>()
+        for (i in 0 until gameState.totalQuestions) {
+            val viewId = View.generateViewId()
+            val dotView = ImageView(requireContext())
+            dotViews.add(dotView)
+            dotView.layoutParams = ViewGroup.LayoutParams(dotSize, dotSize)
+            dotView.setPadding(DimenUtil.roundedDpToPx(1f))
+            dotView.setBackgroundResource(R.drawable.shape_circle)
+            dotView.backgroundTintList =
+                if (gameState.answerState.getOrNull(i) == true) {
+                    dotView.setImageResource(R.drawable.ic_check_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.success_color)
+                } else {
+                    dotView.setImageResource(R.drawable.ic_close_black_24dp)
+                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.destructive_color)
+                }
+            dotView.imageTintList = ColorStateList.valueOf(Color.WHITE)
+            dotView.id = viewId
+
+            binding.shareLayout.scoreContainer.addView(dotView)
+        }
+        binding.shareLayout.questionDotsFlow.referencedIds = dotViews.map { it.id }.toIntArray()
+    }
+
+    private inner class ShareRecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<ShareRecyclerViewItemHolder>() {
+        override fun getItemCount(): Int {
+            return pages.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): ShareRecyclerViewItemHolder {
+            return ShareRecyclerViewItemHolder(ItemOnThisDayGameShareTopicBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: ShareRecyclerViewItemHolder, position: Int) {
+            holder.bindItem(pages[position])
+        }
+    }
+
+    private inner class ShareRecyclerViewItemHolder(val binding: ItemOnThisDayGameShareTopicBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindItem(page: PageSummary) {
+            binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
+            binding.listItemDescription.text = StringUtil.fromHtml(page.description)
+            binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
+            page.thumbnailUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, listener = ShareImageLoadListener())
+            } ?: run {
+                loadedImagesForShare++
+            }
+        }
+    }
+
+    private inner class ShareImageLoadListener : ImageLoadListener {
+        override fun onSuccess(image: Any, width: Int, height: Int) {
+            loadedImagesForShare++
+        }
+
+        override fun onError(error: Throwable) {
+            loadedImagesForShare++
+        }
     }
 
     private inner class RecyclerViewAdapter(val pages: List<PageSummary>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
@@ -188,12 +302,12 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
             binding.listItemShare.setOnClickListener {
-                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 ShareUtil.shareText(requireActivity(), page.getPageTitle(viewModel.wikiSite))
             }
             val isSaved = updateBookmark()
             binding.listItemBookmark.setOnClickListener {
-                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName())
+                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                 onBookmarkIconClick(it, page, position, isSaved)
             }
 
@@ -213,7 +327,7 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         }
 
         override fun onClick(v: View) {
-            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName())
+            WikiGamesEvent.submit("select_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, OnThisDayGameArticleBottomSheet.newInstance(page))
         }
     }
@@ -260,47 +374,6 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
             }
         }
 
-        fun calculateTotalGamesPlayed(): Int {
-            val totalHistory = Prefs.otdGameHistory.let { JsonUtil.decodeFromString<TotalGameHistory>(it) } ?: TotalGameHistory()
-            return totalHistory.langToHistory.values.sumOf { calculateTotalGamesPlayed(it.history) }
-        }
-
-        fun calculateTotalGamesPlayed(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
-            var total = 0
-            answerStateHistory.forEach { year ->
-                year.value?.forEach { month ->
-                    month.value.forEach { day ->
-                        total++
-                    }
-                }
-            }
-            return total
-        }
-
-        fun calculateStreak(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Int {
-            var streak = 0
-            var date = LocalDate.now()
-            while (answerStateHistory[date.year]?.get(date.monthValue)?.get(date.dayOfMonth) != null) {
-                streak++
-                date = date.minusDays(1)
-            }
-            return streak
-        }
-
-        fun calculateAverageScore(answerStateHistory: Map<Int, Map<Int, Map<Int, List<Boolean>>>?>): Float {
-            var total = 0
-            var count = 0
-            answerStateHistory.forEach { year ->
-                year.value?.forEach { month ->
-                    month.value.forEach { day ->
-                        total += day.value.count { it == true }
-                        count++
-                    }
-                }
-            }
-            return total.toFloat() / count
-        }
-
         fun timeUntilNextDay(): Duration {
             val now = LocalDateTime.now()
             val startOfNextDay = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT)
@@ -319,8 +392,9 @@ class OnThisDayGameFinalFragment : Fragment(), OnThisDayGameArticleBottomSheet.C
         }
 
         private fun maybeShowThanksSnackbar(activity: Activity) {
-            if (activity is PageActivity && calculateTotalGamesPlayed() == 1) {
+            if (activity is PageActivity && !Prefs.otdGameFirstPlayedShown) {
                 FeedbackUtil.showMessage(activity, R.string.on_this_day_game_completed_message)
+                Prefs.otdGameFirstPlayedShown = true
             }
         }
 

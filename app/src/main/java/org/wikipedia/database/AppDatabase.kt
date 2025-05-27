@@ -7,8 +7,12 @@ import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import org.wikipedia.WikipediaApp
+import org.wikipedia.categories.db.Category
+import org.wikipedia.categories.db.CategoryDao
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.db.DailyGameHistoryDao
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
@@ -31,7 +35,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 28
+const val DATABASE_VERSION = 29
 
 @Database(
     entities = [
@@ -44,7 +48,9 @@ const val DATABASE_VERSION = 28
         ReadingList::class,
         ReadingListPage::class,
         Notification::class,
-        TalkTemplate::class
+        TalkTemplate::class,
+        Category::class,
+        DailyGameHistory::class
     ],
     version = DATABASE_VERSION
 )
@@ -67,6 +73,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
     abstract fun talkTemplateDao(): TalkTemplateDao
+    abstract fun categoryDao(): CategoryDao
+    abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -268,11 +276,33 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        val MIGRATION_28_29 = object : Migration(28, 29) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS Category (" +
+                        "title TEXT NOT NULL," +
+                        "lang TEXT NOT NULL," +
+                        "timeStamp INTEGER NOT NULL," +
+                        "PRIMARY KEY (title, lang, timeStamp)" +
+                        ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS DailyGameHistory (" +
+                        "    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "    gameName INTEGER NOT NULL," +
+                        "    language TEXT NOT NULL," +
+                        "    year INTEGER NOT NULL," +
+                        "    month INTEGER NOT NULL," +
+                        "    day INTEGER NOT NULL," +
+                        "    score INTEGER NOT NULL," +
+                        "    playType INTEGER NOT NULL," +
+                        "    gameData TEXT" +
+                        ")")
+            }
+        }
+
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
-                    MIGRATION_26_28, MIGRATION_27_28)
+                    MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()

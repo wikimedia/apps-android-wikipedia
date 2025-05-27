@@ -35,7 +35,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
+import org.wikipedia.views.ViewUtil
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
@@ -234,7 +234,7 @@ class SearchResultsFragment : Fragment() {
             // highlight search term within the text
             StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, viewModel.searchTerm)
             itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
+            ViewUtil.loadImage(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
             view.isLongClickable = true
             view.setOnClickListener {
