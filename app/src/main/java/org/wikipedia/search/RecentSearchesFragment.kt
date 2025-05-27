@@ -38,7 +38,7 @@ class RecentSearchesFragment : Fragment() {
 
     private var _binding: FragmentSearchRecentBinding? = null
     val binding get() = _binding!!
-    private val namespaceHints = listOf(Namespace.PROJECT, Namespace.USER, Namespace.PORTAL, Namespace.HELP, Namespace.TEMPLATE)
+    private val namespaceHints = listOf(Namespace.USER, Namespace.PORTAL, Namespace.HELP, Namespace.PROJECT, Namespace.TEMPLATE)
     private val namespaceMap = ConcurrentHashMap<String, Map<Namespace, String>>()
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable -> L.e(throwable) }
     var callback: Callback? = null
