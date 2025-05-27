@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import org.wikipedia.R
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DISCOVER_READING_LIST
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import java.time.Duration
@@ -16,10 +16,10 @@ import java.time.LocalTime
 object RecommendedReadingListNotificationManager {
     private const val NOTIFICATION_TYPE_LOCAL = "local"
 
-    fun scheduleDiscoverReadingListNotification(context: Context) {
+    fun scheduleRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(ACTION_DISCOVER_READING_LIST)
+            .setAction(ACTION_RECOMMENDED_READING_LIST)
         val triggerUpdateMillis = System.currentTimeMillis() + timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency).toMillis()
         val nextUpdateIntervalInMillis = when (Prefs.recommendedReadingListUpdateFrequency) {
             RecommendedReadingListUpdateFrequency.DAILY -> AlarmManager.INTERVAL_DAY
@@ -54,10 +54,10 @@ object RecommendedReadingListNotificationManager {
         )
     }
 
-    fun cancelDiscoverReadingListNotification(context: Context) {
+    fun cancelRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(ACTION_DISCOVER_READING_LIST)
+            .setAction(ACTION_RECOMMENDED_READING_LIST)
         alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
     }
 

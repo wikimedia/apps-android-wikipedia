@@ -79,7 +79,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 OnThisDayGameNotificationManager.showNotification(context)
             }
 
-            ACTION_DISCOVER_READING_LIST == intent.action -> {
+            ACTION_RECOMMENDED_READING_LIST == intent.action -> {
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }
@@ -90,7 +90,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val ACTION_DAILY_GAME = "action_daily_game"
-        const val ACTION_DISCOVER_READING_LIST = "action_discover_reading_list"
+        const val ACTION_RECOMMENDED_READING_LIST = "action_recommended_reading_list"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
