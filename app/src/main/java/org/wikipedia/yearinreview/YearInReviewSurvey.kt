@@ -44,6 +44,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -81,7 +82,7 @@ fun YearInReviewSurvey(
             Surface(
                 tonalElevation = AlertDialogDefaults.TonalElevation,
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(16.dp))
+                    .clip(shape = RoundedCornerShape(28.dp))
                     .background(color = WikipediaTheme.colors.paperColor)
                     .fillMaxWidth()
             ) {
@@ -98,6 +99,7 @@ fun YearInReviewSurvey(
                     ) {
                         Column(
                             horizontalAlignment = Alignment.Start,
+                            verticalArrangement = Arrangement.spacedBy(8.dp),
                             modifier = Modifier
                                 .wrapContentHeight()
                                 .align(Alignment.Center)
@@ -106,9 +108,8 @@ fun YearInReviewSurvey(
                                 text = stringResource(R.string.year_in_review_survey_title),
                                 style = WikipediaTheme.typography.h2,
                                 color = WikipediaTheme.colors.primaryColor,
-                                modifier = Modifier.padding(top = 12.dp)
+                                modifier = Modifier.padding(top = 24.dp)
                             )
-                            Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = stringResource(R.string.year_in_review_survey_subtitle),
                                 style = WikipediaTheme.typography.p,
@@ -138,7 +139,8 @@ fun YearInReviewSurvey(
                                         role = Role.RadioButton
                                     )
                                     .padding(start = 8.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 RadioButton(
                                     selected = (text == selectedOption),
@@ -149,9 +151,10 @@ fun YearInReviewSurvey(
                                         disabledUnselectedColor = WikipediaTheme.colors.inactiveColor
                                     ),
                                     onClick = null,
-                                    modifier = Modifier.padding(8.dp)
+                                    modifier = Modifier
+                                        .padding(9.dp)
+                                        .scale(1.2f)
                                 )
-                                Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = text,
                                     style = WikipediaTheme.typography.p,
