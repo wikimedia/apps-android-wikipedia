@@ -51,13 +51,15 @@ class YearInReviewViewModel() : ViewModel() {
                 if (personalizedStatistics.readCount >= MINIMUM_READ_COUNT) {
                     personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
                         .map { StringUtil.fromHtml(it).toString() }
-                    readCountData.headLineText = WikipediaApp.instance.getString(
-                        R.string.year_in_review_read_count_headline,
-                        personalizedStatistics.readCount.toString()
+                    readCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_headline,
+                        personalizedStatistics.readCount,
+                        personalizedStatistics.readCount
                     )
-                    readCountData.bodyText = WikipediaApp.instance.getString(
-                        R.string.year_in_review_read_count_bodytext,
-                        personalizedStatistics.readCount.toString(),
+                    readCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_bodytext,
+                        personalizedStatistics.readCount,
+                        personalizedStatistics.readCount,
                         personalizedStatistics.readCountApiTitles[0],
                         personalizedStatistics.readCountApiTitles[1],
                         personalizedStatistics.readCountApiTitles[2]
@@ -106,23 +108,32 @@ class YearInReviewViewModel() : ViewModel() {
             personalizedStatistics.editCount += wikidataResponse.query?.userInfo!!.editCount
             personalizedStatistics.editCount += commonsResponse.query?.userInfo!!.editCount
 
-            editCountData.headLineText = WikipediaApp.instance.getString(
-                R.string.year_in_review_edit_count_headline,
-                personalizedStatistics.editCount.toString()
-            )
-            editCountData.bodyText = WikipediaApp.instance.getString(
-                R.string.year_in_review_edit_count_bodytext,
-                personalizedStatistics.editCount.toString()
-            )
+            if (personalizedStatistics.editCount >= MINIMUM_EDIT_COUNT) {
+                editCountData.headLineText = WikipediaApp.instance.resources.getQuantityString(
+                    R.plurals.year_in_review_edit_count_headline,
+                    personalizedStatistics.editCount,
+                    personalizedStatistics.editCount
+                )
+                editCountData.bodyText = WikipediaApp.instance.resources.getQuantityString(
+                    R.plurals.year_in_review_edit_count_bodytext,
+                    personalizedStatistics.editCount,
+                    personalizedStatistics.editCount
+                )
 
-            _uiScreenListState.value = Resource.Success(
-                data = listOf(readCountJob.await(), editCountData)
-            )
+                _uiScreenListState.value = Resource.Success(
+                    data = listOf(readCountJob.await(), editCountData)
+                )
+            } else {
+                _uiScreenListState.value = Resource.Success(
+                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData)
+                )
+            }
         }
     }
 
     companion object {
         private const val MINIMUM_READ_COUNT = 3
+        private const val MINIMUM_EDIT_COUNT = 1
 
         val getStartedData = YearInReviewScreenData(
             imageResource = R.drawable.year_in_review_block_10_resize,

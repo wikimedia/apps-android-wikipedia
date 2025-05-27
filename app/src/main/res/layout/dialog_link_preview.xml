@@ -30,14 +30,12 @@
 
                 <ImageView
                     android:id="@+id/link_preview_thumbnail"
-                    style="@style/ImageViewDefault"
-                    android:layout_width="@dimen/defaultListItemSize"
-                    android:layout_height="@dimen/defaultListItemSize"
+                    style="@style/ImageViewDefault.Thumb"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
                     android:layout_marginVertical="16dp"
-                    android:contentDescription="@null"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
                 <LinearLayout
                     android:layout_width="0dp"
