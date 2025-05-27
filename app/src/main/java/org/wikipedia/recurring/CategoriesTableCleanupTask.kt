@@ -16,7 +16,7 @@ class CategoriesTableCleanupTask(app: WikipediaApp) : RecurringTask() {
 
     override suspend fun run(lastRun: Date) {
         val twoYearsAgoTimeStamp = getTimeStampForYearsAgo()
-        AppDatabase.instance.categoryDao().deleteOlderThan(twoYearsAgoTimeStamp)
+        deleteOldDataInBatches(twoYearsAgoTimeStamp, 1000)
         L.d("Successfully deleted Category data older than $CLEANUP_TIME_IN_YEARS years")
     }
 
@@ -24,6 +24,12 @@ class CategoriesTableCleanupTask(app: WikipediaApp) : RecurringTask() {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.YEAR, -years)
         return calendar.timeInMillis
+    }
+
+    suspend fun deleteOldDataInBatches(timeStamp: Long, batchSize: Int) {
+        do {
+            val deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(timeStamp, batchSize)
+        } while (deletedCount > 0)
     }
 
     companion object {
