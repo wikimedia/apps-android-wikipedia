@@ -1752,7 +1752,7 @@
   <string name="on_this_day_game_archive_btn_text">Играј од архивата</string>
   <string name="on_this_day_game_review_results_btn_text">Преглед на исходот</string>
   <string name="on_this_day_game_score_message">На денешната игра освоивте %1$d/%2$d.</string>
-  <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Продолжи со играта</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Продолжи со играта</string>
   <string name="on_this_day_game_sound_on">Вклучи звук</string>
   <string name="on_this_day_game_sound_off">Исклучи звук</string>
   <string name="recommended_reading_list_title">Откриј</string>
@@ -1780,6 +1780,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Да, избери ми</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Заборави</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Направено за %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Направено за вас</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d статија</item>
     <item quantity="other">• %d статии</item>
@@ -1833,4 +1834,6 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Не, задржи ги</string>
   <string name="recommended_reading_list_notification_title">Вашиот %s список за читање од Откриј е готов.</string>
   <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Откриј е вклучен. Википедија ќе ви препорачува статии за читање.</string>
 </resources>

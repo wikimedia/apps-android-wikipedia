@@ -1793,6 +1793,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Kyllä, valitse minun puolestani</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Peruuta</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Tehty käyttäjälle %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Tehty sinulle</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d artikkeli</item>
     <item quantity="other">• %d artikkelia</item>
