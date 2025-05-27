@@ -217,9 +217,14 @@ fun YearInReviewSurvey(
                                 buttonText = R.string.year_in_review_survey_submit,
                                 onClick = {
                                     PatrollerExperienceEvent.logAction(
-                                        "yir_survey_form",
-                                        "yir_survey_submit",
-                                        "$selectedOption $userInput"
+                                        action = "yir_survey_submit",
+                                        activeInterface = "yir_survey_form",
+                                        actionData = PatrollerExperienceEvent
+                                            .getActionDataString(
+                                                feedbackOption = selectedOption,
+                                                feedbackText = userInput
+                                            )
+
                                     )
                                     viewModel.updateSurveyShownState()
                                 }
