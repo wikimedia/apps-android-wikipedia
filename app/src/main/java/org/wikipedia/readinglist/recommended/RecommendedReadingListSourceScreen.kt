@@ -187,7 +187,7 @@ fun SourceSelectionContent(
                 SourceOptionCard(
                     modifier = Modifier
                         .clickableWithRipple(onClick = {
-                            onSourceClick(source)
+                            onSourceClick(RecommendedReadingListSource.INTERESTS)
                         }),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
@@ -199,7 +199,7 @@ fun SourceSelectionContent(
                     SourceOptionCard(
                         modifier = Modifier
                             .clickableWithRipple(onClick = {
-                                onSourceClick(source)
+                                onSourceClick(RecommendedReadingListSource.READING_LIST)
                             }),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
@@ -212,7 +212,7 @@ fun SourceSelectionContent(
                     SourceOptionCard(
                         modifier = Modifier
                             .clickableWithRipple(onClick = {
-                                onSourceClick(source)
+                                onSourceClick(RecommendedReadingListSource.HISTORY)
                             }),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
