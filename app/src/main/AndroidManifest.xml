@@ -365,7 +365,7 @@
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
         <activity
-            android:name=".settings.discover.DiscoverSettingsActivity"/>
+            android:name=".settings.discover.RecommendedReadingListSettingsActivity"/>
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -51,19 +51,19 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 
 @Composable
-fun DiscoverScreen(
+fun RecommendedReadingListSettingsScreen(
     modifier: Modifier = Modifier,
     uiState: DiscoverSettingsState,
     onBackButtonClick: () -> Unit,
-    onDiscoverSourceClick: () -> Unit,
+    onRecommendedReadingListSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
-    onDiscoverReadingListClicked: (Boolean) -> Unit,
+    onRecommendedReadingListSwitchClick: (Boolean) -> Unit,
     onNotificationStateChanged: (Boolean) -> Unit,
     onArticleNumberChanged: (Int) -> Unit,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit
 ) {
     var showAlertDialog by remember { mutableStateOf(false) }
-    val isDiscoverReadingOn = uiState.isRecommendedReadingListEnabled
+    val isRecommendedReadingListEnabled = uiState.isRecommendedReadingListEnabled
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -78,31 +78,31 @@ fun DiscoverScreen(
             modifier = Modifier
                 .padding(paddingValues)
         ) {
-            DiscoverReadingListSwitch(
+            RecommendedReadingListSwitch(
                 modifier = Modifier
                     .noRippleClickable {
-                        if (isDiscoverReadingOn) {
+                        if (isRecommendedReadingListEnabled) {
                             showAlertDialog = true
                             return@noRippleClickable
                         }
-                        onDiscoverReadingListClicked(true)
+                        onRecommendedReadingListSwitchClick(true)
                     }
                     .padding(horizontal = 16.dp),
-                isDiscoverReadingOn = isDiscoverReadingOn,
+                isDiscoverReadingOn = isRecommendedReadingListEnabled,
                 onCheckedChange = {
-                    if (isDiscoverReadingOn) {
+                    if (isRecommendedReadingListEnabled) {
                         showAlertDialog = true
-                        return@DiscoverReadingListSwitch
+                        return@RecommendedReadingListSwitch
                     }
-                    onDiscoverReadingListClicked(it)
+                    onRecommendedReadingListSwitchClick(it)
                 }
             )
             if (!uiState.isRecommendedReadingListEnabled) {
-                DiscoverSettingsOffState(
+                DisabledState(
                     modifier = Modifier.padding(16.dp)
                 )
             } else {
-                DiscoverSettingsOnState(
+                EnabledState(
                     modifier = Modifier.padding(vertical = 16.dp),
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
@@ -110,7 +110,7 @@ fun DiscoverScreen(
                     isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = onArticleNumberChanged,
                     onUpdateFrequency = onUpdateFrequency,
-                    onDiscoverSourceClick = onDiscoverSourceClick,
+                    onDiscoverSourceClick = onRecommendedReadingListSourceClick,
                     onInterestClick = onInterestClick,
                     onNotificationStateChanged = onNotificationStateChanged
                 )
@@ -128,11 +128,11 @@ fun DiscoverScreen(
                 },
                 onConfirmBtnClick = {
                     showAlertDialog = false
-                    onDiscoverReadingListClicked(false)
+                    onRecommendedReadingListSwitchClick(false)
                 },
                 onDismissBtnClick = {
                     showAlertDialog = false
-                    onDiscoverReadingListClicked(true)
+                    onRecommendedReadingListSwitchClick(true)
                 }
             )
         }
@@ -140,7 +140,7 @@ fun DiscoverScreen(
 }
 
 @Composable
-fun DiscoverSettingsOffState(
+private fun DisabledState(
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -156,7 +156,7 @@ fun DiscoverSettingsOffState(
 }
 
 @Composable
-fun DiscoverSettingsOnState(
+private fun EnabledState(
     articlesNumber: Int,
     selectedFrequency: RecommendedReadingListUpdateFrequency,
     discoverSource: RecommendedReadingListSource,
@@ -184,7 +184,7 @@ fun DiscoverSettingsOnState(
         }
 
         SettingsSection {
-            DiscoverSourceView(
+            SourceView(
                 modifier = Modifier
                     .clickable {
                         onDiscoverSourceClick()
@@ -196,7 +196,7 @@ fun DiscoverSettingsOnState(
 
         if (discoverSource == RecommendedReadingListSource.INTERESTS) {
             SettingsSection {
-                InterestsSourceView(
+                InterestsView(
                     modifier = Modifier
                         .clickable {
                             onInterestClick()
@@ -209,7 +209,7 @@ fun DiscoverSettingsOnState(
         SettingsSection(
             canShowDivider = false
         ) {
-            DiscoverNotificationView(
+            NotificationView(
                 isNotificationEnabled = isNotificationEnabled,
                 onNotificationStateChanged = onNotificationStateChanged
             )
@@ -218,7 +218,7 @@ fun DiscoverSettingsOnState(
 }
 
 @Composable
-fun ArticlesNumberView(
+private fun ArticlesNumberView(
     articlesNumber: Int,
     onArticleNumberChanged: (Int) -> Unit,
     modifier: Modifier = Modifier,
@@ -298,7 +298,7 @@ fun ArticlesNumberView(
 }
 
 @Composable
-fun UpdatesFrequencyView(
+private fun UpdatesFrequencyView(
     selectedFrequency: RecommendedReadingListUpdateFrequency,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     modifier: Modifier = Modifier
@@ -355,7 +355,7 @@ fun UpdatesFrequencyView(
 }
 
 @Composable
-fun DiscoverReadingListSwitch(
+private fun RecommendedReadingListSwitch(
     isDiscoverReadingOn: Boolean,
     onCheckedChange: ((Boolean) -> Unit),
     modifier: Modifier = Modifier
@@ -393,7 +393,7 @@ fun DiscoverReadingListSwitch(
 }
 
 @Composable
-fun DiscoverSourceView(
+private fun SourceView(
     source: RecommendedReadingListSource,
     modifier: Modifier = Modifier
 ) {
@@ -435,7 +435,7 @@ fun DiscoverSourceView(
 }
 
 @Composable
-fun InterestsSourceView(
+private fun InterestsView(
     modifier: Modifier = Modifier
 ) {
     ListItem(
@@ -463,7 +463,7 @@ fun InterestsSourceView(
 }
 
 @Composable
-fun DiscoverNotificationView(
+private fun NotificationView(
     modifier: Modifier = Modifier,
     isNotificationEnabled: Boolean,
     onNotificationStateChanged: (Boolean) -> Unit,
@@ -599,7 +599,7 @@ fun RadioListDialog(
 }
 
 @Composable
-private fun SettingsSection(
+fun SettingsSection(
     modifier: Modifier = Modifier,
     canShowDivider: Boolean = true,
     content: @Composable ColumnScope.() -> Unit

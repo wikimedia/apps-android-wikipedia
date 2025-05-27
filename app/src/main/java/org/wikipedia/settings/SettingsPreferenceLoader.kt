@@ -15,7 +15,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
-import org.wikipedia.settings.discover.DiscoverSettingsActivity
+import org.wikipedia.settings.discover.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
@@ -63,7 +63,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 true
         }
         findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, DiscoverSettingsActivity::class.java))
+            activity.startActivity(Intent(activity, RecommendedReadingListSettingsActivity::class.java))
             true
         }
 

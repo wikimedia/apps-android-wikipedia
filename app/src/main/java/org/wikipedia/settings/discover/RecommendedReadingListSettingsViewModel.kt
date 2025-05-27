@@ -8,7 +8,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 
-class DiscoverSettingsViewModel : ViewModel() {
+class RecommendedReadingListSettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(DiscoverSettingsState())
     val uiState: StateFlow<DiscoverSettingsState> = _uiState.asStateFlow()
 
@@ -35,7 +35,7 @@ class DiscoverSettingsViewModel : ViewModel() {
         _uiState.value = _uiState.value.copy(isRecommendedReadingListNotificationEnabled = enabled)
     }
 
-    fun updateDiscoverSource(source: RecommendedReadingListSource) {
+    fun updateRecommendedReadingListSource(source: RecommendedReadingListSource) {
         Prefs.recommendedReadingListSource = source
         _uiState.value = _uiState.value.copy(recommendedReadingListSource = source)
     }

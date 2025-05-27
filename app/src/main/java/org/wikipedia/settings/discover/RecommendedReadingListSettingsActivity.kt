@@ -18,17 +18,17 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 
-class DiscoverSettingsActivity : BaseActivity(), BaseActivity.Callback {
+class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Callback {
 
-    private val viewModel: DiscoverSettingsViewModel by viewModels()
+    private val viewModel: RecommendedReadingListSettingsViewModel by viewModels()
     private lateinit var currentRecommendedReadingListSource: RecommendedReadingListSource
 
-    private val discoverSourceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val recommendedReadingListSourceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         //  @TODO: call this code when discover screen is complete
         if (it.resultCode == RESULT_OK) {
-            viewModel.updateDiscoverSource(Prefs.recommendedReadingListSource)
+            viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
             showSnackBar(Prefs.recommendedReadingListSource, onAction = {
-                viewModel.updateDiscoverSource(currentRecommendedReadingListSource)
+                viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
             })
         }
     }
@@ -39,14 +39,14 @@ class DiscoverSettingsActivity : BaseActivity(), BaseActivity.Callback {
             val uiState by viewModel.uiState.collectAsState()
 
             BaseTheme {
-                DiscoverScreen(
+                RecommendedReadingListSettingsScreen(
                     uiState = uiState,
                     modifier = Modifier
                         .fillMaxSize(),
                     onBackButtonClick = {
                         onBackPressed()
                     },
-                    onDiscoverSourceClick = {
+                    onRecommendedReadingListSourceClick = {
                         currentRecommendedReadingListSource = Prefs.recommendedReadingListSource
                         // @TODO: implement when discover screen is complete
                     },
@@ -63,7 +63,7 @@ class DiscoverSettingsActivity : BaseActivity(), BaseActivity.Callback {
                     onArticleNumberChanged = {
                         viewModel.updateArticleNumbers(it)
                     },
-                    onDiscoverReadingListClicked = {
+                    onRecommendedReadingListSwitchClick = {
                         viewModel.toggleDiscoverReadingList(it)
                     }
                 )
