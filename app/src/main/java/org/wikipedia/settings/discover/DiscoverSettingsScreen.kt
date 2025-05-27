@@ -424,6 +424,8 @@ fun DiscoverSourceView(
         },
         supportingContent = {
             Text(
+                modifier = Modifier
+                    .padding(top = 4.dp),
                 text = stringResource(subtitle),
                 style = MaterialTheme.typography.bodySmall,
                 color = WikipediaTheme.colors.secondaryColor
@@ -498,6 +500,8 @@ fun DiscoverNotificationView(
         },
         supportingContent = {
             Text(
+                modifier = Modifier
+                    .padding(top = 4.dp),
                 text = subtitle,
                 style = MaterialTheme.typography.bodySmall,
                 color = WikipediaTheme.colors.secondaryColor

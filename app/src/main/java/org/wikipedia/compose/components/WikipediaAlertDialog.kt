@@ -20,12 +20,19 @@ fun WikipediaAlertDialog(
     modifier: Modifier = Modifier
 ) {
     AlertDialog(
+        modifier = modifier,
         containerColor = WikipediaTheme.colors.paperColor,
         title = {
-            Text(text = title)
+            Text(
+                text = title,
+                color = WikipediaTheme.colors.primaryColor
+            )
         },
         text = {
-            Text(text = message)
+            Text(
+                text = message,
+                color = WikipediaTheme.colors.secondaryColor
+            )
         },
         onDismissRequest = onDismissRequest,
         confirmButton = {
