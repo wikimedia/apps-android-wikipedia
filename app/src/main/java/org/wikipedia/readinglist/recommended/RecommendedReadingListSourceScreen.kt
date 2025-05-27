@@ -19,8 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -33,6 +31,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -44,6 +45,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.clickableWithRipple
@@ -55,12 +58,11 @@ import org.wikipedia.util.Resource
 @Composable
 fun SourceSelectionScreen(
     uiState: Resource<RecommendedReadingListViewModel.SourceSelectionUiState>,
-    onCloseClick: () -> Unit = {},
-    onInterestsClick: () -> Unit = {},
-    onSavedClick: () -> Unit = {},
-    onHistoryClick: () -> Unit = {},
-    onNextClick: () -> Unit = {},
+    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
+    onCloseClick: () -> Unit,
+    onNextClick: () -> Unit,
+    onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
     when (uiState) {
         is Resource.Loading -> {
@@ -77,12 +79,18 @@ fun SourceSelectionScreen(
         }
 
         is Resource.Error -> {
-            WikiErrorView(
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                caught = uiState.throwable,
-                errorClickEvents = wikiErrorClickEvents
-            )
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    caught = uiState.throwable,
+                    errorClickEvents = wikiErrorClickEvents
+                )
+            }
         }
 
         is Resource.Success -> {
@@ -91,10 +99,9 @@ fun SourceSelectionScreen(
                 selectedSource = uiState.data.selectedSource,
                 isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
                 isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
+                isDarkTheme = isDarkTheme,
+                onSourceClick = onSourceClick,
                 onCloseClick = onCloseClick,
-                onInterestsClick = onInterestsClick,
-                onSavedClick = onSavedClick,
-                onHistoryClick = onHistoryClick,
                 onNextClick = onNextClick
             )
         }
@@ -104,17 +111,17 @@ fun SourceSelectionScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionContent(
+    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
+    onSourceClick: (RecommendedReadingListSource) -> Unit,
+    onCloseClick: () -> Unit,
+    onNextClick: () -> Unit,
     fromSettings: Boolean,
     selectedSource: RecommendedReadingListSource,
     isSavedOptionEnabled: Boolean,
-    isHistoryOptionEnabled: Boolean,
-    onCloseClick: () -> Unit = {},
-    onInterestsClick: () -> Unit = {},
-    onSavedClick: () -> Unit = {},
-    onHistoryClick: () -> Unit = {},
-    onNextClick: () -> Unit = {}
+    isHistoryOptionEnabled: Boolean
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    val source by remember { mutableStateOf(selectedSource) }
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -179,29 +186,38 @@ fun SourceSelectionContent(
 
                 SourceOptionCard(
                     modifier = Modifier
-                        .clickableWithRipple(onClick = onInterestsClick),
+                        .clickableWithRipple(onClick = {
+                            onSourceClick(source)
+                        }),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
-                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
+                    isSelected = source == RecommendedReadingListSource.INTERESTS,
+                    isDarkTheme = isDarkTheme
                 )
 
                 if (isSavedOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickableWithRipple(onClick = onSavedClick),
+                            .clickableWithRipple(onClick = {
+                                onSourceClick(source)
+                            }),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
-                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
+                        isSelected = source == RecommendedReadingListSource.READING_LIST,
+                        isDarkTheme = isDarkTheme
                     )
                 }
 
                 if (isHistoryOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickableWithRipple(onClick = onHistoryClick),
+                            .clickableWithRipple(onClick = {
+                                onSourceClick(source)
+                            }),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
-                        selectedSource == RecommendedReadingListSource.HISTORY
+                        isSelected = source == RecommendedReadingListSource.HISTORY,
+                        isDarkTheme = isDarkTheme
                     )
                 }
             }
@@ -237,20 +253,18 @@ fun SourceSelectionContent(
 
 @Composable
 fun SourceOptionCard(
+    isSelected: Boolean = false,
+    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     modifier: Modifier,
     iconRes: Int,
-    textRes: Int,
-    isSelected: Boolean = false
+    textRes: Int
 ) {
-    Card(
+    WikiCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = WikipediaTheme.colors.paperColor,
-            contentColor = WikipediaTheme.colors.paperColor
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        isDarkTheme = isDarkTheme,
+        elevation = 0.dp,
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
@@ -297,7 +311,11 @@ fun DefaultPreviewSourceSelectionScreen() {
                     isHistoryOptionEnabled = true,
                     selectedSource = RecommendedReadingListSource.INTERESTS
                 )
-            )
+            ),
+            onSourceClick = {},
+            onCloseClick = {},
+            onNextClick = {},
+            isDarkTheme = false
         )
     }
 }

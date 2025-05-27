@@ -29,14 +29,18 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             }
                             requireActivity().finish()
                         },
-                        onInterestsClick = {
-                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.INTERESTS)
-                        },
-                        onSavedClick = {
-                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.READING_LIST)
-                        },
-                        onHistoryClick = {
-                            viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.HISTORY)
+                        onSourceClick = {
+                            when (it) {
+                                RecommendedReadingListSource.INTERESTS -> {
+                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.INTERESTS)
+                                }
+                                RecommendedReadingListSource.READING_LIST -> {
+                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.READING_LIST)
+                                }
+                                RecommendedReadingListSource.HISTORY -> {
+                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.HISTORY)
+                                }
+                            }
                         },
                         onNextClick = {
                             viewModel.saveSourceSelection().let { shouldGoToInterests ->
