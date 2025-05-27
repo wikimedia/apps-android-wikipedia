@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,7 +35,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,17 +48,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.PrefsIoUtil
+import org.wikipedia.settings.Prefs
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewSurvey(
-    viewModel: YearInReviewViewModel,
     pagerState: PagerState
 ) {
     val radioOptions = listOf(
@@ -70,7 +66,7 @@ fun YearInReviewSurvey(
         stringResource(R.string.year_in_review_survey_unsatisfied),
         stringResource(R.string.year_in_review_survey_very_unsatisfied)
     )
-    val hasSurveyShown by viewModel.uiHasSurveyShown.collectAsState()
+    var hasSurveyShown by remember { mutableStateOf(Prefs.yirSurveyShown) }
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[2]) }
     var userInput by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
@@ -210,7 +206,10 @@ fun YearInReviewSurvey(
                         ) {
                             SurveyButton(
                                 buttonText = R.string.year_in_review_survey_cancel,
-                                onClick = { viewModel.updateSurveyShownState() }
+                                onClick = {
+                                    Prefs.yirSurveyShown = true
+                                    hasSurveyShown = true
+                                }
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             SurveyButton(
@@ -225,7 +224,8 @@ fun YearInReviewSurvey(
                                                 feedbackText = userInput
                                             )
                                     )
-                                    viewModel.updateSurveyShownState()
+                                    Prefs.yirSurveyShown = true
+                                    hasSurveyShown = true
                                 }
                             )
                         }
@@ -257,31 +257,19 @@ fun SurveyButton(
     }
 }
 
-@Composable
-fun BlankPreviewScreen(
-    viewModel: YearInReviewViewModel = viewModel(),
-    content: @Composable ColumnScope.(YearInReviewViewModel) -> Unit
-) {
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        content(viewModel)
-    }
-}
-
 @Preview
 @Composable
 fun PreviewSurvey() {
     val contentData = listOf(YearInReviewViewModel.nonEnglishCollectiveEditCountData)
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    PrefsIoUtil.setBoolean(
-        key = "has_yir_survey_shown",
-        value = false
-    )
+    Prefs.yirSurveyShown = false
     BaseTheme {
-        BlankPreviewScreen { viewModel ->
+        Column(
+           modifier = Modifier
+               .fillMaxSize()
+               .background(WikipediaTheme.colors.paperColor)
+        ) {
             YearInReviewSurvey(
-                viewModel = viewModel,
                 pagerState = pagerState
             )
         }

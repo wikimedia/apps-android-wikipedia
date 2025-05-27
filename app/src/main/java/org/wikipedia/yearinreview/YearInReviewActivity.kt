@@ -100,10 +100,7 @@ class YearInReviewActivity : BaseActivity() {
                                         }
                                     ) },
                                     screenContent = { innerPadding, contentData, pagerState ->
-                                        YearInReviewSurvey(
-                                            viewModel = viewModel,
-                                            pagerState = pagerState
-                                        )
+                                        YearInReviewSurvey(pagerState = pagerState)
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
                                             context = this@YearInReviewActivity,

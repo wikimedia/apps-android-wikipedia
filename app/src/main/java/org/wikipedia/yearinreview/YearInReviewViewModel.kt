@@ -14,7 +14,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.settings.PrefsIoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -37,27 +36,9 @@ class YearInReviewViewModel() : ViewModel() {
     }
     private var _uiScreenListState = MutableStateFlow(Resource<List<YearInReviewScreenData>>())
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
-    private var _uiHasSurveyShown = MutableStateFlow(false)
-    val uiHasSurveyShown: StateFlow<Boolean> = _uiHasSurveyShown.asStateFlow()
 
     init {
-        hasSurveyShown()
         fetchPersonalizedData()
-    }
-
-    fun hasSurveyShown() {
-        _uiHasSurveyShown.value = PrefsIoUtil.getBoolean(
-            key = "has_yir_survey_shown",
-            defaultValue = false
-        )
-    }
-
-    fun updateSurveyShownState() {
-        _uiHasSurveyShown.value = true
-        PrefsIoUtil.setBoolean(
-            key = "has_yir_survey_shown",
-            value = true
-        )
     }
 
     fun fetchPersonalizedData() {
