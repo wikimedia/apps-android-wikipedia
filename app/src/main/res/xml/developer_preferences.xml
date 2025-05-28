@@ -513,9 +513,7 @@
 
         <ListPreference
             android:key="@string/preference_key_recommended_reading_list_notification_enabled"
-            android:title="Notification frequency Simulator"
-            android:entries="@array/preference_recommended_reading_list_frequency"
-            android:entryValues="@array/preference_recommended_reading_list_frequency" />
+            android:title="Notification frequency Simulator"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Playground">

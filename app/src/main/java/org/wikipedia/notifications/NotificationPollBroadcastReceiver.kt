@@ -27,6 +27,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.talk.NotificationDirectReplyHelper
@@ -80,6 +81,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
+                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
+                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
             }
         }

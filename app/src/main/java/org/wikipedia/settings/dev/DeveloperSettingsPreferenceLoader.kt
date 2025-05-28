@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
@@ -216,17 +217,25 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
-        findPreference(R.string.preference_key_recommended_reading_list_notification_enabled)
-            .setOnPreferenceChangeListener { _, newValue ->
+        (findPreference(R.string.preference_key_recommended_reading_list_notification_enabled) as ListPreference).apply {
+            val frequencies = RecommendedReadingListUpdateFrequency.entries
+            val names = frequencies.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
                 val selectedFrequency = newValue as String
                 val source = when (selectedFrequency) {
                     "DAILY" -> RecommendedReadingListUpdateFrequency.DAILY
                     "WEEKLY" -> RecommendedReadingListUpdateFrequency.WEEKLY
                     else -> RecommendedReadingListUpdateFrequency.MONTHLY
                 }
+                Prefs.recommendedReadingListUpdateFrequency = source
+                RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.showNotification(context = activity, source)
                 true
             }
+        }
     }
 
     private fun setUpMediaWikiSettings() {
