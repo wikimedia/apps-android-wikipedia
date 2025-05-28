@@ -79,7 +79,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
-    private var isPreview: Boolean = false
+    private var readingListMode: ReadingListMode = ReadingListMode.DEFAULT
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
@@ -94,6 +94,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
     private var exclusiveTooltipRunnable: Runnable? = null
+    private val isPreview get() = readingListMode == ReadingListMode.PREVIEW
     var readingList: ReadingList? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -106,8 +107,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
 
-        isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
-
+        readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
@@ -973,9 +973,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
         }
 
-        fun newInstance(preview: Boolean): ReadingListFragment {
+        fun newInstance(readingListMode: ReadingListMode): ReadingListFragment {
             return ReadingListFragment().apply {
-                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_PREVIEW to preview)
+                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode)
             }
         }
     }
