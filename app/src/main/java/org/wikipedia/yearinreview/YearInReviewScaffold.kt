@@ -410,81 +410,71 @@ fun ScreenShotScaffold(
     screenContent: YearInReviewScreenData,
     context: Context
 ) {
-    Scaffold(
+    Column(
         modifier = Modifier
             .pointerInput(Unit) {}
             .zIndex(-1f)
-            .fillMaxSize(),
-        containerColor = WikipediaTheme.colors.paperColor,
-        topBar = {
-            Row(
+            .fillMaxSize()
+            .background(color = WikipediaTheme.colors.paperColor),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(bottom = 40.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_wikipedia_b),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.year_in_review_navigate_left),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(113.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_wikipedia_b),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.year_in_review_navigate_left),
-                    modifier = Modifier
-                        .height(32.dp)
-                        .width(50.dp)
-                )
-            }
-        },
-        bottomBar = {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
-                modifier = Modifier
-                   .fillMaxWidth()
-                   .height(113.dp)
-                    .padding(bottom = 32.dp)
-            ) {
-                Card(
-                    shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = WikipediaTheme.colors.paperColor
-                    ),
-                    modifier = Modifier
-                        .width(312.dp)
-                        .shadow(
-                            elevation = 20.dp,
-                            spotColor = WikipediaTheme.colors.primaryColor,
-                            ambientColor = WikipediaTheme.colors.primaryColor
-                        )
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .wrapContentWidth()
-                            .wrapContentHeight()
-                            .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
-
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.globe),
-                            contentDescription = "Globe"
-                        )
-                        Text(
-                            text = "#WikipediaYearInReview",
-                            color = WikipediaTheme.colors.progressiveColor,
-                            style = WikipediaTheme.typography.button
-                        )
-                    }
-                }
-            }
+                    .height(32.dp)
+                    .width(50.dp)
+            )
         }
-    ) { innerPadding ->
         YearInReviewScreenContent(
-            innerPadding = innerPadding,
+            innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
             isInfoIconVisible = false,
             context = context
         )
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = WikipediaTheme.colors.paperColor
+            ),
+            modifier = Modifier
+                .width(312.dp)
+                .padding(top = 36.dp)
+                .shadow(
+                    elevation = 20.dp,
+                    spotColor = WikipediaTheme.colors.primaryColor,
+                    ambientColor = WikipediaTheme.colors.primaryColor)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .wrapContentHeight()
+                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
+
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.globe),
+                    contentDescription = "Globe"
+                )
+                Text(
+                    text = "#WikipediaYearInReview",
+                    color = WikipediaTheme.colors.progressiveColor,
+                    style = WikipediaTheme.typography.button
+                )
+            }
+        }
     }
 }
 
