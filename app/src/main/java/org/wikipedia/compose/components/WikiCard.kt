@@ -3,7 +3,6 @@ package org.wikipedia.compose.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -14,7 +13,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -79,13 +77,7 @@ fun MessageCard(
         Column(
             modifier = Modifier
             .fillMaxWidth()
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = ripple(
-                    bounded = true,
-                    color = WikipediaTheme.colors.overlayColor
-                ),
-                enabled = onContainerClick != null) {
+            .clickable(enabled = onContainerClick != null) {
                 onContainerClick?.invoke()
             }
         ) {
