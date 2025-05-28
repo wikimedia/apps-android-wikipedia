@@ -2,6 +2,7 @@ package org.wikipedia.readinglist.recommended
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,80 +43,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.extensions.clickableWithRipple
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
     uiState: Resource<RecommendedReadingListViewModel.SourceSelectionUiState>,
-    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
+    fromSettings: Boolean,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
     onSourceClick: (RecommendedReadingListSource) -> Unit
-) {
-    when (uiState) {
-        is Resource.Loading -> {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 64.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                LinearProgressIndicator(
-                    color = WikipediaTheme.colors.progressiveColor,
-                )
-            }
-        }
-
-        is Resource.Error -> {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                WikiErrorView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    caught = uiState.throwable,
-                    errorClickEvents = wikiErrorClickEvents
-                )
-            }
-        }
-
-        is Resource.Success -> {
-            SourceSelectionContent(
-                fromSettings = uiState.data.fromSettings,
-                selectedSource = uiState.data.selectedSource,
-                isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
-                isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
-                isDarkTheme = isDarkTheme,
-                onSourceClick = onSourceClick,
-                onCloseClick = onCloseClick,
-                onNextClick = onNextClick
-            )
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SourceSelectionContent(
-    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
-    onSourceClick: (RecommendedReadingListSource) -> Unit,
-    onCloseClick: () -> Unit,
-    onNextClick: () -> Unit,
-    fromSettings: Boolean,
-    selectedSource: RecommendedReadingListSource,
-    isSavedOptionEnabled: Boolean,
-    isHistoryOptionEnabled: Boolean
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     Scaffold(
@@ -140,7 +84,7 @@ fun SourceSelectionContent(
                         contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
-                            .clickableWithRipple(onClick = onCloseClick)
+                            .clickable(onClick = onCloseClick)
                             .padding(12.dp),
                         tint = WikipediaTheme.colors.primaryColor
                     )
@@ -154,10 +98,72 @@ fun SourceSelectionContent(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
+        when (uiState) {
+            is Resource.Loading -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(paddingValues)
+                        .padding(top = 64.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    LinearProgressIndicator(
+                        color = WikipediaTheme.colors.progressiveColor,
+                    )
+                }
+            }
+
+            is Resource.Error -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        caught = uiState.throwable,
+                        errorClickEvents = wikiErrorClickEvents
+                    )
+                }
+            }
+
+            is Resource.Success -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+                    SourceSelectionContent(
+                        selectedSource = uiState.data.selectedSource,
+                        isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
+                        isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
+                        fromSettings = fromSettings,
+                        onSourceClick = onSourceClick,
+                        onCloseClick = onCloseClick,
+                        onNextClick = onNextClick
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SourceSelectionContent(
+    onSourceClick: (RecommendedReadingListSource) -> Unit,
+    onCloseClick: () -> Unit,
+    onNextClick: () -> Unit,
+    selectedSource: RecommendedReadingListSource,
+    isSavedOptionEnabled: Boolean,
+    isHistoryOptionEnabled: Boolean,
+    fromSettings: Boolean
+) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -182,38 +188,35 @@ fun SourceSelectionContent(
 
                 SourceOptionCard(
                     modifier = Modifier
-                        .clickableWithRipple(onClick = {
+                        .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.INTERESTS)
                         }),
                     iconRes = R.drawable.outline_interests_24,
                     textRes = R.string.recommended_reading_list_interest_source_interests,
-                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS,
-                    isDarkTheme = isDarkTheme
+                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
                 )
 
                 if (isSavedOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickableWithRipple(onClick = {
+                            .clickable(onClick = {
                                 onSourceClick(RecommendedReadingListSource.READING_LIST)
                             }),
                         iconRes = R.drawable.ic_bookmark_border_white_24dp,
                         textRes = R.string.recommended_reading_list_interest_source_saved,
-                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST,
-                        isDarkTheme = isDarkTheme
+                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                     )
                 }
 
                 if (isHistoryOptionEnabled) {
                     SourceOptionCard(
                         modifier = Modifier
-                            .clickableWithRipple(onClick = {
+                            .clickable(onClick = {
                                 onSourceClick(RecommendedReadingListSource.HISTORY)
                             }),
                         iconRes = R.drawable.ic_history_24,
                         textRes = R.string.recommended_reading_list_interest_source_history,
-                        isSelected = selectedSource == RecommendedReadingListSource.HISTORY,
-                        isDarkTheme = isDarkTheme
+                        isSelected = selectedSource == RecommendedReadingListSource.HISTORY
                     )
                 }
             }
@@ -238,19 +241,17 @@ fun SourceSelectionContent(
                         modifier = Modifier
                             .size(48.dp)
                             .align(Alignment.CenterEnd)
-                            .clickableWithRipple(onClick = onNextClick)
-                            .padding(8.dp)
+                            .clickable(onClick = onNextClick)
+                            .padding(12.dp)
                     )
                 }
             }
         }
-    }
 }
 
 @Composable
 fun SourceOptionCard(
     isSelected: Boolean = false,
-    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     modifier: Modifier,
     iconRes: Int,
     textRes: Int
@@ -259,7 +260,6 @@ fun SourceOptionCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
-        isDarkTheme = isDarkTheme,
         elevation = 0.dp,
         border = BorderStroke(
             width = 1.dp,
@@ -302,16 +302,15 @@ fun DefaultPreviewSourceSelectionScreen() {
         SourceSelectionScreen(
             uiState = Resource.Success(
                 RecommendedReadingListViewModel.SourceSelectionUiState(
-                    fromSettings = false,
                     isSavedOptionEnabled = true,
                     isHistoryOptionEnabled = true,
                     selectedSource = RecommendedReadingListSource.INTERESTS
                 )
             ),
+            fromSettings = false,
             onSourceClick = {},
             onCloseClick = {},
-            onNextClick = {},
-            isDarkTheme = false
+            onNextClick = {}
         )
     }
 }

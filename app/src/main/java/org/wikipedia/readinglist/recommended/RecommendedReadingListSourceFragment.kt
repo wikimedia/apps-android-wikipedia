@@ -23,6 +23,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                 BaseTheme {
                     SourceSelectionScreen(
                         uiState = viewModel.uiSourceState.collectAsState().value,
+                        fromSettings = viewModel.fromSettings,
                         onCloseClick = {
                             if (viewModel.fromSettings) {
                                 viewModel.saveSourceSelection()

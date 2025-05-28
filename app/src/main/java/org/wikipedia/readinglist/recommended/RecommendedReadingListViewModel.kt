@@ -38,7 +38,6 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
             val selectedSource = Prefs.recommendedReadingListSource
             _uiSourceState.value = Resource.Success(
                 SourceSelectionUiState(
-                    fromSettings = fromSettings,
                     isSavedOptionEnabled = isSavedOptionEnabled,
                     isHistoryOptionEnabled = isHistoryOptionEnabled,
                     selectedSource = selectedSource
@@ -52,7 +51,6 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
         if (stateValue is Resource.Success) {
             _uiSourceState.value = Resource.Success(
                 SourceSelectionUiState(
-                    fromSettings = fromSettings,
                     isSavedOptionEnabled = stateValue.data.isSavedOptionEnabled,
                     isHistoryOptionEnabled = stateValue.data.isHistoryOptionEnabled,
                     selectedSource = newSource
@@ -127,12 +125,12 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
             val recommendedPages = mutableListOf<RecommendedPage>()
             // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
             // and update the offset everytime when re-query the API.
-            sourcesWithOffset.forEach { sourcesWithOffset ->
+            sourcesWithOffset.forEach { sourceWithOffset ->
                 var recommendedPage: PageTitle? = null
                 var retryCount = 0
-                var offset = sourcesWithOffset.offset
+                var offset = sourceWithOffset.offset
                 while (recommendedPage == null && retryCount < MAX_RETRIES) {
-                    recommendedPage = getRecommendedPage(sourcesWithOffset, offset)
+                    recommendedPage = getRecommendedPage(sourceWithOffset, offset)
                     // Cannot find any recommended articles, so update the offset and retry.
                     if (recommendedPage == null) {
                         offset += Constants.SUGGESTION_REQUEST_ITEMS
@@ -152,7 +150,7 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
                         )
                     )
                     // Update the offset in the source list
-                    newSourcesWithOffset.add(SourceWithOffset(sourcesWithOffset.title, sourcesWithOffset.language, offset))
+                    newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
                 }
             }
 
@@ -186,7 +184,6 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
     }
 
     data class SourceSelectionUiState(
-        val fromSettings: Boolean,
         val isSavedOptionEnabled: Boolean,
         val isHistoryOptionEnabled: Boolean,
         val selectedSource: RecommendedReadingListSource
