@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -32,7 +31,7 @@ import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
-fun DiscoverReadingListView(
+fun RecommendedReadingListDiscoverCardView(
     modifier: Modifier = Modifier,
     title: String,
     @DrawableRes subtitleIcon: Int,

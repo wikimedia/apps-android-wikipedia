@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,7 +44,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.compose.extensions.rippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -350,7 +350,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 // Recommended Reading List discover card
                 val recommendedArticles = RecommendedReadingListViewModel.getNewRecommendedArticles()
                 if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
-                    setupDiscoverCardView(recommendedArticles)
+                    setupRecommendedReadingListDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
                 }
@@ -860,7 +860,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private fun setupDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
+    private fun setupRecommendedReadingListDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
         binding.discoverCardView.isVisible = true
         binding.discoverCardView.setContent {
             var images by remember { mutableStateOf(recommendedArticles.map { it.thumbUrl.orEmpty() }) }
@@ -877,9 +877,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 RecommendedReadingListUpdateFrequency.MONTHLY -> R.string.recommended_reading_list_page_description_monthly
             }
             BaseTheme {
-                DiscoverReadingListView(
+                RecommendedReadingListDiscoverCardView(
                     modifier = Modifier
-                        .rippleClickable {
+                        .clickable {
                            // @TODO: open recommended list screen
                         }
                         .padding(16.dp),
