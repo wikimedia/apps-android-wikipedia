@@ -118,34 +118,24 @@ fun DiscoverReadingListView(
                     .weight(0.9f),
                 columns = GridCells.Fixed(2)
             ) {
-                if (images.isEmpty()) {
-                    items(4) {
+                items(4) { index ->
+                    val imageUrl = images.getOrNull(index) ?: ""
+                    if (imageUrl.isEmpty()) {
                         Box(
                             modifier = Modifier
                                 .size(70.dp)
                                 .background(WikipediaTheme.colors.borderColor)
                         )
-                    }
-                } else {
-                    items(4) { index ->
-                        val imageUrl = images.getOrNull(index) ?: ""
-                        if (imageUrl.isEmpty()) {
-                            Box(
-                                modifier = Modifier
-                                    .size(70.dp)
-                                    .background(WikipediaTheme.colors.borderColor)
-                            )
-                        } else {
-                            AsyncImage(
-                                model = imageUrl,
-                                modifier = Modifier
-                                    .size(70.dp),
-                                contentScale = ContentScale.Crop,
-                                contentDescription = null,
-                                placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
-                                error = ColorPainter(WikipediaTheme.colors.borderColor),
-                            )
-                        }
+                    } else {
+                        AsyncImage(
+                            model = imageUrl,
+                            modifier = Modifier
+                                .size(70.dp),
+                            contentScale = ContentScale.Crop,
+                            contentDescription = null,
+                            placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
+                            error = ColorPainter(WikipediaTheme.colors.borderColor),
+                        )
                     }
                 }
             }
