@@ -1,4 +1,4 @@
-package org.wikipedia.settings.discover
+package org.wikipedia.settings.recommendedReadingList
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -53,7 +53,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 @Composable
 fun RecommendedReadingListSettingsScreen(
     modifier: Modifier = Modifier,
-    uiState: DiscoverSettingsState,
+    uiState: RecommendedReadingListSettingsState,
     onBackButtonClick: () -> Unit,
     onRecommendedReadingListSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
@@ -88,7 +88,7 @@ fun RecommendedReadingListSettingsScreen(
                         onRecommendedReadingListSwitchClick(true)
                     }
                     .padding(horizontal = 16.dp),
-                isDiscoverReadingOn = isRecommendedReadingListEnabled,
+                isRecommendedReadingListEnabled = isRecommendedReadingListEnabled,
                 onCheckedChange = {
                     if (isRecommendedReadingListEnabled) {
                         showAlertDialog = true
@@ -356,7 +356,7 @@ private fun UpdatesFrequencyView(
 
 @Composable
 private fun RecommendedReadingListSwitch(
-    isDiscoverReadingOn: Boolean,
+    isRecommendedReadingListEnabled: Boolean,
     onCheckedChange: ((Boolean) -> Unit),
     modifier: Modifier = Modifier
 ) {
@@ -375,7 +375,7 @@ private fun RecommendedReadingListSwitch(
         },
         trailingContent = {
             Switch(
-                checked = isDiscoverReadingOn,
+                checked = isRecommendedReadingListEnabled,
                 onCheckedChange = {
                     onCheckedChange(it)
                 },

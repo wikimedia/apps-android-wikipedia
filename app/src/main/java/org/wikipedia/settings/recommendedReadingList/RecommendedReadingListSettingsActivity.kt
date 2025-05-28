@@ -1,4 +1,4 @@
-package org.wikipedia.settings.discover
+package org.wikipedia.settings.recommendedReadingList
 
 import android.content.pm.PackageManager
 import android.os.Build

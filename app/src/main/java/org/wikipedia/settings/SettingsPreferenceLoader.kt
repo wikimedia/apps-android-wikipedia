@@ -15,8 +15,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
-import org.wikipedia.settings.discover.RecommendedReadingListSettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.settings.recommendedReadingList.RecommendedReadingListSettingsActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 
@@ -108,7 +108,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_language).summary = WikipediaApp.instance.languageState.appLanguageLocalizedNames
     }
 
-    fun updateDiscoverReadingListSummary() {
+    fun updateRecommendedReadingListSummary() {
         val summary = if (Prefs.isRecommendedReadingListEnabled) {
             R.string.recommended_reading_list_settings_toggle_enable_message
         } else R.string.recommended_reading_list_settings_toggle_disable_message

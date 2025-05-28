@@ -1,4 +1,4 @@
-package org.wikipedia.settings.discover
+package org.wikipedia.settings.recommendedReadingList
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,8 +9,8 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.Prefs
 
 class RecommendedReadingListSettingsViewModel : ViewModel() {
-    private val _uiState = MutableStateFlow(DiscoverSettingsState())
-    val uiState: StateFlow<DiscoverSettingsState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(RecommendedReadingListSettingsState())
+    val uiState: StateFlow<RecommendedReadingListSettingsState> = _uiState.asStateFlow()
 
     fun toggleDiscoverReadingList(enabled: Boolean) {
         Prefs.isRecommendedReadingListEnabled = enabled
@@ -41,7 +41,7 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 }
 
-data class DiscoverSettingsState(
+data class RecommendedReadingListSettingsState(
     val isRecommendedReadingListEnabled: Boolean = Prefs.isRecommendedReadingListEnabled,
     val articlesNumber: Int = Prefs.recommendedReadingListArticlesNumber,
     val updateFrequency: RecommendedReadingListUpdateFrequency = Prefs.recommendedReadingListUpdateFrequency,
