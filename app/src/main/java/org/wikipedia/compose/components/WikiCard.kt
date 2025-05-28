@@ -1,6 +1,5 @@
 package org.wikipedia.compose.components
 
-import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -25,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -33,7 +31,6 @@ import org.wikipedia.theme.Theme
 @Composable
 fun WikiCard(
     modifier: Modifier = Modifier,
-    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     elevation: Dp = 8.dp,
     colors: CardColors = CardDefaults.cardColors(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -42,8 +39,9 @@ fun WikiCard(
     border: BorderStroke? = null,
     content: @Composable () -> Unit
 ) {
-    val cardElevation = remember(elevation, isDarkTheme) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && isDarkTheme) {
+    val isDarkTheme = WikipediaTheme.colors.isDarkTheme
+    val cardElevation = remember(elevation) {
+        if (isDarkTheme) {
             0.dp
         } else {
             elevation
@@ -64,7 +62,6 @@ fun WikiCard(
 @Composable
 fun MessageCard(
     modifier: Modifier = Modifier,
-    isDarkTheme: Boolean = WikipediaApp.instance.currentTheme.isDark,
     title: String? = null,
     message: String,
     imageRes: Int? = null,
@@ -75,8 +72,7 @@ fun MessageCard(
     onContainerClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier,
-        isDarkTheme = isDarkTheme
+        modifier = modifier
     ) {
         Column(
             modifier = Modifier
@@ -167,8 +163,7 @@ private fun WikiCardSimpleWikiTextPreview() {
     ) {
         WikiCard(
             modifier = Modifier
-                .padding(20.dp),
-            isDarkTheme = false
+                .padding(20.dp)
         ) {
             Text(
                 modifier = Modifier
@@ -190,8 +185,7 @@ private fun BorderAndElevationWikiTextPreview() {
             modifier = Modifier
                 .padding(20.dp),
             border = BorderStroke(width = 0.5.dp, color = WikipediaTheme.colors.progressiveColor),
-            elevation = 4.dp,
-            isDarkTheme = true
+            elevation = 4.dp
         ) {
             Text(
                 modifier = Modifier
@@ -213,7 +207,6 @@ private fun MessageCardPreview() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            isDarkTheme = true,
             title = "Title text",
             message = "Message text",
             positiveButtonText = "Positive button",
