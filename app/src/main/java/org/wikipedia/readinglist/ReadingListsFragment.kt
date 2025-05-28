@@ -50,6 +50,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
@@ -816,7 +817,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
             binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
-                // TODO: open Recommended reading list onboarding page
+                requireActivity().startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
                 Prefs.isRecommendedReadingListOnboardingShown = true
             }, true)
             binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
