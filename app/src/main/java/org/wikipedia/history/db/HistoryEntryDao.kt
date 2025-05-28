@@ -24,6 +24,9 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
+    @Query("SELECT COUNT(*) FROM HistoryEntry")
+    suspend fun getHistoryCount(): Int
+
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
 
