@@ -19,7 +19,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
-import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel.SourceWithOffset
+import org.wikipedia.readinglist.recommended.SourceWithOffset
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat

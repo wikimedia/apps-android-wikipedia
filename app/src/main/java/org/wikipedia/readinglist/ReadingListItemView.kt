@@ -161,6 +161,10 @@ class ReadingListItemView : ConstraintLayout {
         }
     }
 
+    fun setRecommendedListMode(isRecommendedList: Boolean) {
+        // TODO
+    }
+
     private fun updateDetails(showCheckBoxes: Boolean) {
         readingList?.let {
             binding.defaultListEmptyImage.isVisible = it.isDefault && it.pages.isEmpty() && binding.itemImage1.isVisible

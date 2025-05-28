@@ -51,6 +51,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -68,7 +69,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.Date
+import java.util.*
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -95,6 +96,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var articleLimitMessageShown = false
     private var exclusiveTooltipRunnable: Runnable? = null
     private val isPreview get() = readingListMode == ReadingListMode.PREVIEW
+    private val isRecommendedList get() = readingListMode == ReadingListMode.RECOMMENDED
     var readingList: ReadingList? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -114,6 +116,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
+        maybeShowCustomizeSnackbar()
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -622,6 +625,28 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun getPageById(id: Long): ReadingListPage? {
         return readingList?.pages?.firstOrNull { it.id == id }
+    }
+
+    private fun maybeShowCustomizeSnackbar() {
+        if (isRecommendedList && !Prefs.isRecommendedReadingListOnboardingShown) {
+            val frequency = when (Prefs.recommendedReadingListUpdateFrequency) {
+                RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_snackbar_day
+                RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_snackbar_week
+                else -> R.string.recommended_reading_list_page_snackbar_week
+            }
+            val message = getString(
+                R.string.recommended_reading_list_page_snackbar,
+                Prefs.recommendedReadingListArticlesNumber,
+                getString(frequency).lowercase(Locale.getDefault())
+            )
+            FeedbackUtil.makeSnackbar(requireActivity(), message)
+                .setAction(R.string.recommended_reading_list_page_snackbar_action) {
+                   // TODO: go to discover settings
+                }
+                .show()
+
+            Prefs.isRecommendedReadingListOnboardingShown = true
+        }
     }
 
     private inner class AppBarListener : OnOffsetChangedListener {
