@@ -32,6 +32,7 @@
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_languages">Претражи језике</string>
   <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Обриши упит</string>
   <string name="search_icon_content_description">Претрага</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
@@ -1639,11 +1640,13 @@
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_progress">%1$d од %2$d</string>
   <string name="on_this_day_game_score">Резултат: %d</string>
+  <string name="on_this_day_game_submit">Проследи</string>
   <string name="on_this_day_game_correct">Тачно!</string>
   <string name="on_this_day_game_incorrect">Нетачно!</string>
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следеће питање</string>
   <string name="on_this_day_game_finish">Коначни резултат</string>
+  <string name="on_this_day_game_share_button">Дели</string>
   <string name="on_this_day_game_pause_title">Паузирање игрице?</string>
   <string name="on_this_day_game_pause_negative">Настави играње</string>
   <string name="on_this_day_game_pause_positive">Разумео</string>
@@ -1663,4 +1666,23 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
   <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Настави игру</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Нема везе</string>
+  <string name="recommended_reading_list_page_snackbar_day">дан</string>
+  <string name="recommended_reading_list_page_snackbar_week">недеља</string>
+  <string name="recommended_reading_list_page_snackbar_month">месец</string>
+  <string name="recommended_reading_list_settings_section_header">Предлози</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">недељно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Сваки дан</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Сваке недеље</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Сваког месеца</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Прилагоди</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Нема везе</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Опозови</string>
+  <string name="recommended_reading_list_settings_notifications_title">Обавештења</string>
 </resources>

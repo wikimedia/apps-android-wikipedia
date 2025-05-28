@@ -22,7 +22,7 @@ class RecurringTasksExecutor() {
                 AlphaUpdateChecker(app).runIfNecessary()
             }
             CategoriesTableCleanupTask(app).runIfNecessary()
-            // TODO: add recommended reading list task here
+            RecommendedReadingListTask().runIfNecessary()
         }
     }
 }

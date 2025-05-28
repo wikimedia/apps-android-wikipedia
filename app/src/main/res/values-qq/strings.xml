@@ -1814,6 +1814,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Positive action button in the dialog to proceed with random selection.</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Negative action button in the dialog to cancel random selection.</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Subtitle on the Discover page indicating the user for whom the list is generated. %s is replaced by the username.</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Subtitle on the Discover page indicating that the list is generated for the logged out user.</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
     <item quantity="other">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
@@ -1823,7 +1824,7 @@
   <string name="recommended_reading_list_page_description_monthly">Description of the monthly reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_overflow_customize">Menu item label to customize the recommended reading list settings.</string>
   <string name="recommended_reading_list_page_overflow_about">Menu item label to learn more about the recommended reading list feature.</string>
-  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %d is replaced by the number of articles, and %s is replaced by the update frequency.</string>
+  <string name="recommended_reading_list_page_snackbar">Snackbar message displayed on the recommended reading list page, informing the user about the update frequency and data storage. %1$d is replaced by the number of articles, and %2$s is replaced by the update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_action">Action label on the snackbar to navigate to the customization settings.</string>
   <string name="recommended_reading_list_page_snackbar_day">Text for the snackbar message that indicates a daily update frequency.</string>
   <string name="recommended_reading_list_page_snackbar_week">Text for the snackbar message that indicates a weekly update frequency.</string>
@@ -1868,5 +1869,5 @@
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
-  <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled. </string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
 </resources>
