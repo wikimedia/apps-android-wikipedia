@@ -1898,6 +1898,7 @@
     <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Yes, choose for me</string>
     <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Never mind</string>
     <string name="recommended_reading_list_page_subtitle_made_for">Made for %s</string>
+    <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Made for you</string>
     <plurals name="recommended_reading_list_page_subtitle_articles">
         <item quantity="one">• %d article</item>
         <item quantity="other">• %d articles</item>
