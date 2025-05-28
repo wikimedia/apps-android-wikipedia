@@ -141,7 +141,6 @@ fun SourceSelectionScreen(
                         isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
                         fromSettings = fromSettings,
                         onSourceClick = onSourceClick,
-                        onCloseClick = onCloseClick,
                         onNextClick = onNextClick
                     )
                 }
@@ -150,103 +149,101 @@ fun SourceSelectionScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionContent(
     onSourceClick: (RecommendedReadingListSource) -> Unit,
-    onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
     selectedSource: RecommendedReadingListSource,
     isSavedOptionEnabled: Boolean,
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        if (!fromSettings) {
+            Spacer(modifier = Modifier.weight(1f))
+        }
+
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             if (!fromSettings) {
-                Spacer(modifier = Modifier.weight(1f))
+                Text(
+                    text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
+                    color = WikipediaTheme.colors.primaryColor,
+                    fontSize = 22.sp,
+                    textAlign = TextAlign.Center
+                )
             }
 
-            Column(
+            SourceOptionCard(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(24.dp)
-            ) {
-                if (!fromSettings) {
-                    Text(
-                        text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
-                        color = WikipediaTheme.colors.primaryColor,
-                        fontSize = 22.sp,
-                        textAlign = TextAlign.Center
-                    )
-                }
+                    .clickable(onClick = {
+                        onSourceClick(RecommendedReadingListSource.INTERESTS)
+                    }),
+                iconRes = R.drawable.outline_interests_24,
+                textRes = R.string.recommended_reading_list_interest_source_interests,
+                isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
+            )
 
+            if (isSavedOptionEnabled) {
                 SourceOptionCard(
                     modifier = Modifier
                         .clickable(onClick = {
-                            onSourceClick(RecommendedReadingListSource.INTERESTS)
+                            onSourceClick(RecommendedReadingListSource.READING_LIST)
                         }),
-                    iconRes = R.drawable.outline_interests_24,
-                    textRes = R.string.recommended_reading_list_interest_source_interests,
-                    isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
+                    iconRes = R.drawable.ic_bookmark_border_white_24dp,
+                    textRes = R.string.recommended_reading_list_interest_source_saved,
+                    isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                 )
-
-                if (isSavedOptionEnabled) {
-                    SourceOptionCard(
-                        modifier = Modifier
-                            .clickable(onClick = {
-                                onSourceClick(RecommendedReadingListSource.READING_LIST)
-                            }),
-                        iconRes = R.drawable.ic_bookmark_border_white_24dp,
-                        textRes = R.string.recommended_reading_list_interest_source_saved,
-                        isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
-                    )
-                }
-
-                if (isHistoryOptionEnabled) {
-                    SourceOptionCard(
-                        modifier = Modifier
-                            .clickable(onClick = {
-                                onSourceClick(RecommendedReadingListSource.HISTORY)
-                            }),
-                        iconRes = R.drawable.ic_history_24,
-                        textRes = R.string.recommended_reading_list_interest_source_history,
-                        isSelected = selectedSource == RecommendedReadingListSource.HISTORY
-                    )
-                }
             }
 
-            if (!fromSettings) {
-                Spacer(modifier = Modifier.weight(1f))
-
-                Box(
+            if (isHistoryOptionEnabled) {
+                SourceOptionCard(
                     modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Spacer(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(1.dp)
-                            .background(WikipediaTheme.colors.borderColor)
-                    )
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                        contentDescription = stringResource(id = R.string.nav_item_forward),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier
-                            .size(48.dp)
-                            .align(Alignment.CenterEnd)
-                            .clickable(onClick = onNextClick)
-                            .padding(12.dp)
-                    )
-                }
+                        .clickable(onClick = {
+                            onSourceClick(RecommendedReadingListSource.HISTORY)
+                        }),
+                    iconRes = R.drawable.ic_history_24,
+                    textRes = R.string.recommended_reading_list_interest_source_history,
+                    isSelected = selectedSource == RecommendedReadingListSource.HISTORY
+                )
             }
         }
+
+        if (!fromSettings) {
+            Spacer(modifier = Modifier.weight(1f))
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(1.dp)
+                        .background(WikipediaTheme.colors.borderColor)
+                )
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    contentDescription = stringResource(id = R.string.nav_item_forward),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier
+                        .size(48.dp)
+                        .align(Alignment.CenterEnd)
+                        .clickable(onClick = onNextClick)
+                        .padding(12.dp)
+                )
+            }
+        }
+    }
 }
 
 @Composable
