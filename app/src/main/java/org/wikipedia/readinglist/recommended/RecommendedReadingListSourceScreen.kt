@@ -103,12 +103,12 @@ fun SourceSelectionScreen(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(paddingValues)
                         .padding(top = 64.dp),
-                    contentAlignment = Alignment.Center
                 ) {
                     LinearProgressIndicator(
+                        modifier = Modifier.fillMaxWidth(),
                         color = WikipediaTheme.colors.progressiveColor,
+                        trackColor = WikipediaTheme.colors.borderColor
                     )
                 }
             }
