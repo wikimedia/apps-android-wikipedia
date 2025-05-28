@@ -789,8 +789,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
             binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
-                // TODO: open Recommended reading list onboarding page
-                Prefs.isRecommendedReadingListOnboardingShown = true
+                startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
             }, true)
             binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
                 binding.onboardingView.isVisible = false
