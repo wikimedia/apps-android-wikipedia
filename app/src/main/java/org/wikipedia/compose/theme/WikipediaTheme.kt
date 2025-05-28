@@ -38,8 +38,4 @@ object WikipediaTheme {
     val typography: WikipediaTypography
         @Composable
         get() = LocalWikipediaTypography.current
-
-    val isDark: Boolean
-        @Composable
-        get() = LocalWikipediaColor.current.isDarkTheme
 }
