@@ -2,7 +2,6 @@ package org.wikipedia.language.addlanguages
 
 import android.os.Build
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,7 +16,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -152,14 +150,10 @@ fun LanguagesListScreen(
                             val localizedLanguageName = StringUtil.capitalize(languageItem.localizedName).orEmpty()
                             LanguageListItemView(
                                 modifier = Modifier
-                                    .clickable(
-                                        interactionSource = remember { MutableInteractionSource() },
-                                        indication = ripple(bounded = true),
-                                        onClick = {
-                                            BreadCrumbLogEvent.logClick(context, "listItem.$index")
-                                            onListItemClick(languageItem.code)
-                                        }
-                                    )
+                                    .clickable(onClick = {
+                                        BreadCrumbLogEvent.logClick(context, "listItem.$index")
+                                        onListItemClick(languageItem.code)
+                                    })
                                     .fillMaxWidth()
                                     .padding(16.dp)
                                     .testTag(languageItem.canonicalName),
