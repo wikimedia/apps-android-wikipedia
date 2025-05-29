@@ -542,7 +542,7 @@
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d ဆောင်းပါးကို %s</item>
-    <item quantity="other">%s က ဖယ်ယှားလိုက်တေ</item>
+    <item quantity="other">%d ဆောင်းပါးကို %s က ဖယ်ယှားလိုက်တေ</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d စရင်းကို ဖျက်လိုက်ပါယာ</item>
