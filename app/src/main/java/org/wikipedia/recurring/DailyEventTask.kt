@@ -4,9 +4,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.games.onthisday.OnThisDayGameABCTest
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
@@ -24,5 +26,7 @@ class DailyEventTask(private val app: WikipediaApp) : RecurringTask() {
         if (OnThisDayGameViewModel.isLangABTested(app.appOrSystemLanguageCode)) {
             WikiGamesEvent.submit("group_assign", OnThisDayGameABCTest().getGroupName())
         }
+        // @TODO: add active_interface after confirming with data
+        RecommendedReadingListEvent.submit("launch", "", RecommendedReadingListAbTest().getGroupName())
     }
 }
