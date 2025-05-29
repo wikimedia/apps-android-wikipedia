@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,11 +19,13 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 
 class YearInReviewActivity : BaseActivity() {
 
     private val viewModel: YearInReviewViewModel by viewModels()
+    var tryShowingSurvey = mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,9 @@ class YearInReviewActivity : BaseActivity() {
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
 
+                if (tryShowingSurvey.value && viewModel.haveTwoPagesShown() && !Prefs.yirSurveyShown) {
+                    YearInReviewSurvey(context = this@YearInReviewActivity)
+                }
                 NavHost(
                     navController = navController,
                     startDestination = YearInReviewNavigation.Onboarding.name,
@@ -100,7 +106,9 @@ class YearInReviewActivity : BaseActivity() {
                                         }
                                     ) },
                                     screenContent = { innerPadding, contentData, pagerState ->
-                                        YearInReviewSurvey(pagerState = pagerState)
+                                        if (pagerState.currentPage >= 1 && viewModel.haveTwoPagesShown() == false) {
+                                            viewModel.updatePagesShown()
+                                        }
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
                                             context = this@YearInReviewActivity,
@@ -114,6 +122,11 @@ class YearInReviewActivity : BaseActivity() {
                 }
             }
         }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        tryShowingSurvey.value = true
+        return
     }
 
     companion object {

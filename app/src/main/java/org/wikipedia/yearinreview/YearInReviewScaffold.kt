@@ -47,6 +47,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -62,6 +63,7 @@ import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
@@ -72,11 +74,16 @@ fun YearInReviewScreen(
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
-    contentData: List<YearInReviewScreenData>
+    contentData: List<YearInReviewScreenData>,
+    viewModel: YearInReviewViewModel? = null
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
+    var showSurvey = remember { mutableStateOf(false) }
 
+    if (showSurvey.value) {
+        YearInReviewSurvey(context = context)
+    }
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
@@ -95,7 +102,11 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            (context as? ComponentActivity)?.finish()
+                            if (viewModel?.haveTwoPagesShown() == true && !Prefs.yirSurveyShown) {
+                                showSurvey.value = true
+                            } else {
+                                (context as? ComponentActivity)?.finish()
+                            }
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.Onboarding.name)

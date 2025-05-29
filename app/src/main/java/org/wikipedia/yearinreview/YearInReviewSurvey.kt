@@ -1,5 +1,7 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
+import androidx.activity.ComponentActivity
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,8 +17,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.pager.PagerState
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -44,6 +44,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,7 +58,7 @@ import org.wikipedia.settings.Prefs
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewSurvey(
-    pagerState: PagerState
+    context: Context
 ) {
     val radioOptions = listOf(
         stringResource(R.string.year_in_review_survey_very_satisfied),
@@ -66,169 +67,167 @@ fun YearInReviewSurvey(
         stringResource(R.string.year_in_review_survey_unsatisfied),
         stringResource(R.string.year_in_review_survey_very_unsatisfied)
     )
-    var hasSurveyShown by remember { mutableStateOf(Prefs.yirSurveyShown) }
+
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[2]) }
     var userInput by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
-    if (!hasSurveyShown && pagerState.currentPage == pagerState.pageCount - 1) {
-        BasicAlertDialog(
-            onDismissRequest = { /* no dismissal unless SurveyButton used */ }
+    BasicAlertDialog(
+        onDismissRequest = { /* no dismissal unless SurveyButton used */ }
+    ) {
+        Surface(
+            tonalElevation = AlertDialogDefaults.TonalElevation,
+            modifier = Modifier
+                .clip(shape = RoundedCornerShape(28.dp))
+                .background(color = WikipediaTheme.colors.paperColor)
+                .fillMaxWidth()
         ) {
-            Surface(
-                tonalElevation = AlertDialogDefaults.TonalElevation,
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(28.dp))
+                    .verticalScroll(scrollState)
                     .background(color = WikipediaTheme.colors.paperColor)
-                    .fillMaxWidth()
             ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                Box(
                     modifier = Modifier
-                        .verticalScroll(scrollState)
-                        .background(color = WikipediaTheme.colors.paperColor)
+                        .fillMaxWidth()
+                        .wrapContentHeight()
                 ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight()
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.Start,
-                            verticalArrangement = Arrangement.spacedBy(8.dp),
-                            modifier = Modifier
-                                .wrapContentHeight()
-                                .align(Alignment.Center)
-                        ) {
-                            Text(
-                                text = stringResource(R.string.year_in_review_survey_title),
-                                style = WikipediaTheme.typography.h2,
-                                color = WikipediaTheme.colors.primaryColor,
-                                modifier = Modifier.padding(top = 24.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.year_in_review_survey_subtitle),
-                                style = WikipediaTheme.typography.p,
-                                color = WikipediaTheme.colors.secondaryColor,
-                                modifier = Modifier.padding(bottom = 12.dp)
-                            )
-                        }
-                        HorizontalDivider(
-                            modifier = Modifier
-                                .height(1.dp)
-                                .fillMaxWidth()
-                                .align(Alignment.BottomCenter),
-                            color = WikipediaTheme.colors.inactiveColor
-                        )
-                    }
                     Column(
-                        modifier = Modifier.selectableGroup()
+                        horizontalAlignment = Alignment.Start,
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                            .wrapContentHeight()
+                            .align(Alignment.Center)
                     ) {
-                        radioOptions.forEach { text ->
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(56.dp)
-                                    .selectable(
-                                        selected = (text == selectedOption),
-                                        onClick = { onOptionSelected(text) },
-                                        role = Role.RadioButton
-                                    )
-                                    .padding(start = 8.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                RadioButton(
+                        Text(
+                            text = stringResource(R.string.year_in_review_survey_title),
+                            style = WikipediaTheme.typography.h2,
+                            color = WikipediaTheme.colors.primaryColor,
+                            modifier = Modifier.padding(top = 24.dp)
+                        )
+                        Text(
+                            text = stringResource(R.string.year_in_review_survey_subtitle),
+                            style = WikipediaTheme.typography.p,
+                            color = WikipediaTheme.colors.secondaryColor,
+                            modifier = Modifier.padding(bottom = 12.dp)
+                        )
+                    }
+                    HorizontalDivider(
+                        modifier = Modifier
+                            .height(1.dp)
+                            .fillMaxWidth()
+                            .align(Alignment.BottomCenter),
+                        color = WikipediaTheme.colors.inactiveColor
+                    )
+                }
+                Column(
+                    modifier = Modifier.selectableGroup()
+                ) {
+                    radioOptions.forEach { text ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(56.dp)
+                                .selectable(
                                     selected = (text == selectedOption),
-                                    colors = RadioButtonColors(
-                                        selectedColor = WikipediaTheme.colors.progressiveColor,
-                                        unselectedColor = WikipediaTheme.colors.progressiveColor,
-                                        disabledSelectedColor = WikipediaTheme.colors.inactiveColor,
-                                        disabledUnselectedColor = WikipediaTheme.colors.inactiveColor
-                                    ),
-                                    onClick = null,
-                                    modifier = Modifier
-                                        .padding(9.dp)
-                                        .scale(1.2f)
+                                    onClick = { onOptionSelected(text) },
+                                    role = Role.RadioButton
                                 )
-                                Text(
-                                    text = text,
-                                    style = WikipediaTheme.typography.p,
-                                    color = WikipediaTheme.colors.primaryColor,
-                                )
-                            }
+                                .padding(start = 8.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            RadioButton(
+                                selected = (text == selectedOption),
+                                colors = RadioButtonColors(
+                                    selectedColor = WikipediaTheme.colors.progressiveColor,
+                                    unselectedColor = WikipediaTheme.colors.progressiveColor,
+                                    disabledSelectedColor = WikipediaTheme.colors.inactiveColor,
+                                    disabledUnselectedColor = WikipediaTheme.colors.inactiveColor
+                                ),
+                                onClick = null,
+                                modifier = Modifier
+                                    .padding(9.dp)
+                                    .scale(1.2f)
+                            )
+                            Text(
+                                text = text,
+                                style = WikipediaTheme.typography.p,
+                                color = WikipediaTheme.colors.primaryColor,
+                            )
                         }
                     }
-                    TextField(
-                        value = userInput,
-                        onValueChange = { userInput = it },
-                        textStyle = WikipediaTheme.typography.button,
-                        colors = TextFieldDefaults.colors(
-                            focusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
-                            unfocusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
-                            focusedContainerColor = WikipediaTheme.colors.backgroundColor,
-                            unfocusedContainerColor = WikipediaTheme.colors.backgroundColor,
-                            focusedTextColor = WikipediaTheme.colors.primaryColor
-                        ),
-                        placeholder = {
-                            if (userInput.isEmpty()) {
-                                Text(
-                                    text = stringResource(R.string.year_in_review_survey_placeholder_text),
-                                    color = WikipediaTheme.colors.secondaryColor,
-                                    style = WikipediaTheme.typography.p
-                                )
-                            }
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(72.dp)
-                    ) {
-                        HorizontalDivider(
-                            modifier = Modifier
-                                .height(1.dp)
-                                .fillMaxWidth()
-                                .align(Alignment.TopCenter),
-                            color = WikipediaTheme.colors.inactiveColor
-                        )
-                        Row(
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight()
-                                .align(Alignment.Center)
-                                .padding(start = 16.dp, end = 24.dp, top = 16.dp, bottom = 24.dp)
-                        ) {
-                            SurveyButton(
-                                buttonText = R.string.year_in_review_survey_cancel,
-                                onClick = {
-                                    Prefs.yirSurveyShown = true
-                                    hasSurveyShown = true
-                                }
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            SurveyButton(
-                                buttonText = R.string.year_in_review_survey_submit,
-                                onClick = {
-                                    PatrollerExperienceEvent.logAction(
-                                        action = "yir_survey_submit",
-                                        activeInterface = "yir_survey_form",
-                                        actionData = PatrollerExperienceEvent
-                                            .getActionDataString(
-                                                feedbackOption = selectedOption,
-                                                feedbackText = userInput
-                                            )
-                                    )
-                                    Prefs.yirSurveyShown = true
-                                    hasSurveyShown = true
-                                }
+                }
+                TextField(
+                    value = userInput,
+                    onValueChange = { userInput = it },
+                    textStyle = WikipediaTheme.typography.button,
+                    colors = TextFieldDefaults.colors(
+                        focusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
+                        unfocusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
+                        focusedContainerColor = WikipediaTheme.colors.backgroundColor,
+                        unfocusedContainerColor = WikipediaTheme.colors.backgroundColor,
+                        focusedTextColor = WikipediaTheme.colors.primaryColor
+                    ),
+                    placeholder = {
+                        if (userInput.isEmpty()) {
+                            Text(
+                                text = stringResource(R.string.year_in_review_survey_placeholder_text),
+                                color = WikipediaTheme.colors.secondaryColor,
+                                style = WikipediaTheme.typography.p
                             )
                         }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp, bottom = 8.dp)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(72.dp)
+                ) {
+                    HorizontalDivider(
+                        modifier = Modifier
+                            .height(1.dp)
+                            .fillMaxWidth()
+                            .align(Alignment.TopCenter),
+                        color = WikipediaTheme.colors.inactiveColor
+                    )
+                    Row(
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+                            .align(Alignment.Center)
+                            .padding(start = 16.dp, end = 24.dp, top = 16.dp, bottom = 24.dp)
+                    ) {
+                        SurveyButton(
+                            buttonText = R.string.year_in_review_survey_cancel,
+                            onClick = {
+                                Prefs.yirSurveyShown = true
+                                (context as ComponentActivity).finish()
+                            }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        SurveyButton(
+                            buttonText = R.string.year_in_review_survey_submit,
+                            onClick = {
+                                PatrollerExperienceEvent.logAction(
+                                    action = "yir_survey_submit",
+                                    activeInterface = "yir_survey_form",
+                                    actionData = PatrollerExperienceEvent
+                                        .getActionDataString(
+                                            feedbackOption = selectedOption,
+                                            feedbackText = userInput
+                                        )
+                                )
+                                Prefs.yirSurveyShown = true
+                                (context as ComponentActivity).finish()
+                            }
+                        )
                     }
                 }
             }
@@ -260,9 +259,7 @@ fun SurveyButton(
 @Preview
 @Composable
 fun PreviewSurvey() {
-    val contentData = listOf(YearInReviewViewModel.nonEnglishCollectiveEditCountData)
-    val pagerState = rememberPagerState(pageCount = { contentData.size })
-    Prefs.yirSurveyShown = false
+    val context = LocalContext.current
     BaseTheme {
         Column(
            modifier = Modifier
@@ -270,7 +267,7 @@ fun PreviewSurvey() {
                .background(WikipediaTheme.colors.paperColor)
         ) {
             YearInReviewSurvey(
-                pagerState = pagerState
+                context = context
             )
         }
     }
