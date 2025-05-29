@@ -362,9 +362,14 @@
 
         <activity
             android:name=".games.onthisday.OnThisDayGameActivity"/>
+
+        <activity
+            android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
+
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
-
+        <activity
+            android:name=".settings.recommendedReadingList.RecommendedReadingListSettingsActivity"/>
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

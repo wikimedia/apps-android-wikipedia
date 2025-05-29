@@ -514,6 +514,12 @@
         <ListPreference
             android:key="@string/preference_key_recommended_reading_list_notification_enabled"
             android:title="Notification frequency Simulator"/>
+      
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedReadingList"
+            android:title="AB test group" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Playground">

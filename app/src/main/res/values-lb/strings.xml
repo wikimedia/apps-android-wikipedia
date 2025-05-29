@@ -235,7 +235,7 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
@@ -1147,7 +1147,7 @@
   <string name="templates_learn_more_link">Méi gewuer ginn</string>
   <string name="templates_description_incomplete">Schabloune gi vu Benotzer erstallt an hunn eventuell keng vollstänneg Beschreiwung.</string>
   <string name="templates_description_empty">D\'Schabloun „%s“ huet nach keng Beschreiwung.</string>
-  <string name="templates_description_missing_data">Dës Schabloun huet keng &lt;a href=\"%1$s\"&gt;Schablounendonnéeën&lt;/a&gt; an hir Parametere goufen &lt;a href=\"%2$s\"&gt;automatesch generéiert&lt;/a&gt;. Dohier feele Beschreiwunge fir d\'Schabloun an hir Parameteren.</string>
+  <string name="templates_description_missing_data">Bei dëser Schabloun feelen d\'&lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; an hir Parametere goufen &lt;a href=\"%2$s\"&gt;automatesch generéiert&lt;/a&gt;. Dohier feelen d\'Beschreiwunge fir d\'Schabloun an hir Parameteren.</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
   <string name="main_tooltip_text">Salut %s, wousst Dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
@@ -1512,6 +1512,7 @@
   <string name="on_this_day_game_splash_message">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
   <string name="on_this_day_game_progress">%1$d vu(n) %2$d</string>
   <string name="on_this_day_game_score">Punktzuel: %d</string>
+  <string name="on_this_day_game_submit">Ofschécken</string>
   <string name="on_this_day_game_correct">Richteg!</string>
   <string name="on_this_day_game_incorrect">Falsch!</string>
   <string name="on_this_day_game_point">+ 1 Punkt</string>
@@ -1569,7 +1570,11 @@
   <string name="recommended_reading_list_onboarding_card_negative_button">Nee, merci</string>
   <string name="recommended_reading_list_interest_pick_title">Wat interesséiert Iech?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">No engem Artikel sichen</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Zoufälleg eraussichen</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Mir hunn e puer zoufälleg Artikele fir Iech erausgesicht.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Réckgängeg maachen</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Doduerch gëtt Är aktuell Auswiel opgehuewen an et ginn nei Artikelen zoufälleg erausgesicht.</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Fir Iech gemaach</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d Artikel</item>
     <item quantity="other">• %d Artikelen</item>
