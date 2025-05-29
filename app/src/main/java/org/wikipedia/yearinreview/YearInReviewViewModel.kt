@@ -39,7 +39,6 @@ class YearInReviewViewModel() : ViewModel() {
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
 
     private var _uiTwoPagesShown = MutableStateFlow(false)
-    val uiTwoPagesShown: StateFlow<Boolean> = _uiTwoPagesShown.asStateFlow()
 
     init {
         Prefs.yirSurveyShown = false

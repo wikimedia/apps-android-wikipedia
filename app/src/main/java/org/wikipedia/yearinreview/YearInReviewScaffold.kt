@@ -1,7 +1,9 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
+import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -81,6 +83,8 @@ fun YearInReviewScreen(
     val pagerState = rememberPagerState(pageCount = { contentData.size })
     var showSurvey = remember { mutableStateOf(false) }
 
+    BackHandler(enabled = true) { if(!showSurvey.value) { (context as? ComponentActivity)?.finish()} }
+
     if (showSurvey.value) {
         YearInReviewSurvey(context = context)
     }
@@ -102,6 +106,7 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
+                            Log.d("survey show", "${viewModel?.haveTwoPagesShown()}")
                             if (viewModel?.haveTwoPagesShown() == true && !Prefs.yirSurveyShown) {
                                 showSurvey.value = true
                             } else {

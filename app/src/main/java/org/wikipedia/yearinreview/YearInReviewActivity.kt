@@ -51,6 +51,7 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
+                            viewModel = viewModel,
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
                             customBottomBar = {
