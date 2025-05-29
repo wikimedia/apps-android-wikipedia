@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist.recommended
 
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         onCloseClick = {
                             if (viewModel.fromSettings) {
                                 viewModel.saveSourceSelection()
+                                requireActivity().setResult(RESULT_OK)
                             }
                             requireActivity().finish()
                         },

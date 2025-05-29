@@ -1,11 +1,9 @@
-package org.wikipedia.settings.recommendedReadingList
+package org.wikipedia.readinglist.recommended
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 
 class RecommendedReadingListSettingsViewModel : ViewModel() {
