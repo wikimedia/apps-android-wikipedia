@@ -40,15 +40,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import org.wikipedia.R
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.extensions.noRippleClickable
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.theme.Theme
 
 @Composable
 fun RecommendedReadingListSettingsScreen(
@@ -613,4 +616,29 @@ fun SettingsSection(
             }
         }
     )
+}
+
+@Preview
+@Composable
+private fun RecommendedReadingListSettingsScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        RecommendedReadingListSettingsScreen(
+            uiState = RecommendedReadingListSettingsState(
+                isRecommendedReadingListEnabled = true,
+                articlesNumber = 1,
+                updateFrequency = RecommendedReadingListUpdateFrequency.WEEKLY,
+                recommendedReadingListSource = RecommendedReadingListSource.INTERESTS,
+                isRecommendedReadingListNotificationEnabled = true
+            ),
+            onRecommendedReadingListSourceClick = {},
+            onRecommendedReadingListSwitchClick = {},
+            onInterestClick = {},
+            onUpdateFrequency = {},
+            onArticleNumberChanged = {},
+            onBackButtonClick = {},
+            onNotificationStateChanged = {}
+        )
+    }
 }
