@@ -50,6 +50,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
@@ -783,7 +784,21 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
+        if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
+            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
+            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
+            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+                startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+            }, true)
+            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+                binding.onboardingView.isVisible = false
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                updateEmptyState(null)
+                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
+            }, false)
+            binding.onboardingView.isVisible = true
+        } else if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
             binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
@@ -809,21 +824,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 binding.onboardingView.isVisible = false
                 Prefs.isReadingListLoginReminderEnabled = false
                 updateEmptyState(null)
-            }, false)
-            binding.onboardingView.isVisible = true
-        } else if (!Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
-            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
-            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
-            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
-            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
-                // TODO: open Recommended reading list onboarding page
-                Prefs.isRecommendedReadingListOnboardingShown = true
-            }, true)
-            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
-                binding.onboardingView.isVisible = false
-                Prefs.isRecommendedReadingListOnboardingShown = true
-                updateEmptyState(null)
-                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
             }, false)
             binding.onboardingView.isVisible = true
         } else {
