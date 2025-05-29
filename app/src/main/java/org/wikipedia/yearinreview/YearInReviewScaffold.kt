@@ -1,12 +1,13 @@
 package org.wikipedia.yearinreview
 
-import android.widget.ImageView
+import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,28 +44,31 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
-import com.bumptech.glide.Glide
+import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreen(
+    context: Context = LocalContext.current,
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
     navController: NavHostController,
@@ -72,7 +76,6 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    val context = LocalContext.current
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -136,9 +139,10 @@ fun YearInReviewScreen(
 
 @Composable
 fun MainBottomBar(
-    onNavigationRightClick: () -> Unit,
     pagerState: PagerState,
-    totalPages: Int
+    totalPages: Int,
+    onNavigationRightClick: () -> Unit,
+    onDonateClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -157,10 +161,14 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .clickable(onClick = { /* TODO() */ })
                             .padding(start = 15.dp)
                             .wrapContentWidth()
-                            .align(Alignment.CenterStart),
+                            .align(Alignment.CenterStart)
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = ripple(bounded = true),
+                                onClick = { onDonateClick() }
+                            ),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
@@ -233,7 +241,8 @@ fun MainBottomBar(
 
 @Composable
 fun OnboardingBottomBar(
-    onGetStartedClick: () -> Unit
+    onGetStartedClick: () -> Unit,
+    context: Context
 ) {
     BottomAppBar(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -251,7 +260,12 @@ fun OnboardingBottomBar(
                     modifier = Modifier
                         .width(152.dp)
                         .height(42.dp),
-                    onClick = { /* TODO() */ }
+                    onClick = {
+                        UriUtil.handleExternalLink(
+                            context = context,
+                            uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                        )
+                    }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_learn_more),
@@ -282,26 +296,21 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
-
+    context: Context,
+    isInfoIconVisible: Boolean = true
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
+
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        AndroidView(
-            factory = { context ->
-                ImageView(context).apply {
-                    Glide.with(context)
-                        .asGif()
-                        .load(screenData.imageResource)
-                        .centerCrop()
-                        .into(this)
-                }
-            },
+        AsyncImage(
+            model = screenData.imageResource,
+            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(gifAspectRatio)
@@ -325,15 +334,21 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                IconButton(
-                    onClick = { /* TODO() */ },
-                    modifier = Modifier.testTag("information_icon")
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.baseline_info_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_information_icon)
-                    )
+                if (isInfoIconVisible) {
+                    IconButton(
+                        Modifier.testTag("information_icon"),
+                        onClick = {
+                            UriUtil.handleExternalLink(
+                                context = context,
+                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                            )
+                        }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
                 }
             }
             Text(

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Jrttrw
 * Kareyac
 * MidnightRaver
 * Misosoof
@@ -13,35 +14,84 @@
 <resources>
   <string name="app_name_prod">Vikipeedia</string>
   <string name="app_name_beta">Vikipeedia Beeta</string>
+  <string name="app_name_alpha">Vikipeedia Alfa</string>
   <string name="nav_item_back">Tagasi</string>
   <string name="page_tabs_back">Tagasi</string>
   <string name="nav_item_forward">Edasi</string>
   <string name="search_hint">Otsi Vikipeediast</string>
+  <string name="search_hint_search_languages">Otsi keelt</string>
   <string name="search_back_button_content_description">Mine tagasi</string>
+  <string name="search_icon_content_description">Otsi</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtreeri minu loendeid</string>
+  <string name="nav_item_suggested_edits">Muudatused</string>
+  <string name="nav_item_more">Veel</string>
+  <string name="nav_item_search">Otsi</string>
+  <string name="nav_item_contribute">Tee kaastööd</string>
   <string name="error_network_error">Internetti ühendamine ei õnnestu.</string>
   <string name="page_error_retry">Proovi uuesti</string>
+  <string name="card_offline_error_retry">Proovi uuesti</string>
+  <string name="storage_access_error_retry">Proovi uuesti</string>
+  <string name="article_load_error_retry">Proovi uuesti</string>
+  <string name="offline_load_error_retry">Proovi uuesti</string>
+  <string name="page_error_back_to_main">Mine tagasi</string>
+  <string name="error_back">Mine tagasi</string>
+  <string name="error_next">Edasi</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
+  <string name="history_item_deleted">%s on ajaloost kustutatud</string>
+  <string name="history_items_deleted">%d artiklit on ajaloost kustutatud</string>
+  <string name="history_item_delete_undo">Võta tagasi</string>
+  <string name="notification_archive_undo">Võta tagasi</string>
+  <string name="app_settings">Rakenduse seadistused</string>
   <string name="history_list_title">Ajalugu</string>
+  <string name="image_content_description">Pilt: %s</string>
+  <string name="page_content_description">Lehekülg: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Vikiandmed</string>
   <string name="dialog_title_clear_history">Sirvimisajaloo kustutamine</string>
   <string name="dialog_message_clear_history_yes">Jah</string>
   <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="menu_page_other_languages">Vaheta keelt</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Otsi lehelt</string>
+  <string name="menu_page_find_in_page">Otsi artiklist</string>
+  <string name="menu_page_add_to_watchlist">Lisa jälgimisloendisse</string>
+  <string name="menu_page_watch">Jälgi</string>
+  <string name="menu_page_unwatch">Lõpeta jälgimine</string>
   <string name="menu_page_add_to_default_list">Salvesta</string>
+  <string name="feed_card_add_to_list">Lisa lugemisloendisse</string>
   <string name="feed_card_add_to_default_list">Salvesta</string>
   <string name="menu_page_share">Jaga linki</string>
+  <string name="menu_article_share">Jaga artiklit</string>
+  <string name="menu_page_article_share">Jaga</string>
+  <string name="menu_page_open_a_new_tab">Ava uus vahekaart</string>
+  <string name="menu_page_new_tab">Uus vahekaart</string>
+  <string name="menu_page_reading_lists">Lugemisloendid</string>
+  <string name="menu_page_recently_viewed">Hiljuti vaadatud</string>
+  <string name="menu_page_archive">Arhiiv</string>
   <string name="menu_long_press_open_page">Ava</string>
+  <string name="menu_long_press_open_in_places">Ava asukohtades</string>
+  <string name="menu_long_press_open_in_new_tab">Ava uuel vahekaardil</string>
+  <string name="menu_long_press_copy_page">Kopeeri lingi aadress</string>
+  <string name="on_this_day_page_share">Jaga</string>
+  <string name="reading_list_page_share">Jaga</string>
+  <string name="menu_text_select_edit_here">Muuda siit</string>
+  <string name="menu_edit_article">Muuda artiklit</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
-  <string name="preference_title_language" fuzzy="true">Vikipeedia keel</string>
+  <string name="preference_title_language">Vikipeedia keeled</string>
   <string name="langlinks_filter_hint">Otsi</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>
-  <string name="menu_save_changes" fuzzy="true">Salvesta muudatused</string>
-  <string name="edit_saved_successfully" fuzzy="true">Muudatus(ed) salvestatud!</string>
+  <string name="menu_save_changes">Avalda muudatused</string>
+  <string name="edit_saved_successfully">Muudatus(ed) on avaldatud!</string>
+  <string name="stub_article_edit_saved_successfully">Muudatus(ed) on avaldatud! Nende avalikult nähtavaks saamiseks võib kuluda aega.</string>
   <string name="dialog_message_edit_failed">Muudatus ebaõnnestus!</string>
   <string name="dialog_message_edit_failed_retry">Proovi uuesti</string>
   <string name="dialog_message_edit_failed_cancel">Loobu</string>
+  <string name="dialog_message_leaving_edit_leave">Lahku</string>
+  <string name="dialog_message_leaving_edit_stay">Jää</string>
+  <string name="dialog_confirm_delete_donation_history_title">Kinnita kustutamine</string>
+  <string name="dialog_confirm_delete_donation_history_message">See kehtib ainult selle seadme kaudu tehtud annetuste kohta.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Kustuta</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Loobu</string>
   <string name="menu_show_toc">Sisukord</string>
   <string name="search_no_results_found">Tulemusi ei leitud</string>
   <string name="search_reading_lists_no_results">Lugemisnimekirjadest ei leitud tulemusi</string>
@@ -59,14 +109,16 @@
   <string name="menu_login">Logi sisse</string>
   <string name="login_activity_title">Logi sisse</string>
   <string name="login_in_progress_dialog_message">Sisselogimine…</string>
-  <string name="login_success_toast" fuzzy="true">Sisselogimine õnnestus</string>
+  <string name="login_success_toast">Sisselogitud!</string>
   <string name="preference_title_logout">Logi välja</string>
   <string name="toast_logout_complete">Välja logitud</string>
   <string name="logout_dialog_cancel_button_text">Loobu</string>
+  <string name="logged_out_in_background_title">Välja logitud</string>
   <string name="logged_out_in_background_login">Logi sisse</string>
   <string name="logged_out_in_background_cancel">Loobu</string>
   <string name="history_empty_message">Ülevaade sellest, mida oled siin lugenud.</string>
   <string name="create_account_username_hint">Kasutajanimi</string>
+  <string name="create_account_already_have">Kas sul juba on kasutajakonto olemas?</string>
   <string name="create_account_activity_title">Loo konto</string>
   <string name="dialog_create_account_checking_progress">Kontrollimine</string>
   <string name="create_account_email_hint">E-posti aadress (vabatahtlik)</string>
@@ -76,7 +128,9 @@
   <string name="create_account_generic_error">Kasutajakonto loomine ebaõnnestus!</string>
   <string name="create_account_next">Edasi</string>
   <string name="create_account_button">Loo konto</string>
+  <string name="create_account_ip_block_details">Üksikasjad</string>
   <string name="preferences_general_heading">Üldine</string>
+  <string name="preferences_account_heading">Kasutajakonto</string>
   <string name="send_feedback">Saada tagasisidet rakenduse kohta</string>
   <string name="create_account_account_created_toast">Konto loodud!</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
@@ -86,10 +140,17 @@
   <string name="page_protected_other">See lehekülg on kaitstud järgnevalt: %s</string>
   <string name="page_protected_can_not_edit">Kahjuks pole su kontol praegu piisavalt õigusi, et seda lehekülge redigeerida.</string>
   <string name="page_protected_can_not_edit_title">See lehekülg on kaitstud</string>
-  <string name="settings_activity_title">Eelistused</string>
+  <string name="settings_item_preferences">Seadistused</string>
+  <string name="settings_activity_title">Seadistused</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
+  <string name="privacy_policy_description">Andmekaitsereeglid</string>
+  <string name="terms_of_use_description">Kasutustingimused</string>
   <string name="about_libraries_heading">Kasutatud teegid</string>
   <string name="about_contributors_heading">Kaastöölised</string>
+  <string name="about_translators_heading">Tõlkijad</string>
+  <string name="about_translators_translatewiki">Selle rakenduse tõlkisid vabatahtlikud tõlkijad &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; tõlketeenuses.</string>
+  <string name="about_app_license_heading">Litsents</string>
+  <string name="about_app_license">Lähtekood on saadaval &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubis&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsentsi&lt;/a&gt; alusel. Kui pole teisiti täpsustatud, on sisu saadaval &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commonsi litsentsi Attribution + ShareAlike&lt;/a&gt; alusel.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>
   <string name="about_activity_title">Teave</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>
@@ -104,6 +165,8 @@
   <string name="edit_preview">Eelvaade</string>
   <string name="edit_undo">Võta tagasi</string>
   <string name="edit_redo">Tee uuesti</string>
+  <string name="edit_zoom_in">Suurenda</string>
+  <string name="edit_zoom_out">Vähenda</string>
   <string name="edit_summary_tag_typo">Parandatud kirjaviga</string>
   <string name="edit_summary_tag_grammar">Parandatud grammatika</string>
   <string name="edit_summary_tag_links">Lisatud lingid</string>
@@ -113,19 +176,93 @@
   <string name="find_previous">Otsi eelmine</string>
   <string name="clear_recent_searches_confirm_yes">Jah</string>
   <string name="clear_recent_searches_confirm_no">Ei</string>
+  <string name="table_other">Lisateave</string>
   <string name="table_close">Sulge</string>
+  <string name="alpha_update_notification_text">Allalaadimiseks puuduta</string>
+  <string name="dialog_close_description">Sulge</string>
+  <string name="preference_title_show_images">Näita pilte</string>
+  <string name="preference_title_download_only_over_wifi">Laadi alla vaid WiFi võrgust</string>
+  <string name="dialog_title_download_only_over_wifi">Kas kinnitad allalaadimise kasutades mobiilset andmesidet?</string>
+  <string name="gallery_save_progress">Fail on allalaadimisel…</string>
+  <string name="gallery_save_success">Fail on salvestatud.</string>
   <string name="close_all_tabs_confirm_yes">Jah</string>
   <string name="close_all_tabs_confirm_no">Ei</string>
+  <string name="button_close_tab">Sulge vahekaart</string>
+  <string name="unnamed_tab_closed">Vahekaart on suletud.</string>
+  <string name="tab_item_closed">%s on suletud.</string>
+  <string name="all_tab_items_closed">Kõik vahekaardid on suletud.</string>
+  <string name="preference_title_customize_explore_feed">Tutvu sisuvooga</string>
+  <string name="preference_summary_customize_explore_feed">Muuda „Tutvu sisuvooga“ eelistusi</string>
+  <string name="location_permissions_enable_prompt">Kui soovid näha kohti sinu lähedal, siis luba rakendusel kasutada tuvastatud asukohta.</string>
+  <string name="link_preview_dialog_saved_button">Salvestatud</string>
   <string name="article_menu_bar_save_button">Salvesta</string>
   <string name="article_menu_bar_language_button">Keel</string>
-  <string name="saved_list_empty_title" fuzzy="true">Lugemisnimekirjad puuduvad</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka internetiühenduseta.</string>
+  <string name="nav_item_saved">Salvestatud</string>
+  <string name="saved_list_empty_title">Salvestatud lehti pole veel</string>
+  <string name="reading_lists_empty_message">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka ilma võrguühenduseta.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jah</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Loobu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Logi sisse</string>
+  <string name="default_reading_list_name">Salvestatud</string>
+  <string name="no_user_lists_msg">Koosta loendeid reisisihtkohtade, lemmikteemade ja palju muu kohta</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Loobu</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Loobu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Loobu</string>
+  <string name="notification_channel_title">Laadin alla artikleid</string>
+  <string name="notification_channel_description">Allalaadimise edenemine</string>
   <string name="notification_syncing_cancel_button">Loobu</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Laadin alla artiklit</item>
+    <item quantity="other">Laadin alla artikleid</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Allalaadimisel artikleid: %1$d…</item>
+    <item quantity="other">Allalaadimisel artikleid: %1$d…</item>
+  </plurals>
+  <string name="preference_title_hide_read_notifications">Peida lugemisteated</string>
+  <string name="view_because_you_read_card_title">Varemloetu seosed</string>
+  <string name="view_random_article_card_title">Juhuslik artikkel</string>
+  <string name="view_random_article_card_action">Veel juhuslikke artikleid</string>
+  <string name="view_top_read_card_title">Enim loetud</string>
+  <string name="view_top_read_card_action">Veel enimloetud artikleid</string>
+  <string name="view_next_random_article">Laadi mõni muu juhuslik artikkel</string>
+  <string name="view_featured_image_card_title">Päeva pilt</string>
+  <string name="view_featured_image_card_download">Laadi alla</string>
+  <string name="menu_feed_card_dismiss">Peida see vahekaart</string>
+  <string name="menu_feed_card_edit_card_languages">Muuda vahekaardi keelt</string>
+  <string name="feed_featured_image_share_subject">Esiletõstetud pilt Wikimedia Commonsist</string>
+  <string name="feed">Avasta</string>
+  <string name="feed_configure_activity_title">Kohanda sisuvoogu</string>
+  <string name="feed_configure_menu_reset">Taasta vaikimisi vaade</string>
+  <string name="feed_configure_menu_select_all">Näita kõiki</string>
+  <string name="feed_configure_menu_deselect_all">Peida kõik</string>
+  <string name="feed_item_type_on_this_day">Tänas päeva sündmused ajaloos</string>
+  <string name="feed_item_type_randomizer">Koosta lugemiseks juhuslike artiklite loend</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Sobib</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Loobu</string>
+  <string name="feed_accessibility_card_text">Oled jõudnud sisuvoo lõppu.</string>
+  <string name="feed_accessibility_card_load_more_button">Laadi veel</string>
+  <string name="feed_language_variants_removal_dialog_save">Salvesta</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ava seadistused</string>
+  <string name="image_recommendation_onboarding_1">Pildid aitavad lugejatel sisu paremini mõista, aga paljudes artiklites neid pole.</string>
+  <string name="app_shortcuts_places">Asukohad</string>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Peida vastus</item>
+    <item quantity="other">Peida vastused (%d)</item>
+  </plurals>
+  <string name="patroller_diff_feedback_dialog_input_hint">Tagasiside</string>
+  <string name="places_title">Asukohad</string>
+  <string name="places_permissions_denied">Sinu asukoha kuvamiseks kaardil palun luba rakendusel kasutada tuvastatud asukohta. Seejärel palun proovi uuesti.</string>
+  <string name="places_search_hint">Otsi asukohti</string>
+  <string name="places_filter_title">Kasutatavad keeled</string>
+  <string name="places_toggle_buttons_map">Kaart</string>
+  <string name="places_toggle_buttons_list">Loend</string>
+  <string name="places_card_title">Asukohad läheduses</string>
+  <string name="places_card_action">Veel asukohti läheduses</string>
+  <string name="places_card_enable_location_card_button">Lülita asukohatuvastus sisse</string>
+  <string name="places_card_distance_suffix">%s kaugusel</string>
+  <string name="places_card_distance_unknown">Tundmatus kauguses</string>
+  <string name="places_empty_message_snackbar">Sinu lähikonnaga pole seotud ühtegi artiklit. Proovi kaarti vähendada või nihutada.</string>
+  <string name="survey_dialog_input_hint">Täiendav tagasiside</string>
 </resources>

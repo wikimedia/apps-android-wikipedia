@@ -259,18 +259,16 @@
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
   <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
-  <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
   <string name="about_libraries_heading">Felhasznált szoftverkönyvtárak</string>
   <string name="about_contributors_heading">Közreműködők</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
@@ -594,8 +592,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -893,15 +891,13 @@
   <string name="description_edit_help_title">Info: szócikkleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a szócikkleírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A szócikkleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
   <string name="description_edit_voice_input_description">Hangbevitel</string>
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#Cikkle%C3%ADr%C3%A1sok</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#K%C3%A9pfeliratok</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
@@ -1631,7 +1627,15 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Hagyjál szerkesztési összefoglalót</string>
   <string name="patroller_saved_message_title_do_not_censor">Ne cenzúrázz</string>
   <string name="patroller_saved_message_title_art_imp">Javaslat a cikked továbbfejlesztésére</string>
+  <string name="patroller_saved_message_body_vandalism">Szia {{{username}}}!\nSzeretném jelezni, hogy visszavontam egy vagy több [{{{diffLink}}}|legutóbbi szerkesztésedet], mert azok nem tűntek építő jellegűnek.\nHa úgy gondolod, hogy tévedtem, vagy kérdésed van, írj bátran a [[User talk:{{{senderUserName}}}|vitalapomon]].\nKérlek, vedd figyelembe, hogy a vandál szerkesztések folytatása korlátozásokhoz vezethet.</string>
+  <string name="patroller_saved_message_body_editing_tests">Szia {{{username}}}!\n\nÖrömmel látom, hogy felkeltette az érdeklődésedet a Wikipédia, és elkezdtél ismerkedni a szerkesztéssel. A próbálkozásod technikailag sikeres volt; azonban ne feledd, hogy a projekt célja egy megbízható és átfogó enciklopédia létrehozása, amelyet bárki használhat. A szerkesztésed módosította a cikk tartalmát, ezért eltávolítottam.\n\nHa szeretnél gyakorolni, bátran használd a [[Wikipedia:Homokozó|homokozót]]. Ha a hozzászólásod egy adott cikkhez kapcsolódott, a megfelelő hely az adott cikk [[Vita:Cikk_címe|vitalapja]] lenne.</string>
+  <string name="patroller_saved_message_body_npov">Szia {{{username}}}!\n\nNéhány szerkesztésed nem felelt meg a Wikipédia [[Wikipedia:NPOV|semleges nézőpont]] irányelvének, ezért egyes tartalmakat módosítottunk vagy eltávolítottunk.\nKérlek, javítsd azokat a bekezdéseket vagy szakaszokat, amelyek részrehajló nézőpontot tükröznek, és helyettesítsd őket semlegesebb, tárgyilagosabb megfogalmazással, amely megfelel egy enciklopédia elvárásainak.</string>
+  <string name="patroller_saved_message_body_auto_trans">Szia {{{username}}}!\n\nÚgy tűnik, hogy néhány szerkesztésed gépi fordításon alapul, ezért azokat módosítottuk, vagy elláttuk egy figyelmeztető sablonnal. Ha a szöveg nem javul, előfordulhat, hogy az érintett szócikket töröljük.\n\nHa mindezek után kérdésed van, nyugodtan írj a [[User talk:{{{senderUserName}}}|vitalapomon]].\nNe keseredj el emiatt a kis figyelmeztetés miatt – a hozzájárulásod nagyon fontos a Wikipédia számára!</string>
+  <string name="patroller_saved_message_body_coi_rem">Szia {{{username}}}!\n\nKöszönöm, hogy hozzájárulsz a Wikipédiához. Ugyanakkor észrevettem, hogy szerkesztéseid során [[Wikipedia:Összeférhetetlenség|összeférhetetlenség]] merülhet fel.\nAz összeférhetetlenség azt jelenti, hogy egyes szerkesztők, személyek, szervezetek vagy cégek céljai nem minden esetben egyeztethetők össze a Wikipédia semlegességre és megbízhatóságra épülő irányelveivel.\n\nA fő névtérben végzett minden szerkesztésre a Wikipédia tartalmi irányelvei vonatkoznak:\n– [[Wikipedia:A Wikipédia nem az, ami nem]]\n– [[Wikipedia:Ellenőrizhetőség]], [[Wikipedia:Eredetileg nem közölt kutatás]],\n– [[Wikipedia:Semleges nézőpont]]\n– és a [[Wikipedia:Szerzői jogok]].\n\nMinden szerkesztőtől elvárjuk, hogy ezekhez az elvekhez tartsa magát, tartalomkészítés és véleményezés során is, valamint hogy feltételezze a jó szándékot más szerkesztők részéről.\n\nHa összeférhetetlenség fennáll, különösen fontos, hogy fokozottan ügyelj ezen szabályok betartására. Ennek elmulasztása esetén a szerkesztői fiókot magáncélú használatúnak tekinthetjük, ami blokkoláshoz vezethet.\n\nHa kérdésed van, bátran írj a [[User talk:{{{senderUserName}}}|vitalapomra]].</string>
+  <string name="patroller_saved_message_body_final_warning">Több romboló szerkesztésed miatt ez az utolsó figyelmeztetésed.\nHa ismét vandál szerkesztést végzel, szerkesztési jogaidat megvonhatjuk.</string>
+  <string name="patroller_saved_message_body_copy_vio">A legutóbbi szerkesztésed valószínűleg jogvédett tartalmat tartalmazott engedély nélkül.\nKérlek, győződj meg róla, hogy minden hozzájárulásod megfelel a Wikipédia [[Wikipedia:Szerzői jogok|szerzői jogi irányelveinek]], ellenkező esetben a tartalmat el kell távolítanunk.</string>
   <string name="patroller_saved_message_body_edit_summary">Kedves {{{username}}}, úgy tűnik, szerkesztési összefoglaló nélkül távolítottál el tartalmat a Wikipédiáról. Kérlek, mindig hagyj szerkesztési összefoglalót, amikor hozzáadsz vagy eltávolítasz tartalmat a Wikipédián.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Szia {{{username}}}!\n\nÚgy tűnik, hogy tartalmat távolítottál el anélkül, hogy azt a cikk [[Vita:Cikk_címe|vitalapján]] megbeszélted volna.\nKérlek, vedd figyelembe, hogy a Wikipédia nem cenzúrázott, és a tartalom pusztán azért nem törölhető, mert vitatott.\nHa úgy gondolod, hogy az adott információ pontatlan, kérlek, kezdeményezz megbeszélést a cikk vitalapján, és törekedj konszenzusra.</string>
   <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
@@ -1660,6 +1664,7 @@
   <string name="donate_gpay_help_other_ways">Egyéb adományozási módok</string>
   <string name="donate_gpay_help_faq">Gyakran ismételt kérdések</string>
   <string name="donate_gpay_help_tax">Adózással kapcsolatos információk</string>
+  <string name="donation_history_deleted_message_snackbar">Az adományozói előzmények törölve</string>
   <string name="places_title">Helyek</string>
   <string name="places_permissions_denied">Helyadat hozzáférés szükséges a hely térképen történő megjelenítéséhez. Próbáld újra!</string>
   <string name="places_search_hint">Helyek keresése</string>
@@ -1689,6 +1694,7 @@
   <string name="survey_dialog_general_maybe">Talán</string>
   <string name="survey_dialog_input_hint">További visszajelzés</string>
   <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve. Köszönjük!</string>
+  <string name="on_this_day_game_entry_dialog_title">Bemutatjuk</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia játékok</string>
   <string name="on_this_day_game_entry_dialog_button">Játssz a mai játékkal</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message">A Wikipédia-játékok elérhetők a Felfedezés hírfolyamban.</string>
@@ -1702,19 +1708,46 @@
   <string name="on_this_day_game_point">+1 pont</string>
   <string name="on_this_day_game_next">Következő kérdés</string>
   <string name="on_this_day_game_finish">Végeredmény</string>
-  <string name="on_this_day_game_share">Megosztás barátokkal</string>
+  <string name="on_this_day_game_pause_title">Szünetet tartasz?</string>
+  <string name="on_this_day_game_pause_body">A mai napi előrehaladásod elmentésre kerül. A játékot később megtalálod a Felfedezés menüben.</string>
+  <string name="on_this_day_game_pause_negative">Folytatom a játékot</string>
+  <string name="on_this_day_game_pause_positive">Értem</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipédia játékok</string>
   <string name="on_this_day_game_feed_entry_card_title">Melyik volt előbb?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Találd ki, melyik esemény történt korábban ezen a napon a történelemben.</string>
   <string name="on_this_day_game_result">%1$d/%2$d pontot szereztél.</string>
   <string name="on_this_day_game_next_in">Következő játék %s múlva</string>
   <string name="on_this_day_game_your_stats">A statisztikáid</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Lejátszott játék</item>
+    <item quantity="other">Lejátszott játék</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Átlagpontszám</string>
   <string name="on_this_day_game_stats_streak">Jelenlegi sorozat</string>
+  <string name="on_this_day_game_result_subtitle">A mai játékban hivatkozott szócikkek</string>
+  <string name="on_this_day_game_completed_message">Egy új „Melyik volt előbb?” játék minden nap elérhető a Felfedezés menüben.</string>
   <string name="on_this_day_game_menu_notifications">Játék értesítések</string>
   <string name="on_this_day_game_menu_info">Tudj meg többet</string>
   <string name="on_this_day_game_menu_feedback">Probléma a funkcióval</string>
   <string name="on_this_day_game_article_read_button">Cikk olvasása</string>
   <string name="on_this_day_game_article_related_event_title">A cikkhez kapcsolódó esemény</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Jól válaszoltál erre a kérdésre</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Most nem talált.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Kikapcsolod a játékértesítéseket?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Ha kikapcsolod az értesítéseket, nem kapsz többé napi emlékeztetőt az új játékokról.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Bekapcsolod a játékértesítéseket?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">A játékértesítések naponta figyelmeztetnek, amikor új játék válik elérhetővé.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nem, maradjanak bekapcsolva</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Kapcsold ki őket</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Igen, kapcsold be őket</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Tartsd kikapcsolva</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Játékértesítések kikapcsolva.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Játékértesítések bekapcsolva.</string>
+  <string name="on_this_day_game_notification_text">A mai „Melyik volt előbb?” játék már elérhető!</string>
+  <string name="on_this_day_game_report_email_subject">Hibabejelentés – Wikipédia játékok</string>
+  <string name="on_this_day_game_report_email_body">Problémát tapasztaltam a Wikipédia játékok funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n\nAzt szeretném, ha a rendszer így viselkedne:\n\n– [Írd le, szerinted hogyan működjön helyesen]</string>
+  <string name="on_this_day_game_notification_undo">Visszavonás</string>
+  <string name="on_this_day_game_share_link_message">Épp a „Melyik volt előbb?” napi triviajátékot játszom a Wikipédia Android-alkalmazásban! %s</string>
   <string name="on_this_day_game_survey_q1">Mennyire voltál elégedett ezzel a játékkal?</string>
+  <string name="on_this_day_game_survey_q2">Szívesen kipróbálnál más Wikipédia játékokat is?</string>
 </resources>

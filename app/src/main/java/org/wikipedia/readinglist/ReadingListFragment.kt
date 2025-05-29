@@ -2,7 +2,6 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -57,7 +56,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -166,8 +164,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             }
                             is PageDownloadEvent -> {
                                 val pagePosition = getPagePositionInList(event.page)
-                                if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
+                                if (pagePosition < 0) {
+                                    return@collectLatest
+                                }
+                                val readingLisPage = displayedLists[pagePosition]
+                                if (readingLisPage is ReadingListPage) {
+                                    readingLisPage.downloadProgress = event.page.downloadProgress
                                     adapter.notifyItemChanged(pagePosition + 1)
                                 }
                             }
@@ -305,7 +307,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.isClickable = false
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.H2)
-        headerView.setOverflowViewVisibility(View.VISIBLE)
+        headerView.setOverflowViewVisibility(true)
         headerView.setPreviewMode(isPreview)
 
         if (isPreview) {
@@ -668,7 +670,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
-            view.setListItemImageDimensions(imageDimension, imageDimension)
             PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
@@ -695,22 +696,19 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun isSwipeable(): Boolean { return !isPreview }
-
-        private val imageDimension
-            get() = DimenUtil.roundedDpToPx(if (currentSearchQuery.isNullOrEmpty()) DimenUtil.getDimension(R.dimen.view_list_card_item_image) else ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION.toFloat())
     }
 
-    private inner class ReadingListHeaderHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView)
+    private inner class ReadingListHeaderHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     private inner class ReadingListPageItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val headerCount get() = if (currentSearchQuery.isNullOrEmpty()) 1 else 0
 
         override fun getItemViewType(position: Int): Int {
             return if (headerCount == 1 && position == 0) {
-                Companion.TYPE_HEADER
+                TYPE_HEADER
             } else if (displayedLists[position - headerCount] is ReadingList) {
-                Companion.TYPE_ITEM
+                TYPE_ITEM
             } else {
-                Companion.TYPE_PAGE_ITEM
+                TYPE_PAGE_ITEM
             }
         }
 
@@ -720,11 +718,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
             return when (type) {
-                Companion.TYPE_ITEM -> {
+                TYPE_ITEM -> {
                     val view = ReadingListItemView(requireContext())
                     ReadingListItemHolder(view)
                 }
-                Companion.TYPE_HEADER -> {
+                TYPE_HEADER -> {
                     ReadingListHeaderHolder(headerView)
                 }
                 else -> {
@@ -763,8 +761,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private inner class HeaderCallback : ReadingListItemView.Callback {
-        override fun onClick(readingList: ReadingList) {}
-
         override fun onRename(readingList: ReadingList) {
             rename()
         }
@@ -785,14 +781,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 adapter.notifyDataSetChanged()
                 update()
             }
-        }
-
-        override fun onSelectList(readingList: ReadingList) {
-            // ignore
-        }
-
-        override fun onChecked(readingList: ReadingList) {
-            // ignore
         }
 
         override fun onShare(readingList: ReadingList) {
@@ -825,13 +813,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
 
-        override fun onSelectList(readingList: ReadingList) {
-            // ignore
-        }
-
-        override fun onChecked(readingList: ReadingList) {
-            // ignore
-        }
         override fun onShare(readingList: ReadingList) {
             ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
@@ -886,7 +867,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun setStatusBarActionMode(inActionMode: Boolean) {
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, toolbarExpanded && !inActionMode)
-        requireActivity().window.statusBarColor = if (!inActionMode) Color.TRANSPARENT else ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color)
+        (requireActivity() as ReadingListActivity).updateStatusBarColor(inActionMode)
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
