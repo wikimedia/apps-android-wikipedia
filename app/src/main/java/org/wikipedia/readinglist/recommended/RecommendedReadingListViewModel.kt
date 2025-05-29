@@ -10,10 +10,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 
