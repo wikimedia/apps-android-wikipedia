@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
@@ -52,6 +51,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -65,7 +65,6 @@ import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
 
@@ -77,17 +76,24 @@ fun YearInReviewScreen(
     screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>,
-    viewModel: YearInReviewViewModel? = null
+    viewModel: YearInReviewViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    var showSurvey = remember { mutableStateOf(false) }
+    var presentSurvey by remember { mutableStateOf(false) }
 
-    BackHandler(enabled = true) { if(!showSurvey.value) { (context as? ComponentActivity)?.finish()} }
+    BackHandler {
+        if (viewModel.shouldShowSurvey()) {
+            presentSurvey = true
+        } else {
+            (context as? ComponentActivity)?.finish()
+        }
+    }
 
-    if (showSurvey.value) {
+    if (presentSurvey) {
         YearInReviewSurvey(context = context)
     }
+
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
@@ -106,9 +112,8 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            Log.d("survey show", "${viewModel?.haveTwoPagesShown()}")
-                            if (viewModel?.haveTwoPagesShown() == true && !Prefs.yirSurveyShown) {
-                                showSurvey.value = true
+                            if (viewModel.shouldShowSurvey()) {
+                                presentSurvey = true
                             } else {
                                 (context as? ComponentActivity)?.finish()
                             }

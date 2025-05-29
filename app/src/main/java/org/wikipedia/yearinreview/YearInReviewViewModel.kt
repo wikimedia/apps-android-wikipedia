@@ -37,11 +37,9 @@ class YearInReviewViewModel() : ViewModel() {
     }
     private var _uiScreenListState = MutableStateFlow(Resource<List<YearInReviewScreenData>>())
     val uiScreenListState: StateFlow<Resource<List<YearInReviewScreenData>>> = _uiScreenListState.asStateFlow()
-
     private var _uiTwoPagesShown = MutableStateFlow(false)
 
     init {
-        Prefs.yirSurveyShown = false
         fetchPersonalizedData()
     }
 
@@ -51,6 +49,10 @@ class YearInReviewViewModel() : ViewModel() {
 
     fun haveTwoPagesShown(): Boolean {
         return _uiTwoPagesShown.value
+    }
+
+    fun shouldShowSurvey(): Boolean {
+        return _uiTwoPagesShown.value && !Prefs.yirSurveyShown
     }
 
     fun fetchPersonalizedData() {
