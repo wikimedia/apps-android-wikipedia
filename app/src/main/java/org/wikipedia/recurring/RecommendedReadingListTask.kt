@@ -1,6 +1,5 @@
 package org.wikipedia.recurring
 
-import org.wikipedia.analytics.ABTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel
@@ -14,7 +13,7 @@ class RecommendedReadingListTask() : RecurringTask() {
 
     override fun shouldRun(lastRun: Date): Boolean {
         // should be part of the test group or at least one day has passed
-        if (RecommendedReadingListAbTest().group == ABTest.GROUP_1 || millisSinceLastRun(lastRun) < TimeUnit.DAYS.toMillis(1)) {
+        if (!RecommendedReadingListAbTest().isTestGroupUser() || millisSinceLastRun(lastRun) < TimeUnit.DAYS.toMillis(1)) {
             return false
         }
         // And run either every day, or on the first day of the week or month

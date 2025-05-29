@@ -21,9 +21,10 @@ object RecommendedReadingListEvent {
             AppInteractionEvent(
                 action,
                 activeInterface,
-                JsonUtil.encodeToString(actionData).orEmpty(),
-                WikipediaApp.instance.languageState.appLanguageCode,
-                wikiId
+                action_data = JsonUtil.encodeToString(actionData).orEmpty(),
+                primary_language = WikipediaApp.instance.languageState.appLanguageCode,
+                wiki_id = wikiId,
+                streamName = "app_rabbit_holes"
             )
         )
     }
