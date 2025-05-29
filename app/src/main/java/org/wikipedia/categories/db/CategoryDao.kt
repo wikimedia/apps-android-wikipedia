@@ -23,6 +23,6 @@ interface CategoryDao {
     @Query("DELETE FROM Category")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM Category WHERE timeStamp < :timeStamp")
-    suspend fun deleteOlderThan(timeStamp: Long)
+    @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE timeStamp <:timeStamp LIMIT :batchSize)")
+    suspend fun deleteOlderThanInBatch(timeStamp: Long, batchSize: Int): Int
 }
