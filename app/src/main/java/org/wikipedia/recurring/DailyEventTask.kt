@@ -26,7 +26,6 @@ class DailyEventTask(private val app: WikipediaApp) : RecurringTask() {
         if (OnThisDayGameViewModel.isLangABTested(app.appOrSystemLanguageCode)) {
             WikiGamesEvent.submit("group_assign", OnThisDayGameABCTest().getGroupName())
         }
-        // @TODO: add active_interface after confirming with data
-        RecommendedReadingListEvent.submit("launch", "", RecommendedReadingListAbTest().getGroupName())
+        RecommendedReadingListEvent.submit("launch", "rrl_launch", RecommendedReadingListAbTest().getGroupName())
     }
 }
