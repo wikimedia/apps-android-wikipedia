@@ -24,11 +24,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import org.wikipedia.R
 import org.wikipedia.compose.components.WikiCard
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 @Composable
 fun RecommendedReadingListDiscoverCardView(
@@ -139,5 +143,23 @@ fun RecommendedReadingListDiscoverCardView(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun RecommendedReadingListDiscoverCardViewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        RecommendedReadingListDiscoverCardView(
+            modifier = Modifier
+                .padding(16.dp),
+            title = "Discover",
+            subtitle = "Made for you",
+            subtitleIcon = R.drawable.ic_wikipedia_w,
+            description = "Your weekly reading list. Learn about new topics,  picked just for you. Updates at midnight.",
+            images = listOf()
+        )
     }
 }
