@@ -2,9 +2,6 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.view.View
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -53,7 +50,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -67,18 +63,17 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.zIndex
-import androidx.core.graphics.createBitmap
 import androidx.core.net.toUri
-import androidx.core.view.doOnLayout
+import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -101,24 +96,25 @@ fun YearInReviewScreen(
     val pagerState = rememberPagerState(pageCount = { contentData.size })
     var startCapture by remember { mutableStateOf(false) }
 
-    if (startCapture) {
-        CaptureComposableToBitmap(
-            screen = { ScreenShotScaffold(
-                screenContent = contentData[pagerState.currentPage],
-                context
-            ) }
-        ) { bitmap ->
-            ShareUtil.shareImage(
-                coroutineScope = coroutineScope,
-                context = context,
-                bmp = bitmap,
-                imageFileName = "year_in_review",
-                subject = context.getString(R.string.year_in_review_share_subject),
-                text = context.getString(R.string.year_in_review_share_url)
-            )
-        }
+
+    CaptureComposableToBitmap(
+        startCapture = startCapture,
+        screen = { ScreenShotScaffold(
+            screenContent = contentData[pagerState.currentPage],
+            context
+        ) }
+    ) { bitmap ->
+        ShareUtil.shareImage(
+            coroutineScope = coroutineScope,
+            context = context,
+            bmp = bitmap,
+            imageFileName = "year_in_review",
+            subject = context.getString(R.string.year_in_review_share_subject),
+            text = context.getString(R.string.year_in_review_share_url)
+        )
         startCapture = false
     }
+
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
@@ -512,51 +508,33 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
-fun imageHandler(context: Context): CoroutineExceptionHandler {
-    return CoroutineExceptionHandler { _, msg ->
-        Toast.makeText(
-            context,
-            context.getString(R.string.year_in_review_screenshot_error, msg.localizedMessage),
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-}
 
 @Composable
 fun CaptureComposableToBitmap(
+    startCapture: Boolean,
     screen: @Composable () -> Unit,
     onBitmapReady: (Bitmap) -> Unit
 ) {
-    var viewRef by remember { mutableStateOf<View?>(null) }
+
     AndroidView(
         factory = { context ->
             ComposeView(context).apply {
                 setContent {
+                    val localView = LocalView.current
                     screen()
                 }
-            }.also {
-                viewRef = it
+            }
+        },
+        update = { view ->
+            if (startCapture) {
+                val bitmap = view.drawToBitmap()
+                onBitmapReady(bitmap)
             }
         },
         modifier = Modifier
             .fillMaxSize()
             .alpha(0f)
     )
-    LaunchedEffect(viewRef) {
-        viewRef?.let { view ->
-            viewRef?.doOnLayout {
-                val width = view.width
-                val height = view.height
-
-                if (width > 0 && height > 0) {
-                    val bitmap = createBitmap(width, height)
-                    val canvas = Canvas(bitmap)
-                    view.draw(canvas)
-                    onBitmapReady(bitmap)
-                }
-            }
-        }
-    }
 }
 
 @Preview
