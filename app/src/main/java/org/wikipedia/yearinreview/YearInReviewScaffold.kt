@@ -57,19 +57,16 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.compose.ui.zIndex
 import androidx.core.net.toUri
 import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
@@ -409,7 +406,6 @@ fun ScreenShotScaffold(
     Column(
         modifier = Modifier
             .pointerInput(Unit) {}
-            .zIndex(-1f)
             .fillMaxSize()
             .background(color = WikipediaTheme.colors.paperColor),
         verticalArrangement = Arrangement.Center,
@@ -508,19 +504,16 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
-
 @Composable
 fun CaptureComposableToBitmap(
     startCapture: Boolean,
     screen: @Composable () -> Unit,
     onBitmapReady: (Bitmap) -> Unit
 ) {
-
     AndroidView(
         factory = { context ->
             ComposeView(context).apply {
                 setContent {
-                    val localView = LocalView.current
                     screen()
                 }
             }
@@ -533,7 +526,6 @@ fun CaptureComposableToBitmap(
         },
         modifier = Modifier
             .fillMaxSize()
-            .alpha(0f)
     )
 }
 
