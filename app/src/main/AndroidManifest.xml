@@ -369,7 +369,7 @@
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
         <activity
-            android:name=".settings.recommendedReadingList.RecommendedReadingListSettingsActivity"/>
+            android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"/>
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
