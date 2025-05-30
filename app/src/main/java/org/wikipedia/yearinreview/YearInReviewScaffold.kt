@@ -1,10 +1,12 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
+import android.graphics.Bitmap
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -33,6 +35,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -47,22 +51,33 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
+import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -76,6 +91,26 @@ fun YearInReviewScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
+    var startCapture by remember { mutableStateOf(false) }
+
+
+    CaptureComposableToBitmap(
+        startCapture = startCapture,
+        screen = { ScreenShotScaffold(
+            screenContent = contentData[pagerState.currentPage],
+            context
+        ) }
+    ) { bitmap ->
+        ShareUtil.shareImage(
+            coroutineScope = coroutineScope,
+            context = context,
+            bmp = bitmap,
+            imageFileName = "year_in_review",
+            subject = context.getString(R.string.year_in_review_share_subject),
+            text = context.getString(R.string.year_in_review_share_url)
+        )
+        startCapture = false
+    }
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -110,7 +145,9 @@ fun YearInReviewScreen(
                 },
                 actions = {
                     if (contentData.size > 1) {
-                        IconButton(onClick = { /* TODO() */ }) {
+                        IconButton(onClick = {
+                            startCapture = true
+                        }) {
                             Icon(
                                 painter = painterResource(R.drawable.ic_share),
                                 tint = WikipediaTheme.colors.primaryColor,
@@ -362,6 +399,78 @@ fun YearInReviewScreenContent(
 }
 
 @Composable
+fun ScreenShotScaffold(
+    screenContent: YearInReviewScreenData,
+    context: Context
+) {
+    Column(
+        modifier = Modifier
+            .pointerInput(Unit) {}
+            .fillMaxSize()
+            .background(color = WikipediaTheme.colors.paperColor),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(bottom = 40.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_wikipedia_b),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.year_in_review_navigate_left),
+                modifier = Modifier
+                    .height(32.dp)
+                    .width(50.dp)
+            )
+        }
+        YearInReviewScreenContent(
+            innerPadding = PaddingValues(0.dp),
+            screenData = screenContent,
+            isInfoIconVisible = false,
+            context = context
+        )
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = WikipediaTheme.colors.paperColor
+            ),
+            modifier = Modifier
+                .width(312.dp)
+                .padding(top = 36.dp)
+                .shadow(
+                    elevation = 20.dp,
+                    spotColor = WikipediaTheme.colors.primaryColor,
+                    ambientColor = WikipediaTheme.colors.primaryColor)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .wrapContentHeight()
+                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
+
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.globe),
+                    contentDescription = "Globe"
+                )
+                Text(
+                    text = "#WikipediaYearInReview",
+                    color = WikipediaTheme.colors.progressiveColor,
+                    style = WikipediaTheme.typography.button
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun LoadingIndicator() {
     Column(
         verticalArrangement = Arrangement.Center,
@@ -392,5 +501,42 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
         (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
         (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
         else -> 2
+    }
+}
+
+@Composable
+fun CaptureComposableToBitmap(
+    startCapture: Boolean,
+    screen: @Composable () -> Unit,
+    onBitmapReady: (Bitmap) -> Unit
+) {
+    AndroidView(
+        factory = { context ->
+            ComposeView(context).apply {
+                setContent {
+                    screen()
+                }
+            }
+        },
+        update = { view ->
+            if (startCapture) {
+                val bitmap = view.drawToBitmap()
+                onBitmapReady(bitmap)
+            }
+        },
+        modifier = Modifier
+            .fillMaxSize()
+    )
+}
+
+@Preview
+@Composable
+fun PreviewScreenShot() {
+    val context = LocalContext.current
+    BaseTheme {
+        ScreenShotScaffold(
+            screenContent = nonEnglishCollectiveEditCountData,
+            context = context
+        )
     }
 }
