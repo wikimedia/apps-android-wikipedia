@@ -23,7 +23,7 @@ object RecommendedReadingListHelper {
         // Check if amount of new articles to see if we really need to generate a new list
         val newArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().size
         if (newArticles >= numberOfArticles) {
-            return false
+            return true
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
             numberOfArticles -= newArticles

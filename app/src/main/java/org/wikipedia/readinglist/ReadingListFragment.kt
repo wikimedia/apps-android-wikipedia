@@ -116,7 +116,13 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
-        lifecycleScope.launch {
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.updateListByIdFlow.collect { resource ->
@@ -163,6 +169,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             is Resource.Loading -> {
                                 binding.progressBar.isVisible = true
                                 binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = false
                                 binding.readingListSwipeRefresh.isVisible = false
                             }
                             is Resource.Success -> {
@@ -172,13 +179,16 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 }
                                 binding.progressBar.isVisible = false
                                 binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = true
                                 binding.readingListSwipeRefresh.isVisible = true
                                 update()
+                                maybeShowCustomizeSnackbar()
                             }
                             is Resource.Error -> {
                                 L.e(it.throwable)
                                 binding.progressBar.isVisible = false
                                 binding.errorView.isVisible = true
+                                binding.readingListHeader.isVisible = false
                                 binding.readingListSwipeRefresh.isVisible = false
                                 binding.errorView.setError(it.throwable)
                             }
@@ -207,13 +217,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             }
         }
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        maybeShowCustomizeSnackbar()
     }
 
     override fun onResume() {
@@ -227,11 +230,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
         _binding = null
+
+        // TODO: remove this
+        Prefs.isRecommendedReadingListOnboardingShown = false
+        Prefs.isRecommendedReadingListEnabled = false
         super.onDestroyView()
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        if (isPreview) {
+        if (readingListMode != ReadingListMode.DEFAULT) {
             return
         }
         inflater.inflate(R.menu.menu_reading_list, menu)
@@ -241,7 +248,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        if (isPreview) {
+        if (readingListMode != ReadingListMode.DEFAULT) {
             return
         }
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
