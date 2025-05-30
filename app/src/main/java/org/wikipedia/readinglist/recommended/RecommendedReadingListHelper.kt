@@ -62,12 +62,12 @@ object RecommendedReadingListHelper {
         val recommendedPages = mutableListOf<RecommendedPage>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
-        sourcesWithOffset.forEach { sourcesWithOffset ->
+        sourcesWithOffset.forEach { sourceWithOffset ->
             var recommendedPage: PageTitle? = null
             var retryCount = 0
-            var offset = sourcesWithOffset.offset
+            var offset = sourceWithOffset.offset
             while (recommendedPage == null && retryCount < MAX_RETRIES) {
-                recommendedPage = getRecommendedPage(sourcesWithOffset, offset)
+                recommendedPage = getRecommendedPage(sourceWithOffset, offset)
                 // Cannot find any recommended articles, so update the offset and retry.
                 if (recommendedPage == null) {
                     offset += Constants.SUGGESTION_REQUEST_ITEMS
@@ -87,7 +87,7 @@ object RecommendedReadingListHelper {
                     )
                 )
                 // Update the offset in the source list
-                newSourcesWithOffset.add(SourceWithOffset(sourcesWithOffset.title, sourcesWithOffset.language, offset))
+                newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
             }
         }
 

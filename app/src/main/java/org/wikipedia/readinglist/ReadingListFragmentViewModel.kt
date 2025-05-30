@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -25,8 +27,8 @@ class ReadingListFragmentViewModel : ViewModel() {
     private val _updateListFlow = MutableSharedFlow<Resource<ReadingList>>()
     val updateListFlow = _updateListFlow.asSharedFlow()
 
-    private val _recommendedListFlow = MutableSharedFlow<Resource<ReadingList>>()
-    val recommendedListFlow = _recommendedListFlow.asSharedFlow()
+    private val _recommendedListFlow = MutableStateFlow(Resource<ReadingList>())
+    val recommendedListFlow = _recommendedListFlow.asStateFlow()
 
     fun updateListById(readingListId: Long) {
          viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -60,10 +62,10 @@ class ReadingListFragmentViewModel : ViewModel() {
     fun generateRecommendedReadingList() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             viewModelScope.launch {
-                _recommendedListFlow.emit(Resource.Error(throwable))
+                _recommendedListFlow.value = Resource.Error(throwable)
             }
         }) {
-            _recommendedListFlow.emit(Resource.Loading())
+            _recommendedListFlow.value = Resource.Loading()
             RecommendedReadingListHelper.generateRecommendedReadingList().let { generated ->
                 val context = WikipediaApp.instance
                 if (generated) {
@@ -96,9 +98,9 @@ class ReadingListFragmentViewModel : ViewModel() {
                         mtime = System.currentTimeMillis()
                         atime = mtime
                     }
-                    _recommendedListFlow.emit(Resource.Success(recommendedList))
+                    _recommendedListFlow.value = Resource.Success(recommendedList)
                 } else {
-                    _recommendedListFlow.emit(Resource.Error(Throwable(context.getString(R.string.error_message_generic))))
+                    _recommendedListFlow.value = Resource.Error(Throwable(context.getString(R.string.error_message_generic)))
                 }
             }
         }

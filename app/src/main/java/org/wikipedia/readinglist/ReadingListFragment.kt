@@ -33,6 +33,7 @@ import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -51,7 +52,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -116,8 +117,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
-        maybeShowCustomizeSnackbar()
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -160,6 +159,34 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }
                 }
                 launch {
+                    viewModel.recommendedListFlow.collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.errorView.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                            }
+                            is Resource.Success -> {
+                                readingList = it.data
+                                readingList?.let { list ->
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, list.title))
+                                }
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = true
+                                update()
+                            }
+                            is Resource.Error -> {
+                                L.e(it.throwable)
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = true
+                                binding.readingListSwipeRefresh.isVisible = false
+                                binding.errorView.setError(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
                     FlowEventBus.events.collectLatest { event ->
                         when (event) {
                             is ReadingListSyncEvent -> {
@@ -183,6 +210,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        maybeShowCustomizeSnackbar()
     }
 
     override fun onResume() {
@@ -371,16 +403,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        if (isPreview) {
-            if (readingList == null) {
-                val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
-                val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
-                viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
-            } else {
-                update()
+        when (readingListMode) {
+            ReadingListMode.DEFAULT -> viewModel.updateListById(readingListId)
+            ReadingListMode.PREVIEW -> {
+                if (readingList == null) {
+                    val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
+                    val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
+                    viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
+                } else {
+                    update()
+                }
             }
-        } else {
-            viewModel.updateListById(readingListId)
+            ReadingListMode.RECOMMENDED -> {
+                // Make sure the feature is enabled
+                Prefs.isRecommendedReadingListEnabled = true
+                if (readingList == null) {
+                    viewModel.generateRecommendedReadingList()
+                } else {
+                    update()
+                }
+            }
         }
     }
 
@@ -629,19 +671,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun maybeShowCustomizeSnackbar() {
         if (isRecommendedList && !Prefs.isRecommendedReadingListOnboardingShown) {
-            val frequency = when (Prefs.recommendedReadingListUpdateFrequency) {
-                RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_snackbar_day
-                RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_snackbar_week
-                else -> R.string.recommended_reading_list_page_snackbar_week
-            }
             val message = getString(
                 R.string.recommended_reading_list_page_snackbar,
                 Prefs.recommendedReadingListArticlesNumber,
-                getString(frequency).lowercase(Locale.getDefault())
+                getString(Prefs.recommendedReadingListUpdateFrequency.snackbarStringRes).lowercase(Locale.getDefault())
             )
             FeedbackUtil.makeSnackbar(requireActivity(), message)
                 .setAction(R.string.recommended_reading_list_page_snackbar_action) {
-                   // TODO: go to discover settings
+                   startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
                 }
                 .show()
 
