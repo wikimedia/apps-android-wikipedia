@@ -86,6 +86,7 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
+import org.wikipedia.yearinreview.YearInReviewEntryDialog
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -469,6 +470,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun donateClick(campaignId: String?) {
         (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
+    }
+
+    override fun yearInReviewClick() {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, YearInReviewEntryDialog.newInstance())
     }
 
     fun setBottomNavVisible(visible: Boolean) {
