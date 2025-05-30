@@ -1,5 +1,6 @@
 package org.wikipedia.recurring
 
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
@@ -11,8 +12,8 @@ class RecommendedReadingListTask() : RecurringTask() {
     override val name = "generateRecommendedReadingListTask"
 
     override fun shouldRun(lastRun: Date): Boolean {
-        // Make sure at least one day has passed
-        if (millisSinceLastRun(lastRun) < TimeUnit.DAYS.toMillis(1)) {
+        // should be part of the test group or at least one day has passed
+        if (!RecommendedReadingListAbTest().isTestGroupUser() || millisSinceLastRun(lastRun) < TimeUnit.DAYS.toMillis(1)) {
             return false
         }
         // And run either every day, or on the first day of the week or month
