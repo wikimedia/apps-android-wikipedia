@@ -349,7 +349,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.H2)
         headerView.setOverflowViewVisibility(true)
-        headerView.setPreviewMode(isPreview)
+        headerView.setMode(readingListMode)
 
         if (isPreview) {
             headerView.saveClickListener = View.OnClickListener {
@@ -358,7 +358,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             return
         }
 
-        headerView.shareButton.isVisible = true
         if (!Prefs.readingListShareTooltipShown) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(
@@ -716,7 +715,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
-            view.setPreviewMode(isPreview)
+            view.setMode(readingListMode)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -733,7 +732,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    if (isPreview) false else !page.offline || page.saving)
+                    if (readingListMode == ReadingListMode.DEFAULT) false else !page.offline || page.saving)
             view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)

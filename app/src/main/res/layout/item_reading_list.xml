@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="2dp"
-            android:text="@string/recommended_reading_list_page_subtitle_articles"
+            android:text="@string/recommended_reading_list_page_subtitle_made_for"
             android:textColor="?attr/secondary_color"
             android:visibility="gone"
             tools:visibility="visible"
@@ -177,7 +177,7 @@
         app:layout_constraintStart_toStartOf="@+id/item_title_container"
         app:layout_constraintTop_toBottomOf="@+id/item_reading_list_statistical_description"
         tools:text="Sample description"
-        tools:visibility="gone"  />
+        tools:visibility="visible"  />
 
     <CheckBox
         android:id="@+id/item_select_checkbox"
@@ -211,7 +211,7 @@
         tools:visibility="visible"/>
 
     <ImageView
-        android:id="@+id/item_save_button"
+        android:id="@+id/item_save_to_list_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:padding="12dp"
@@ -235,7 +235,7 @@
         android:visibility="gone"
         android:layout_marginStart="4dp"
         app:tint="?attr/primary_color"
-        app:layout_constraintStart_toEndOf="@id/item_save_button"
+        app:layout_constraintStart_toEndOf="@id/item_save_to_list_button"
         app:layout_constraintTop_toBottomOf="@id/item_description"
         app:srcCompat="@drawable/ic_notifications_active"
         tools:visibility="visible"/>

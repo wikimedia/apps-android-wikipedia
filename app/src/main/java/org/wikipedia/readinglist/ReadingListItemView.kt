@@ -14,6 +14,7 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.DeviceUtil
@@ -23,7 +24,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-class ReadingListItemView : ConstraintLayout {
+class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onClick(readingList: ReadingList) {}
         fun onRename(readingList: ReadingList) {}
@@ -33,6 +34,10 @@ class ReadingListItemView : ConstraintLayout {
         fun onSelectList(readingList: ReadingList) {}
         fun onChecked(readingList: ReadingList) {}
         fun onShare(readingList: ReadingList) {}
+        fun onSaveToList(readingList: ReadingList) {}
+        fun onNotification() {}
+        fun onCustomize() {}
+        fun onAbout() {}
     }
 
     enum class Description {
@@ -46,10 +51,6 @@ class ReadingListItemView : ConstraintLayout {
     var saveClickListener: OnClickListener? = null
     val shareButton get() = binding.itemShareButton
     val listTitle get() = binding.itemTitle
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -114,7 +115,17 @@ class ReadingListItemView : ConstraintLayout {
             saveClickListener?.onClick(it)
         }
 
-        FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu)
+        binding.itemSaveToListButton.setOnClickListener {
+            readingList?.let {
+                callback?.onSaveToList(it)
+            }
+        }
+
+        binding.itemNotificationButton.setOnClickListener {
+            callback?.onNotification()
+        }
+
+        FeedbackUtil.setButtonTooltip(binding.itemShareButton, binding.itemOverflowMenu, binding.itemNotificationButton, binding.itemSaveToListButton)
     }
 
     fun setReadingList(readingList: ReadingList, description: Description,
@@ -151,18 +162,43 @@ class ReadingListItemView : ConstraintLayout {
         binding.itemOverflowMenu.isVisible = isVisible
     }
 
-    fun setPreviewMode(isPreview: Boolean) {
-        binding.itemPreviewSaveButton.isVisible = isPreview
-        binding.itemOverflowMenu.isVisible = !isPreview
-        binding.itemReadingListStatisticalDescription.isVisible = !isPreview
+    fun setMode(readingListMode: ReadingListMode) {
+        binding.itemPreviewSaveButton.isVisible = readingListMode == ReadingListMode.PREVIEW
+        binding.itemOverflowMenu.isVisible = readingListMode != ReadingListMode.PREVIEW
+        binding.itemReadingListStatisticalDescription.isVisible = readingListMode == ReadingListMode.DEFAULT
+        binding.itemRecommendedListInfoContainer.isVisible = readingListMode == ReadingListMode.RECOMMENDED
+        binding.itemNotificationButton.isVisible = readingListMode == ReadingListMode.RECOMMENDED
+        binding.itemSaveToListButton.isVisible = readingListMode == ReadingListMode.RECOMMENDED
+        binding.itemShareButton.isVisible = readingListMode == ReadingListMode.DEFAULT
+
+        if (readingListMode == ReadingListMode.RECOMMENDED) {
+            val madeForText = if (AccountUtil.isLoggedIn) {
+                context.getString(R.string.recommended_reading_list_page_subtitle_made_for, AccountUtil.userName)
+            } else {
+                context.getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you)
+            }
+            val articleSize = readingList?.pages?.size ?: 0
+            binding.itemRecommendedListMadeFor.text = madeForText
+            binding.itemRecommendedListNumberOfArticles.text = context.resources.getQuantityString(
+                R.plurals.recommended_reading_list_page_subtitle_articles, articleSize, articleSize
+            )
+
+            // Reset the overflow menu
+            binding.itemOverflowMenu.setOnClickListener { anchorView ->
+                readingList?.let {
+                    PopupMenu(context, anchorView, Gravity.END).let { menu ->
+                        menu.menuInflater.inflate(R.menu.menu_recommended_reading_list_item, menu.menu)
+                        menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
+                        menu.show()
+                    }
+                }
+            }
+        }
+
         setOnLongClickListener {
             // Ignore onLongClick action
             false
         }
-    }
-
-    fun setRecommendedListMode(isRecommendedList: Boolean) {
-        // TODO
     }
 
     private fun updateDetails(showCheckBoxes: Boolean) {
@@ -256,6 +292,16 @@ class ReadingListItemView : ConstraintLayout {
                     R.id.menu_reading_list_share -> {
                         callback?.onShare(it)
                         return true
+                    }
+
+                    R.id.menu_customize -> {
+                        callback?.onCustomize()
+                        true
+                    }
+
+                    R.id.menu_about -> {
+                        callback?.onAbout()
+                        true
                     }
 
                     else -> false
