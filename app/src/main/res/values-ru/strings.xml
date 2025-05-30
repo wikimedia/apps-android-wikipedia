@@ -315,18 +315,16 @@
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/ru</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/ru</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Теги_изображений</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -650,8 +648,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
-  <string name="reading_lists_sync_reminder_text">Статьи, сохранённые в списках чтения, теперь могут быть синхронизированы с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учётную запись Википедии и разрешите сохранение списков. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать подробнее&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Статьи, сохранённые в списках чтения, теперь могут быть синхронизированы с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учётную запись Википедии и разрешите сохранение списков. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
@@ -961,7 +959,7 @@
   <string name="description_edit_help_title">Справка: описания статей</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
@@ -1752,7 +1750,6 @@
   <string name="on_this_day_game_point">+1 балл</string>
   <string name="on_this_day_game_next">Следующий вопрос</string>
   <string name="on_this_day_game_finish">Финальный результат</string>
-  <string name="on_this_day_game_share">Поделиться с друзьями</string>
   <string name="on_this_day_game_pause_title">Поставить игру на паузу?</string>
   <string name="on_this_day_game_pause_negative">Продолжить играть</string>
   <string name="on_this_day_game_pause_positive">Понятно</string>

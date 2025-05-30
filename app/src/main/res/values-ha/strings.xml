@@ -231,14 +231,12 @@
   <string name="privacy_policy_description">Manufofin kariya</string>
   <string name="terms_of_use_description">Sharuɗɗan amfani</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
@@ -536,8 +534,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Maƙala ta bayyana a cikin jerin sunayen da yawa</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ba za su kasance a kan layi ba don duk jerin karatu:</string>
   <string name="reading_lists_sync_reminder_title">Yi amfani da jerin karatun tare?</string>
-  <string name="reading_lists_sync_reminder_text">Labaran da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Labaran da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Bayar da haɗin kai</string>
   <string name="reading_list_login_reminder_title">Daidaita lissafin karatun</string>
   <string name="reading_lists_login_reminder_text">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku.</string>

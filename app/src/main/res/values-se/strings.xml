@@ -239,7 +239,7 @@
   <string name="about_wikipedia_url">https://se.wikipedia.org/wiki/Wikipedia:Birra</string>
   <string name="about_libraries_heading">Girjerádju geavahuvvon</string>
   <string name="about_contributors_heading">Čálusveahkit</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
   <string name="about_translators_heading">Jorgaleaddjit</string>
   <string name="about_translators_translatewiki">Áppa jorgaluvvui eaktodáhtolaš jorgaleddjiin &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;:s.</string>
   <string name="about_app_license_heading">Liseansa</string>
@@ -567,8 +567,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">Sihko báikkálaš máŋgema</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artihkal gávdno máŋgga listtus</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ii šat boađe leat olámuttos offline guđege lohkanlisttu bokte:</string>
-  <string name="reading_lists_sync_reminder_text">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Váldde synkroniserema atnui</string>
   <string name="reading_list_login_reminder_title">Synkronisere lohkanlisttuid</string>
   <string name="reading_lists_login_button">Čálit sisa / searvva Wikipediai</string>

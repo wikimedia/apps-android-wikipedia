@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
             android:contentDescription="@null"
+            android:scaleType="centerCrop"
             android:transitionName="@string/transition_page_gallery"
             android:background="?android:colorBackground" />
 

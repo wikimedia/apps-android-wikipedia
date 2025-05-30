@@ -259,18 +259,16 @@
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
   <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
-  <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
   <string name="about_libraries_heading">Felhasznált szoftverkönyvtárak</string>
   <string name="about_contributors_heading">Közreműködők</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Csapat oldala&lt;/a&gt;</string>
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
@@ -594,8 +592,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -893,7 +891,7 @@
   <string name="description_edit_help_title">Info: szócikkleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a szócikkleírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice">A szócikkleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
@@ -1710,7 +1708,6 @@
   <string name="on_this_day_game_point">+1 pont</string>
   <string name="on_this_day_game_next">Következő kérdés</string>
   <string name="on_this_day_game_finish">Végeredmény</string>
-  <string name="on_this_day_game_share">Megosztás barátokkal</string>
   <string name="on_this_day_game_pause_title">Szünetet tartasz?</string>
   <string name="on_this_day_game_pause_body">A mai napi előrehaladásod elmentésre kerül. A játékot később megtalálod a Felfedezés menüben.</string>
   <string name="on_this_day_game_pause_negative">Folytatom a játékot</string>

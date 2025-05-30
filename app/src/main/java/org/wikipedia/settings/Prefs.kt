@@ -773,4 +773,8 @@ object Prefs {
             OnThisDayGameNotificationState.valueOf(it)
         } ?: OnThisDayGameNotificationState.NO_INTERACTED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_notification_state, value.name)
+
+    var isOtdSoundOn: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_sound_on, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
 }

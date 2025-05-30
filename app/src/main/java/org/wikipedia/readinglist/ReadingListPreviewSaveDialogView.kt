@@ -43,8 +43,8 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
 
     init {
         layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true, skipSearchBar = true))
@@ -91,7 +91,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             itemBinding.articleName.text = StringUtil.fromHtml(readingListPage.displayTitle)
             itemBinding.articleDescription.isVisible = !readingListPage.description.isNullOrEmpty()
             itemBinding.articleDescription.text = StringUtil.fromHtml(readingListPage.description)
-            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl, roundedCorners = true)
+            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl)
             itemBinding.container.setOnClickListener(this)
             itemBinding.checkbox.setOnClickListener(this)
             updateState()

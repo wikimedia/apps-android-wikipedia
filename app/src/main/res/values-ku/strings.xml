@@ -231,14 +231,12 @@
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_wikipedia_url">https://ku.wikipedia.org/wiki/Wîkîpediya:Derbarê_Wîkîpediyayê_de</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitêbxaneyên bikarhatî</string>
   <string name="about_contributors_heading">Tevkar</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
@@ -519,8 +517,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Gotar ji yekî zêdetir lîstan de cih digire</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s wê êdî wek derhêl ne berdest in ji bo temamê lîstên xwendinê:</string>
   <string name="reading_lists_sync_reminder_title">Senktonîzekirina lîsta xwendinê bila were vekirin?</string>
-  <string name="reading_lists_sync_reminder_text">Gotarên li lîstên xwendine qeydkirî, vêga dikarin bi hesaba te ya Wîkîpediyayê ve werin senkronîzekirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Lîstên xwendinê vêga dikarin bi temamê cîhazan re bên senkronîzekirin. Têkeve hesaba xwe ya Wîkîpediyayê û destûr bide ku lîstên te bên qeydkirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Gotarên li lîstên xwendine qeydkirî, vêga dikarin bi hesaba te ya Wîkîpediyayê ve werin senkronîzekirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lîstên xwendinê vêga dikarin bi temamê cîhazan re bên senkronîzekirin. Têkeve hesaba xwe ya Wîkîpediyayê û destûr bide ku lîstên te bên qeydkirin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Zêdetir hîn bibe&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronîzasyonê aktîv bike</string>
   <string name="reading_list_login_reminder_title">Lîstên xwendinê senkronîze bike</string>
   <string name="reading_lists_login_reminder_text">Lîstên xwendinê vêga li navbera cîhazên te dikarin bên senkronîzekirin. Têkeve hesabê xwe ya Wîkîpediyayê û destûr bide ku lîstên te bên qeydkirin.</string>

@@ -259,18 +259,16 @@
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="about_wikipedia_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/bn#Image_tags</string>
   <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
@@ -742,7 +740,7 @@
   <string name="description_edit_help_title">তথ্য: নিবন্ধের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
   <string name="description_edit_helper_text_lowercase_warning">সাধারণত একটি ছোট ছাঁদের অক্ষর দিয়ে শুরু করা উচিত</string>

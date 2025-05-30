@@ -238,14 +238,12 @@
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/tt</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -558,8 +556,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Мәкалә берничә исемлектә күрсәтелә</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s башка барлык уку исемлекләре өчен автоном режимда кулланылмаячак:</string>
   <string name="reading_lists_sync_reminder_title">Уку исемлеген синхронлаштыруны кабызыргамы?</string>
-  <string name="reading_lists_sync_reminder_text">Уку исемлекләрендә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисап язмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Уку исемлекләрен хәзер җайланмалар арасында синхронлаштырырга мөмкин. Үзегезнең Википедиялагы хисап язмасына керегез һәм исемлекләрегезне сакларга рөхсәт бирегез. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Уку исемлекләрендә сакланган мәкаләләрне хәзер сезнең Википедиядәге хисап язмагыз белән синхронлаштырып була. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Уку исемлекләрен хәзер җайланмалар арасында синхронлаштырырга мөмкин. Үзегезнең Википедиялагы хисап язмасына керегез һәм исемлекләрегезне сакларга рөхсәт бирегез. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Тулырак&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштыруны кабызырга</string>
   <string name="reading_list_login_reminder_title">Уку исемлекләрен синхронлаштырырга</string>
   <string name="reading_lists_login_reminder_text">Уку исемлекләрен хәзер төрле җайланмаларда синхронлаштырырга мөмкин. Үзегезнең Википедия хисап язмасына керегез һәм сезнең исемлекләрне сакларга рөхсәт бирегез.</string>

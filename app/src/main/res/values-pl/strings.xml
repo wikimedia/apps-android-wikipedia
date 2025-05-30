@@ -56,6 +56,9 @@
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
+  <string name="search_back_button_content_description">Powróć</string>
+  <string name="search_clear_query_content_description">Wyczyść zapytanie</string>
+  <string name="search_icon_content_description">Szukaj</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
@@ -139,6 +142,7 @@
   <string name="menu_page_recently_viewed">Ostatnio oglądane</string>
   <string name="menu_page_archive">Archiwum</string>
   <string name="menu_long_press_open_page">Otwórz</string>
+  <string name="menu_long_press_open_in_places">Otwórz w Miejscach</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Kopiuj adres linka</string>
   <string name="menu_text_select_define">Definicja</string>
@@ -188,8 +192,10 @@
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
   <string name="account_creation_password_hint">Hasło</string>
-  <string name="login_2fa_hint" fuzzy="true">Kod uwierzytelniania dwuskładnikowego</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Wymagane uwierzytelnianie dwuskładnikowe! Wróć do głównej aktywności i zaloguj się za pomocą tokena 2FA, a następnie spróbuj ponownie.</string>
+  <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
+  <string name="login_2fa_other_workflow_error_msg">Wymagane jest uwierzytelnianie dwuskładnikowe! Zaloguj się z ekranu głównego i wprowadź kod z tokena 2FA.</string>
+  <string name="login_email_auth_hint">Kod weryfikacyjny z e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Wymagana weryfikacja e-maila! Zaloguj się z ekranu głównego i wprowadź swój kod weryfikacyjny adresu e-mail.</string>
   <string name="onboarding_card_login">Zaloguj się</string>
   <string name="page_editing_login">Zaloguj się</string>
   <string name="reading_lists_sync_login">Zaloguj się</string>
@@ -280,17 +286,15 @@
   <string name="terms_of_use_description">Warunki użytkowania</string>
   <string name="about_wikipedia_url">https://pl.wikipedia.org/wiki/Wikipedia:O_Wikipedii</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/pl#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
@@ -635,8 +639,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artykuł pojawia się na wielu listach</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s nie będzie dostępne offline dla wszystkich list:</string>
   <string name="reading_lists_sync_reminder_title">Włączyć synchronizację listy czytanych?</string>
-  <string name="reading_lists_sync_reminder_text">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje listy czytania</string>
   <string name="reading_lists_login_reminder_text">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list.</string>
@@ -935,7 +939,7 @@
   <string name="description_edit_help_title">Informacje: Opisy artykułów</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edytowaniem opisów artykułów! Aby wprowadzić dodatkowe zmiany, zaloguj się na swoje konto w Wikipedii.</string>
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>

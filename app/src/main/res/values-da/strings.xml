@@ -259,16 +259,14 @@
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
@@ -594,8 +592,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
   <string name="reading_lists_sync_reminder_title">Aktiver synkronisering af læseliste?</string>
-  <string name="reading_lists_sync_reminder_text">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få yderligere information&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine læselister gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Yderligere information&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få yderligere information&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine læselister gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Yderligere information&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkr. læselister</string>
   <string name="reading_lists_login_reminder_text">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
@@ -893,7 +891,7 @@
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide til at skrive beskrivelser</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere artikelbeskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice">Ved at ændre artikelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
   <string name="description_edit_helper_text_lowercase_warning">begynder som regel med et lille bogstav</string>
@@ -1708,12 +1706,13 @@
   <string name="on_this_day_game_splash_message">Gæt hvilken begivenhed, der kom først på denne dag i historien.</string>
   <string name="on_this_day_game_progress">%1$d af %2$d</string>
   <string name="on_this_day_game_score">Point: %d</string>
+  <string name="on_this_day_game_submit">Indsend</string>
   <string name="on_this_day_game_correct">Rigtigt!</string>
   <string name="on_this_day_game_incorrect">Forkert!</string>
   <string name="on_this_day_game_point">+1 point</string>
   <string name="on_this_day_game_next">Næste spørgsmål</string>
   <string name="on_this_day_game_finish">Endeligt resultat</string>
-  <string name="on_this_day_game_share">Del med venner</string>
+  <string name="on_this_day_game_share_button">Del</string>
   <string name="on_this_day_game_pause_title">Sæt spillet på pause?</string>
   <string name="on_this_day_game_pause_body">Dine fremskridt vil blive gemt for dagen. Du kan finde spillet i dit Udforsk-feed.</string>
   <string name="on_this_day_game_pause_negative">Fortsæt med at spille</string>
@@ -1756,4 +1755,17 @@
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hvilken kom først?\" et dagligt trivia-spil på Wikipedias Android-app %s</string>
   <string name="on_this_day_game_survey_q1">Hvor tilfreds var du med dette spil?</string>
   <string name="on_this_day_game_survey_q2">Vil du være interesseret i at spille andre Wikipedia-spil?</string>
+  <string name="recommended_reading_list_title">Opdag</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Kom igang</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nej tak</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Søg efter en artikel</string>
+  <string name="recommended_reading_list_page_snackbar_day">Dag</string>
+  <string name="recommended_reading_list_page_snackbar_week">Uge</string>
+  <string name="recommended_reading_list_page_snackbar_month">Måned</string>
+  <string name="recommended_reading_list_settings_section_header">Anbefalinger</string>
+  <string name="recommended_reading_list_settings_articles">artikler</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">dagligt</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">ugentligt</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">månedlig</string>
+  <string name="recommended_reading_list_settings_interests">Interesser</string>
 </resources>
