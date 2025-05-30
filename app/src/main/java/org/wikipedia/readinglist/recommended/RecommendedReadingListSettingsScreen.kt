@@ -111,7 +111,7 @@ fun RecommendedReadingListSettingsScreen(
                     isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = onArticleNumberChanged,
                     onUpdateFrequency = onUpdateFrequency,
-                    onDiscoverSourceClick = onRecommendedReadingListSourceClick,
+                    onRecommendedReadingListSourceClick = onRecommendedReadingListSourceClick,
                     onInterestClick = onInterestClick,
                     onNotificationStateChanged = onNotificationStateChanged
                 )
@@ -164,7 +164,7 @@ private fun EnabledState(
     isNotificationEnabled: Boolean,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     onArticleNumberChanged: (Int) -> Unit,
-    onDiscoverSourceClick: () -> Unit,
+    onRecommendedReadingListSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
     onNotificationStateChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier
@@ -188,7 +188,7 @@ private fun EnabledState(
             SourceView(
                 modifier = Modifier
                     .clickable {
-                        onDiscoverSourceClick()
+                        onRecommendedReadingListSourceClick()
                     }
                     .padding(vertical = 8.dp),
                 source = discoverSource

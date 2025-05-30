@@ -26,9 +26,11 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
         //  @TODO: call this code when discover screen is complete
         if (it.resultCode == RESULT_OK) {
             viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
-            showSnackBar(Prefs.recommendedReadingListSource, onAction = {
-                viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
-            })
+            if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
+                showSnackBar(Prefs.recommendedReadingListSource, onAction = {
+                    viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                })
+            }
         }
     }
 
