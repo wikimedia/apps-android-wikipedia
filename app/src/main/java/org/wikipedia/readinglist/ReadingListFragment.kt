@@ -33,7 +33,6 @@ import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource

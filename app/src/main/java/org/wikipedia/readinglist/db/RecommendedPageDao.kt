@@ -14,6 +14,9 @@ interface RecommendedPageDao {
     suspend fun getNewRecommendedPages(): List<RecommendedPage>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(recommendedPages: RecommendedPage)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(recommendedPages: List<RecommendedPage>)
 
     @Update

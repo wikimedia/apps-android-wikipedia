@@ -59,7 +59,6 @@ object RecommendedReadingListHelper {
         }
 
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
-        val recommendedPages = mutableListOf<RecommendedPage>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
         sourcesWithOffset.forEach { sourceWithOffset ->
@@ -74,9 +73,10 @@ object RecommendedReadingListHelper {
                 }
                 retryCount++
             }
+
+            // Step 4: if the recommended page is generated, insert it into the database,
             recommendedPage?.let {
-                recommendedPages.add(
-                    RecommendedPage(
+                val finalRecommendedPage = RecommendedPage(
                         wiki = it.wikiSite,
                         lang = it.wikiSite.languageCode,
                         namespace = it.namespace(),
@@ -84,15 +84,15 @@ object RecommendedReadingListHelper {
                         displayTitle = it.displayText,
                         description = it.description,
                         thumbUrl = it.thumbUrl
-                    )
                 )
                 // Update the offset in the source list
                 newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
+
+                // Insert the recommended page into the database
+                AppDatabase.instance.recommendedPageDao().insert(finalRecommendedPage)
             }
         }
 
-        // Step 4: save the recommended articles to the database
-        AppDatabase.instance.recommendedPageDao().insertAll(recommendedPages)
         return true
     }
 
