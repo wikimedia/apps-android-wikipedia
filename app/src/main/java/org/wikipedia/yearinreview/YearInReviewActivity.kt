@@ -3,12 +3,18 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -34,6 +40,23 @@ class YearInReviewActivity : BaseActivity() {
                  */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
+                val canShowSurvey = viewModel.uiCanShowSurvey.collectAsState().value
+                var isSurveyVisible by remember { mutableStateOf(false) }
+
+                BackHandler {
+                    Log.d("canShowSurvey", "$canShowSurvey")
+                    if (canShowSurvey) {
+                        isSurveyVisible = true
+                    } else {
+                        this@YearInReviewActivity.finish()
+                    }
+                }
+
+                if (isSurveyVisible) {
+                    YearInReviewSurvey(onSurveyButtonClick = {
+                        this@YearInReviewActivity.finish()
+                    })
+                }
 
                 NavHost(
                     navController = navController,
@@ -48,6 +71,7 @@ class YearInReviewActivity : BaseActivity() {
                             viewModel = viewModel,
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
+                            showSurvey = { showSurvey -> isSurveyVisible = showSurvey},
                             customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
@@ -102,8 +126,8 @@ class YearInReviewActivity : BaseActivity() {
                                         }
                                     ) },
                                     screenContent = { innerPadding, contentData, pagerState ->
-                                        if (pagerState.currentPage >= 1 && viewModel.haveTwoPagesShown() == false) {
-                                            viewModel.updatePagesShown()
+                                        if (pagerState.currentPage >= 1 && !canShowSurvey) {
+                                            viewModel.updateUiShowSurvey()
                                         }
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,

@@ -2,7 +2,6 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -48,10 +47,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -76,23 +73,11 @@ fun YearInReviewScreen(
     screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>,
-    viewModel: YearInReviewViewModel
+    viewModel: YearInReviewViewModel,
+    showSurvey: ((Boolean) -> Unit)? = null
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
-    var presentSurvey by remember { mutableStateOf(false) }
-
-    BackHandler {
-        if (viewModel.shouldShowSurvey()) {
-            presentSurvey = true
-        } else {
-            (context as? ComponentActivity)?.finish()
-        }
-    }
-
-    if (presentSurvey) {
-        YearInReviewSurvey(context = context)
-    }
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -112,8 +97,8 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            if (viewModel.shouldShowSurvey()) {
-                                presentSurvey = true
+                            if (viewModel.uiCanShowSurvey.value) {
+                                showSurvey?.invoke(true)
                             } else {
                                 (context as? ComponentActivity)?.finish()
                             }

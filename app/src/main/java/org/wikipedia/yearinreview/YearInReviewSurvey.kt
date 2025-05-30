@@ -1,7 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.content.Context
-import androidx.activity.ComponentActivity
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -53,12 +51,11 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.Prefs
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewSurvey(
-    context: Context
+    onSurveyButtonClick: () -> Unit
 ) {
     val radioOptions = listOf(
         stringResource(R.string.year_in_review_survey_very_satisfied),
@@ -207,8 +204,7 @@ fun YearInReviewSurvey(
                         SurveyButton(
                             buttonText = R.string.year_in_review_survey_cancel,
                             onClick = {
-                                Prefs.yirSurveyShown = true
-                                (context as ComponentActivity).finish()
+                                onSurveyButtonClick()
                             }
                         )
                         Spacer(modifier = Modifier.width(8.dp))
@@ -224,8 +220,7 @@ fun YearInReviewSurvey(
                                             feedbackText = userInput
                                         )
                                 )
-                                Prefs.yirSurveyShown = true
-                                (context as ComponentActivity).finish()
+                                onSurveyButtonClick()
                             }
                         )
                     }
@@ -267,7 +262,7 @@ fun PreviewSurvey() {
                .background(WikipediaTheme.colors.paperColor)
         ) {
             YearInReviewSurvey(
-                context = context
+                onSurveyButtonClick = {}
             )
         }
     }
