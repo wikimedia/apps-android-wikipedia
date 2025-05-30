@@ -71,7 +71,7 @@ class YearInReviewActivity : BaseActivity() {
                             viewModel = viewModel,
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
-                            showSurvey = { showSurvey -> isSurveyVisible = showSurvey},
+                            showSurvey = { showSurvey -> isSurveyVisible = showSurvey },
                             customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
