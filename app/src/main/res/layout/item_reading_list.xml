@@ -100,8 +100,54 @@
             android:textColor="?attr/success_color"
             android:textStyle="bold"
             android:visibility="gone"
-            tools:visibility="visible"
+            tools:visibility="gone"
             tools:text="Lorem ipsum" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/item_recommended_list_info_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/item_title_container"
+        app:layout_constraintStart_toStartOf="@+id/item_title_container"
+        app:layout_constraintTop_toBottomOf="@+id/item_title_container"
+        app:flexWrap="wrap"
+        app:justifyContent="flex_start">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:tint="?attr/primary_color"
+            app:srcCompat="@drawable/ic_w_transparent"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/item_recommended_list_made_for"
+            style="@style/List.MaterialListSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/recommended_reading_list_page_subtitle_made_for"
+            android:textColor="?attr/secondary_color"
+            tools:visibility="visible"
+            tools:text="Made for test" />
+
+        <TextView
+            android:id="@+id/item_recommended_list_number_of_articles"
+            style="@style/List.MaterialListSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/recommended_reading_list_page_subtitle_articles"
+            android:textColor="?attr/secondary_color"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="• 5 articles" />
 
     </com.google.android.flexbox.FlexboxLayout>
 
@@ -115,8 +161,9 @@
         android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="@+id/item_title_container"
         app:layout_constraintStart_toStartOf="@+id/item_title_container"
-        app:layout_constraintTop_toBottomOf="@+id/item_title_container"
-        tools:text="x items" />
+        app:layout_constraintTop_toBottomOf="@+id/item_recommended_list_info_container"
+        tools:text="x items"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/item_description"
@@ -129,7 +176,8 @@
         app:layout_constraintEnd_toEndOf="@+id/item_title_container"
         app:layout_constraintStart_toStartOf="@+id/item_title_container"
         app:layout_constraintTop_toBottomOf="@+id/item_reading_list_statistical_description"
-        tools:text="Sample description" />
+        tools:text="Sample description"
+        tools:visibility="gone"  />
 
     <CheckBox
         android:id="@+id/item_select_checkbox"
@@ -163,6 +211,36 @@
         tools:visibility="visible"/>
 
     <ImageView
+        android:id="@+id/item_save_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/menu_page_add_to_default_list"
+        android:visibility="gone"
+        android:layout_marginStart="4dp"
+        app:tint="?attr/primary_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_description"
+        app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
+        tools:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/item_notification_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/recommended_reading_list_settings_notifications_title"
+        android:visibility="gone"
+        android:layout_marginStart="4dp"
+        app:tint="?attr/primary_color"
+        app:layout_constraintStart_toEndOf="@id/item_save_button"
+        app:layout_constraintTop_toBottomOf="@id/item_description"
+        app:srcCompat="@drawable/ic_notifications_active"
+        tools:visibility="visible"/>
+
+    <ImageView
         android:id="@+id/item_overflow_menu"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -172,7 +250,7 @@
         app:tint="?attr/primary_color"
         android:visibility="gone"
         android:rotation="90"
-        app:layout_constraintStart_toEndOf="@id/item_share_button"
+        app:layout_constraintStart_toEndOf="@id/item_notification_button"
         app:layout_constraintTop_toBottomOf="@id/item_description"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
         tools:visibility="visible"/>
