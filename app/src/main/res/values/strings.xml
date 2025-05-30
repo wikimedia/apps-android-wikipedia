@@ -1918,7 +1918,6 @@
     <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
     <string name="year_in_review_survey_cancel">Cancel</string>
     <string name="year_in_review_survey_submit">Submit</string>
-    <string name="year_in_review_survey_input_placeholder">Any additional thoughts?</string>
     <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
     <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
 

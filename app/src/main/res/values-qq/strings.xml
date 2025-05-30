@@ -1836,7 +1836,6 @@
   <string name="year_in_review_survey_placeholder_text">Placeholder text for the Year in Review Text input field</string>
   <string name="year_in_review_survey_cancel">Cancel button text for the Year in Review survey</string>
   <string name="year_in_review_survey_submit">Submit button text for the Year in Review survey</string>
-  <string name="year_in_review_survey_input_placeholder">Placeholder text for year in review the survey input field</string>
   <string name="year_in_review_screendeck_image_content_description">Content description for the image used in the Year in Review main screendeck</string>
   <string name="year_in_review_entry_dialog_screen_image_content_description">Content description for the image used in the Year in Review entry dialog screen</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
