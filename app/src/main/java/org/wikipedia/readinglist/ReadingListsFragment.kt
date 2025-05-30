@@ -865,7 +865,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun setupRecommendedReadingListDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
         binding.discoverCardView.isVisible = true
         binding.discoverCardView.setContent {
-            var images by remember { mutableStateOf(recommendedArticles.map { it.thumbUrl.orEmpty() }) }
+            var images by remember { mutableStateOf(recommendedArticles.mapNotNull { it.thumbUrl }) }
             val hasAllArticlesBeenRead by remember { mutableStateOf(recommendedArticles.all { it.status == 1 }) }
             val subtitle = when (AccountUtil.isLoggedIn) {
                 true -> { getString(R.string.recommended_reading_list_page_subtitle_made_for,
@@ -890,7 +890,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     subtitle = subtitle,
                     description = getString(description),
                     images = images,
-                    canShowRedDot = hasAllArticlesBeenRead,
+                    canShowRedDot = !hasAllArticlesBeenRead,
                     isUserLoggedIn = AccountUtil.isLoggedIn
                 )
             }
