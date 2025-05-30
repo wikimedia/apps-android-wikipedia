@@ -58,7 +58,7 @@ class YearInReviewActivity : BaseActivity() {
                                     context = this@YearInReviewActivity
                                 )
                             },
-                            screenContent = { innerPadding, contentData, pagerState ->
+                            screenContent = { innerPadding, contentData, _ ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData,
