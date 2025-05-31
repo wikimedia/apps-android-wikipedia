@@ -2,6 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,6 +52,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -60,6 +62,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import org.wikipedia.views.DefaultViewHolder
@@ -68,7 +71,8 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.Date
+import java.util.*
+import androidx.core.net.toUri
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -79,7 +83,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
-    private var isPreview: Boolean = false
+    private var readingListMode: ReadingListMode = ReadingListMode.DEFAULT
     private var readingListId: Long = 0
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
@@ -94,6 +98,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var currentSearchQuery: String? = null
     private var articleLimitMessageShown = false
     private var exclusiveTooltipRunnable: Runnable? = null
+    private val isPreview get() = readingListMode == ReadingListMode.PREVIEW
+    private val isRecommendedList get() = readingListMode == ReadingListMode.RECOMMENDED
     var readingList: ReadingList? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -106,16 +112,20 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
 
-        isPreview = requireArguments().getBoolean(ReadingListActivity.EXTRA_READING_LIST_PREVIEW, false)
-
+        readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
+        return binding.root
+    }
 
-        lifecycleScope.launch {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.updateListByIdFlow.collect { resource ->
@@ -157,6 +167,38 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     }
                 }
                 launch {
+                    viewModel.recommendedListFlow.collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                            }
+                            is Resource.Success -> {
+                                readingList = it.data
+                                readingList?.let { list ->
+                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, list.title))
+                                }
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = true
+                                binding.readingListSwipeRefresh.isVisible = true
+                                update()
+                                maybeShowCustomizeSnackbar()
+                            }
+                            is Resource.Error -> {
+                                L.e(it.throwable)
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = true
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                                binding.errorView.setError(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
                     FlowEventBus.events.collectLatest { event ->
                         when (event) {
                             is ReadingListSyncEvent -> {
@@ -178,8 +220,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             }
         }
-
-        return binding.root
     }
 
     override fun onResume() {
@@ -193,11 +233,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         binding.readingListRecyclerView.adapter = null
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
         _binding = null
+
+        // TODO: remove this
+        Prefs.isRecommendedReadingListOnboardingShown = false
+        Prefs.isRecommendedReadingListEnabled = false
         super.onDestroyView()
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        if (isPreview) {
+        if (readingListMode != ReadingListMode.DEFAULT) {
             return
         }
         inflater.inflate(R.menu.menu_reading_list, menu)
@@ -207,7 +251,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        if (isPreview) {
+        if (readingListMode != ReadingListMode.DEFAULT) {
             return
         }
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
@@ -308,7 +352,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.H2)
         headerView.setOverflowViewVisibility(true)
-        headerView.setPreviewMode(isPreview)
+        headerView.setMode(readingListMode)
 
         if (isPreview) {
             headerView.saveClickListener = View.OnClickListener {
@@ -317,7 +361,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             return
         }
 
-        headerView.shareButton.isVisible = true
         if (!Prefs.readingListShareTooltipShown) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(
@@ -353,6 +396,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
             headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
+            headerView.setMode(readingListMode)
             binding.readingListHeader.setReadingList(it)
             ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
             setSearchQuery()
@@ -368,16 +412,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun updateReadingListData() {
-        if (isPreview) {
-            if (readingList == null) {
-                val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
-                val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
-                viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
-            } else {
-                update()
+        when (readingListMode) {
+            ReadingListMode.DEFAULT -> viewModel.updateListById(readingListId)
+            ReadingListMode.PREVIEW -> {
+                if (readingList == null) {
+                    val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
+                    val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
+                    viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
+                } else {
+                    update()
+                }
             }
-        } else {
-            viewModel.updateListById(readingListId)
+            ReadingListMode.RECOMMENDED -> {
+                // Make sure the feature is enabled
+                Prefs.isRecommendedReadingListEnabled = true
+                if (readingList == null) {
+                    viewModel.generateRecommendedReadingList()
+                } else {
+                    update()
+                }
+            }
         }
     }
 
@@ -624,6 +678,23 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         return readingList?.pages?.firstOrNull { it.id == id }
     }
 
+    private fun maybeShowCustomizeSnackbar() {
+        if (isRecommendedList && !Prefs.isRecommendedReadingListOnboardingShown) {
+            val message = getString(
+                R.string.recommended_reading_list_page_snackbar,
+                Prefs.recommendedReadingListArticlesNumber,
+                getString(Prefs.recommendedReadingListUpdateFrequency.snackbarStringRes).lowercase(Locale.getDefault())
+            )
+            FeedbackUtil.makeSnackbar(requireActivity(), message)
+                .setAction(R.string.recommended_reading_list_page_snackbar_action) {
+                   startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+                }
+                .show()
+
+            Prefs.isRecommendedReadingListOnboardingShown = true
+        }
+    }
+
     private inner class AppBarListener : OnOffsetChangedListener {
         override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
             if (verticalOffset > -appBarLayout.totalScrollRange && showOverflowMenu) {
@@ -648,7 +719,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
         fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
-            view.setPreviewMode(isPreview)
+            view.setMode(readingListMode)
             view.setSearchQuery(currentSearchQuery)
         }
 
@@ -665,7 +736,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    if (isPreview) false else !page.offline || page.saving)
+                    if (readingListMode == ReadingListMode.DEFAULT) false else !page.offline || page.saving)
             view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
@@ -785,6 +856,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onShare(readingList: ReadingList) {
             ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
+
+        override fun onCustomize() {
+            startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+        }
+
+        override fun onAbout() {
+            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.recommended_reading_list_url).toUri())
+        }
+
+        override fun onNotification() {
+            // TODO: implement this
+        }
+
+        override fun onSaveToList(readingList: ReadingList) {
+            // TODO: implement this
         }
     }
 
@@ -973,9 +1060,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
         }
 
-        fun newInstance(preview: Boolean): ReadingListFragment {
+        fun newInstance(readingListMode: ReadingListMode): ReadingListFragment {
             return ReadingListFragment().apply {
-                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_PREVIEW to preview)
+                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode)
             }
         }
     }

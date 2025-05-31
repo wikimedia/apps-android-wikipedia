@@ -12,6 +12,8 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
 
 class RecommendedReadingListSourceFragment : Fragment() {
 
@@ -50,7 +52,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                 if (shouldGoToInterests) {
                                     // TODO: Navigate to interests screen
                                 } else {
-                                    // TODO: Navigate to Discover screen
+                                    startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                                 }
                             }
                         },
