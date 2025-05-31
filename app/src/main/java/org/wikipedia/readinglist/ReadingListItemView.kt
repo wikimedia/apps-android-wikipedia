@@ -178,6 +178,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
                 context.getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you)
             }
             val articleSize = readingList?.pages?.size ?: 0
+            binding.itemRecommendedListNumberOfArticles.isVisible = AccountUtil.isLoggedIn
             binding.itemRecommendedListMadeFor.text = madeForText
             binding.itemRecommendedListNumberOfArticles.text = context.resources.getQuantityString(
                 R.plurals.recommended_reading_list_page_subtitle_articles, articleSize, articleSize

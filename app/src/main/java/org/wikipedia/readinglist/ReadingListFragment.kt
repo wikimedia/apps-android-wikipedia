@@ -393,6 +393,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingList?.let {
             binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
             headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
+            headerView.setMode(readingListMode)
             binding.readingListHeader.setReadingList(it)
             ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
             setSearchQuery()

@@ -110,6 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/item_title_container"
         app:layout_constraintStart_toStartOf="@+id/item_title_container"
         app:layout_constraintTop_toBottomOf="@+id/item_title_container"
@@ -220,7 +221,7 @@
         android:visibility="gone"
         android:layout_marginStart="4dp"
         app:tint="?attr/primary_color"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_share_button"
         app:layout_constraintTop_toBottomOf="@id/item_description"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
         tools:visibility="visible"/>
