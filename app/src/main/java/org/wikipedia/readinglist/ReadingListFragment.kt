@@ -2,6 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -61,6 +62,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import org.wikipedia.views.DefaultViewHolder
@@ -70,6 +72,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import java.util.*
+import androidx.core.net.toUri
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -853,6 +856,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         override fun onShare(readingList: ReadingList) {
             ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
+        }
+
+        override fun onCustomize() {
+            startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
+        }
+
+        override fun onAbout() {
+            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.recommended_reading_list_url).toUri())
+        }
+
+        override fun onNotification() {
+            // TODO: implement this
+        }
+
+        override fun onSaveToList(readingList: ReadingList) {
+            // TODO: implement this
         }
     }
 
