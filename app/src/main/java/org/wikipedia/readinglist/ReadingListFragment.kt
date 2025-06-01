@@ -2,7 +2,6 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -73,6 +72,7 @@ import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import java.util.*
 import androidx.core.net.toUri
+import org.wikipedia.page.PageTitle
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -109,11 +109,19 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         appCompatActivity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar!!.title = ""
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
-        touchCallback = SwipeableItemTouchHelperCallback(requireContext())
-        ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
 
         readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
+
+        touchCallback = if (readingListMode == ReadingListMode.RECOMMENDED) {
+            SwipeableItemTouchHelperCallback(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color),
+                R.drawable.ic_bookmark_border_white_24dp, android.R.color.white, true)
+        } else {
+            SwipeableItemTouchHelperCallback(requireContext())
+        }
+        ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
+
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setToolbar()
         setHeaderView()
@@ -728,8 +736,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private inner class ReadingListPageItemHolder(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var page: ReadingListPage
+        private lateinit var pageTitle: PageTitle
         fun bindItem(page: ReadingListPage) {
             this.page = page
+            this.pageTitle = ReadingListPage.toPageTitle(page)
             view.item = page
             view.setTitle(page.displayTitle)
             view.setDescription(page.description)
@@ -751,18 +761,35 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             } else {
                 view.hideChipGroup()
             }
+            if (page.inAnyList) {
+                view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_white_24dp)
+            } else {
+                view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_border_white_24dp)
+            }
         }
 
         override fun onSwipe() {
-            if (isPreview) {
-                return
-            }
-            readingList?.let {
-                if (currentSearchQuery.isNullOrEmpty()) {
-                    ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listOf(it), page, { updateReadingListData() }, {
-                        update()
-                    })
+            when (readingListMode) {
+                ReadingListMode.DEFAULT -> {
+                    readingList?.let {
+                        if (currentSearchQuery.isNullOrEmpty()) {
+                            ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, listOf(it), page, { updateReadingListData() }, {
+                                update()
+                            })
+                        }
+                    }
                 }
+                ReadingListMode.RECOMMENDED -> {
+                    readingList?.let {
+                        val title = ReadingListPage.toPageTitle(page)
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title = title, addToDefault = true, InvokeSource.READING_LIST_ACTIVITY)
+                        readingList?.pages?.find { it == page }?.let {
+                            it.inAnyList = !page.inAnyList
+                        }
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+                ReadingListMode.PREVIEW -> { }
             }
         }
 
@@ -871,7 +898,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSaveToList(readingList: ReadingList) {
-            // TODO: implement this
+            previewSaveDialog()
         }
     }
 
@@ -919,7 +946,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onLongClick(item: ReadingListPage?): Boolean {
-            if (isPreview) {
+            if (readingListMode != ReadingListMode.DEFAULT) {
                 return false
             }
             item?.let {

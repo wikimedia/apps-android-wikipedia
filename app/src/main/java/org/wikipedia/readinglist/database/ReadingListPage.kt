@@ -47,6 +47,7 @@ data class ReadingListPage(
     @Transient var downloadProgress = 0
 
     @Transient var selected = false
+    @Transient var inAnyList = false
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
