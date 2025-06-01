@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.MenuProvider
@@ -49,6 +50,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
@@ -71,8 +73,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import java.util.*
-import androidx.core.net.toUri
-import org.wikipedia.page.PageTitle
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -116,7 +116,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         touchCallback = if (readingListMode == ReadingListMode.RECOMMENDED) {
             SwipeableItemTouchHelperCallback(requireContext(),
                 ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color),
-                R.drawable.ic_bookmark_border_white_24dp, android.R.color.white, true)
+                R.drawable.ic_bookmark_border_white_24dp, android.R.color.white, true, binding.readingListSwipeRefresh)
         } else {
             SwipeableItemTouchHelperCallback(requireContext())
         }
@@ -703,6 +703,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
+    private fun showRecommendedReadingListNotificationOffDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.recommended_reading_list_settings_notifications_dialog_title)
+            .setMessage(R.string.recommended_reading_list_settings_notifications_dialog_message)
+            .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
+                Prefs.isRecommendedReadingListNotificationEnabled = false
+                // TODO: show snackbar
+                update()
+            }
+            .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                    return@setNegativeButton
+                }
+                Prefs.isRecommendedReadingListNotificationEnabled = true
+                // TODO: show snackbar
+                update()
+            }
+            .show()
+    }
+
     private inner class AppBarListener : OnOffsetChangedListener {
         override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
             if (verticalOffset > -appBarLayout.totalScrollRange && showOverflowMenu) {
@@ -762,8 +782,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.hideChipGroup()
             }
             if (page.inAnyList) {
+                view.setTag(R.string.tag_text_key, "")
                 view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_white_24dp)
             } else {
+                view.setTag(R.string.tag_text_key, "")
                 view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_border_white_24dp)
             }
         }
@@ -894,7 +916,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onNotification() {
-            // TODO: implement this
+            if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                showRecommendedReadingListNotificationOffDialog()
+            } else {
+                Prefs.isRecommendedReadingListNotificationEnabled = true
+                update()
+            }
         }
 
         override fun onSaveToList(readingList: ReadingList) {

@@ -17,6 +17,7 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -182,6 +183,14 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
             binding.itemRecommendedListMadeFor.text = madeForText
             binding.itemRecommendedListNumberOfArticles.text = context.resources.getQuantityString(
                 R.plurals.recommended_reading_list_page_subtitle_articles, articleSize, articleSize
+            )
+
+            binding.itemNotificationButton.setImageResource(
+                if (Prefs.isRecommendedReadingListNotificationEnabled) {
+                    R.drawable.ic_notifications_active
+                } else {
+                    R.drawable.outline_notifications_off_24
+                }
             )
 
             // Reset the overflow menu
