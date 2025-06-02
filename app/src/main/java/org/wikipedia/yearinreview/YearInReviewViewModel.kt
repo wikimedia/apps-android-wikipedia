@@ -155,7 +155,7 @@ class YearInReviewViewModel() : ViewModel() {
 
         val nonEnglishCollectiveReadCountData = YearInReviewScreenData(
             animatedImageResource = R.drawable.wyir_puzzle_3,
-            staticImageResource = R.drawable.non_english_slide_01 ,
+            staticImageResource = R.drawable.non_english_slide_01,
             headLineText = R.string.year_in_review_non_english_collective_readcount_headline,
             bodyText = R.string.year_in_review_non_english_collective_readcount_bodytext,
         )

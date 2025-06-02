@@ -35,6 +35,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -57,6 +59,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -92,7 +95,7 @@ fun YearInReviewScreen(
     val pagerState = rememberPagerState(pageCount = { contentData.size })
     var startCapture by remember { mutableStateOf(false) }
 
-    if(startCapture) {
+    if (startCapture) {
         CaptureComposableToBitmap(
             screen = { ScreenShotScaffold(
                 screenContent = contentData[pagerState.currentPage],
@@ -435,50 +438,22 @@ fun ScreenShotScaffold(
             isShareSheetView = true,
             context = context
         )
-        Box(
-            modifier = Modifier
-                .shadow(
-                    elevation = 20.dp,
-                    ambientColor = WikipediaTheme.colors.primaryColor,
-                    spotColor = WikipediaTheme.colors.primaryColor
-                )
-                .background(
-                    color = WikipediaTheme.colors.paperColor,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(312.dp)
-                .padding(top = 36.dp)
-        ){
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .wrapContentWidth()
-                    .wrapContentHeight()
-                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
 
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.globe),
-                    contentDescription = "Globe"
-                )
-                Text(
-                    text = "#WikipediaYearInReview",
-                    color = WikipediaTheme.colors.progressiveColor,
-                    style = WikipediaTheme.typography.button
-                )
-            }
-        }
-        /*
         Card(
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(
                 containerColor = WikipediaTheme.colors.paperColor
             ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
             modifier = Modifier
                 .width(312.dp)
                 .padding(top = 36.dp)
+                .shadow(
+                    clip = false,
+                    elevation = 20.dp,
+                    shape = RectangleShape,
+                    ambientColor = WikipediaTheme.colors.primaryColor,
+                    spotColor = WikipediaTheme.colors.primaryColor,
+                )
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
@@ -499,7 +474,7 @@ fun ScreenShotScaffold(
                     style = WikipediaTheme.typography.button
                 )
             }
-        }*/
+        }
     }
 }
 
