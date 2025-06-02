@@ -1,4 +1,4 @@
-package org.wikipedia.settings.recommendedReadingList
+package org.wikipedia.readinglist.recommended
 
 import android.content.pm.PackageManager
 import android.os.Build
@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 
@@ -27,9 +26,11 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
         //  @TODO: call this code when discover screen is complete
         if (it.resultCode == RESULT_OK) {
             viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
-            showSnackBar(Prefs.recommendedReadingListSource, onAction = {
-                viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
-            })
+            if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
+                showSnackBar(Prefs.recommendedReadingListSource, onAction = {
+                    viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                })
+            }
         }
     }
 
@@ -48,7 +49,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     },
                     onRecommendedReadingListSourceClick = {
                         currentRecommendedReadingListSource = Prefs.recommendedReadingListSource
-                        // @TODO: implement when discover screen is complete
+                        recommendedReadingListSourceLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, fromSetting = true))
                     },
                     onInterestClick = {
                         // @TODO: implement when interest screen is complete
