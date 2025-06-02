@@ -15,8 +15,8 @@ fun WikipediaAlertDialog(
     confirmButtonText: String,
     dismissButtonText: String,
     onDismissRequest: () -> Unit,
-    onConfirmBtnClick: () -> Unit,
-    onDismissBtnClick: () -> Unit,
+    onConfirmButtonClick: () -> Unit,
+    onDismissButtonClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     AlertDialog(
@@ -40,7 +40,7 @@ fun WikipediaAlertDialog(
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = WikipediaTheme.colors.progressiveColor
                 ),
-                onClick = onConfirmBtnClick
+                onClick = onConfirmButtonClick
             ) {
                 Text(confirmButtonText)
             }
@@ -50,7 +50,7 @@ fun WikipediaAlertDialog(
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = WikipediaTheme.colors.progressiveColor
                 ),
-                onClick = onDismissBtnClick
+                onClick = onDismissButtonClick
             ) {
                 Text(dismissButtonText)
             }

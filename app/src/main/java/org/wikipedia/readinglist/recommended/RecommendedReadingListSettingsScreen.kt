@@ -1,4 +1,4 @@
-package org.wikipedia.settings.recommendedReadingList
+package org.wikipedia.readinglist.recommended
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -49,8 +49,6 @@ import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -113,7 +111,7 @@ fun RecommendedReadingListSettingsScreen(
                     isNotificationEnabled = uiState.isRecommendedReadingListNotificationEnabled,
                     onArticleNumberChanged = onArticleNumberChanged,
                     onUpdateFrequency = onUpdateFrequency,
-                    onDiscoverSourceClick = onRecommendedReadingListSourceClick,
+                    onRecommendedReadingListSourceClick = onRecommendedReadingListSourceClick,
                     onInterestClick = onInterestClick,
                     onNotificationStateChanged = onNotificationStateChanged
                 )
@@ -129,11 +127,11 @@ fun RecommendedReadingListSettingsScreen(
                 onDismissRequest = {
                     showAlertDialog = false
                 },
-                onConfirmBtnClick = {
+                onConfirmButtonClick = {
                     showAlertDialog = false
                     onRecommendedReadingListSwitchClick(false)
                 },
-                onDismissBtnClick = {
+                onDismissButtonClick = {
                     showAlertDialog = false
                     onRecommendedReadingListSwitchClick(true)
                 }
@@ -166,7 +164,7 @@ private fun EnabledState(
     isNotificationEnabled: Boolean,
     onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
     onArticleNumberChanged: (Int) -> Unit,
-    onDiscoverSourceClick: () -> Unit,
+    onRecommendedReadingListSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
     onNotificationStateChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier
@@ -190,7 +188,7 @@ private fun EnabledState(
             SourceView(
                 modifier = Modifier
                     .clickable {
-                        onDiscoverSourceClick()
+                        onRecommendedReadingListSourceClick()
                     }
                     .padding(vertical = 8.dp),
                 source = discoverSource
@@ -317,7 +315,7 @@ private fun UpdatesFrequencyView(
     )
     ListItem(
         modifier = modifier
-            .noRippleClickable(
+            .clickable(
                 onClick = {
                     showDialog = true
                 }
@@ -540,11 +538,11 @@ private fun NotificationView(
             onDismissRequest = {
                 showAlertDialog = false
             },
-            onConfirmBtnClick = {
+            onConfirmButtonClick = {
                 showAlertDialog = false
                 onNotificationStateChanged(false)
             },
-            onDismissBtnClick = {
+            onDismissButtonClick = {
                 showAlertDialog = false
                 onNotificationStateChanged(true)
             }
@@ -574,7 +572,7 @@ fun RadioListDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .noRippleClickable {
+                            .clickable {
                                 onOptionSelected(option)
                                 onDismissRequest()
                             },

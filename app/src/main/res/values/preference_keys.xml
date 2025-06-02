@@ -181,6 +181,7 @@
     <string name="preference_key_playground_category">categoryPlayground</string>
     <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
     <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
+    <string name="preference_category_recommended_reading_list">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number">recommendedReadingListArticlesNumber</string>
     <string name="preference_key_recommended_reading_list_update_frequency">recommendedReadingListUpdateFrequency</string>
