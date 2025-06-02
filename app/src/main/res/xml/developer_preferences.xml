@@ -512,7 +512,7 @@
             android:title="@string/preference_key_recommended_reading_list_onboarding_shown" />
 
         <ListPreference
-            android:key="@string/preference_key_recommended_reading_list_notification_enabled"
+            android:key="@string/preference_key_recommended_reading_list_notification_simulator"
             android:title="Notification frequency Simulator"/>
       
         <org.wikipedia.settings.IntPreference

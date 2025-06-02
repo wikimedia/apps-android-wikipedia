@@ -217,7 +217,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
-        (findPreference(R.string.preference_key_recommended_reading_list_notification_enabled) as ListPreference).apply {
+        (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
             val frequencies = RecommendedReadingListUpdateFrequency.entries
             val names = frequencies.map { it.name }.toTypedArray()
             entries = names
