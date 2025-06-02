@@ -41,12 +41,12 @@
   <string name="history_items_deleted">%d artiklit on ajaloost kustutatud</string>
   <string name="history_item_delete_undo">Võta tagasi</string>
   <string name="notification_archive_undo">Võta tagasi</string>
-  <string name="app_settings">Rakenduse seadistused</string>
+  <string name="app_settings">Rakenduse sätted</string>
   <string name="history_list_title">Ajalugu</string>
   <string name="image_content_description">Pilt: %s</string>
   <string name="page_content_description">Lehekülg: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
-  <string name="wikidata">Vikiandmed</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Sirvimisajaloo kustutamine</string>
   <string name="dialog_message_clear_history_yes">Jah</string>
   <string name="dialog_message_clear_history_no">Ei</string>
@@ -81,8 +81,8 @@
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>
   <string name="menu_save_changes">Avalda muudatused</string>
-  <string name="edit_saved_successfully">Muudatus(ed) on avaldatud!</string>
-  <string name="stub_article_edit_saved_successfully">Muudatus(ed) on avaldatud! Nende avalikult nähtavaks saamiseks võib kuluda aega.</string>
+  <string name="edit_saved_successfully">Muudatus on avaldatud!</string>
+  <string name="stub_article_edit_saved_successfully">Muudatus on avaldatud! Selle nähtavaks saamiseks võib kuluda aega.</string>
   <string name="dialog_message_edit_failed">Muudatus ebaõnnestus!</string>
   <string name="dialog_message_edit_failed_retry">Proovi uuesti</string>
   <string name="dialog_message_edit_failed_cancel">Loobu</string>
@@ -140,17 +140,17 @@
   <string name="page_protected_other">See lehekülg on kaitstud järgnevalt: %s</string>
   <string name="page_protected_can_not_edit">Kahjuks pole su kontol praegu piisavalt õigusi, et seda lehekülge redigeerida.</string>
   <string name="page_protected_can_not_edit_title">See lehekülg on kaitstud</string>
-  <string name="settings_item_preferences">Seadistused</string>
-  <string name="settings_activity_title">Seadistused</string>
+  <string name="settings_item_preferences">Sätted</string>
+  <string name="settings_activity_title">Sätted</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
   <string name="privacy_policy_description">Andmekaitsereeglid</string>
   <string name="terms_of_use_description">Kasutustingimused</string>
   <string name="about_libraries_heading">Kasutatud teegid</string>
   <string name="about_contributors_heading">Kaastöölised</string>
   <string name="about_translators_heading">Tõlkijad</string>
-  <string name="about_translators_translatewiki">Selle rakenduse tõlkisid vabatahtlikud tõlkijad &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; tõlketeenuses.</string>
+  <string name="about_translators_translatewiki">Selle rakenduse tõlkisid vabatahtlikud tõlkijad &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net-is&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Litsents</string>
-  <string name="about_app_license">Lähtekood on saadaval &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubis&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsentsi&lt;/a&gt; alusel. Kui pole teisiti täpsustatud, on sisu saadaval &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commonsi litsentsi Attribution + ShareAlike&lt;/a&gt; alusel.</string>
+  <string name="about_app_license">Lähtekood on saadaval &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubis&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsentsi&lt;/a&gt; alusel. Kui pole teisiti öeldud, on sisu saadaval &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.et\"&gt;Creative Commonsi litsentsi \"Autorile viitamine + jagamine samadel tingimustel\"&lt;/a&gt; alusel.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>
   <string name="about_activity_title">Teave</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>
@@ -191,8 +191,8 @@
   <string name="unnamed_tab_closed">Vahekaart on suletud.</string>
   <string name="tab_item_closed">%s on suletud.</string>
   <string name="all_tab_items_closed">Kõik vahekaardid on suletud.</string>
-  <string name="preference_title_customize_explore_feed">Tutvu sisuvooga</string>
-  <string name="preference_summary_customize_explore_feed">Muuda „Tutvu sisuvooga“ eelistusi</string>
+  <string name="preference_title_customize_explore_feed">Sisuvoog \"Avasta\"</string>
+  <string name="preference_summary_customize_explore_feed">Kohanda sisuvoogu \"Avasta\"</string>
   <string name="location_permissions_enable_prompt">Kui soovid näha kohti sinu lähedal, siis luba rakendusel kasutada tuvastatud asukohta.</string>
   <string name="link_preview_dialog_saved_button">Salvestatud</string>
   <string name="article_menu_bar_save_button">Salvesta</string>
@@ -220,7 +220,7 @@
     <item quantity="one">Allalaadimisel artikleid: %1$d…</item>
     <item quantity="other">Allalaadimisel artikleid: %1$d…</item>
   </plurals>
-  <string name="preference_title_hide_read_notifications">Peida lugemisteated</string>
+  <string name="preference_title_hide_read_notifications">Peida loetud teavitused</string>
   <string name="view_because_you_read_card_title">Varemloetu seosed</string>
   <string name="view_random_article_card_title">Juhuslik artikkel</string>
   <string name="view_random_article_card_action">Veel juhuslikke artikleid</string>
@@ -237,14 +237,14 @@
   <string name="feed_configure_menu_reset">Taasta vaikimisi vaade</string>
   <string name="feed_configure_menu_select_all">Näita kõiki</string>
   <string name="feed_configure_menu_deselect_all">Peida kõik</string>
-  <string name="feed_item_type_on_this_day">Tänas päeva sündmused ajaloos</string>
+  <string name="feed_item_type_on_this_day">Tänase päeva sündmused ajaloos</string>
   <string name="feed_item_type_randomizer">Koosta lugemiseks juhuslike artiklite loend</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Sobib</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Loobu</string>
   <string name="feed_accessibility_card_text">Oled jõudnud sisuvoo lõppu.</string>
   <string name="feed_accessibility_card_load_more_button">Laadi veel</string>
   <string name="feed_language_variants_removal_dialog_save">Salvesta</string>
-  <string name="feed_language_variants_removal_secondary_dialog_settings">Ava seadistused</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Ava sätted</string>
   <string name="image_recommendation_onboarding_1">Pildid aitavad lugejatel sisu paremini mõista, aga paljudes artiklites neid pole.</string>
   <string name="app_shortcuts_places">Asukohad</string>
   <plurals name="talk_hide_replies_count">
