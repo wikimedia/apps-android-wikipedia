@@ -35,6 +35,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage")
     fun getAllPages(): List<ReadingListPage>
 
+    @Query("SELECT COUNT(*) FROM ReadingListPage")
+    suspend fun getPagesCount(): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     fun getPageById(id: Long): ReadingListPage?
 

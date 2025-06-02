@@ -62,7 +62,8 @@ class CategoryActivity : BaseActivity() {
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        binding.toolbarTitle.text = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText)
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false))
