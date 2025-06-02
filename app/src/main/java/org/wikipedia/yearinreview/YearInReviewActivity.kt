@@ -62,7 +62,7 @@ class YearInReviewActivity : BaseActivity() {
                                     innerPadding = innerPadding,
                                     screenData = contentData,
                                     context = this@YearInReviewActivity,
-                                    isInfoIconVisible = false
+                                    isShareSheetView = false
                                 )
                             },
                         )

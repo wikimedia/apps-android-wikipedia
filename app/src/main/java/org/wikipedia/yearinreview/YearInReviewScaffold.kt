@@ -35,8 +35,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -59,7 +57,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -71,6 +68,8 @@ import androidx.core.net.toUri
 import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -93,23 +92,23 @@ fun YearInReviewScreen(
     val pagerState = rememberPagerState(pageCount = { contentData.size })
     var startCapture by remember { mutableStateOf(false) }
 
-
-    CaptureComposableToBitmap(
-        startCapture = startCapture,
-        screen = { ScreenShotScaffold(
-            screenContent = contentData[pagerState.currentPage],
-            context
-        ) }
-    ) { bitmap ->
-        ShareUtil.shareImage(
-            coroutineScope = coroutineScope,
-            context = context,
-            bmp = bitmap,
-            imageFileName = "year_in_review",
-            subject = context.getString(R.string.year_in_review_share_subject),
-            text = context.getString(R.string.year_in_review_share_url)
-        )
-        startCapture = false
+    if(startCapture) {
+        CaptureComposableToBitmap(
+            screen = { ScreenShotScaffold(
+                screenContent = contentData[pagerState.currentPage],
+                context = context
+            ) }
+        ) { bitmap ->
+            ShareUtil.shareImage(
+                coroutineScope = coroutineScope,
+                context = context,
+                bmp = bitmap,
+                imageFileName = "year_in_review",
+                subject = context.getString(R.string.year_in_review_share_subject),
+                text = context.getString(R.string.year_in_review_share_url)
+            )
+            startCapture = false
+        }
     }
 
     Scaffold(
@@ -334,7 +333,7 @@ fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
     context: Context,
-    isInfoIconVisible: Boolean = true
+    isShareSheetView: Boolean = false
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -346,7 +345,10 @@ fun YearInReviewScreenContent(
             .verticalScroll(scrollState)
     ) {
         AsyncImage(
-            model = screenData.imageResource,
+            model = ImageRequest.Builder(context)
+                .data(if (isShareSheetView) screenData.staticImageResource else screenData.animatedImageResource)
+                .allowHardware(false)
+                .build(),
             contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
@@ -370,7 +372,7 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                if (isInfoIconVisible) {
+                if (!isShareSheetView) {
                     IconButton(
                         onClick = {
                             UriUtil.handleExternalLink(
@@ -405,7 +407,6 @@ fun ScreenShotScaffold(
 ) {
     Column(
         modifier = Modifier
-            .pointerInput(Unit) {}
             .fillMaxSize()
             .background(color = WikipediaTheme.colors.paperColor),
         verticalArrangement = Arrangement.Center,
@@ -431,22 +432,23 @@ fun ScreenShotScaffold(
         YearInReviewScreenContent(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
-            isInfoIconVisible = false,
+            isShareSheetView = true,
             context = context
         )
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = WikipediaTheme.colors.paperColor
-            ),
+        Box(
             modifier = Modifier
-                .width(312.dp)
-                .padding(top = 36.dp)
                 .shadow(
                     elevation = 20.dp,
-                    spotColor = WikipediaTheme.colors.primaryColor,
-                    ambientColor = WikipediaTheme.colors.primaryColor)
-        ) {
+                    ambientColor = WikipediaTheme.colors.primaryColor,
+                    spotColor = WikipediaTheme.colors.primaryColor
+                )
+                .background(
+                    color = WikipediaTheme.colors.paperColor,
+                    shape = RoundedCornerShape(16.dp)
+                )
+                .width(312.dp)
+                .padding(top = 36.dp)
+        ){
             Row(
                 horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
                 verticalAlignment = Alignment.CenterVertically,
@@ -467,6 +469,37 @@ fun ScreenShotScaffold(
                 )
             }
         }
+        /*
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = WikipediaTheme.colors.paperColor
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 20.dp),
+            modifier = Modifier
+                .width(312.dp)
+                .padding(top = 36.dp)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .wrapContentHeight()
+                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
+
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.globe),
+                    contentDescription = "Globe"
+                )
+                Text(
+                    text = "#WikipediaYearInReview",
+                    color = WikipediaTheme.colors.progressiveColor,
+                    style = WikipediaTheme.typography.button
+                )
+            }
+        }*/
     }
 }
 
@@ -506,7 +539,6 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 
 @Composable
 fun CaptureComposableToBitmap(
-    startCapture: Boolean,
     screen: @Composable () -> Unit,
     onBitmapReady: (Bitmap) -> Unit
 ) {
@@ -519,10 +551,10 @@ fun CaptureComposableToBitmap(
             }
         },
         update = { view ->
-            if (startCapture) {
+            view.postDelayed({
                 val bitmap = view.drawToBitmap()
                 onBitmapReady(bitmap)
-            }
+            }, 500)
         },
         modifier = Modifier
             .fillMaxSize()
