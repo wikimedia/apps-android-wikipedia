@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.util.FeedbackUtil
@@ -61,7 +60,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         if (it) {
                             requestPermissionAndScheduleRecommendedReadingNotification()
                         } else {
-                            OnThisDayGameNotificationManager.cancelDailyGameNotification(this)
+                            RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(this)
+                            viewModel.toggleNotification(false)
                         }
                     },
                     onUpdateFrequency = {
