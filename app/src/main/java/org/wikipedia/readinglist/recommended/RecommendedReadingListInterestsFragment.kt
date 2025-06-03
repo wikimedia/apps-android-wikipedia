@@ -1,9 +1,11 @@
 package org.wikipedia.readinglist.recommended
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -62,6 +64,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
@@ -70,12 +73,21 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
 class RecommendedReadingListInterestsFragment : Fragment() {
     private val viewModel: RecommendedReadingListInterestsViewModel by viewModels()
+
+    private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
+            viewModel.addTitle(pageTitle)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -85,19 +97,26 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                     RecommendedReadingListInterestsScreen(
                         uiState = viewModel.uiState.collectAsState().value,
                         onCloseClick = {
-
+                            requireActivity().setResult(Activity.RESULT_CANCELED)
+                            requireActivity().finish()
                         },
                         onNextClick = {
-
+                            viewModel.commitSelection()
+                            requireActivity().setResult(Activity.RESULT_OK)
+                            requireActivity().finish()
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             backClickListener = {
                                 requireActivity().finish()
                             },
                             retryClickListener = {
-
+                                viewModel.loadItems()
                             }
                         ),
+                        onSearchClick = {
+                            val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.READING_LIST_ACTIVITY, null, returnLink = true)
+                            searchLauncher.launch(intent)
+                        },
                         onItemClick = {
                             viewModel.toggleSelection(it)
                         }
@@ -121,6 +140,7 @@ fun RecommendedReadingListInterestsScreen(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
+    onSearchClick: () -> Unit
 ) {
     when (uiState) {
         is Resource.Loading -> {
@@ -158,7 +178,8 @@ fun RecommendedReadingListInterestsScreen(
                 selectedItems = uiState.data.selectedItems,
                 onCloseClick = onCloseClick,
                 onNextClick = onNextClick,
-                onItemClick = onItemClick
+                onItemClick = onItemClick,
+                onSearchClick = onSearchClick
             )
         }
     }
@@ -173,6 +194,7 @@ fun RecommendedReadingListInterestsContent(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
+    onSearchClick: () -> Unit
 ) {
     Scaffold(
         modifier = Modifier
@@ -232,7 +254,7 @@ fun RecommendedReadingListInterestsContent(
                         )
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
-                        ReadingListInterestSearchCard()
+                        ReadingListInterestSearchCard(onSearchClick)
                     }
                     items(items) { item ->
                         ReadingListInterestCard(
@@ -268,7 +290,7 @@ fun RecommendedReadingListInterestsContent(
                     modifier = Modifier
                         .size(48.dp)
                         .clickable {
-
+                            // TODO
                         }
                         .padding(12.dp),
                     painter = painterResource(R.drawable.ic_dice_24),
@@ -359,7 +381,7 @@ fun ReadingListInterestCard(
 }
 
 @Composable
-fun ReadingListInterestSearchCard() {
+fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -369,9 +391,7 @@ fun ReadingListInterestSearchCard() {
                 color = WikipediaTheme.colors.backgroundColor,
                 shape = RoundedCornerShape(24.dp)
             )
-            .clickable {
-
-            },
+            .clickable(onClick = onSearchClick),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.width(16.dp))
@@ -413,7 +433,9 @@ fun PreviewReadingListInterestsScreen() {
                 )
             ),
             onCloseClick = {},
-            onNextClick = {}
+            onNextClick = {},
+            onSearchClick = {},
+            onItemClick = {}
         )
     }
 }

@@ -50,16 +50,19 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                         .map { ReadingListPage.toPageTitle(it) }
                 // take the two lists and interleave them
                 for (i in 0 until maxItems) {
-                    if (i < historyTitles.size) results.add(historyTitles[i])
-                    if (i < readingListTitles.size) results.add(readingListTitles[i])
+                    if (i < historyTitles.size && !results.contains(historyTitles[i])) results.add(historyTitles[i])
+                    if (i < readingListTitles.size && !results.contains(readingListTitles[i])) results.add(readingListTitles[i])
                 }
             }
 
             // If there are still VERY few items, include a few random articles.
             if (results.size < 5) {
                 for (i in results.size until 5) {
-                    results.add(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
-                        .getPageTitle(WikipediaApp.instance.wikiSite))
+                    val title = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
+                        .getPageTitle(WikipediaApp.instance.wikiSite)
+                    if (!results.contains(title)) {
+                        results.add(title)
+                    }
                 }
             }
 
@@ -82,6 +85,22 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
             }
             _uiState.value = Resource.Success(
                 it.data.copy(selectedItems = newSelection)
+            )
+        }
+    }
+
+    fun commitSelection() {
+        (_uiState.value as? Resource.Success<UiState>)?.let {
+            Prefs.recommendedReadingListInterests = it.data.selectedItems.toList()
+        }
+    }
+
+    fun addTitle(title: PageTitle) {
+        (_uiState.value as? Resource.Success<UiState>)?.let {
+            val newItems = listOf(title) + it.data.items
+            val newSelection = it.data.selectedItems + title
+            _uiState.value = Resource.Success(
+                it.data.copy(items = newItems, selectedItems = newSelection)
             )
         }
     }
