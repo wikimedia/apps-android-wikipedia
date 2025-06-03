@@ -11,7 +11,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 
@@ -33,15 +37,32 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
         }) {
             _uiState.value = Resource.Loading()
 
+            val maxItems = 20
+            val results = mutableListOf<PageTitle>()
+            // get most recent history entries
+            val historyTitles = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(maxItems, 0)
+                .map { it.title }
+            // and a random sampling of reading list pages
+            val readingListTitles = AppDatabase.instance.readingListPageDao().getPagesByRandom(maxItems)
+                .map { ReadingListPage.toPageTitle(it) }
+            // take the two lists and interleave them
+            for (i in 0 until maxItems) {
+                if (i < historyTitles.size) results.add(historyTitles[i])
+                if (i < readingListTitles.size) results.add(readingListTitles[i])
+            }
 
-
-            delay(1000)
-
-
+            // If there are VERY few items, include some random articles.
+            if (results.size < 5) {
+                for (i in results.size until 5) {
+                    results.add(ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
+                        .getPageTitle(WikipediaApp.instance.wikiSite))
+                }
+            }
 
             _uiState.value = Resource.Success(
                 UiState(
-                    fromSettings = fromSettings
+                    fromSettings = fromSettings,
+                    items = results
                 )
             )
         }

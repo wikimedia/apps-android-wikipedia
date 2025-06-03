@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +28,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -37,6 +39,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -60,6 +64,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -162,6 +167,8 @@ fun RecommendedReadingListInterestsContent(
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
 ) {
+    var selectedItems = remember { mutableStateOf(setOf<Int>()) }
+
     Scaffold(
         modifier = Modifier
             .background(WikipediaTheme.colors.paperColor),
@@ -207,11 +214,11 @@ fun RecommendedReadingListInterestsContent(
                 verticalItemSpacing = 16.dp,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 content = {
-
                     item(span = StaggeredGridItemSpan.FullLine) {
                         Text(
                             modifier = Modifier
-                                .fillMaxWidth().padding(top = 48.dp, bottom = 4.dp),
+                                .fillMaxWidth()
+                                .padding(top = 48.dp, bottom = 4.dp),
                             style = WikipediaTheme.typography.bodyLarge,
                             color = WikipediaTheme.colors.primaryColor,
                             fontSize = 22.sp,
@@ -224,7 +231,15 @@ fun RecommendedReadingListInterestsContent(
                     }
                     items(items) { item ->
                         ReadingListInterestCard(
-                            item = item
+                            item = item,
+                            isSelected = selectedItems.value.contains(item.hashCode()),
+                            onSelectToggle = {
+                                selectedItems.value = if (selectedItems.value.contains(item.hashCode())) {
+                                    selectedItems.value - item.hashCode()
+                                } else {
+                                    selectedItems.value + item.hashCode()
+                                }
+                            }
                         )
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
@@ -251,7 +266,8 @@ fun RecommendedReadingListInterestsContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    modifier = Modifier.size(48.dp)
+                    modifier = Modifier
+                        .size(48.dp)
                         .clickable {
 
                         }
@@ -261,7 +277,9 @@ fun RecommendedReadingListInterestsContent(
                     contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
                 )
                 Text(
-                    modifier = Modifier.padding(start = 8.dp, end = 8.dp).weight(1f),
+                    modifier = Modifier
+                        .padding(start = 8.dp, end = 8.dp)
+                        .weight(1f),
                     text = pluralStringResource(R.plurals.recommended_reading_list_interest_pick_selected_articles, 3, 3),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyMedium,
@@ -269,7 +287,8 @@ fun RecommendedReadingListInterestsContent(
                     color = WikipediaTheme.colors.primaryColor
                 )
                 Icon(
-                    modifier = Modifier.size(48.dp)
+                    modifier = Modifier
+                        .size(48.dp)
                         .clickable(onClick = onNextClick)
                         .padding(12.dp),
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
@@ -283,19 +302,24 @@ fun RecommendedReadingListInterestsContent(
 
 @Composable
 fun ReadingListInterestCard(
+    item: PageTitle,
     isSelected: Boolean = false,
-    item: PageTitle
+    onSelectToggle: () -> Unit = {}
 ) {
     WikiCard(
         modifier = Modifier
             .fillMaxWidth(),
+        elevation = 0.dp,
+        border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
+        ),
         shape = RoundedCornerShape(16.dp)
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth()
-                .clickable {
-
-                }
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClick = onSelectToggle)
         ) {
             if (!item.thumbUrl.isNullOrEmpty()) {
                 AsyncImage(
@@ -312,14 +336,14 @@ fun ReadingListInterestCard(
             Column(
                 modifier = Modifier.padding(8.dp)
             ) {
-                Text(
+                HtmlText(
                     text = item.displayText,
                     style = WikipediaTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 if (!item.description.isNullOrEmpty()) {
                     Spacer(modifier = Modifier.height(8.dp))
-                    Text(
+                    HtmlText(
                         text = item.description.orEmpty(),
                         style = WikipediaTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.secondaryColor,
