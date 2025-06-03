@@ -13,6 +13,14 @@ class RecommendedReadingListOnboardingActivity : SingleFragmentActivity<Fragment
         return if (startFromSourceSelection) {
             RecommendedReadingListSourceFragment.newInstance(fromSetting)
         } else {
+
+
+
+
+            startActivity(RecommendedReadingListInterestsActivity.newIntent(this))
+
+
+
             // TODO: add this for the article interests screen when it is ready
             Fragment()
         }

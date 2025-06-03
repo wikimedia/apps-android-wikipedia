@@ -49,6 +49,11 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             viewModel.saveSourceSelection().let { shouldGoToInterests ->
                                 if (shouldGoToInterests) {
                                     // TODO: Navigate to interests screen
+
+
+                                    startActivity(RecommendedReadingListInterestsActivity.newIntent(requireContext()))
+
+
                                 } else {
                                     // TODO: Navigate to Discover screen
                                 }
