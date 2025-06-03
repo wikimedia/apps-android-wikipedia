@@ -1843,7 +1843,7 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Löydä artikkeleita -lukulistan ilmoitukset on poistettu käytöstä. Et saa ilmoitusta, kun Löydä artikkeleita päivittyy.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Ota ilmoitukset käyttöön?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Jos poistat ilmoitukset käytöstä, et enää saa ilmoituksia Löydä artikkeleita -listan päivityksistä.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Poista ne käytöstä</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ei, pidä ne päällä</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Poista ne käytöstä</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Ei, pidä ne päällä</string>
   <string name="recommended_reading_list_notification_subtitle">Napauta nähdäksesi uusimmat suosituksesi.</string>
 </resources>

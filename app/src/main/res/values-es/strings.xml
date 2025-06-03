@@ -1918,8 +1918,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Las notificaciones de Descubrir están desactivadas. No recibirás ninguna notificación cuando Descubrir se actualice.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">¿Desactivar las notificaciones?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Si desactivas las notificaciones ya no recibirás recordatorios cuando se actualice Descubrir.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desactivar</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, mantener activas</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Desactivar</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">No, mantener activas</string>
   <string name="recommended_reading_list_notification_title">Tu lista de lectura %s de Descubrir está lista.</string>
   <string name="recommended_reading_list_notification_subtitle">Toca para ver tus recomendaciones más recientes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Cuando Discover se actualice Wikipedia te enviará una notificación.</string>

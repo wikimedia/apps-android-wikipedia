@@ -1830,8 +1830,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Известувањата за Откриј се исклучени. Нема да добивате известувања секојпат кога ќе се поднови Откриј.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Да ги искучам известувањата?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Ако ги ислкучите известувањата, повеќе неам да добивате потсетници кога ќе се подновува Откриј.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Исклучи ги</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Не, задржи ги</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Исклучи ги</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Не, задржи ги</string>
   <string name="recommended_reading_list_notification_title">Вашиот %s список за читање од Откриј е готов.</string>
   <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>

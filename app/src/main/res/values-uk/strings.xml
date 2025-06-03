@@ -1952,8 +1952,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Сповіщення для рекомендацій вимкнено. Ви не отримуватимете сповіщення про оновлення рекомендацій.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Вимкнути сповіщення?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Якщо ви вимкнете сповіщення, ви більше не отримуватимете нагадування про оновлення рекомендацій.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Вимкнути їх</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ні, залишити увімкненими</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Вимкнути їх</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Ні, залишити увімкненими</string>
   <string name="recommended_reading_list_notification_title">Ваш список рекомендацій для читання %s готовий.</string>
   <string name="recommended_reading_list_notification_subtitle">Натисніть, щоб переглянути свої останні рекомендації.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Коли рекомендації оновляться, Вікіпедія надішле вам сповіщення.</string>

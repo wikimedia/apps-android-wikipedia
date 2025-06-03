@@ -1843,8 +1843,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Aviseringar för Upptäck är avstängda. Du får inga aviseringar när Upptäck uppdateras.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Stäng av aviseringar?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Om du stänger av aviseringar får du inte längre påminnelser när Upptäck uppdateras.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Stäng av dem</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behåll dem på</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Stäng av dem</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Nej, behåll dem på</string>
   <string name="recommended_reading_list_notification_title">Din %s Upptäck-läslista är redo.</string>
   <string name="recommended_reading_list_notification_subtitle">Tryck för att se dina senaste rekommendationer.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">När din Upptäck uppdateras kommer Wikipedia skicka en rekommendation till dig.</string>

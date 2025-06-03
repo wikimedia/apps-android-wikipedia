@@ -1603,6 +1603,6 @@
   <string name="recommended_reading_list_settings_interests">Interessen</string>
   <string name="recommended_reading_list_settings_notifications_title">Notifikatiounen</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Notifikatiounen desaktivéieren?</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desaktivéieren</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Neen, aktivéiert loossen</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Desaktivéieren</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Neen, aktivéiert loossen</string>
 </resources>

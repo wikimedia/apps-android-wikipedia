@@ -1739,6 +1739,6 @@
   <string name="recommended_reading_list_settings_interests">관심 분야</string>
   <string name="recommended_reading_list_settings_notifications_title">알림</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">알림을 끄시겠습니까?</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">끕니다</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">끕니다</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">아니요, 켠 상태로 유지합니다</string>
 </resources>

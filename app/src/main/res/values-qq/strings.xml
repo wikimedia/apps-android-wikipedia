@@ -1864,8 +1864,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Subtitle explaining that notifications for the recommended reading list are turned off.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Title of the dialog asking the user to confirm turning off notifications for  the recommended reading list.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Message in the dialog explaining what happens when the recommended reading list notifications are turned off.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Positive action button in the dialog to turn off the recommended reading list notifications.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Negative action button in the dialog to keep the recommended reading list notifications on.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Positive action button in the dialog to turn off the recommended reading list notifications.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Negative action button in the dialog to keep the recommended reading list notifications on.</string>
   <string name="recommended_reading_list_notification_title">Title of the notification when a new recommended reading list is ready. %s will be replaced by the update frequency.</string>
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
