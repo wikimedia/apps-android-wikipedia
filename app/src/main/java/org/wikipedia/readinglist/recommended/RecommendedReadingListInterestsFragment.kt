@@ -39,8 +39,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -98,7 +96,10 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                             retryClickListener = {
 
                             }
-                        )
+                        ),
+                        onItemClick = {
+                            viewModel.toggleSelection(it)
+                        }
                     )
                 }
             }
@@ -116,6 +117,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
 fun RecommendedReadingListInterestsScreen(
     uiState: Resource<RecommendedReadingListInterestsViewModel.UiState>,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
+    onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
 ) {
@@ -152,8 +154,10 @@ fun RecommendedReadingListInterestsScreen(
             RecommendedReadingListInterestsContent(
                 fromSettings = uiState.data.fromSettings,
                 items = uiState.data.items,
+                selectedItems = uiState.data.selectedItems,
                 onCloseClick = onCloseClick,
-                onNextClick = onNextClick
+                onNextClick = onNextClick,
+                onItemClick = onItemClick
             )
         }
     }
@@ -164,11 +168,11 @@ fun RecommendedReadingListInterestsScreen(
 fun RecommendedReadingListInterestsContent(
     fromSettings: Boolean = false,
     items: List<PageTitle> = emptyList(),
+    selectedItems: Set<PageTitle> = emptySet(),
+    onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
 ) {
-    var selectedItems = remember { mutableStateOf(setOf<Int>()) }
-
     Scaffold(
         modifier = Modifier
             .background(WikipediaTheme.colors.paperColor),
@@ -232,14 +236,8 @@ fun RecommendedReadingListInterestsContent(
                     items(items) { item ->
                         ReadingListInterestCard(
                             item = item,
-                            isSelected = selectedItems.value.contains(item.hashCode()),
-                            onSelectToggle = {
-                                selectedItems.value = if (selectedItems.value.contains(item.hashCode())) {
-                                    selectedItems.value - item.hashCode()
-                                } else {
-                                    selectedItems.value + item.hashCode()
-                                }
-                            }
+                            isSelected = selectedItems.contains(item),
+                            onItemClick = onItemClick
                         )
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
@@ -304,7 +302,7 @@ fun RecommendedReadingListInterestsContent(
 fun ReadingListInterestCard(
     item: PageTitle,
     isSelected: Boolean = false,
-    onSelectToggle: () -> Unit = {}
+    onItemClick: (PageTitle) -> Unit = {},
 ) {
     WikiCard(
         modifier = Modifier
@@ -319,7 +317,9 @@ fun ReadingListInterestCard(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = onSelectToggle)
+                .clickable {
+                    onItemClick(item)
+                }
         ) {
             if (!item.thumbUrl.isNullOrEmpty()) {
                 AsyncImage(
