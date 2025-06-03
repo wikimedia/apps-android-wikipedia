@@ -33,6 +33,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CardDefaults
@@ -386,15 +387,26 @@ fun ReadingListInterestCard(
                     style = WikipediaTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
-                if (!item.description.isNullOrEmpty()) {
-                    Spacer(modifier = Modifier.height(8.dp))
-                    HtmlText(
-                        text = item.description.orEmpty(),
-                        style = WikipediaTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.secondaryColor,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                Spacer(modifier = Modifier.height(8.dp))
+                Row {
+                    if (!item.description.isNullOrEmpty()) {
+                        HtmlText(
+                            text = item.description.orEmpty(),
+                            style = WikipediaTheme.typography.bodyMedium,
+                            color = WikipediaTheme.colors.secondaryColor,
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                    if (isSelected) {
+                        Icon(
+                            modifier = Modifier.size(24.dp).align(Alignment.Bottom),
+                            imageVector = Icons.Default.CheckCircle,
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = null
+                        )
+                    }
                 }
             }
         }
@@ -444,13 +456,15 @@ fun PreviewReadingListInterestsScreen() {
         PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null),
         PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
     )
+    val selectedItems = setOf(PageTitle(text = "Industrial design", wiki = site, thumbUrl = "foo.jpg", description = "Process of design applied to physical products", displayText = null))
 
     BaseTheme(currentTheme = Theme.LIGHT) {
         RecommendedReadingListInterestsScreen(
             uiState = Resource.Success(
                 RecommendedReadingListInterestsViewModel.UiState(
                     fromSettings = false,
-                    items = titles
+                    items = titles,
+                    selectedItems = selectedItems
                 )
             ),
             onCloseClick = {},
