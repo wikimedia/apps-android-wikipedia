@@ -43,7 +43,7 @@ fun RecommendedReadingListDiscoverCardView(
     subtitle: String,
     description: String,
     images: List<String>,
-    canShowRedDot: Boolean = false,
+    isNewListGenerated: Boolean = false,
     isUserLoggedIn: Boolean = false,
 ) {
     WikiCard(
@@ -67,7 +67,7 @@ fun RecommendedReadingListDiscoverCardView(
                         style = WikipediaTheme.typography.h3,
                         color = WikipediaTheme.colors.primaryColor
                     )
-                    if (canShowRedDot) {
+                    if (isNewListGenerated) {
                         Box(
                             modifier = Modifier
                                 .size(6.dp)

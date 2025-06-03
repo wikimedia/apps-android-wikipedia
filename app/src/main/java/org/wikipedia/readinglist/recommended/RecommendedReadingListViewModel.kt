@@ -159,6 +159,8 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
                 }
             }
 
+            Prefs.isNewRecommendedReadingListGenerated = recommendedPages.isNotEmpty()
+
             // Step 4: save the recommended articles to the database
             AppDatabase.instance.recommendedPageDao().insertAll(recommendedPages)
         }
