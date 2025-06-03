@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
@@ -48,6 +47,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -70,20 +70,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
-val sampleItems = listOf(
-    "Short description",
-    "This is a longer description that will make the card taller",
-    "Medium length description here",
-    "Another description",
-    "Very long description that goes on and on to demonstrate the staggered grid layout working properly",
-    "Short",
-    "Another medium length description",
-    "Brief description",
-)
-
-
 class RecommendedReadingListInterestsFragment : Fragment() {
-
     private val viewModel: RecommendedReadingListInterestsViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -183,9 +170,9 @@ fun RecommendedReadingListInterestsContent(
                 title = {
                     if (fromSettings) {
                         Text(
-                            text = stringResource(id = R.string.recommended_reading_list_settings_updates_base_title),
+                            text = stringResource(R.string.recommended_reading_list_interest_pick_title),
                             color = WikipediaTheme.colors.primaryColor,
-                            style = WikipediaTheme.typography.h1.copy(lineHeight = 24.sp)
+                            style = WikipediaTheme.typography.h2
                         )
                     }
                 },
@@ -208,9 +195,7 @@ fun RecommendedReadingListInterestsContent(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        Box(
-
-        ) {
+        Box {
             val borderColor = WikipediaTheme.colors.borderColor
 
             LazyVerticalStaggeredGrid(
@@ -231,31 +216,17 @@ fun RecommendedReadingListInterestsContent(
                             color = WikipediaTheme.colors.primaryColor,
                             fontSize = 22.sp,
                             textAlign = TextAlign.Center,
-                            text = "What are you interested in?"
+                            text = stringResource(R.string.recommended_reading_list_interest_pick_title)
                         )
                     }
-
                     item(span = StaggeredGridItemSpan.FullLine) {
-                        ReadingListInterestSearchCard("Foo")
+                        ReadingListInterestSearchCard()
                     }
-
                     items(items) { item ->
                         ReadingListInterestCard(
                             item = item
                         )
-
-                        /*
-                        AsyncImage(
-                            model = photo,
-                            contentScale = ContentScale.Crop,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .wrapContentHeight()
-                        )
- */
                     }
-
                     item(span = StaggeredGridItemSpan.FullLine) {
                         Spacer(
                             modifier = Modifier.height(64.dp)
@@ -287,11 +258,11 @@ fun RecommendedReadingListInterestsContent(
                         .padding(12.dp),
                     painter = painterResource(R.drawable.ic_dice_24),
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = "Randomize"
+                    contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
                 )
                 Text(
                     modifier = Modifier.padding(start = 8.dp, end = 8.dp).weight(1f),
-                    text = "X selected",
+                    text = pluralStringResource(R.plurals.recommended_reading_list_interest_pick_selected_articles, 3, 3),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
@@ -299,13 +270,11 @@ fun RecommendedReadingListInterestsContent(
                 )
                 Icon(
                     modifier = Modifier.size(48.dp)
-                        .clickable {
-
-                        }
+                        .clickable(onClick = onNextClick)
                         .padding(12.dp),
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                     tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = "Randomize"
+                    contentDescription = stringResource(R.string.nav_item_forward)
                 )
             }
         }
@@ -382,13 +351,13 @@ fun ReadingListInterestSearchCard() {
         Spacer(modifier = Modifier.width(16.dp))
         Icon(
             imageVector = Icons.Default.Search,
-            contentDescription = "Search",
+            contentDescription = stringResource(R.string.search_hint),
             tint = WikipediaTheme.colors.secondaryColor,
             modifier = Modifier.size(24.dp)
         )
         Text(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-            text = "Search for an article",
+            text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint),
             style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )

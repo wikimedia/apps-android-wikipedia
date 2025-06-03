@@ -234,7 +234,7 @@ fun SourceSelectionContent(
                 )
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    contentDescription = stringResource(id = R.string.nav_item_forward),
+                    contentDescription = stringResource(R.string.nav_item_forward),
                     tint = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier
                         .size(48.dp)
