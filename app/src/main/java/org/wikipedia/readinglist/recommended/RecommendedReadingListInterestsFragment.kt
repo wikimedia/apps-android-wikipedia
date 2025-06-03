@@ -30,6 +30,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -72,44 +73,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
-
-private val rangeForRandom = (0..100000)
-fun randomSampleImageUrl(
-    seed: Int = rangeForRandom.random(),
-    width: Int = 300,
-    height: Int = width,
-): String {
-    return "https://picsum.photos/seed/$seed/$width/$height"
-}
-
-private val randomSizedPhotos = listOf(
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 900, height = 1600),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 300, height = 400),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 900, height = 1600),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 300, height = 400),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 900, height = 1600),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 300, height = 400),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 300, height = 400),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 900, height = 1600),
-    randomSampleImageUrl(width = 500, height = 500),
-    randomSampleImageUrl(width = 300, height = 400),
-    randomSampleImageUrl(width = 1600, height = 900),
-    randomSampleImageUrl(width = 500, height = 500),
-)
 
 val sampleItems = listOf(
     "Short description",
@@ -247,13 +210,15 @@ fun RecommendedReadingListInterestsContent(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
+        Box(
 
+        ) {
             LazyVerticalStaggeredGrid(
                 columns = StaggeredGridCells.Adaptive(120.dp),
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 56.dp),
+                    .padding(start = 16.dp, end = 16.dp),
                 verticalItemSpacing = 16.dp,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 content = {
@@ -261,7 +226,7 @@ fun RecommendedReadingListInterestsContent(
                     item(span = StaggeredGridItemSpan.FullLine) {
                         Text(
                             modifier = Modifier
-                                .fillMaxWidth().padding(bottom = 4.dp),
+                                .fillMaxWidth().padding(top = 48.dp, bottom = 4.dp),
                             style = WikipediaTheme.typography.bodyLarge,
                             color = WikipediaTheme.colors.primaryColor,
                             fontSize = 22.sp,
@@ -271,7 +236,7 @@ fun RecommendedReadingListInterestsContent(
                     }
 
                     item(span = StaggeredGridItemSpan.FullLine) {
-                        ReadingListInterestSearchCard("Poop")
+                        ReadingListInterestSearchCard("Foo")
                     }
 
                     items(sampleItems) { item ->
@@ -279,7 +244,7 @@ fun RecommendedReadingListInterestsContent(
                             text = item
                         )
 
-/*
+                        /*
                         AsyncImage(
                             model = photo,
                             contentScale = ContentScale.Crop,
@@ -290,8 +255,51 @@ fun RecommendedReadingListInterestsContent(
                         )
  */
                     }
+
+                    item(span = StaggeredGridItemSpan.FullLine) {
+                        Spacer(
+                            modifier = Modifier.height(64.dp)
+                        )
+                    }
                 }
             )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+                    .background(color = WikipediaTheme.colors.paperColor)
+                    .align(Alignment.BottomCenter),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    modifier = Modifier.size(48.dp)
+                        .clickable {
+
+                        }
+                        .padding(12.dp),
+                    painter = painterResource(R.drawable.ic_dice_24),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = "Randomize"
+                )
+                Text(
+                    modifier = Modifier.padding(start = 8.dp, end = 8.dp).weight(1f),
+                    text = "X selected",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Icon(
+                    modifier = Modifier.size(48.dp)
+                        .clickable {
+
+                        }
+                        .padding(12.dp),
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = "Randomize"
+                )
+            }
 
 
             /*
@@ -341,7 +349,7 @@ fun RecommendedReadingListInterestsContent(
                 }
             }
 */
-
+        }
     }
 }
 
