@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -109,36 +110,37 @@ fun RecommendedReadingListDiscoverCardView(
 
                 Text(
                     text = description,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 12.sp,
-                    color = WikipediaTheme.colors.primaryColor
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.bodySmall
                 )
             }
 
-            LazyVerticalGrid(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(12.dp))
-                    .weight(0.9f),
-                columns = GridCells.Fixed(2)
-            ) {
-                items(4) { index ->
-                    val imageUrl = images.getOrNull(index) ?: ""
-                    if (imageUrl.isEmpty()) {
-                        Box(
-                            modifier = Modifier
-                                .size(70.dp)
-                                .background(WikipediaTheme.colors.borderColor)
-                        )
-                    } else {
-                        AsyncImage(
-                            model = imageUrl,
-                            modifier = Modifier
-                                .size(70.dp),
-                            contentScale = ContentScale.Crop,
-                            contentDescription = null,
-                            placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
-                            error = ColorPainter(WikipediaTheme.colors.borderColor),
-                        )
+            if (images.isNotEmpty()) {
+                LazyVerticalGrid(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(12.dp))
+                        .weight(0.9f),
+                    columns = GridCells.Fixed(2)
+                ) {
+                    items(4) { index ->
+                        val imageUrl = images.getOrNull(index) ?: ""
+                        if (imageUrl.isEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .size(70.dp)
+                                    .background(WikipediaTheme.colors.borderColor)
+                            )
+                        } else {
+                            AsyncImage(
+                                model = imageUrl,
+                                modifier = Modifier
+                                    .size(70.dp),
+                                contentScale = ContentScale.Crop,
+                                contentDescription = null,
+                                placeholder = ColorPainter(WikipediaTheme.colors.borderColor),
+                                error = ColorPainter(WikipediaTheme.colors.borderColor),
+                            )
+                        }
                     }
                 }
             }
