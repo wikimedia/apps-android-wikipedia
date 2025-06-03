@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BlurMaskFilter
 import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -58,8 +59,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -408,6 +411,7 @@ fun ScreenShotScaffold(
     screenContent: YearInReviewScreenData,
     context: Context
 ) {
+    val shadowColor = WikipediaTheme.colors.primaryColor
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -447,26 +451,37 @@ fun ScreenShotScaffold(
             modifier = Modifier
                 .width(312.dp)
                 .padding(top = 36.dp)
-                .shadow(
-                    clip = false,
-                    elevation = 20.dp,
-                    shape = RectangleShape,
-                    ambientColor = WikipediaTheme.colors.primaryColor,
-                    spotColor = WikipediaTheme.colors.primaryColor,
-                )
+                .drawBehind {
+                    val paint = Paint().asFrameworkPaint().apply {
+                        color = shadowColor.copy(alpha = 0.15f).toArgb()
+                        maskFilter = BlurMaskFilter(
+                            20f,
+                            BlurMaskFilter.Blur.NORMAL
+                        )
+                    }
+                    drawContext.canvas.nativeCanvas.drawRoundRect(
+                        0f,
+                        0f,
+                        size.width,
+                        size.height,
+                        16f,
+                        16f,
+                        paint
+                    )
+                }
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
-                    .wrapContentWidth()
+                    .fillMaxWidth()
                     .wrapContentHeight()
                     .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
 
             ) {
                 Image(
                     painter = painterResource(R.drawable.globe),
-                    contentDescription = "Globe"
+                    contentDescription = stringResource(R.string.year_in_review_globe_icon)
                 )
                 Text(
                     text = "#WikipediaYearInReview",
