@@ -41,6 +41,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
@@ -278,7 +279,7 @@ fun RecommendedReadingListInterestsContent(
                     modifier = Modifier
                         .padding(start = 8.dp, end = 8.dp)
                         .weight(1f),
-                    text = pluralStringResource(R.plurals.recommended_reading_list_interest_pick_selected_articles, 3, 3),
+                    text = pluralStringResource(R.plurals.recommended_reading_list_interest_pick_selected_articles, selectedItems.size, selectedItems.size),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
@@ -287,8 +288,9 @@ fun RecommendedReadingListInterestsContent(
                 Icon(
                     modifier = Modifier
                         .size(48.dp)
-                        .clickable(onClick = onNextClick)
-                        .padding(12.dp),
+                        .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
+                        .padding(12.dp)
+                        .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.nav_item_forward)
