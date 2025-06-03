@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 
@@ -48,6 +49,6 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
 
     data class UiState(
         val fromSettings: Boolean = false,
-        val items: List<Any> = emptyList()
+        val items: List<PageTitle> = emptyList()
     )
 }

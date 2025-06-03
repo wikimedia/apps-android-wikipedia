@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
@@ -42,6 +43,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -51,14 +55,18 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
@@ -151,6 +159,7 @@ fun RecommendedReadingListInterestsScreen(
         is Resource.Success -> {
             RecommendedReadingListInterestsContent(
                 fromSettings = uiState.data.fromSettings,
+                items = uiState.data.items,
                 onCloseClick = onCloseClick,
                 onNextClick = onNextClick
             )
@@ -162,6 +171,7 @@ fun RecommendedReadingListInterestsScreen(
 @Composable
 fun RecommendedReadingListInterestsContent(
     fromSettings: Boolean = false,
+    items: List<PageTitle> = emptyList(),
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
 ) {
@@ -229,9 +239,9 @@ fun RecommendedReadingListInterestsContent(
                         ReadingListInterestSearchCard("Foo")
                     }
 
-                    items(sampleItems) { item ->
+                    items(items) { item ->
                         ReadingListInterestCard(
-                            text = item
+                            item = item
                         )
 
                         /*
@@ -302,12 +312,10 @@ fun RecommendedReadingListInterestsContent(
     }
 }
 
-
-
 @Composable
 fun ReadingListInterestCard(
     isSelected: Boolean = false,
-    text: String
+    item: PageTitle
 ) {
     WikiCard(
         modifier = Modifier
@@ -320,45 +328,43 @@ fun ReadingListInterestCard(
 
                 }
         ) {
-            // TODO: replace with thumbnail
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-                    .background(
-                        color = WikipediaTheme.colors.progressiveColor,
-                        shape = RoundedCornerShape(16.dp)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
+            if (!item.thumbUrl.isNullOrEmpty()) {
+                AsyncImage(
+                    model = item.thumbUrl,
+                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(108.dp)
+                )
             }
             Column(
                 modifier = Modifier.padding(8.dp)
             ) {
                 Text(
-                    text = text,
+                    text = item.displayText,
                     style = WikipediaTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
+                    color = WikipediaTheme.colors.primaryColor
                 )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Foo Foo Foo foo foo foo foo foo foo foo foo foo foo",
-                    style = WikipediaTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.secondaryColor,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                if (!item.description.isNullOrEmpty()) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = item.description.orEmpty(),
+                        style = WikipediaTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.secondaryColor,
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-fun ReadingListInterestSearchCard(
-    text: String
-) {
+fun ReadingListInterestSearchCard() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -392,11 +398,23 @@ fun ReadingListInterestSearchCard(
 @Preview(showBackground = true)
 @Composable
 fun PreviewReadingListInterestsScreen() {
+    val site = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    val titles = listOf(
+        PageTitle(text = "Psychology of art", wiki = site, thumbUrl = "foo.jpg", description = "Study of mental functions and behaviors", displayText = null),
+        PageTitle(text = "Industrial design", wiki = site, thumbUrl = "foo.jpg", description = "Process of design applied to physical products", displayText = null),
+        PageTitle(text = "Dufourspitze", wiki = site, thumbUrl = "foo.jpg", description = "Highest mountain in Switzerland", displayText = null),
+        PageTitle(text = "Sample title without description", wiki = site, thumbUrl = "foo.jpg", description = "", displayText = null),
+        PageTitle(text = "Sample title without thumbnail", wiki = site, thumbUrl = "", description = "Sample description", displayText = null),
+        PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null),
+        PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
+    )
+
     BaseTheme(currentTheme = Theme.LIGHT) {
         RecommendedReadingListInterestsScreen(
             uiState = Resource.Success(
                 RecommendedReadingListInterestsViewModel.UiState(
-                    fromSettings = false
+                    fromSettings = false,
+                    items = titles
                 )
             ),
             onCloseClick = {},
