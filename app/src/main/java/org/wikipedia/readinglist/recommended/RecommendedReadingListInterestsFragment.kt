@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
@@ -30,6 +31,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -52,6 +56,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -246,9 +251,10 @@ fun RecommendedReadingListInterestsContent(
                 columns = StaggeredGridCells.Adaptive(120.dp),
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues),
-                verticalItemSpacing = 8.dp,
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    .padding(paddingValues)
+                    .padding(start = 16.dp, end = 16.dp, top = 32.dp),
+                verticalItemSpacing = 16.dp,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
                 content = {
 
 
@@ -337,12 +343,51 @@ fun ReadingListInterestCard(
     WikiCard(
         modifier = Modifier
             .fillMaxWidth(),
-        elevation = 0.dp,
-        border = BorderStroke(
-            width = 1.dp,
-            color = WikipediaTheme.colors.borderColor
-        )
+        shape = RoundedCornerShape(16.dp)
     ) {
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            // Thumbnail image
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+                    .background(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        shape = RoundedCornerShape(16.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                // Placeholder for actual image loading
+                Text(
+                    text = "📷",
+                    fontSize = 32.sp
+                )
+            }
+
+            // Content
+            Column(
+                modifier = Modifier.padding(8.dp)
+            ) {
+                Text(
+                    text = text,
+                    style = WikipediaTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Foo Foo Foo foo foo foo foo foo foo foo foo foo foo",
+                    style = WikipediaTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.secondaryColor,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+        /*
         Text(
             modifier = Modifier,
             text = text,
@@ -350,6 +395,7 @@ fun ReadingListInterestCard(
             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
             color = WikipediaTheme.colors.primaryColor
         )
+        */
     }
 }
 
@@ -357,26 +403,35 @@ fun ReadingListInterestCard(
 fun ReadingListInterestSearchCard(
     text: String
 ) {
-    WikiCard(
+    Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        elevation = 0.dp,
+            .fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
-        border = BorderStroke(
-            width = 1.dp,
-            color = WikipediaTheme.colors.borderColor
-        )
+        colors = CardDefaults.cardColors(
+            containerColor = WikipediaTheme.colors.backgroundColor
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-
-
-
-        Text(
-            modifier = Modifier.padding(16.dp),
-            text = text,
-            style = MaterialTheme.typography.bodyLarge,
-            color = WikipediaTheme.colors.primaryColor
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp)
+                .padding(start = 16.dp, end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = "Search",
+                tint = WikipediaTheme.colors.secondaryColor,
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.width(12.dp))
+            Text(
+                text = "Search for an article",
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
     }
 }
 

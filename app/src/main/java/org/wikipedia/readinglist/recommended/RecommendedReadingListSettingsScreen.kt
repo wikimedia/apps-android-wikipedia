@@ -290,7 +290,7 @@ private fun ArticlesNumberView(
                 )
                 Text(
                     text = stringResource(R.string.recommended_reading_list_settings_articles),
-                    style = WikipediaTheme.typography.p,
+                    style = WikipediaTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
             }
@@ -334,7 +334,7 @@ private fun UpdatesFrequencyView(
         headlineContent = {
             Text(
                 text = updateFrequencyString,
-                style = WikipediaTheme.typography.p,
+                style = WikipediaTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
         }
@@ -419,7 +419,7 @@ private fun SourceView(
         headlineContent = {
             Text(
                 text = stringResource(R.string.recommended_reading_list_settings_updates_base_title),
-                style = WikipediaTheme.typography.p,
+                style = WikipediaTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
         },
@@ -456,7 +456,7 @@ private fun InterestsView(
         headlineContent = {
             Text(
                 text = stringResource(R.string.recommended_reading_list_settings_interests),
-                style = WikipediaTheme.typography.p,
+                style = WikipediaTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
         }
@@ -495,7 +495,7 @@ private fun NotificationView(
         headlineContent = {
             Text(
                 text = stringResource(R.string.recommended_reading_list_settings_notifications_title),
-                style = WikipediaTheme.typography.p,
+                style = WikipediaTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
         },
