@@ -49,6 +49,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
@@ -252,11 +253,22 @@ fun RecommendedReadingListInterestsContent(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(start = 16.dp, end = 16.dp, top = 32.dp),
+                    .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 56.dp),
                 verticalItemSpacing = 16.dp,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 content = {
 
+                    item(span = StaggeredGridItemSpan.FullLine) {
+                        Text(
+                            modifier = Modifier
+                                .fillMaxWidth().padding(bottom = 4.dp),
+                            style = WikipediaTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor,
+                            fontSize = 22.sp,
+                            textAlign = TextAlign.Center,
+                            text = "What are you interested in?"
+                        )
+                    }
 
                     item(span = StaggeredGridItemSpan.FullLine) {
                         ReadingListInterestSearchCard("Poop")
@@ -347,6 +359,9 @@ fun ReadingListInterestCard(
     ) {
         Column(
             modifier = Modifier.fillMaxWidth()
+                .clickable {
+
+                }
         ) {
             // Thumbnail image
             Box(
@@ -365,8 +380,6 @@ fun ReadingListInterestCard(
                     fontSize = 32.sp
                 )
             }
-
-            // Content
             Column(
                 modifier = Modifier.padding(8.dp)
             ) {
@@ -387,15 +400,6 @@ fun ReadingListInterestCard(
                 )
             }
         }
-        /*
-        Text(
-            modifier = Modifier,
-            text = text,
-            style = MaterialTheme.typography.bodyLarge,
-            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        */
     }
 }
 
@@ -403,35 +407,33 @@ fun ReadingListInterestCard(
 fun ReadingListInterestSearchCard(
     text: String
 ) {
-    Card(
+    Row(
         modifier = Modifier
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = WikipediaTheme.colors.backgroundColor
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+            .fillMaxWidth()
+            .height(48.dp)
+            .clip(RoundedCornerShape(24.dp))
+            .background(
+                color = WikipediaTheme.colors.backgroundColor,
+                shape = RoundedCornerShape(24.dp)
+            )
+            .clickable {
+
+            },
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(48.dp)
-                .padding(start = 16.dp, end = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Default.Search,
-                contentDescription = "Search",
-                tint = WikipediaTheme.colors.secondaryColor,
-                modifier = Modifier.size(24.dp)
-            )
-            Spacer(modifier = Modifier.width(12.dp))
-            Text(
-                text = "Search for an article",
-                style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.primaryColor
-            )
-        }
+        Spacer(modifier = Modifier.width(16.dp))
+        Icon(
+            imageVector = Icons.Default.Search,
+            contentDescription = "Search",
+            tint = WikipediaTheme.colors.secondaryColor,
+            modifier = Modifier.size(24.dp)
+        )
+        Text(
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+            text = "Search for an article",
+            style = MaterialTheme.typography.bodyLarge,
+            color = WikipediaTheme.colors.primaryColor
+        )
     }
 }
 
