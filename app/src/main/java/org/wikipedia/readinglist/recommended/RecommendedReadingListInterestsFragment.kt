@@ -86,6 +86,7 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
 class RecommendedReadingListInterestsFragment : Fragment() {
@@ -100,6 +101,17 @@ class RecommendedReadingListInterestsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
+
+        viewModel.randomizeEvent.observe(viewLifecycleOwner) { state ->
+            if (state.fromRandomize) {
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.recommended_reading_list_interest_pick_random_snackbar))
+                    .setAction(R.string.recommended_reading_list_interest_pick_random_snackbar_action) {
+                        viewModel.restoreState(state.prevItems, state.prevSelectedItems)
+                    }
+                    .show()
+            }
+        }
+
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -128,6 +140,9 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         },
                         onItemClick = {
                             viewModel.toggleSelection(it)
+                        },
+                        onRandomizeClick = {
+                            viewModel.randomizeSelection()
                         }
                     )
                 }
@@ -149,6 +164,7 @@ fun RecommendedReadingListInterestsScreen(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
+    onRandomizeClick: () -> Unit = {},
     onSearchClick: () -> Unit
 ) {
     when (uiState) {
@@ -188,6 +204,7 @@ fun RecommendedReadingListInterestsScreen(
                 onCloseClick = onCloseClick,
                 onNextClick = onNextClick,
                 onItemClick = onItemClick,
+                onRandomizeClick = onRandomizeClick,
                 onSearchClick = onSearchClick
             )
         }
@@ -203,6 +220,7 @@ fun RecommendedReadingListInterestsContent(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
+    onRandomizeClick: () -> Unit = {},
     onSearchClick: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
@@ -311,9 +329,7 @@ fun RecommendedReadingListInterestsContent(
                 Icon(
                     modifier = Modifier
                         .size(48.dp)
-                        .clickable {
-                            // TODO
-                        }
+                        .clickable(onClick = onRandomizeClick)
                         .padding(12.dp),
                     painter = painterResource(R.drawable.ic_dice_24),
                     tint = WikipediaTheme.colors.primaryColor,

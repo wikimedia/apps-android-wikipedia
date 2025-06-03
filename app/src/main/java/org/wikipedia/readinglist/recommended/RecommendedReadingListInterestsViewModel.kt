@@ -24,6 +24,8 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
     private val _uiState = MutableStateFlow(Resource<UiState>())
     val uiState: StateFlow<Resource<UiState>> = _uiState.asStateFlow()
 
+    val randomizeEvent = SingleLiveData<UiState>()
+
     init {
         loadItems()
     }
@@ -89,6 +91,33 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
         }
     }
 
+    fun randomizeSelection() {
+        (_uiState.value as? Resource.Success<UiState>)?.let {
+            val newItems = it.data.items.shuffled()
+            val newSelection = newItems.take(3).toSet()
+            val newState = UiState(
+                fromSettings = it.data.fromSettings,
+                fromRandomize = true,
+                prevItems = it.data.items,
+                prevSelectedItems = it.data.selectedItems,
+                items = newItems,
+                selectedItems = newSelection)
+            _uiState.value = Resource.Success(newState)
+            randomizeEvent.postValue(newState)
+        }
+    }
+
+    fun restoreState(items: List<PageTitle>, selectedItems: Set<PageTitle>) {
+        (_uiState.value as? Resource.Success<UiState>)?.let {
+            val newState = UiState(
+                fromSettings = it.data.fromSettings,
+                items = items,
+                selectedItems = selectedItems
+            )
+            _uiState.value = Resource.Success(newState)
+        }
+    }
+
     fun commitSelection() {
         (_uiState.value as? Resource.Success<UiState>)?.let {
             Prefs.recommendedReadingListInterests = it.data.selectedItems.toList()
@@ -108,6 +137,9 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
     data class UiState(
         val fromSettings: Boolean = false,
         val items: List<PageTitle> = emptyList(),
-        val selectedItems: Set<PageTitle> = emptySet()
+        val selectedItems: Set<PageTitle> = emptySet(),
+        val fromRandomize: Boolean = false,
+        val prevItems: List<PageTitle> = emptyList(),
+        val prevSelectedItems: Set<PageTitle> = emptySet(),
     )
 }
