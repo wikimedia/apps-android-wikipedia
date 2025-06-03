@@ -104,7 +104,6 @@ fun RecommendedReadingListSettingsScreen(
                 )
             } else {
                 EnabledState(
-                    modifier = Modifier.padding(vertical = 16.dp),
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
                     discoverSource = uiState.recommendedReadingListSource,
@@ -211,6 +210,8 @@ private fun EnabledState(
             canShowDivider = false
         ) {
             NotificationView(
+                modifier = Modifier
+                    .padding(top = 12.dp),
                 isNotificationEnabled = isNotificationEnabled,
                 onNotificationStateChanged = onNotificationStateChanged
             )
@@ -285,7 +286,10 @@ private fun ArticlesNumberView(
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
                     ),
                     placeholder = {
-                        Text(articlesNumber.toString())
+                        Text(
+                            text = articlesNumber.toString(),
+                            color = WikipediaTheme.colors.primaryColor
+                        )
                     }
                 )
                 Text(
@@ -319,7 +323,8 @@ private fun UpdatesFrequencyView(
                 onClick = {
                     showDialog = true
                 }
-            ),
+            )
+            .padding(bottom = 16.dp),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),
@@ -588,7 +593,8 @@ fun RadioListDialog(
                         )
                         Text(
                             text = option,
-                            style = MaterialTheme.typography.bodyLarge
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor
                         )
                     }
                 }
