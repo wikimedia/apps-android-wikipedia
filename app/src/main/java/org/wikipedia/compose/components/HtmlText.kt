@@ -29,7 +29,7 @@ fun HtmlText(
         )
     ),
     style: TextStyle = TextStyle(
-        color = WikipediaTheme.colors.secondaryColor,
+        color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
     ),
     maxLines: Int = Int.MAX_VALUE,
