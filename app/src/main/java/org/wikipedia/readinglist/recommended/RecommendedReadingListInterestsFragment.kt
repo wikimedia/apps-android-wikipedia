@@ -402,6 +402,7 @@ fun ReadingListInterestCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(108.dp)
+                        .clip(RoundedCornerShape(16.dp))
                 )
             }
             Column(
