@@ -136,27 +136,33 @@ class YearInReviewViewModel() : ViewModel() {
         private const val MINIMUM_EDIT_COUNT = 1
 
         val getStartedData = YearInReviewScreenData(
-            imageResource = R.drawable.year_in_review_block_10_resize,
+            animatedImageResource = R.drawable.year_in_review_block_10_resize,
+            staticImageResource = R.drawable.personal_slide_00,
             headLineText = R.string.year_in_review_get_started_headline,
             bodyText = R.string.year_in_review_get_started_bodytext,
         )
 
         val readCountData = YearInReviewScreenData(
-            imageResource = R.drawable.wyir_block_5_resize
+            animatedImageResource = R.drawable.wyir_block_5_resize,
+            staticImageResource = R.drawable.personal_slide_01
         )
 
         val editCountData = YearInReviewScreenData(
-            imageResource = R.drawable.wyir_bytes
+            animatedImageResource = R.drawable.wyir_bytes,
+            staticImageResource = R.drawable.english_slide_05
+
         )
 
         val nonEnglishCollectiveReadCountData = YearInReviewScreenData(
-            imageResource = R.drawable.wyir_puzzle_3,
+            animatedImageResource = R.drawable.wyir_puzzle_3,
+            staticImageResource = R.drawable.non_english_slide_01,
             headLineText = R.string.year_in_review_non_english_collective_readcount_headline,
             bodyText = R.string.year_in_review_non_english_collective_readcount_bodytext,
         )
 
         val nonEnglishCollectiveEditCountData = YearInReviewScreenData(
-            imageResource = R.drawable.wyir_puzzle_2_v5,
+            animatedImageResource = R.drawable.wyir_puzzle_2_v5,
+            staticImageResource = R.drawable.english_slide_01_and_non_english_slide_05,
             headLineText = R.string.year_in_review_non_english_collective_editcount_headline,
             bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
         )

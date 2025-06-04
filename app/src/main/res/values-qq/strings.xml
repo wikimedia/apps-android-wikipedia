@@ -1828,6 +1828,9 @@
   <string name="year_in_review_non_english_collective_editcount_bodytext">Body text for the year in review non-english collective edit count screen</string>
   <string name="year_in_review_screendeck_image_content_description">Content description for the image used in the Year in Review main screendeck</string>
   <string name="year_in_review_entry_dialog_screen_image_content_description">Content description for the image used in the Year in Review entry dialog screen</string>
+  <string name="year_in_review_screenshot_error">A generic error idicator with \"%s\" representing the actual error thrown</string>
+  <string name="year_in_review_share_subject">The subject line for sharing the year in review</string>
+  <string name="year_in_review_globe_icon">Content description for the year in review globe icon</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>
