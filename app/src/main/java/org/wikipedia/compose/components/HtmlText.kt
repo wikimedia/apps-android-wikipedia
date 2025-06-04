@@ -3,7 +3,6 @@ package org.wikipedia.compose.components
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
@@ -33,7 +32,6 @@ fun HtmlText(
         color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
     ),
-    color: Color = Color.Unspecified,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
     lineHeight: TextUnit = 1.6.em,
@@ -48,7 +46,6 @@ fun HtmlText(
         ),
         lineHeight = lineHeight,
         style = style,
-        color = color,
         maxLines = maxLines,
         overflow = overflow,
     )
