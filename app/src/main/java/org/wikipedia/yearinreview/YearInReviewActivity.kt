@@ -3,12 +3,17 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -34,6 +39,22 @@ class YearInReviewActivity : BaseActivity() {
                  */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
+                val canShowSurvey = viewModel.uiCanShowSurvey.collectAsState().value
+                var isSurveyVisible by remember { mutableStateOf(false) }
+
+                BackHandler {
+                    if (canShowSurvey) {
+                        isSurveyVisible = true
+                    } else {
+                        this@YearInReviewActivity.finish()
+                    }
+                }
+
+                if (isSurveyVisible) {
+                    YearInReviewSurvey(onSurveyButtonClick = {
+                        this@YearInReviewActivity.finish()
+                    })
+                }
 
                 NavHost(
                     navController = navController,
@@ -45,8 +66,10 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
+                            viewModel = viewModel,
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
+                            showSurvey = { showSurvey -> isSurveyVisible = showSurvey },
                             customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
@@ -57,7 +80,7 @@ class YearInReviewActivity : BaseActivity() {
                                     context = this@YearInReviewActivity
                                 )
                             },
-                            screenContent = { innerPadding, contentData ->
+                            screenContent = { innerPadding, contentData, _ ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData,
@@ -75,6 +98,7 @@ class YearInReviewActivity : BaseActivity() {
                             }
                             is Resource.Success -> {
                                 YearInReviewScreen(
+                                    viewModel = viewModel,
                                     contentData = screenState.data,
                                     navController = navController,
                                     customBottomBar = { pagerState -> MainBottomBar(
@@ -99,7 +123,10 @@ class YearInReviewActivity : BaseActivity() {
                                             launchDonateDialog("yir")
                                         }
                                     ) },
-                                    screenContent = { innerPadding, contentData ->
+                                    screenContent = { innerPadding, contentData, pagerState ->
+                                        if (pagerState.currentPage >= 1 && !canShowSurvey) {
+                                            viewModel.updateUiShowSurvey()
+                                        }
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
                                             context = this@YearInReviewActivity,
