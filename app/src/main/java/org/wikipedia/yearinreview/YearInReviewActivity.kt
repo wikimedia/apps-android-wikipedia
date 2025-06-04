@@ -3,7 +3,6 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -44,7 +43,6 @@ class YearInReviewActivity : BaseActivity() {
                 var isSurveyVisible by remember { mutableStateOf(false) }
 
                 BackHandler {
-                    Log.d("canShowSurvey", "$canShowSurvey")
                     if (canShowSurvey) {
                         isSurveyVisible = true
                     } else {
