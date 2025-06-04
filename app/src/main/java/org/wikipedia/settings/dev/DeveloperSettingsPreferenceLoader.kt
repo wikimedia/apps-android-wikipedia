@@ -214,6 +214,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
         }
+        findPreference(R.string.preference_key_year_in_review_is_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            false
+        }
     }
 
     private fun setUpMediaWikiSettings() {

@@ -203,6 +203,7 @@
 
             <LinearLayout
                 android:id="@+id/main_drawer_year_in_review_container"
+                android:visibility="gone"
                 style="@style/SideDrawerMenuItem">
 
                 <ImageView
