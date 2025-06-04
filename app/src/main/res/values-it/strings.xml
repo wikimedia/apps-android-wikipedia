@@ -3,6 +3,7 @@
 * Ajeje Brazorf
 * Albe Albe 460
 * Albe Albe460
+* Antonino Faro
 * Beta16
 * Black Sky83
 * Bsitzmann
@@ -1804,6 +1805,7 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continua a giocare</string>
   <string name="on_this_day_game_sound_on">Attiva l\'audio</string>
   <string name="on_this_day_game_sound_off">Disattiva l\'audio</string>
+  <string name="recommended_reading_list_title">Scopri</string>
   <string name="recommended_reading_list_onboarding_card_new">Nuovo!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Inizia</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">No, grazie</string>

@@ -1215,7 +1215,7 @@
   <string name="image_recommendation_tooltip_2">Inspecciona la imagen y su información asociada</string>
   <string name="image_recommendation_tooltip_3">Decide si la imagen ayuda a los lectores a comprender mejor este tema.</string>
   <string name="image_recommendation_tooltip_next">Siguiente</string>
-  <string name="image_recommendation_tooltip_warning">Por favor, revisa el artículo para comprender su contenido e inspecciona la imagen.</string>
+  <string name="image_recommendation_tooltip_warning">Revisa el artículo para entender el tema e inspecciona la imagen</string>
   <string name="image_recommendation_depleted">Disculpa, ya no hay más imágenes sugeridas disponibles en este momento. Explora otras &lt;a href=\"#\"&gt;ediciones sugeridas&lt;/a&gt; o regresa más tarde.</string>
   <string name="suggested_edits_report_feature">Problema con función</string>
   <string name="suggested_edits_report_feature_subject">Problema con Ediciones sugeridas</string>
@@ -1779,7 +1779,7 @@
   <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia juegos está disponible en la sección Explorar.</string>
   <string name="on_this_day_game_title">¿Qué fue primero?</string>
   <string name="on_this_day_game_dialog_button">Jugar</string>
-  <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero en este día.</string>
+  <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero hoy.</string>
   <string name="on_this_day_game_progress">%1$d de %2$d</string>
   <string name="on_this_day_game_score">Puntuación: %d</string>
   <string name="on_this_day_game_submit">Enviar</string>
@@ -1795,7 +1795,7 @@
   <string name="on_this_day_game_pause_positive">Pausar</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia juegos</string>
   <string name="on_this_day_game_feed_entry_card_title">¿Qué fue primero?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero en este día.</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero hoy.</string>
   <string name="on_this_day_game_result">Obtuviste %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Más preguntas en %s</string>
   <string name="on_this_day_game_your_stats">Tus estadísticas</string>
@@ -1803,8 +1803,8 @@
     <item quantity="one">Jugado</item>
     <item quantity="other">Jugados</item>
   </plurals>
-  <string name="on_this_day_game_stats_average_score">Puntuación promedio</string>
-  <string name="on_this_day_game_stats_streak">Racha actual</string>
+  <string name="on_this_day_game_stats_average_score">Promedio</string>
+  <string name="on_this_day_game_stats_streak">Racha</string>
   <string name="on_this_day_game_result_subtitle">Artículos referenciados en el juego de hoy</string>
   <string name="on_this_day_game_completed_message">Gracias por jugar. Cada día hay preguntas nuevas en «¿Cuál fue primero?», disponible en la sección Explorar.</string>
   <string name="on_this_day_game_menu_notifications">Notificaciones del juego</string>
@@ -1814,17 +1814,17 @@
   <string name="on_this_day_game_article_related_event_title">Evento relacionado con este artículo</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Acertaste esta pregunta</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Te equivocaste en esta pregunta</string>
-  <string name="on_this_day_game_turn_off_notification_dialog_title">¿Desactivar las notificaciones del juego?</string>
-  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si desactivas las notificaciones, ya no recibirás recordatorios diarios cuando haya nuevas preguntas para jugar.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">¿Desactivar las notificaciones?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si desactivas las notificaciones ya no recibirás recordatorios diarios cuando haya nuevas preguntas para jugar.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">¿Activar las notificaciones?</string>
-  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Las notificaciones del juego te avisan diariamente cuando hay más preguntas para jugar.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Las notificaciones te avisan diario cuando ya hay más preguntas para jugar.</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">No, mantener activas</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Desactivar</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Sí, activar</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Mantener desactivadas</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificaciones del juego desactivadas.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificaciones del juego activadas.</string>
-  <string name="on_this_day_game_notification_text">El las preguntas de hoy en «¿Qué fue primero?» ya están disponibles para jugar.</string>
+  <string name="on_this_day_game_notification_text">Las preguntas de hoy de «¿Qué fue primero?» ya están disponibles para jugar.</string>
   <string name="on_this_day_game_report_email_subject">Informe de problemas - Wikipedia juegos</string>
   <string name="on_this_day_game_report_email_body">Tuve un problema con la función Wikipedia juegos:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]</string>
   <string name="on_this_day_game_notification_undo">Deshacer</string>
@@ -1833,13 +1833,13 @@
   <string name="on_this_day_game_share_screen_subtitle">Temas incluidos:</string>
   <string name="on_this_day_game_survey_q1">¿Qué tanto te ha satisfecho este juego?</string>
   <string name="on_this_day_game_survey_q2">¿Te gustaría que hubiera otros juegos de Wikipedia?</string>
-  <string name="on_this_day_game_archive_calendar_title">Elige un juego de acuerdo a la fecha para empezar.</string>
-  <string name="on_this_day_game_score_toast_message">Hoy obtuviste %1$d/%2$d.</string>
+  <string name="on_this_day_game_archive_calendar_title">Escoge una fecha para jugar.</string>
+  <string name="on_this_day_game_score_toast_message">Obtuviste %1$d/%2$d este día.</string>
   <string name="on_this_day_game_continue_btn_text">Continuar el juego de hoy</string>
   <string name="on_this_day_game_current_progress_message">Vas en la pregunta %d.</string>
-  <string name="on_this_day_game_archive_btn_text">Abrir el archivo</string>
+  <string name="on_this_day_game_archive_btn_text">Jugar anteriores</string>
   <string name="on_this_day_game_review_results_btn_text">Ver resultados</string>
-  <string name="on_this_day_game_score_message">Hoy obtuviste %1$d/%2$d.</string>
+  <string name="on_this_day_game_score_message">Obtuviste %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
   <string name="on_this_day_game_sound_on">Activar el sonido</string>
   <string name="on_this_day_game_sound_off">Desactivar el sonido</string>
@@ -1868,6 +1868,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Sí, elegir aleatoriamente</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Mejor no</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Hecho para %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Seleccionado para ti</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d artículo</item>
     <item quantity="other">• %d artículos</item>
