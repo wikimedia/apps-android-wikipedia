@@ -17,6 +17,7 @@ import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
@@ -36,6 +37,10 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
+
+        if(!ReleaseUtil.isDevRelease) {
+            binding.mainDrawerYearInReviewContainer.visibility = View.GONE
+        }
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
