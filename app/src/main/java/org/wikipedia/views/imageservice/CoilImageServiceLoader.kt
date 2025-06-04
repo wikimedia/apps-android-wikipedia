@@ -55,34 +55,7 @@ class CoilImageServiceLoader : ImageServiceLoader {
         listener: ImageLoadListener?
     ) {
         val context = imageView.context
-        val imageUrl = if ((Prefs.isImageDownloadEnabled || force == true) && !url.isNullOrEmpty()) url.toUri() else null
-        val requestBuilder = ImageRequest.Builder(imageView.context)
-            .data(imageUrl)
-
-        if (placeholderId != null) {
-            requestBuilder.placeholder(placeholderId).error(placeholderId)
-        } else {
-            val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
-            requestBuilder.placeholder(placeHolder).error(placeHolder)
-        }
-
-        when {
-            (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
-            else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
-        }
-
-        if (listener != null) {
-            requestBuilder.listener(object : ImageRequest.Listener {
-                override fun onError(request: ImageRequest, result: ErrorResult) {
-                    listener.onError(error = result.throwable)
-                }
-
-                override fun onSuccess(request: ImageRequest, result: SuccessResult) {
-                    listener.onSuccess(result, result.image.width, result.image.height)
-                }
-            })
-        }
-        val request = requestBuilder.target(imageView).build()
+        val request = getRequestBuilder(context, url, detectFace, force, placeholderId, listener).target(imageView).build()
         context.imageLoader.enqueue(request)
     }
 
@@ -115,35 +88,46 @@ class CoilImageServiceLoader : ImageServiceLoader {
         force: Boolean?,
         placeholderId: Int?,
         listener: ImageLoadListener?
-    ): ImageRequest {
-            val imageUrl = if ((Prefs.isImageDownloadEnabled || force == true) && !url.isNullOrEmpty()) url.toUri() else null
-            val requestBuilder = ImageRequest.Builder(context)
-                .data(imageUrl)
+    ): Any {
+        return getRequestBuilder(context, url, detectFace, force, placeholderId, listener).build()
+    }
 
-            if (placeholderId != null) {
-                requestBuilder.placeholder(placeholderId).error(placeholderId)
-            } else {
-                val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
-                requestBuilder.placeholder(placeHolder).error(placeHolder)
-            }
+    fun getRequestBuilder(
+        context: Context,
+        url: String?,
+        detectFace: Boolean?,
+        force: Boolean?,
+        placeholderId: Int?,
+        listener: ImageLoadListener?
+    ): ImageRequest.Builder {
+        val imageUrl = if ((Prefs.isImageDownloadEnabled || force == true) && !url.isNullOrEmpty()) url.toUri() else null
+        val requestBuilder = ImageRequest.Builder(context)
+            .data(imageUrl)
 
-            when {
-                (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
-                else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
-            }
+        if (placeholderId != null) {
+            requestBuilder.placeholder(placeholderId).error(placeholderId)
+        } else {
+            val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
+            requestBuilder.placeholder(placeHolder).error(placeHolder)
+        }
 
-            if (listener != null) {
-                requestBuilder.listener(object : ImageRequest.Listener {
-                    override fun onError(request: ImageRequest, result: ErrorResult) {
-                        listener.onError(error = result.throwable)
-                    }
+        when {
+            (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
+            else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
+        }
 
-                    override fun onSuccess(request: ImageRequest, result: SuccessResult) {
-                        listener.onSuccess(result, result.image.width, result.image.height)
-                    }
-                })
-            }
-            return requestBuilder.build()
+        if (listener != null) {
+            requestBuilder.listener(object : ImageRequest.Listener {
+                override fun onError(request: ImageRequest, result: ErrorResult) {
+                    listener.onError(error = result.throwable)
+                }
+
+                override fun onSuccess(request: ImageRequest, result: SuccessResult) {
+                    listener.onSuccess(result, result.image.width, result.image.height)
+                }
+            })
+        }
+        return requestBuilder
     }
 
     override fun getBitmap(image: Any): Bitmap {

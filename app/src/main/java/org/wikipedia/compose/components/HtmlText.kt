@@ -30,7 +30,7 @@ fun HtmlText(
         )
     ),
     style: TextStyle = TextStyle(
-        color = WikipediaTheme.colors.secondaryColor,
+        color = WikipediaTheme.colors.primaryColor,
         fontSize = 14.sp
     ),
     color: Color = Color.Unspecified,
