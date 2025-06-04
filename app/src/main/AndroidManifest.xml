@@ -364,13 +364,10 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
-            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
-
-        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
-            android:name=".readinglist.recommended.RecommendedReadingListInterestsActivity"/>
+            android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"/>
