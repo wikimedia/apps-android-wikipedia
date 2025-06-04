@@ -42,7 +42,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
@@ -105,7 +104,7 @@ fun YearInReviewSurvey(
                         )
                         Text(
                             text = stringResource(R.string.year_in_review_survey_subtitle),
-                            style = WikipediaTheme.typography.p,
+                            style = WikipediaTheme.typography.bodyLarge,
                             color = WikipediaTheme.colors.secondaryColor,
                             modifier = Modifier.padding(bottom = 12.dp)
                         )
@@ -150,7 +149,7 @@ fun YearInReviewSurvey(
                             )
                             Text(
                                 text = text,
-                                style = WikipediaTheme.typography.p,
+                                style = WikipediaTheme.typography.bodyLarge,
                                 color = WikipediaTheme.colors.primaryColor,
                             )
                         }
@@ -172,7 +171,7 @@ fun YearInReviewSurvey(
                             Text(
                                 text = stringResource(R.string.year_in_review_survey_placeholder_text),
                                 color = WikipediaTheme.colors.secondaryColor,
-                                style = WikipediaTheme.typography.p
+                                style = WikipediaTheme.typography.bodyLarge
                             )
                         }
                     },
@@ -254,7 +253,6 @@ fun SurveyButton(
 @Preview
 @Composable
 fun PreviewSurvey() {
-    val context = LocalContext.current
     BaseTheme {
         Column(
            modifier = Modifier
