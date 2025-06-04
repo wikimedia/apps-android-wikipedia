@@ -102,7 +102,7 @@ fun YearInReviewScreen(
     var startCapture by remember { mutableStateOf(false) }
 
     if (startCapture) {
-        ScreenShotScaffold(
+        CreateScreenShotBitmap(
             screenContent = contentData[pagerState.currentPage],
             context = context,
         ) { bitmap ->
@@ -408,7 +408,7 @@ fun YearInReviewScreenContent(
 }
 
 @Composable
-fun ScreenShotScaffold(
+fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
     context: Context,
     onBitmapReady: (Bitmap) -> Unit
@@ -556,9 +556,9 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 fun PreviewScreenShot() {
     val context = LocalContext.current
     BaseTheme {
-        ScreenShotScaffold(
+        CreateScreenShotBitmap(
             screenContent = nonEnglishCollectiveEditCountData,
             context = context
-        ) {}
+        ) { /* No logic, preview only */ }
     }
 }
