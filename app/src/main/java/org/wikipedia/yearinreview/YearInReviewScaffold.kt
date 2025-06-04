@@ -452,6 +452,7 @@ fun ScreenShotScaffold(
                 .width(312.dp)
                 .padding(top = 36.dp)
                 .drawBehind {
+                    /* Manually creating card shadow for compatibility with view.drawToBitmap */
                     val paint = Paint().asFrameworkPaint().apply {
                         color = shadowColor.copy(alpha = 0.15f).toArgb()
                         maskFilter = BlurMaskFilter(
