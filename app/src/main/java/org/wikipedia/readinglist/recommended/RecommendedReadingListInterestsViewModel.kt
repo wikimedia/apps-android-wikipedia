@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -19,7 +18,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 
 class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    val fromSettings = savedStateHandle.get<Boolean>(Constants.ARG_BOOLEAN) == true
+    val fromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
 
     private val _uiState = MutableStateFlow(Resource<UiState>())
     val uiState: StateFlow<Resource<UiState>> = _uiState.asStateFlow()

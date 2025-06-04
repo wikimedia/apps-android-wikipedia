@@ -121,8 +121,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                     RecommendedReadingListInterestsScreen(
                         uiState = viewModel.uiState.collectAsState().value,
                         onCloseClick = {
-                            requireActivity().setResult(Activity.RESULT_CANCELED)
-                            requireActivity().finish()
+                            requireActivity().onBackPressedDispatcher.onBackPressed()
                         },
                         onNextClick = {
                             viewModel.commitSelection()
@@ -162,8 +161,12 @@ class RecommendedReadingListInterestsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): RecommendedReadingListInterestsFragment {
-            return RecommendedReadingListInterestsFragment()
+        fun newInstance(fromSettings: Boolean = false): RecommendedReadingListInterestsFragment {
+            return RecommendedReadingListInterestsFragment().apply {
+                arguments = Bundle().apply {
+                    putBoolean(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS, fromSettings)
+                }
+            }
         }
     }
 }
@@ -262,8 +265,8 @@ fun RecommendedReadingListInterestsContent(
                 },
                 navigationIcon = {
                     Icon(
-                        imageVector = if (fromSettings) Icons.AutoMirrored.Filled.ArrowBack else Icons.Default.Close,
-                        contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
+                        imageVector = if (!fromSettings) Icons.AutoMirrored.Filled.ArrowBack else Icons.Default.Close,
+                        contentDescription = stringResource(if (!fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
                             .clickable(onClick = onCloseClick)

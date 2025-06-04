@@ -34,6 +34,12 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
         }
     }
 
+    private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            // TODO
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -49,10 +55,10 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     },
                     onRecommendedReadingListSourceClick = {
                         currentRecommendedReadingListSource = Prefs.recommendedReadingListSource
-                        recommendedReadingListSourceLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, fromSetting = true))
+                        recommendedReadingListSourceLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, fromSettings = true))
                     },
                     onInterestClick = {
-                        // @TODO: implement when interest screen is complete
+                        recommendedReadingListInterestsLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, startFromSourceSelection = false, fromSettings = true))
                     },
                     onNotificationStateChanged = {
                         viewModel.toggleNotification(it)

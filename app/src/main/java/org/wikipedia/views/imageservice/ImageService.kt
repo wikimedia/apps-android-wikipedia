@@ -41,8 +41,8 @@ object ImageService {
         force: Boolean? = false,
         @DrawableRes placeholderId: Int? = null,
         listener: ImageLoadListener? = null
-    ): Any {
-        return implementation.getRequest(context, url, detectFace, force, placeholderId, listener)
+    ): Any? {
+        return _implementation?.getRequest(context, url, detectFace, force, placeholderId, listener)
     }
 
     fun getBitmap(image: Any): Bitmap {
