@@ -88,7 +88,7 @@ fun RecommendedReadingListSettingsScreen(
                         }
                         onRecommendedReadingListSwitchClick(true)
                     }
-                    .padding(horizontal = 16.dp),
+                    .padding(16.dp),
                 isRecommendedReadingListEnabled = isRecommendedReadingListEnabled,
                 onCheckedChange = {
                     if (isRecommendedReadingListEnabled) {
@@ -104,7 +104,6 @@ fun RecommendedReadingListSettingsScreen(
                 )
             } else {
                 EnabledState(
-                    modifier = Modifier.padding(vertical = 16.dp),
                     articlesNumber = uiState.articlesNumber,
                     selectedFrequency = uiState.updateFrequency,
                     discoverSource = uiState.recommendedReadingListSource,
@@ -122,18 +121,18 @@ fun RecommendedReadingListSettingsScreen(
             WikipediaAlertDialog(
                 title = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_title),
                 message = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_message, uiState.updateFrequency.name.lowercase()),
-                confirmButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button),
-                dismissButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button),
+                confirmButtonText = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_negative_button),
+                dismissButtonText = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_positive_button),
                 onDismissRequest = {
                     showAlertDialog = false
                 },
                 onConfirmButtonClick = {
                     showAlertDialog = false
-                    onRecommendedReadingListSwitchClick(false)
+                    onRecommendedReadingListSwitchClick(true)
                 },
                 onDismissButtonClick = {
                     showAlertDialog = false
-                    onRecommendedReadingListSwitchClick(true)
+                    onRecommendedReadingListSwitchClick(false)
                 }
             )
         }
@@ -211,6 +210,8 @@ private fun EnabledState(
             canShowDivider = false
         ) {
             NotificationView(
+                modifier = Modifier
+                    .padding(top = 12.dp),
                 isNotificationEnabled = isNotificationEnabled,
                 onNotificationStateChanged = onNotificationStateChanged
             )
@@ -285,7 +286,10 @@ private fun ArticlesNumberView(
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline
                     ),
                     placeholder = {
-                        Text(articlesNumber.toString())
+                        Text(
+                            text = articlesNumber.toString(),
+                            color = WikipediaTheme.colors.primaryColor
+                        )
                     }
                 )
                 Text(
@@ -319,7 +323,8 @@ private fun UpdatesFrequencyView(
                 onClick = {
                     showDialog = true
                 }
-            ),
+            )
+            .padding(bottom = 16.dp),
         colors = ListItemDefaults.colors(
             containerColor = WikipediaTheme.colors.paperColor
         ),
@@ -381,12 +386,11 @@ private fun RecommendedReadingListSwitch(
                     onCheckedChange(it)
                 },
                 colors = SwitchDefaults.colors(
-                    uncheckedTrackColor = WikipediaTheme.colors.inactiveColor,
-                    uncheckedThumbColor = WikipediaTheme.colors.borderColor,
-                    uncheckedBorderColor = WikipediaTheme.colors.borderColor,
+                    uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+                    uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+                    uncheckedBorderColor = MaterialTheme.colorScheme.outline,
                     checkedTrackColor = WikipediaTheme.colors.progressiveColor,
-                    checkedThumbColor = WikipediaTheme.colors.paperColor,
-                    checkedBorderColor = WikipediaTheme.colors.borderColor
+                    checkedThumbColor = WikipediaTheme.colors.paperColor
                 )
             )
         }
@@ -518,12 +522,11 @@ private fun NotificationView(
                         onNotificationStateChanged(it)
                 },
                 colors = SwitchDefaults.colors(
-                    uncheckedTrackColor = WikipediaTheme.colors.inactiveColor,
-                    uncheckedThumbColor = WikipediaTheme.colors.borderColor,
-                    uncheckedBorderColor = WikipediaTheme.colors.borderColor,
+                    uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+                    uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+                    uncheckedBorderColor = MaterialTheme.colorScheme.outline,
                     checkedTrackColor = WikipediaTheme.colors.progressiveColor,
-                    checkedThumbColor = WikipediaTheme.colors.paperColor,
-                    checkedBorderColor = WikipediaTheme.colors.borderColor
+                    checkedThumbColor = WikipediaTheme.colors.paperColor
                 )
             )
         }
@@ -540,11 +543,11 @@ private fun NotificationView(
             },
             onConfirmButtonClick = {
                 showAlertDialog = false
-                onNotificationStateChanged(false)
+                onNotificationStateChanged(true)
             },
             onDismissButtonClick = {
                 showAlertDialog = false
-                onNotificationStateChanged(true)
+                onNotificationStateChanged(false)
             }
         )
     }
@@ -590,7 +593,8 @@ fun RadioListDialog(
                         )
                         Text(
                             text = option,
-                            style = MaterialTheme.typography.bodyLarge
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor
                         )
                     }
                 }
@@ -610,7 +614,9 @@ fun SettingsSection(
         content = {
             content()
             if (canShowDivider) {
-                HorizontalDivider()
+                HorizontalDivider(
+                    color = WikipediaTheme.colors.borderColor
+                )
             }
         }
     )
