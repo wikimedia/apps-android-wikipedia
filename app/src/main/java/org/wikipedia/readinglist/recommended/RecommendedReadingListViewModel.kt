@@ -75,6 +75,11 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
 
         private const val MAX_RETRIES = 10
 
+        suspend fun getNewRecommendedArticles(): List<RecommendedPage> {
+            val recommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+            return recommendedPages.filter { it.status == 0 }
+        }
+
         suspend fun generateRecommendedReadingList() {
             if (!Prefs.isRecommendedReadingListEnabled) {
                 return
@@ -153,6 +158,8 @@ class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : View
                     newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
                 }
             }
+
+            Prefs.isNewRecommendedReadingListGenerated = recommendedPages.isNotEmpty()
 
             // Step 4: save the recommended articles to the database
             AppDatabase.instance.recommendedPageDao().insertAll(recommendedPages)
