@@ -38,7 +38,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        if(!ReleaseUtil.isDevRelease) {
+        if (!ReleaseUtil.isDevRelease) {
             binding.mainDrawerYearInReviewContainer.visibility = View.GONE
         }
 
