@@ -31,7 +31,7 @@ class YearInReviewViewModel() : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = Resource.Success(
-            data = listOf(nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+            data = listOf(nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
         )
     }
     private var _uiScreenListState = MutableStateFlow(Resource<List<YearInReviewScreenData>>())
@@ -121,11 +121,11 @@ class YearInReviewViewModel() : ViewModel() {
                 )
 
                 _uiScreenListState.value = Resource.Success(
-                    data = listOf(readCountJob.await(), editCountData)
+                    data = listOf(readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
                 )
             } else {
                 _uiScreenListState.value = Resource.Success(
-                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData)
+                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
                 )
             }
         }
