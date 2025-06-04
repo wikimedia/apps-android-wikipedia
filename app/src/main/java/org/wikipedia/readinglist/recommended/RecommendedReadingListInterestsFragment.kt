@@ -73,6 +73,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -142,7 +143,15 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                             viewModel.toggleSelection(it)
                         },
                         onRandomizeClick = {
-                            viewModel.randomizeSelection()
+                            MaterialAlertDialogBuilder(requireActivity())
+                                .setTitle(R.string.recommended_reading_list_interest_pick_random_dialog_title)
+                                .setMessage(R.string.recommended_reading_list_interest_pick_random_dialog_message)
+                                .setPositiveButton(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button) { dialog, _ ->
+                                    viewModel.randomizeSelection()
+                                    dialog.dismiss()
+                                }
+                                .setNegativeButton(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button) { dialog, _ -> dialog.dismiss() }
+                                .show()
                         }
                     )
                 }
