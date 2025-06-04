@@ -806,7 +806,7 @@ object Prefs {
         set(types) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_interests, JsonUtil.encodeToString(types))
 
     var isRecommendedReadingListNotificationEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, true)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
 
     var recommendedReadingListSourceTitlesWithOffset
@@ -816,4 +816,8 @@ object Prefs {
     var isRecommendedReadingListOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, value)
+
+    var isNewRecommendedReadingListGenerated
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
 }
