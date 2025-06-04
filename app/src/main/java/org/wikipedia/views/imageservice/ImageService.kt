@@ -34,6 +34,17 @@ object ImageService {
         implementation.loadImage(context, url, whiteBackground, onSuccess)
     }
 
+    fun getRequest(
+        context: Context,
+        url: String?,
+        detectFace: Boolean? = false,
+        force: Boolean? = false,
+        @DrawableRes placeholderId: Int? = null,
+        listener: ImageLoadListener? = null
+    ): Any {
+        return implementation.getRequest(context, url, detectFace, force, placeholderId, listener)
+    }
+
     fun getBitmap(image: Any): Bitmap {
         return implementation.getBitmap(image)
     }
@@ -60,6 +71,15 @@ interface ImageServiceLoader {
         whiteBackground: Boolean = false,
         onSuccess: (Bitmap) -> Unit
     )
+
+    fun getRequest(
+        context: Context,
+        url: String?,
+        detectFace: Boolean? = false,
+        force: Boolean? = false,
+        @DrawableRes placeholderId: Int? = null,
+        listener: ImageLoadListener? = null
+    ): Any
 
     fun getBitmap(image: Any): Bitmap
 }

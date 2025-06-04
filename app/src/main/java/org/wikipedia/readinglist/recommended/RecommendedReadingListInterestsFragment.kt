@@ -59,6 +59,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -89,6 +90,7 @@ import org.wikipedia.search.SearchActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.views.imageservice.ImageService
 
 class RecommendedReadingListInterestsFragment : Fragment() {
     private val viewModel: RecommendedReadingListInterestsViewModel by viewModels()
@@ -393,8 +395,9 @@ fun ReadingListInterestCard(
                 }
         ) {
             if (!item.thumbUrl.isNullOrEmpty()) {
+                val request = ImageService.getRequest(LocalContext.current, url = item.thumbUrl, detectFace = true)
                 AsyncImage(
-                    model = item.thumbUrl,
+                    model = request,
                     placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
                     error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
                     contentScale = ContentScale.Crop,

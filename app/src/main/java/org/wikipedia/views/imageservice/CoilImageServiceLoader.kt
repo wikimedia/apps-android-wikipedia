@@ -108,6 +108,44 @@ class CoilImageServiceLoader : ImageServiceLoader {
         context.imageLoader.enqueue(request)
     }
 
+    override fun getRequest(
+        context: Context,
+        url: String?,
+        detectFace: Boolean?,
+        force: Boolean?,
+        placeholderId: Int?,
+        listener: ImageLoadListener?
+    ): ImageRequest {
+            val imageUrl = if ((Prefs.isImageDownloadEnabled || force == true) && !url.isNullOrEmpty()) url.toUri() else null
+            val requestBuilder = ImageRequest.Builder(context)
+                .data(imageUrl)
+
+            if (placeholderId != null) {
+                requestBuilder.placeholder(placeholderId).error(placeholderId)
+            } else {
+                val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
+                requestBuilder.placeholder(placeHolder).error(placeHolder)
+            }
+
+            when {
+                (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
+                else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
+            }
+
+            if (listener != null) {
+                requestBuilder.listener(object : ImageRequest.Listener {
+                    override fun onError(request: ImageRequest, result: ErrorResult) {
+                        listener.onError(error = result.throwable)
+                    }
+
+                    override fun onSuccess(request: ImageRequest, result: SuccessResult) {
+                        listener.onSuccess(result, result.image.width, result.image.height)
+                    }
+                })
+            }
+            return requestBuilder.build()
+    }
+
     override fun getBitmap(image: Any): Bitmap {
         if (image is Image) {
             return image.toBitmap()
