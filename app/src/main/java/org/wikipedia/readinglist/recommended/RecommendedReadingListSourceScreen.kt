@@ -218,10 +218,10 @@ fun SourceSelectionContent(
 
         if (!fromSettings) {
             Spacer(modifier = Modifier.weight(1f))
-
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(56.dp)
             ) {
                 Spacer(
                     modifier = Modifier

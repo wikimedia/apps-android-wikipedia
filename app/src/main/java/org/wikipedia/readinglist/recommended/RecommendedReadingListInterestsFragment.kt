@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridState
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
@@ -171,66 +172,12 @@ class RecommendedReadingListInterestsFragment : Fragment() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecommendedReadingListInterestsScreen(
     uiState: Resource<RecommendedReadingListInterestsViewModel.UiState>,
-    wikiErrorClickEvents: WikiErrorClickEvents? = null,
-    onItemClick: (PageTitle) -> Unit = {},
-    onCloseClick: () -> Unit,
-    onNextClick: () -> Unit,
-    onRandomizeClick: () -> Unit = {},
-    onSearchClick: () -> Unit
-) {
-    when (uiState) {
-        is Resource.Loading -> {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 64.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                LinearProgressIndicator(
-                    color = WikipediaTheme.colors.progressiveColor,
-                )
-            }
-        }
-
-        is Resource.Error -> {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                WikiErrorView(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    caught = uiState.throwable,
-                    errorClickEvents = wikiErrorClickEvents
-                )
-            }
-        }
-
-        is Resource.Success -> {
-            RecommendedReadingListInterestsContent(
-                fromSettings = uiState.data.fromSettings,
-                items = uiState.data.items,
-                selectedItems = uiState.data.selectedItems,
-                onCloseClick = onCloseClick,
-                onNextClick = onNextClick,
-                onItemClick = onItemClick,
-                onRandomizeClick = onRandomizeClick,
-                onSearchClick = onSearchClick
-            )
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun RecommendedReadingListInterestsContent(
     fromSettings: Boolean = false,
-    items: List<PageTitle> = emptyList(),
-    selectedItems: Set<PageTitle> = emptySet(),
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
@@ -239,6 +186,7 @@ fun RecommendedReadingListInterestsContent(
 ) {
     val listState = rememberLazyStaggeredGridState()
     val collapseHeight = LocalDensity.current.run { 100.dp.toPx() }
+
     val showTitle = remember {
         derivedStateOf {
             listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > collapseHeight
@@ -282,94 +230,160 @@ fun RecommendedReadingListInterestsContent(
         },
         containerColor = WikipediaTheme.colors.paperColor
     ) { paddingValues ->
-        Box {
-            val borderColor = WikipediaTheme.colors.borderColor
-
-            LazyVerticalStaggeredGrid(
-                columns = StaggeredGridCells.Adaptive(120.dp),
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(start = 16.dp, end = 16.dp),
-                state = listState,
-                verticalItemSpacing = 16.dp,
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                content = {
-                    item(span = StaggeredGridItemSpan.FullLine) {
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 48.dp, bottom = 4.dp),
-                            style = WikipediaTheme.typography.bodyLarge,
-                            color = WikipediaTheme.colors.primaryColor,
-                            fontSize = 22.sp,
-                            textAlign = TextAlign.Center,
-                            text = stringResource(R.string.recommended_reading_list_interest_pick_title)
-                        )
-                    }
-                    item(span = StaggeredGridItemSpan.FullLine) {
-                        ReadingListInterestSearchCard(onSearchClick)
-                    }
-                    items(items) { item ->
-                        ReadingListInterestCard(
-                            item = item,
-                            isSelected = selectedItems.contains(item),
-                            onItemClick = onItemClick
-                        )
-                    }
-                    item(span = StaggeredGridItemSpan.FullLine) {
-                        Spacer(
-                            modifier = Modifier.height(64.dp)
-                        )
-                    }
+        when (uiState) {
+            is Resource.Loading -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 64.dp),
+                ) {
+                    LinearProgressIndicator(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = WikipediaTheme.colors.progressiveColor,
+                        trackColor = WikipediaTheme.colors.borderColor
+                    )
                 }
-            )
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-                    .background(color = WikipediaTheme.colors.paperColor)
-                    .align(Alignment.BottomCenter)
-                    .drawBehind {
-                        drawLine(
-                            color = borderColor,
-                            start = Offset(0f, 0f),
-                            end = Offset(size.width, 0f),
-                            strokeWidth = 1.dp.toPx()
-                        )
-                    },
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clickable(onClick = onRandomizeClick)
-                        .padding(12.dp),
-                    painter = painterResource(R.drawable.ic_dice_24),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
-                )
-                Text(
-                    modifier = Modifier
-                        .padding(start = 8.dp, end = 8.dp)
-                        .weight(1f),
-                    text = pluralStringResource(R.plurals.recommended_reading_list_interest_pick_selected_articles, selectedItems.size, selectedItems.size),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Icon(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
-                        .padding(12.dp)
-                        .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
-                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.nav_item_forward)
-                )
             }
+
+            is Resource.Error -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        caught = uiState.throwable,
+                        errorClickEvents = wikiErrorClickEvents
+                    )
+                }
+            }
+
+            is Resource.Success -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    RecommendedReadingListInterestsContent(
+                        listState = listState,
+                        items = uiState.data.items,
+                        selectedItems = uiState.data.selectedItems,
+                        onNextClick = onNextClick,
+                        onItemClick = onItemClick,
+                        onRandomizeClick = onRandomizeClick,
+                        onSearchClick = onSearchClick
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun RecommendedReadingListInterestsContent(
+    listState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
+    items: List<PageTitle> = emptyList(),
+    selectedItems: Set<PageTitle> = emptySet(),
+    onItemClick: (PageTitle) -> Unit = {},
+    onNextClick: () -> Unit,
+    onRandomizeClick: () -> Unit = {},
+    onSearchClick: () -> Unit
+) {
+    Box {
+        val borderColor = WikipediaTheme.colors.borderColor
+
+        LazyVerticalStaggeredGrid(
+            columns = StaggeredGridCells.Adaptive(120.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 16.dp, end = 16.dp),
+            state = listState,
+            verticalItemSpacing = 16.dp,
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            content = {
+                item(span = StaggeredGridItemSpan.FullLine) {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 48.dp, bottom = 4.dp),
+                        style = WikipediaTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor,
+                        fontSize = 22.sp,
+                        textAlign = TextAlign.Center,
+                        text = stringResource(R.string.recommended_reading_list_interest_pick_title)
+                    )
+                }
+                item(span = StaggeredGridItemSpan.FullLine) {
+                    ReadingListInterestSearchCard(onSearchClick)
+                }
+                items(items) { item ->
+                    ReadingListInterestCard(
+                        item = item,
+                        isSelected = selectedItems.contains(item),
+                        onItemClick = onItemClick
+                    )
+                }
+                item(span = StaggeredGridItemSpan.FullLine) {
+                    Spacer(
+                        modifier = Modifier.height(64.dp)
+                    )
+                }
+            }
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+                .background(color = WikipediaTheme.colors.paperColor)
+                .align(Alignment.BottomCenter)
+                .drawBehind {
+                    drawLine(
+                        color = borderColor,
+                        start = Offset(0f, 0f),
+                        end = Offset(size.width, 0f),
+                        strokeWidth = 1.dp.toPx()
+                    )
+                },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                modifier = Modifier
+                    .size(48.dp)
+                    .clickable(onClick = onRandomizeClick)
+                    .padding(12.dp),
+                painter = painterResource(R.drawable.ic_dice_24),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
+            )
+            Text(
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp)
+                    .weight(1f),
+                text = pluralStringResource(
+                    R.plurals.recommended_reading_list_interest_pick_selected_articles,
+                    selectedItems.size,
+                    selectedItems.size
+                ),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Bold,
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Icon(
+                modifier = Modifier
+                    .size(48.dp)
+                    .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
+                    .padding(12.dp)
+                    .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.nav_item_forward)
+            )
         }
     }
 }
