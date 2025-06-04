@@ -1864,7 +1864,7 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Le notifiche per Discover sono disattivate. Non riceverai notifiche quando Discover verrà aggiornato.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Disattivare le notifiche?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Se disattivi le notifiche, non riceverai più promemoria quando Discover viene aggiornato.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Spegnili</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">No, tienili accesi</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Spegnili</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, tienili accesi</string>
   <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
 </resources>

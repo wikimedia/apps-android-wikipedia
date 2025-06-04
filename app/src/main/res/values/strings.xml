@@ -1948,8 +1948,8 @@
     <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notifications for Discover are turned off. You won\'t receive a notification when Discover is updated.</string>
     <string name="recommended_reading_list_settings_notifications_dialog_title">Turn off notifications?</string>
     <string name="recommended_reading_list_settings_notifications_dialog_message">If you turn off notifications, you will no longer receive reminders when Discover is updated.</string>
-    <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Turn it off</string>
-    <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, keep it on</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Turn it off</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_positive_button">No, keep it on</string>
     <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
     <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
     <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>

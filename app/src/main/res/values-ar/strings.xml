@@ -2077,8 +2077,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">تم إيقاف إشعارات Discover. لن تتلقى إشعارًا عند تحديث Discover.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">إيقاف تشغيل الإشعارات؟</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">إذا قمت بإيقاف تشغيل الإشعارات، فلن تتلقى بعد الآن تذكيرات عند تحديث Discover.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">أطفئهم</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">لا، ابقهم على حالهم</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">أطفئهم</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">لا، ابقهم على حالهم</string>
   <string name="recommended_reading_list_notification_title">قائمة القراءة %s Discover الخاصة بك جاهزة.</string>
   <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>

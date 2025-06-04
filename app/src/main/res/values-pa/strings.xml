@@ -1553,5 +1553,5 @@
   <string name="recommended_reading_list_settings_interests">ਦਿਲਚਸਪੀਆਂ</string>
   <string name="recommended_reading_list_settings_notifications_title">ਸੂਚਨਾਵਾਂ</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">ਸੂਚਨਾਵਾਂ ਬੰਦ ਕਰੋ?</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">ਇਨ੍ਹਾਂ ਨੂੰ ਬੰਦ ਕਰ ਦਿਓ।</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">ਇਨ੍ਹਾਂ ਨੂੰ ਬੰਦ ਕਰ ਦਿਓ।</string>
 </resources>

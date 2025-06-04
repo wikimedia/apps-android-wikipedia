@@ -1825,8 +1825,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Kəşf et üçün bildirişlər söndürülüb. O yeniləndikdə bildiriş almayacaqsınız.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Bildirişlər söndürülsün?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_message">Bildirişləri söndürsəniz, Kəşf et yeniləndikdə daha bildirişlər qəbul etməyəcəksiniz.</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Söndür</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Xeyr, açıq saxla</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Söndür</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Xeyr, açıq saxla</string>
   <string name="recommended_reading_list_notification_title">%s oxuma siyahınız hazırdır.</string>
   <string name="recommended_reading_list_notification_subtitle">Ən son tövsiyələrinizə baxmaq üçün toxunun.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Kəşf et bölməsi yeniləndikdə, Vikipediya sizə bildiriş göndərəcək.</string>
