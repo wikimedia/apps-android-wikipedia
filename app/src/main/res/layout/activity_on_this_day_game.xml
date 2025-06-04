@@ -81,6 +81,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingEnd="6dp"
                 android:scrollbars="vertical"
                 android:fadeScrollbars="false">
 
@@ -110,14 +111,15 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         style="@style/P"
                         android:textColor="?attr/primary_color"
-                        tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem Lorem ipsum Lorem ipsum Lorem ipsum  ipsum Lorem ipsum Lorem ipsum "/>
+                        tools:text="Lorem ipsum"/>
 
                     <org.wikipedia.views.FaceAndColorDetectImageView
                         android:id="@+id/questionThumbnail1"
                         app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
                         android:layout_width="110dp"
                         android:layout_height="110dp"
-                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_marginTop="16dp"
                         android:layout_gravity="end"
                         android:contentDescription="@null"
@@ -226,6 +228,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingEnd="6dp"
                 android:scrollbars="vertical"
                 android:fadeScrollbars="false">
 
@@ -255,14 +258,15 @@
                             android:background="?attr/selectableItemBackgroundBorderless"
                             style="@style/P"
                             android:textColor="?attr/primary_color"
-                            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem Lorem ipsum Lorem ipsum Lorem ipsum  ipsum Lorem ipsum Lorem ipsum "/>
+                            tools:text="Lorem ipsum"/>
 
                         <org.wikipedia.views.FaceAndColorDetectImageView
                             android:id="@+id/questionThumbnail2"
                             app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
                             android:layout_width="110dp"
                             android:layout_height="110dp"
-                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="16dp"
                             android:layout_gravity="end"
                             android:contentDescription="@null"
