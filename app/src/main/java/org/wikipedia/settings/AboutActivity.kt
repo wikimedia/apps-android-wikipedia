@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -173,13 +174,15 @@ fun AboutScreenContent(
             versionName = versionName,
             snackbarHostState = snackbarHostState
         )
-        AboutScreenBody(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 20.dp)
-                .padding(horizontal = 16.dp),
-            credits = credits
-        )
+        SelectionContainer {
+            AboutScreenBody(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 20.dp)
+                    .padding(horizontal = 16.dp),
+                credits = credits
+            )
+        }
         AboutScreenFooter(
             modifier = Modifier
                 .padding(top = 24.dp, bottom = 16.dp)
@@ -221,13 +224,15 @@ fun AboutWikipediaHeader(
                 }
             }
         )
-        Text(
-            modifier = Modifier
-                .padding(vertical = 16.dp),
-            text = versionName,
-            fontSize = 14.sp,
-            color = WikipediaTheme.colors.primaryColor
-        )
+        SelectionContainer {
+            Text(
+                modifier = Modifier
+                    .padding(vertical = 16.dp),
+                text = versionName,
+                fontSize = 14.sp,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
     }
 }
 

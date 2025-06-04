@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
@@ -16,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -37,6 +39,7 @@ fun WikiCard(
         contentColor = WikipediaTheme.colors.paperColor
     ),
     border: BorderStroke? = null,
+    shape: Shape = RoundedCornerShape(12.dp),
     content: @Composable () -> Unit
 ) {
     val isDarkTheme = WikipediaTheme.colors.isDarkTheme
@@ -53,6 +56,7 @@ fun WikiCard(
         elevation = CardDefaults.cardElevation(defaultElevation = cardElevation),
         colors = colors,
         border = border,
+        shape = shape
     ) {
         content()
     }

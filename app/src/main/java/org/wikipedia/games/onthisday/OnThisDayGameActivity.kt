@@ -324,6 +324,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
         binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText1.text = event1.text
+        binding.questionText1.scrollY = 0
 
         val thumbnailUrl1 = viewModel.getThumbnailUrlForEvent(event1)
         binding.questionThumbnail1.tag = thumbnailUrl1.isNullOrEmpty()
@@ -337,6 +338,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
         binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText2.text = event2.text
+        binding.questionText2.scrollY = 0
 
         val thumbnailUrl2 = viewModel.getThumbnailUrlForEvent(event2)
         binding.questionThumbnail2.tag = thumbnailUrl2.isNullOrEmpty()
