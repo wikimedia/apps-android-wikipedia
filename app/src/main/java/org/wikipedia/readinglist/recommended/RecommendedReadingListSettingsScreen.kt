@@ -121,8 +121,8 @@ fun RecommendedReadingListSettingsScreen(
             WikipediaAlertDialog(
                 title = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_title),
                 message = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_message, uiState.updateFrequency.name.lowercase()),
-                confirmButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_positive_button),
-                dismissButtonText = stringResource(R.string.recommended_reading_list_settings_notifications_dialog_negative_button),
+                confirmButtonText = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_negative_button),
+                dismissButtonText = stringResource(R.string.recommended_reading_list_settings_turn_off_dialog_positive_button),
                 onDismissRequest = {
                     showAlertDialog = false
                 },
