@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -20,11 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -220,10 +218,10 @@ fun SourceSelectionContent(
 
         if (!fromSettings) {
             Spacer(modifier = Modifier.weight(1f))
-
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(56.dp)
             ) {
                 Spacer(
                     modifier = Modifier
@@ -233,7 +231,7 @@ fun SourceSelectionContent(
                 )
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    contentDescription = stringResource(id = R.string.nav_item_forward),
+                    contentDescription = stringResource(R.string.nav_item_forward),
                     tint = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier
                         .size(48.dp)
@@ -258,37 +256,34 @@ fun SourceOptionCard(
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         elevation = 0.dp,
+        colors = CardDefaults.cardColors(
+            containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
+        ),
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
         )
     ) {
-        ListItem(
+        Row(
             modifier = modifier
                 .fillMaxWidth()
-                .heightIn(min = 88.dp),
-            colors = ListItemDefaults.colors(
-                containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
-            ),
-            headlineContent = {
-                Row {
-                    Icon(
-                        modifier = Modifier
-                            .size(24.dp),
-                        painter = painterResource(iconRes),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(textRes)
-                    )
-                    Text(
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        text = stringResource(textRes),
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                }
-            }
-        )
+                .padding(16.dp)
+        ) {
+            Icon(
+                modifier = Modifier
+                    .size(24.dp),
+                painter = painterResource(iconRes),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(textRes)
+            )
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = stringResource(textRes),
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
     }
 }
 

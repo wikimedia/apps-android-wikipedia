@@ -9,7 +9,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.wikipedia.Constants
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.ReadingListActivity
@@ -50,7 +49,9 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         onNextClick = {
                             viewModel.saveSourceSelection().let { shouldGoToInterests ->
                                 if (shouldGoToInterests) {
-                                    // TODO: Navigate to interests screen
+                                    requireActivity().supportFragmentManager.beginTransaction()
+                                        .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
+                                        .addToBackStack(null).commit()
                                 } else {
                                     startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                                 }
@@ -74,7 +75,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
         fun newInstance(fromSettings: Boolean = false): RecommendedReadingListSourceFragment {
             return RecommendedReadingListSourceFragment().apply {
                 arguments = Bundle().apply {
-                    putBoolean(Constants.ARG_BOOLEAN, fromSettings)
+                    putBoolean(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS, fromSettings)
                 }
             }
         }

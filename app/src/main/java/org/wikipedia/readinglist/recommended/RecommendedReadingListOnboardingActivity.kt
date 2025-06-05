@@ -8,25 +8,23 @@ import org.wikipedia.activity.SingleFragmentActivity
 class RecommendedReadingListOnboardingActivity : SingleFragmentActivity<Fragment>() {
 
     public override fun createFragment(): Fragment {
-        val fromSetting = intent.getBooleanExtra(EXTRA_FROM_SETTING, false)
+        val fromSettings = intent.getBooleanExtra(EXTRA_FROM_SETTINGS, false)
         val startFromSourceSelection = intent.getBooleanExtra(EXTRA_START_FROM_SOURCE_SELECTION, true)
         return if (startFromSourceSelection) {
-            RecommendedReadingListSourceFragment.newInstance(fromSetting)
+            RecommendedReadingListSourceFragment.newInstance(fromSettings)
         } else {
-            // TODO: add this for the article interests screen when it is ready
-            Fragment()
+            RecommendedReadingListInterestsFragment.newInstance(fromSettings)
         }
     }
 
     companion object {
-
         private const val EXTRA_START_FROM_SOURCE_SELECTION = "startFromSourceSelection"
-        private const val EXTRA_FROM_SETTING = "fromSetting"
+        const val EXTRA_FROM_SETTINGS = "fromSettings"
 
-        fun newIntent(context: Context, startFromSourceSelection: Boolean = true, fromSetting: Boolean = false): Intent {
+        fun newIntent(context: Context, startFromSourceSelection: Boolean = true, fromSettings: Boolean = false): Intent {
             return Intent(context, RecommendedReadingListOnboardingActivity::class.java).apply {
                 putExtra(EXTRA_START_FROM_SOURCE_SELECTION, startFromSourceSelection)
-                putExtra(EXTRA_FROM_SETTING, fromSetting)
+                putExtra(EXTRA_FROM_SETTINGS, fromSettings)
             }
         }
     }

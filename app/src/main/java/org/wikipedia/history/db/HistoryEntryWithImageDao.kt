@@ -71,9 +71,9 @@ interface HistoryEntryWithImageDao {
         return list
     }
 
-    suspend fun findEntryForReadMore(age: Int, minTimeSpent: Int): List<HistoryEntry> {
+    suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int): List<HistoryEntry> {
         val entries = findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
-            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, age + 1)
+            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit)
         return entries.map { toHistoryEntry(it) }
     }
 
