@@ -1908,6 +1908,16 @@
     <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
     <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
     <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
+    <string name="year_in_review_survey_satisfied">Satisfied</string>
+    <string name="year_in_review_survey_neutral">Neutral</string>
+    <string name="year_in_review_survey_unsatisfied">Unsatisfied</string>
+    <string name="year_in_review_survey_very_unsatisfied">Very unsatisfied</string>
+    <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
+    <string name="year_in_review_survey_cancel">Cancel</string>
+    <string name="year_in_review_survey_submit">Submit</string>
     <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
     <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
