@@ -90,9 +90,11 @@ import kotlin.math.absoluteValue
 fun YearInReviewScreen(
     context: Context = LocalContext.current,
     customBottomBar: @Composable (PagerState) -> Unit,
-    screenContent: @Composable (PaddingValues, YearInReviewScreenData) -> Unit,
+    screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
-    contentData: List<YearInReviewScreenData>
+    contentData: List<YearInReviewScreenData>,
+    viewModel: YearInReviewViewModel,
+    showSurvey: ((Boolean) -> Unit)? = null
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
@@ -135,7 +137,11 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            (context as? ComponentActivity)?.finish()
+                            if (viewModel.uiCanShowSurvey.value) {
+                                showSurvey?.invoke(true)
+                            } else {
+                                (context as? ComponentActivity)?.finish()
+                            }
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.Onboarding.name)
@@ -171,10 +177,10 @@ fun YearInReviewScreen(
                 state = pagerState,
                 contentPadding = PaddingValues(0.dp),
             ) { page ->
-                screenContent(innerPadding, contentData[page])
+                screenContent(innerPadding, contentData[page], pagerState)
             }
         } else {
-            screenContent(innerPadding, contentData[0])
+            screenContent(innerPadding, contentData[0], pagerState)
         }
     }
 }
