@@ -88,7 +88,6 @@ class ReadingListFragmentViewModel : ViewModel() {
                         ).apply {
                             mtime = System.currentTimeMillis()
                             atime = mtime
-                            inAnyList = AppDatabase.instance.readingListPageDao().findPageInAnyList(ReadingListPage.toPageTitle(this)) != null
                         }
                     }
                     val recommendedList = ReadingList(

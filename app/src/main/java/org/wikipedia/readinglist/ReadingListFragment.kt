@@ -114,13 +114,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
 
-        touchCallback = if (readingListMode == ReadingListMode.RECOMMENDED) {
-            SwipeableItemTouchHelperCallback(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color),
-                R.drawable.ic_bookmark_border_white_24dp, android.R.color.white, true, binding.readingListSwipeRefresh)
-        } else {
-            SwipeableItemTouchHelperCallback(requireContext())
-        }
+        touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -782,13 +776,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
             } else {
                 view.hideChipGroup()
-            }
-            if (page.inAnyList) {
-                view.setTag(R.string.tag_text_key, "")
-                view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_white_24dp)
-            } else {
-                view.setTag(R.string.tag_text_key, "")
-                view.setTag(R.string.tag_icon_key, R.drawable.ic_bookmark_border_white_24dp)
             }
         }
 
