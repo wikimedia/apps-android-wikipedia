@@ -545,6 +545,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun previewSaveDialog() {
         readingList?.let {
             val view = ReadingListPreviewSaveDialogView(requireContext())
+            view.readingListMode = readingListMode
             val savedPages = it.pages.toMutableList()
             var readingListTitle = getString(R.string.reading_list_name_sample)
 
@@ -564,6 +565,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     it.pages.clear()
                     it.pages.addAll(savedPages)
                     it.listTitle = readingListTitle
+                    if (readingListMode == ReadingListMode.RECOMMENDED) {
+                        it.description = null
+                    }
                     // Save reading list to database
                     it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
