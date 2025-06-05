@@ -111,7 +111,7 @@ object NotificationPresenter {
     }
 
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
-                         title: String, text: String, longText: CharSequence, lang: String?,
+                         title: String, text: String, longText: CharSequence?, lang: String?,
                          @DrawableRes icon: Int?, @ColorRes color: Int, bodyIntent: Intent) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return
