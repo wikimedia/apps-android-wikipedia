@@ -8,6 +8,8 @@ import org.wikipedia.R
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import java.time.DayOfWeek
 import java.time.Duration
@@ -43,7 +45,6 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.WEEKLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_weekly)
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
-        // @TODO: add intent to open the recommended reading list screen
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
@@ -54,7 +55,7 @@ object RecommendedReadingListNotificationManager {
             lang = null,
             icon = null,
             color = R.color.blue600,
-            bodyIntent = Intent()
+            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED)
         )
     }
 
