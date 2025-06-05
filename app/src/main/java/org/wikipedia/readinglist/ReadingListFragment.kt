@@ -2,6 +2,7 @@ package org.wikipedia.readinglist
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuItemCompat
@@ -56,6 +58,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
@@ -585,6 +588,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
     }
 
+    fun updateNotificationIcon() {
+        headerView.callback?.onNotification()
+    }
+
     /**
      * CAUTION: This returns the selected pages AND automatically marks them as unselected.
      * Make sure to call this getter once, and operate only on the returned list.
@@ -688,6 +695,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun maybeShowCustomizeSnackbar() {
         if (isRecommendedList && !Prefs.isRecommendedReadingListOnboardingShown) {
+            requestPermissionAndScheduleRecommendedReadingNotification()
             val message = getString(
                 R.string.recommended_reading_list_page_snackbar,
                 Prefs.recommendedReadingListArticlesNumber,
@@ -709,7 +717,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             .setMessage(R.string.recommended_reading_list_settings_notifications_dialog_message)
             .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
                 Prefs.isRecommendedReadingListNotificationEnabled = false
-                // TODO: show snackbar
+                requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
             }
             .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
@@ -717,10 +725,24 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     return@setNegativeButton
                 }
                 Prefs.isRecommendedReadingListNotificationEnabled = true
-                // TODO: show snackbar
+                requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
             }
             .show()
+    }
+
+    private fun requestPermissionAndScheduleRecommendedReadingNotification() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val permission = android.Manifest.permission.POST_NOTIFICATIONS
+            when {
+                ContextCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED -> {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
+                }
+                else -> (requireActivity() as ReadingListActivity).requestPermissionLauncher.launch(permission)
+            }
+        } else {
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
+        }
     }
 
     private inner class AppBarListener : OnOffsetChangedListener {
@@ -903,6 +925,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 showRecommendedReadingListNotificationOffDialog()
             } else {
                 Prefs.isRecommendedReadingListNotificationEnabled = true
+                requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
             }
         }

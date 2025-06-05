@@ -5,12 +5,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.ResourceUtil
 
-class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
+class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {
 
     private var readingListMode: ReadingListMode = ReadingListMode.DEFAULT
 
@@ -42,6 +43,10 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
         if (readingListMode == ReadingListMode.DEFAULT) {
             ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
         }
+    }
+
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        fragment.updateNotificationIcon()
     }
 
     companion object {
