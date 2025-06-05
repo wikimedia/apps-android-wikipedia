@@ -61,6 +61,7 @@ object RecommendedReadingListHelper {
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
+        var newListGenerated = false
         sourcesWithOffset.forEach { sourceWithOffset ->
             var recommendedPage: PageTitle? = null
             var retryCount = 0
@@ -90,8 +91,11 @@ object RecommendedReadingListHelper {
 
                 // Insert the recommended page into the database
                 AppDatabase.instance.recommendedPageDao().insert(finalRecommendedPage)
+                newListGenerated = true
             }
         }
+
+        Prefs.isNewRecommendedReadingListGenerated = newListGenerated
 
         return true
     }
