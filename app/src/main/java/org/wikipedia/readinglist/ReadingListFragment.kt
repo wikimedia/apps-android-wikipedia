@@ -72,7 +72,8 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
 
@@ -192,6 +193,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.errorView.isVisible = false
                                 binding.readingListHeader.isVisible = true
                                 binding.readingListSwipeRefresh.isVisible = true
+                                binding.readingListSwipeRefresh.isRefreshing = false
                                 update()
                                 maybeShowCustomizeSnackbar()
                             }
@@ -242,9 +244,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         binding.readingListAppBar.removeOnOffsetChangedListener(appBarListener)
         _binding = null
 
-        // TODO: remove this
-        Prefs.isRecommendedReadingListOnboardingShown = false
-        Prefs.isRecommendedReadingListEnabled = false
         super.onDestroyView()
     }
 
@@ -392,6 +391,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun setSwipeRefreshView() {
+        if (isRecommendedList) {
+            return
+        }
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
         if (RemoteConfig.config.disableReadingListSync) {
             binding.readingListSwipeRefresh.isEnabled = false
@@ -740,7 +742,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     actionMode == null && appBarLayout.totalScrollRange + verticalOffset > appBarLayout.totalScrollRange / 2)
             (requireActivity() as ReadingListActivity).updateNavigationBarColor()
             // prevent swiping when collapsing the view
-            binding.readingListSwipeRefresh.isEnabled = verticalOffset == 0
+            binding.readingListSwipeRefresh.isEnabled = verticalOffset == 0 && !isRecommendedList
         }
     }
 
@@ -766,7 +768,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    if (readingListMode == ReadingListMode.DEFAULT) false else !page.offline || page.saving)
+                    if (readingListMode != ReadingListMode.DEFAULT) false else !page.offline || page.saving)
             view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
             view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
@@ -801,21 +803,11 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         }
                     }
                 }
-                ReadingListMode.RECOMMENDED -> {
-                    readingList?.let {
-                        val title = ReadingListPage.toPageTitle(page)
-                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title = title, addToDefault = true, InvokeSource.READING_LIST_ACTIVITY)
-                        readingList?.pages?.find { it == page }?.let {
-                            it.inAnyList = !page.inAnyList
-                        }
-                        adapter.notifyDataSetChanged()
-                    }
-                }
-                ReadingListMode.PREVIEW -> { }
+                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW -> { }
             }
         }
 
-        override fun isSwipeable(): Boolean { return !isPreview }
+        override fun isSwipeable(): Boolean { return readingListMode == ReadingListMode.DEFAULT }
     }
 
     private inner class ReadingListHeaderHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

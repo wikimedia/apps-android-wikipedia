@@ -57,7 +57,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
         clipToPadding = false
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, android.R.attr.selectableItemBackground))
         isClickable = true
         isFocusable = true
         clearThumbnails()
@@ -174,13 +174,13 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
 
         if (readingListMode == ReadingListMode.RECOMMENDED) {
             val madeForText = if (AccountUtil.isLoggedIn) {
-                context.getString(R.string.recommended_reading_list_page_subtitle_made_for, AccountUtil.userName)
+                context.getString(R.string.recommended_reading_list_page_subtitle_made_for, "<b>" + AccountUtil.userName + "</b>")
             } else {
                 context.getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you)
             }
             val articleSize = readingList?.pages?.size ?: 0
             binding.itemRecommendedListNumberOfArticles.isVisible = AccountUtil.isLoggedIn
-            binding.itemRecommendedListMadeFor.text = madeForText
+            binding.itemRecommendedListMadeFor.text = StringUtil.fromHtml(madeForText)
             binding.itemRecommendedListNumberOfArticles.text = context.resources.getQuantityString(
                 R.plurals.recommended_reading_list_page_subtitle_articles, articleSize, articleSize
             )
