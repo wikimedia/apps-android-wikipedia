@@ -172,4 +172,10 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         binding.pageListItemDescription.alpha = alpha
         binding.pageListItemImage.alpha = alpha
     }
+
+    fun setViewsRead(read: Boolean) {
+        val readBackground = if (read) R.attr.background_color else R.attr.paper_color
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, if (read) Typeface.NORMAL else Typeface.BOLD)
+        binding.pageListItemContainer.setBackgroundColor(ResourceUtil.getThemedColor(context, readBackground))
+    }
 }

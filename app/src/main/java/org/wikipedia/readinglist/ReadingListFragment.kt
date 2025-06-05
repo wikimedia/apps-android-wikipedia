@@ -794,6 +794,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
+            PageAvailableOfflineHandler.checkHistory(viewLifecycleOwner.lifecycleScope, pageTitle) { view.setViewsRead(!it) }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
                 view.setTitleEllipsis()
