@@ -1,9 +1,11 @@
 package org.wikipedia.readinglist.recommended
 
 import org.wikipedia.Constants
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
@@ -96,9 +98,8 @@ object RecommendedReadingListHelper {
                 newListGenerated = true
             }
         }
-
         Prefs.isNewRecommendedReadingListGenerated = newListGenerated
-
+        FlowEventBus.post(NewRecommendedReadingListEvent())
         return newRecommendedPages
     }
 
