@@ -1,6 +1,6 @@
 package org.wikipedia.readinglist.recommended
 
-import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +35,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -87,6 +86,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
@@ -121,13 +122,18 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                 BaseTheme {
                     RecommendedReadingListInterestsScreen(
                         uiState = viewModel.uiState.collectAsState().value,
+                        fromSettings = viewModel.fromSettings,
                         onCloseClick = {
+                            if (viewModel.fromSettings) {
+                                viewModel.commitSelection()
+                                requireActivity().setResult(RESULT_OK)
+                                requireActivity().finish()
+                            }
                             requireActivity().onBackPressedDispatcher.onBackPressed()
                         },
                         onNextClick = {
                             viewModel.commitSelection()
-                            requireActivity().setResult(Activity.RESULT_OK)
-                            requireActivity().finish()
+                            startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             backClickListener = {
@@ -213,8 +219,8 @@ fun RecommendedReadingListInterestsScreen(
                 },
                 navigationIcon = {
                     Icon(
-                        imageVector = if (!fromSettings) Icons.AutoMirrored.Filled.ArrowBack else Icons.Default.Close,
-                        contentDescription = stringResource(if (!fromSettings) R.string.search_back_button_content_description else R.string.table_close),
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.search_back_button_content_description),
                         modifier = Modifier
                             .size(48.dp)
                             .clickable(onClick = onCloseClick)
@@ -269,6 +275,7 @@ fun RecommendedReadingListInterestsScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     RecommendedReadingListInterestsContent(
+                        fromSettings = fromSettings,
                         listState = listState,
                         items = uiState.data.items,
                         selectedItems = uiState.data.selectedItems,
@@ -285,6 +292,7 @@ fun RecommendedReadingListInterestsScreen(
 
 @Composable
 fun RecommendedReadingListInterestsContent(
+    fromSettings: Boolean,
     listState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
     items: List<PageTitle> = emptyList(),
     selectedItems: Set<PageTitle> = emptySet(),
@@ -373,16 +381,18 @@ fun RecommendedReadingListInterestsContent(
                 fontWeight = FontWeight.Bold,
                 color = WikipediaTheme.colors.primaryColor
             )
-            Icon(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
-                    .padding(12.dp)
-                    .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
-                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.nav_item_forward)
-            )
+            if (!fromSettings) {
+                Icon(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
+                        .padding(12.dp)
+                        .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.nav_item_forward)
+                )
+            }
         }
     }
 }
