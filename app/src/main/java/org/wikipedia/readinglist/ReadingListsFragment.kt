@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -49,6 +50,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -872,6 +874,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 false -> { getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you) }
             }
 
+            LaunchedEffect(Unit) {
+                FlowEventBus.events.collect { event ->
+                    if (event is NewRecommendedReadingListEvent) {
+                        isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated
+                    }
+                }
+            }
             val description = when (Prefs.recommendedReadingListUpdateFrequency) {
                 RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
                 RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
@@ -881,8 +890,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 RecommendedReadingListDiscoverCardView(
                     modifier = Modifier
                         .clickable {
-                            isNewListGenerated = false
                             Prefs.isNewRecommendedReadingListGenerated = false
+                            FlowEventBus.post(NewRecommendedReadingListEvent())
                             startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.RECOMMENDED))
                         }
                         .padding(16.dp),
