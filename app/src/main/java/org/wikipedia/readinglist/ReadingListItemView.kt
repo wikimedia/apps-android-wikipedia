@@ -1,13 +1,17 @@
 package org.wikipedia.readinglist
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import androidx.appcompat.widget.PopupMenu
+import androidx.appcompat.view.menu.MenuBuilder
+import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -25,6 +29,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
+@SuppressLint("RestrictedApi")
 class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onClick(readingList: ReadingList) {}
@@ -71,34 +76,26 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
 
         setOnLongClickListener { view ->
             readingList?.let {
-                PopupMenu(context, view, Gravity.END).let { menu ->
-                    menu.menuInflater.inflate(R.menu.menu_reading_list_item, menu.menu)
-                    if (it.isDefault) {
-                        menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
-                        menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
-                    }
-                    menu.menu.findItem(R.id.menu_reading_list_select).title =
-                        context.getString(if (it.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
-                    menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
-                    menu.show()
-                }
+                showOverflowMenu(
+                    isLongPress = true,
+                    readingList = it,
+                    readingListMode = ReadingListMode.DEFAULT,
+                    anchorView = view,
+                    gravity = Gravity.END
+                )
             }
             false
         }
 
         binding.itemOverflowMenu.setOnClickListener { anchorView ->
             readingList?.let {
-                PopupMenu(context, anchorView, Gravity.END).let { menu ->
-                    menu.menuInflater.inflate(R.menu.menu_reading_list_item, menu.menu)
-                    menu.menu.findItem(R.id.menu_reading_list_select).isVisible = false
-                    if (it.isDefault) {
-                        menu.menu.findItem(R.id.menu_reading_list_rename).isVisible = false
-                        menu.menu.findItem(R.id.menu_reading_list_delete).isVisible = false
-                    }
-                    menu.menu.findItem(R.id.menu_reading_list_share).isVisible = false
-                    menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
-                    menu.show()
-                }
+                showOverflowMenu(
+                    isLongPress = false,
+                    readingList = it,
+                    readingListMode = ReadingListMode.DEFAULT,
+                    anchorView = anchorView,
+                    gravity = Gravity.FILL_HORIZONTAL
+                )
             }
         }
 
@@ -194,13 +191,15 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
             )
 
             // Reset the overflow menu
-            binding.itemOverflowMenu.setOnClickListener { anchorView ->
+            binding.itemOverflowMenu.setOnClickListener {
                 readingList?.let {
-                    PopupMenu(context, anchorView, Gravity.END).let { menu ->
-                        menu.menuInflater.inflate(R.menu.menu_recommended_reading_list_item, menu.menu)
-                        menu.setOnMenuItemClickListener(OverflowMenuClickListener(it))
-                        menu.show()
-                    }
+                    showOverflowMenu(
+                        isLongPress = false,
+                        readingList = it,
+                        readingListMode = readingListMode,
+                        anchorView = binding.itemOverflowMenu,
+                        gravity = Gravity.FILL_HORIZONTAL
+                    )
                 }
             }
         }
@@ -264,11 +263,50 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         return readingList.sizeBytesFromPages / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
     }
 
-    private inner class OverflowMenuClickListener(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
-        override fun onMenuItemClick(item: MenuItem): Boolean {
-            BreadCrumbLogEvent.logClick(context, item)
+    private fun showOverflowMenu(
+        isLongPress: Boolean,
+        readingList: ReadingList,
+        readingListMode: ReadingListMode,
+        anchorView: View,
+        gravity: Int = Gravity.END
+    ) {
+        (context as? Activity)?.let { activity ->
+            val builder = MenuBuilder(activity)
+            if (isLongPress) {
+                activity.menuInflater.inflate(R.menu.menu_reading_list_item, builder)
+                if (readingList.isDefault) {
+                    builder.findItem(R.id.menu_reading_list_rename)?.isVisible = false
+                    builder.findItem(R.id.menu_reading_list_delete)?.isVisible = false
+                }
+                builder.findItem(R.id.menu_reading_list_select)?.title =
+                    context.getString(if (readingList.selected) R.string.reading_list_menu_unselect else R.string.reading_list_menu_select)
+            } else {
+                if (readingListMode == ReadingListMode.RECOMMENDED) {
+                    activity.menuInflater.inflate(R.menu.menu_recommended_reading_list_item, builder)
+                } else {
+                    activity.menuInflater.inflate(R.menu.menu_reading_list_item, builder)
+                    builder.findItem(R.id.menu_reading_list_select).isVisible = false
+                    if (readingList.isDefault) {
+                        builder.findItem(R.id.menu_reading_list_rename).isVisible = false
+                        builder.findItem(R.id.menu_reading_list_delete).isVisible = false
+                    }
+                    builder.findItem(R.id.menu_reading_list_share).isVisible = false
+                }
+            }
+            builder.setCallback(OverflowMenuClickListener(readingList))
+            val helper = MenuPopupHelper(activity, builder, anchorView)
+            helper.setForceShowIcon(true)
+            helper.gravity = gravity
+            helper.show()
+        }
+    }
+
+    private inner class OverflowMenuClickListener(private val list: ReadingList?) : MenuBuilder.Callback {
+        override fun onMenuItemSelected(menu: MenuBuilder, menuItem: MenuItem): Boolean {
+            BreadCrumbLogEvent.logClick(context, menuItem)
             return list?.let {
-                when (item.itemId) {
+                when (menuItem.itemId) {
+
                     R.id.menu_reading_list_rename -> {
                         callback?.onRename(it)
                         true
@@ -290,7 +328,10 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
                     }
 
                     R.id.menu_reading_list_export -> {
-                        ReadingListsExportImportHelper.exportLists(context as BaseActivity, listOf(it))
+                        ReadingListsExportImportHelper.exportLists(
+                            context as BaseActivity,
+                            listOf(it)
+                        )
                         true
                     }
 
@@ -301,7 +342,14 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
 
                     R.id.menu_reading_list_share -> {
                         callback?.onShare(it)
-                        return true
+                        true
+                    }
+
+                    R.id.menu_reading_list_share -> {
+                        readingList?.let {
+                            callback?.onShare(it)
+                        }
+                        true
                     }
 
                     R.id.menu_customize -> {
@@ -318,5 +366,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
                 }
             } == true
         }
+
+        override fun onMenuModeChange(menu: MenuBuilder) { }
     }
 }
