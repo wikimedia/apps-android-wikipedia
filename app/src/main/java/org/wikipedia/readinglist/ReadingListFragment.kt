@@ -183,9 +183,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             }
                             is Resource.Success -> {
                                 readingList = it.data
-                                readingList?.let { list ->
-                                    binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, list.title))
-                                }
                                 binding.progressBar.isVisible = false
                                 binding.errorView.isVisible = false
                                 binding.readingListHeader.isVisible = true
@@ -695,6 +692,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun maybeShowCustomizeSnackbar() {
         if (isRecommendedList && !Prefs.isRecommendedReadingListOnboardingShown) {
+            // Register the notification permission and schedule the notification for the first time.
             requestPermissionAndScheduleRecommendedReadingNotification()
             val message = getString(
                 R.string.recommended_reading_list_page_snackbar,
@@ -715,17 +713,17 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.recommended_reading_list_settings_notifications_dialog_title)
             .setMessage(R.string.recommended_reading_list_settings_notifications_dialog_message)
-            .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
-                Prefs.isRecommendedReadingListNotificationEnabled = false
-                requestPermissionAndScheduleRecommendedReadingNotification()
-                update()
-            }
-            .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
+            .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
                 if (Prefs.isRecommendedReadingListNotificationEnabled) {
-                    return@setNegativeButton
+                    return@setPositiveButton
                 }
                 Prefs.isRecommendedReadingListNotificationEnabled = true
                 requestPermissionAndScheduleRecommendedReadingNotification()
+                update()
+            }
+            .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
+                Prefs.isRecommendedReadingListNotificationEnabled = false
+                RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()
             }
             .show()
@@ -795,7 +793,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             view.setSearchQuery(currentSearchQuery)
             PageAvailableOfflineHandler.check(page) { view.setViewsGreyedOut(!it) }
             if (isRecommendedList) {
-                PageAvailableOfflineHandler.checkHistory(viewLifecycleOwner.lifecycleScope, pageTitle) { view.setViewsRead(!it) }
+                PageAvailableOfflineHandler.checkHistory(viewLifecycleOwner.lifecycleScope, pageTitle) { view.setViewsRead(it) }
             }
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)

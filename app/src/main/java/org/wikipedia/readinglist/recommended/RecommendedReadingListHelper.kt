@@ -12,21 +12,21 @@ object RecommendedReadingListHelper {
 
     private const val MAX_RETRIES = 10
 
-    suspend fun generateRecommendedReadingList(): Boolean {
+    suspend fun generateRecommendedReadingList(): List<RecommendedPage> {
         if (!Prefs.isRecommendedReadingListEnabled) {
-            return false
+            return emptyList()
         }
         var numberOfArticles = Prefs.recommendedReadingListArticlesNumber
         if (numberOfArticles <= 0) {
-            return false
+            return emptyList()
         }
         // Check if amount of new articles to see if we really need to generate a new list
-        val newArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().size
-        if (newArticles >= numberOfArticles) {
-            return true
+        val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+        if (existingRecommendedPages.size >= numberOfArticles) {
+            return existingRecommendedPages
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
-            numberOfArticles -= newArticles
+            numberOfArticles -= existingRecommendedPages.size
         }
 
         // Step 1: get titles from the source by number of articles
@@ -59,6 +59,7 @@ object RecommendedReadingListHelper {
         }
 
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
+        val newRecommendedPages = mutableListOf<RecommendedPage>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
         var newListGenerated = false
@@ -91,13 +92,14 @@ object RecommendedReadingListHelper {
 
                 // Insert the recommended page into the database
                 AppDatabase.instance.recommendedPageDao().insert(finalRecommendedPage)
+                newRecommendedPages.add(finalRecommendedPage)
                 newListGenerated = true
             }
         }
 
         Prefs.isNewRecommendedReadingListGenerated = newListGenerated
 
-        return true
+        return newRecommendedPages
     }
 
     private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {

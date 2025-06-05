@@ -66,9 +66,9 @@ class ReadingListFragmentViewModel : ViewModel() {
             }
         }) {
             _recommendedListFlow.value = Resource.Loading()
-            RecommendedReadingListHelper.generateRecommendedReadingList().let { generated ->
+            RecommendedReadingListHelper.generateRecommendedReadingList().let { list ->
                 val context = WikipediaApp.instance
-                if (generated) {
+                if (list.isNotEmpty()) {
                     val description = when (Prefs.recommendedReadingListUpdateFrequency) {
                         RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
                         RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
@@ -76,7 +76,7 @@ class ReadingListFragmentViewModel : ViewModel() {
                     }
 
                     // Get the recommended reading list from the database
-                    val recommendedListPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages().map {
+                    val recommendedListPages = list.map {
                         ReadingListPage(
                             wiki = it.wiki,
                             namespace = it.namespace,
