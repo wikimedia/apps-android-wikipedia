@@ -103,7 +103,7 @@ fun SourceSelectionScreen(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 64.dp),
+                        .padding(paddingValues),
                 ) {
                     LinearProgressIndicator(
                         modifier = Modifier.fillMaxWidth(),
