@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.util.FeedbackUtil
 
 class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Callback {
@@ -37,6 +38,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        callback = this
         setContent {
             val uiState by viewModel.uiState.collectAsState()
 
@@ -56,11 +58,16 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         // @TODO: implement when interest screen is complete
                     },
                     onNotificationStateChanged = {
-                        viewModel.toggleNotification(it)
-                        // @TODO: implement actual notification after notification ticket is merged
+                        if (it) {
+                            requestPermissionAndScheduleRecommendedReadingNotification()
+                        } else {
+                            RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(this)
+                            viewModel.toggleNotification(false)
+                        }
                     },
                     onUpdateFrequency = {
                         viewModel.updateFrequency(it)
+                        requestPermissionAndScheduleRecommendedReadingNotification()
                     },
                     onArticleNumberChanged = {
                         viewModel.updateArticleNumbers(it)
@@ -73,19 +80,28 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
         }
     }
 
-    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {}
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
+            viewModel.toggleNotification(true)
+        } else {
+            viewModel.toggleNotification(false)
+        }
+    }
 
-    private fun requestPermissionAndScheduleGameNotification() {
+    private fun requestPermissionAndScheduleRecommendedReadingNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
             when {
                 ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED -> {
-                   // @TODO: implement after notification ticket is merged
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
+                    viewModel.toggleNotification(true)
                 }
                 else -> requestPermissionLauncher.launch(permission)
             }
         } else {
-            // @TODO: implement after notification ticket is merged
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
+            viewModel.toggleNotification(true)
         }
     }
 
