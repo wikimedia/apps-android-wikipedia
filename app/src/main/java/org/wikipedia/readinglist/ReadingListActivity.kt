@@ -5,12 +5,15 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.ResourceUtil
 
-class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
+class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {
+
+    private var readingListMode: ReadingListMode = ReadingListMode.DEFAULT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +22,9 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     }
 
     public override fun createFragment(): ReadingListFragment {
-        val isPreview = intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)
-        return if (isPreview) {
-            ReadingListFragment.newInstance(true)
+       readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
+        return if (readingListMode != ReadingListMode.DEFAULT) {
+            ReadingListFragment.newInstance(readingListMode)
         } else {
             ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
         }
@@ -37,15 +40,19 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
+        if (readingListMode == ReadingListMode.DEFAULT) {
             ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
         }
+    }
+
+    override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        fragment.updateNotificationIcon()
     }
 
     companion object {
         private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
-        const val EXTRA_READING_LIST_PREVIEW = "previewReadingList"
+        const val EXTRA_READING_LIST_MODE = "readingListMode"
 
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
@@ -53,9 +60,9 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
         }
 
-        fun newIntent(context: Context, preview: Boolean): Intent {
+        fun newIntent(context: Context, readingListMode: ReadingListMode): Intent {
             return Intent(context, ReadingListActivity::class.java)
-                .putExtra(EXTRA_READING_LIST_PREVIEW, preview)
+                .putExtra(EXTRA_READING_LIST_MODE, readingListMode)
         }
     }
 }

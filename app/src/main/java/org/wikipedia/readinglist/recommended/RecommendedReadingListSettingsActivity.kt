@@ -1,5 +1,7 @@
 package org.wikipedia.readinglist.recommended
 
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -24,7 +26,6 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     private lateinit var currentRecommendedReadingListSource: RecommendedReadingListSource
 
     private val recommendedReadingListSourceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        //  @TODO: call this code when discover screen is complete
         if (it.resultCode == RESULT_OK) {
             viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
             if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
@@ -115,5 +116,11 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                 onAction()
             }
             .show()
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, RecommendedReadingListSettingsActivity::class.java)
+        }
     }
 }

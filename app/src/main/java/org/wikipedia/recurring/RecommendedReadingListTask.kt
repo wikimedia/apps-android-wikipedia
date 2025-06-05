@@ -1,8 +1,8 @@
 package org.wikipedia.recurring
 
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
-import org.wikipedia.readinglist.recommended.RecommendedReadingListViewModel
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import java.util.Date
@@ -26,6 +26,6 @@ class RecommendedReadingListTask() : RecurringTask() {
     }
 
     override suspend fun run(lastRun: Date) {
-        RecommendedReadingListViewModel.generateRecommendedReadingList()
+        RecommendedReadingListHelper.generateRecommendedReadingList()
     }
 }
