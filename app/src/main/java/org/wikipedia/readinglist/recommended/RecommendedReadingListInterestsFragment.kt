@@ -283,7 +283,6 @@ fun RecommendedReadingListInterestsScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecommendedReadingListInterestsContent(
     listState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
@@ -444,6 +443,8 @@ fun ReadingListInterestCard(
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(1f)
                         )
+                    } else {
+                        Spacer(modifier = Modifier.weight(1f))
                     }
                     if (isSelected) {
                         Icon(
