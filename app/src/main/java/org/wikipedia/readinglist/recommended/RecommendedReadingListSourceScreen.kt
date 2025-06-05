@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist.recommended
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -60,6 +61,9 @@ fun SourceSelectionScreen(
     onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
+    BackHandler {
+        onCloseClick()
+    }
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
