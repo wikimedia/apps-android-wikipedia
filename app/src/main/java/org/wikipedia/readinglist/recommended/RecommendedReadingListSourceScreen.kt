@@ -56,7 +56,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
