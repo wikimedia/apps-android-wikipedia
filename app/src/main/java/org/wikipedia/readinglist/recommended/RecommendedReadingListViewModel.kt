@@ -15,6 +15,7 @@ import org.wikipedia.util.Resource
 class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val fromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
+    var adjustDialogShown = false
 
     private val _uiSourceState = MutableStateFlow(Resource<SourceSelectionUiState>())
     val uiSourceState: StateFlow<Resource<SourceSelectionUiState>> = _uiSourceState.asStateFlow()

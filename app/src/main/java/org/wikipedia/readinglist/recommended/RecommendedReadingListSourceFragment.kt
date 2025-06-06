@@ -9,11 +9,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent\
+import org.wikipedia.R
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.settings.Prefs
 
 class RecommendedReadingListSourceFragment : Fragment() {
 
@@ -36,16 +39,22 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             requireActivity().finish()
                         },
                         onSourceClick = {
-                            when (it) {
-                                RecommendedReadingListSource.INTERESTS -> {
-                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.INTERESTS)
+                            if (viewModel.fromSettings) {
+                                if (it == Prefs.recommendedReadingListSource || viewModel.adjustDialogShown) {
+                                    viewModel.updateSourceSelection(newSource = it)
+                                    return@SourceSelectionScreen
                                 }
-                                RecommendedReadingListSource.READING_LIST -> {
-                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.READING_LIST)
-                                }
-                                RecommendedReadingListSource.HISTORY -> {
-                                    viewModel.updateSourceSelection(newSource = RecommendedReadingListSource.HISTORY)
-                                }
+                                viewModel.adjustDialogShown = true
+                                MaterialAlertDialogBuilder(requireContext())
+                                    .setTitle(R.string.recommended_reading_list_settings_updates_base_dialog_title)
+                                    .setMessage(R.string.recommended_reading_list_settings_updates_base_dialog_message)
+                                    .setPositiveButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
+                                        viewModel.updateSourceSelection(newSource = it)
+                                    }
+                                    .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button, null)
+                                    .show()
+                            } else {
+                                viewModel.updateSourceSelection(newSource = it)
                             }
                         },
                         onNextClick = {
