@@ -14,6 +14,7 @@ object RecommendedReadingListEvent {
         optionsShown: String? = null,
         countSelected: Int? = null,
         countSaved: Int? = null,
+        currentSetting: String? = null,
         selected: String? = null,
         source: String? = null,
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
@@ -23,6 +24,7 @@ object RecommendedReadingListEvent {
             optionsShown = optionsShown,
             countSelected = countSelected,
             countSaved = countSaved,
+            currentSetting = currentSetting,
             selected = selected,
             source = source
         )
@@ -45,6 +47,7 @@ object RecommendedReadingListEvent {
         @SerialName("options_shown") val optionsShown: String? = null,
         @SerialName("count_selected") val countSelected: Int? = null,
         @SerialName("count_saved") val countSaved: Int? = null,
+        @SerialName("current_setting") val currentSetting: String? = null,
         val selected: String? = null,
         val source: String? = null
     )
