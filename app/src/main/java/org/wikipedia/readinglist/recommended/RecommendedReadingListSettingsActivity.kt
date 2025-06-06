@@ -61,12 +61,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         onBackPressed()
                     },
                     onRecommendedReadingListSourceClick = {
-                        val selectSourceForEvent = when (Prefs.recommendedReadingListSource) {
-                            RecommendedReadingListSource.INTERESTS -> "interests"
-                            RecommendedReadingListSource.READING_LIST -> "saved"
-                            RecommendedReadingListSource.HISTORY -> "history"
-                        }
-                        RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = selectSourceForEvent)
+                        RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = Prefs.recommendedReadingListSource.eventString)
                         currentRecommendedReadingListSource = Prefs.recommendedReadingListSource
                         recommendedReadingListSourceLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, fromSettings = true))
                     },

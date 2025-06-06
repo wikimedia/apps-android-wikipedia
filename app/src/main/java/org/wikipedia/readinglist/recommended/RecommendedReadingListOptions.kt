@@ -25,8 +25,10 @@ enum class RecommendedReadingListUpdateFrequency(
     )
 }
 
-enum class RecommendedReadingListSource {
-    INTERESTS,
-    READING_LIST,
-    HISTORY
+enum class RecommendedReadingListSource(
+    val eventString: String
+) {
+    INTERESTS("interests"),
+    READING_LIST("saved"),
+    HISTORY("history")
 }

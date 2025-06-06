@@ -48,6 +48,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
@@ -166,8 +167,8 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
-    val sourceOptionsForEvent = mutableListOf<String>()
-    var selectedSourceForEvent = "interests"
+    val sourceOptionsForEvent = mutableListOf<RecommendedReadingListSource>()
+    var selectedSourceForEvent = Prefs.recommendedReadingListSource
     val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
 
     Column(
@@ -199,32 +200,28 @@ fun SourceSelectionContent(
                 modifier = Modifier
                     .clickable(onClick = {
                         onSourceClick(RecommendedReadingListSource.INTERESTS)
-                        if (!fromSettings) {
-                            selectedSourceForEvent = "interests"
-                            RecommendedReadingListEvent.submit("interests_click", activeInterface)
-                        }
+                        selectedSourceForEvent = RecommendedReadingListSource.INTERESTS
+                        RecommendedReadingListEvent.submit("interests_click", activeInterface)
                     }),
                 iconRes = R.drawable.outline_interests_24,
                 textRes = R.string.recommended_reading_list_interest_source_interests,
                 isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
             )
-            sourceOptionsForEvent.add("interests")
+            sourceOptionsForEvent.add(RecommendedReadingListSource.INTERESTS)
 
             if (isSavedOptionEnabled) {
                 SourceOptionCard(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.READING_LIST)
-                            if (!fromSettings) {
-                                selectedSourceForEvent = "saved"
-                                RecommendedReadingListEvent.submit("saved_click", activeInterface)
-                            }
+                            selectedSourceForEvent = RecommendedReadingListSource.READING_LIST
+                            RecommendedReadingListEvent.submit("saved_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_bookmark_border_white_24dp,
                     textRes = R.string.recommended_reading_list_interest_source_saved,
                     isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                 )
-                sourceOptionsForEvent.add("saved")
+                sourceOptionsForEvent.add(RecommendedReadingListSource.READING_LIST)
             }
 
             if (isHistoryOptionEnabled) {
@@ -232,16 +229,14 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.HISTORY)
-                            if (!fromSettings) {
-                                selectedSourceForEvent = "history"
-                                RecommendedReadingListEvent.submit("history_click", activeInterface)
-                            }
+                            selectedSourceForEvent = RecommendedReadingListSource.HISTORY
+                            RecommendedReadingListEvent.submit("history_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_history_24,
                     textRes = R.string.recommended_reading_list_interest_source_history,
                     isSelected = selectedSource == RecommendedReadingListSource.HISTORY
                 )
-                sourceOptionsForEvent.add("history")
+                sourceOptionsForEvent.add(RecommendedReadingListSource.HISTORY)
             }
         }
 
@@ -269,9 +264,9 @@ fun SourceSelectionContent(
                             onNextClick()
                             RecommendedReadingListEvent.submit(
                                 action = "submit_click",
-                                activeInterface = "rrl_hub_select",
+                                activeInterface = activeInterface,
                                 optionsShown = sourceOptionsForEvent.toString(),
-                                selected = selectedSourceForEvent
+                                selected = selectedSourceForEvent.eventString
                             )
                         })
                         .padding(12.dp)
@@ -280,7 +275,7 @@ fun SourceSelectionContent(
         }
     }
 
-    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = sourceOptionsForEvent.toString())
+    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = sourceOptionsForEvent.map { it.eventString }.toString())
 }
 
 @Composable
