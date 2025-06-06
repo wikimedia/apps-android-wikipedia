@@ -32,13 +32,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                 showSnackBar(Prefs.recommendedReadingListSource, onAction = {
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
                 })
+                Prefs.resetRecommendedReadingList = true
             }
         }
     }
 
     private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            // TODO
+            Prefs.resetRecommendedReadingList = true
         }
     }
 

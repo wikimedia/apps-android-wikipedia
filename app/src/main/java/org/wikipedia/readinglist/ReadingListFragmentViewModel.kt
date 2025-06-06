@@ -66,7 +66,7 @@ class ReadingListFragmentViewModel : ViewModel() {
             }
         }) {
             _recommendedListFlow.value = Resource.Loading()
-            RecommendedReadingListHelper.generateRecommendedReadingList().let { list ->
+            RecommendedReadingListHelper.generateRecommendedReadingList(shouldExpireOldPages = Prefs.resetRecommendedReadingList).let { list ->
                 val context = WikipediaApp.instance
                 if (list.isNotEmpty()) {
                     val description = when (Prefs.recommendedReadingListUpdateFrequency) {
@@ -79,6 +79,7 @@ class ReadingListFragmentViewModel : ViewModel() {
                     val recommendedListPages = list.map {
                         ReadingListPage(
                             wiki = it.wiki,
+                            lang = it.wiki.languageCode,
                             namespace = it.namespace,
                             displayTitle = it.displayTitle,
                             apiTitle = it.apiTitle,
