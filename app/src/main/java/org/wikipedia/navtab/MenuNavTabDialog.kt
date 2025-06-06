@@ -38,9 +38,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        if (Prefs.isYearInReviewEnabled) {
-            binding.mainDrawerYearInReviewContainer.visibility = View.VISIBLE
-        }
+        binding.mainDrawerYearInReviewContainer.isVisible = Prefs.isYearInReviewEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
