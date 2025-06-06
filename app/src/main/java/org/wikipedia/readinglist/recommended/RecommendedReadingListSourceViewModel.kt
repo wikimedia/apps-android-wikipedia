@@ -12,7 +12,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 
-class RecommendedReadingListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val fromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
     var adjustDialogShown = false

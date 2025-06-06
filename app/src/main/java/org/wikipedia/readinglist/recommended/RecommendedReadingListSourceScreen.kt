@@ -54,15 +54,17 @@ import org.wikipedia.util.Resource
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
-    uiState: Resource<RecommendedReadingListViewModel.SourceSelectionUiState>,
+    uiState: Resource<RecommendedReadingListSourceViewModel.SourceSelectionUiState>,
     fromSettings: Boolean,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
     onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
+    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     BackHandler {
+        RecommendedReadingListEvent.submit("close_click", activeInterface)
         onCloseClick()
     }
     Scaffold(
@@ -87,7 +89,10 @@ fun SourceSelectionScreen(
                         contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
-                            .clickable(onClick = onCloseClick)
+                            .clickable(onClick = {
+                                RecommendedReadingListEvent.submit("close_click", activeInterface)
+                                onCloseClick()
+                            })
                             .padding(12.dp),
                         tint = WikipediaTheme.colors.primaryColor
                     )
@@ -163,6 +168,7 @@ fun SourceSelectionContent(
 ) {
     val sourceOptionsForEvent = mutableListOf<String>()
     var selectedSourceForEvent = "interests"
+    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
 
     Column(
         modifier = Modifier
@@ -193,8 +199,10 @@ fun SourceSelectionContent(
                 modifier = Modifier
                     .clickable(onClick = {
                         onSourceClick(RecommendedReadingListSource.INTERESTS)
-                        selectedSourceForEvent = "interests"
-                        RecommendedReadingListEvent.submit("interests_click", "rrl_hub_select")
+                        if (!fromSettings) {
+                            selectedSourceForEvent = "interests"
+                            RecommendedReadingListEvent.submit("interests_click", activeInterface)
+                        }
                     }),
                 iconRes = R.drawable.outline_interests_24,
                 textRes = R.string.recommended_reading_list_interest_source_interests,
@@ -207,8 +215,10 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.READING_LIST)
-                            selectedSourceForEvent = "saved"
-                            RecommendedReadingListEvent.submit("saved_click", "rrl_hub_select")
+                            if (!fromSettings) {
+                                selectedSourceForEvent = "saved"
+                                RecommendedReadingListEvent.submit("saved_click", activeInterface)
+                            }
                         }),
                     iconRes = R.drawable.ic_bookmark_border_white_24dp,
                     textRes = R.string.recommended_reading_list_interest_source_saved,
@@ -222,8 +232,10 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.HISTORY)
-                            selectedSourceForEvent = "history"
-                            RecommendedReadingListEvent.submit("history_click", "rrl_hub_select")
+                            if (!fromSettings) {
+                                selectedSourceForEvent = "history"
+                                RecommendedReadingListEvent.submit("history_click", activeInterface)
+                            }
                         }),
                     iconRes = R.drawable.ic_history_24,
                     textRes = R.string.recommended_reading_list_interest_source_history,
@@ -268,7 +280,7 @@ fun SourceSelectionContent(
         }
     }
 
-    RecommendedReadingListEvent.submit("impression", "rrl_hub_select", optionsShown = sourceOptionsForEvent.toString())
+    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = sourceOptionsForEvent.toString())
 }
 
 @Composable
@@ -320,7 +332,7 @@ fun DefaultPreviewSourceSelectionScreen() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         SourceSelectionScreen(
             uiState = Resource.Success(
-                RecommendedReadingListViewModel.SourceSelectionUiState(
+                RecommendedReadingListSourceViewModel.SourceSelectionUiState(
                     isSavedOptionEnabled = true,
                     isHistoryOptionEnabled = true,
                     selectedSource = RecommendedReadingListSource.INTERESTS

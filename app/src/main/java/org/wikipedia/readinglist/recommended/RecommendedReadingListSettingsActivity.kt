@@ -32,6 +32,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
             if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
                 showSnackBar(Prefs.recommendedReadingListSource, onAction = {
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                    RecommendedReadingListEvent.submit("built_undo_click", "discover_settings")
                 })
             }
         }
@@ -39,7 +40,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
 
     private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            // TODO
+            // ignore
         }
     }
 
@@ -83,11 +84,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                     },
                     onUpdateFrequency = {
-                        val frequencyForEvent = when (it) {
-                            RecommendedReadingListUpdateFrequency.DAILY -> "daily"
-                            RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
-                            RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
-                        }
+                        val frequencyForEvent = getString(it.displayStringRes)
                         RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
                         requestPermissionAndScheduleRecommendedReadingNotification()

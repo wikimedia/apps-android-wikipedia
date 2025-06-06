@@ -10,8 +10,8 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent\
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.ReadingListActivity
@@ -20,7 +20,7 @@ import org.wikipedia.settings.Prefs
 
 class RecommendedReadingListSourceFragment : Fragment() {
 
-    private val viewModel: RecommendedReadingListViewModel by viewModels()
+    private val viewModel: RecommendedReadingListSourceViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -31,7 +31,6 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         uiState = viewModel.uiSourceState.collectAsState().value,
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
-                            RecommendedReadingListEvent.submit("close_click", "rrl_hub_select")
                             if (viewModel.fromSettings) {
                                 viewModel.saveSourceSelection()
                                 requireActivity().setResult(RESULT_OK)
@@ -49,9 +48,12 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                     .setTitle(R.string.recommended_reading_list_settings_updates_base_dialog_title)
                                     .setMessage(R.string.recommended_reading_list_settings_updates_base_dialog_message)
                                     .setPositiveButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
+                                        RecommendedReadingListEvent.submit("adjust_click", "discover_settings")
                                         viewModel.updateSourceSelection(newSource = it)
                                     }
-                                    .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button, null)
+                                    .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button) { _, _ ->
+                                        RecommendedReadingListEvent.submit("built_cancel_click", "discover_settings")
+                                    }
                                     .show()
                             } else {
                                 viewModel.updateSourceSelection(newSource = it)
