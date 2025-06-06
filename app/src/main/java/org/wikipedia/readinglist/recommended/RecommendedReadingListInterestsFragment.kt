@@ -403,7 +403,7 @@ fun RecommendedReadingListInterestsContent(
                 ),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Medium,
                 color = WikipediaTheme.colors.primaryColor
             )
             if (!fromSettings) {
