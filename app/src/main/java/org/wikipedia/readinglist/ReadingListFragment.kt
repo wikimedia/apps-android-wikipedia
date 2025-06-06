@@ -581,6 +581,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
                     Prefs.readingListRecentReceivedId = it.id
 
+                    if (isRecommendedList) {
+                        RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = it.pages.size)
+                    }
+
                     requireActivity().startActivity(MainActivity.newIntent(requireContext())
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                     requireActivity().finish()
@@ -999,7 +1003,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val entry = HistoryEntry(title, if (isRecommendedList) HistoryEntry.SOURCE_RECOMMENDED_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
-                RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")
+                if (isRecommendedList) {
+                    RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")
+                }
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
