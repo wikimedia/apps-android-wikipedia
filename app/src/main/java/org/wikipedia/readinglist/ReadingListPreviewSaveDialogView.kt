@@ -23,7 +23,7 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.util.Date
 
-class ReadingListPreviewSaveDialogView : FrameLayout {
+class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
         fun onError()
@@ -36,10 +36,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
     private lateinit var savedReadingListPages: MutableList<ReadingListPage>
     private lateinit var callback: Callback
     private var currentReadingLists: MutableList<ReadingList>
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    var readingListMode = ReadingListMode.PREVIEW
 
     init {
         layoutParams = ViewGroup.LayoutParams(
@@ -58,7 +55,12 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
         this.callback = callback
-        val defaultListTitle = context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
+        val titleRes = if (readingListMode == ReadingListMode.PREVIEW) {
+            R.string.reading_lists_preview_header_title
+        } else {
+            R.string.recommended_reading_list_title
+        }
+        val defaultListTitle = context.getString(titleRes).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
         binding.readingListTitleLayout.editText?.setText(defaultListTitle)
         validateTitleAndList()
         binding.recyclerView.adapter = ReadingListItemAdapter()

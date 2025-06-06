@@ -29,7 +29,7 @@ class BecauseYouReadClient(
                 cb.success(emptyList())
             }
         ) {
-            val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            val entries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, context.resources.getInteger(R.integer.article_engagement_threshold_sec))
             if (entries.size <= age) {
                 cb.success(emptyList())
             } else {

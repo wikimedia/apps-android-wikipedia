@@ -30,4 +30,14 @@ object PageAvailableOfflineHandler {
             callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }
+
+    fun checkHistory(lifeCycleScope: CoroutineScope, pageTitle: PageTitle, callback: Callback) {
+        lifeCycleScope.launch(CoroutineExceptionHandler { _, exception ->
+            callback.onFinish(false)
+            L.w(exception)
+        }) {
+            val readingListPage = AppDatabase.instance.historyEntryDao().findEntryBy(pageTitle.wikiSite.authority(), pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+            callback.onFinish(readingListPage != null)
+        }
+    }
 }

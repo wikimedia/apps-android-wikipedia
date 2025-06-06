@@ -15,7 +15,10 @@ import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemPageListEntryBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -78,7 +81,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
                 ViewUtil.loadImage(binding.pageListItemImage, imageUrl)
             }
             binding.pageListItemSelectedImage.visibility = GONE
-            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
+            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, android.R.attr.selectableItemBackground))
         }
     }
 
@@ -168,5 +171,11 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         binding.pageListItemTitle.alpha = alpha
         binding.pageListItemDescription.alpha = alpha
         binding.pageListItemImage.alpha = alpha
+    }
+
+    fun setViewsRead(read: Boolean) {
+        val readBackground = if (read) R.attr.background_color else R.attr.paper_color
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, if (read) Typeface.NORMAL else Typeface.BOLD)
+        binding.pageListItemContainer.setBackgroundColor(ResourceUtil.getThemedColor(context, readBackground))
     }
 }

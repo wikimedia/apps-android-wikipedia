@@ -24,7 +24,7 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
         binding.messageTextView.text = text
     }
 
-    fun setImageResource(@DrawableRes imageResource: Int, visible: Boolean) {
+    fun setImageResource(@DrawableRes imageResource: Int = -1, visible: Boolean) {
         if (visible) {
             binding.imageView.visibility = VISIBLE
             binding.imageView.setImageResource(imageResource)
@@ -97,6 +97,11 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
         binding.positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         binding.positiveButton.setOnClickListener(onClickListener)
         binding.containerClickArea.setOnClickListener(onClickListener)
+    }
+
+    fun setMessageLabel(message: String?) {
+        binding.messageLabel.text = message
+        binding.messageLabel.visibility = if (message.isNullOrEmpty()) GONE else VISIBLE
     }
 
     private fun setDefaultState() {
