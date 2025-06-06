@@ -63,8 +63,8 @@ object RecommendedReadingListHelper {
         // Step 2: combine the titles with the offsite from Prefs.
         val sourcesWithOffset = mutableListOf<SourceWithOffset>()
         titles.forEach { pageTitle ->
-            val offset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.prefixedText }?.offset ?: 0
-            sourcesWithOffset.add(SourceWithOffset(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, offset))
+            val offset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.text }?.offset ?: 0
+            sourcesWithOffset.add(SourceWithOffset(pageTitle.text, pageTitle.wikiSite.languageCode, offset))
         }
 
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
