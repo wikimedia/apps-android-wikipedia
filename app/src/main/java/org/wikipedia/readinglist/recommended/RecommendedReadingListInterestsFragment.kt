@@ -48,7 +48,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -74,12 +77,12 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -155,19 +158,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                             viewModel.toggleSelection(it)
                         },
                         onRandomizeClick = {
-                            MaterialAlertDialogBuilder(requireActivity())
-                                .setTitle(R.string.recommended_reading_list_interest_pick_random_dialog_title)
-                                .setMessage(R.string.recommended_reading_list_interest_pick_random_dialog_message)
-                                .setPositiveButton(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button) { dialog, _ ->
-                                    viewModel.randomizeSelection()
-                                    RecommendedReadingListEvent.submit("random_confirm_click", "rrl_interests_select")
-                                    dialog.dismiss()
-                                }
-                                .setNegativeButton(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button) { dialog, _ ->
-                                    RecommendedReadingListEvent.submit("random_cancel_click", "rrl_interests_select")
-                                    dialog.dismiss()
-                                }
-                                .show()
+                            viewModel.randomizeSelection()
                         }
                     )
                 }
@@ -195,7 +186,7 @@ fun RecommendedReadingListInterestsScreen(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
-    onRandomizeClick: () -> Unit = {},
+    onRandomizeClick: () -> Unit,
     onSearchClick: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
@@ -205,6 +196,28 @@ fun RecommendedReadingListInterestsScreen(
         derivedStateOf {
             listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > collapseHeight
         }
+    }
+
+    var showRandomizeDialog by remember { mutableStateOf(false) }
+    if (showRandomizeDialog) {
+        WikipediaAlertDialog(
+            title = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_title),
+            message = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_message),
+            confirmButtonText = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button),
+            dismissButtonText = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button),
+            onDismissRequest = {
+                showRandomizeDialog = false
+            },
+            onConfirmButtonClick = {
+                onRandomizeClick()
+                RecommendedReadingListEvent.submit("random_confirm_click", "rrl_interests_select")
+                showRandomizeDialog = false
+            },
+            onDismissButtonClick = {
+                RecommendedReadingListEvent.submit("random_cancel_click", "rrl_interests_select")
+                showRandomizeDialog = false
+            }
+        )
     }
 
     Scaffold(
@@ -289,7 +302,9 @@ fun RecommendedReadingListInterestsScreen(
                         selectedItems = uiState.data.selectedItems,
                         onNextClick = onNextClick,
                         onItemClick = onItemClick,
-                        onRandomizeClick = onRandomizeClick,
+                        onRandomizeClick = {
+                            showRandomizeDialog = true
+                        },
                         onSearchClick = onSearchClick
                     )
                 }
@@ -366,7 +381,7 @@ fun RecommendedReadingListInterestsContent(
                 },
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (!fromSettings) {
+            if (fromSettings) {
                 Icon(
                     modifier = Modifier
                         .size(48.dp)
@@ -540,7 +555,8 @@ fun PreviewReadingListInterestsScreen() {
             onCloseClick = {},
             onNextClick = {},
             onSearchClick = {},
-            onItemClick = {}
+            onItemClick = {},
+            onRandomizeClick = {},
         )
     }
 }
