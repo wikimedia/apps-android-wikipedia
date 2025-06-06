@@ -49,6 +49,15 @@ class LoginClient {
                         is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
                         else -> cb.error(LoginFailedException(parsedMessage))
                     }
+                } else if (LoginResult.STATUS_FAIL == loginResult.status) {
+                    // If the result is FAIL, it's still possible that the authmanager expects a CAPTCHA.
+                    // We need to make one more call to authmanager to make sure.
+                    val response = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+                    if (response.isNullOrEmpty()) {
+                        cb.error(LoginFailedException(loginResult.message))
+                    } else {
+                        cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), loginToken)
+                    }
                 } else {
                     cb.error(LoginFailedException(loginResult.message))
                 }

@@ -313,6 +313,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     suspend fun getAuthManagerInfo(): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
+    suspend fun getAuthManagerForLogin(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
 
