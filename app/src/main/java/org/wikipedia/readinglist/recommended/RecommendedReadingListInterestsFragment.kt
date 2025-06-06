@@ -503,8 +503,8 @@ fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp)
-            .clip(RoundedCornerShape(24.dp))
+            .height(56.dp)
+            .clip(RoundedCornerShape(28.dp))
             .background(
                 color = WikipediaTheme.colors.backgroundColor,
                 shape = RoundedCornerShape(24.dp)
