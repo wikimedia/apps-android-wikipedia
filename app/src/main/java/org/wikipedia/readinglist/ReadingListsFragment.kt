@@ -815,6 +815,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setImageResource(-1, false)
             binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
                 startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
                 RecommendedReadingListEvent.submit("enter_click", "rrl_saved_prompt")

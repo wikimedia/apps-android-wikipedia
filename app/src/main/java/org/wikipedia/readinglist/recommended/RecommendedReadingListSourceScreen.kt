@@ -301,7 +301,7 @@ fun SourceOptionCard(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(24.dp)
         ) {
             Icon(
                 modifier = Modifier
