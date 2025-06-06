@@ -18,6 +18,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.log.L
 
 class ReadingListFragmentViewModel : ViewModel() {
 
@@ -99,6 +100,7 @@ class ReadingListFragmentViewModel : ViewModel() {
                         mtime = System.currentTimeMillis()
                         atime = mtime
                     }
+                    L.d("RRL: success + ${recommendedList.pages.size} pages")
                     _recommendedListFlow.value = Resource.Success(recommendedList)
                 } else {
                     _recommendedListFlow.value = Resource.Error(Throwable(context.getString(R.string.error_message_generic)))
