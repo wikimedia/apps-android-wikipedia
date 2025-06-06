@@ -81,6 +81,9 @@ fun SourceSelectionScreen(
             }
         }
     }
+
+    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = optionsShown.map { it.eventString }.toString())
+
     BackHandler {
         RecommendedReadingListEvent.submit("close_click", activeInterface)
         onCloseClick()
@@ -189,8 +192,7 @@ fun SourceSelectionScreen(
                                 currentSetting = Prefs.recommendedReadingListSource.eventString
                             )
                             onNextClick()
-                        },
-                        optionsShown = optionsShown
+                        }
                     )
                 }
             }
@@ -205,8 +207,7 @@ fun SourceSelectionContent(
     selectedSource: RecommendedReadingListSource,
     isSavedOptionEnabled: Boolean,
     isHistoryOptionEnabled: Boolean,
-    fromSettings: Boolean,
-    optionsShown: List<RecommendedReadingListSource>
+    fromSettings: Boolean
 ) {
     val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
 
@@ -301,8 +302,6 @@ fun SourceSelectionContent(
             }
         }
     }
-
-    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = optionsShown.map { it.eventString }.toString())
 }
 
 @Composable
