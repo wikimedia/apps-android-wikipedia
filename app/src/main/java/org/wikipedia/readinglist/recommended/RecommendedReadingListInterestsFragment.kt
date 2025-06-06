@@ -351,6 +351,7 @@ fun RecommendedReadingListInterestsContent(
                 }
                 items(items) { item ->
                     ReadingListInterestCard(
+                        modifier = Modifier.animateItem(),
                         item = item,
                         isSelected = selectedItems.contains(item),
                         onItemClick = onItemClick
@@ -379,7 +380,7 @@ fun RecommendedReadingListInterestsContent(
                 },
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (fromSettings) {
+            if (!fromSettings) {
                 Icon(
                     modifier = Modifier
                         .size(48.dp)
@@ -426,12 +427,13 @@ fun RecommendedReadingListInterestsContent(
 
 @Composable
 fun ReadingListInterestCard(
+    modifier: Modifier,
     item: PageTitle,
     isSelected: Boolean = false,
     onItemClick: (PageTitle) -> Unit = {},
 ) {
     WikiCard(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         elevation = 0.dp,
         border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
