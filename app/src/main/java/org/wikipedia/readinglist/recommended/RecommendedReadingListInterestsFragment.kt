@@ -366,15 +366,17 @@ fun RecommendedReadingListInterestsContent(
                 },
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clickable(onClick = onRandomizeClick)
-                    .padding(12.dp),
-                painter = painterResource(R.drawable.ic_dice_24),
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
-            )
+            if (!fromSettings) {
+                Icon(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clickable(onClick = onRandomizeClick)
+                        .padding(12.dp),
+                    painter = painterResource(R.drawable.ic_dice_24),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
+                )
+            }
             Text(
                 modifier = Modifier
                     .padding(start = 8.dp, end = 8.dp)
@@ -465,12 +467,15 @@ fun ReadingListInterestCard(
                         Spacer(modifier = Modifier.weight(1f))
                     }
                     if (isSelected) {
+                        Spacer(modifier = Modifier.width(8.dp))
                         Icon(
                             modifier = Modifier.size(24.dp).align(Alignment.Bottom),
                             imageVector = Icons.Default.CheckCircle,
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
+                    } else {
+                        Spacer(modifier = Modifier.width(32.dp).height(24.dp))
                     }
                 }
             }
