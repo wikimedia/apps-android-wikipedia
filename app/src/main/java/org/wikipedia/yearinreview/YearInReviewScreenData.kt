@@ -1,7 +1,8 @@
 package org.wikipedia.yearinreview
 
 data class YearInReviewScreenData(
-    val imageResource: Int,
+    val animatedImageResource: Int,
+    val staticImageResource: Int,
     var headLineText: Any? = null,
     var bodyText: Any? = null
 )
