@@ -169,7 +169,6 @@ apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
 
-
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile

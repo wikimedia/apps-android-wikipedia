@@ -345,7 +345,7 @@ fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
     context: Context,
-    isShareSheetView: Boolean = false
+    screenCaptureMode: Boolean = false
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -358,7 +358,7 @@ fun YearInReviewScreenContent(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context)
-                .data(if (isShareSheetView) screenData.staticImageResource else screenData.animatedImageResource)
+                .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
                 .allowHardware(false)
                 .build(),
             contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
@@ -384,7 +384,7 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                if (!isShareSheetView) {
+                if (!screenCaptureMode) {
                     IconButton(
                         onClick = {
                             UriUtil.handleExternalLink(
@@ -445,7 +445,7 @@ fun ScreenShotScaffold(
         YearInReviewScreenContent(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
-            isShareSheetView = true,
+            screenCaptureMode = true,
             context = context
         )
 
