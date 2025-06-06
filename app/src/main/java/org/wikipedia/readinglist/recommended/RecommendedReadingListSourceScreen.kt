@@ -219,6 +219,8 @@ fun SourceSelectionContent(
     ) {
         if (!fromSettings) {
             Spacer(modifier = Modifier.weight(1f))
+        } else {
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
         Column(
@@ -327,7 +329,7 @@ fun SourceOptionCard(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(24.dp)
+                .padding(16.dp)
         ) {
             Icon(
                 modifier = Modifier
