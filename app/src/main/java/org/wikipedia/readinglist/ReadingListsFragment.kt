@@ -809,8 +809,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if (RecommendedReadingListAbTest().isTestGroupUser() &&
-            !Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
+        if (RecommendedReadingListAbTest().isTestGroupUser() && !Prefs.isRecommendedReadingListOnboardingShown) {
             RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
