@@ -17,6 +17,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.StringUtil
 
 class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val fromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
@@ -64,6 +65,21 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                         .getPageTitle(WikipediaApp.instance.wikiSite)
                     if (!results.contains(title)) {
                         results.add(title)
+                    }
+                }
+            }
+
+            // Hydrate titles, if necessary
+            val itemsNeedingCall = results
+                .filter { it.description.isNullOrEmpty() || it.thumbUrl.isNullOrEmpty() }
+                .groupBy { it.wikiSite }
+            itemsNeedingCall.keys.forEach { site ->
+                val pageList = ServiceFactory.get(site).getInfoByPageIdsOrTitles(titles = itemsNeedingCall[site]?.joinToString("|") { it.prefixedText })
+                    .query?.pages.orEmpty()
+                pageList.forEach { page ->
+                    results.find { it.prefixedText == StringUtil.addUnderscores(page.title) }?.let { title ->
+                        title.description = page.description
+                        title.thumbUrl = page.thumbUrl()
                     }
                 }
             }
