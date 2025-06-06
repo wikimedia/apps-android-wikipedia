@@ -52,6 +52,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
+val sourceOptionsForEvent = mutableListOf<RecommendedReadingListSource>()
+var selectedSourceForEvent = Prefs.recommendedReadingListSource
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
@@ -91,7 +94,17 @@ fun SourceSelectionScreen(
                         modifier = Modifier
                             .size(48.dp)
                             .clickable(onClick = {
-                                RecommendedReadingListEvent.submit("close_click", activeInterface)
+                                if (fromSettings) {
+                                    RecommendedReadingListEvent.submit(
+                                        action = "submit_click",
+                                        activeInterface = activeInterface,
+                                        optionsShown = sourceOptionsForEvent.map { it.eventString }.toString(),
+                                        selected = selectedSourceForEvent.eventString,
+                                        currentSetting = Prefs.recommendedReadingListSource.eventString
+                                    )
+                                } else {
+                                    RecommendedReadingListEvent.submit("close_click", activeInterface)
+                                }
                                 onCloseClick()
                             })
                             .padding(12.dp),
@@ -167,9 +180,9 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
-    val sourceOptionsForEvent = mutableListOf<RecommendedReadingListSource>()
-    var selectedSourceForEvent = Prefs.recommendedReadingListSource
     val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
+
+    sourceOptionsForEvent.clear()
 
     Column(
         modifier = Modifier
