@@ -26,6 +26,6 @@ class RecommendedReadingListTask() : RecurringTask() {
     }
 
     override suspend fun run(lastRun: Date) {
-        RecommendedReadingListHelper.generateRecommendedReadingList()
+        RecommendedReadingListHelper.generateRecommendedReadingList(true)
     }
 }

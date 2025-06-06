@@ -19,11 +19,17 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateArticleNumbers(number: Int) {
+        if (number != Prefs.recommendedReadingListArticlesNumber) {
+            Prefs.resetRecommendedReadingList = true
+        }
         Prefs.recommendedReadingListArticlesNumber = number
         _uiState.value = _uiState.value.copy(articlesNumber = number)
     }
 
     fun updateFrequency(frequency: RecommendedReadingListUpdateFrequency) {
+        if (frequency != Prefs.recommendedReadingListUpdateFrequency) {
+            Prefs.resetRecommendedReadingList = true
+        }
         Prefs.recommendedReadingListUpdateFrequency = frequency
         _uiState.value = _uiState.value.copy(updateFrequency = frequency)
     }
@@ -34,6 +40,9 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateRecommendedReadingListSource(source: RecommendedReadingListSource) {
+        if (source != Prefs.recommendedReadingListSource) {
+            Prefs.resetRecommendedReadingList = true
+        }
         Prefs.recommendedReadingListSource = source
         _uiState.value = _uiState.value.copy(recommendedReadingListSource = source)
     }

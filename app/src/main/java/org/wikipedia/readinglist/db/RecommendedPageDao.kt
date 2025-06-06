@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.RecommendedPage
 
@@ -19,8 +18,8 @@ interface RecommendedPageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(recommendedPages: List<RecommendedPage>)
 
-    @Update
-    suspend fun updateAll(recommendedPages: List<RecommendedPage>)
+    @Query("UPDATE RecommendedPage SET status = 1 WHERE status = 0")
+    suspend fun expireOldRecommendedPages()
 
     @Query("SELECT COUNT(*) FROM RecommendedPage WHERE apiTitle = :apiTitle AND wiki = :wiki")
     suspend fun findIfAny(apiTitle: String, wiki: WikiSite): Int

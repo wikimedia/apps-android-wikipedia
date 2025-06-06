@@ -820,4 +820,8 @@ object Prefs {
     var isNewRecommendedReadingListGenerated
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
+
+    var resetRecommendedReadingList
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 }
