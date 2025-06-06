@@ -818,8 +818,8 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_onboarding_shown, value)
 
     var isNewRecommendedReadingListGenerated
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_notification_enabled, value)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_new_list_generated, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_new_list_generated, value)
 
     var resetRecommendedReadingList
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
