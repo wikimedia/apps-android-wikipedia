@@ -48,7 +48,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -69,17 +72,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import coil3.compose.AsyncImage
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -154,20 +158,11 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         onItemClick = {
                             viewModel.toggleSelection(it)
                         },
-                        onRandomizeClick = {
-                            MaterialAlertDialogBuilder(requireActivity())
-                                .setTitle(R.string.recommended_reading_list_interest_pick_random_dialog_title)
-                                .setMessage(R.string.recommended_reading_list_interest_pick_random_dialog_message)
-                                .setPositiveButton(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button) { dialog, _ ->
-                                    viewModel.randomizeSelection()
-                                    RecommendedReadingListEvent.submit("random_confirm_click", "rrl_interests_select")
-                                    dialog.dismiss()
-                                }
-                                .setNegativeButton(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button) { dialog, _ ->
-                                    RecommendedReadingListEvent.submit("random_cancel_click", "rrl_interests_select")
-                                    dialog.dismiss()
-                                }
-                                .show()
+                        onRandomizeClick = { listState ->
+                            viewModel.randomizeSelection()
+                            lifecycleScope.launch {
+                                listState.scrollToItem(0)
+                            }
                         }
                     )
                 }
@@ -195,7 +190,7 @@ fun RecommendedReadingListInterestsScreen(
     onItemClick: (PageTitle) -> Unit = {},
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
-    onRandomizeClick: () -> Unit = {},
+    onRandomizeClick: (listState: LazyStaggeredGridState) -> Unit,
     onSearchClick: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
@@ -205,6 +200,28 @@ fun RecommendedReadingListInterestsScreen(
         derivedStateOf {
             listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > collapseHeight
         }
+    }
+
+    var showRandomizeDialog by remember { mutableStateOf(false) }
+    if (showRandomizeDialog) {
+        WikipediaAlertDialog(
+            title = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_title),
+            message = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_message),
+            confirmButtonText = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button),
+            dismissButtonText = stringResource(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button),
+            onDismissRequest = {
+                showRandomizeDialog = false
+            },
+            onConfirmButtonClick = {
+                onRandomizeClick(listState)
+                RecommendedReadingListEvent.submit("random_confirm_click", "rrl_interests_select")
+                showRandomizeDialog = false
+            },
+            onDismissButtonClick = {
+                RecommendedReadingListEvent.submit("random_cancel_click", "rrl_interests_select")
+                showRandomizeDialog = false
+            }
+        )
     }
 
     Scaffold(
@@ -289,7 +306,9 @@ fun RecommendedReadingListInterestsScreen(
                         selectedItems = uiState.data.selectedItems,
                         onNextClick = onNextClick,
                         onItemClick = onItemClick,
-                        onRandomizeClick = onRandomizeClick,
+                        onRandomizeClick = {
+                            showRandomizeDialog = true
+                        },
                         onSearchClick = onSearchClick
                     )
                 }
@@ -325,10 +344,9 @@ fun RecommendedReadingListInterestsContent(
                     Text(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 48.dp, bottom = 4.dp),
-                        style = WikipediaTheme.typography.bodyLarge,
+                            .padding(top = 48.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+                        style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.primaryColor,
-                        fontSize = 22.sp,
                         textAlign = TextAlign.Center,
                         text = stringResource(R.string.recommended_reading_list_interest_pick_title)
                     )
@@ -338,6 +356,7 @@ fun RecommendedReadingListInterestsContent(
                 }
                 items(items) { item ->
                     ReadingListInterestCard(
+                        modifier = Modifier.animateItem(),
                         item = item,
                         isSelected = selectedItems.contains(item),
                         onItemClick = onItemClick
@@ -366,15 +385,19 @@ fun RecommendedReadingListInterestsContent(
                 },
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clickable(onClick = onRandomizeClick)
-                    .padding(12.dp),
-                painter = painterResource(R.drawable.ic_dice_24),
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
-            )
+            if (!fromSettings) {
+                Icon(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clickable(onClick = onRandomizeClick)
+                        .padding(12.dp),
+                    painter = painterResource(R.drawable.ic_dice_24),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
+                )
+            } else {
+                Spacer(modifier = Modifier.width(48.dp))
+            }
             Text(
                 modifier = Modifier
                     .padding(start = 8.dp, end = 8.dp)
@@ -386,7 +409,7 @@ fun RecommendedReadingListInterestsContent(
                 ),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Medium,
                 color = WikipediaTheme.colors.primaryColor
             )
             if (!fromSettings) {
@@ -400,6 +423,8 @@ fun RecommendedReadingListInterestsContent(
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.nav_item_forward)
                 )
+            } else {
+                Spacer(modifier = Modifier.width(48.dp))
             }
         }
     }
@@ -407,12 +432,13 @@ fun RecommendedReadingListInterestsContent(
 
 @Composable
 fun ReadingListInterestCard(
+    modifier: Modifier,
     item: PageTitle,
     isSelected: Boolean = false,
     onItemClick: (PageTitle) -> Unit = {},
 ) {
     WikiCard(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         elevation = 0.dp,
         border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
@@ -447,15 +473,15 @@ fun ReadingListInterestCard(
             ) {
                 HtmlText(
                     text = item.displayText,
-                    style = WikipediaTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(2.dp))
                 Row {
                     if (!item.description.isNullOrEmpty()) {
                         HtmlText(
                             text = item.description.orEmpty(),
-                            style = WikipediaTheme.typography.bodyMedium,
+                            style = MaterialTheme.typography.bodyMedium,
                             color = WikipediaTheme.colors.secondaryColor,
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
@@ -465,12 +491,15 @@ fun ReadingListInterestCard(
                         Spacer(modifier = Modifier.weight(1f))
                     }
                     if (isSelected) {
+                        Spacer(modifier = Modifier.width(8.dp))
                         Icon(
                             modifier = Modifier.size(24.dp).align(Alignment.Bottom),
                             imageVector = Icons.Default.CheckCircle,
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
+                    } else {
+                        Spacer(modifier = Modifier.width(32.dp).height(24.dp))
                     }
                 }
             }
@@ -483,8 +512,8 @@ fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp)
-            .clip(RoundedCornerShape(24.dp))
+            .height(56.dp)
+            .clip(RoundedCornerShape(28.dp))
             .background(
                 color = WikipediaTheme.colors.backgroundColor,
                 shape = RoundedCornerShape(24.dp)
@@ -535,7 +564,8 @@ fun PreviewReadingListInterestsScreen() {
             onCloseClick = {},
             onNextClick = {},
             onSearchClick = {},
-            onItemClick = {}
+            onItemClick = {},
+            onRandomizeClick = {},
         )
     }
 }
