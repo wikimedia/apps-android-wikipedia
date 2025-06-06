@@ -67,11 +67,16 @@ object RecommendedReadingListHelper {
             sourcesWithOffset.add(SourceWithOffset(pageTitle.text, pageTitle.wikiSite.languageCode, offset))
         }
 
+        // If the sourcesWithOffset less than the number of articles, we need to fill it with the same titles
+        while (sourcesWithOffset.size < numberOfArticles) {
+            val additionalSources = sourcesWithOffset.shuffled().take(numberOfArticles - sourcesWithOffset.size)
+            sourcesWithOffset.addAll(additionalSources)
+        }
+
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
         val newRecommendedPages = mutableListOf<RecommendedPage>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
-        var newListGenerated = false
         sourcesWithOffset.forEach { sourceWithOffset ->
             var recommendedPage: PageTitle? = null
             var retryCount = 0
@@ -102,12 +107,23 @@ object RecommendedReadingListHelper {
                 // Insert the recommended page into the database
                 AppDatabase.instance.recommendedPageDao().insert(finalRecommendedPage)
                 newRecommendedPages.add(finalRecommendedPage)
-                newListGenerated = true
             }
         }
-        Prefs.isNewRecommendedReadingListGenerated = newListGenerated
+
+        // Step 5: if the list is empty, we can get the expired pages from the database
+        if (newRecommendedPages.isEmpty()) {
+            val expiredPages = AppDatabase.instance.recommendedPageDao().getExpiredRecommendedPages(Prefs.recommendedReadingListArticlesNumber)
+            expiredPages.map {
+                it.status = 0
+                it
+            }.apply {
+                AppDatabase.instance.recommendedPageDao().updateAll(this)
+                newRecommendedPages.addAll(this)
+            }
+        }
+        Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        return newRecommendedPages
+        return (newRecommendedPages + existingRecommendedPages).distinct()
     }
 
     private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {

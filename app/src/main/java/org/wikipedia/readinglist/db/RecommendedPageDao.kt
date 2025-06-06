@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.readinglist.database.RecommendedPage
 
@@ -12,11 +13,17 @@ interface RecommendedPageDao {
     @Query("SELECT * FROM RecommendedPage WHERE status = 0 ORDER BY timestamp DESC")
     suspend fun getNewRecommendedPages(): List<RecommendedPage>
 
+    @Query("SELECT * FROM RecommendedPage WHERE status = 1 ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getExpiredRecommendedPages(limit: Int): List<RecommendedPage>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(recommendedPages: RecommendedPage)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(recommendedPages: List<RecommendedPage>)
+
+    @Update
+    suspend fun updateAll(recommendedPages: List<RecommendedPage>)
 
     @Query("UPDATE RecommendedPage SET status = 1 WHERE status = 0")
     suspend fun expireOldRecommendedPages()
