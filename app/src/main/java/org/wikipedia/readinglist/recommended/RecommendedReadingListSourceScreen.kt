@@ -81,8 +81,6 @@ fun SourceSelectionScreen(
         }
     }
 
-    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = optionsShown.map { it.eventString }.toString())
-
     BackHandler {
         RecommendedReadingListEvent.submit("close_click", activeInterface)
         onCloseClick()
@@ -173,6 +171,9 @@ fun SourceSelectionScreen(
                         .fillMaxSize()
                         .padding(paddingValues)
                 ) {
+
+                    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = optionsShown.map { it.eventString }.toString())
+
                     SourceSelectionContent(
                         selectedSource = uiState.data.selectedSource,
                         isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
