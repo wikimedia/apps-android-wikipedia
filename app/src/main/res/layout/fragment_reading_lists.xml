@@ -7,96 +7,103 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:fillViewport="true">
 
-        <LinearLayout
-            android:id="@+id/content_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            app:layout_constraintTop_toTopOf="parent">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-            <org.wikipedia.views.MessageCardView
-                android:id="@+id/onboarding_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:visibility="gone"
-                tools:visibility="visible"/>
+           <LinearLayout
+               android:id="@+id/content_container"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:animateLayoutChanges="true"
+               android:orientation="vertical"
+               android:clipChildren="false"
+               android:clipToPadding="false"
+               app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.compose.ui.platform.ComposeView
-                android:id="@+id/discoverCardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp" />
+               <org.wikipedia.views.MessageCardView
+                   android:id="@+id/onboarding_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/activity_horizontal_margin"
+                   android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginBottom="24dp"
+                   android:visibility="gone"
+                   tools:visibility="visible"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical" />
+               <androidx.compose.ui.platform.ComposeView
+                   android:id="@+id/discoverCardView"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="@dimen/activity_horizontal_margin"
+                   android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginBottom="16dp" />
 
-        </LinearLayout>
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/recycler_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:scrollbars="vertical" />
 
-        <ScrollView
-            android:id="@+id/empty_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:animateLayoutChanges="true"
-            android:fillViewport="true"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/content_container">
+           </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:animateLayoutChanges="true"
-                android:gravity="center"
-                android:orientation="vertical">
+           <ScrollView
+               android:id="@+id/empty_container"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:animateLayoutChanges="true"
+               android:fillViewport="true"
+               android:visibility="gone"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/content_container">
 
-                <TextView
-                    android:id="@+id/empty_title"
-                    style="@style/H2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:text="@string/saved_list_empty_title"
-                    android:textAlignment="center"/>
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_marginStart="30dp"
+                   android:layout_marginEnd="30dp"
+                   android:animateLayoutChanges="true"
+                   android:gravity="center"
+                   android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/empty_message"
-                    style="@style/P"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/reading_lists_empty_message"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </ScrollView>
+                   <TextView
+                       android:id="@+id/empty_title"
+                       style="@style/H2"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="12dp"
+                       android:text="@string/saved_list_empty_title"
+                       android:textAlignment="center"/>
 
-        <org.wikipedia.views.SearchEmptyView
-            android:id="@+id/search_empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                   <TextView
+                       android:id="@+id/empty_message"
+                       style="@style/P"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/reading_lists_empty_message"
+                       android:textAlignment="center" />
+               </LinearLayout>
+           </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+           <org.wikipedia.views.SearchEmptyView
+               android:id="@+id/search_empty_view"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.core.widget.NestedScrollView>
 
 </org.wikipedia.views.WikiSwipeRefreshLayout>

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -121,7 +122,8 @@ fun RecommendedReadingListDiscoverCardView(
                 LazyVerticalGrid(
                     modifier = Modifier
                         .clip(RoundedCornerShape(12.dp))
-                        .weight(0.9f),
+                        .weight(0.9f)
+                        .height(140.dp),
                     columns = GridCells.Fixed(2)
                 ) {
                     items(4) { index ->
