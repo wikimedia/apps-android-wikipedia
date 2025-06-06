@@ -42,26 +42,30 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SourceSelectionScreen(
-    uiState: Resource<RecommendedReadingListViewModel.SourceSelectionUiState>,
+    uiState: Resource<RecommendedReadingListSourceViewModel.SourceSelectionUiState>,
     fromSettings: Boolean,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
     onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
+    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     BackHandler {
+        RecommendedReadingListEvent.submit("close_click", activeInterface)
         onCloseClick()
     }
     Scaffold(
@@ -86,7 +90,10 @@ fun SourceSelectionScreen(
                         contentDescription = stringResource(id = if (fromSettings) R.string.search_back_button_content_description else R.string.table_close),
                         modifier = Modifier
                             .size(48.dp)
-                            .clickable(onClick = onCloseClick)
+                            .clickable(onClick = {
+                                RecommendedReadingListEvent.submit("close_click", activeInterface)
+                                onCloseClick()
+                            })
                             .padding(12.dp),
                         tint = WikipediaTheme.colors.primaryColor
                     )
@@ -160,6 +167,10 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
+    val sourceOptionsForEvent = mutableListOf<RecommendedReadingListSource>()
+    var selectedSourceForEvent = Prefs.recommendedReadingListSource
+    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -189,22 +200,28 @@ fun SourceSelectionContent(
                 modifier = Modifier
                     .clickable(onClick = {
                         onSourceClick(RecommendedReadingListSource.INTERESTS)
+                        selectedSourceForEvent = RecommendedReadingListSource.INTERESTS
+                        RecommendedReadingListEvent.submit("interests_click", activeInterface)
                     }),
                 iconRes = R.drawable.outline_interests_24,
                 textRes = R.string.recommended_reading_list_interest_source_interests,
                 isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
             )
+            sourceOptionsForEvent.add(RecommendedReadingListSource.INTERESTS)
 
             if (isSavedOptionEnabled) {
                 SourceOptionCard(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.READING_LIST)
+                            selectedSourceForEvent = RecommendedReadingListSource.READING_LIST
+                            RecommendedReadingListEvent.submit("saved_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_bookmark_border_white_24dp,
                     textRes = R.string.recommended_reading_list_interest_source_saved,
                     isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                 )
+                sourceOptionsForEvent.add(RecommendedReadingListSource.READING_LIST)
             }
 
             if (isHistoryOptionEnabled) {
@@ -212,11 +229,14 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.HISTORY)
+                            selectedSourceForEvent = RecommendedReadingListSource.HISTORY
+                            RecommendedReadingListEvent.submit("history_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_history_24,
                     textRes = R.string.recommended_reading_list_interest_source_history,
                     isSelected = selectedSource == RecommendedReadingListSource.HISTORY
                 )
+                sourceOptionsForEvent.add(RecommendedReadingListSource.HISTORY)
             }
         }
 
@@ -240,12 +260,22 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .size(48.dp)
                         .align(Alignment.CenterEnd)
-                        .clickable(onClick = onNextClick)
+                        .clickable(onClick = {
+                            onNextClick()
+                            RecommendedReadingListEvent.submit(
+                                action = "submit_click",
+                                activeInterface = activeInterface,
+                                optionsShown = sourceOptionsForEvent.toString(),
+                                selected = selectedSourceForEvent.eventString
+                            )
+                        })
                         .padding(12.dp)
                 )
             }
         }
     }
+
+    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = sourceOptionsForEvent.map { it.eventString }.toString())
 }
 
 @Composable
@@ -297,7 +327,7 @@ fun DefaultPreviewSourceSelectionScreen() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         SourceSelectionScreen(
             uiState = Resource.Success(
-                RecommendedReadingListViewModel.SourceSelectionUiState(
+                RecommendedReadingListSourceViewModel.SourceSelectionUiState(
                     isSavedOptionEnabled = true,
                     isHistoryOptionEnabled = true,
                     selectedSource = RecommendedReadingListSource.INTERESTS

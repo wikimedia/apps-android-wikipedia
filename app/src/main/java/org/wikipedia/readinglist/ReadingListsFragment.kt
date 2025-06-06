@@ -44,6 +44,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
@@ -110,6 +111,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        RecommendedReadingListEvent.submit("impression", "rrl_saved")
         retainInstance = true
     }
 
@@ -499,6 +501,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
+                RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
@@ -808,17 +811,20 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
         if (RecommendedReadingListAbTest().isTestGroupUser() &&
             !Prefs.isRecommendedReadingListOnboardingShown && !Prefs.isRecommendedReadingListEnabled) {
+            RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
             binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
             binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
                 startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                RecommendedReadingListEvent.submit("enter_click", "rrl_saved_prompt")
             }, true)
             binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
                 binding.onboardingView.isVisible = false
                 Prefs.isRecommendedReadingListOnboardingShown = true
                 updateEmptyState(null)
                 FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
+                RecommendedReadingListEvent.submit("nothanks_click", "rrl_saved_prompt")
             }, false)
             binding.onboardingView.isVisible = true
         } else if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&

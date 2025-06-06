@@ -4,17 +4,27 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 
 object RecommendedReadingListEvent {
 
     fun submit(
         action: String,
         activeInterface: String,
-        groupName: String,
+        optionsShown: String? = null,
+        countSelected: Int? = null,
+        countSaved: Int? = null,
+        selected: String? = null,
+        source: String? = null,
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
     ) {
         val actionData = ActionData(
-            rrlGroup = groupName
+            rrlGroup = RecommendedReadingListAbTest().getGroupName(),
+            optionsShown = optionsShown,
+            countSelected = countSelected,
+            countSaved = countSaved,
+            selected = selected,
+            source = source
         )
 
         EventPlatformClient.submit(
@@ -31,7 +41,11 @@ object RecommendedReadingListEvent {
 
     @Serializable
     class ActionData(
-        @SerialName("rrl_group")
-        val rrlGroup: String
+        @SerialName("rrl_group") val rrlGroup: String? = null,
+        @SerialName("options_shown") val optionsShown: String? = null,
+        @SerialName("count_selected") val countSelected: Int? = null,
+        @SerialName("count_saved") val countSaved: Int? = null,
+        val selected: String? = null,
+        val source: String? = null
     )
 }
