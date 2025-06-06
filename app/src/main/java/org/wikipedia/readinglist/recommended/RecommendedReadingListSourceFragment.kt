@@ -39,20 +39,20 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         },
                         onSourceClick = {
                             if (viewModel.fromSettings) {
-                                if (it == Prefs.recommendedReadingListSource || viewModel.adjustDialogShown) {
+                                if (it == Prefs.recommendedReadingListSource) {
                                     viewModel.updateSourceSelection(newSource = it)
                                     return@SourceSelectionScreen
                                 }
-                                viewModel.adjustDialogShown = true
                                 MaterialAlertDialogBuilder(requireContext())
                                     .setTitle(R.string.recommended_reading_list_settings_updates_base_dialog_title)
                                     .setMessage(R.string.recommended_reading_list_settings_updates_base_dialog_message)
-                                    .setPositiveButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
+                                    .setCancelable(false)
+                                    .setPositiveButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button) { _, _ ->
+                                        RecommendedReadingListEvent.submit("built_cancel_click", "discover_settings")
+                                    }
+                                    .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
                                         RecommendedReadingListEvent.submit("adjust_click", "discover_settings")
                                         viewModel.updateSourceSelection(newSource = it)
-                                    }
-                                    .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button) { _, _ ->
-                                        RecommendedReadingListEvent.submit("built_cancel_click", "discover_settings")
                                     }
                                     .show()
                             } else {
@@ -67,6 +67,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                         .addToBackStack(null).commit()
                                 } else {
                                     startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                                    requireActivity().finish()
                                 }
                             }
                         },

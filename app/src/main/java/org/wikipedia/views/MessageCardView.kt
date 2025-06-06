@@ -24,7 +24,7 @@ class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardV
         binding.messageTextView.text = text
     }
 
-    fun setImageResource(@DrawableRes imageResource: Int, visible: Boolean) {
+    fun setImageResource(@DrawableRes imageResource: Int = -1, visible: Boolean) {
         if (visible) {
             binding.imageView.visibility = VISIBLE
             binding.imageView.setImageResource(imageResource)

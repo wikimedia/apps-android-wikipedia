@@ -726,15 +726,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.recommended_reading_list_settings_notifications_dialog_title)
             .setMessage(R.string.recommended_reading_list_settings_notifications_dialog_message)
-            .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
+            .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_negative_button) { _, _ ->
                 if (Prefs.isRecommendedReadingListNotificationEnabled) {
-                    return@setPositiveButton
+                    return@setNegativeButton
                 }
                 Prefs.isRecommendedReadingListNotificationEnabled = true
                 requestPermissionAndScheduleRecommendedReadingNotification()
                 update()
             }
-            .setNegativeButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
+            .setPositiveButton(R.string.recommended_reading_list_settings_notifications_dialog_positive_button) { _, _ ->
                 Prefs.isRecommendedReadingListNotificationEnabled = false
                 RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(requireContext())
                 update()

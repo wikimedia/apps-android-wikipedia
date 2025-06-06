@@ -26,4 +26,8 @@ interface RecommendedPageDao {
 
     @Query("DELETE FROM RecommendedPage")
     suspend fun deleteAll()
+
+    // find if any recommended page exists
+    @Query("SELECT * FROM RecommendedPage WHERE id = 0")
+    fun findIfAny(): RecommendedPage?
 }

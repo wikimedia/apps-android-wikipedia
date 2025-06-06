@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -23,14 +24,14 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -90,23 +91,15 @@ fun RecommendedReadingListDiscoverCardView(
                         tint = WikipediaTheme.colors.primaryColor,
                         contentDescription = null
                     )
-                    Text(
+                    HtmlText(
                         modifier = Modifier
                             .padding(top = 2.dp),
-                        text = buildAnnotatedString {
-                            val userNameStartIndex = subtitle.lastIndexOf(" ") + 1
-                            append(subtitle)
-                            if (isUserLoggedIn) {
-                                addStyle(
-                                    style = SpanStyle(fontWeight = FontWeight.Bold),
-                                    start = userNameStartIndex,
-                                    end = subtitle.length
-                                )
-                            }
-                        },
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 14.sp,
-                        color = WikipediaTheme.colors.primaryColor
+                        text = subtitle,
+                        style = TextStyle(
+                            color = WikipediaTheme.colors.primaryColor,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Normal
+                        )
                     )
                 }
 
@@ -121,7 +114,8 @@ fun RecommendedReadingListDiscoverCardView(
                 LazyVerticalGrid(
                     modifier = Modifier
                         .clip(RoundedCornerShape(12.dp))
-                        .weight(0.9f),
+                        .weight(0.9f)
+                        .height(140.dp),
                     columns = GridCells.Fixed(2)
                 ) {
                     items(4) { index ->
