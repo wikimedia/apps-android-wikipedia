@@ -9,6 +9,8 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.util.ResourceUtil
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {
@@ -19,10 +21,11 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         super.onCreate(savedInstanceState)
         updateStatusBarColor(false)
         title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
+        callback = this
     }
 
     public override fun createFragment(): ReadingListFragment {
-       readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
+        readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         return if (readingListMode != ReadingListMode.DEFAULT) {
             ReadingListFragment.newInstance(readingListMode)
         } else {
@@ -46,6 +49,12 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     }
 
     override fun onPermissionResult(activity: BaseActivity, isGranted: Boolean) {
+        if (isGranted) {
+            RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(this)
+            Prefs.isRecommendedReadingListNotificationEnabled = true
+        } else {
+            Prefs.isRecommendedReadingListNotificationEnabled = false
+        }
         fragment.updateNotificationIcon()
     }
 

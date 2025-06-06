@@ -594,7 +594,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     fun updateNotificationIcon() {
-        headerView.callback?.onNotification()
+        update()
     }
 
     /**
@@ -744,11 +744,15 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             when {
                 ContextCompat.checkSelfPermission(requireActivity(), permission) == PackageManager.PERMISSION_GRANTED -> {
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
+                    Prefs.isRecommendedReadingListNotificationEnabled = true
+                    update()
                 }
                 else -> (requireActivity() as ReadingListActivity).requestPermissionLauncher.launch(permission)
             }
         } else {
             RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(requireActivity())
+            Prefs.isRecommendedReadingListNotificationEnabled = true
+            update()
         }
     }
 
