@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
 
 class RecommendedReadingListSettingsViewModel : ViewModel() {
@@ -12,6 +13,10 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
 
     fun toggleDiscoverReadingList(enabled: Boolean) {
         Prefs.isRecommendedReadingListEnabled = enabled
+        if (enabled) {
+            // Should reshow the onboarding if it was previously skipped
+            Prefs.isRecommendedReadingListOnboardingShown = AppDatabase.instance.recommendedPageDao().findIfAny() == null
+        }
         if (!enabled) {
             Prefs.isRecommendedReadingListNotificationEnabled = false
         }
