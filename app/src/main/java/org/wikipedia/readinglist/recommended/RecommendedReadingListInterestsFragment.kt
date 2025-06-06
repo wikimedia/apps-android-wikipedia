@@ -142,6 +142,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         onNextClick = {
                             viewModel.commitSelection()
                             startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                            requireActivity().finish()
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             backClickListener = {
