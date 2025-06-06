@@ -72,7 +72,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -340,10 +339,9 @@ fun RecommendedReadingListInterestsContent(
                     Text(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 48.dp, bottom = 4.dp),
-                        style = WikipediaTheme.typography.bodyLarge,
+                            .padding(top = 48.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
+                        style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.primaryColor,
-                        fontSize = 22.sp,
                         textAlign = TextAlign.Center,
                         text = stringResource(R.string.recommended_reading_list_interest_pick_title)
                     )
@@ -464,15 +462,15 @@ fun ReadingListInterestCard(
             ) {
                 HtmlText(
                     text = item.displayText,
-                    style = WikipediaTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(2.dp))
                 Row {
                     if (!item.description.isNullOrEmpty()) {
                         HtmlText(
                             text = item.description.orEmpty(),
-                            style = WikipediaTheme.typography.bodyMedium,
+                            style = MaterialTheme.typography.bodyMedium,
                             color = WikipediaTheme.colors.secondaryColor,
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
