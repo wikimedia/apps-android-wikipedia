@@ -389,6 +389,8 @@ fun RecommendedReadingListInterestsContent(
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.recommended_reading_list_interest_pick_random_button_content_description)
                 )
+            } else {
+                Spacer(modifier = Modifier.width(48.dp))
             }
             Text(
                 modifier = Modifier
@@ -415,6 +417,8 @@ fun RecommendedReadingListInterestsContent(
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.nav_item_forward)
                 )
+            } else {
+                Spacer(modifier = Modifier.width(48.dp))
             }
         }
     }
