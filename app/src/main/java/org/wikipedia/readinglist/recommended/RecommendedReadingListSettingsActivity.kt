@@ -34,13 +34,14 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
                     RecommendedReadingListEvent.submit("built_undo_click", "discover_settings")
                 })
+                Prefs.resetRecommendedReadingList = true
             }
         }
     }
 
     private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            // ignore
+            Prefs.resetRecommendedReadingList = true
         }
     }
 
