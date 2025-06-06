@@ -562,7 +562,7 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 @Composable
 fun PreviewScreenShot() {
     val context = LocalContext.current
-    BaseTheme (currentTheme = Theme.LIGHT) {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
             screenContent = nonEnglishCollectiveEditCountData,
             context = context
