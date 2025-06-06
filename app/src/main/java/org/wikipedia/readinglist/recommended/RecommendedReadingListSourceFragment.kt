@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.ReadingListActivity
@@ -27,6 +28,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         uiState = viewModel.uiSourceState.collectAsState().value,
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
+                            RecommendedReadingListEvent.submit("close_click", "rrl_hub_select")
                             if (viewModel.fromSettings) {
                                 viewModel.saveSourceSelection()
                                 requireActivity().setResult(RESULT_OK)

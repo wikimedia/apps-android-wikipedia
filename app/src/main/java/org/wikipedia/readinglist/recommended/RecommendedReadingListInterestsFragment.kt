@@ -77,6 +77,7 @@ import coil3.compose.AsyncImage
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -100,6 +101,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
+            RecommendedReadingListEvent.submit("search_click", "rrl_interests_select")
             viewModel.addTitle(pageTitle)
         }
     }
@@ -116,6 +118,8 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                     .show()
             }
         }
+
+        RecommendedReadingListEvent.submit("impression", "rrl_interests_select")
 
         return ComposeView(requireContext()).apply {
             setContent {
@@ -156,9 +160,13 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                                 .setMessage(R.string.recommended_reading_list_interest_pick_random_dialog_message)
                                 .setPositiveButton(R.string.recommended_reading_list_interest_pick_random_dialog_positive_button) { dialog, _ ->
                                     viewModel.randomizeSelection()
+                                    RecommendedReadingListEvent.submit("random_confirm_click", "rrl_interests_select")
                                     dialog.dismiss()
                                 }
-                                .setNegativeButton(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button) { dialog, _ -> dialog.dismiss() }
+                                .setNegativeButton(R.string.recommended_reading_list_interest_pick_random_dialog_negative_button) { dialog, _ ->
+                                    RecommendedReadingListEvent.submit("random_cancel_click", "rrl_interests_select")
+                                    dialog.dismiss()
+                                }
                                 .show()
                         }
                     )

@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
@@ -102,6 +103,7 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                 items = newItems,
                 selectedItems = newSelection)
             _uiState.value = Resource.Success(newState)
+            RecommendedReadingListEvent.submit("randomizer_click", "rrl_interests_select")
             randomizeEvent.postValue(newState)
         }
     }
@@ -119,7 +121,21 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
 
     fun commitSelection() {
         (_uiState.value as? Resource.Success<UiState>)?.let {
-            Prefs.recommendedReadingListInterests = it.data.selectedItems.toList()
+            val selectedItems = it.data.selectedItems.toList()
+            Prefs.recommendedReadingListInterests = selectedItems
+            if (fromSettings) {
+                RecommendedReadingListEvent.submit(
+                    action = "interest_select_click",
+                    activeInterface = "discover_settings",
+                    countSelected = selectedItems.size
+                )
+            } else {
+                RecommendedReadingListEvent.submit(
+                    action = "submit_click",
+                    activeInterface = "rrl_interests_select",
+                    countSelected = selectedItems.size
+                )
+            }
         }
     }
 

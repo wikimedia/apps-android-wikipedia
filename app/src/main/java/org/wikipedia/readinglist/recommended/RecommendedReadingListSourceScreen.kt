@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -160,6 +161,9 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
+    val sourceOptionsForEvent = mutableListOf<String>()
+    var selectedSourceForEvent = "interests"
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -189,22 +193,28 @@ fun SourceSelectionContent(
                 modifier = Modifier
                     .clickable(onClick = {
                         onSourceClick(RecommendedReadingListSource.INTERESTS)
+                        selectedSourceForEvent = "interests"
+                        RecommendedReadingListEvent.submit("interests_click", "rrl_hub_select")
                     }),
                 iconRes = R.drawable.outline_interests_24,
                 textRes = R.string.recommended_reading_list_interest_source_interests,
                 isSelected = selectedSource == RecommendedReadingListSource.INTERESTS
             )
+            sourceOptionsForEvent.add("interests")
 
             if (isSavedOptionEnabled) {
                 SourceOptionCard(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.READING_LIST)
+                            selectedSourceForEvent = "saved"
+                            RecommendedReadingListEvent.submit("saved_click", "rrl_hub_select")
                         }),
                     iconRes = R.drawable.ic_bookmark_border_white_24dp,
                     textRes = R.string.recommended_reading_list_interest_source_saved,
                     isSelected = selectedSource == RecommendedReadingListSource.READING_LIST
                 )
+                sourceOptionsForEvent.add("saved")
             }
 
             if (isHistoryOptionEnabled) {
@@ -212,11 +222,14 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.HISTORY)
+                            selectedSourceForEvent = "history"
+                            RecommendedReadingListEvent.submit("history_click", "rrl_hub_select")
                         }),
                     iconRes = R.drawable.ic_history_24,
                     textRes = R.string.recommended_reading_list_interest_source_history,
                     isSelected = selectedSource == RecommendedReadingListSource.HISTORY
                 )
+                sourceOptionsForEvent.add("history")
             }
         }
 
@@ -240,12 +253,22 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .size(48.dp)
                         .align(Alignment.CenterEnd)
-                        .clickable(onClick = onNextClick)
+                        .clickable(onClick = {
+                            onNextClick()
+                            RecommendedReadingListEvent.submit(
+                                action = "submit_click",
+                                activeInterface = "rrl_hub_select",
+                                optionsShown = sourceOptionsForEvent.toString(),
+                                selected = selectedSourceForEvent
+                            )
+                        })
                         .padding(12.dp)
                 )
             }
         }
     }
+
+    RecommendedReadingListEvent.submit("impression", "rrl_hub_select", optionsShown = sourceOptionsForEvent.toString())
 }
 
 @Composable

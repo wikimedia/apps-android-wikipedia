@@ -44,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.extensions.noRippleClickable
@@ -127,10 +128,12 @@ fun RecommendedReadingListSettingsScreen(
                     showAlertDialog = false
                 },
                 onConfirmButtonClick = {
+                    RecommendedReadingListEvent.submit("discover_on_confirm", "discover_settings")
                     showAlertDialog = false
                     onRecommendedReadingListSwitchClick(true)
                 },
                 onDismissButtonClick = {
+                    RecommendedReadingListEvent.submit("discover_off_confirm", "discover_settings")
                     showAlertDialog = false
                     onRecommendedReadingListSwitchClick(false)
                 }
@@ -321,6 +324,7 @@ private fun UpdatesFrequencyView(
         modifier = modifier
             .clickable(
                 onClick = {
+                    RecommendedReadingListEvent.submit("updates_click", "discover_settings")
                     showDialog = true
                 }
             )
@@ -542,10 +546,12 @@ private fun NotificationView(
                 showAlertDialog = false
             },
             onConfirmButtonClick = {
+                RecommendedReadingListEvent.submit("notifs_on_confirm", "discover_settings")
                 showAlertDialog = false
                 onNotificationStateChanged(true)
             },
             onDismissButtonClick = {
+                RecommendedReadingListEvent.submit("notifs_off_confirm ", "discover_settings")
                 showAlertDialog = false
                 onNotificationStateChanged(false)
             }

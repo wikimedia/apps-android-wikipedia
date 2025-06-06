@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RecommendedReadingListNotificationManager
@@ -45,6 +46,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         callback = this
+        RecommendedReadingListEvent.submit("impression", "discover_settings")
         setContent {
             val uiState by viewModel.uiState.collectAsState()
 
@@ -54,16 +56,25 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     modifier = Modifier
                         .fillMaxSize(),
                     onBackButtonClick = {
+                        RecommendedReadingListEvent.submit("back_click", "discover_settings")
                         onBackPressed()
                     },
                     onRecommendedReadingListSourceClick = {
+                        val selectSourceForEvent = when (Prefs.recommendedReadingListSource) {
+                            RecommendedReadingListSource.INTERESTS -> "interests"
+                            RecommendedReadingListSource.READING_LIST -> "saved"
+                            RecommendedReadingListSource.HISTORY -> "history"
+                        }
+                        RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = selectSourceForEvent)
                         currentRecommendedReadingListSource = Prefs.recommendedReadingListSource
                         recommendedReadingListSourceLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, fromSettings = true))
                     },
                     onInterestClick = {
+                        RecommendedReadingListEvent.submit("interests_click", "discover_settings")
                         recommendedReadingListInterestsLauncher.launch(RecommendedReadingListOnboardingActivity.newIntent(this, startFromSourceSelection = false, fromSettings = true))
                     },
                     onNotificationStateChanged = {
+                        RecommendedReadingListEvent.submit(if (it) "notifs_on_click" else "notifs_off_click", "discover_settings")
                         if (it) {
                             requestPermissionAndScheduleRecommendedReadingNotification()
                         } else {
@@ -72,13 +83,21 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                     },
                     onUpdateFrequency = {
+                        val frequencyForEvent = when (it) {
+                            RecommendedReadingListUpdateFrequency.DAILY -> "daily"
+                            RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
+                            RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
+                        }
+                        RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
                         requestPermissionAndScheduleRecommendedReadingNotification()
                     },
                     onArticleNumberChanged = {
+                        RecommendedReadingListEvent.submit("article_count_click", "discover_settings", countSaved = it)
                         viewModel.updateArticleNumbers(it)
                     },
                     onRecommendedReadingListSwitchClick = {
+                        RecommendedReadingListEvent.submit(if (it) "discover_on_click" else "discover_off_click", "discover_settings")
                         viewModel.toggleDiscoverReadingList(it)
                     }
                 )

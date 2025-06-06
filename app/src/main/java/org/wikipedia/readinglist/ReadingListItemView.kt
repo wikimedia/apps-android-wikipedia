@@ -18,6 +18,7 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
@@ -192,6 +193,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
 
             // Reset the overflow menu
             binding.itemOverflowMenu.setOnClickListener {
+                RecommendedReadingListEvent.submit("save_click", "rrl_discover")
                 readingList?.let {
                     showOverflowMenu(
                         isLongPress = false,

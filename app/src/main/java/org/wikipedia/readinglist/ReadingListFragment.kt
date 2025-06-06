@@ -42,6 +42,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
@@ -125,6 +126,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
+
+        if (isRecommendedList) {
+            RecommendedReadingListEvent.submit("impression", "rrl_discover")
+        }
         return binding.root
     }
 
@@ -701,6 +706,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             )
             FeedbackUtil.makeSnackbar(requireActivity(), message)
                 .setAction(R.string.recommended_reading_list_page_snackbar_action) {
+                    RecommendedReadingListEvent.submit("customize_click", "rrl_discover")
                    startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
                 }
                 .show()
@@ -910,18 +916,26 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onShare(readingList: ReadingList) {
+            if (isRecommendedList) {
+                RecommendedReadingListEvent.submit("share_click", "rrl_discover_menu")
+            }
             ReadingListsShareHelper.shareReadingList(requireActivity() as AppCompatActivity, readingList)
         }
 
         override fun onCustomize() {
+            RecommendedReadingListEvent.submit("customize_click", "rrl_discover_menu")
             startActivity(RecommendedReadingListSettingsActivity.newIntent(requireContext()))
         }
 
         override fun onAbout() {
+            if (isRecommendedList) {
+                RecommendedReadingListEvent.submit("about_click", "rrl_discover_menu")
+            }
             UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.recommended_reading_list_url).toUri())
         }
 
         override fun onNotification() {
+            RecommendedReadingListEvent.submit("notifications_click", "rrl_discover")
             if (Prefs.isRecommendedReadingListNotificationEnabled) {
                 showRecommendedReadingListNotificationOffDialog()
             } else {
@@ -932,6 +946,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSaveToList(readingList: ReadingList) {
+            if (isRecommendedList) {
+                RecommendedReadingListEvent.submit("save_click", "rrl_discover")
+            }
             previewSaveDialog()
         }
     }
@@ -972,9 +989,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 toggleSelectPage(item)
             } else if (item != null) {
                 val title = ReadingListPage.toPageTitle(item)
-                val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
+                val entry = HistoryEntry(title, if (isRecommendedList) HistoryEntry.SOURCE_RECOMMENDED_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
+                RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }
