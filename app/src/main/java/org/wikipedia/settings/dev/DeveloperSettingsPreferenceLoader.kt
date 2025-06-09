@@ -230,7 +230,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     else -> RecommendedReadingListUpdateFrequency.MONTHLY
                 }
                 Prefs.recommendedReadingListUpdateFrequency = source
-                RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 RecommendedReadingListNotificationManager.showNotification(context = activity, source)
                 true

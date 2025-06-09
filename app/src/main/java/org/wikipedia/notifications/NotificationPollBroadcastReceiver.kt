@@ -82,7 +82,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
             ACTION_RECOMMENDED_READING_LIST == intent.action -> {
                 if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
-                    RecommendedReadingListNotificationManager.cancelRecommendedReadingListNotification(context)
                     RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
                 }
                 RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
