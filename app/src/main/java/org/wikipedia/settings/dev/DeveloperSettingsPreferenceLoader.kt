@@ -27,7 +27,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RecommendedReadingListNotificationManager
+import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider

@@ -1,4 +1,4 @@
-package org.wikipedia.settings
+package org.wikipedia.readinglist.recommended
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -6,11 +6,10 @@ import android.content.Context
 import android.content.Intent
 import org.wikipedia.R
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
-import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
+import org.wikipedia.settings.Prefs
 import java.time.DayOfWeek
 import java.time.Duration
 import java.time.LocalDateTime
@@ -23,7 +22,7 @@ object RecommendedReadingListNotificationManager {
     fun scheduleRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(ACTION_RECOMMENDED_READING_LIST)
+            .setAction(NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST)
         val durationUntilNextUpdate = timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency)
         val triggerUpdateMillis = System.currentTimeMillis() + durationUntilNextUpdate.toMillis()
         val nextUpdateIntervalInMillis = when (Prefs.recommendedReadingListUpdateFrequency) {
@@ -55,14 +54,14 @@ object RecommendedReadingListNotificationManager {
             lang = null,
             icon = null,
             color = R.color.blue600,
-            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED)
+            bodyIntent = ReadingListActivity.Companion.newIntent(context, ReadingListMode.RECOMMENDED)
         )
     }
 
     fun cancelRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(ACTION_RECOMMENDED_READING_LIST)
+            .setAction(NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST)
         alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
     }
 
