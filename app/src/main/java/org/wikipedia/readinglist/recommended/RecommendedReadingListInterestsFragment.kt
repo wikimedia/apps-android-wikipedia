@@ -333,7 +333,7 @@ fun RecommendedReadingListInterestsContent(
         val borderColor = WikipediaTheme.colors.borderColor
 
         LazyVerticalStaggeredGrid(
-            columns = StaggeredGridCells.Adaptive(120.dp),
+            columns = StaggeredGridCells.Adaptive(140.dp),
             modifier = Modifier
                 .fillMaxSize()
                 .padding(start = 16.dp, end = 16.dp),
