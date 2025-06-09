@@ -30,10 +30,12 @@ class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) 
         }) {
             _uiSourceState.value = Resource.Loading()
             availableSources.add(RecommendedReadingListSource.INTERESTS)
-            val isSavedOptionEnabled = (AppDatabase.instance.readingListPageDao().getPagesCount() > 0).run {
+            val isSavedOptionEnabled = AppDatabase.instance.readingListPageDao().getPagesCount() > 0
+            if (isSavedOptionEnabled) {
                 availableSources.add(RecommendedReadingListSource.READING_LIST)
             }
-            val isHistoryOptionEnabled = (AppDatabase.instance.historyEntryDao().getHistoryCount() > 0).run {
+            val isHistoryOptionEnabled = (AppDatabase.instance.historyEntryDao().getHistoryCount() > 0)
+            if (isHistoryOptionEnabled) {
                 availableSources.add(RecommendedReadingListSource.HISTORY)
             }
             val selectedSource = Prefs.recommendedReadingListSource
