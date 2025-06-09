@@ -22,7 +22,7 @@ object RecommendedReadingListNotificationManager {
     fun scheduleRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST)
+            .setAction(NotificationPollBroadcastReceiver.ACTION_RECOMMENDED_READING_LIST)
         val durationUntilNextUpdate = timeUntilNextUpdate(Prefs.recommendedReadingListUpdateFrequency)
         val triggerUpdateMillis = System.currentTimeMillis() + durationUntilNextUpdate.toMillis()
         val nextUpdateIntervalInMillis = when (Prefs.recommendedReadingListUpdateFrequency) {
@@ -54,14 +54,14 @@ object RecommendedReadingListNotificationManager {
             lang = null,
             icon = null,
             color = R.color.blue600,
-            bodyIntent = ReadingListActivity.Companion.newIntent(context, ReadingListMode.RECOMMENDED)
+            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED)
         )
     }
 
     fun cancelRecommendedReadingListNotification(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
-            .setAction(NotificationPollBroadcastReceiver.Companion.ACTION_RECOMMENDED_READING_LIST)
+            .setAction(NotificationPollBroadcastReceiver.ACTION_RECOMMENDED_READING_LIST)
         alarmManager.cancel(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE))
     }
 

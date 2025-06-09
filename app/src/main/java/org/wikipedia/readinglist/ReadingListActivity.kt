@@ -9,8 +9,8 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.settings.Prefs
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ResourceUtil
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {

@@ -27,9 +27,9 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
+import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
-import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
