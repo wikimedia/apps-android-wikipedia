@@ -348,6 +348,7 @@ fun YearInReviewScreenContent(
     screenData: YearInReviewScreenData,
     context: Context,
     screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     val scrollState = rememberScrollState()
@@ -390,7 +391,7 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                if (!screenCaptureMode) {
+                if (!screenCaptureMode && !isOnboardingScreen) {
                     IconButton(
                         onClick = {
                             UriUtil.handleExternalLink(
