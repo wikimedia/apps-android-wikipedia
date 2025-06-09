@@ -109,17 +109,7 @@ fun SourceSelectionScreen(
                         modifier = Modifier
                             .size(48.dp)
                             .clickable(onClick = {
-                                if (fromSettings) {
-                                    RecommendedReadingListEvent.submit(
-                                        action = "submit_click",
-                                        activeInterface = activeInterface,
-                                        optionsShown = optionsShown.map { it.eventString }.toString(),
-                                        selected = selectedSourceForEvent.eventString,
-                                        currentSetting = Prefs.recommendedReadingListSource.eventString
-                                    )
-                                } else {
-                                    RecommendedReadingListEvent.submit("close_click", activeInterface)
-                                }
+                                RecommendedReadingListEvent.submit("close_click", activeInterface)
                                 onCloseClick()
                             })
                             .padding(12.dp),
