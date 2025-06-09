@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
@@ -56,6 +57,8 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                     if (i < historyTitles.size && !results.contains(historyTitles[i])) results.add(historyTitles[i])
                     if (i < readingListTitles.size && !results.contains(readingListTitles[i])) results.add(readingListTitles[i])
                 }
+                // remove non-main namespace articles, or Main page
+                results.removeAll { it.isMainPage || it.namespace() != Namespace.MAIN }
             }
 
             // If there are still VERY few items, include a few random articles.
