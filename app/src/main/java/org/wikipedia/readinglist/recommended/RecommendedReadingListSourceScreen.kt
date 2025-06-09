@@ -231,6 +231,7 @@ fun SourceSelectionContent(
         ) {
             if (!fromSettings) {
                 Text(
+                    modifier = Modifier.padding(horizontal = 16.dp),
                     text = stringResource(id = R.string.recommended_reading_list_interest_source_message),
                     color = WikipediaTheme.colors.primaryColor,
                     fontSize = 22.sp,
