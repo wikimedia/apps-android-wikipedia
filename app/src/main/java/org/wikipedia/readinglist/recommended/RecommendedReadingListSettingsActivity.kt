@@ -18,7 +18,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RecommendedReadingListNotificationManager
 import org.wikipedia.util.FeedbackUtil
 
 class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Callback {
