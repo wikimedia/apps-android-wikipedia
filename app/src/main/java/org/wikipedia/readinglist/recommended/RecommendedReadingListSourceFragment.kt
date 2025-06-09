@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist.recommended
 
-import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,10 +30,6 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         uiState = viewModel.uiSourceState.collectAsState().value,
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
-                            if (viewModel.fromSettings) {
-                                viewModel.saveSourceSelection()
-                                requireActivity().setResult(RESULT_OK)
-                            }
                             requireActivity().finish()
                         },
                         onSourceClick = {
@@ -66,7 +61,9 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                         .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
                                         .addToBackStack(null).commit()
                                 } else {
-                                    startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                                    if (!viewModel.fromSettings) {
+                                        startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                                    }
                                     requireActivity().finish()
                                 }
                             }

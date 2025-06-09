@@ -1870,4 +1870,5 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
+  <string name="recommended_reading_list_settings_save_button">Button label for the save button that shows in the source selection and article of interests screen.</string>
 </resources>

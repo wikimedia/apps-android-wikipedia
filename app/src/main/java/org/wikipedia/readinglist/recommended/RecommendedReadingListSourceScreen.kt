@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -277,32 +278,31 @@ fun SourceSelectionContent(
             }
         }
 
-        if (!fromSettings) {
-            Spacer(modifier = Modifier.weight(1f))
-            Box(
+        val showArrow = !fromSettings || selectedSource == RecommendedReadingListSource.INTERESTS
+        Spacer(modifier = Modifier.weight(1f))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+        ) {
+            Spacer(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
-            ) {
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(1.dp)
-                        .background(WikipediaTheme.colors.borderColor)
-                )
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    contentDescription = stringResource(R.string.nav_item_forward),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    modifier = Modifier
-                        .size(48.dp)
-                        .align(Alignment.CenterEnd)
-                        .clickable(onClick = {
-                            onNextClick()
-                        })
-                        .padding(12.dp)
-                )
-            }
+                    .height(1.dp)
+                    .background(WikipediaTheme.colors.borderColor)
+            )
+            Icon(
+                imageVector = if (!showArrow) Icons.Default.Check else Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = stringResource(if (!showArrow) R.string.recommended_reading_list_settings_save_button else R.string.nav_item_forward),
+                tint = WikipediaTheme.colors.primaryColor,
+                modifier = Modifier
+                    .size(48.dp)
+                    .align(Alignment.CenterEnd)
+                    .clickable(onClick = {
+                        onNextClick()
+                    })
+                    .padding(12.dp)
+            )
         }
     }
 }
