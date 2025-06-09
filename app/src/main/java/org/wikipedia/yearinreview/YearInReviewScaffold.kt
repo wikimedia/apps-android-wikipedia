@@ -347,7 +347,7 @@ fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
     context: Context,
-    isShareSheetView: Boolean = false,
+    screenCaptureMode: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     val scrollState = rememberScrollState()
@@ -361,7 +361,7 @@ fun YearInReviewScreenContent(
     ) {
         SubcomposeAsyncImage(
             model = ImageRequest.Builder(context)
-                .data(if (isShareSheetView) screenData.staticImageResource else screenData.animatedImageResource)
+                .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
                 .allowHardware(false)
                 .build(),
             loading = { LoadingIndicator() },
@@ -390,7 +390,7 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                if (!isShareSheetView) {
+                if (!screenCaptureMode) {
                     IconButton(
                         onClick = {
                             UriUtil.handleExternalLink(
@@ -469,7 +469,7 @@ fun CreateScreenShotBitmap(
         YearInReviewScreenContent(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
-            isShareSheetView = true,
+            screenCaptureMode = true,
             context = context
         ) { isLoaded -> isImageLoaded = isLoaded }
 
