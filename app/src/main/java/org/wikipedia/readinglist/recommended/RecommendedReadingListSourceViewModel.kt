@@ -15,6 +15,7 @@ import org.wikipedia.util.Resource
 class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val fromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
+    val availableSources = mutableListOf<RecommendedReadingListSource>()
 
     private val _uiSourceState = MutableStateFlow(Resource<SourceSelectionUiState>())
     val uiSourceState: StateFlow<Resource<SourceSelectionUiState>> = _uiSourceState.asStateFlow()
@@ -28,8 +29,13 @@ class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) 
             _uiSourceState.value = Resource.Error(throwable)
         }) {
             _uiSourceState.value = Resource.Loading()
-            val isSavedOptionEnabled = AppDatabase.instance.readingListPageDao().getPagesCount() > 0
-            val isHistoryOptionEnabled = AppDatabase.instance.historyEntryDao().getHistoryCount() > 0
+            availableSources.add(RecommendedReadingListSource.INTERESTS)
+            val isSavedOptionEnabled = (AppDatabase.instance.readingListPageDao().getPagesCount() > 0).run {
+                availableSources.add(RecommendedReadingListSource.READING_LIST)
+            }
+            val isHistoryOptionEnabled = (AppDatabase.instance.historyEntryDao().getHistoryCount() > 0).run {
+                availableSources.add(RecommendedReadingListSource.HISTORY)
+            }
             val selectedSource = Prefs.recommendedReadingListSource
             _uiSourceState.value = Resource.Success(
                 SourceSelectionUiState(
@@ -54,16 +60,14 @@ class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) 
         }
     }
 
-    fun saveSourceSelection(): Boolean {
+    fun saveSourceSelection(): Pair<Boolean, RecommendedReadingListSource> {
         val stateValue = _uiSourceState.value
         if (stateValue is Resource.Success) {
             val selectedSource = stateValue.data.selectedSource
             Prefs.recommendedReadingListSource = selectedSource
-            if (selectedSource == RecommendedReadingListSource.INTERESTS) {
-                return true
-            }
+            return Pair(selectedSource == RecommendedReadingListSource.INTERESTS, selectedSource)
         }
-        return false
+        return Pair(false, RecommendedReadingListSource.INTERESTS)
     }
 
     data class SourceSelectionUiState(

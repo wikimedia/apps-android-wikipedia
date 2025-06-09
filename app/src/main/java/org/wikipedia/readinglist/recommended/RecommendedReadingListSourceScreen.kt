@@ -32,10 +32,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -47,13 +43,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 
@@ -67,23 +61,9 @@ fun SourceSelectionScreen(
     onNextClick: () -> Unit,
     onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
-    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    var selectedSourceForEvent by remember { mutableStateOf(Prefs.recommendedReadingListSource) }
-    val optionsShown = buildList {
-        if (uiState is Resource.Success) {
-            add(RecommendedReadingListSource.INTERESTS)
-            if (uiState.data.isSavedOptionEnabled) {
-                add(RecommendedReadingListSource.READING_LIST)
-            }
-            if (uiState.data.isHistoryOptionEnabled) {
-                add(RecommendedReadingListSource.HISTORY)
-            }
-        }
-    }
 
     BackHandler {
-        RecommendedReadingListEvent.submit("close_click", activeInterface)
         onCloseClick()
     }
     Scaffold(
@@ -109,7 +89,6 @@ fun SourceSelectionScreen(
                         modifier = Modifier
                             .size(48.dp)
                             .clickable(onClick = {
-                                RecommendedReadingListEvent.submit("close_click", activeInterface)
                                 onCloseClick()
                             })
                             .padding(12.dp),
@@ -163,25 +142,15 @@ fun SourceSelectionScreen(
                         .padding(paddingValues)
                 ) {
 
-                    RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = optionsShown.map { it.eventString }.toString())
-
                     SourceSelectionContent(
                         selectedSource = uiState.data.selectedSource,
                         isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
                         isHistoryOptionEnabled = uiState.data.isHistoryOptionEnabled,
                         fromSettings = fromSettings,
                         onSourceClick = {
-                            selectedSourceForEvent = it
                             onSourceClick(it)
                         },
                         onNextClick = {
-                            RecommendedReadingListEvent.submit(
-                                action = "submit_click",
-                                activeInterface = activeInterface,
-                                optionsShown = optionsShown.map { it.eventString }.toString(),
-                                selected = selectedSourceForEvent.eventString,
-                                currentSetting = Prefs.recommendedReadingListSource.eventString
-                            )
                             onNextClick()
                         }
                     )
@@ -200,8 +169,6 @@ fun SourceSelectionContent(
     isHistoryOptionEnabled: Boolean,
     fromSettings: Boolean
 ) {
-    val activeInterface = if (fromSettings) "settings_hub_select" else "rrl_hub_select"
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -234,7 +201,6 @@ fun SourceSelectionContent(
                 modifier = Modifier
                     .clickable(onClick = {
                         onSourceClick(RecommendedReadingListSource.INTERESTS)
-                        RecommendedReadingListEvent.submit("interests_click", activeInterface)
                     }),
                 iconRes = R.drawable.outline_interests_24,
                 textRes = R.string.recommended_reading_list_interest_source_interests,
@@ -246,7 +212,6 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.READING_LIST)
-                            RecommendedReadingListEvent.submit("saved_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_bookmark_border_white_24dp,
                     textRes = R.string.recommended_reading_list_interest_source_saved,
@@ -259,7 +224,6 @@ fun SourceSelectionContent(
                     modifier = Modifier
                         .clickable(onClick = {
                             onSourceClick(RecommendedReadingListSource.HISTORY)
-                            RecommendedReadingListEvent.submit("history_click", activeInterface)
                         }),
                     iconRes = R.drawable.ic_history_24,
                     textRes = R.string.recommended_reading_list_interest_source_history,

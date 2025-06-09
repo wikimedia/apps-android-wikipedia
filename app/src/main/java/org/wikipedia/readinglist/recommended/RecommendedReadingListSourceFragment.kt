@@ -24,15 +24,21 @@ class RecommendedReadingListSourceFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return ComposeView(requireContext()).apply {
+            val activeInterface = if (viewModel.fromSettings) "settings_hub_select" else "rrl_hub_select"
+
+            RecommendedReadingListEvent.submit("impression", activeInterface, optionsShown = viewModel.availableSources.map { it.eventString }.toString())
+
             setContent {
                 BaseTheme {
                     SourceSelectionScreen(
                         uiState = viewModel.uiSourceState.collectAsState().value,
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
+                            RecommendedReadingListEvent.submit("close_click", activeInterface)
                             requireActivity().finish()
                         },
                         onSourceClick = {
+                            RecommendedReadingListEvent.submit("${it.eventString}_click", activeInterface)
                             if (viewModel.fromSettings) {
                                 if (it == Prefs.recommendedReadingListSource) {
                                     viewModel.updateSourceSelection(newSource = it)
@@ -55,7 +61,16 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             }
                         },
                         onNextClick = {
-                            viewModel.saveSourceSelection().let { shouldGoToInterests ->
+                            viewModel.saveSourceSelection().let { (shouldGoToInterests, selectedSource) ->
+
+                                RecommendedReadingListEvent.submit(
+                                    action = "submit_click",
+                                    activeInterface = activeInterface,
+                                    optionsShown = viewModel.availableSources.map { it.eventString }.toString(),
+                                    selected = selectedSource.eventString,
+                                    currentSetting = Prefs.recommendedReadingListSource.eventString
+                                )
+
                                 if (shouldGoToInterests) {
                                     requireActivity().supportFragmentManager.beginTransaction()
                                         .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
