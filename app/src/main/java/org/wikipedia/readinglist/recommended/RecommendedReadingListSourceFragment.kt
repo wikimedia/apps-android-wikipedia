@@ -73,7 +73,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
 
                                 if (shouldGoToInterests) {
                                     requireActivity().supportFragmentManager.beginTransaction()
-                                        .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
+                                        .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance(viewModel.fromSettings))
                                         .addToBackStack(null).commit()
                                 } else {
                                     if (!viewModel.fromSettings) {
