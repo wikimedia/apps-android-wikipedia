@@ -242,20 +242,21 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
   <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
+  <string name="about_logo_content_description">Logo del globo puzzle de Wikipedia</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
   <string name="edit_abandon_confirm_yes">Si</string>
   <string name="edit_abandon_confirm_no">No</string>
@@ -574,8 +575,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Articulo appare in plure listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Activar le synchronisation de listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lege plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchronisar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
@@ -1687,11 +1688,13 @@
   <string name="on_this_day_game_splash_message">Divina qual evento se ha producite primo sur iste die in le historia.</string>
   <string name="on_this_day_game_progress">%1$d de %2$d</string>
   <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_submit">Submitter</string>
   <string name="on_this_day_game_correct">Correcte!</string>
   <string name="on_this_day_game_incorrect">Incorrecte!</string>
   <string name="on_this_day_game_point">+1 puncto</string>
   <string name="on_this_day_game_next">Proxime question</string>
   <string name="on_this_day_game_finish">Resultatos final</string>
+  <string name="on_this_day_game_share_button">Condivider</string>
   <string name="on_this_day_game_pause_title">Pausar le joco?</string>
   <string name="on_this_day_game_pause_body">Tu progresso essera salveguardate pro le die. Tu pote retrovar le joco sur tu fluxo Explorar.</string>
   <string name="on_this_day_game_pause_negative">Continuar a jocar</string>
@@ -1731,4 +1734,25 @@
   <string name="on_this_day_game_report_email_subject">Reporto de problema – jocos de Wikipeia</string>
   <string name="on_this_day_game_report_email_body">Io ha incontrate un problema con le function Jocos de Wikipedia:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="on_this_day_game_notification_undo">Disfacer</string>
+  <string name="on_this_day_game_share_link_message">Io joca a “Qual ha evenite primo?”, un quiz quotidian sur le app Android de Wikipedia %s</string>
+  <string name="on_this_day_game_share_screen_title">Hodie io ha obtenite un score de %1$d/%2$d sur “Qual ha evenite primo?”.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Topicos includite:</string>
+  <string name="on_this_day_game_survey_q1">Quanto satisfacite esseva tu con le joco?</string>
+  <string name="on_this_day_game_survey_q2">Te interessarea jocar altere jocos de Wikipedia?</string>
+  <string name="on_this_day_game_archive_calendar_title">Elige per data un joco a jocar.</string>
+  <string name="on_this_day_game_score_toast_message">Tu score de hodie es %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Continuar le joco de hodie</string>
+  <string name="on_this_day_game_current_progress_message">Tu es al question %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Reproducer archivo</string>
+  <string name="on_this_day_game_review_results_btn_text">Revider resultatos</string>
+  <string name="on_this_day_game_score_message">Tu score del joco de hodie es %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Continuar a jocar</string>
+  <string name="on_this_day_game_sound_on">Activar le sono</string>
+  <string name="on_this_day_game_sound_off">Disactivar le sono</string>
+  <string name="recommended_reading_list_title">Discoperir</string>
+  <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
+  <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nove!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Comenciar</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">No, gratias</string>
 </resources>
