@@ -146,7 +146,6 @@
             android:layout_marginTop="2dp"
             android:text="@string/recommended_reading_list_page_subtitle_made_for"
             android:textColor="?attr/secondary_color"
-            android:visibility="gone"
             tools:visibility="visible"
             tools:text="• 5 articles" />
 
