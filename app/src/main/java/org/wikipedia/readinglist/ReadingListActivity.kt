@@ -4,10 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RecommendedReadingListNotificationManager
@@ -45,6 +49,14 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         super.onBackPressed()
         if (readingListMode == ReadingListMode.DEFAULT) {
             ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
+        }
+        if (!WikipediaApp.instance.haveMainActivity) {
+            startActivity(MainActivity.newIntent(this)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS)
+            )
+            finish()
         }
     }
 

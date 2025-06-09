@@ -60,6 +60,11 @@ object RecommendedReadingListHelper {
             }
         }
 
+        // If no titles are found, return an empty list
+        if (titles.isEmpty()) {
+            return emptyList()
+        }
+
         // Step 2: combine the titles with the offsite from Prefs.
         val sourcesWithOffset = mutableListOf<SourceWithOffset>()
         titles.forEach { pageTitle ->
