@@ -20,6 +20,8 @@ object RecommendedReadingListNotificationManager {
     private const val NOTIFICATION_TYPE_LOCAL = "local"
 
     fun scheduleRecommendedReadingListNotification(context: Context) {
+        // Always cancel before scheduling a new one
+        cancelRecommendedReadingListNotification(context)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(NotificationPollBroadcastReceiver.ACTION_RECOMMENDED_READING_LIST)

@@ -202,10 +202,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.errorView.isVisible = true
                                 binding.readingListHeader.isVisible = false
                                 binding.readingListSwipeRefresh.isVisible = false
-                                binding.errorView.setError(it.throwable)
                                 binding.errorView.backClickListener = View.OnClickListener {
-                                    requireActivity().finish()
+                                    (requireActivity() as ReadingListActivity).onBackPressed()
                                 }
+                                binding.errorView.setError(it.throwable)
                             }
                         }
                     }
