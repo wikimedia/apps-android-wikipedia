@@ -29,12 +29,15 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     private val recommendedReadingListSourceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
+            val currentTitlesWithOffset = Prefs.recommendedReadingListSourceTitlesWithOffset
             if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
                 showSnackBar(Prefs.recommendedReadingListSource, onAction = {
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                    Prefs.recommendedReadingListSourceTitlesWithOffset = currentTitlesWithOffset
                     RecommendedReadingListEvent.submit("built_undo_click", "discover_settings")
                 })
                 Prefs.resetRecommendedReadingList = true
+                Prefs.recommendedReadingListSourceTitlesWithOffset = emptyList()
             }
         }
     }
