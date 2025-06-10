@@ -50,10 +50,10 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                     .setMessage(R.string.recommended_reading_list_settings_updates_base_dialog_message)
                                     .setCancelable(false)
                                     .setPositiveButton(R.string.recommended_reading_list_settings_updates_base_dialog_negative_button) { _, _ ->
-                                        RecommendedReadingListEvent.submit("built_cancel_click", "discover_settings")
+                                        RecommendedReadingListEvent.submit("built_cancel_click", activeInterface)
                                     }
                                     .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
-                                        RecommendedReadingListEvent.submit("adjust_click", "discover_settings")
+                                        RecommendedReadingListEvent.submit("adjust_click", activeInterface)
                                         viewModel.updateSourceSelection(newSource = it)
                                     }
                                     .show()

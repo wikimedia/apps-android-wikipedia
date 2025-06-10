@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist.recommended
 
-import org.wikipedia.Constants
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -91,7 +90,7 @@ object RecommendedReadingListHelper {
                 recommendedPage = getRecommendedPage(sourceWithOffset, offset)
                 // Cannot find any recommended articles, so update the offset and retry.
                 if (recommendedPage == null) {
-                    offset += Constants.SUGGESTION_REQUEST_ITEMS
+                    offset += SUGGESTION_REQUEST_ITEMS
                 }
                 retryCount++
             }
