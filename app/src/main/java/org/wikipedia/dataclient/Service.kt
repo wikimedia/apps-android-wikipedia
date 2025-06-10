@@ -100,6 +100,7 @@ interface Service {
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
+        @Query("gsroffset") gsrOffset: Int? = null,
     ): MwQueryResponse
 
     // ------- Miscellaneous -------

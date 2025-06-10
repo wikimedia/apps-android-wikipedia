@@ -1858,6 +1858,7 @@
     <item quantity="one">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
     <item quantity="other">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Message requiring the user to select at least one article as an interest.</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Content description for the button that randomly selects articles as interests.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Snackbar message shown when the app randomly selects articles for the interests.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Action label on the snackbar to undo the random selection of interests.</string>

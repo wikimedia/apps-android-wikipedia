@@ -45,6 +45,7 @@ import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -137,6 +138,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                         is ImportReadingListsEvent -> {
                             maybeShowImportReadingListsNewInstallDialog()
                         }
+                        is NewRecommendedReadingListEvent -> {
+                            binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isNewRecommendedReadingListGenerated)
+                        }
                     }
                 }
             }
@@ -148,7 +152,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
             it.maxLines = 2
         }
-
+        binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
