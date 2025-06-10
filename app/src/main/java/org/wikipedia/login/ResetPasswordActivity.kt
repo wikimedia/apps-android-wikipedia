@@ -137,7 +137,7 @@ class ResetPasswordActivity : BaseActivity() {
             }
         }
 
-        override fun uiPrompt(result: LoginResult, caught: Throwable, token: String?) {
+        override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token.orEmpty()
             uiPromptResult = result

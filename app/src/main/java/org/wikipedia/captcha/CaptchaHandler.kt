@@ -19,7 +19,8 @@ import org.wikipedia.views.ViewUtil
 
 class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: WikiSite,
                      captchaView: View, private val primaryView: View,
-                     private val prevTitle: String, submitButtonText: String?) {
+                     private val prevTitle: String, submitButtonText: String?,
+                     private val isModal: Boolean = true) {
     private val binding = GroupCaptchaBinding.bind(captchaView)
     private var captchaResult: CaptchaResult? = null
     private var clientJob: Job? = null
@@ -72,9 +73,11 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         if (captchaResult == null) {
             return
         }
-        DeviceUtil.hideSoftKeyboard(activity)
-        if (!isReload) {
-            ViewAnimations.crossFade(primaryView, binding.root)
+        if (isModal) {
+            DeviceUtil.hideSoftKeyboard(activity)
+            if (!isReload) {
+                ViewAnimations.crossFade(primaryView, binding.root)
+            }
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")

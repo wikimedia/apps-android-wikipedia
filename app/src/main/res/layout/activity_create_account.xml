@@ -151,7 +151,7 @@
             <include
                 android:id="@+id/captcha_container"
                 layout="@layout/group_captcha"
-                tools:visibility="gone" />
+                tools:visibility="visible" />
 
         </FrameLayout>
     </ScrollView>

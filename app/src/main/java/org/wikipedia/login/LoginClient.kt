@@ -17,7 +17,7 @@ class LoginClient {
 
     interface LoginCallback {
         fun success(result: LoginResult)
-        fun uiPrompt(result: LoginResult, caught: Throwable, token: String?)
+        fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String? = null, token: String? = null)
         fun passwordResetPrompt(token: String?)
         fun error(caught: Throwable)
     }
@@ -44,19 +44,19 @@ class LoginClient {
                 } else if (LoginResult.STATUS_UI == loginResult.status) {
                     val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
                     when (loginResult) {
-                        is LoginOAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), loginToken)
-                        is LoginEmailAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), loginToken)
+                        is LoginOAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
+                        is LoginEmailAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
                         is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
                         else -> cb.error(LoginFailedException(parsedMessage))
                     }
                 } else if (LoginResult.STATUS_FAIL == loginResult.status) {
                     // If the result is FAIL, it's still possible that the authmanager expects a CAPTCHA.
                     // We need to make one more call to authmanager to make sure.
-                    val response = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
-                    if (response.isNullOrEmpty()) {
+                    val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+                    if (captchaId.isNullOrEmpty()) {
                         cb.error(LoginFailedException(loginResult.message))
                     } else {
-                        cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), loginToken)
+                        cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
                     }
                 } else {
                     cb.error(LoginFailedException(loginResult.message))
