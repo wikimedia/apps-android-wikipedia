@@ -138,12 +138,11 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         onNextClick = {
                             viewModel.commitSelection()
                             if (viewModel.fromSettings) {
-                                viewModel.commitSelection()
-                                requireActivity().setResult(RESULT_OK)
+                                viewModel.generateRecommendedReadingList()
                             } else {
                                 startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                                requireActivity().finish()
                             }
-                            requireActivity().finish()
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             backClickListener = {
@@ -165,6 +164,10 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                             lifecycleScope.launch {
                                 listState.scrollToItem(0)
                             }
+                        },
+                        onListGenerated = {
+                            requireActivity().setResult(RESULT_OK)
+                            requireActivity().finish()
                         }
                     )
                 }
@@ -193,7 +196,8 @@ fun RecommendedReadingListInterestsScreen(
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
     onRandomizeClick: (listState: LazyStaggeredGridState) -> Unit,
-    onSearchClick: () -> Unit
+    onSearchClick: () -> Unit,
+    onListGenerated: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
     val collapseHeight = LocalDensity.current.run { 100.dp.toPx() }
@@ -295,6 +299,11 @@ fun RecommendedReadingListInterestsScreen(
             }
 
             is Resource.Success -> {
+
+                if (uiState.data.listGenerated) {
+                    onListGenerated()
+                }
+
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -564,6 +573,7 @@ fun PreviewReadingListInterestsScreen() {
             onSearchClick = {},
             onItemClick = {},
             onRandomizeClick = {},
+            onListGenerated = {},
         )
     }
 }

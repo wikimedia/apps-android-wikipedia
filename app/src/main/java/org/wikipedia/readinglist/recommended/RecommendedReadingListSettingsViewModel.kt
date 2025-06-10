@@ -45,9 +45,6 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateRecommendedReadingListSource(source: RecommendedReadingListSource) {
-        if (source != Prefs.recommendedReadingListSource) {
-            Prefs.resetRecommendedReadingList = true
-        }
         Prefs.recommendedReadingListSource = source
         _uiState.value = _uiState.value.copy(recommendedReadingListSource = source)
     }

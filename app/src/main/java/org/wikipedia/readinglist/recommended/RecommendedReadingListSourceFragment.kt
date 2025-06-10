@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist.recommended
 
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -78,8 +79,10 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                 } else {
                                     if (!viewModel.fromSettings) {
                                         startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
+                                        requireActivity().finish()
+                                    } else {
+                                        viewModel.generateRecommendedReadingList()
                                     }
-                                    requireActivity().finish()
                                 }
                             }
                         },
@@ -90,7 +93,11 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             retryClickListener = {
                                 viewModel.setupSourceSelection()
                             }
-                        )
+                        ),
+                        onListGenerated = {
+                            requireActivity().setResult(RESULT_OK)
+                            requireActivity().finish()
+                        }
                     )
                 }
             }

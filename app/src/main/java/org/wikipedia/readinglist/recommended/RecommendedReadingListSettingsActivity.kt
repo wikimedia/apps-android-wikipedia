@@ -31,16 +31,18 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
             if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
                 showSnackBar(Prefs.recommendedReadingListSource, onAction = {
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                    Prefs.resetRecommendedReadingList = true
                     RecommendedReadingListEvent.submit("built_undo_click", "discover_settings")
                 })
-                Prefs.resetRecommendedReadingList = true
+                Prefs.resetRecommendedReadingList = false
             }
         }
     }
 
     private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            Prefs.resetRecommendedReadingList = true
+            viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
+            Prefs.resetRecommendedReadingList = false
         }
     }
 
