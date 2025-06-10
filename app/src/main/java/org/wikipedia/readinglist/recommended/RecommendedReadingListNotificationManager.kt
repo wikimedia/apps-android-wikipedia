@@ -46,6 +46,7 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.WEEKLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_weekly)
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
+        Prefs.resetRecommendedReadingList = true
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
