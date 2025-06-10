@@ -495,11 +495,6 @@
             android:key="@string/preference_key_otd_game_first_played_shown"
             android:title="@string/preference_key_otd_game_first_played_shown" />
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_onThisDayGame"
-            android:title="Game ABC test group" />
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Playground">

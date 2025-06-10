@@ -2,11 +2,9 @@ package org.wikipedia.feed.wikigames
 
 import android.content.Context
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ABTest
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.games.onthisday.OnThisDayGameABCTest
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 
 class WikiGamesCardClient() : FeedClient {
@@ -18,7 +16,7 @@ class WikiGamesCardClient() : FeedClient {
             .filter { langCode ->
                 WikipediaApp.instance.languageState.appLanguageCodes.contains(langCode)
             }
-        val cards = if (OnThisDayGameABCTest().group == ABTest.GROUP_1) emptyList() else availableLanguages.map { langCode ->
+        val cards = availableLanguages.map { langCode ->
             WikiGamesCard(WikiSite.forLanguageCode(langCode))
         }
         cb.success(cards)
