@@ -140,7 +140,12 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
 
     fun commitSelection() {
         (_uiState.value as? Resource.Success<UiState>)?.let {
-            val selectedItems = it.data.selectedItems.toList()
+            val selectedItems = it.data.selectedItems.toMutableList()
+
+            if (fromSettings && selectedItems.isEmpty()) {
+                selectedItems.add(it.data.items.first())
+            }
+
             Prefs.recommendedReadingListInterests = selectedItems
             if (fromSettings) {
                 RecommendedReadingListEvent.submit(
