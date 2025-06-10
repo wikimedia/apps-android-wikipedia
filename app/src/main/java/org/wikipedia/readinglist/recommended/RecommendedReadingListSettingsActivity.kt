@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -28,18 +29,22 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     private val recommendedReadingListSourceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
+            val currentTitlesWithOffset = Prefs.recommendedReadingListSourceTitlesWithOffset
             if (currentRecommendedReadingListSource != Prefs.recommendedReadingListSource) {
                 showSnackBar(Prefs.recommendedReadingListSource, onAction = {
                     viewModel.updateRecommendedReadingListSource(currentRecommendedReadingListSource)
+                    Prefs.recommendedReadingListSourceTitlesWithOffset = currentTitlesWithOffset
                     RecommendedReadingListEvent.submit("built_undo_click", "discover_settings")
                 })
                 Prefs.resetRecommendedReadingList = true
+                Prefs.recommendedReadingListSourceTitlesWithOffset = emptyList()
             }
         }
     }
 
     private val recommendedReadingListInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
+            viewModel.updateRecommendedReadingListSource(Prefs.recommendedReadingListSource)
             Prefs.resetRecommendedReadingList = true
         }
     }
@@ -50,15 +55,17 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
         RecommendedReadingListEvent.submit("impression", "discover_settings")
         setContent {
             val uiState by viewModel.uiState.collectAsState()
+            val resetUiState by viewModel.resetUiState.collectAsState()
 
             BaseTheme {
                 RecommendedReadingListSettingsScreen(
                     uiState = uiState,
+                    resetUiState = resetUiState,
                     modifier = Modifier
                         .fillMaxSize(),
                     onBackButtonClick = {
                         RecommendedReadingListEvent.submit("back_click", "discover_settings")
-                        onBackPressed()
+                        viewModel.generateRecommendedReadingList()
                     },
                     onRecommendedReadingListSourceClick = {
                         RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = Prefs.recommendedReadingListSource.eventString)
@@ -91,6 +98,17 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     onRecommendedReadingListSwitchClick = {
                         RecommendedReadingListEvent.submit(if (it) "discover_on_click" else "discover_off_click", "discover_settings")
                         viewModel.toggleDiscoverReadingList(it)
+                    },
+                    wikiErrorClickEvents = WikiErrorClickEvents(
+                        backClickListener = {
+                            onBackPressed()
+                        },
+                        retryClickListener = {
+                            viewModel.generateRecommendedReadingList()
+                        }
+                    ),
+                    onListGenerated = {
+                        onBackPressed()
                     }
                 )
             }

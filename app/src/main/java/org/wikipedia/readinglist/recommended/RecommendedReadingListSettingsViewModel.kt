@@ -1,15 +1,22 @@
 package org.wikipedia.readinglist.recommended
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.Resource
 
 class RecommendedReadingListSettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(RecommendedReadingListSettingsState())
     val uiState: StateFlow<RecommendedReadingListSettingsState> = _uiState.asStateFlow()
+
+    private val _resetUiState = MutableStateFlow(Resource<Boolean>())
+    val resetUiState = _resetUiState.asStateFlow()
 
     fun toggleDiscoverReadingList(enabled: Boolean) {
         Prefs.isRecommendedReadingListEnabled = enabled
@@ -32,9 +39,6 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateFrequency(frequency: RecommendedReadingListUpdateFrequency) {
-        if (frequency != Prefs.recommendedReadingListUpdateFrequency) {
-            Prefs.resetRecommendedReadingList = true
-        }
         Prefs.recommendedReadingListUpdateFrequency = frequency
         _uiState.value = _uiState.value.copy(updateFrequency = frequency)
     }
@@ -45,11 +49,20 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateRecommendedReadingListSource(source: RecommendedReadingListSource) {
-        if (source != Prefs.recommendedReadingListSource) {
-            Prefs.resetRecommendedReadingList = true
-        }
         Prefs.recommendedReadingListSource = source
         _uiState.value = _uiState.value.copy(recommendedReadingListSource = source)
+    }
+
+    fun generateRecommendedReadingList() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _resetUiState.value = Resource.Error(throwable)
+        }) {
+            _resetUiState.value = Resource.Loading()
+            if (Prefs.resetRecommendedReadingList) {
+                RecommendedReadingListHelper.generateRecommendedReadingList(shouldExpireOldPages = true, fromSettings = true)
+            }
+            _resetUiState.value = Resource.Success(true)
+        }
     }
 }
 

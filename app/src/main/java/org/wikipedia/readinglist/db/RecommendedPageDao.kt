@@ -13,8 +13,8 @@ interface RecommendedPageDao {
     @Query("SELECT * FROM RecommendedPage WHERE status = 0 ORDER BY timestamp DESC")
     suspend fun getNewRecommendedPages(): List<RecommendedPage>
 
-    @Query("SELECT * FROM RecommendedPage WHERE status = 1 ORDER BY RANDOM() LIMIT :limit")
-    suspend fun getExpiredRecommendedPages(limit: Int): List<RecommendedPage>
+    @Query("SELECT * FROM RecommendedPage WHERE status = 1 AND apiTitle NOT IN (:list) ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getExpiredRecommendedPages(limit: Int, list: List<String>): List<RecommendedPage>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(recommendedPages: RecommendedPage)

@@ -16,7 +16,9 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
@@ -68,7 +70,12 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         recommendedReadingListCategory.isVisible = RecommendedReadingListAbTest().isTestGroupUser()
         findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             RecommendedReadingListEvent.submit("discover_click", "global_settings")
-            activity.startActivity(Intent(activity, RecommendedReadingListSettingsActivity::class.java))
+            if (Prefs.recommendedReadingListInterests.isEmpty() &&
+                Prefs.recommendedReadingListSource == RecommendedReadingListSource.INTERESTS) {
+                activity.startActivity(RecommendedReadingListOnboardingActivity.newIntent(activity))
+            } else {
+                activity.startActivity(RecommendedReadingListSettingsActivity.newIntent(activity))
+            }
             true
         }
 

@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist.recommended
 
-import org.wikipedia.Constants
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -12,9 +11,10 @@ import org.wikipedia.settings.Prefs
 
 object RecommendedReadingListHelper {
 
+    private const val SUGGESTION_REQUEST_ITEMS = 50
     private const val MAX_RETRIES = 10
 
-    suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
+    suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false, fromSettings: Boolean = false): List<RecommendedPage> {
         if (!Prefs.isRecommendedReadingListEnabled) {
             return emptyList()
         }
@@ -26,13 +26,13 @@ object RecommendedReadingListHelper {
         if (shouldExpireOldPages) {
             // Expire old recommended pages
             AppDatabase.instance.recommendedPageDao().expireOldRecommendedPages()
-            Prefs.resetRecommendedReadingList = false
+            Prefs.resetRecommendedReadingList = fromSettings
         }
 
         // Check if amount of new articles to see if we really need to generate a new list
         val existingRecommendedPages = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
         if (existingRecommendedPages.size >= numberOfArticles) {
-            return existingRecommendedPages
+            return existingRecommendedPages.take(numberOfArticles)
         } else {
             // If the number of articles is less than the number of new articles, adjust the number of articles
             numberOfArticles -= existingRecommendedPages.size
@@ -90,7 +90,7 @@ object RecommendedReadingListHelper {
                 recommendedPage = getRecommendedPage(sourceWithOffset, offset)
                 // Cannot find any recommended articles, so update the offset and retry.
                 if (recommendedPage == null) {
-                    offset += Constants.SUGGESTION_REQUEST_ITEMS
+                    offset += SUGGESTION_REQUEST_ITEMS
                 }
                 retryCount++
             }
@@ -115,28 +115,31 @@ object RecommendedReadingListHelper {
             }
         }
 
-        // Step 5: if the list is empty, we can get the expired pages from the database
-        if (newRecommendedPages.isEmpty()) {
-            val expiredPages = AppDatabase.instance.recommendedPageDao().getExpiredRecommendedPages(Prefs.recommendedReadingListArticlesNumber)
+        val finalList = (newRecommendedPages + existingRecommendedPages).distinct().toMutableList()
+
+        // Step 5: if the list is empty or nothing new, we can get the expired pages from the database
+        if (finalList.size < Prefs.recommendedReadingListArticlesNumber) {
+            val pagesShouldGetFromExpire = Prefs.recommendedReadingListArticlesNumber - finalList.size
+            val expiredPages = AppDatabase.instance.recommendedPageDao().getExpiredRecommendedPages(pagesShouldGetFromExpire, finalList.map { it.apiTitle })
             expiredPages.map {
                 it.status = 0
                 it
             }.apply {
                 AppDatabase.instance.recommendedPageDao().updateAll(this)
-                newRecommendedPages.addAll(this)
+                finalList.addAll(this)
             }
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        return (newRecommendedPages + existingRecommendedPages).distinct()
+        return finalList
     }
 
     private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {
         val wikiSite = WikiSite.forLanguageCode(sourceWithOffset.language)
         val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike(
             searchTerm = "morelike:${sourceWithOffset.title}",
-            gsrLimit = Constants.SUGGESTION_REQUEST_ITEMS,
-            piLimit = Constants.SUGGESTION_REQUEST_ITEMS,
+            gsrLimit = SUGGESTION_REQUEST_ITEMS,
+            piLimit = SUGGESTION_REQUEST_ITEMS,
             gsrOffset = offset
         )
 

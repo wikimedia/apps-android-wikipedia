@@ -3,9 +3,11 @@ package org.wikipedia.readinglist.recommended
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,6 +19,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -47,25 +50,32 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.WikipediaAlertDialog
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.Resource
 
 @Composable
 fun RecommendedReadingListSettingsScreen(
     modifier: Modifier = Modifier,
     uiState: RecommendedReadingListSettingsState,
+    resetUiState: Resource<Boolean>,
     onBackButtonClick: () -> Unit,
     onRecommendedReadingListSourceClick: () -> Unit,
     onInterestClick: () -> Unit,
     onRecommendedReadingListSwitchClick: (Boolean) -> Unit,
     onNotificationStateChanged: (Boolean) -> Unit,
     onArticleNumberChanged: (Int) -> Unit,
-    onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit
+    onUpdateFrequency: (RecommendedReadingListUpdateFrequency) -> Unit,
+    onListGenerated: () -> Unit,
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
 ) {
     var showAlertDialog by remember { mutableStateOf(false) }
     val isRecommendedReadingListEnabled = uiState.isRecommendedReadingListEnabled
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -76,6 +86,46 @@ fun RecommendedReadingListSettingsScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
+
+        when (resetUiState) {
+            is Resource.Loading -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(paddingValues),
+                ) {
+                    LinearProgressIndicator(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = WikipediaTheme.colors.progressiveColor,
+                        trackColor = WikipediaTheme.colors.borderColor
+                    )
+                }
+                return@Scaffold
+            }
+
+            is Resource.Error -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        caught = resetUiState.throwable,
+                        errorClickEvents = wikiErrorClickEvents
+                    )
+                }
+                return@Scaffold
+            }
+
+            is Resource.Success -> {
+                onListGenerated()
+                return@Scaffold
+            }
+        }
+
         Column(
             modifier = Modifier
                 .padding(paddingValues)
@@ -642,12 +692,14 @@ private fun RecommendedReadingListSettingsScreenPreview() {
                 recommendedReadingListSource = RecommendedReadingListSource.INTERESTS,
                 isRecommendedReadingListNotificationEnabled = true
             ),
+            resetUiState = Resource.Loading(),
             onRecommendedReadingListSourceClick = {},
             onRecommendedReadingListSwitchClick = {},
             onInterestClick = {},
             onUpdateFrequency = {},
             onArticleNumberChanged = {},
             onBackButtonClick = {},
+            onListGenerated = {},
             onNotificationStateChanged = {}
         )
     }
