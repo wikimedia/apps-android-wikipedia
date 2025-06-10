@@ -51,6 +51,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -60,26 +61,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.ui.graphics.layer.drawLayer
 import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.rememberGraphicsLayer
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.net.toUri
-import androidx.core.view.drawToBitmap
 import androidx.navigation.NavHostController
-import coil3.compose.AsyncImage
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
@@ -101,11 +105,9 @@ fun YearInReviewScreen(
     var startCapture by remember { mutableStateOf(false) }
 
     if (startCapture) {
-        CaptureComposableToBitmap(
-            screen = { ScreenShotScaffold(
-                screenContent = contentData[pagerState.currentPage],
-                context = context
-            ) }
+        CreateScreenShotBitmap(
+            screenContent = contentData[pagerState.currentPage],
+            context = context,
         ) { bitmap ->
             ShareUtil.shareImage(
                 coroutineScope = coroutineScope,
@@ -345,7 +347,9 @@ fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
     context: Context,
-    screenCaptureMode: Boolean = false
+    screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
+    isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
@@ -356,11 +360,14 @@ fun YearInReviewScreenContent(
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        AsyncImage(
+        SubcomposeAsyncImage(
             model = ImageRequest.Builder(context)
                 .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
                 .allowHardware(false)
                 .build(),
+            loading = { LoadingIndicator() },
+            success = { SubcomposeAsyncImageContent() },
+            onSuccess = { isImageResourceLoaded?.invoke(true) },
             contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
             modifier = Modifier
                 .fillMaxWidth()
@@ -384,7 +391,7 @@ fun YearInReviewScreenContent(
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
-                if (!screenCaptureMode) {
+                if (!screenCaptureMode && !isOnboardingScreen) {
                     IconButton(
                         onClick = {
                             UriUtil.handleExternalLink(
@@ -413,18 +420,36 @@ fun YearInReviewScreenContent(
 }
 
 @Composable
-fun ScreenShotScaffold(
+fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
-    context: Context
+    context: Context,
+    onBitmapReady: (Bitmap) -> Unit
 ) {
     val shadowColor = WikipediaTheme.colors.primaryColor
+    val graphicsLayer = rememberGraphicsLayer()
+    var isImageLoaded by remember { mutableStateOf(false) }
+
+    if (isImageLoaded) {
+        LaunchedEffect(Unit) {
+            val bitmap = graphicsLayer.toImageBitmap()
+            onBitmapReady(bitmap.asAndroidBitmap())
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .drawWithContent {
+                graphicsLayer.record {
+                    this@drawWithContent.drawContent()
+                }
+                drawLayer(graphicsLayer)
+            }
             .background(color = WikipediaTheme.colors.paperColor),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -447,10 +472,10 @@ fun ScreenShotScaffold(
             screenData = screenContent,
             screenCaptureMode = true,
             context = context
-        )
+        ) { isLoaded -> isImageLoaded = isLoaded }
 
         Card(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(10.dp),
             colors = CardDefaults.cardColors(
                 containerColor = WikipediaTheme.colors.paperColor
             ),
@@ -458,6 +483,7 @@ fun ScreenShotScaffold(
                 .width(312.dp)
                 .padding(top = 36.dp)
                 .drawBehind {
+                    /* Manually creating card shadow for render compatibility with graphicsLayer.toImageBitmap() */
                     val paint = Paint().asFrameworkPaint().apply {
                         color = shadowColor.copy(alpha = 0.15f).toArgb()
                         maskFilter = BlurMaskFilter(
@@ -533,38 +559,14 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
-@Composable
-fun CaptureComposableToBitmap(
-    screen: @Composable () -> Unit,
-    onBitmapReady: (Bitmap) -> Unit
-) {
-    AndroidView(
-        factory = { context ->
-            ComposeView(context).apply {
-                setContent {
-                    screen()
-                }
-            }
-        },
-        update = { view ->
-            view.postDelayed({
-                val bitmap = view.drawToBitmap()
-                onBitmapReady(bitmap)
-            }, 500)
-        },
-        modifier = Modifier
-            .fillMaxSize()
-    )
-}
-
 @Preview
 @Composable
 fun PreviewScreenShot() {
     val context = LocalContext.current
-    BaseTheme {
-        ScreenShotScaffold(
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CreateScreenShotBitmap(
             screenContent = nonEnglishCollectiveEditCountData,
             context = context
-        )
+        ) { /* No logic, preview only */ }
     }
 }

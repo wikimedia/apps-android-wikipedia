@@ -85,7 +85,8 @@ class YearInReviewActivity : BaseActivity() {
                                     innerPadding = innerPadding,
                                     screenData = contentData,
                                     context = this@YearInReviewActivity,
-                                    screenCaptureMode = false
+                                    screenCaptureMode = false,
+                                    isOnboardingScreen = true
                                 )
                             },
                         )
