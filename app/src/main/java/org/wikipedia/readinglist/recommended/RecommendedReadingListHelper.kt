@@ -142,6 +142,7 @@ object RecommendedReadingListHelper {
 
         // Logic to check if the article is already in the database, if it exists, check the next one.
         val firstRecommendedPage = moreLikeResponse.query?.pages.orEmpty()
+            .sortedBy { it.index }
             .map { page ->
                 PageTitle(page.title, wikiSite).apply {
                     displayText = page.displayTitle(wikiSite.languageCode)
