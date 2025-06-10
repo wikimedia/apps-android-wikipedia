@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
@@ -23,6 +24,8 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
@@ -213,6 +216,24 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_playground_category).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, CategoryDeveloperPlayGround::class.java))
             true
+        }
+        (findPreference(R.string.preference_key_recommended_reading_list_notification_simulator) as ListPreference).apply {
+            val frequencies = RecommendedReadingListUpdateFrequency.entries
+            val names = frequencies.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedFrequency = newValue as String
+                val source = when (selectedFrequency) {
+                    "DAILY" -> RecommendedReadingListUpdateFrequency.DAILY
+                    "WEEKLY" -> RecommendedReadingListUpdateFrequency.WEEKLY
+                    else -> RecommendedReadingListUpdateFrequency.MONTHLY
+                }
+                Prefs.recommendedReadingListUpdateFrequency = source
+                RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                RecommendedReadingListNotificationManager.showNotification(context = activity, source)
+                true
+            }
         }
     }
 

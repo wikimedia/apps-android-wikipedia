@@ -15,6 +15,15 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
@@ -35,11 +44,14 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -50,6 +62,10 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
@@ -95,6 +111,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        RecommendedReadingListEvent.submit("impression", "rrl_saved")
         retainInstance = true
     }
 
@@ -334,6 +351,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 maybeShowPreviewSavedReadingListsSnackbar()
                 currentSearchQuery = searchQuery
                 maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
+
+                // Recommended Reading List discover card
+                val recommendedArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                    setupRecommendedReadingListDiscoverCardView(recommendedArticles)
+                } else {
+                    binding.discoverCardView.isVisible = false
+                }
             }
         }
     }
@@ -394,7 +419,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 newImport = readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
             view.saveClickListener = View.OnClickListener {
-                startActivity(ReadingListActivity.newIntent(requireActivity(), true))
+                startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.PREVIEW))
             }
         }
 
@@ -476,6 +501,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
+                RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
@@ -612,7 +638,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
-            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), androidx.appcompat.R.attr.colorError)
+            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.warning_color)
             deleteItem.isEnabled = false
             MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
@@ -783,8 +809,27 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
+        if (RecommendedReadingListAbTest().isTestGroupUser() && !Prefs.isRecommendedReadingListOnboardingShown) {
+            RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
+            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
+            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
+            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setImageResource(-1, false)
+            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+                startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                RecommendedReadingListEvent.submit("enter_click", "rrl_saved_prompt")
+            }, true)
+            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+                binding.onboardingView.isVisible = false
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                updateEmptyState(null)
+                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
+                RecommendedReadingListEvent.submit("nothanks_click", "rrl_saved_prompt")
+            }, false)
+            binding.onboardingView.isVisible = true
+        } else if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -795,6 +840,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }, false)
             binding.onboardingView.isVisible = true
         } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -820,6 +866,49 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val inputString = inputStream.bufferedReader().use { it.readText() }
             ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
             importMode = true
+        }
+    }
+
+    private fun setupRecommendedReadingListDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
+        binding.discoverCardView.isVisible = true
+        binding.discoverCardView.setContent {
+            val images by remember(Prefs.recommendedReadingListArticlesNumber, Prefs.recommendedReadingListSource) { mutableStateOf(recommendedArticles.mapNotNull { it.thumbUrl }) }
+            var isNewListGenerated by remember { mutableStateOf(Prefs.isNewRecommendedReadingListGenerated) }
+            val subtitle = when (AccountUtil.isLoggedIn) {
+                true -> { getString(R.string.recommended_reading_list_page_subtitle_made_for, "<b>" + AccountUtil.userName + "</b>") }
+                false -> { getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you) }
+            }
+
+            LaunchedEffect(Unit) {
+                FlowEventBus.events.collect { event ->
+                    if (event is NewRecommendedReadingListEvent) {
+                        isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated
+                    }
+                }
+            }
+            val description = when (Prefs.recommendedReadingListUpdateFrequency) {
+                RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
+                RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
+                RecommendedReadingListUpdateFrequency.MONTHLY -> R.string.recommended_reading_list_page_description_monthly
+            }
+            BaseTheme {
+                RecommendedReadingListDiscoverCardView(
+                    modifier = Modifier
+                        .clickable {
+                            Prefs.isNewRecommendedReadingListGenerated = false
+                            FlowEventBus.post(NewRecommendedReadingListEvent())
+                            startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.RECOMMENDED))
+                        }
+                        .padding(16.dp),
+                    title = getString(R.string.recommended_reading_list_title),
+                    subtitleIcon = R.drawable.ic_wikipedia_w,
+                    subtitle = subtitle,
+                    description = getString(description),
+                    images = images,
+                    isNewListGenerated = isNewListGenerated,
+                    isUserLoggedIn = AccountUtil.isLoggedIn
+                )
+            }
         }
     }
 
