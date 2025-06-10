@@ -1890,6 +1890,7 @@
         <item quantity="one">%d selected</item>
         <item quantity="other">%d selected</item>
     </plurals>
+    <string name="recommended_reading_list_interest_select_minimum">Select at least one interest</string>
     <string name="recommended_reading_list_interest_pick_random_button_content_description">Randomly select</string>
     <string name="recommended_reading_list_interest_pick_random_snackbar">We\'ve randomly selected a few articles for you.</string>
     <string name="recommended_reading_list_interest_pick_random_snackbar_action">Undo</string>

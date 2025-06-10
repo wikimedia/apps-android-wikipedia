@@ -244,12 +244,14 @@ fun RecommendedReadingListInterestsScreen(
                     }
                 },
                 navigationIcon = {
+                    val enabled = !fromSettings || (uiState !is Resource.Success) || uiState.data.selectedItems.isNotEmpty()
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.search_back_button_content_description),
                         modifier = Modifier
                             .size(48.dp)
-                            .clickable(onClick = onCloseClick)
+                            .clickable(onClick = onCloseClick, enabled = enabled)
+                            .alpha(if (enabled) 1f else 0.5f)
                             .padding(12.dp),
                         tint = WikipediaTheme.colors.primaryColor
                     )
@@ -403,7 +405,8 @@ fun RecommendedReadingListInterestsContent(
                 modifier = Modifier
                     .padding(start = 8.dp, end = 8.dp)
                     .weight(1f),
-                text = pluralStringResource(
+                text = if (fromSettings && selectedItems.isEmpty()) stringResource(R.string.recommended_reading_list_interest_select_minimum)
+                else pluralStringResource(
                     R.plurals.recommended_reading_list_interest_pick_selected_articles,
                     selectedItems.size,
                     selectedItems.size
