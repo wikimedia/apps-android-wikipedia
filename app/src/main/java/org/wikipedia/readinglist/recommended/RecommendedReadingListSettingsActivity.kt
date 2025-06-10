@@ -6,9 +6,11 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -52,6 +54,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         callback = this
+        enableEdgeToEdge()
         RecommendedReadingListEvent.submit("impression", "discover_settings")
         setContent {
             val uiState by viewModel.uiState.collectAsState()
@@ -62,7 +65,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     uiState = uiState,
                     resetUiState = resetUiState,
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .safeContentPadding(),
                     onBackButtonClick = {
                         RecommendedReadingListEvent.submit("back_click", "discover_settings")
                         viewModel.generateRecommendedReadingList()
