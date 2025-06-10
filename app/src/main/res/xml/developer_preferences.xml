@@ -497,6 +497,26 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Recommended Reading list">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_enabled"
+            android:title="@string/preference_key_recommended_reading_list_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_onboarding_shown"
+            android:title="@string/preference_key_recommended_reading_list_onboarding_shown" />
+
+        <ListPreference
+            android:key="@string/preference_key_recommended_reading_list_notification_simulator"
+            android:title="Notification frequency Simulator"/>
+      
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedReadingList"
+            android:title="AB test group" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="Playground">
         <Preference
             android:key="@string/preference_key_playground_category"

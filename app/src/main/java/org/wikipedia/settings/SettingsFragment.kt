@@ -61,6 +61,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
             }
             preferenceLoader.updateSyncReadingListsPrefSummary()
             preferenceLoader.updateLanguagePrefSummary()
+            preferenceLoader.updateRecommendedReadingListSummary()
         }
         requireActivity().invalidateOptionsMenu()
     }
