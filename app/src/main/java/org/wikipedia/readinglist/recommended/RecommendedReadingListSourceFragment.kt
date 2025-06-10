@@ -79,10 +79,10 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                 } else {
                                     if (!viewModel.fromSettings) {
                                         startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
-                                        requireActivity().finish()
                                     } else {
-                                        viewModel.generateRecommendedReadingList()
+                                        requireActivity().setResult(RESULT_OK)
                                     }
+                                    requireActivity().finish()
                                 }
                             }
                         },
@@ -93,11 +93,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                             retryClickListener = {
                                 viewModel.setupSourceSelection()
                             }
-                        ),
-                        onListGenerated = {
-                            requireActivity().setResult(RESULT_OK)
-                            requireActivity().finish()
-                        }
+                        )
                     )
                 }
             }

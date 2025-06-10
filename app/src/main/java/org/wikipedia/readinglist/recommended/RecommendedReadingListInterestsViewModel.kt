@@ -168,27 +168,12 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
         }
     }
 
-    fun generateRecommendedReadingList() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.value = Resource.Error(throwable)
-        }) {
-            _uiState.value = Resource.Loading()
-            val list = RecommendedReadingListHelper.generateRecommendedReadingList(true)
-            _uiState.value = Resource.Success(
-                UiState(
-                    listGenerated = list.isNotEmpty()
-                )
-            )
-        }
-    }
-
     data class UiState(
         val fromSettings: Boolean = false,
         val items: List<PageTitle> = emptyList(),
         val selectedItems: Set<PageTitle> = emptySet(),
         val fromRandomize: Boolean = false,
         val prevItems: List<PageTitle> = emptyList(),
-        val prevSelectedItems: Set<PageTitle> = emptySet(),
-        val listGenerated: Boolean = false
+        val prevSelectedItems: Set<PageTitle> = emptySet()
     )
 }

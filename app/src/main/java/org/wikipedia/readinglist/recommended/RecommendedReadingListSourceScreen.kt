@@ -59,7 +59,6 @@ fun SourceSelectionScreen(
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onCloseClick: () -> Unit,
     onNextClick: () -> Unit,
-    onListGenerated: () -> Unit,
     onSourceClick: (RecommendedReadingListSource) -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
@@ -142,10 +141,6 @@ fun SourceSelectionScreen(
                         .fillMaxSize()
                         .padding(paddingValues)
                 ) {
-                    if (uiState.data.listGenerated) {
-                        onListGenerated()
-                    }
-
                     SourceSelectionContent(
                         selectedSource = uiState.data.selectedSource,
                         isSavedOptionEnabled = uiState.data.isSavedOptionEnabled,
@@ -323,7 +318,6 @@ fun DefaultPreviewSourceSelectionScreen() {
             fromSettings = false,
             onSourceClick = {},
             onCloseClick = {},
-            onListGenerated = {},
             onNextClick = {}
         )
     }

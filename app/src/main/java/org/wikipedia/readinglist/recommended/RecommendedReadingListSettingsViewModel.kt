@@ -39,9 +39,6 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     }
 
     fun updateFrequency(frequency: RecommendedReadingListUpdateFrequency) {
-        if (frequency != Prefs.recommendedReadingListUpdateFrequency) {
-            Prefs.resetRecommendedReadingList = true
-        }
         Prefs.recommendedReadingListUpdateFrequency = frequency
         _uiState.value = _uiState.value.copy(updateFrequency = frequency)
     }

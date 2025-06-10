@@ -75,6 +75,7 @@ fun RecommendedReadingListSettingsScreen(
 ) {
     var showAlertDialog by remember { mutableStateOf(false) }
     val isRecommendedReadingListEnabled = uiState.isRecommendedReadingListEnabled
+
     Scaffold(
         modifier = modifier,
         topBar = {

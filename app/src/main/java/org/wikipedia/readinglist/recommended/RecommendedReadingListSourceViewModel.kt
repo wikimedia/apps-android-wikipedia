@@ -72,24 +72,9 @@ class RecommendedReadingListSourceViewModel(savedStateHandle: SavedStateHandle) 
         return Pair(false, RecommendedReadingListSource.INTERESTS)
     }
 
-    fun generateRecommendedReadingList() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiSourceState.value = Resource.Error(throwable)
-        }) {
-            _uiSourceState.value = Resource.Loading()
-            val list = RecommendedReadingListHelper.generateRecommendedReadingList(true)
-            _uiSourceState.value = Resource.Success(
-                SourceSelectionUiState(
-                    listGenerated = list.isNotEmpty()
-                )
-            )
-        }
-    }
-
     data class SourceSelectionUiState(
         val isSavedOptionEnabled: Boolean = false,
         val isHistoryOptionEnabled: Boolean = false,
-        val selectedSource: RecommendedReadingListSource = Prefs.recommendedReadingListSource,
-        val listGenerated: Boolean = false
+        val selectedSource: RecommendedReadingListSource = Prefs.recommendedReadingListSource
     )
 }
