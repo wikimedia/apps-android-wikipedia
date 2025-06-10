@@ -11,7 +11,7 @@ import org.wikipedia.settings.Prefs
 
 object RecommendedReadingListHelper {
 
-    private const val SUGGESTION_REQUEST_ITEMS = 15
+    private const val SUGGESTION_REQUEST_ITEMS = 50
     private const val MAX_RETRIES = 10
 
     suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
