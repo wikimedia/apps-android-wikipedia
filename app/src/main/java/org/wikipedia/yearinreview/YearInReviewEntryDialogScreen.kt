@@ -75,7 +75,7 @@ fun YearInReviewEntryDialogScreen() {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 20.dp),
+                .padding(horizontal = 16.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.progressiveColor,
                 contentColor = WikipediaTheme.colors.paperColor
