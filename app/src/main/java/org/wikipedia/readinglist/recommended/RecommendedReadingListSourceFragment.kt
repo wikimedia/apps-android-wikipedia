@@ -36,6 +36,18 @@ class RecommendedReadingListSourceFragment : Fragment() {
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
                             RecommendedReadingListEvent.submit("close_click", activeInterface)
+                            if (viewModel.fromSettings) {
+                                viewModel.saveSourceSelection().let { (_, selectedSource) ->
+                                    RecommendedReadingListEvent.submit(
+                                        action = "submit_click",
+                                        activeInterface = activeInterface,
+                                        optionsShown = viewModel.availableSources.map { it.eventString }.toString(),
+                                        selected = selectedSource.eventString,
+                                        currentSetting = Prefs.recommendedReadingListSource.eventString
+                                    )
+                                }
+                                requireActivity().setResult(RESULT_OK)
+                            }
                             requireActivity().finish()
                         },
                         onSourceClick = {
@@ -55,6 +67,13 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                     .setNegativeButton(R.string.recommended_reading_list_settings_updates_base_dialog_positive_button) { _, _ ->
                                         RecommendedReadingListEvent.submit("adjust_click", activeInterface)
                                         viewModel.updateSourceSelection(newSource = it)
+
+                                        if (it == RecommendedReadingListSource.INTERESTS) {
+                                            viewModel.saveSourceSelection()
+                                            requireActivity().supportFragmentManager.beginTransaction()
+                                                .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance(viewModel.fromSettings))
+                                                .addToBackStack(null).commit()
+                                        }
                                     }
                                     .show()
                             } else {
@@ -74,14 +93,10 @@ class RecommendedReadingListSourceFragment : Fragment() {
 
                                 if (shouldGoToInterests) {
                                     requireActivity().supportFragmentManager.beginTransaction()
-                                        .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance(viewModel.fromSettings))
+                                        .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
                                         .addToBackStack(null).commit()
                                 } else {
-                                    if (!viewModel.fromSettings) {
-                                        startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
-                                    } else {
-                                        requireActivity().setResult(RESULT_OK)
-                                    }
+                                    startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                                     requireActivity().finish()
                                 }
                             }
