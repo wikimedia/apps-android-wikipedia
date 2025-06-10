@@ -34,7 +34,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CardDefaults
@@ -133,15 +132,16 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         uiState = viewModel.uiState.collectAsState().value,
                         fromSettings = viewModel.fromSettings,
                         onCloseClick = {
+                            if (viewModel.fromSettings) {
+                                viewModel.commitSelection()
+                                requireActivity().setResult(RESULT_OK)
+                                requireActivity().finish()
+                            }
                             requireActivity().onBackPressedDispatcher.onBackPressed()
                         },
                         onNextClick = {
                             viewModel.commitSelection()
-                            if (viewModel.fromSettings) {
-                                requireActivity().setResult(RESULT_OK)
-                            } else {
-                                startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
-                            }
+                            startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                             requireActivity().finish()
                         },
                         wikiErrorClickEvents = WikiErrorClickEvents(
@@ -294,7 +294,6 @@ fun RecommendedReadingListInterestsScreen(
             }
 
             is Resource.Success -> {
-
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -414,16 +413,20 @@ fun RecommendedReadingListInterestsContent(
                 fontWeight = FontWeight.Medium,
                 color = WikipediaTheme.colors.primaryColor
             )
-            Icon(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
-                    .padding(12.dp)
-                    .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
-                imageVector = if (fromSettings) Icons.Default.Check else Icons.AutoMirrored.Filled.ArrowForward,
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(if (fromSettings) R.string.recommended_reading_list_settings_save_button else R.string.nav_item_forward)
-            )
+            if (!fromSettings) {
+                Icon(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
+                        .padding(12.dp)
+                        .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.nav_item_forward)
+                )
+            } else {
+                Spacer(modifier = Modifier.width(48.dp))
+            }
         }
     }
 }
@@ -563,7 +566,7 @@ fun PreviewReadingListInterestsScreen() {
             onNextClick = {},
             onSearchClick = {},
             onItemClick = {},
-            onRandomizeClick = {}
+            onRandomizeClick = {},
         )
     }
 }
