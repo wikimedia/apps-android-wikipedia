@@ -10,7 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -20,8 +21,11 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 
 class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Callback {
 
@@ -66,10 +70,13 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     resetUiState = resetUiState,
                     modifier = Modifier
                         .fillMaxSize()
-                        .safeContentPadding(),
+                        .safeDrawingPadding()
+                        .imePadding(),
                     onBackButtonClick = {
-                        RecommendedReadingListEvent.submit("back_click", "discover_settings")
-                        viewModel.generateRecommendedReadingList()
+                        if (resetUiState !is Resource.Loading) {
+                            RecommendedReadingListEvent.submit("back_click", "discover_settings")
+                            viewModel.generateRecommendedReadingList()
+                        }
                     },
                     onRecommendedReadingListSourceClick = {
                         RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = Prefs.recommendedReadingListSource.eventString)
@@ -102,6 +109,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     onRecommendedReadingListSwitchClick = {
                         RecommendedReadingListEvent.submit(if (it) "discover_on_click" else "discover_off_click", "discover_settings")
                         viewModel.toggleDiscoverReadingList(it)
+                        FlowEventBus.post(NewRecommendedReadingListEvent())
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {

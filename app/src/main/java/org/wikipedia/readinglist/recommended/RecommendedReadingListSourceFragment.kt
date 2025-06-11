@@ -96,6 +96,7 @@ class RecommendedReadingListSourceFragment : Fragment() {
                                         .add(android.R.id.content, RecommendedReadingListInterestsFragment.newInstance())
                                         .addToBackStack(null).commit()
                                 } else {
+                                    Prefs.isRecommendedReadingListEnabled = true
                                     startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                                     requireActivity().finish()
                                 }
