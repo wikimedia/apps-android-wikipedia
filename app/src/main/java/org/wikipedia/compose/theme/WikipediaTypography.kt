@@ -14,7 +14,8 @@ data class WikipediaTypography(
     val h3: TextStyle = TextStyle(),
     val h4: TextStyle = TextStyle(),
     val h5: TextStyle = TextStyle(),
-    val p: TextStyle = TextStyle(),
+    val bodyLarge: TextStyle = TextStyle(),
+    val bodyMedium: TextStyle = TextStyle(),
     val button: TextStyle = TextStyle(),
     val article: TextStyle = TextStyle(),
     val list: TextStyle = TextStyle(),
@@ -57,7 +58,12 @@ val Typography = WikipediaTypography(
         fontSize = 12.sp,
         lineHeight = 18.sp
     ),
-    p = TextStyle(
+    bodyMedium = TextStyle(
+        fontFamily = FontFamily.SansSerif,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+    ),
+    bodyLarge = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontSize = 16.sp,
         lineHeight = 24.sp

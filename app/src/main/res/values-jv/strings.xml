@@ -19,6 +19,7 @@
   <string name="search_hint">Golèk ing Wikipédia</string>
   <string name="search_hint_voice_search">Golèk sarana swara</string>
   <string name="search_hint_search_languages">Golèk basa</string>
+  <string name="search_back_button_content_description">Balik</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Besutan kang kaprayogakaké</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
   <string name="page_error_retry">Jajal manèh</string>

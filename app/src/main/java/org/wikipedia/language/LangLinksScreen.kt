@@ -53,6 +53,7 @@ fun ComposeLangLinksScreen(
         Pair(height, height > 0.dp)
     } else Pair(0.dp, false)
     Scaffold(
+        modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.langlinks_activity_title),
