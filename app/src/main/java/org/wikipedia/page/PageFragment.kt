@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -189,6 +190,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val page get() = model.page
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
+
+    private val requestTalkPageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == TalkTopicsActivity.RESULT_WATCHLIST_CHANGE) {
+            result.data?.let { data ->
+                model.isWatched = data.getBooleanExtra(TalkTopicsActivity.EXTRA_WATCHLIST_STATUS, model.isWatched)
+                model.hasWatchlistExpiry = data.getBooleanExtra(TalkTopicsActivity.EXTRA_WATCHLIST_EXPIRY, model.hasWatchlistExpiry)
+                updateQuickActionsAndMenuOptions()
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -606,7 +617,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (stripUrlFragment) {
             talkTitle.fragment = null
         }
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), talkTitle, InvokeSource.PAGE_ACTIVITY))
+        requestTalkPageLauncher.launch(TalkTopicsActivity.newIntent(requireActivity(), talkTitle, InvokeSource.PAGE_ACTIVITY))
     }
 
     private fun startGalleryActivity(fileName: String) {
