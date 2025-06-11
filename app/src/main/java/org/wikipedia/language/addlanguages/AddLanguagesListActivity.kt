@@ -3,8 +3,11 @@ package org.wikipedia.language.addlanguages
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import org.wikipedia.WikipediaApp
@@ -20,13 +23,15 @@ class AddLanguagesListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             BaseTheme {
                 val uiState = viewModel.uiState.collectAsState().value
-
                 LanguagesListScreen(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .safeDrawingPadding()
+                        .imePadding(),
                     uiState = uiState,
                     onBackButtonClick = {
                         finish()
