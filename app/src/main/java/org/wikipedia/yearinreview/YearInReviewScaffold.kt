@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
@@ -10,7 +11,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -49,7 +49,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -211,12 +210,10 @@ fun MainBottomBar(
                 ) {
                     Row(
                         modifier = Modifier
-                            .padding(start = 15.dp)
+                            .padding(16.dp)
                             .wrapContentWidth()
                             .align(Alignment.CenterStart)
                             .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = ripple(bounded = true),
                                 onClick = { onDonateClick() }
                             ),
                         verticalAlignment = Alignment.CenterVertically,
@@ -374,17 +371,14 @@ fun YearInReviewScreenContent(
                 .aspectRatio(gifAspectRatio)
                 .clip(RoundedCornerShape(16.dp))
         )
-        Column(
-            modifier = Modifier
-                .padding(horizontal = 20.dp)
-        ) {
-            Row(horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
+        Column {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
                     modifier = Modifier
-                        .padding(top = 10.dp)
+                        .padding(top = 10.dp, start = 16.dp, end = 8.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
                     text = processString(screenData.headLineText),
@@ -409,7 +403,7 @@ fun YearInReviewScreenContent(
             }
             Text(
                 modifier = Modifier
-                    .padding(top = 10.dp)
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
                     .height(IntrinsicSize.Min),
                 text = processString(screenData.bodyText),
                 color = WikipediaTheme.colors.primaryColor,
@@ -556,6 +550,35 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
         (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
         (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
         else -> 2
+    }
+}
+
+@SuppressLint("ViewModelConstructorInComposable")
+@Preview
+@Composable
+fun PreviewContent() {
+    val viewModel = YearInReviewViewModel()
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewScreen(
+            customBottomBar = { pagerState ->
+                MainBottomBar(
+                    pagerState = pagerState,
+                    totalPages = 1,
+                    onNavigationRightClick = { /* No logic, preview only */ },
+                    onDonateClick = { /* No logic, preview only */ }
+                )
+            },
+            screenContent = { innerPadding, screenData, pagerState ->
+                YearInReviewScreenContent(
+                    innerPadding = innerPadding,
+                    screenData = screenData,
+                    context = LocalContext.current
+                )
+            },
+            navController = NavHostController(LocalContext.current),
+            contentData = listOf(nonEnglishCollectiveEditCountData),
+            viewModel = viewModel
+        )
     }
 }
 
