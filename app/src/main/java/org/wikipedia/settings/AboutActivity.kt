@@ -2,6 +2,7 @@ package org.wikipedia.settings
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -95,11 +97,13 @@ class AboutActivity : BaseActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             BaseTheme {
                 AboutWikipediaScreen(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .safeDrawingPadding(),
                     versionName = BuildConfig.VERSION_NAME,
                     credits = credits,
                     onBackButtonClick = {
