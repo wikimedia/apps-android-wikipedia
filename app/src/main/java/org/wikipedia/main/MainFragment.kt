@@ -138,7 +138,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                             maybeShowImportReadingListsNewInstallDialog()
                         }
                         is NewRecommendedReadingListEvent -> {
-                            binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isNewRecommendedReadingListGenerated)
+                            binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
                         }
                     }
                 }
@@ -151,7 +151,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
             it.maxLines = 2
         }
-        binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isNewRecommendedReadingListGenerated)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
