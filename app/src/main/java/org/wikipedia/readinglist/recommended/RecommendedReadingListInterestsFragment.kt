@@ -95,6 +95,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -143,6 +144,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                         },
                         onNextClick = {
                             viewModel.commitSelection()
+                            Prefs.isRecommendedReadingListEnabled = true
                             startActivity(ReadingListActivity.newIntent(requireContext(), readingListMode = ReadingListMode.RECOMMENDED))
                             requireActivity().finish()
                         },
