@@ -1678,11 +1678,13 @@
   <string name="on_this_day_game_dialog_button">플레이</string>
   <string name="on_this_day_game_progress">%2$d 중 %1$d</string>
   <string name="on_this_day_game_score">점수: %d</string>
+  <string name="on_this_day_game_submit">제출</string>
   <string name="on_this_day_game_correct">정답입니다!</string>
   <string name="on_this_day_game_incorrect">틀렸습니다!</string>
   <string name="on_this_day_game_point">+1점</string>
   <string name="on_this_day_game_next">다음 질문</string>
   <string name="on_this_day_game_finish">최종 결과</string>
+  <string name="on_this_day_game_share_button">공유</string>
   <string name="on_this_day_game_pause_title">게임을 일시 중지하시겠습니까?</string>
   <string name="on_this_day_game_pause_negative">계속 플레이합니다</string>
   <string name="on_this_day_game_pause_positive">알겠습니다</string>
@@ -1714,6 +1716,29 @@
   <string name="on_this_day_game_report_email_subject">문제 보고 - 위키백과 게임</string>
   <string name="on_this_day_game_report_email_body">위키백과 게임 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="on_this_day_game_notification_undo">실행 취소</string>
+  <string name="on_this_day_game_share_screen_subtitle">포함된 주제:</string>
   <string name="on_this_day_game_survey_q1">이 게임에 얼마나 만족하셨나요?</string>
   <string name="on_this_day_game_survey_q2">다양한 위키백과 게임을 해보고 싶으신가요?</string>
+  <string name="on_this_day_game_sound_on">소리를 켭니다</string>
+  <string name="on_this_day_game_sound_off">소리를 끕니다</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">문서 검색</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">무작위로 선택</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">여러분을 위해 무작위로 몇 가지 문서를 골랐습니다.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">실행 취소</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">선택을 무작위로 하시겠습니까?</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="other">• 문서 %d개</item>
+  </plurals>
+  <string name="recommended_reading_list_page_overflow_customize">사용자 지정</string>
+  <string name="recommended_reading_list_page_overflow_about">이 기능 정보</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">끔</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">실행 취소</string>
+  <string name="recommended_reading_list_settings_interests">관심 분야</string>
+  <string name="recommended_reading_list_settings_notifications_title">알림</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">알림을 끄시겠습니까?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">끕니다</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
 </resources>

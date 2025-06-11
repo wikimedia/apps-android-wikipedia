@@ -243,6 +243,8 @@
   <string name="edit_rollback">شاگرځ</string>
   <string name="edit_warn">گواښنه</string>
   <string name="edit_damage">زیان %s</string>
+  <string name="edit_zoom_in">رانژدې کول</string>
+  <string name="edit_zoom_out">لرې کول</string>
   <string name="edit_summary_tag_grammar">ژبښود سم شو</string>
   <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
   <string name="edit_summary_tag_other">بل</string>
@@ -480,4 +482,5 @@
   <string name="talk_templates_new_message_save">خوندي کول</string>
   <string name="on_this_day_game_menu_info">نور مالومات</string>
   <string name="on_this_day_game_notification_undo">ناکړل</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">ستاسو لپاره جوړ شوی</string>
 </resources>

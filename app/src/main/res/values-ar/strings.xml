@@ -2023,6 +2023,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">نعم اختر لي</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">لا تهتم</string>
   <string name="recommended_reading_list_page_subtitle_made_for">مصنوع لـ %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">مصنوع لك</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="zero">لا مقال</item>
     <item quantity="one">• %d مقال</item>

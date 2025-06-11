@@ -55,8 +55,53 @@ class CoilImageServiceLoader : ImageServiceLoader {
         listener: ImageLoadListener?
     ) {
         val context = imageView.context
+        val request = getRequestBuilder(context, url, detectFace, force, placeholderId, listener).target(imageView).build()
+        context.imageLoader.enqueue(request)
+    }
+
+    override fun loadImage(
+        context: Context,
+        imageUrl: String?,
+        whiteBackground: Boolean,
+        onSuccess: (Bitmap) -> Unit
+    ) {
+        val request = ImageRequest.Builder(context)
+            .data(imageUrl)
+            .apply {
+                if (whiteBackground) {
+                    transformations(WhiteBackgroundTransformation())
+                }
+            }
+            .target(
+                onSuccess = { result ->
+                    onSuccess(result.toBitmap())
+                }
+            )
+            .build()
+        context.imageLoader.enqueue(request)
+    }
+
+    override fun getRequest(
+        context: Context,
+        url: String?,
+        detectFace: Boolean?,
+        force: Boolean?,
+        placeholderId: Int?,
+        listener: ImageLoadListener?
+    ): Any {
+        return getRequestBuilder(context, url, detectFace, force, placeholderId, listener).build()
+    }
+
+    fun getRequestBuilder(
+        context: Context,
+        url: String?,
+        detectFace: Boolean?,
+        force: Boolean?,
+        placeholderId: Int?,
+        listener: ImageLoadListener?
+    ): ImageRequest.Builder {
         val imageUrl = if ((Prefs.isImageDownloadEnabled || force == true) && !url.isNullOrEmpty()) url.toUri() else null
-        val requestBuilder = ImageRequest.Builder(imageView.context)
+        val requestBuilder = ImageRequest.Builder(context)
             .data(imageUrl)
 
         if (placeholderId != null) {
@@ -82,30 +127,7 @@ class CoilImageServiceLoader : ImageServiceLoader {
                 }
             })
         }
-        val request = requestBuilder.target(imageView).build()
-        context.imageLoader.enqueue(request)
-    }
-
-    override fun loadImage(
-        context: Context,
-        imageUrl: String?,
-        whiteBackground: Boolean,
-        onSuccess: (Bitmap) -> Unit
-    ) {
-        val request = ImageRequest.Builder(context)
-            .data(imageUrl)
-            .apply {
-                if (whiteBackground) {
-                    transformations(WhiteBackgroundTransformation())
-                }
-            }
-            .target(
-                onSuccess = { result ->
-                    onSuccess(result.toBitmap())
-                }
-            )
-            .build()
-        context.imageLoader.enqueue(request)
+        return requestBuilder
     }
 
     override fun getBitmap(image: Any): Bitmap {
