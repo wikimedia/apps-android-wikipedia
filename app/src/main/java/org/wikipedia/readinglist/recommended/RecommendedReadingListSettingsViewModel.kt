@@ -59,7 +59,7 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
         }) {
             _resetUiState.value = Resource.Loading()
             if (Prefs.resetRecommendedReadingList) {
-                RecommendedReadingListHelper.generateRecommendedReadingList(shouldExpireOldPages = true, fromSettings = true)
+                RecommendedReadingListHelper.generateRecommendedReadingList(shouldExpireOldPages = true)
             }
             _resetUiState.value = Resource.Success(true)
         }

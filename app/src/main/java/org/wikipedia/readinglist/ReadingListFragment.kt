@@ -438,7 +438,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             ReadingListMode.RECOMMENDED -> {
                 // Make sure the feature is enabled
                 Prefs.isRecommendedReadingListEnabled = true
-                if (readingList == null || Prefs.resetRecommendedReadingList) {
+                if (readingList == null || Prefs.isNewRecommendedReadingListGenerated) {
                     viewModel.generateRecommendedReadingList()
                 } else {
                     update()
