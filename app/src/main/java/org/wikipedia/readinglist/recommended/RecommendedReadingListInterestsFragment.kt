@@ -138,7 +138,7 @@ class RecommendedReadingListInterestsFragment : Fragment() {
                                 requireActivity().setResult(RESULT_OK)
                                 requireActivity().finish()
                             } else {
-                                requireActivity().onBackPressedDispatcher.onBackPressed()
+                                requireActivity().supportFragmentManager.popBackStack()
                             }
                         },
                         onNextClick = {
