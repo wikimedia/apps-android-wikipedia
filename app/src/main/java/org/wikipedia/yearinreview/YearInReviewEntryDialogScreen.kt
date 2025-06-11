@@ -26,7 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 @Composable
 fun YearInReviewEntryDialogScreen() {
@@ -93,5 +95,7 @@ fun YearInReviewEntryDialogScreen() {
 @Preview(showBackground = true)
 @Composable
 fun PreviewBottomSheet() {
-    YearInReviewEntryDialogScreen()
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewEntryDialogScreen()
+    }
 }
