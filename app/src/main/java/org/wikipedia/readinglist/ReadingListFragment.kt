@@ -46,6 +46,7 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -445,6 +446,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 } else {
                     update()
                 }
+                Prefs.isNewRecommendedReadingListGenerated = false
+                FlowEventBus.post(NewRecommendedReadingListEvent())
             }
         }
     }
