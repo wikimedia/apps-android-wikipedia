@@ -10,7 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -66,7 +67,8 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                     resetUiState = resetUiState,
                     modifier = Modifier
                         .fillMaxSize()
-                        .safeContentPadding(),
+                        .safeDrawingPadding()
+                        .imePadding(),
                     onBackButtonClick = {
                         RecommendedReadingListEvent.submit("back_click", "discover_settings")
                         viewModel.generateRecommendedReadingList()
