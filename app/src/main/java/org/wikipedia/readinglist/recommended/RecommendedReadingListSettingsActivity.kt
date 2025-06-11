@@ -22,6 +22,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 
 class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Callback {
 
@@ -68,8 +69,10 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         .fillMaxSize()
                         .safeContentPadding(),
                     onBackButtonClick = {
-                        RecommendedReadingListEvent.submit("back_click", "discover_settings")
-                        viewModel.generateRecommendedReadingList()
+                        if (resetUiState !is Resource.Loading) {
+                            RecommendedReadingListEvent.submit("back_click", "discover_settings")
+                            viewModel.generateRecommendedReadingList()
+                        }
                     },
                     onRecommendedReadingListSourceClick = {
                         RecommendedReadingListEvent.submit("built_click", "discover_settings", selected = Prefs.recommendedReadingListSource.eventString)
