@@ -1667,6 +1667,9 @@
   <string name="on_this_day_game_notification_undo">Поништи</string>
   <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
   <string name="on_this_day_game_continue_playing_btn_text">Настави игру</string>
+  <string name="on_this_day_game_sound_on">Искључи звук</string>
+  <string name="on_this_day_game_sound_off">Укључи звук</string>
+  <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
