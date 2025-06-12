@@ -3,6 +3,7 @@ package org.wikipedia.gallery
 import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -20,7 +21,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
@@ -102,6 +102,18 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         }
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val currentPosition = binding.pager.currentItem
+            val previousPosition = maxOf(currentPosition - 1, 0)
+            // Move to previous position without smoothScroll
+            binding.pager.setCurrentItem(previousPosition, false)
+            // move back to the original position without smoothScroll
+            binding.pager.setCurrentItem(currentPosition, false)
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGalleryBinding.inflate(layoutInflater)
@@ -124,7 +136,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)
-        binding.pager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
+        binding.pager.offscreenPageLimit = 2
         if (savedInstanceState != null) {
             controlsShowing = savedInstanceState.getBoolean(KEY_CONTROLS_SHOWING)
             initialImageIndex = savedInstanceState.getInt(KEY_PAGER_INDEX)
