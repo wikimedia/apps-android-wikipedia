@@ -1907,9 +1907,9 @@
     <item quantity="many">• %d статей</item>
     <item quantity="other">• %d статей</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Ваш щоденний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення опівночі.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Ваш щоденний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення опівночі.</string>
   <string name="recommended_reading_list_page_description_weekly">Ваш щотижневий список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення на початку тижня.</string>
-  <string name="recommended_reading_list_page_description_monthly">Ваш щомісячний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення першого числа кожного місяця.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Ваш щомісячний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення першого числа кожного місяця.</string>
   <string name="recommended_reading_list_page_overflow_customize">Налаштувати</string>
   <string name="recommended_reading_list_page_overflow_about">Про цю функцію</string>
   <string name="recommended_reading_list_page_snackbar">%1$d нових статей додаються кожні %2$s. Ваші рекомендації зберігаються локально на вашому пристрої.</string>
