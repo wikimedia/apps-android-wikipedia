@@ -1780,9 +1780,9 @@
     <item quantity="one">• %d məqalə</item>
     <item quantity="other">• %d məqalə</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Gündəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gecə yarısı yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Gündəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gecə yarısı yeniləmələr olacaq.</string>
   <string name="recommended_reading_list_page_description_weekly">Həftəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Həftənin əvvəlində yeniləmələr olacaq.</string>
-  <string name="recommended_reading_list_page_description_monthly">Aylıq oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Hər ayın birincisi yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Aylıq oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Hər ayın birincisi yeniləmələr olacaq.</string>
   <string name="recommended_reading_list_page_overflow_customize">Fərdiləşdir</string>
   <string name="recommended_reading_list_page_overflow_about">Bu funksiya haqqında</string>
   <string name="recommended_reading_list_page_snackbar">Kəşf et bölməsi hər %2$s %1$d yeni məqalə ilə yenilənəcək. Tövsiyələriniz cihazınızda lokal olaraq saxlanılır.</string>
