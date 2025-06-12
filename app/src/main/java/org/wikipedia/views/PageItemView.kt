@@ -39,7 +39,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
     var item: T? = null
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         isFocusable = true
         setOnClickListeners()

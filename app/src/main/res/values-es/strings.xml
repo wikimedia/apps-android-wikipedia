@@ -1873,9 +1873,9 @@
     <item quantity="one">• %d artículo</item>
     <item quantity="other">• %d artículos</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Tu lista de lectura diaria. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a medianoche.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Tu lista de lectura diaria. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a medianoche.</string>
   <string name="recommended_reading_list_page_description_weekly">Tu lista de lectura semanal. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a inicio de semana.</string>
-  <string name="recommended_reading_list_page_description_monthly">Tu lista de lectura mensual. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones el día primero de cada mes.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Tu lista de lectura mensual. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones el día primero de cada mes.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalizar</string>
   <string name="recommended_reading_list_page_overflow_about">Acerca de esta función</string>
   <string name="recommended_reading_list_page_snackbar">Descubrir mostrará %1$d artículos nuevos cada %2$s. Tus recomendaciones se almacenan localmente en tu dispositivo.</string>
