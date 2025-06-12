@@ -1841,6 +1841,7 @@
     <item quantity="one">%d sélectionné</item>
     <item quantity="other">%d sélectionnés</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Sélectionnez au moins un intérêt</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Sélection aléatoire</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Nous avons sélectionné au hasard quelques articles pour vous.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Annuler</string>
