@@ -46,6 +46,7 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -436,13 +437,17 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 }
             }
             ReadingListMode.RECOMMENDED -> {
-                // Make sure the feature is enabled
-                Prefs.isRecommendedReadingListEnabled = true
-                if (readingList == null || Prefs.resetRecommendedReadingList) {
+                if (!Prefs.isRecommendedReadingListEnabled) {
+                    requireActivity().finish()
+                    return
+                }
+                if (readingList == null || Prefs.isNewRecommendedReadingListGenerated) {
                     viewModel.generateRecommendedReadingList()
                 } else {
                     update()
                 }
+                Prefs.isNewRecommendedReadingListGenerated = false
+                FlowEventBus.post(NewRecommendedReadingListEvent())
             }
         }
     }

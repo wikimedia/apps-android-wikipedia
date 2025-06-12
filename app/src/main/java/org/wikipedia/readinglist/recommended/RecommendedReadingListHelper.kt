@@ -14,8 +14,7 @@ object RecommendedReadingListHelper {
     private const val SUGGESTION_REQUEST_ITEMS = 50
     private const val MAX_RETRIES = 10
 
-    suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false, fromSettings: Boolean = false): List<RecommendedPage> {
-        Prefs.resetRecommendedReadingList = false
+    suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
         if (!Prefs.isRecommendedReadingListEnabled) {
             return emptyList()
         }
@@ -27,7 +26,7 @@ object RecommendedReadingListHelper {
         if (shouldExpireOldPages) {
             // Expire old recommended pages
             AppDatabase.instance.recommendedPageDao().expireOldRecommendedPages()
-            Prefs.resetRecommendedReadingList = fromSettings
+            Prefs.resetRecommendedReadingList = false
         }
 
         // Check if amount of new articles to see if we really need to generate a new list

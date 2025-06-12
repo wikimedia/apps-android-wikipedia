@@ -895,7 +895,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 RecommendedReadingListDiscoverCardView(
                     modifier = Modifier
                         .clickable {
-                            Prefs.isNewRecommendedReadingListGenerated = false
                             FlowEventBus.post(NewRecommendedReadingListEvent())
                             startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.RECOMMENDED))
                         }
