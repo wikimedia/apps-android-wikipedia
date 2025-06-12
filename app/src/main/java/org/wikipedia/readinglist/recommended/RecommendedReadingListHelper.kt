@@ -175,8 +175,4 @@ class SourceWithOffset(
     val title: String,
     val language: String,
     var offset: Int
-) {
-    override fun toString(): String {
-        return "SourceWithOffset(title='$title', language='$language', offset=$offset)"
-    }
-}
+)
