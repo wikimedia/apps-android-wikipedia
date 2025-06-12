@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist.recommended
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -59,7 +60,7 @@ object RecommendedReadingListHelper {
                     it.title
                 }
             }
-        }
+        }.distinctBy { it.prefixedText }
 
         // If no titles are found, return an empty list
         if (titles.isEmpty()) {
@@ -67,10 +68,14 @@ object RecommendedReadingListHelper {
         }
 
         // Step 2: combine the titles with the offsite from Prefs.
+        val originalSourceTitlesWithOffset = Prefs.recommendedReadingListSourceTitlesWithOffset.toMutableList()
         val sourcesWithOffset = mutableListOf<SourceWithOffset>()
         titles.forEach { pageTitle ->
-            val offset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.text }?.offset ?: 0
-            sourcesWithOffset.add(SourceWithOffset(pageTitle.text, pageTitle.wikiSite.languageCode, offset))
+            val titleWithOffset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.text }
+            if (titleWithOffset != null) {
+                originalSourceTitlesWithOffset.remove(titleWithOffset)
+            }
+            sourcesWithOffset.add(SourceWithOffset(pageTitle.text, pageTitle.wikiSite.languageCode, titleWithOffset?.offset ?: 0))
         }
 
         // This is the default take size for the response per source title.
@@ -81,7 +86,6 @@ object RecommendedReadingListHelper {
             defaultTakeSize = ceil(numberOfArticles.toDouble() / sourcesWithOffset.size).toInt()
         }
 
-        val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
         val newRecommendedPages = mutableListOf<RecommendedPage>()
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
@@ -99,6 +103,8 @@ object RecommendedReadingListHelper {
                 retryCount++
             }
 
+            sourceWithOffset.offset = offset
+
             // Step 4: if the recommended page is generated, insert it into the database,
             recommendedPages.forEach {
                 val finalRecommendedPage = RecommendedPage(
@@ -110,14 +116,14 @@ object RecommendedReadingListHelper {
                     description = it.description,
                     thumbUrl = it.thumbUrl
                 )
-                // Update the offset in the source list
-                newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
 
                 // Insert the recommended page into the database
                 AppDatabase.instance.recommendedPageDao().insert(finalRecommendedPage)
                 newRecommendedPages.add(finalRecommendedPage)
             }
         }
+
+        Prefs.recommendedReadingListSourceTitlesWithOffset = originalSourceTitlesWithOffset + sourcesWithOffset
 
         val finalList = (newRecommendedPages + existingRecommendedPages).distinct().toMutableList()
 
@@ -135,7 +141,7 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        return finalList.take(Prefs.recommendedReadingListArticlesNumber)
+        return finalList.shuffled().take(Prefs.recommendedReadingListArticlesNumber)
     }
 
     private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int, takeSize: Int): List<PageTitle> {
@@ -164,8 +170,13 @@ object RecommendedReadingListHelper {
     }
 }
 
+@Serializable
 class SourceWithOffset(
     val title: String,
     val language: String,
     var offset: Int
-)
+) {
+    override fun toString(): String {
+        return "SourceWithOffset(title='$title', language='$language', offset=$offset)"
+    }
+}
