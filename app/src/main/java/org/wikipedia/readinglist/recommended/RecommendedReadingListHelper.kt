@@ -72,6 +72,7 @@ object RecommendedReadingListHelper {
         val sourcesWithOffset = mutableListOf<SourceWithOffset>()
         titles.forEach { pageTitle ->
             val titleWithOffset = Prefs.recommendedReadingListSourceTitlesWithOffset.find { it.title == pageTitle.text }
+            // Remove the title with offset from the original list to avoid duplication.
             if (titleWithOffset != null) {
                 originalSourceTitlesWithOffset.remove(titleWithOffset)
             }
@@ -123,6 +124,7 @@ object RecommendedReadingListHelper {
             }
         }
 
+        // Update the offset for the sources in the preferences
         Prefs.recommendedReadingListSourceTitlesWithOffset = originalSourceTitlesWithOffset + sourcesWithOffset
 
         val finalList = (newRecommendedPages + existingRecommendedPages).distinct().toMutableList()
