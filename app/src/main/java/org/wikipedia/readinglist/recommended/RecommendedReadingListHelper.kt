@@ -8,6 +8,7 @@ import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.settings.Prefs
+import kotlin.math.ceil
 
 object RecommendedReadingListHelper {
 
@@ -72,10 +73,12 @@ object RecommendedReadingListHelper {
             sourcesWithOffset.add(SourceWithOffset(pageTitle.text, pageTitle.wikiSite.languageCode, offset))
         }
 
-        // If the sourcesWithOffset less than the number of articles, we need to fill it with the same titles
-        while (sourcesWithOffset.size < numberOfArticles) {
-            val additionalSources = sourcesWithOffset.shuffled().take(numberOfArticles - sourcesWithOffset.size)
-            sourcesWithOffset.addAll(additionalSources)
+        // This is the default take size for the response per source title.
+        // If the number of articles is less than the default take size, we need to adjust it.
+        var defaultTakeSize = 1
+
+        if (sourcesWithOffset.size < numberOfArticles) {
+            defaultTakeSize = ceil(numberOfArticles.toDouble() / sourcesWithOffset.size).toInt()
         }
 
         val newSourcesWithOffset = mutableListOf<SourceWithOffset>()
@@ -83,28 +86,29 @@ object RecommendedReadingListHelper {
         // Step 3: uses morelike API to get recommended article, but excludes the articles from database,
         // and update the offset everytime when re-query the API.
         sourcesWithOffset.forEach { sourceWithOffset ->
-            var recommendedPage: PageTitle? = null
+            var recommendedPages = mutableListOf<PageTitle>()
             var retryCount = 0
             var offset = sourceWithOffset.offset
-            while (recommendedPage == null && retryCount < MAX_RETRIES) {
-                recommendedPage = getRecommendedPage(sourceWithOffset, offset)
-                // Cannot find any recommended articles, so update the offset and retry.
-                if (recommendedPage == null) {
+            while ((recommendedPages.isEmpty() || recommendedPages.size < defaultTakeSize) && retryCount < MAX_RETRIES) {
+                recommendedPages.addAll(getRecommendedPage(sourceWithOffset, offset, defaultTakeSize))
+
+                // Bump the offset if the size of the list does not meet the default take size.
+                if (recommendedPages.isEmpty() || recommendedPages.size < defaultTakeSize) {
                     offset += SUGGESTION_REQUEST_ITEMS
                 }
                 retryCount++
             }
 
             // Step 4: if the recommended page is generated, insert it into the database,
-            recommendedPage?.let {
+            recommendedPages.forEach {
                 val finalRecommendedPage = RecommendedPage(
-                        wiki = it.wikiSite,
-                        lang = it.wikiSite.languageCode,
-                        namespace = it.namespace(),
-                        apiTitle = it.prefixedText,
-                        displayTitle = it.displayText,
-                        description = it.description,
-                        thumbUrl = it.thumbUrl
+                    wiki = it.wikiSite,
+                    lang = it.wikiSite.languageCode,
+                    namespace = it.namespace(),
+                    apiTitle = it.prefixedText,
+                    displayTitle = it.displayText,
+                    description = it.description,
+                    thumbUrl = it.thumbUrl
                 )
                 // Update the offset in the source list
                 newSourcesWithOffset.add(SourceWithOffset(sourceWithOffset.title, sourceWithOffset.language, offset))
@@ -131,10 +135,10 @@ object RecommendedReadingListHelper {
         }
         Prefs.isNewRecommendedReadingListGenerated = true
         FlowEventBus.post(NewRecommendedReadingListEvent())
-        return finalList
+        return finalList.take(Prefs.recommendedReadingListArticlesNumber)
     }
 
-    private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int): PageTitle? {
+    private suspend fun getRecommendedPage(sourceWithOffset: SourceWithOffset, offset: Int, takeSize: Int): List<PageTitle> {
         val wikiSite = WikiSite.forLanguageCode(sourceWithOffset.language)
         val moreLikeResponse = ServiceFactory.get(wikiSite).searchMoreLike(
             searchTerm = "morelike:${sourceWithOffset.title}",
@@ -152,10 +156,10 @@ object RecommendedReadingListHelper {
                     description = page.description
                     thumbUrl = page.thumbUrl()
                 }
-            }.firstOrNull {
+            }.filter {
                 AppDatabase.instance.recommendedPageDao()
                     .findIfAny(apiTitle = it.prefixedText, wiki = wikiSite) == 0
-            }
+            }.take(takeSize)
         return firstRecommendedPage
     }
 }
