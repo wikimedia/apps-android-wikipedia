@@ -47,7 +47,6 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -55,7 +54,8 @@ import org.wikipedia.theme.Theme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewSurvey(
-    onSurveyButtonClick: () -> Unit
+    onSubmitButtonClick: (String, String) -> Unit,
+    onCancelButtonClick: () -> Unit
 ) {
     val radioOptions = listOf(
         stringResource(R.string.year_in_review_survey_very_satisfied),
@@ -203,25 +203,12 @@ fun YearInReviewSurvey(
                     ) {
                         SurveyButton(
                             buttonText = R.string.year_in_review_survey_cancel,
-                            onClick = {
-                                onSurveyButtonClick()
-                            }
+                            onClick = { onCancelButtonClick() }
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         SurveyButton(
                             buttonText = R.string.year_in_review_survey_submit,
-                            onClick = {
-                                PatrollerExperienceEvent.logAction(
-                                    action = "yir_survey_submit",
-                                    activeInterface = "yir_survey_form",
-                                    actionData = PatrollerExperienceEvent
-                                        .getActionDataString(
-                                            feedbackOption = selectedOption,
-                                            feedbackText = userInput
-                                        )
-                                )
-                                onSurveyButtonClick()
-                            }
+                            onClick = { onSubmitButtonClick(selectedOption, userInput) }
                         )
                     }
                 }
@@ -261,7 +248,8 @@ fun PreviewSurvey() {
                .background(WikipediaTheme.colors.paperColor)
         ) {
             YearInReviewSurvey(
-                onSurveyButtonClick = {}
+                onSubmitButtonClick = {_,_ -> /*No logic, preview only*/},
+                onCancelButtonClick = {/*No logic, preview only*/}
             )
         }
     }

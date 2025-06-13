@@ -22,6 +22,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.util.Resource
 
@@ -51,9 +52,23 @@ class YearInReviewActivity : BaseActivity() {
                 }
 
                 if (isSurveyVisible) {
-                    YearInReviewSurvey(onSurveyButtonClick = {
-                        this@YearInReviewActivity.finish()
-                    })
+                    YearInReviewSurvey(
+                        onCancelButtonClick = {
+                            this@YearInReviewActivity.finish()
+                        },
+                        onSubmitButtonClick = { selectedOption, userInput ->
+                            PatrollerExperienceEvent.logAction(
+                                action = "yir_survey_submit",
+                                activeInterface = "yir_survey_form",
+                                actionData = PatrollerExperienceEvent
+                                    .getActionDataString(
+                                        feedbackOption = selectedOption,
+                                        feedbackText = userInput
+                                    )
+                            )
+                            this@YearInReviewActivity.finish()
+                        }
+                    )
                 }
 
                 NavHost(
