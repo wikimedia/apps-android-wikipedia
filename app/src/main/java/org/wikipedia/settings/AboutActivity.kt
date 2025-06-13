@@ -2,7 +2,6 @@ package org.wikipedia.settings
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -51,6 +50,7 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
@@ -97,7 +97,7 @@ class AboutActivity : BaseActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 AboutWikipediaScreen(
