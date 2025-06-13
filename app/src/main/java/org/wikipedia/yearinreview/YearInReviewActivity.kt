@@ -17,6 +17,8 @@ import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -24,6 +26,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 
 class YearInReviewActivity : BaseActivity() {
@@ -47,14 +50,16 @@ class YearInReviewActivity : BaseActivity() {
                     if (canShowSurvey) {
                         isSurveyVisible = true
                     } else {
-                        this@YearInReviewActivity.finish()
+                        endYearInReviewActivity(coroutineScope, this)
                     }
                 }
 
                 if (isSurveyVisible) {
+                    Prefs.yirSurveyShown = true
                     YearInReviewSurvey(
                         onCancelButtonClick = {
-                            this@YearInReviewActivity.finish()
+                            isSurveyVisible = false
+                            endYearInReviewActivity(coroutineScope, this)
                         },
                         onSubmitButtonClick = { selectedOption, userInput ->
                             PatrollerExperienceEvent.logAction(
@@ -66,7 +71,8 @@ class YearInReviewActivity : BaseActivity() {
                                         feedbackText = userInput
                                     )
                             )
-                            this@YearInReviewActivity.finish()
+                            isSurveyVisible = false
+                            endYearInReviewActivity(coroutineScope, this)
                         }
                     )
                 }
@@ -161,6 +167,13 @@ class YearInReviewActivity : BaseActivity() {
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, YearInReviewActivity::class.java)
+        }
+
+        fun endYearInReviewActivity(scope: CoroutineScope, activity: YearInReviewActivity) {
+            scope.launch {
+                delay(200)
+                activity.finish()
+            }
         }
     }
 }

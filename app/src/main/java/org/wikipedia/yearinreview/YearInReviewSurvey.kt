@@ -248,8 +248,10 @@ fun PreviewSurvey() {
                .background(WikipediaTheme.colors.paperColor)
         ) {
             YearInReviewSurvey(
-                onSubmitButtonClick = {_,_ -> /*No logic, preview only*/},
-                onCancelButtonClick = {/*No logic, preview only*/}
+                onSubmitButtonClick = { _, _ ->
+                    /*No logic, preview only*/
+                 },
+                onCancelButtonClick = { /*No logic, preview only*/ },
             )
         }
     }

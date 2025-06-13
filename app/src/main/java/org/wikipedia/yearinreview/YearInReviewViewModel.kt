@@ -45,7 +45,7 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     fun updateUiShowSurvey() {
-        if (!Prefs.yirSurveyShown) { _uiCanShowSurvey.value = true }
+        _uiCanShowSurvey.value = true && !Prefs.yirSurveyShown
     }
 
     fun fetchPersonalizedData() {
