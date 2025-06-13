@@ -14,7 +14,9 @@ import android.view.View
 import android.view.Window
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -96,6 +98,11 @@ object DeviceUtil {
             return false
         }
         return true
+    }
+
+    fun setEdgeToEdge(activity: AppCompatActivity) {
+        activity.enableEdgeToEdge()
+        WindowCompat.getInsetsController(activity.window, activity.window.decorView).isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
     }
 
     val isOnWiFi: Boolean
