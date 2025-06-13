@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,6 +23,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
@@ -58,7 +58,7 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         callback = this
-        enableEdgeToEdge()
+        DeviceUtil.setEdgeToEdge(this)
         RecommendedReadingListEvent.submit("impression", "discover_settings")
         setContent {
             val uiState by viewModel.uiState.collectAsState()
