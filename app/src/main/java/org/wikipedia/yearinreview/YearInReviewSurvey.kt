@@ -50,6 +50,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -253,7 +254,7 @@ fun SurveyButton(
 @Preview
 @Composable
 fun PreviewSurvey() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         Column(
            modifier = Modifier
                .fillMaxSize()
