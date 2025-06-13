@@ -50,7 +50,8 @@
                    android:id="@+id/recycler_view"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:scrollbars="vertical" />
+                   android:scrollbars="vertical"
+                   android:background="?attr/paper_color"/>
 
            </LinearLayout>
 
