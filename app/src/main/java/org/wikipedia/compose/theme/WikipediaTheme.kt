@@ -32,7 +32,6 @@ fun BaseTheme(
 
     CompositionLocalProvider(
         LocalWikipediaColor provides wikipediaColorSystem,
-        LocalWikipediaTypography provides Typography,
         LocalRippleConfiguration provides rippleConfig,
         LocalIndication provides ripple()
     ) {
@@ -44,8 +43,4 @@ object WikipediaTheme {
     val colors: WikipediaColor
         @Composable
         get() = LocalWikipediaColor.current
-
-    val typography: WikipediaTypography
-        @Composable
-        get() = LocalWikipediaTypography.current
 }

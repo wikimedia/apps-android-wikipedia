@@ -67,7 +67,7 @@ fun RecommendedReadingListDiscoverCardView(
                 ) {
                     Text(
                         text = title,
-                        style = WikipediaTheme.typography.h3,
+                        style = MaterialTheme.typography.titleMedium,
                         color = WikipediaTheme.colors.primaryColor
                     )
                     if (isNewListGenerated) {

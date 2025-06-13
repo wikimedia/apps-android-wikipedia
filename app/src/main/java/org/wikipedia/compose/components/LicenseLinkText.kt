@@ -1,6 +1,7 @@
 package org.wikipedia.compose.components
 
 import android.content.Intent
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,7 +27,7 @@ data class LinkTextData(
 fun LicenseLinkText(
     links: List<LinkTextData>,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = WikipediaTheme.typography.small
+    textStyle: TextStyle = MaterialTheme.typography.labelMedium
 ) {
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
