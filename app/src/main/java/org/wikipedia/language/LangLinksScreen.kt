@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.wikipedia.R
@@ -166,7 +167,9 @@ fun ListHeader(
     title: String,
     modifier: Modifier = Modifier,
     titleStyle: TextStyle = MaterialTheme.typography.titleSmall.copy(
-        color = WikipediaTheme.colors.primaryColor
+        color = WikipediaTheme.colors.primaryColor,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 24.sp
     )
 ) {
     Box(
@@ -188,6 +191,11 @@ fun LangLinksItemView(
     canonicalName: String? = null,
     articleName: String
 ) {
+    val listItemTextStyle = MaterialTheme.typography.bodyMedium.copy(
+        color = WikipediaTheme.colors.secondaryColor,
+        lineHeight = 24.sp,
+    )
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center
@@ -197,7 +205,8 @@ fun LangLinksItemView(
                 .fillMaxWidth(),
             text = localizedLanguageName,
             style = MaterialTheme.typography.titleMedium.copy(
-                color = WikipediaTheme.colors.primaryColor
+                color = WikipediaTheme.colors.primaryColor,
+                fontWeight = FontWeight.Bold,
             )
         )
         if (!canonicalName.isNullOrEmpty()) {
@@ -205,20 +214,14 @@ fun LangLinksItemView(
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = canonicalName,
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    color = WikipediaTheme.colors.secondaryColor,
-                    lineHeight = 24.sp
-                )
+                style = listItemTextStyle
             )
         }
         Text(
             modifier = Modifier
                 .fillMaxWidth(),
             text = articleName,
-            style = MaterialTheme.typography.bodyMedium.copy(
-                color = WikipediaTheme.colors.secondaryColor,
-                lineHeight = 24.sp
-            )
+            style = listItemTextStyle
         )
     }
 }

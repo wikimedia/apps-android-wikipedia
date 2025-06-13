@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,7 +29,10 @@ import org.wikipedia.compose.theme.WikipediaTheme
 fun WikiTopAppBar(
     title: String,
     onNavigationClick: (() -> Unit),
-    titleStyle: TextStyle = MaterialTheme.typography.headlineSmall.copy(lineHeight = 24.sp),
+    titleStyle: TextStyle = MaterialTheme.typography.headlineSmall.copy(
+        fontWeight = FontWeight.Bold,
+        lineHeight = 24.sp
+    ),
     elevation: Dp = 0.dp,
     modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit = {},

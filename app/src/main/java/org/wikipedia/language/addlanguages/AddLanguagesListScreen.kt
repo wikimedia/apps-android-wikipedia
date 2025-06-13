@@ -29,6 +29,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -175,7 +176,9 @@ fun ListHeader(
     title: String,
     modifier: Modifier = Modifier,
     titleStyle: TextStyle = MaterialTheme.typography.titleSmall.copy(
-        color = WikipediaTheme.colors.primaryColor
+        color = WikipediaTheme.colors.primaryColor,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 24.sp
     )
 ) {
     Box(
@@ -196,6 +199,7 @@ fun LanguageListItemView(
     localizedLanguageName: String,
     subtitle: String? = null
 ) {
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
@@ -203,7 +207,8 @@ fun LanguageListItemView(
         Text(
             text = localizedLanguageName,
             style = MaterialTheme.typography.titleMedium.copy(
-                color = WikipediaTheme.colors.primaryColor
+                color = WikipediaTheme.colors.primaryColor,
+                fontWeight = FontWeight.Bold,
             )
         )
         if (subtitle != null) {
@@ -212,7 +217,7 @@ fun LanguageListItemView(
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = WikipediaTheme.colors.secondaryColor,
                     textAlign = TextAlign.Center,
-                    lineHeight = 24.sp
+                    lineHeight = 24.sp,
                 )
             )
         }

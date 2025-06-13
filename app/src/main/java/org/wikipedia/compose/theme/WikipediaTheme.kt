@@ -3,7 +3,6 @@ package org.wikipedia.compose.theme
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalRippleConfiguration
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
@@ -31,18 +30,13 @@ fun BaseTheme(
 
     val rippleConfig = RippleConfiguration(color = wikipediaColorSystem.overlayColor)
 
-    MaterialTheme(
-        typography = WikipediaTypography,
-        content = {
-            CompositionLocalProvider(
-                LocalWikipediaColor provides wikipediaColorSystem,
-                LocalRippleConfiguration provides rippleConfig,
-                LocalIndication provides ripple()
-            ) {
-                content()
-            }
-        }
-    )
+    CompositionLocalProvider(
+        LocalWikipediaColor provides wikipediaColorSystem,
+        LocalRippleConfiguration provides rippleConfig,
+        LocalIndication provides ripple()
+    ) {
+        content()
+    }
 }
 
 object WikipediaTheme {

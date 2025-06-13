@@ -248,7 +248,10 @@ fun RecommendedReadingListInterestsScreen(
                         Text(
                             text = stringResource(R.string.recommended_reading_list_interest_pick_title),
                             color = WikipediaTheme.colors.primaryColor,
-                            style = MaterialTheme.typography.titleLarge
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         )
                     }
                 },
@@ -358,7 +361,6 @@ fun RecommendedReadingListInterestsContent(
                             .fillMaxWidth()
                             .padding(top = 48.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
                         style = MaterialTheme.typography.titleLarge.copy(
-                            fontWeight = FontWeight.Normal,
                             fontSize = 22.sp
                         ),
                         color = WikipediaTheme.colors.primaryColor,
