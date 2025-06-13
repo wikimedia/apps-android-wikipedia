@@ -110,7 +110,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
 
         binding.learnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(context, Uri.parse(WikipediaApp.instance.getString(if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
-                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) R.string.description_edit_description_learn_more_url
+                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION)
+                if (pageTitle.wikiSite.languageCode == "en") R.string.short_description_help_url_en else R.string.description_edit_description_learn_more_url
             else R.string.description_edit_image_caption_learn_more_url)))
         }
     }
