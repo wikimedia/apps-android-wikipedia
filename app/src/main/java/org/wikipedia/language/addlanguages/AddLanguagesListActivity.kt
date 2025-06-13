@@ -3,7 +3,6 @@ package org.wikipedia.language.addlanguages
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
@@ -23,7 +22,7 @@ class AddLanguagesListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 val uiState = viewModel.uiState.collectAsState().value
