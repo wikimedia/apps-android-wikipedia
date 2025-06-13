@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -103,7 +104,7 @@ fun MessageCard(
                 if (title != null) {
                     Text(
                         text = title,
-                        style = WikipediaTheme.typography.h2,
+                        style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.padding(bottom = 12.dp)
                     )

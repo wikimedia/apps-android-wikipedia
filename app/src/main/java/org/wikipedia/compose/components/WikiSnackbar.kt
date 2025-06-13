@@ -1,6 +1,7 @@
 package org.wikipedia.compose.components
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -27,7 +28,7 @@ fun Snackbar(
                 ) {
                     Text(
                         text = actionLabel,
-                        style = WikipediaTheme.typography.h3.copy(
+                        style = MaterialTheme.typography.titleMedium.copy(
                             color = WikipediaTheme.colors.progressiveColor
                         )
                     )
@@ -40,8 +41,8 @@ fun Snackbar(
     ) {
         HtmlText(
             text = message,
-            style = WikipediaTheme.typography.h3.copy(
-                color = WikipediaTheme.colors.primaryColor
+            style = MaterialTheme.typography.titleMedium.copy(
+                color = WikipediaTheme.colors.primaryColor,
             ),
             maxLines = 10
         )

@@ -77,7 +77,7 @@ fun SourceSelectionScreen(
                         Text(
                             text = stringResource(id = R.string.recommended_reading_list_settings_updates_base_title),
                             color = WikipediaTheme.colors.primaryColor,
-                            style = WikipediaTheme.typography.h1.copy(lineHeight = 24.sp)
+                            style = MaterialTheme.typography.headlineSmall.copy(lineHeight = 24.sp)
                         )
                     }
                 },
