@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
-import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -638,9 +637,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
-            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.warning_color)
             deleteItem.isEnabled = false
-            MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
         }
 
