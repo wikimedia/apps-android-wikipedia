@@ -260,8 +260,8 @@
   <string name="terms_of_use_description">Felhasználási feltételek</string>
   <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/hu</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_és_offline_olvasás</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
@@ -436,6 +436,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
+  <string name="preference_title_delete_local_donation_history">Helyi adományozási előzmények törlése</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszer témával egyező</string>
   <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
   <string name="empty_tab_title">Új fül</string>
@@ -592,8 +593,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -899,6 +900,7 @@
   <string name="description_edit_learn_more">További információk a szócikkleírásokról</string>
   <string name="description_edit_image_caption_learn_more">További információk a képaláírásokról</string>
   <string name="description_too_short">A szöveg túl rövid.</string>
+  <string name="description_too_long">A leírás legyen rövid, hogy az olvasó könnyen megérthesse a szócikk témáját</string>
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
@@ -1636,6 +1638,9 @@
   <string name="patroller_saved_message_body_copy_vio">A legutóbbi szerkesztésed valószínűleg jogvédett tartalmat tartalmazott engedély nélkül.\nKérlek, győződj meg róla, hogy minden hozzájárulásod megfelel a Wikipédia [[Wikipedia:Szerzői jogok|szerzői jogi irányelveinek]], ellenkező esetben a tartalmat el kell távolítanunk.</string>
   <string name="patroller_saved_message_body_edit_summary">Kedves {{{username}}}, úgy tűnik, szerkesztési összefoglaló nélkül távolítottál el tartalmat a Wikipédiáról. Kérlek, mindig hagyj szerkesztési összefoglalót, amikor hozzáadsz vagy eltávolítasz tartalmat a Wikipédián.</string>
   <string name="patroller_saved_message_body_do_not_censor">Szia {{{username}}}!\n\nÚgy tűnik, hogy tartalmat távolítottál el anélkül, hogy azt a cikk [[Vita:Cikk_címe|vitalapján]] megbeszélted volna.\nKérlek, vedd figyelembe, hogy a Wikipédia nem cenzúrázott, és a tartalom pusztán azért nem törölhető, mert vitatott.\nHa úgy gondolod, hogy az adott információ pontatlan, kérlek, kezdeményezz megbeszélést a cikk vitalapján, és törekedj konszenzusra.</string>
+  <string name="talk_warn_learn_more_label">Ismerd meg az üzenethelyettesítőket</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Használd az alábbi példaüzenetet a testreszabáshoz, elküldéshez és az üzeneteid mentéséhez.</string>
+  <string name="patroller_saved_message_body_art_imp">Szia, {{{username}}}! A szócikked remek kezdet!\nAhhoz, hogy még jobb legyen, érdemes több hivatkozást hozzáadni megbízható forrásokra.\nEz segít az információk ellenőrizhetőségében, és növeli a szócikk minőségét.\nTovábbi részletekért nézd meg a Wikipédia [[Wikipedia:Megbízható források|megbízható forrásokra vonatkozó irányelveit]].</string>
   <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
@@ -1703,13 +1708,15 @@
   <string name="on_this_day_game_splash_message">Találd ki, melyik esemény történt először ezen a napon a történelemben.</string>
   <string name="on_this_day_game_progress">%1$d / %2$d</string>
   <string name="on_this_day_game_score">Pontszám: %d</string>
+  <string name="on_this_day_game_submit">Küldés</string>
   <string name="on_this_day_game_correct">Helyes!</string>
   <string name="on_this_day_game_incorrect">Helytelen!</string>
   <string name="on_this_day_game_point">+1 pont</string>
   <string name="on_this_day_game_next">Következő kérdés</string>
   <string name="on_this_day_game_finish">Végeredmény</string>
+  <string name="on_this_day_game_share_button">Megosztás</string>
   <string name="on_this_day_game_pause_title">Szünetet tartasz?</string>
-  <string name="on_this_day_game_pause_body">A mai napi előrehaladásod elmentésre kerül. A játékot később megtalálod a Felfedezés menüben.</string>
+  <string name="on_this_day_game_pause_body">A mai napi előrehaladásod elmentésre kerül. A játékot később megtalálod a Felfedezés hírcsatornán.</string>
   <string name="on_this_day_game_pause_negative">Folytatom a játékot</string>
   <string name="on_this_day_game_pause_positive">Értem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipédia játékok</string>
@@ -1719,11 +1726,11 @@
   <string name="on_this_day_game_next_in">Következő játék %s múlva</string>
   <string name="on_this_day_game_your_stats">A statisztikáid</string>
   <plurals name="on_this_day_game_stats_games_played">
-    <item quantity="one">Lejátszott játék</item>
-    <item quantity="other">Lejátszott játék</item>
+    <item quantity="one">lejátszott játék</item>
+    <item quantity="other">lejátszott játék</item>
   </plurals>
-  <string name="on_this_day_game_stats_average_score">Átlagpontszám</string>
-  <string name="on_this_day_game_stats_streak">Jelenlegi sorozat</string>
+  <string name="on_this_day_game_stats_average_score">átlagpontszám</string>
+  <string name="on_this_day_game_stats_streak">jelenlegi sorozat</string>
   <string name="on_this_day_game_result_subtitle">A mai játékban hivatkozott szócikkek</string>
   <string name="on_this_day_game_completed_message">Egy új „Melyik volt előbb?” játék minden nap elérhető a Felfedezés menüben.</string>
   <string name="on_this_day_game_menu_notifications">Játék értesítések</string>
@@ -1748,7 +1755,100 @@
   <string name="on_this_day_game_report_email_body">Problémát tapasztaltam a Wikipédia játékok funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n\nAzt szeretném, ha a rendszer így viselkedne:\n\n– [Írd le, szerinted hogyan működjön helyesen]</string>
   <string name="on_this_day_game_notification_undo">Visszavonás</string>
   <string name="on_this_day_game_share_link_message">Épp a „Melyik volt előbb?” napi triviajátékot játszom a Wikipédia Android-alkalmazásban! %s</string>
+  <string name="on_this_day_game_share_screen_title">Ma %1$d/%2$d pontot értem el a\n„Mi volt előbb?” játékban.</string>
+  <string name="on_this_day_game_share_screen_subtitle">A témák között szerepelt:</string>
   <string name="on_this_day_game_survey_q1">Mennyire voltál elégedett ezzel a játékkal?</string>
   <string name="on_this_day_game_survey_q2">Szívesen kipróbálnál más Wikipédia játékokat is?</string>
+  <string name="on_this_day_game_archive_calendar_title">Válassz egy játékot dátum alapján!</string>
+  <string name="on_this_day_game_score_toast_message">Ezen a napon %1$d/%2$d pontot szereztél.</string>
+  <string name="on_this_day_game_continue_btn_text">A mai játék folytatása</string>
+  <string name="on_this_day_game_current_progress_message">A %d. kérdésnél tartasz.</string>
+  <string name="on_this_day_game_archive_btn_text">Korábbi játékok</string>
+  <string name="on_this_day_game_review_results_btn_text">Eredmények áttekintése</string>
+  <string name="on_this_day_game_score_message">A mai játékban %1$d/%2$d pontot szereztél.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">A játék folytatása</string>
+  <string name="on_this_day_game_sound_on">Hang bekapcsolása</string>
+  <string name="on_this_day_game_sound_off">Hang kikapcsolása</string>
+  <string name="recommended_reading_list_title">Felfedezés</string>
+  <string name="recommended_reading_list_onboarding_card_title">Fedezz fel kifejezetten neked válogatott szócikkeket</string>
+  <string name="recommended_reading_list_onboarding_card_message">A heti olvasólistád Wikipédia-szócikkekből, kifejezetten számodra válogatva.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Újdonság!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Kezdés</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nem, köszönöm</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Ha később szeretnéd beállítani az ajánlott olvasólistádat, menj a Beállításokhoz.</string>
+  <string name="recommended_reading_list_interest_source_message">Hogyan állítsuk össze az ajánlott olvasólistádat?</string>
+  <string name="recommended_reading_list_interest_source_interests">Szeretnék érdeklődési köreim alapján választani</string>
+  <string name="recommended_reading_list_interest_source_saved">Válassz helyettem a mentett szócikkeim alapján</string>
+  <string name="recommended_reading_list_interest_source_history">Válassz helyettem az olvasási előzményeim alapján</string>
+  <string name="recommended_reading_list_interest_pick_title">Mi érdekel?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Szócikk keresése</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d kiválasztva</item>
+    <item quantity="other">%d kiválasztva</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Válassz ki legalább egy érdeklődési kört</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Véletlenszerű kiválasztás</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Véletlenszerűen kiválasztottunk néhány szócikket számodra.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Visszavonás</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Biztosan véletlenszerűen szeretnéd kiválasztani a témákat?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Ez törli a jelenlegi kiválasztásaidat, és véletlenszerűen új szócikkeket választ helyettük.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Igen, válassz helyettem</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Mindegy</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">%s számára készült</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Neked készült</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d szócikk</item>
+    <item quantity="other">• %d szócikk</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">A napi olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. Éjfélkor frissül.</string>
+  <string name="recommended_reading_list_page_description_weekly">A heti olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. A hét elején frissül.</string>
+  <string name="recommended_reading_list_page_description_monthly">A havi olvasólistád – új témákról tanulhatsz, kifejezetten neked válogatva. Minden hónap első napján frissül.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Testreszabás</string>
+  <string name="recommended_reading_list_page_overflow_about">Erről a funkcióról</string>
+  <string name="recommended_reading_list_page_snackbar">A Felfedezés minden %2$s %1$d új szócikkel frissül. Az ajánlások helyileg, az eszközödön kerülnek tárolásra.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Discover testreszabása</string>
+  <string name="recommended_reading_list_page_snackbar_day">nap</string>
+  <string name="recommended_reading_list_page_snackbar_week">héten</string>
+  <string name="recommended_reading_list_page_snackbar_month">hónapban</string>
   <string name="recommended_reading_list_settings_section_header">Javaslatok</string>
+  <string name="recommended_reading_list_settings_title">Felfedezés beállításai</string>
+  <string name="recommended_reading_list_settings_toggle">Felfedezés olvasólista</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">A Felfedezés ki van kapcsolva. A Wikipédia nem fog számodra olvasásra ajánlani szócikkeket.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Biztosan kikapcsolod a Felfedezést?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Ha kikapcsolod a Felfedezést, nem fogsz többé %s olvasási ajánlást kapni a Wikipédiától.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Kapcsold ki</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nem, maradjon bekapcsolva</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">A Felfedezés ki lett kapcsolva. A beállításokban bármikor újra bekapcsolhatod.</string>
+  <string name="recommended_reading_list_settings_articles">szócikk</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Frissítések %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">naponta</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">hetente</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">havonta</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Minden nap</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Minden héten</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Minden hónapban</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Hogyan működik a Felfedezés</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Érdeklődési köreid alapján</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Mentett cikkeid alapján</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Olvasási előzményeid alapján</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Szeretnéd módosítani, hogyan működik a Felfedezés?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Ha módosítod, hogyan állítja össze a Felfedezés az ajánlásokat, a jelenlegi ajánlásaid lecserélésre kerülnek.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Módosítás</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Mindegy</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Ajánlásaid mostantól az érdeklődési köreid alapján készülnek.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Ajánlásaid mostantól a mentett cikkeid alapján készülnek.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Ajánlásaid mostantól az olvasási előzményeid alapján készülnek.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Visszavonás</string>
+  <string name="recommended_reading_list_settings_interests">Érdeklődési körök</string>
+  <string name="recommended_reading_list_settings_notifications_title">Értesítések</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">A Wikipédia nem fog értesítést küldeni, amikor a Felfedezés frissül.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">A Felfedezés értesítései ki vannak kapcsolva. Nem fogsz értesítést kapni, amikor a Felfedezés frissül.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Kikapcsolod az értesítéseket?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Ha kikapcsolod az értesítéseket, többé nem kapsz emlékeztetőt a Felfedezés frissítéseiről.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Kapcsold ki őket</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nem, maradjanak bekapcsolva</string>
+  <string name="recommended_reading_list_notification_title">Elkészült a %s Felfedezés olvasólistád.</string>
+  <string name="recommended_reading_list_notification_subtitle">Koppints ide a legújabb ajánlások megtekintéséhez.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Amikor a Felfedezés frissül, a Wikipédia értesítést küld számodra.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">A Felfedezés be van kapcsolva. A Wikipédia ajánlani fog számodra olvasnivaló szócikkeket.</string>
 </resources>
