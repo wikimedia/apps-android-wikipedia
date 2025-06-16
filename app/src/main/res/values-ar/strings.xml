@@ -2015,6 +2015,7 @@
     <item quantity="many">...</item>
     <item quantity="other">%d محددة</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">حدد اهتمامًا واحدًا على الأقل</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">اختيار عشوائي</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">لقد قمنا باختيار عدد قليل من المقالات لك بشكل عشوائي.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">التراجع</string>
