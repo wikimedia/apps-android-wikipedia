@@ -51,6 +51,7 @@
 * Joanmp17
 * Johnny243
 * Johny Weissmuller Jr
+* JorgeElias2302
 * Jorgito
 * Josecurioso
 * Juan Cuartas
@@ -1800,16 +1801,16 @@
   <string name="on_this_day_game_next_in">Más preguntas en %s</string>
   <string name="on_this_day_game_your_stats">Tus estadísticas</string>
   <plurals name="on_this_day_game_stats_games_played">
-    <item quantity="one">Jugado</item>
-    <item quantity="other">Jugados</item>
+    <item quantity="one">jugado</item>
+    <item quantity="other">jugados</item>
   </plurals>
-  <string name="on_this_day_game_stats_average_score">Promedio</string>
-  <string name="on_this_day_game_stats_streak">Racha</string>
+  <string name="on_this_day_game_stats_average_score">promedio</string>
+  <string name="on_this_day_game_stats_streak">racha</string>
   <string name="on_this_day_game_result_subtitle">Artículos referenciados en el juego de hoy</string>
   <string name="on_this_day_game_completed_message">Gracias por jugar. Cada día hay preguntas nuevas en «¿Cuál fue primero?», disponible en la sección Explorar.</string>
   <string name="on_this_day_game_menu_notifications">Notificaciones del juego</string>
   <string name="on_this_day_game_menu_info">Más información</string>
-  <string name="on_this_day_game_menu_feedback">Problema con función</string>
+  <string name="on_this_day_game_menu_feedback">Reportar problema</string>
   <string name="on_this_day_game_article_read_button">Leer artículo</string>
   <string name="on_this_day_game_article_related_event_title">Evento relacionado con este artículo</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Acertaste esta pregunta</string>
@@ -1837,7 +1838,7 @@
   <string name="on_this_day_game_score_toast_message">Obtuviste %1$d/%2$d este día.</string>
   <string name="on_this_day_game_continue_btn_text">Continuar el juego de hoy</string>
   <string name="on_this_day_game_current_progress_message">Vas en la pregunta %d.</string>
-  <string name="on_this_day_game_archive_btn_text">Jugar anteriores</string>
+  <string name="on_this_day_game_archive_btn_text">Ver juegos anteriores</string>
   <string name="on_this_day_game_review_results_btn_text">Ver resultados</string>
   <string name="on_this_day_game_score_message">Obtuviste %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
@@ -1860,6 +1861,7 @@
     <item quantity="one">%d artículo seleccionado</item>
     <item quantity="other">%d artículos seleccionados</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Seleccione al menos un interés</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Seleccionar de forma aleatoria</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Seleccionamos aleatoriamente algunos artículos para ti.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Deshacer</string>
@@ -1873,9 +1875,9 @@
     <item quantity="one">• %d artículo</item>
     <item quantity="other">• %d artículos</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Tu lista de lectura diaria. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a medianoche.</string>
+  <string name="recommended_reading_list_page_description_daily">Tu lista de lectura diaria. Descubre nuevos temas, seleccionados especialmente para ti. Actualizaciones a medianoche.</string>
   <string name="recommended_reading_list_page_description_weekly">Tu lista de lectura semanal. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones a inicio de semana.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Tu lista de lectura mensual. Descubre nuevos temas escogidos especialmente para ti. Actualizaciones el día primero de cada mes.</string>
+  <string name="recommended_reading_list_page_description_monthly">Tu lista de lectura mensual. Descubre nuevos temas, seleccionados especialmente para ti. Actualizaciones el primer día de cada mes.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalizar</string>
   <string name="recommended_reading_list_page_overflow_about">Acerca de esta función</string>
   <string name="recommended_reading_list_page_snackbar">Descubrir mostrará %1$d artículos nuevos cada %2$s. Tus recomendaciones se almacenan localmente en tu dispositivo.</string>
