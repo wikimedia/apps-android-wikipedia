@@ -192,7 +192,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
 
             // Reset the overflow menu
             binding.itemOverflowMenu.setOnClickListener {
-                RecommendedReadingListEvent.submit("save_click", "rrl_discover")
+                RecommendedReadingListEvent.submit("menu_click", "rrl_discover")
                 readingList?.let {
                     showOverflowMenu(
                         isLongPress = false,

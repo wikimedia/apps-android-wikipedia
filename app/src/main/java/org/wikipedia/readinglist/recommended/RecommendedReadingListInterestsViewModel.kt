@@ -154,8 +154,13 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                     countSelected = selectedItems.size
                 )
             } else {
+                val actionString = if (randomizeEvent.value != null) {
+                    "random_submit_click"
+                } else {
+                    "submit_click"
+                }
                 RecommendedReadingListEvent.submit(
-                    action = "submit_click",
+                    action = actionString,
                     activeInterface = "rrl_interests_select",
                     countSelected = selectedItems.size
                 )
