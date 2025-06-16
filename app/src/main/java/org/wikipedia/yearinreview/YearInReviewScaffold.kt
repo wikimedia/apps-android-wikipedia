@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
-import androidx.activity.ComponentActivity
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -96,8 +95,7 @@ fun YearInReviewScreen(
     screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
     navController: NavHostController,
     contentData: List<YearInReviewScreenData>,
-    viewModel: YearInReviewViewModel,
-    showSurvey: ((Boolean) -> Unit)? = null
+    canShowSurvey: (() -> Unit)? = null
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
@@ -138,11 +136,7 @@ fun YearInReviewScreen(
                         if (contentData.size > 1 && pagerState.currentPage != 0) {
                             coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
                         } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            if (viewModel.uiCanShowSurvey.value) {
-                                showSurvey?.invoke(true)
-                            } else {
-                                (context as? ComponentActivity)?.finish()
-                            }
+                            canShowSurvey?.invoke()
                         } else {
                             navController.navigate(
                                 route = YearInReviewNavigation.Onboarding.name)
@@ -577,7 +571,6 @@ fun PreviewContent() {
             },
             navController = NavHostController(LocalContext.current),
             contentData = listOf(nonEnglishCollectiveEditCountData),
-            viewModel = viewModel
         )
     }
 }

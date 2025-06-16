@@ -43,8 +43,10 @@ class YearInReviewActivity : BaseActivity() {
                  */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
-                val canShowSurvey = viewModel.uiCanShowSurvey.collectAsState().value
+                var hasVisitedContent by remember { mutableStateOf(false) }
                 var isSurveyVisible by remember { mutableStateOf(false) }
+
+                val canShowSurvey = hasVisitedContent && !Prefs.yirSurveyShown
 
                 BackHandler {
                     if (canShowSurvey) {
@@ -87,10 +89,15 @@ class YearInReviewActivity : BaseActivity() {
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
-                            viewModel = viewModel,
                             contentData = listOf(YearInReviewViewModel.getStartedData),
                             navController = navController,
-                            showSurvey = { showSurvey -> isSurveyVisible = showSurvey },
+                            canShowSurvey = {
+                                if (canShowSurvey) {
+                                    isSurveyVisible = true
+                                } else {
+                                    endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
+                                }
+                            },
                             customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
@@ -120,7 +127,6 @@ class YearInReviewActivity : BaseActivity() {
                             }
                             is Resource.Success -> {
                                 YearInReviewScreen(
-                                    viewModel = viewModel,
                                     contentData = screenState.data,
                                     navController = navController,
                                     customBottomBar = { pagerState -> MainBottomBar(
@@ -146,8 +152,8 @@ class YearInReviewActivity : BaseActivity() {
                                         }
                                     ) },
                                     screenContent = { innerPadding, contentData, pagerState ->
-                                        if (pagerState.currentPage >= 1 && !canShowSurvey) {
-                                            viewModel.updateUiShowSurvey()
+                                        if (pagerState.currentPage >= 1) {
+                                            hasVisitedContent = true
                                         }
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
