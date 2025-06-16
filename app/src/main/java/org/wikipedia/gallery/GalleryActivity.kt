@@ -104,6 +104,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
+        // ViewPager2 bug, will likely be fixed in the future
+        // https://issuetracker.google.com/issues/175796502
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             val currentPosition = binding.pager.currentItem
             val previousPosition = maxOf(currentPosition - 1, 0)
