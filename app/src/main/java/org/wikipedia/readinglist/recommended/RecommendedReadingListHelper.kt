@@ -17,7 +17,7 @@ object RecommendedReadingListHelper {
     private const val MAX_RETRIES = 10
 
     suspend fun readyToGenerateList(): Boolean {
-        if (!Prefs.isRecommendedReadingListEnabled) {
+        if (!Prefs.isRecommendedReadingListEnabled || Prefs.recommendedReadingListArticlesNumber <= 0) {
             return false
         }
         if (Prefs.resetRecommendedReadingList) {
@@ -44,13 +44,11 @@ object RecommendedReadingListHelper {
     }
 
     suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
-        if (!Prefs.isRecommendedReadingListEnabled) {
+        if (!readyToGenerateList()) {
             return emptyList()
         }
+
         var numberOfArticles = Prefs.recommendedReadingListArticlesNumber
-        if (numberOfArticles <= 0) {
-            return emptyList()
-        }
 
         if (shouldExpireOldPages) {
             // Expire old recommended pages
