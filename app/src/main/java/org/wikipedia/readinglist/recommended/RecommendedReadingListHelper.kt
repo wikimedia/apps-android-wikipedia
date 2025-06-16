@@ -20,23 +20,21 @@ object RecommendedReadingListHelper {
         if (!Prefs.isRecommendedReadingListEnabled || Prefs.recommendedReadingListArticlesNumber <= 0) {
             return false
         }
-        if (Prefs.resetRecommendedReadingList) {
-            // Make sure the sources have enough articles to generate a recommended reading list.
-            when (Prefs.recommendedReadingListSource) {
-                RecommendedReadingListSource.INTERESTS -> {
-                    if (Prefs.recommendedReadingListInterests.isEmpty()) {
-                        return false
-                    }
+        // Make sure the sources have enough articles to generate a recommended reading list.
+        when (Prefs.recommendedReadingListSource) {
+            RecommendedReadingListSource.INTERESTS -> {
+                if (Prefs.recommendedReadingListInterests.isEmpty()) {
+                    return false
                 }
-                RecommendedReadingListSource.READING_LIST -> {
-                    if (AppDatabase.instance.readingListPageDao().getPagesByRandom(1).isEmpty()) {
-                        return false
-                    }
+            }
+            RecommendedReadingListSource.READING_LIST -> {
+                if (AppDatabase.instance.readingListPageDao().getPagesByRandom(1).isEmpty()) {
+                    return false
                 }
-                RecommendedReadingListSource.HISTORY -> {
-                    if (AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(1).isEmpty()) {
-                        return false
-                    }
+            }
+            RecommendedReadingListSource.HISTORY -> {
+                if (AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(1).isEmpty()) {
+                    return false
                 }
             }
         }
