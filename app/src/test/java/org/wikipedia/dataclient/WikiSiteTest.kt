@@ -111,7 +111,7 @@ class WikiSiteTest {
         subject = WikiSite("zh.wikipedia.org/zh-tw/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
         MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
@@ -119,7 +119,7 @@ class WikiSiteTest {
         subject = WikiSite("zh.wikipedia.org/zh-cn/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-cn"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
         MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
@@ -127,7 +127,7 @@ class WikiSiteTest {
         subject = WikiSite("zh.wikipedia.org/zh-hant/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
         MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
@@ -138,7 +138,7 @@ class WikiSiteTest {
         val subject = WikiSite("zh-tw.wikipedia.org/wiki/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
         MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
@@ -149,7 +149,7 @@ class WikiSiteTest {
         val subject = WikiSite("zh.m.wikipedia.org/zh-hant/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
     }
@@ -159,7 +159,7 @@ class WikiSiteTest {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
     }
@@ -169,7 +169,7 @@ class WikiSiteTest {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
         MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
         MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(DEFAULT_ZH_CODE))
+        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh"))
         MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
         MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
     }
@@ -329,8 +329,5 @@ class WikiSiteTest {
             "bm.wikipedia.org",
             Matchers.`is`(WikiSite.forLanguageCode("bm").authority())
         )
-    }
-    companion object {
-        private const val DEFAULT_ZH_CODE = "zh-tw"
     }
 }
