@@ -12,6 +12,6 @@ class RecommendedReadingListAbTest : ABTest("recommendedReadingList", GROUP_SIZE
     }
 
     fun isTestGroupUser(): Boolean {
-        return ReleaseUtil.isPreBetaRelease || group == GROUP_2
+        return ReleaseUtil.isDevRelease || group == GROUP_2
     }
 }

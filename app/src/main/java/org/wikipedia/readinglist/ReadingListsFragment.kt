@@ -63,6 +63,7 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -353,7 +354,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 // Recommended Reading List discover card
                 val recommendedArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
-                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                if (RecommendedReadingListHelper.readyToGenerateList() && recommendedArticles.isNotEmpty()) {
                     setupRecommendedReadingListDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
