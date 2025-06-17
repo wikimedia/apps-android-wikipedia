@@ -501,4 +501,5 @@
   <string name="survey_dialog_next">Հաջորդ</string>
   <string name="survey_dialog_general_yes">Այո</string>
   <string name="survey_dialog_general_no">Ոչ</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Ստեղծված է ձեզ համար</string>
 </resources>

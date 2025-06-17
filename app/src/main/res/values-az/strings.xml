@@ -250,14 +250,12 @@
   <string name="privacy_policy_description">Məxfilik siyasəti</string>
   <string name="terms_of_use_description">İstifadə şərtləri</string>
   <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
@@ -583,8 +581,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Məqalə bir neçə siyahıda görünür</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artıq bütün oxuma siyahıları üçün oflayn olaraq əlçatan olmayacaq:</string>
   <string name="reading_lists_sync_reminder_title">Oxuma siyahısı sinxronizasiyası aktiv edilsin?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronizasiyanı aktivləşdir</string>
   <string name="reading_list_login_reminder_title">Oxuma siyahılarını sinxronlaşdır</string>
   <string name="reading_lists_login_reminder_text">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin.</string>
@@ -1691,11 +1689,13 @@
   <string name="on_this_day_game_splash_message">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
   <string name="on_this_day_game_progress">%1$d/%2$d</string>
   <string name="on_this_day_game_score">Xal: %d</string>
+  <string name="on_this_day_game_submit">Göndər</string>
   <string name="on_this_day_game_correct">Düzdür!</string>
   <string name="on_this_day_game_incorrect">Səhvdir!</string>
   <string name="on_this_day_game_point">+1 xal</string>
   <string name="on_this_day_game_next">Növbəti sual</string>
   <string name="on_this_day_game_finish">Son nəticələr</string>
+  <string name="on_this_day_game_share_button">Paylaş</string>
   <string name="on_this_day_game_pause_title">Oyuna fasilə verilsin?</string>
   <string name="on_this_day_game_pause_body">Sizin irəliləyişiniz bu gün üçün yadda saxlanılacaq. Siz oyunu Kəşf et lentinizdə tapa bilərsiniz.</string>
   <string name="on_this_day_game_pause_negative">Oynamağa davam et</string>
@@ -1736,6 +1736,100 @@
   <string name="on_this_day_game_report_email_body">Mən Vikipediya oyunları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Problemi təsvir edin]\n\nBaş verməsini gözlədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
   <string name="on_this_day_game_notification_undo">Geri qaytar</string>
   <string name="on_this_day_game_share_link_message">Mən Vikipediya Android tətbiqində \"Hansı birinci baş verib?\" gündəlik trivia oyununu oynayıram %s</string>
+  <string name="on_this_day_game_share_screen_title">Mən bu gün \"Hansı birinci baş verib?\" oyununda %1$d/%2$d xal topladım.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Daxil olan mövzular:</string>
   <string name="on_this_day_game_survey_q1">Bu oyundan nə dərəcədə razı qaldınız?</string>
   <string name="on_this_day_game_survey_q2">Fərqli Vikipediya oyunlarını oynamaqda maraqlanırsınız?</string>
+  <string name="on_this_day_game_archive_calendar_title">Oynamaq üçün tarixə görə oyun seçin.</string>
+  <string name="on_this_day_game_score_toast_message">Bu gün %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_btn_text">Bugünkü oyuna davam edin</string>
+  <string name="on_this_day_game_current_progress_message">Sizin qaldığınız sual: %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Arxivi oyna</string>
+  <string name="on_this_day_game_review_results_btn_text">Nəticələrə bax</string>
+  <string name="on_this_day_game_score_message">Bugünkü oyunda %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
+  <string name="on_this_day_game_sound_on">Səsi aç</string>
+  <string name="on_this_day_game_sound_off">Səsi söndür</string>
+  <string name="recommended_reading_list_title">Kəşf et</string>
+  <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
+  <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Yeni!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Başla</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Xeyr, təşəkkürlər</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Tövsiyə olunan oxuma siyahınızı daha sonra qurmaq üçün Parametrlərə keçin.</string>
+  <string name="recommended_reading_list_interest_source_message">Tövsiyə olunan oxuma siyahınızı necə yaratmalıyıq?</string>
+  <string name="recommended_reading_list_interest_source_interests">Mənim maraqlarım əsasında seçim etməyimə icazə verin</string>
+  <string name="recommended_reading_list_interest_source_saved">Saxlanmış məqalələrimə əsasən mənim üçün seçin</string>
+  <string name="recommended_reading_list_interest_source_history">Oxuma tarixçəmə əsaslanaraq mənim üçün seç</string>
+  <string name="recommended_reading_list_interest_pick_title">Nə ilə maraqlanırsınız?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Məqalə axtar</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d seçilib</item>
+    <item quantity="other">%d seçilib</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Ən azı bir maraq dairəsi seçin</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Təsadüfi seç</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Sizin üçün təsadüfi bir neçə məqalə seçdik.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Geri qaytar</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Seçiminizi təsadüfiləşdirmək istədiyinizə əminsiniz?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Bu, cari seçimlərinizi siləcək və təsadüfi olaraq yeni məqalələr seçəcək.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Bəli, mənim üçün seç</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Boşver</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">%s üçün hazırlanıb</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Sizin üçün hazırlanıb</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d məqalə</item>
+    <item quantity="other">• %d məqalə</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Gündəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gecə yarısı yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_weekly">Həftəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Həftənin əvvəlində yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_monthly">Aylıq oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Hər ayın birincisi yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Fərdiləşdir</string>
+  <string name="recommended_reading_list_page_overflow_about">Bu funksiya haqqında</string>
+  <string name="recommended_reading_list_page_snackbar">Kəşf et bölməsi hər %2$s %1$d yeni məqalə ilə yenilənəcək. Tövsiyələriniz cihazınızda lokal olaraq saxlanılır.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Kəşf et bölməsini fərdiləşdir</string>
+  <string name="recommended_reading_list_page_snackbar_day">Gündəlik</string>
+  <string name="recommended_reading_list_page_snackbar_week">Həftəlik</string>
+  <string name="recommended_reading_list_page_snackbar_month">Aylıq</string>
+  <string name="recommended_reading_list_settings_section_header">Tövsiyələr</string>
+  <string name="recommended_reading_list_settings_title">Kəşf etmə parametrləri</string>
+  <string name="recommended_reading_list_settings_toggle">Kəşf edilmiş oxuma siyahısı</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Kəşf etmə deaktivdir. Vikipediya sizə məqalələri oxumağı tövsiyə etməyəcək.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Kəşf etmə söndürülsün?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Kəşf etməni deaktiv etsəniz, Vikipediyadan %s oxuma tövsiyələri almağı dayandıracaqsınız.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Söndür</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Xeyr, açıq saxla</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Kəşf et deaktiv edilib. İstənilən vaxt parametrlərdə yenidən aktiv edə bilərsiniz.</string>
+  <string name="recommended_reading_list_settings_articles">məqalə</string>
+  <string name="recommended_reading_list_settings_updates_frequency">%s yenilənir</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">gündəlik</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">həftəlik</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">aylıq</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Hər gün</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Hər həftə</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Hər ay</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Kəşf et necə qurulur</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Maraqlarınıza əsaslanaraq</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Yadda saxladığınız məqalələr əsasında</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Oxuma tarixçəniz əsasında</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Kəşf etin necə qurulduğunu tənzimləmək istəyirsiz?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Kəşflərin tövsiyələr yaratma qaydasını tənzimləsəniz, cari tövsiyələriniz dəyişdiriləcək.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Tənzimlə</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Boşver</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Tövsiyələriniz indi maraqlarınıza əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Tövsiyələriniz indi yadda saxladığınız məqalələrə əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Tövsiyələriniz indi oxuma tarixçənizə əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Geri qaytar</string>
+  <string name="recommended_reading_list_settings_interests">Maraqlar</string>
+  <string name="recommended_reading_list_settings_notifications_title">Bildirişlər</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Kəşf et yeniləndikdə Vikipediya sizə bildiriş göndərməyəcək.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Kəşf et üçün bildirişlər söndürülüb. O yeniləndikdə bildiriş almayacaqsınız.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Bildirişlər söndürülsün?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Bildirişləri söndürsəniz, Kəşf et yeniləndikdə daha bildirişlər qəbul etməyəcəksiniz.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Söndür</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Xeyr, açıq saxla</string>
+  <string name="recommended_reading_list_notification_title">%s oxuma siyahınız hazırdır.</string>
+  <string name="recommended_reading_list_notification_subtitle">Ən son tövsiyələrinizə baxmaq üçün toxunun.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Kəşf et bölməsi yeniləndikdə, Vikipediya sizə bildiriş göndərəcək.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Kəşf etmə aktivdir. Vikipediya sizə oxumağınız üçün məqalələr tövsiyə edəcək.</string>
 </resources>

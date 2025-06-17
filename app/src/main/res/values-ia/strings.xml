@@ -242,22 +242,21 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
   <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
+  <string name="about_logo_content_description">Logo del globo puzzle de Wikipedia</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
   <string name="edit_abandon_confirm_yes">Si</string>
   <string name="edit_abandon_confirm_no">No</string>
@@ -576,8 +575,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Articulo appare in plure listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
   <string name="reading_lists_sync_reminder_title">Activar le synchronisation de listas de lectura?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lege plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchronisar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
@@ -1689,11 +1688,13 @@
   <string name="on_this_day_game_splash_message">Divina qual evento se ha producite primo sur iste die in le historia.</string>
   <string name="on_this_day_game_progress">%1$d de %2$d</string>
   <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_submit">Submitter</string>
   <string name="on_this_day_game_correct">Correcte!</string>
   <string name="on_this_day_game_incorrect">Incorrecte!</string>
   <string name="on_this_day_game_point">+1 puncto</string>
   <string name="on_this_day_game_next">Proxime question</string>
   <string name="on_this_day_game_finish">Resultatos final</string>
+  <string name="on_this_day_game_share_button">Condivider</string>
   <string name="on_this_day_game_pause_title">Pausar le joco?</string>
   <string name="on_this_day_game_pause_body">Tu progresso essera salveguardate pro le die. Tu pote retrovar le joco sur tu fluxo Explorar.</string>
   <string name="on_this_day_game_pause_negative">Continuar a jocar</string>
@@ -1733,4 +1734,101 @@
   <string name="on_this_day_game_report_email_subject">Reporto de problema – jocos de Wikipeia</string>
   <string name="on_this_day_game_report_email_body">Io ha incontrate un problema con le function Jocos de Wikipedia:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="on_this_day_game_notification_undo">Disfacer</string>
+  <string name="on_this_day_game_share_link_message">Io joca a “Qual ha evenite primo?”, un quiz quotidian sur le app Android de Wikipedia %s</string>
+  <string name="on_this_day_game_share_screen_title">Hodie io ha obtenite un score de %1$d/%2$d sur “Qual ha evenite primo?”.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Topicos includite:</string>
+  <string name="on_this_day_game_survey_q1">Quanto satisfacite esseva tu con le joco?</string>
+  <string name="on_this_day_game_survey_q2">Te interessarea jocar altere jocos de Wikipedia?</string>
+  <string name="on_this_day_game_archive_calendar_title">Elige per data un joco a jocar.</string>
+  <string name="on_this_day_game_score_toast_message">Tu score de hodie es %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Continuar le joco de hodie</string>
+  <string name="on_this_day_game_current_progress_message">Tu es al question %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Reproducer archivo</string>
+  <string name="on_this_day_game_review_results_btn_text">Revider resultatos</string>
+  <string name="on_this_day_game_score_message">Tu score del joco de hodie es %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Continuar a jocar</string>
+  <string name="on_this_day_game_sound_on">Activar le sono</string>
+  <string name="on_this_day_game_sound_off">Disactivar le sono</string>
+  <string name="recommended_reading_list_title">Discoperir</string>
+  <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
+  <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nove!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Comenciar</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">No, gratias</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Pro configurar tu lista de lectura recommendate plus tarde, visita le Parametros.</string>
+  <string name="recommended_reading_list_interest_source_message">Como construer tu lista de lectura recommendate?</string>
+  <string name="recommended_reading_list_interest_source_interests">Lassa me eliger a base de mi interesses</string>
+  <string name="recommended_reading_list_interest_source_saved">Elige pro me a base de mi articulos salveguardate</string>
+  <string name="recommended_reading_list_interest_source_history">Elige pro me a base de mi historia de lectura</string>
+  <string name="recommended_reading_list_interest_pick_title">Que te interessa?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Cercar un articulo</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d seligite</item>
+    <item quantity="other">%d seligite</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Selige al minus un interesse</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Selection aleatori</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Nos ha seligite aleatorimente alcun articulos pro te.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Disfacer</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Es tu secur de voler render tu selection aleatori?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Isto eliminara tu selection actual e eligera nove articulos al hasardo.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Si, elige pro me</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">No, gratias</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Facite pro %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Facite pro te</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d articulo</item>
+    <item quantity="other">• %d articulos</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Tu lista de lectura quotidian. Discoperi nove topicos, seligite specialmente pro te. Se actualisa a medienocte.</string>
+  <string name="recommended_reading_list_page_description_weekly">Tu lista de lectura septimanal. Discoperi nove topicos, seligite specialmente pro te. Se actualisa al initio del septimana.</string>
+  <string name="recommended_reading_list_page_description_monthly">Tu lista de lectura mensual. Discoperi nove topicos, seligite specialmente pro te. Se actualisa le prime die de cata mense.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalisar</string>
+  <string name="recommended_reading_list_page_overflow_about">A proposito de iste function</string>
+  <string name="recommended_reading_list_page_snackbar">“Discoperir” se actualisara con %1$d nove articulos cata %2$s. Tu recommendationes se immagazina localmente sur tu apparato.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalisar “Discoperir”</string>
+  <string name="recommended_reading_list_page_snackbar_day">Die</string>
+  <string name="recommended_reading_list_page_snackbar_week">Septimana</string>
+  <string name="recommended_reading_list_page_snackbar_month">Mense</string>
+  <string name="recommended_reading_list_settings_section_header">Recommendationes</string>
+  <string name="recommended_reading_list_settings_title">Parametros de “Discoperir“</string>
+  <string name="recommended_reading_list_settings_toggle">Lista de lectura de “Discoperir”</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">“Discoperir” es disactivate. Wikipedia non te recommendara articulos a leger.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Disactivar “Discoperir”?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si tu disactiva “Discoperir”, tu non recipera plus le recommendationes de lectura %s de Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Disactivar</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">No, lassar activate</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">“Discoperir” ha essite disactivate. Tu pote reactivar lo a qualcunque momento in le Parametros.</string>
+  <string name="recommended_reading_list_settings_articles">articulos</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Actualisation %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">quotidian</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">septimanal</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">mensual</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Cata die</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Cata septimana</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Cata mense</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Como “Discoperir” es construite</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">A base de tu interesses</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">A base de tu articulos salveguardate</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">A base de tu historia de lectura</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Adjustar como “Discoperir” es construite?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Si tu adjusta le maniera del qual “Discoperir” genera recommendationes, tu recommendationes actual essera reimplaciate.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Adjustar</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">No, gratias</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Tu recommendationes ora se basa sur tu interesses.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Tu recommendationes ora se basa sur tu articulos salveguardate.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Tu recommendationes ora se basa sur tu historia de lectura.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Disfacer</string>
+  <string name="recommended_reading_list_settings_interests">Interesses</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notificationes</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia non te inviara un notification quando “Discoperir” se actualisa.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Le notificationes pro “Discoperir” es disactivate. Tu non recipera un notification quando “Discoperir” se actualisa.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Disactivar notificationes?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Si tu disactiva le notificationes, tu non plus recipera rememorationes quando “Discoperir” se actualisa.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Disactivar los</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, lassar los activate</string>
+  <string name="recommended_reading_list_notification_title">Tu lista de lectura %s de “Discoperir” es preste.</string>
+  <string name="recommended_reading_list_notification_subtitle">Tocca pro vider tu ultime recommendationes.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando tu “Discoperir” se actualisa, Wikipedia te inviara un notification.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">“Discoperir” es activate. Wikipedia te recommendara articulos a leger.</string>
 </resources>

@@ -2,7 +2,6 @@ package org.wikipedia.language
 
 import android.os.Build
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,7 +16,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,6 +53,7 @@ fun ComposeLangLinksScreen(
         Pair(height, height > 0.dp)
     } else Pair(0.dp, false)
     Scaffold(
+        modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.langlinks_activity_title),
@@ -140,8 +139,6 @@ fun ComposeLangLinksScreen(
                             Box(
                                 modifier = Modifier
                                     .clickable(
-                                        interactionSource = remember { MutableInteractionSource() },
-                                        indication = ripple(bounded = true),
                                         onClick = { onLanguageSelected(item) }
                                     )
                             ) {

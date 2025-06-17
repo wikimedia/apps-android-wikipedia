@@ -47,9 +47,8 @@ fun SearchEmptyView(
             modifier = Modifier
                 .padding(top = 24.dp),
             text = emptyTexTitle,
-            style = WikipediaTheme.typography.p.copy(
-                color = WikipediaTheme.colors.placeholderColor
-            )
+            style = WikipediaTheme.typography.bodyLarge,
+            color = WikipediaTheme.colors.placeholderColor
         )
     }
 }

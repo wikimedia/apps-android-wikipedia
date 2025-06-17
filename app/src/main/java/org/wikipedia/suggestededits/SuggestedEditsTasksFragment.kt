@@ -380,6 +380,11 @@ class SuggestedEditsTasksFragment : Fragment() {
             !usesLocalDescriptions && viewModel.blockMessageWikidata.isNullOrEmpty()) {
             if (sufficientContributionsForArticleDescription) {
                 displayedTasks.add(addDescriptionsTask)
+
+                // Disable translating descriptions if the user has <50 edits, and they have English as a secondary language.
+                if (viewModel.totalContributions < 50 && WikipediaApp.instance.languageState.appLanguageCodes.contains("en")) {
+                    addDescriptionsTask.secondaryAction = null
+                }
             }
         }
 

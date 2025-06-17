@@ -258,17 +258,15 @@
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/sv\"&gt;Teamsidan&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
@@ -594,8 +592,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
   <string name="reading_lists_sync_reminder_title">Aktivera synkronisering av läslistor?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
@@ -1709,11 +1707,13 @@
   <string name="on_this_day_game_splash_message">Gissa vilken händelse som kom först den här dagen i historien.</string>
   <string name="on_this_day_game_progress">%1$d av %2$d</string>
   <string name="on_this_day_game_score">Poäng: %d</string>
+  <string name="on_this_day_game_submit">Skicka in</string>
   <string name="on_this_day_game_correct">Rätt!</string>
   <string name="on_this_day_game_incorrect">Fel!</string>
   <string name="on_this_day_game_point">+1 poäng</string>
   <string name="on_this_day_game_next">Nästa fråga</string>
   <string name="on_this_day_game_finish">Slutresultat</string>
+  <string name="on_this_day_game_share_button">Dela</string>
   <string name="on_this_day_game_pause_title">Pausa spelet?</string>
   <string name="on_this_day_game_pause_body">Dina framsteg kommer sparas för dagen. Du hittar spelet i ditt Utforska-flöde.</string>
   <string name="on_this_day_game_pause_negative">Fortsätt spela</string>
@@ -1754,6 +1754,99 @@
   <string name="on_this_day_game_report_email_body">Jag har stött på ett problem med Wikipedias spelfunktion:\n- [Beskriv det specifika problemet]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="on_this_day_game_notification_undo">Ångra</string>
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_share_screen_title">Jag fick %1$d/%2$d poäng på\n\"Vad kom först?\"\nidag.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Ämnen innefattar:</string>
   <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
   <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
+  <string name="on_this_day_game_archive_calendar_title">Välj ett spel efter datum att spela.</string>
+  <string name="on_this_day_game_score_toast_message">Du fick %1$d/%2$d poäng den här dagen.</string>
+  <string name="on_this_day_game_continue_btn_text">Fortsätt dagens spel</string>
+  <string name="on_this_day_game_current_progress_message">Du är på fråga %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Spela upp arkivet</string>
+  <string name="on_this_day_game_review_results_btn_text">Granska resultatet</string>
+  <string name="on_this_day_game_score_message">Du fick %1$d/%2$d poäng på dagens spel.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Fortsätt spela</string>
+  <string name="on_this_day_game_sound_on">Slå på ljud</string>
+  <string name="on_this_day_game_sound_off">Stäng av ljud</string>
+  <string name="recommended_reading_list_title">Upptäck</string>
+  <string name="recommended_reading_list_onboarding_card_title">Upptäck artiklar utvalda för just dig</string>
+  <string name="recommended_reading_list_onboarding_card_message">Veckans läslista av Wikipediaartiklar, utvalda för dig.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ny!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Sätt igång</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nej tack</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Om du vill ställa in din rekommenderade läslista senare kan du gå till inställningarna.</string>
+  <string name="recommended_reading_list_interest_source_message">Hur ska vi bygga upp din rekommenderade läslista?</string>
+  <string name="recommended_reading_list_interest_source_interests">Låt mig välja utifrån mina intressen</string>
+  <string name="recommended_reading_list_interest_source_saved">Välj åt mig baserat på mina sparade artiklar</string>
+  <string name="recommended_reading_list_interest_source_history">Välj åt mig baserat på min läshistorik</string>
+  <string name="recommended_reading_list_interest_pick_title">Vad är du intresserad av?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Sök efter en artikel</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d vald</item>
+    <item quantity="other">%d valda</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Slumpa</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Vi har slumpat fram några artiklar åt dig</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Ångra</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Är du säker på att du vill slumpa fram ditt urval?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Detta kommer rensa dina aktuella val och slumpmässigt välja nya artiklar.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Ja, välj åt mig</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Nej förresten</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Gjort för %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Gjort för dig</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d artikel</item>
+    <item quantity="other">• %d artiklar</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Din dagliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar vid midnatt.</string>
+  <string name="recommended_reading_list_page_description_weekly">Din veckovisa läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar i början av veckan.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Din månatliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar den första i varje månad.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Anpassa</string>
+  <string name="recommended_reading_list_page_overflow_about">Om den här funktionen</string>
+  <string name="recommended_reading_list_page_snackbar">Upptäck uppdateras med %1$d nya artiklar varje %2$s. Dina rekommendationer lagras lokalt på din enhet.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Justera Upptäck</string>
+  <string name="recommended_reading_list_page_snackbar_day">Dag</string>
+  <string name="recommended_reading_list_page_snackbar_week">Vecka</string>
+  <string name="recommended_reading_list_page_snackbar_month">Månad</string>
+  <string name="recommended_reading_list_settings_section_header">Rekommendationer</string>
+  <string name="recommended_reading_list_settings_title">Upptäck inställningar</string>
+  <string name="recommended_reading_list_settings_toggle">Upptäck läslistan</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Upptäck är avslaget. Wikipedia kommer inte rekommendera artiklar att läsa till dig.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Stäng av Upptäck?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Om du stänger av Upptäck kommer du inte längre att få %s läsrekommendationer från Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Stäng av det</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nej, behåll det</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Upptäck är inaktiverat. Du kan aktivera det igen närsomhelst i inställningarna.</string>
+  <string name="recommended_reading_list_settings_articles">artiklar</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Uppdaterar %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">dagligen</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">veckovis</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">månatligen</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Varje dag</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Varje vecka</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Varje månad</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Hur Upptäck är uppbyggt</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Baserat på dina intressen</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Baserat på dina sparade artiklar</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Baserat på din läshistorik</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Justera hur Upptäck är uppbyggt?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Om du justerar hur Upptäck genererar rekommendationer, dina aktuella rekommendationer kommer ersättas.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Justera</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Nej förresten</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Dina rekommendationer baseras nu på dina intressen.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Dina rekommendationer baseras nu på dina sparade artiklar.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Dina rekommendationer baseras nu på din läshistorik.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Ångra</string>
+  <string name="recommended_reading_list_settings_interests">Intressen</string>
+  <string name="recommended_reading_list_settings_notifications_title">Aviseringar</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia kommer inte skicka aviseringar till dig när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Aviseringar för Upptäck är avstängda. Du får inga aviseringar när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Stäng av aviseringar?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Om du stänger av aviseringar får du inte längre påminnelser när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Stäng av dem</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behåll dem på</string>
+  <string name="recommended_reading_list_notification_title">Din %s Upptäck-läslista är redo.</string>
+  <string name="recommended_reading_list_notification_subtitle">Tryck för att se dina senaste rekommendationer.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">När din Upptäck uppdateras kommer Wikipedia skicka en rekommendation till dig.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Upptäck är påslaget. Wikipedia kommer rekommendera artiklar att läsa till dig.</string>
 </resources>

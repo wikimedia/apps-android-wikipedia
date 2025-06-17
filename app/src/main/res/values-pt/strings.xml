@@ -20,6 +20,7 @@
 * Marinaazev
 * MuratTheTurkish
 * Ngl2016
+* O andras
 * Ruila
 * SandroHc
 * Svjatysberega
@@ -78,7 +79,7 @@
   <string name="page_edit_history_filter_by">Filtrar por</string>
   <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
   <string name="page_edit_history_filter_by_user">Edições do utilizador (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Edições de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições por contas não registadas (%s)</string>
   <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -162,8 +163,8 @@
   <string name="login_username_hint">Nome de utilizador</string>
   <string name="login_password_hint">Palavra-passe</string>
   <string name="account_creation_password_hint">Palavra-passe</string>
-  <string name="login_2fa_hint" fuzzy="true">Código de autenticação de dois fatores</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">A autenticação de dois fatores é necessária! Volte à atividade principal e inicie sessão com a sua chave de autenticação de dois fatores, depois tente novamente, por favor.</string>
+  <string name="login_2fa_hint">Código de autenticação de dois fatores</string>
+  <string name="login_2fa_other_workflow_error_msg">A autenticação de dois fatores é necessária! Por favor inicie sessão a partir do ecrã principal, e introduza o código do seu token 2FA.</string>
   <string name="onboarding_card_login">Entrar</string>
   <string name="page_editing_login">Entrar</string>
   <string name="reading_lists_sync_login">Entrar</string>
@@ -254,17 +255,15 @@
   <string name="terms_of_use_description">Condições de utilização</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
@@ -566,8 +565,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em mais de uma lista</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s deixará de estar disponível offline para todas as listas de leitura:</string>
   <string name="reading_lists_sync_reminder_title">Deseja ativar a sincronização das listas de leitura?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Os artigos guardados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Agora as listas de leitura podem ser sincronizadas entre dispositivos. Entre na sua conta da Wikipédia e permita que as suas listas sejam guardadas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;.</string>
+  <string name="reading_lists_sync_reminder_text">Os artigos guardados nas listas de leitura podem agora ser sincronizados com a sua conta da Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Agora as listas de leitura podem ser sincronizadas entre dispositivos. Entre na sua conta da Wikipédia e permita que as suas listas sejam guardadas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saiba mais&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text">Agora é possível sincronizar as listas de leitura entre vários dispositivos. Entre na sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
@@ -1083,8 +1082,8 @@
   <string name="image_recommendation_accept">Sim</string>
   <string name="image_recommendation_reject">Não</string>
   <string name="image_recommendation_notsure">Não tenho a certeza</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">Por que não?</string>
-  <string name="image_recommendation_reject_subtitle" fuzzy="true">Sua resposta pode melhorar sugestões futuras.</string>
+  <string name="image_recommendation_reject_title">Razão para rejeitar</string>
+  <string name="image_recommendation_reject_subtitle">A razão para rejeitar é anónima e melhorará sugestões futuras de imagens.</string>
   <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
   <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
   <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
@@ -1350,10 +1349,10 @@
   <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Alterar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">por 1 semana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">por 1 mês</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">por 3 meses</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">por 6 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 semana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mês</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 meses</string>
   <string name="watchlist_expiry_dialog_title">Selecionar o período das páginas vigiadas</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semana</string>
@@ -1587,5 +1586,5 @@
   <string name="survey_dialog_option_very_satisfied">Muito satisfeito</string>
   <string name="survey_dialog_option_very_unsatisfied">Muito insatisfeito</string>
   <string name="survey_dialog_submit">Enviar</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Comentário enviado.</string>
+  <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
 </resources>

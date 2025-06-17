@@ -190,7 +190,7 @@
   <string name="logged_out_in_background_cancel">Hủy bỏ</string>
   <string name="account_vanish_request_title">Biến mất tài khoản</string>
   <string name="account_vanish_request_confirm_title">Cảnh báo biến mất tài khoản</string>
-  <string name="account_vanish_request_confirm">Biến mất là &lt;b&gt;biện pháp cuối cùng&lt;/b&gt; và &lt;b&gt;nên chỉ dùng khi bạn muốn chấm dứt sửa đổi vĩnh viễn&lt;/b&gt; và muốn che giấu tối đa những mối liên hệ với bạn trong quá khứ.\n\nViệc xoá tài khoản trên Wikipedia được thực hiện bằng cách đổi tên tài khoản của bạn để người khác không nhận ra được những đóng góp của bạn trong một quy trình gọi là làm biến mất tài khoản. Bạn có thể dùng mẫu bên dưới để yêu cầu biến mất tài khoản. Việc biến mất không đảm bảo ẩn danh hoàn toàn hoặc xoá bỏ những đóng góp trên các dự án.</string>
+  <string name="account_vanish_request_confirm">Biến mất là &lt;b&gt;biện pháp cuối cùng&lt;/b&gt; và &lt;b&gt;nên chỉ dùng khi bạn muốn chấm dứt sửa đổi vĩnh viễn&lt;/b&gt; và muốn che giấu tối đa những mối liên hệ với bạn trong quá khứ.\n\nViệc xóa tài khoản trên Wikipedia được thực hiện bằng cách đổi tên tài khoản của bạn để người khác không nhận ra được những đóng góp của bạn trong một quy trình gọi là làm biến mất tài khoản. Bạn có thể dùng mẫu bên dưới để yêu cầu biến mất tài khoản. Việc biến mất không đảm bảo ẩn danh hoàn toàn hoặc xóa bỏ những đóng góp trên các dự án.</string>
   <string name="history_empty_title">Không có bài viết nào được xem gần đây</string>
   <string name="history_empty_message">Theo dõi nhưng gì bạn đã xem qua tại đây.</string>
   <string name="history_offline_articles_toast">Một số bài viết trong lịch sử có thể không xem được khi offline.</string>
@@ -263,8 +263,6 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.vi</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
   <string name="about_contributors_heading">Người đóng góp</string>
   <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
