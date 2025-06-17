@@ -4,7 +4,9 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.ReadingListActivity
@@ -47,6 +49,7 @@ object RecommendedReadingListNotificationManager {
             RecommendedReadingListUpdateFrequency.MONTHLY -> context.getString(R.string.recommended_reading_list_settings_updates_frequency_monthly)
         }
         Prefs.resetRecommendedReadingList = true
+        RecommendedReadingListEvent.submit("impression", "rrl_notification")
         NotificationPresenter.showNotification(
             context = context,
             builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
@@ -57,7 +60,7 @@ object RecommendedReadingListNotificationManager {
             lang = null,
             icon = null,
             color = R.color.blue600,
-            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED)
+            bodyIntent = ReadingListActivity.newIntent(context, ReadingListMode.RECOMMENDED, Constants.InvokeSource.NOTIFICATION)
         )
     }
 

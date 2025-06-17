@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
-import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -64,6 +63,7 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.RecommendedPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -354,7 +354,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 // Recommended Reading List discover card
                 val recommendedArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
-                if (Prefs.isRecommendedReadingListEnabled && recommendedArticles.isNotEmpty()) {
+                if (RecommendedReadingListHelper.readyToGenerateList() && recommendedArticles.isNotEmpty()) {
                     setupRecommendedReadingListDiscoverCardView(recommendedArticles)
                 } else {
                     binding.discoverCardView.isVisible = false
@@ -638,9 +638,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
-            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.warning_color)
             deleteItem.isEnabled = false
-            MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
             return true
         }
 

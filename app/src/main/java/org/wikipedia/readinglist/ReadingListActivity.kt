@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -31,7 +32,8 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     public override fun createFragment(): ReadingListFragment {
         readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         return if (readingListMode != ReadingListMode.DEFAULT) {
-            ReadingListFragment.newInstance(readingListMode)
+            val invokeSource = intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource?
+            ReadingListFragment.newInstance(readingListMode, invokeSource)
         } else {
             ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
         }
@@ -74,6 +76,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
         const val EXTRA_READING_LIST_MODE = "readingListMode"
+        const val EXTRA_SOURCE = "invokeSource"
 
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
@@ -81,9 +84,10 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
         }
 
-        fun newIntent(context: Context, readingListMode: ReadingListMode): Intent {
+        fun newIntent(context: Context, readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): Intent {
             return Intent(context, ReadingListActivity::class.java)
                 .putExtra(EXTRA_READING_LIST_MODE, readingListMode)
+                .putExtra(EXTRA_SOURCE, invokeSource)
         }
     }
 }

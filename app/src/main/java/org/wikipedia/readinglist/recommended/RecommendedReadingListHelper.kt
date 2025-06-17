@@ -16,14 +16,37 @@ object RecommendedReadingListHelper {
     private const val SUGGESTION_REQUEST_ITEMS = 50
     private const val MAX_RETRIES = 10
 
+    suspend fun readyToGenerateList(): Boolean {
+        if (!Prefs.isRecommendedReadingListEnabled || Prefs.recommendedReadingListArticlesNumber <= 0) {
+            return false
+        }
+        // Make sure the sources have enough articles to generate a recommended reading list.
+        when (Prefs.recommendedReadingListSource) {
+            RecommendedReadingListSource.INTERESTS -> {
+                if (Prefs.recommendedReadingListInterests.isEmpty()) {
+                    return false
+                }
+            }
+            RecommendedReadingListSource.READING_LIST -> {
+                if (AppDatabase.instance.readingListPageDao().getPagesByRandom(1).isEmpty()) {
+                    return false
+                }
+            }
+            RecommendedReadingListSource.HISTORY -> {
+                if (AppDatabase.instance.historyEntryDao().getHistoryEntriesByRandom(1).isEmpty()) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
     suspend fun generateRecommendedReadingList(shouldExpireOldPages: Boolean = false): List<RecommendedPage> {
-        if (!Prefs.isRecommendedReadingListEnabled) {
+        if (!readyToGenerateList()) {
             return emptyList()
         }
+
         var numberOfArticles = Prefs.recommendedReadingListArticlesNumber
-        if (numberOfArticles <= 0) {
-            return emptyList()
-        }
 
         if (shouldExpireOldPages) {
             // Expire old recommended pages
