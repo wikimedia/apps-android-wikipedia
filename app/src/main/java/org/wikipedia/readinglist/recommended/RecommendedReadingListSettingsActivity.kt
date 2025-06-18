@@ -97,7 +97,11 @@ class RecommendedReadingListSettingsActivity : BaseActivity(), BaseActivity.Call
                         }
                     },
                     onUpdateFrequency = {
-                        val frequencyForEvent = getString(it.displayStringRes)
+                        val frequencyForEvent = when (it) {
+                            RecommendedReadingListUpdateFrequency.DAILY -> "daily"
+                            RecommendedReadingListUpdateFrequency.WEEKLY -> "weekly"
+                            RecommendedReadingListUpdateFrequency.MONTHLY -> "monthly"
+                        }
                         RecommendedReadingListEvent.submit("update_${frequencyForEvent}_click", "discover_settings")
                         viewModel.updateFrequency(it)
                         requestPermissionAndScheduleRecommendedReadingNotification()
