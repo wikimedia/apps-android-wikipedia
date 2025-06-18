@@ -1,19 +1,14 @@
 package org.wikipedia.categories.db
 
 import androidx.room.Entity
-import java.util.Date
 
 @Entity(
-    primaryKeys = ["title", "lang", "timeStamp"]
+    primaryKeys = ["year", "month", "title", "lang"]
 )
 data class Category(
+    val year: Int,
+    val month: Int,
     val title: String,
     val lang: String,
-    val timeStamp: Date = Date(),
-)
-
-data class CategoryCount(
-    val title: String,
-    val lang: String,
-    val count: Long
+    val count: Int
 )

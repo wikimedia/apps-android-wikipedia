@@ -51,7 +51,6 @@ import androidx.compose.ui.unit.coerceAtLeast
 import androidx.compose.ui.unit.dp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.categories.db.Category
-import org.wikipedia.categories.db.CategoryCount
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -136,7 +135,6 @@ class CategoryDeveloperPlayGround : BaseActivity() {
 @Composable
 fun CategoryDeveloperPlayGroundScreen(
     modifier: Modifier = Modifier,
-    categoryCountState: UiState<List<CategoryCount>>,
     categoryState: UiState<List<Category>>,
     onAddToDb: (String, String, String) -> Unit,
     onBulkAddToDb: (String, String) -> Unit,
@@ -589,7 +587,6 @@ fun ChipButton(
 @Composable
 fun CategoryTable(
     modifier: Modifier = Modifier,
-    categoriesCount: List<CategoryCount>? = null,
     categories: List<Category>? = null
 ) {
     LazyColumn(

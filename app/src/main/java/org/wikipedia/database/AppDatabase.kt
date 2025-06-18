@@ -317,12 +317,43 @@ abstract class AppDatabase : RoomDatabase() {
                         ")")
             }
         }
+        val MIGRATION_30_31 = object : Migration(30, 31) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                // Step 1: Create a temporary table
+                db.execSQL("CREATE TABLE Category_temp (" +
+                        "    year INTEGER NOT NULL," +
+                        "    month INTEGER NOT NULL," +
+                        "    title TEXT NOT NULL," +
+                        "    lang TEXT NOT NULL," +
+                        "    count INTEGER NOT NULL," +
+                        "    PRIMARY KEY (year, month, title, lang)" +
+                        ")")
+
+                // Step 2: Populate the new table with the transformed data from the old table
+                db.execSQL("INSERT INTO Category_temp (year, month, title, lang, count)" +
+                        "SELECT" +
+                        "    CAST(strftime('%Y', timeStamp) AS INTEGER) AS year," +
+                        "    CAST(strftime('%m', timeStamp) AS INTEGER) AS month," +
+                        "    title," +
+                        "    lang," +
+                        "    COUNT(*) AS count" +
+                        "FROM Category GROUP BY year, month, title, lang")
+
+                // Step 3: Drop the old table
+                // TODO: maybe we should not drop the table, but rather rename it to Category_old
+                db.execSQL("DROP TABLE Category")
+                // Step 4: Rename the temporary table to the original table name
+
+                db.execSQL("ALTER TABLE Category_temp RENAME TO Category")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
-                    MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30)
+                    MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
+                    MIGRATION_30_31)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()
