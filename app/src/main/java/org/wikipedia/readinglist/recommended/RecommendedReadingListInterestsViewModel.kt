@@ -62,8 +62,9 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
             }
 
             // If there are still VERY few items, include a few random articles.
-            if (results.size < 5) {
-                for (i in results.size until 5) {
+            val maxRandomItems = 6
+            if (results.size < maxRandomItems) {
+                for (i in results.size until maxRandomItems) {
                     val title = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
                         .getPageTitle(WikipediaApp.instance.wikiSite)
                     if (!results.contains(title)) {
@@ -154,8 +155,13 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
                     countSelected = selectedItems.size
                 )
             } else {
+                val actionString = if (randomizeEvent.value != null) {
+                    "random_submit_click"
+                } else {
+                    "submit_click"
+                }
                 RecommendedReadingListEvent.submit(
-                    action = "submit_click",
+                    action = actionString,
                     activeInterface = "rrl_interests_select",
                     countSelected = selectedItems.size
                 )

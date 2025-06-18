@@ -91,6 +91,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var previewSaveDialog: AlertDialog? = null
     private var readingListMode: ReadingListMode = ReadingListMode.DEFAULT
     private var readingListId: Long = 0
+    private var invokeSource: InvokeSource? = null
     private val adapter = ReadingListPageItemAdapter()
     private var actionMode: ActionMode? = null
     private val appBarListener = AppBarListener()
@@ -118,6 +119,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
         readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
         readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
+        invokeSource = requireArguments().getSerializable(ReadingListActivity.EXTRA_SOURCE) as InvokeSource?
 
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)
@@ -129,7 +131,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         setSwipeRefreshView()
 
         if (isRecommendedList) {
-            RecommendedReadingListEvent.submit("impression", "rrl_discover")
+            RecommendedReadingListEvent.submit("impression", "rrl_discover", source = invokeSource?.value)
         }
         return binding.root
     }
@@ -1157,9 +1159,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
         }
 
-        fun newInstance(readingListMode: ReadingListMode): ReadingListFragment {
+        fun newInstance(readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): ReadingListFragment {
             return ReadingListFragment().apply {
-                arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode)
+                arguments = bundleOf(
+                    ReadingListActivity.EXTRA_READING_LIST_MODE to readingListMode,
+                    ReadingListActivity.EXTRA_SOURCE to invokeSource
+                )
             }
         }
     }
