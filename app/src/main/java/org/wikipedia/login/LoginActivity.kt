@@ -41,6 +41,7 @@ class LoginActivity : BaseActivity() {
 
     private var wiki = WikipediaApp.instance.wikiSite
     private var uiPromptResult: LoginResult? = null
+    private var captchaResult: CaptchaResult? = null
     private var firstStepToken: String? = null
 
     private val loginClient = LoginClient()
@@ -70,7 +71,9 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.loginPrimaryContainer, getString(R.string.login_activity_title), getString(R.string.menu_login))
+        captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
+            binding.loginPrimaryContainer, getString(R.string.login_activity_title),
+            submitButtonText = null, isModal = false)
 
         binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressed() }
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
@@ -145,6 +148,8 @@ class LoginActivity : BaseActivity() {
         binding.login2faText.editText?.setText("")
         firstStepToken = null
         uiPromptResult = null
+        captchaResult = null
+        captchaHandler.hideCaptcha()
     }
 
     private fun clearErrors() {
@@ -197,14 +202,15 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
 
-        if (uiPromptResult == null) {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password,
-                null, null, null, null, loginCallback)
+        if (uiPromptResult == null && captchaResult == null) {
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
+        } else if (captchaResult != null) {
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
+                captchaId = captchaHandler.captchaId(), captchaWord = captchaHandler.captchaWord(), cb = loginCallback)
         } else {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, null,
-                if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
-                if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
-                firstStepToken, loginCallback)
+            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
+                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null, isContinuation = true, cb = loginCallback)
         }
     }
 
@@ -225,16 +231,18 @@ class LoginActivity : BaseActivity() {
         override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token
-            uiPromptResult = result
 
             if (captchaId.isNullOrEmpty()) {
+                uiPromptResult = result
+
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
                 binding.login2faText.visibility = View.VISIBLE
                 binding.login2faText.editText?.setText("")
                 binding.login2faText.requestFocus()
             } else {
-                captchaHandler.handleCaptcha(token, CaptchaResult(captchaId))
+                captchaResult = CaptchaResult(captchaId)
+                captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             FeedbackUtil.showError(this@LoginActivity, caught)

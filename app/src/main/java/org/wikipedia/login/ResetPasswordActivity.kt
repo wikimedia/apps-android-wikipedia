@@ -111,13 +111,13 @@ class ResetPasswordActivity : BaseActivity() {
             loginClient = LoginClient()
         }
         if (uiPromptResult == null) {
-            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password,
-                retypedPassword, null, null, firstStepToken, loginCallback)
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
+                token = firstStepToken, cb = loginCallback)
         } else {
-            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword,
-                if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
-                if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
-                firstStepToken, loginCallback)
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
+                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                token = firstStepToken, isContinuation = true, cb = loginCallback)
         }
     }
 

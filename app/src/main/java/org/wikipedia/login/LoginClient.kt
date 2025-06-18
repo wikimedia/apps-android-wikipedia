@@ -22,8 +22,9 @@ class LoginClient {
         fun error(caught: Throwable)
     }
 
-    fun login(coroutineScope: CoroutineScope, wiki: WikiSite, userName: String, password: String,
-              retypedPassword: String?, twoFactorCode: String?, emailAuthCode: String?, token: String?, cb: LoginCallback) {
+    fun login(coroutineScope: CoroutineScope, wiki: WikiSite, userName: String, password: String, retypedPassword: String? = null,
+              token: String? = null, twoFactorCode: String? = null, emailAuthCode: String? = null,
+              captchaId: String? = null, captchaWord: String? = null, isContinuation: Boolean? = false, cb: LoginCallback) {
         coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e("Login process failed. $throwable")
             cb.error(throwable)
@@ -32,15 +33,24 @@ class LoginClient {
                 enqueueForceEmailAuth = true
             }
             val loginToken = token ?: getLoginToken(wiki)
-            val loginResult = getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, emailAuthCode, loginToken).toLoginResult(wiki, password)
-            if (loginResult != null) {
-                if (loginResult.pass() && userName.isNotEmpty()) {
-                    ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
-                        loginResult.userId = it.id
-                        loginResult.groups = it.groups()
-                        L.v("Found user ID " + it.id + " for " + wiki.subdomain())
-                    }
-                    cb.success(loginResult)
+            val loginResult = getLoginResponse(wiki, userName, password, retypedPassword = retypedPassword,
+                twoFactorCode = twoFactorCode, emailAuthCode = emailAuthCode, captchaId = captchaId, captchaWord = captchaWord,
+                loginToken = loginToken, isContinuation = isContinuation).toLoginResult(wiki, password)
+            if (loginResult == null) {
+                throw IOException("Login failed. Unexpected response.")
+            }
+            if (loginResult.pass() && userName.isNotEmpty()) {
+                ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
+                    loginResult.userId = it.id
+                    loginResult.groups = it.groups()
+                    L.v("Found user ID " + it.id + " for " + wiki.subdomain())
+                }
+                cb.success(loginResult)
+            } else {
+                // Make a call to authmanager to see if we need to provide a captcha.
+                val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+                if (!captchaId.isNullOrEmpty()) {
+                    cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
                 } else if (LoginResult.STATUS_UI == loginResult.status) {
                     val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
                     when (loginResult) {
@@ -49,29 +59,28 @@ class LoginClient {
                         is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
                         else -> cb.error(LoginFailedException(parsedMessage))
                     }
-                } else if (LoginResult.STATUS_FAIL == loginResult.status) {
-                    // If the result is FAIL, it's still possible that the authmanager expects a CAPTCHA.
-                    // We need to make one more call to authmanager to make sure.
-                    val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
-                    if (captchaId.isNullOrEmpty()) {
-                        cb.error(LoginFailedException(loginResult.message))
-                    } else {
-                        cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
-                    }
                 } else {
                     cb.error(LoginFailedException(loginResult.message))
                 }
-            } else {
-                cb.error(IOException("Login failed. Unexpected response."))
             }
         }
     }
 
-    suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null, emailAuthCode: String? = null): LoginResponse {
+    suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
+            emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResponse {
         val loginToken = getLoginToken(wiki)
-        val loginResponse = getLoginResponse(wiki, userName, password, null, twoFactorCode, emailAuthCode, loginToken)
+        val loginResponse = getLoginResponse(wiki, userName, password, twoFactorCode = twoFactorCode, retypedPassword = null,
+            emailAuthCode = emailAuthCode, loginToken = loginToken, captchaId = captchaId, captchaWord = captchaWord)
         val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
-        if (LoginResult.STATUS_UI == loginResult.status) {
+        if (loginResult.pass() && !loginResult.userName.isNullOrEmpty()) {
+            return loginResponse
+        }
+        // Make a call to authmanager to see if we need to provide a captcha.
+        val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+        if (!captchaId.isNullOrEmpty()) {
+            // TODO: Find a better way to boil up the warning about Captcha
+            Toast.makeText(WikipediaApp.instance, R.string.login_background_error_msg, Toast.LENGTH_LONG).show()
+        } else if (LoginResult.STATUS_UI == loginResult.status) {
             if (loginResult is LoginOAuthResult) {
                 // TODO: Find a better way to boil up the warning about 2FA
                 Toast.makeText(WikipediaApp.instance,
@@ -81,11 +90,8 @@ class LoginClient {
                 Toast.makeText(WikipediaApp.instance,
                     R.string.login_email_auth_other_workflow_error_msg, Toast.LENGTH_LONG).show()
             }
-            throw LoginFailedException(loginResult.message)
-        } else if (!loginResult.pass() || loginResult.userName.isNullOrEmpty()) {
-            throw LoginFailedException(loginResult.message)
         }
-        return loginResponse
+        throw LoginFailedException(loginResult.message)
     }
 
     private suspend fun getLoginToken(wiki: WikiSite): String {
@@ -94,11 +100,15 @@ class LoginClient {
     }
 
     private suspend fun getLoginResponse(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, emailAuthCode: String?, loginToken: String?): LoginResponse {
-        return if ((!twoFactorCode.isNullOrEmpty() || !emailAuthCode.isNullOrEmpty()) || !retypedPassword.isNullOrEmpty())
-            ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, emailAuthCode, loginToken, true)
+        twoFactorCode: String?, emailAuthCode: String?, loginToken: String?, captchaId: String?, captchaWord: String?, isContinuation: Boolean? = false): LoginResponse {
+        return if (!twoFactorCode.isNullOrEmpty() || !emailAuthCode.isNullOrEmpty() || !captchaId.isNullOrEmpty() || !retypedPassword.isNullOrEmpty())
+            ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
+                twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
+                captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
+                loginContinue = if (isContinuation == true) true else null,
+                returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL)
         else
-            ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
+            ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword, loginToken = loginToken, returnUrl = Service.WIKIPEDIA_URL)
     }
 
     companion object {

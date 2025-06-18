@@ -289,22 +289,16 @@ interface Service {
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     suspend fun postLogIn(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("logintoken") token: String?,
-        @Field("loginreturnurl") url: String?
-    ): LoginResponse
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    suspend fun postLogIn(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("retype") retypedPass: String?,
-        @Field("OATHToken") twoFactorCode: String?,
-        @Field("token") emailAuthToken: String?,
-        @Field("logintoken") loginToken: String?,
-        @Field("logincontinue") loginContinue: Boolean
+        @Field("username") user: String? = null,
+        @Field("password") pass: String? = null,
+        @Field("retype") retype: String? = null,
+        @Field("OATHToken") twoFactorCode: String? = null,
+        @Field("token") emailAuthToken: String? = null,
+        @Field("captchaId") captchaId: String? = null,
+        @Field("captchaWord") captchaWord: String? = null,
+        @Field("loginreturnurl") returnUrl: String? = null,
+        @Field("logintoken") loginToken: String? = null,
+        @Field("logincontinue") loginContinue: Boolean? = null
     ): LoginResponse
 
     @FormUrlEncoded

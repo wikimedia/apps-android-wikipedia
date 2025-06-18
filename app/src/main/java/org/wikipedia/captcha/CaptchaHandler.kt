@@ -2,6 +2,7 @@ package org.wikipedia.captcha
 
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -29,10 +30,8 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
     val isActive get() = captchaResult != null
 
     init {
-        if (submitButtonText != null) {
-            binding.captchaSubmitButton.text = submitButtonText
-            binding.captchaSubmitButton.visibility = View.VISIBLE
-        }
+        binding.captchaSubmitButton.text = submitButtonText
+        binding.captchaSubmitButton.isVisible = !submitButtonText.isNullOrEmpty()
         binding.requestAccountText.text = StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
         binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
         binding.captchaImage.setOnClickListener { requestNewCaptcha() }
@@ -73,10 +72,12 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         if (captchaResult == null) {
             return
         }
-        if (isModal) {
-            DeviceUtil.hideSoftKeyboard(activity)
-            if (!isReload) {
+        DeviceUtil.hideSoftKeyboard(activity)
+        if (!isReload) {
+            if (isModal) {
                 ViewAnimations.crossFade(primaryView, binding.root)
+            } else {
+                binding.root.isVisible = true
             }
         }
         // In case there was a captcha attempt before
@@ -85,8 +86,12 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
     }
 
     fun hideCaptcha() {
-        activity.supportActionBar?.title = prevTitle
-        ViewAnimations.crossFade(binding.root, primaryView)
+        if (isModal) {
+            activity.supportActionBar?.title = prevTitle
+            ViewAnimations.crossFade(binding.root, primaryView)
+        } else {
+            binding.root.isVisible = false
+        }
     }
 
     fun cancelCaptcha() {

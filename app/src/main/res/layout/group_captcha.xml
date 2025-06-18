@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical"
+    android:paddingVertical="8dp"
     android:visibility="gone"
     tools:visibility="visible">
 
@@ -30,7 +31,6 @@
     <FrameLayout
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
         android:paddingBottom="8dp">
 
         <ImageView
