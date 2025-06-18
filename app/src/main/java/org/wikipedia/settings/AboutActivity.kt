@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -34,10 +35,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -233,7 +232,6 @@ fun AboutWikipediaHeader(
                 modifier = Modifier
                     .padding(vertical = 16.dp),
                 text = versionName,
-                fontSize = 14.sp,
                 color = WikipediaTheme.colors.primaryColor
             )
         }
@@ -307,10 +305,7 @@ fun AboutScreenBody(
 
         LicenseTextWithHeader(
             header = stringResource(R.string.about_libraries_heading),
-            credits = credits,
-            textStyle = TextStyle(
-                fontSize = 14.sp
-            )
+            credits = credits
         )
 
         LinkTextWithHeader(
@@ -338,15 +333,10 @@ fun AboutScreenFooter(
         )
         HtmlText(
             text = stringResource(R.string.about_wmf),
-            style = TextStyle(
-                color = WikipediaTheme.colors.secondaryColor,
-                fontSize = 12.sp
-            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = WikipediaTheme.colors.secondaryColor,
             linkStyle = TextLinkStyles(
-                style = SpanStyle(
-                    color = WikipediaTheme.colors.progressiveColor,
-                    fontSize = 12.sp,
-                )
+                style = SpanStyle(color = WikipediaTheme.colors.progressiveColor)
             )
         )
     }
@@ -369,7 +359,7 @@ fun LinkTextWithHeader(
     ) {
         Text(
             text = header,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )
         HtmlText(
@@ -383,8 +373,7 @@ fun LinkTextWithHeader(
 fun LicenseTextWithHeader(
     modifier: Modifier = Modifier,
     header: String,
-    credits: List<LinkTextData>,
-    textStyle: TextStyle
+    credits: List<LinkTextData>
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -392,12 +381,11 @@ fun LicenseTextWithHeader(
     ) {
         Text(
             text = header,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )
         LicenseLinkText(
-            links = credits,
-            textStyle = textStyle
+            links = credits
         )
     }
 }

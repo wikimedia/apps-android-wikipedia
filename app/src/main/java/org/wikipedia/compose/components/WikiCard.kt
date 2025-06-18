@@ -22,12 +22,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -105,10 +102,7 @@ fun MessageCard(
                 if (title != null) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp
-                        ),
+                        style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.primaryColor,
                         modifier = Modifier.padding(bottom = 12.dp)
                     )
@@ -117,14 +111,11 @@ fun MessageCard(
                 HtmlText(
                     modifier = Modifier.padding(bottom = 12.dp),
                     text = message,
-                    style = TextStyle(
-                        color = WikipediaTheme.colors.secondaryColor,
-                        fontSize = 16.sp
-                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.secondaryColor,
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
-                            color = WikipediaTheme.colors.progressiveColor,
-                            fontSize = 16.sp,
+                            color = WikipediaTheme.colors.progressiveColor
                         )
                     )
                 )
@@ -142,8 +133,7 @@ fun MessageCard(
                             contentColor = WikipediaTheme.colors.progressiveColor
                         ) {
                             Text(
-                                text = positiveButtonText,
-                                fontSize = 16.sp
+                                text = positiveButtonText
                             )
                         }
                     }
@@ -153,8 +143,7 @@ fun MessageCard(
                             onClick = { onNegativeButtonClick?.invoke() }
                         ) {
                             Text(
-                                text = negativeButtonText,
-                                fontSize = 16.sp
+                                text = negativeButtonText
                             )
                         }
                     }

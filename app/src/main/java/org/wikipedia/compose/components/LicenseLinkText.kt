@@ -10,10 +10,8 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withLink
-import androidx.compose.ui.unit.em
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.LicenseActivity
 
@@ -26,8 +24,7 @@ data class LinkTextData(
 @Composable
 fun LicenseLinkText(
     links: List<LinkTextData>,
-    modifier: Modifier = Modifier,
-    textStyle: TextStyle = MaterialTheme.typography.labelMedium
+    modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
@@ -59,7 +56,6 @@ fun LicenseLinkText(
     Text(
         text = annotatedString,
         modifier = modifier,
-        style = textStyle,
-        lineHeight = 1.6.em
+        style = MaterialTheme.typography.bodyMedium
     )
 }
