@@ -28,6 +28,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
@@ -606,19 +607,19 @@ fun CategoryTable(
                     text = "Title",
                     modifier = Modifier.weight(0.4f),
                     color = WikipediaTheme.colors.primaryColor,
-                    style = WikipediaTheme.typography.h3
+                    style = MaterialTheme.typography.titleMedium
                 )
                 Text(
                     text = "Language",
                     modifier = Modifier.weight(0.3f),
                     color = WikipediaTheme.colors.primaryColor,
-                    style = WikipediaTheme.typography.h3
+                    style = MaterialTheme.typography.titleMedium
                 )
                 Text(
                     text = if (categoriesCount != null) "Count" else "Timestamp",
                     modifier = Modifier.weight(0.3f),
                     color = WikipediaTheme.colors.primaryColor,
-                    style = WikipediaTheme.typography.h3
+                    style = MaterialTheme.typography.titleMedium
                 )
             }
         }

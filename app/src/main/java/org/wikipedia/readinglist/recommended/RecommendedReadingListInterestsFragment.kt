@@ -73,6 +73,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -247,7 +248,10 @@ fun RecommendedReadingListInterestsScreen(
                         Text(
                             text = stringResource(R.string.recommended_reading_list_interest_pick_title),
                             color = WikipediaTheme.colors.primaryColor,
-                            style = WikipediaTheme.typography.h2
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         )
                     }
                 },
