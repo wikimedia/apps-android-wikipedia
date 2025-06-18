@@ -180,6 +180,7 @@
   <string name="map_view_link_text">Afficher sur une carte</string>
   <string name="other_languages_indication_text">Lire dans une autre langue</string>
   <string name="language_count_link_text">Disponible dans %d autres langues</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="edit_anon_warning">Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
@@ -309,16 +310,16 @@
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/fr</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fr</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fr</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/fr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -644,8 +645,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
   <string name="reading_lists_sync_reminder_title">Activer la synchronisation de la liste de lecture ?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et autorisez la sauvegarde de vos listes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et autorisez la sauvegarde de vos listes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
@@ -944,7 +945,7 @@
   <string name="description_edit_help_title">Infos : descriptions de l’article</string>
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/fr</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/fr</string>
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier les descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description de l\'article, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">commence généralement par une lettre minuscule</string>
@@ -1136,6 +1137,7 @@
     <item quantity="one">Vous avez ajouté une balise</item>
     <item quantity="other">Vous avez ajouté %d balises</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
@@ -1691,6 +1693,7 @@
   <string name="patroller_saved_message_body_edit_summary">Bonjour {{{username}}}, il semble que vous ayez supprimé du contenu de Wikipédia sans l\'expliquer dans le résumé de modification. Veuillez laisser un résumé de modification chaque fois que vous ajoutez ou supprimez du contenu sur Wikipédia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Bonjour {{{username}}}, il semble que vous ayez supprimé un contenu sans en discuter au préalable sur la page de discussion de l\'article. Veuillez noter que Wikipédia n\'est pas censurée et qu\'un contenu ne doit pas être supprimé parce qu\'il est controversé. Si vous pensez que l\'information est inexacte, veuillez parvenir à un consensus sur la page de discussion de l\'article.</string>
   <string name="talk_warn_learn_more_label">En savoir plus sur les messages de substitution</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Utilisez un exemple de message ci-dessous pour personnaliser, envoyer et enregistrer vos messages.</string>
   <string name="patroller_saved_message_body_art_imp">Bonjour {{{username}}} ! Votre article est un excellent début ! Pour l\'améliorer encore, pensez à ajouter davantage de références à des sources fiables. Cela permet de vérifier les informations et d\'améliorer la qualité de l\'article. Pour plus de détails, consultez les pages de [[Wikipedia:Reliable_sources|sources fiables]].</string>
   <string name="talk_templates_menu_edit_title">Modifier</string>
@@ -1807,8 +1810,12 @@
   <string name="on_this_day_game_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de jeux de Wikipédia : \n- [Décrire le problème spécifique] \n\nLe comportement que j\'aimerais voir est : \n- [Décrire la solution proposée]</string>
   <string name="on_this_day_game_notification_undo">Annuler</string>
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
+  <string name="on_this_day_game_share_screen_title">J\'ai obtenu un score de %1$d/%2$d sur « Qu\'est-ce qui est venu en premier ? ».</string>
+  <string name="on_this_day_game_share_screen_subtitle">Thèmes abordés :</string>
   <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
   <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
+  <string name="on_this_day_game_archive_calendar_title">Choisissez un jeu par date.</string>
+  <string name="on_this_day_game_score_toast_message">Votre score pour ce jour est de %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_btn_text">Continuer le jeu du jour</string>
   <string name="on_this_day_game_current_progress_message">Vous êtes à la question %d.</string>
   <string name="on_this_day_game_archive_btn_text">Jouer à l\'archive</string>
@@ -1830,17 +1837,73 @@
   <string name="recommended_reading_list_interest_source_history">Choisissez pour moi en fonction de mon historique de lecture</string>
   <string name="recommended_reading_list_interest_pick_title">Qu\'est-ce qui vous intéresse ?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Rechercher un article</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d sélectionné</item>
+    <item quantity="other">%d sélectionnés</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Sélectionnez au moins un intérêt</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Sélection aléatoire</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Nous avons sélectionné au hasard quelques articles pour vous.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Annuler</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Êtes-vous sûr de vouloir une sélection aléatoire ?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Cela effacera vos sélections actuelles et choisira de nouveaux articles au hasard.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Oui, choisissez pour moi</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">En fait non</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Pour %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Pour toi</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">1 article</item>
+    <item quantity="other">%d articles</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour à minuit.</string>
+  <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour en début de semaine.</string>
+  <string name="recommended_reading_list_page_description_monthly">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour le premier de chaque mois.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personnaliser</string>
+  <string name="recommended_reading_list_page_overflow_about">À propos de cette fonctionnalité</string>
+  <string name="recommended_reading_list_page_snackbar">La Découverte sera mise à jour avec %1$d nouveaux articles tous les %2$s. Vos recommandations sont stockées localement sur votre appareil.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personnaliser la Découverte</string>
   <string name="recommended_reading_list_page_snackbar_day">Jour</string>
   <string name="recommended_reading_list_page_snackbar_week">Semaine</string>
   <string name="recommended_reading_list_page_snackbar_month">Mois</string>
   <string name="recommended_reading_list_settings_section_header">Recommandations</string>
+  <string name="recommended_reading_list_settings_title">Paramètres de la Découverte</string>
+  <string name="recommended_reading_list_settings_toggle">Listes de lectures de la Découverte</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">La Découverte est désactivée. Wikipédia ne vous recommandera pas d\'articles à lire.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Désactiver la Découverte ?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si vous désactivez la Découverte, vous ne recevrez plus %s recommandations de lecture de Wikipédia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Désactiver</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Non, laisser activé</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">La Découverte a été désactivée. Vous pouvez la réactiver à tout moment dans les paramètres.</string>
+  <string name="recommended_reading_list_settings_articles">articles</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Mises à jour %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">quotidien</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">hebdomadaire</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">mensuel</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Chaque jour</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Chaque semaine</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Chaque mois</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Comment la Découverte est construite</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">En fonction de vos intérêts</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">En fonction de vos articles enregistrés</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">En fonction de votre historique de lecture</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Ajuster la façon dont la Découverte est construite ?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Si vous ajustez la manière dont la Découverte génère des recommandations, vos recommandations actuelles seront remplacées.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajuster</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">En fait non</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Vos recommandations sont désormais basées sur vos intérêts.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Vos recommandations sont désormais basées sur vos articles enregistrés.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Vos recommandations sont désormais basées sur votre historique de lecture.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Annuler</string>
+  <string name="recommended_reading_list_settings_interests">Centres d\'intérêt</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notifications</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipédia ne vous enverra pas de notification lorsque la Découverte sera mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Les notifications pour la Découverte sont désactivées. Vous ne recevrez pas de notification lorsque la Découverte est mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Désactiver les notifications ?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Si vous désactivez les notifications, vous ne recevrez plus de rappels lorsque la Découverte est mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Les désactiver</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Non, les laisser activées</string>
+  <string name="recommended_reading_list_notification_title">Votre liste de lecture %s à découvrir est prête.</string>
+  <string name="recommended_reading_list_notification_subtitle">Appuyez pour voir vos dernières recommandations.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Lorsque votre Découverte est mise à jour, Wikipédia vous enverra une notification.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
 </resources>

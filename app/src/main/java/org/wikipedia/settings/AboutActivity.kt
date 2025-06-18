@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -33,10 +35,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -49,6 +49,7 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 
 class AboutActivity : BaseActivity() {
     private val credits = listOf(
@@ -95,11 +96,13 @@ class AboutActivity : BaseActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 AboutWikipediaScreen(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .safeDrawingPadding(),
                     versionName = BuildConfig.VERSION_NAME,
                     credits = credits,
                     onBackButtonClick = {
@@ -229,7 +232,6 @@ fun AboutWikipediaHeader(
                 modifier = Modifier
                     .padding(vertical = 16.dp),
                 text = versionName,
-                fontSize = 14.sp,
                 color = WikipediaTheme.colors.primaryColor
             )
         }
@@ -303,10 +305,7 @@ fun AboutScreenBody(
 
         LicenseTextWithHeader(
             header = stringResource(R.string.about_libraries_heading),
-            credits = credits,
-            textStyle = TextStyle(
-                fontSize = 14.sp
-            )
+            credits = credits
         )
 
         LinkTextWithHeader(
@@ -334,15 +333,10 @@ fun AboutScreenFooter(
         )
         HtmlText(
             text = stringResource(R.string.about_wmf),
-            style = TextStyle(
-                color = WikipediaTheme.colors.secondaryColor,
-                fontSize = 12.sp
-            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = WikipediaTheme.colors.secondaryColor,
             linkStyle = TextLinkStyles(
-                style = SpanStyle(
-                    color = WikipediaTheme.colors.progressiveColor,
-                    fontSize = 12.sp,
-                )
+                style = SpanStyle(color = WikipediaTheme.colors.progressiveColor)
             )
         )
     }
@@ -365,7 +359,7 @@ fun LinkTextWithHeader(
     ) {
         Text(
             text = header,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )
         HtmlText(
@@ -379,8 +373,7 @@ fun LinkTextWithHeader(
 fun LicenseTextWithHeader(
     modifier: Modifier = Modifier,
     header: String,
-    credits: List<LinkTextData>,
-    textStyle: TextStyle
+    credits: List<LinkTextData>
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -388,12 +381,11 @@ fun LicenseTextWithHeader(
     ) {
         Text(
             text = header,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )
         LicenseLinkText(
-            links = credits,
-            textStyle = textStyle
+            links = credits
         )
     }
 }

@@ -243,6 +243,8 @@
   <string name="edit_rollback">شاگرځ</string>
   <string name="edit_warn">گواښنه</string>
   <string name="edit_damage">زیان %s</string>
+  <string name="edit_zoom_in">رانژدې کول</string>
+  <string name="edit_zoom_out">لرې کول</string>
   <string name="edit_summary_tag_grammar">ژبښود سم شو</string>
   <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
   <string name="edit_summary_tag_other">بل</string>

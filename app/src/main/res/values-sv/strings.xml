@@ -1798,9 +1798,9 @@
     <item quantity="one">• %d artikel</item>
     <item quantity="other">• %d artiklar</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Din dagliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar vid midnatt.</string>
+  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Din dagliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar vid midnatt.</string>
   <string name="recommended_reading_list_page_description_weekly">Din veckovisa läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar i början av veckan.</string>
-  <string name="recommended_reading_list_page_description_monthly">Din månatliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar den första i varje månad.</string>
+  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Din månatliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar den första i varje månad.</string>
   <string name="recommended_reading_list_page_overflow_customize">Anpassa</string>
   <string name="recommended_reading_list_page_overflow_about">Om den här funktionen</string>
   <string name="recommended_reading_list_page_snackbar">Upptäck uppdateras med %1$d nya artiklar varje %2$s. Dina rekommendationer lagras lokalt på din enhet.</string>

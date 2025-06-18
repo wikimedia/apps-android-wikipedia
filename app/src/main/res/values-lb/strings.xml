@@ -1570,6 +1570,7 @@
   <string name="recommended_reading_list_onboarding_card_negative_button">Nee, merci</string>
   <string name="recommended_reading_list_interest_pick_title">Wat interesséiert Iech?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">No engem Artikel sichen</string>
+  <string name="recommended_reading_list_interest_select_minimum">Wielt wgl. mindestens een Interesse aus</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Zoufälleg eraussichen</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Mir hunn e puer zoufälleg Artikele fir Iech erausgesicht.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Réckgängeg maachen</string>

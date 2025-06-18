@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,7 +27,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.SearchEmptyView
 import org.wikipedia.compose.components.WikiTopAppBarWithSearch
@@ -53,6 +56,7 @@ fun ComposeLangLinksScreen(
         Pair(height, height > 0.dp)
     } else Pair(0.dp, false)
     Scaffold(
+        modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
                 appBarTitle = context.getString(R.string.langlinks_activity_title),
@@ -162,8 +166,10 @@ fun ComposeLangLinksScreen(
 fun ListHeader(
     title: String,
     modifier: Modifier = Modifier,
-    titleStyle: TextStyle = WikipediaTheme.typography.h4.copy(
+    titleStyle: TextStyle = MaterialTheme.typography.titleSmall.copy(
         color = WikipediaTheme.colors.primaryColor,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 24.sp
     )
 ) {
     Box(
@@ -185,6 +191,11 @@ fun LangLinksItemView(
     canonicalName: String? = null,
     articleName: String
 ) {
+    val listItemTextStyle = MaterialTheme.typography.bodyMedium.copy(
+        color = WikipediaTheme.colors.secondaryColor,
+        lineHeight = 24.sp,
+    )
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center
@@ -193,8 +204,9 @@ fun LangLinksItemView(
             modifier = Modifier
                 .fillMaxWidth(),
             text = localizedLanguageName,
-            style = WikipediaTheme.typography.h3.copy(
+            style = MaterialTheme.typography.titleMedium.copy(
                 color = WikipediaTheme.colors.primaryColor,
+                fontWeight = FontWeight.Bold,
             )
         )
         if (!canonicalName.isNullOrEmpty()) {
@@ -202,18 +214,14 @@ fun LangLinksItemView(
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = canonicalName,
-                style = WikipediaTheme.typography.list.copy(
-                    color = WikipediaTheme.colors.secondaryColor
-                )
+                style = listItemTextStyle
             )
         }
         Text(
             modifier = Modifier
                 .fillMaxWidth(),
             text = articleName,
-            style = WikipediaTheme.typography.list.copy(
-                color = WikipediaTheme.colors.secondaryColor
-            )
+            style = listItemTextStyle
         )
     }
 }

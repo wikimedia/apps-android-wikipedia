@@ -158,7 +158,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         }
                     }
                     val categoriesRequest = async {
-                        if (!makeWatchRequest) {
+                        if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
                             ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
                         } else {
                             MwQueryResponse()
