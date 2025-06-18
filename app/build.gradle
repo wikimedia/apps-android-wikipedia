@@ -164,7 +164,6 @@ configurations {
 }
 
 apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
