@@ -86,6 +86,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
     }
 
     fun hideCaptcha() {
+        setErrorText()
         if (isModal) {
             activity.supportActionBar?.title = prevTitle
             ViewAnimations.crossFade(binding.root, primaryView)
@@ -101,5 +102,19 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         captchaResult = null
         binding.captchaText.editText?.setText("")
         hideCaptcha()
+    }
+
+    fun setErrorText(text: String? = null) {
+        if (text.isNullOrEmpty()) {
+            binding.captchaText.error = null
+            binding.captchaText.hint = activity.getString(R.string.edit_section_captcha_hint)
+        } else {
+            binding.captchaText.error = text
+            binding.captchaText.hint = null
+        }
+    }
+
+    fun setFocus() {
+        binding.captchaText.editText?.requestFocus()
     }
 }

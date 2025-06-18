@@ -155,6 +155,7 @@ class LoginActivity : BaseActivity() {
     private fun clearErrors() {
         binding.loginUsernameText.isErrorEnabled = false
         binding.loginPasswordInput.isErrorEnabled = false
+        captchaHandler.setErrorText()
     }
 
     private fun validateThenLogin() {
@@ -162,6 +163,11 @@ class LoginActivity : BaseActivity() {
         if (!CreateAccountActivity.USERNAME_PATTERN.matcher(getText(binding.loginUsernameText)).matches()) {
             binding.loginUsernameText.requestFocus()
             binding.loginUsernameText.error = getString(R.string.create_account_username_error)
+            return
+        }
+        if (captchaHandler.isActive && captchaHandler.captchaWord().isNullOrEmpty()) {
+            captchaHandler.setErrorText(getString(R.string.edit_section_captcha_hint))
+            captchaHandler.setFocus()
             return
         }
         doLogin()
@@ -240,12 +246,12 @@ class LoginActivity : BaseActivity() {
                 binding.login2faText.visibility = View.VISIBLE
                 binding.login2faText.editText?.setText("")
                 binding.login2faText.requestFocus()
+                FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
                 captchaResult = CaptchaResult(captchaId)
                 captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
-            FeedbackUtil.showError(this@LoginActivity, caught)
         }
 
         override fun passwordResetPrompt(token: String?) {

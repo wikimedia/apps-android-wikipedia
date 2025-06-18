@@ -33,9 +33,11 @@ class LoginClient {
                 enqueueForceEmailAuth = true
             }
             val loginToken = token ?: getLoginToken(wiki)
-            val loginResult = getLoginResponse(wiki, userName, password, retypedPassword = retypedPassword,
-                twoFactorCode = twoFactorCode, emailAuthCode = emailAuthCode, captchaId = captchaId, captchaWord = captchaWord,
-                loginToken = loginToken, isContinuation = isContinuation).toLoginResult(wiki, password)
+            val loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
+                twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
+                captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
+                loginContinue = if (isContinuation == true) true else null,
+                returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL).toLoginResult(wiki, password)
             if (loginResult == null) {
                 throw IOException("Login failed. Unexpected response.")
             }
@@ -69,8 +71,12 @@ class LoginClient {
     suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
             emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResponse {
         val loginToken = getLoginToken(wiki)
-        val loginResponse = getLoginResponse(wiki, userName, password, twoFactorCode = twoFactorCode, retypedPassword = null,
-            emailAuthCode = emailAuthCode, loginToken = loginToken, captchaId = captchaId, captchaWord = captchaWord)
+        val isContinuation = false
+        val loginResponse = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password,
+            twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
+            captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
+            loginContinue = if (isContinuation == true) true else null,
+            returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL)
         val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
         if (loginResult.pass() && !loginResult.userName.isNullOrEmpty()) {
             return loginResponse
@@ -97,18 +103,6 @@ class LoginClient {
     private suspend fun getLoginToken(wiki: WikiSite): String {
         val response = ServiceFactory.get(wiki).getLoginToken()
         return response.query?.loginToken() ?: throw RuntimeException("Received empty login token.")
-    }
-
-    private suspend fun getLoginResponse(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, emailAuthCode: String?, loginToken: String?, captchaId: String?, captchaWord: String?, isContinuation: Boolean? = false): LoginResponse {
-        return if (!twoFactorCode.isNullOrEmpty() || !emailAuthCode.isNullOrEmpty() || !captchaId.isNullOrEmpty() || !retypedPassword.isNullOrEmpty())
-            ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
-                twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
-                captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
-                loginContinue = if (isContinuation == true) true else null,
-                returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL)
-        else
-            ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword, loginToken = loginToken, returnUrl = Service.WIKIPEDIA_URL)
     }
 
     companion object {
