@@ -26,6 +26,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonColors
 import androidx.compose.material3.Surface
@@ -44,8 +45,10 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -99,13 +102,16 @@ fun YearInReviewSurvey(
                     ) {
                         Text(
                             text = stringResource(R.string.year_in_review_survey_title),
-                            style = WikipediaTheme.typography.h2,
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontSize = 22.sp,
+                                fontWeight = FontWeight.Bold
+                            ),
                             color = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.padding(top = 24.dp)
                         )
                         Text(
                             text = stringResource(R.string.year_in_review_survey_subtitle),
-                            style = WikipediaTheme.typography.bodyLarge,
+                            style = MaterialTheme.typography.bodyLarge,
                             color = WikipediaTheme.colors.secondaryColor,
                             modifier = Modifier.padding(bottom = 12.dp)
                         )
@@ -150,7 +156,7 @@ fun YearInReviewSurvey(
                             )
                             Text(
                                 text = text,
-                                style = WikipediaTheme.typography.bodyLarge,
+                                style = MaterialTheme.typography.bodyLarge,
                                 color = WikipediaTheme.colors.primaryColor,
                             )
                         }
@@ -159,7 +165,7 @@ fun YearInReviewSurvey(
                 TextField(
                     value = userInput,
                     onValueChange = { userInput = it },
-                    textStyle = WikipediaTheme.typography.button,
+                    textStyle = MaterialTheme.typography.bodyLarge,
                     colors = TextFieldDefaults.colors(
                         focusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
                         unfocusedIndicatorColor = WikipediaTheme.colors.progressiveColor,
@@ -172,7 +178,7 @@ fun YearInReviewSurvey(
                             Text(
                                 text = stringResource(R.string.year_in_review_survey_placeholder_text),
                                 color = WikipediaTheme.colors.secondaryColor,
-                                style = WikipediaTheme.typography.bodyLarge
+                                style = MaterialTheme.typography.bodyLarge
                             )
                         }
                     },
@@ -232,7 +238,7 @@ fun SurveyButton(
     ) {
         Text(
             text = stringResource(buttonText),
-            style = WikipediaTheme.typography.button,
+            style = MaterialTheme.typography.titleMedium,
             color = WikipediaTheme.colors.progressiveColor
         )
     }

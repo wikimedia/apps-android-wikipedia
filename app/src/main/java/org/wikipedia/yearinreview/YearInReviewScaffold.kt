@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
@@ -221,7 +220,7 @@ fun MainBottomBar(
 
                         Text(
                             text = stringResource(R.string.year_in_review_donate),
-                            style = WikipediaTheme.typography.h3,
+                            style = MaterialTheme.typography.labelLarge,
                             color = WikipediaTheme.colors.destructiveColor
                         )
                     }
@@ -506,7 +505,7 @@ fun CreateScreenShotBitmap(
                 Text(
                     text = "#WikipediaYearInReview",
                     color = WikipediaTheme.colors.progressiveColor,
-                    style = WikipediaTheme.typography.button
+                    style = MaterialTheme.typography.titleSmall
                 )
             }
         }
@@ -547,11 +546,9 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
     }
 }
 
-@SuppressLint("ViewModelConstructorInComposable")
 @Preview
 @Composable
 fun PreviewContent() {
-    val viewModel = YearInReviewViewModel()
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreen(
             customBottomBar = { pagerState ->
