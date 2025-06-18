@@ -360,9 +360,7 @@ fun RecommendedReadingListInterestsContent(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(top = 48.dp, bottom = 4.dp, start = 16.dp, end = 16.dp),
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontSize = 22.sp
-                        ),
+                        style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.primaryColor,
                         textAlign = TextAlign.Center,
                         text = stringResource(R.string.recommended_reading_list_interest_pick_title)
