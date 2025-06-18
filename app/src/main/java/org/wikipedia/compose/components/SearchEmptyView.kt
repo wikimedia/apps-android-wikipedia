@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,7 +48,7 @@ fun SearchEmptyView(
             modifier = Modifier
                 .padding(top = 24.dp),
             text = emptyTexTitle,
-            style = WikipediaTheme.typography.bodyLarge,
+            style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.placeholderColor
         )
     }
