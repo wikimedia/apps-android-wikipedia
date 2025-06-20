@@ -63,6 +63,7 @@
   <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
   <string name="search_back_button_content_description">Geri dön</string>
+  <string name="search_clear_query_content_description">Sorguyu temizle</string>
   <string name="search_icon_content_description">Ara</string>
   <string name="filter_hint_filter_my_lists_and_articles">Listelerimi filtrele</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
@@ -143,6 +144,7 @@
   <string name="menu_page_recently_viewed">Son görüntülenen</string>
   <string name="menu_page_archive">Arşiv</string>
   <string name="menu_long_press_open_page">Aç</string>
+  <string name="menu_long_press_open_in_places">Yerlerde Aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
   <string name="menu_text_select_define">Tanımla</string>
@@ -195,6 +197,7 @@
   <string name="login_2fa_hint">İki aşamalı doğrulama kodu</string>
   <string name="login_2fa_other_workflow_error_msg">İki aşamalı kimlik doğrulama gerekli! Lütfen ana ekrana dönüp, 2AKD anahtarınızla giriş yapın ve ardından tekrar deneyin.</string>
   <string name="login_email_auth_hint">E-posta doğrulama kodu</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-posta doğrulaması gerekiyor! Lütfen ana ekrandan giriş yapın ve e-posta doğrulama kodunuzu girin.</string>
   <string name="onboarding_card_login">Oturum aç</string>
   <string name="page_editing_login">Oturum aç</string>
   <string name="reading_lists_sync_login">Oturum aç</string>

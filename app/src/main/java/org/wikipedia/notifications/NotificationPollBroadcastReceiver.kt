@@ -100,7 +100,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
-        private const val TYPE_LOCAL = "local"
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
 
@@ -199,8 +198,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         fun showSuggestedEditsLocalNotification(context: Context, @StringRes description: Int) {
-            val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL)
-            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
+            val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0)
+            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
                     R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
