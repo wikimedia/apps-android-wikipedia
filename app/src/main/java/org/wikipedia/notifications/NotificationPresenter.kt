@@ -38,6 +38,7 @@ import java.util.concurrent.TimeUnit
 
 object NotificationPresenter {
 
+    const val NOTIFICATION_TYPE_LOCAL = "local"
     private var lastPermissionRequestTime = 0L
 
     fun maybeRequestPermission(context: Context, launcher: ActivityResultLauncher<String>) {
@@ -90,19 +91,20 @@ object NotificationPresenter {
         // When showing the multiple-unread notification, we pass the unreadCount as the "id"
         // purely for analytics purposes, to get a sense of how many unread notifications are
         // typically queued up when the user has more than two of them.
-        val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
+        val builder = getDefaultBuilder(context, unreadCount.toLong(), type = NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
                 null, R.drawable.ic_notifications_black_24dp, R.color.blue600,
                 addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
-    fun addIntentExtras(intent: Intent, id: Long, type: String): Intent {
+    fun addIntentExtras(intent: Intent, id: Long, type: String = NOTIFICATION_TYPE_LOCAL): Intent {
         return intent.putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                 .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
     }
 
-    fun getDefaultBuilder(context: Context, id: Long, type: String?, notificationCategory: NotificationCategory = NotificationCategory.SYSTEM): NotificationCompat.Builder {
+    fun getDefaultBuilder(context: Context, id: Long, type: String? = NOTIFICATION_TYPE_LOCAL,
+                          notificationCategory: NotificationCategory = NotificationCategory.SYSTEM): NotificationCompat.Builder {
         return NotificationCompat.Builder(context, notificationCategory.id)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
