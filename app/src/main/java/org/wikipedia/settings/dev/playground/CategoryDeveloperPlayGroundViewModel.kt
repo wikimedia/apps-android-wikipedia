@@ -12,14 +12,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.categories.db.Category
-import org.wikipedia.categories.db.CategoryCount
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.time.Year
-import java.util.Calendar
-import java.util.Date
 import java.util.UUID
 
 class CategoryDeveloperPlayGroundViewModel : ViewModel() {
@@ -32,10 +28,6 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     private val languages = arrayOf(
         "en", "zh-cn"
     )
-
-    // UI state exposed to Compose
-    private val _categoryCountState = MutableStateFlow<UiState<List<CategoryCount>>>(UiState.Success(listOf()))
-    val categoryCountState = _categoryCountState.asStateFlow()
 
     private val _categoryState = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
     val categoryState = _categoryState.asStateFlow()
@@ -59,11 +51,11 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            val categoryCounts = AppDatabase.instance.categoryDao().getCategoriesByTimeRange(
-                startTimeStamp = DateUtil.startOfYearInMillis(year),
-                endTimeStamp = DateUtil.endOfYearInMillis(year)
+            val categories = AppDatabase.instance.categoryDao().getCategoriesByTimeRange(
+                startYear = year,
+                endYear = year + 1
             )
-            _categoryCountState.value = UiState.Success(categoryCounts)
+            _categoryState.value = UiState.Success(categories)
         }
     }
 
@@ -72,14 +64,19 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                val currentYear = Year.now().value
-                val timeStamp = if (year == currentYear) {
-                    System.currentTimeMillis()
+                val finalYear = if (year == Year.now().value) {
+                    year - 1
                 } else {
-                    getPreviousYearMillis(currentYear - year)
+                    year
                 }
                 AppDatabase.instance.categoryDao().insert(
-                    Category(title, languageCode, Date(timeStamp))
+                    Category(
+                        month = 1,
+                        year = finalYear,
+                        title = title,
+                        lang = languageCode,
+                        count = 1
+                    )
                 )
                 loadCategories()
             } catch (e: Exception) {
@@ -92,11 +89,10 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
     }
 
     fun addTestDataBulk(context: Context, size: Int = 10000, year: Int) {
-        val currentYear = Year.now().value
-        val timeStamp = if (year == currentYear) {
-            System.currentTimeMillis()
+        val finalYear = if (year == Year.now().value) {
+            year - 1
         } else {
-            getPreviousYearMillis(currentYear - year)
+            year
         }
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -113,7 +109,9 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                         Category(
                             title = "Category:${categories[randomCategoryIndex]}${UUID.randomUUID()}",
                             lang = languages[randomLanguageIndex],
-                            timeStamp = Date(timeStamp)
+                            year = finalYear,
+                            month = 1,
+                            count = 1
                         )
                     }
 
@@ -137,7 +135,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                deleteOldDataInBatches(System.currentTimeMillis(), 100)
+                deleteOldDataInBatches(Year.now().value, 100)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories", e)
@@ -148,10 +146,10 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
         }
     }
 
-    suspend fun deleteOldDataInBatches(timeStamp: Long, batchSize: Int) {
+    suspend fun deleteOldDataInBatches(year: Int, batchSize: Int) {
         var deletedCount = 0
         do {
-            deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(timeStamp, batchSize)
+            deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(year, batchSize)
             L.d("category deletedCount --> $deletedCount")
             delay(1000)
         } while (deletedCount > 0)
@@ -162,7 +160,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                deleteOldDataInBatches(getPreviousYearMillis(yearsAgo), 100)
+                deleteOldDataInBatches(yearsAgo, 100)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories data of $yearsAgo years ago", e)
@@ -171,11 +169,5 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 }
             }
         }
-    }
-
-    private fun getPreviousYearMillis(yearsAgo: Int): Long {
-        val calendar = Calendar.getInstance()
-        calendar.add(Calendar.YEAR, -yearsAgo)
-        return calendar.timeInMillis
     }
 }
