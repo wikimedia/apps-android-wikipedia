@@ -7,6 +7,7 @@ import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.readinglist.ReadingListActivity
@@ -19,7 +20,6 @@ import java.time.LocalTime
 import java.time.temporal.TemporalAdjusters
 
 object RecommendedReadingListNotificationManager {
-    private const val NOTIFICATION_TYPE_LOCAL = "local"
 
     fun scheduleRecommendedReadingListNotification(context: Context) {
         // Always cancel before scheduling a new one
@@ -52,7 +52,7 @@ object RecommendedReadingListNotificationManager {
         RecommendedReadingListEvent.submit("impression", "rrl_notification")
         NotificationPresenter.showNotification(
             context = context,
-            builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
+            builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.RECOMMENDED_READING_LISTS),
             id = 1,
             title = context.getString(R.string.recommended_reading_list_notification_title, frequency),
             text = context.getString(R.string.recommended_reading_list_notification_subtitle),

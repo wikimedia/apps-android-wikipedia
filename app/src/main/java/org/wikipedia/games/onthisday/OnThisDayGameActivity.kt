@@ -94,11 +94,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.questionCard1.setOnClickListener {
             enqueueSubmit(it as WikiCardView)
         }
-        binding.questionCard2.setOnClickListener {
-            enqueueSubmit(it as WikiCardView)
+        binding.questionContainer1.setOnClickListener {
+            enqueueSubmit(binding.questionCard1)
         }
         binding.questionText1.setOnClickListener {
             enqueueSubmit(binding.questionCard1)
+        }
+        binding.questionCard2.setOnClickListener {
+            enqueueSubmit(it as WikiCardView)
+        }
+        binding.questionContainer2.setOnClickListener {
+            enqueueSubmit(binding.questionCard2)
         }
         binding.questionText2.setOnClickListener {
             enqueueSubmit(binding.questionCard2)
