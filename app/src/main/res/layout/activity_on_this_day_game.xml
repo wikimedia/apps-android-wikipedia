@@ -76,8 +76,60 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="32dp"
-            app:contentPadding="16dp">
+            android:layout_marginTop="32dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingEnd="6dp"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/questionContainer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/questionText1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:paddingBottom="16dp"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        style="@style/P"
+                        android:textColor="?attr/primary_color"
+                        tools:text="Lorem ipsum"/>
+
+                    <org.wikipedia.views.FaceAndColorDetectImageView
+                        android:id="@+id/questionThumbnail1"
+                        app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="end"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/launcher"/>
+                </LinearLayout>
+
+                </FrameLayout>
+
+            </ScrollView>
 
             <ImageView
                 android:id="@+id/questionStatusIcon1"
@@ -85,37 +137,10 @@
                 android:layout_height="32dp"
                 android:src="@drawable/check_circle_24px"
                 app:tint="?attr/success_color"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:layout_gravity="bottom|end"
                 android:contentDescription="@null" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/questionText1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:scrollbars="vertical"
-                    android:clickable="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    style="@style/P"
-                    android:textColor="?attr/primary_color"
-                    tools:text="Lorem ipsum"/>
-
-                <org.wikipedia.views.FaceAndColorDetectImageView
-                    android:id="@+id/questionThumbnail1"
-                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_gravity="end"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/launcher"/>
-            </LinearLayout>
 
         </org.wikipedia.views.WikiCardView>
 
@@ -187,8 +212,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="40dp"
-            android:layout_marginBottom="32dp"
-            app:contentPadding="16dp">
+            android:layout_marginBottom="32dp">
 
             <ImageView
                 android:id="@+id/questionStatusIcon2"
@@ -197,36 +221,62 @@
                 android:src="@drawable/check_circle_24px"
                 app:tint="?attr/success_color"
                 android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:contentDescription="@null" />
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:paddingEnd="6dp"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false">
 
-                <TextView
-                    android:id="@+id/questionText2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:scrollbars="vertical"
-                    android:clickable="true"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    style="@style/P"
-                    android:textColor="?attr/primary_color"
-                    tools:text="Lorem ipsum"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <org.wikipedia.views.FaceAndColorDetectImageView
-                    android:id="@+id/questionThumbnail2"
-                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_gravity="end"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/launcher"/>
-            </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/questionContainer2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:orientation="horizontal"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/questionText2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:paddingBottom="16dp"
+                            android:clickable="true"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            style="@style/P"
+                            android:textColor="?attr/primary_color"
+                            tools:text="Lorem ipsum"/>
+
+                        <org.wikipedia.views.FaceAndColorDetectImageView
+                            android:id="@+id/questionThumbnail2"
+                            app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="end"
+                            android:contentDescription="@null"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/launcher"/>
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </ScrollView>
 
         </org.wikipedia.views.WikiCardView>
 
