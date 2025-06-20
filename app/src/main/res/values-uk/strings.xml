@@ -1892,6 +1892,7 @@
     <item quantity="many">Вибрано %d</item>
     <item quantity="other">Вибрано %d</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Виберіть принаймні один інтерес</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Випадковий вибір</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Ми випадковим чином відібрали для вас кілька статей.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Скасувати</string>

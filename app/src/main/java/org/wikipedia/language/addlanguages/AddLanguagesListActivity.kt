@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import org.wikipedia.WikipediaApp
@@ -20,13 +22,15 @@ class AddLanguagesListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 val uiState = viewModel.uiState.collectAsState().value
-
                 LanguagesListScreen(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .safeDrawingPadding()
+                        .imePadding(),
                     uiState = uiState,
                     onBackButtonClick = {
                         finish()

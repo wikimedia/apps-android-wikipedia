@@ -1767,6 +1767,7 @@
     <item quantity="one">%d seçilib</item>
     <item quantity="other">%d seçilib</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Ən azı bir maraq dairəsi seçin</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Təsadüfi seç</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Sizin üçün təsadüfi bir neçə məqalə seçdik.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Geri qaytar</string>
