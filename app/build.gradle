@@ -282,6 +282,9 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+
+    implementation libs.androidx.metrics.performance
+
 }
 
 private setSigningConfigKey(config, Properties props) {
