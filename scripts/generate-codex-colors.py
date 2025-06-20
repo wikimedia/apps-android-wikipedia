@@ -87,13 +87,13 @@ def generate_raw_colors(file_path):
 def generate_light_mode_tokens():
     light_mode_response = requests.get(codex_dark_mode_tokens_url)
     light_mode_color_data = light_mode_response.json()['color']
-    print("TODO")
+    print("TODO after the m3 alignment work")
 
 # dark mode tokens
 def generate_dark_mode_tokens():
     dark_mode_response = requests.get(codex_dark_mode_tokens_url)
     dark_mode_color_data = dark_mode_response.json()['color']
-    print("TODO")
+    print("TODO after the m3 alignment work")
 
 # execution
 # 1. generate raw colors
