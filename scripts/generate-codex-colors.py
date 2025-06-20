@@ -60,9 +60,7 @@ def generate_compose_raw_color_file(colors_dict, file_path):
 
 # this generates the class with the codex tokens that will use the raw colors
 # this will generate class similar to our current WikipediaColor
-def generate_wikipedia_color(file_path):
-    response = requests.get(codex_main_tokens_url)
-    main_color_data = response.json()['color']
+def generate_wikipedia_color(main_color_data, file_path):
     base_colors = extract_colors(main_color_data, "base")
     content = ["package org.wikipedia.compose.theme\n\n",
                "import androidx.compose.runtime.Immutable\n"
@@ -77,9 +75,7 @@ def generate_wikipedia_color(file_path):
     return pascal_names
 
 # raw colors
-def generate_raw_colors(file_path):
-    response = requests.get(codex_main_tokens_url)
-    main_color_data = response.json()['color']
+def generate_raw_colors(main_color_data, file_path):
     raw_colors = extract_colors(main_color_data, "theme")
     generate_compose_raw_color_file(raw_colors, file_path)
 
@@ -104,6 +100,8 @@ def generate_dark_mode_tokens():
 wiki_color_file_path = "../app/src/main/java/org/wikipedia/compose/theme/WikipediaColor.kt"
 raw_color_file_path =  "../app/src/main/java/org/wikipedia/compose/theme/ComposeColors.kt"
 
-generate_raw_colors( file_path = raw_color_file_path)
-generate_wikipedia_color(file_path= wiki_color_file_path)
+response = requests.get(codex_main_tokens_url)
+main_color_data = response.json()['color']
+generate_raw_colors(main_color_data, file_path = raw_color_file_path)
+generate_wikipedia_color(main_color_data, file_path= wiki_color_file_path)
 
