@@ -593,7 +593,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkelen finnes i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke lenger være tilgjengelig offline via noen av leselistene:</string>
   <string name="reading_lists_sync_reminder_title">Skru på synkronisering av leselister?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikler lagret i leselister kan synkroniseres med Wikipedia-kontoen din. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikler lagret i leselister kan synkroniseres med Wikipedia-kontoen din. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Leselister kan synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkroniser leselister</string>
