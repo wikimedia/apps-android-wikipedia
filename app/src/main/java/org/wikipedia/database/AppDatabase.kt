@@ -35,9 +35,10 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
+import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 30
+const val DATABASE_VERSION = 31
 
 @Database(
     entities = [
@@ -331,13 +332,13 @@ abstract class AppDatabase : RoomDatabase() {
 
                 // Step 2: Populate the new table with the transformed data from the old table
                 db.execSQL("INSERT INTO Category_temp (year, month, title, lang, count)" +
-                        "SELECT" +
-                        "    CAST(strftime('%Y', timeStamp) AS INTEGER) AS year," +
-                        "    CAST(strftime('%m', timeStamp) AS INTEGER) AS month," +
-                        "    title," +
-                        "    lang," +
-                        "    COUNT(*) AS count" +
-                        "FROM Category GROUP BY year, month, title, lang")
+                        "    SELECT" +
+                        "        COALESCE(CAST(strftime('%Y', timeStamp) AS INTEGER), ${LocalDate.now().year}) AS year," +
+                        "        COALESCE(CAST(strftime('%m', timeStamp) AS INTEGER), ${LocalDate.now().monthValue}) AS month," +
+                        "        title," +
+                        "        lang," +
+                        "        COUNT(*) AS count" +
+                        "    FROM Category GROUP BY year, month, title, lang")
 
                 // Step 3: Drop the old table
                 // TODO: maybe we should not drop the table, but rather rename it to Category_old
