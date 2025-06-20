@@ -24,6 +24,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -182,6 +183,25 @@ class ListActions {
                                 not(isDisplayed())
                             )
                         )
+                )
+            )
+    }
+
+    fun verifyItemDoesNotExistWithText(
+        recyclerViewId: Int,
+        text: String
+    ) {
+        onView(withId(recyclerViewId))
+            .check(
+                matches(
+                    not(
+                        hasDescendant(
+                            allOf(
+                                withText(text),
+                                isDisplayed()
+                            )
+                        )
+                    )
                 )
             )
     }
