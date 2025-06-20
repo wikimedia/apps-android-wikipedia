@@ -227,10 +227,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin">
             <include
                 android:id="@+id/captcha_container"
                 android:visibility="gone"
+                tools:visibility="visible"
                 layout="@layout/group_captcha"/>
         </ScrollView>
 

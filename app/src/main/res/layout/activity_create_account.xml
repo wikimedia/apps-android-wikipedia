@@ -12,7 +12,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin">
 
             <LinearLayout
                 android:id="@+id/create_account_primary_container"
@@ -20,9 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:clipToPadding="false"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin">
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/create_account_username"
@@ -151,7 +151,7 @@
             <include
                 android:id="@+id/captcha_container"
                 layout="@layout/group_captcha"
-                tools:visibility="gone" />
+                tools:visibility="visible" />
 
         </FrameLayout>
     </ScrollView>

@@ -3,11 +3,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color"
+    android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:paddingVertical="8dp"
     android:visibility="gone"
     tools:visibility="visible">
 
@@ -32,8 +31,7 @@
     <FrameLayout
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/captcha_image"
@@ -60,7 +58,6 @@
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="@string/edit_section_captcha_reload"
         android:textAlignment="center" />
 

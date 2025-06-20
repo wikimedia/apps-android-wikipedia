@@ -188,6 +188,7 @@
   <string name="login_2fa_other_workflow_error_msg">Message for when login fails during an editing workflow because two-factor authentication is required. Directs the user to return to the main screen and retry logging in.</string>
   <string name="login_email_auth_hint">Hint for a field where the user can enter an email verification code, if required.</string>
   <string name="login_email_auth_other_workflow_error_msg">Message for when login fails during an editing workflow because email verification is required. Directs the user to return to the main screen and retry logging in.</string>
+  <string name="login_background_error_msg">Message shown when the app is not able to re-login the user in the background.</string>
   <string name="onboarding_card_login">Text on button suggesting user to login from the onboarding card.\n{{Identical|Log in}}</string>
   <string name="page_editing_login">Text on button suggesting user to login for editing a page.\n{{Identical|Log in}}</string>
   <string name="reading_lists_sync_login">Text on button suggesting user to login for syncing reading lists.\n{{Identical|Log in}}</string>

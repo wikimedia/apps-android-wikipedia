@@ -160,6 +160,7 @@
     <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please login from the main screen, and enter the code from your 2FA token.</string>
     <string name="login_email_auth_hint">Email verification code</string>
     <string name="login_email_auth_other_workflow_error_msg">Email verification required! Please login from the main screen, and enter your email verification code.</string>
+    <string name="login_background_error_msg">Unable to re-login. Please go back to the main screen and log in manually.</string>
     <string name="onboarding_card_login">Log in</string>
     <string name="page_editing_login">Log in</string>
     <string name="reading_lists_sync_login">Log in</string>
