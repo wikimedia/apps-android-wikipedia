@@ -46,7 +46,6 @@ class SuggestedEditsScreenRobot : BaseRobot() {
 
     fun clickImageCaptions() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 1, viewAction = click())
-        pressBack()
         delay(TestConfig.DELAY_MEDIUM)
     }
 
