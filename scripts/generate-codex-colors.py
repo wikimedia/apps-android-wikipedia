@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 import requests
 import re
 
@@ -7,9 +9,11 @@ import re
 # 3. component (color for specific ui components like table, footer etc. file is under src/components.json)
 # 4. mode (dark mode colors)
 
+CODEX_VERSION = 2.1
+
 # URL
-codex_main_tokens_url = "https://cdn.jsdelivr.net/npm/@wikimedia/codex-design-tokens@latest/dist/theme-wikimedia-ui.json"
-codex_dark_mode_tokens_url = "https://cdn.jsdelivr.net/npm/@wikimedia/codex-design-tokens@latest/dist/theme-wikimedia-ui-mode-dark.json"
+CODEX_MAIN_TOKENS_URL = f"https://cdn.jsdelivr.net/npm/@wikimedia/codex-design-tokens@{CODEX_VERSION}/dist/theme-wikimedia-ui.json"
+CODEX_DARK_MODE_TOKENS_URL = "https://cdn.jsdelivr.net/npm/@wikimedia/codex-design-tokens@latest/dist/theme-wikimedia-ui-mode-dark.json"
 
 # color_data: the codex json response
 # token_type: one of the above token types (theme, base, component, mode)
@@ -47,14 +51,15 @@ def to_camel_case(text):
 def generate_compose_raw_color_file(colors_dict, file_path):
     content = ["package org.wikipedia.compose.theme\n\n",
                "import androidx.compose.ui.graphics.Color\n\n",
-               "object ComposeColors { \n"]
+               f"// CODEX VERSION ${CODEX_VERSION}\n",
+               "object ComposeColors {\n"]
 
     sorted_colors = sorted(colors_dict.items())
     for color_name, hex_value in sorted_colors:
         var_name = color_name
         hex_value = convert_hex_to_kotlin_color(hex_value)
         content.append(f"  val {var_name} = Color({hex_value})\n")
-    content.append("}")
+    content.append("}\n")
     with open(file_path, 'w') as f:
         f.write("".join(content))
 
@@ -69,7 +74,7 @@ def generate_wikipedia_color(main_color_data, file_path):
     pascal_names = [to_camel_case(name) for name in base_colors.keys()]
     for name in pascal_names:
         content.append(f"\tval {name}: Color,\n")
-    content.append(")")
+    content.append(")\n")
     with open(file_path, 'w') as f:
         f.write("".join(content))
     return pascal_names
@@ -81,13 +86,13 @@ def generate_raw_colors(main_color_data, file_path):
 
 # light mode tokens
 def generate_light_mode_tokens():
-    light_mode_response = requests.get(codex_dark_mode_tokens_url)
+    light_mode_response = requests.get(CODEX_MAIN_TOKENS_URL)
     light_mode_color_data = light_mode_response.json()['color']
     print("TODO after the m3 alignment work")
 
 # dark mode tokens
 def generate_dark_mode_tokens():
-    dark_mode_response = requests.get(codex_dark_mode_tokens_url)
+    dark_mode_response = requests.get(CODEX_DARK_MODE_TOKENS_URL)
     dark_mode_color_data = dark_mode_response.json()['color']
     print("TODO after the m3 alignment work")
 
@@ -97,11 +102,11 @@ def generate_dark_mode_tokens():
 # 3. generate light mode colors and append to WikipediaColor file
 # 4. generate dark mode colors and append to WikipediaColor file
 
-wiki_color_file_path = "../app/src/main/java/org/wikipedia/compose/theme/WikipediaColor.kt"
-raw_color_file_path =  "../app/src/main/java/org/wikipedia/compose/theme/ComposeColors.kt"
+WIKI_COLOR_FILE_PATH = "../app/src/main/java/org/wikipedia/compose/theme/WikipediaColor.kt"
+RAW_COLOR_FILE_PATH =  "../app/src/main/java/org/wikipedia/compose/theme/ComposeColors.kt"
 
-response = requests.get(codex_main_tokens_url)
+response = requests.get(CODEX_MAIN_TOKENS_URL)
 main_color_data = response.json()['color']
-generate_raw_colors(main_color_data, file_path = raw_color_file_path)
-generate_wikipedia_color(main_color_data, file_path= wiki_color_file_path)
+generate_raw_colors(main_color_data, file_path = RAW_COLOR_FILE_PATH)
+generate_wikipedia_color(main_color_data, file_path= WIKI_COLOR_FILE_PATH)
 
