@@ -104,7 +104,7 @@ def generate_dark_mode_tokens():
 # 4. generate dark mode colors and append to WikipediaColor file
 
 WIKI_COLOR_FILE_PATH = "../app/src/main/java/org/wikipedia/compose/theme/WikipediaColor.kt"
-RAW_COLOR_FILE_PATH =  "../app/src/main/java/org/wikipedia/compose/theme/ComposeColors.kt"
+RAW_COLOR_FILE_PATH =  "../app/src/main/java/org/wikipedia/compose/ComposeColors.kt"
 
 if __name__ == '__main__':
     try:
