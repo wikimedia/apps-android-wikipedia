@@ -132,7 +132,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                AppDatabase.instance.categoryDao().deleteOlderThanInBatch(Year.now().value + 1)
+                AppDatabase.instance.categoryDao().deleteOlderThan(Year.now().value + 1)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories", e)
@@ -148,7 +148,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                AppDatabase.instance.categoryDao().deleteOlderThanInBatch(yearsAgo)
+                AppDatabase.instance.categoryDao().deleteOlderThan(yearsAgo)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories data of $yearsAgo years ago", e)

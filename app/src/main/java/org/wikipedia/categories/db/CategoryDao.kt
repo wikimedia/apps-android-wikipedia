@@ -32,7 +32,7 @@ interface CategoryDao {
     suspend fun deleteAll()
 
     @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE year <:year)")
-    suspend fun deleteOlderThanInBatch(year: Int): Int
+    suspend fun deleteOlderThan(year: Int): Int
 
     @Transaction
     suspend fun upsertAll(list: List<Category>) {
