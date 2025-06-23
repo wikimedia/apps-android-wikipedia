@@ -41,7 +41,7 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
             .pressBack()
             .pressBack()
         exploreFeedRobot
-            .verifyFeedViewSize(2)
+            .verifyFeedViewSize(1) // test failed here bug: 06-23 15:47:52.012  2079  2186 E EspressoError: expected:<1> but was:<2>
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()

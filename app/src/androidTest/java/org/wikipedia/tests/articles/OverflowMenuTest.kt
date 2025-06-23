@@ -29,6 +29,7 @@ class OverflowMenuTest : BaseTest<MainActivity>(
     private val systemRobot = SystemRobot()
     private val searchRobot = SearchRobot()
 
+    // androidx.test.espresso.NoMatchingViewException: No views in hierarchy found matching: (view.getId() is <2131297310/org.wikipedia.dev:id/nav_tab_more> and view.getContentDescription() is "More" and (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle))
     @Test
     fun runTest() {
         setDeviceOrientation(isLandscape = false)

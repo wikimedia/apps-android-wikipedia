@@ -38,7 +38,7 @@ class ArticlePageActionItemTest : BaseTest<PageActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         pageRobot
-            .saveArticleToReadingList()
+            .saveArticleToReadingList() // test failed here bug: 06-23 16:06:54.637 12375 12448 E EspressoError: No views in hierarchy found matching: view.getId() is <2131297468/org.wikipedia.dev:id/page_save>
             .confirmArticleSaved("Saved")
             .openLanguageSelector()
             .selectSpanishLanguage()

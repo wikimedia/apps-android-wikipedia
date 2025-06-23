@@ -35,7 +35,7 @@ class LeadNonLeadImageAndPreviewLinkTest : BaseTest<PageActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         pageRobot
-            .clickLeadImage()
+            .clickLeadImage() // test failed here bug: 06-23 16:08:48.676 13481 13557 E EspressoError: No views in hierarchy found matching: (view.getId() is <2131298139/org.wikipedia.dev:id/view_page_header_image> and (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle))
             .swipePagerLeft()
             .pressBack()
             .scrollToNonLeadImage()

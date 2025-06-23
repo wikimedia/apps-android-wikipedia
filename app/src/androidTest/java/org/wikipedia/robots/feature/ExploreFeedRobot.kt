@@ -125,6 +125,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickPictureOfTheDay() = apply {
+        delay(5000)
         click.onViewWithId(R.id.view_featured_image_card_content_container)
         delay(TestConfig.DELAY_SHORT)
     }

@@ -33,7 +33,10 @@ class SpecialArticleTest : BaseTest<MainActivity>(
             .typeTextInView(TestConstants.SPECIAL_ARTICLE_VORTEX_SHEDDING)
             .clickOnItemFromSearchList(0)
         mediaRobot
-            .verifyLeadImageHasGif()
+            .verifyLeadImageHasGif() // test failed here bug: 06-23 16:12:17.977 14959 15030 E EspressoError: 'has gif drawable' doesn't match the selected view.
+//        06-23 16:12:17.977 14959 15030 E EspressoError: Expected: has gif drawable
+//        06-23 16:12:17.977 14959 15030 E EspressoError:      Got: org.wikipedia.views.FaceAndColorDetectImageView{6b3b906 VFED..C.. ........ 0,168-1080,768 #7f09075b app:id/view_page_header_image}
+//        06-23 16:12:17.977 14959 15030 E EspressoError: View Details: FaceAndColorDetectImageView{id=2131298139, res-name=view_page_header_image, desc=Image: Vortex shedding, visibility=VISIBLE, width=1080, height=600, has-focus=false, has-focusable=true, has-window-focus=true, is-clickable=true, is-enabled=true, is-focused=false, is-focusable=true, is-layout-requested=false, is-selected=false, layout-params=android.widget.FrameLayout$LayoutParams@YYYYYY, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=168.0}
         searchRobot
             .clickSearchFromPageView()
             .typeTextInView(TestConstants.SPECIAL_ARTICLE_AVATAR_2009)
