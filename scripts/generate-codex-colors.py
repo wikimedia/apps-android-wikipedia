@@ -20,7 +20,6 @@ CODEX_DARK_MODE_TOKENS_URL = "https://cdn.jsdelivr.net/npm/@wikimedia/codex-desi
 def extract_colors(color_data, token_type):
     results = {}
     color_section = color_data.get('color', color_data)
-
     for name, color_info in color_section.items():
         if (isinstance(color_info, dict)
                 and "attributes" in color_info
@@ -66,6 +65,7 @@ def generate_compose_raw_color_file(colors_dict, file_path):
 # this generates the class with the codex tokens that will use the raw colors
 # this will generate class similar to our current WikipediaColor
 def generate_wikipedia_color(main_color_data, file_path):
+    print("extracting base colors")
     base_colors = extract_colors(main_color_data, "base")
     content = ["package org.wikipedia.compose.theme\n\n",
                "import androidx.compose.runtime.Immutable\n"
@@ -81,6 +81,7 @@ def generate_wikipedia_color(main_color_data, file_path):
 
 # raw colors
 def generate_raw_colors(main_color_data, file_path):
+    print("extracting raw colors")
     raw_colors = extract_colors(main_color_data, "theme")
     generate_compose_raw_color_file(raw_colors, file_path)
 
@@ -105,8 +106,19 @@ def generate_dark_mode_tokens():
 WIKI_COLOR_FILE_PATH = "../app/src/main/java/org/wikipedia/compose/theme/WikipediaColor.kt"
 RAW_COLOR_FILE_PATH =  "../app/src/main/java/org/wikipedia/compose/theme/ComposeColors.kt"
 
-response = requests.get(CODEX_MAIN_TOKENS_URL)
-main_color_data = response.json()['color']
-generate_raw_colors(main_color_data, file_path = RAW_COLOR_FILE_PATH)
-generate_wikipedia_color(main_color_data, file_path= WIKI_COLOR_FILE_PATH)
+if __name__ == '__main__':
+    try:
+        print("fetching codex colors")
+        print(f"Making request to: {CODEX_MAIN_TOKENS_URL}")
+        response = requests.get(CODEX_MAIN_TOKENS_URL)
+        if response.status_code == 200:
+            print("Request successful!")
+            main_color_data = response.json()['color']
+            generate_raw_colors(main_color_data, file_path = RAW_COLOR_FILE_PATH)
+            generate_wikipedia_color(main_color_data, file_path= WIKI_COLOR_FILE_PATH)
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+    print("Codex conversion completed")
 
