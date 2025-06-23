@@ -1780,7 +1780,7 @@
   <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia juegos está disponible en la sección Explorar.</string>
   <string name="on_this_day_game_title">¿Qué fue primero?</string>
   <string name="on_this_day_game_dialog_button">Jugar</string>
-  <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero hoy.</string>
+  <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero en la fecha de hoy.</string>
   <string name="on_this_day_game_progress">%1$d de %2$d</string>
   <string name="on_this_day_game_score">Puntuación: %d</string>
   <string name="on_this_day_game_submit">Enviar</string>
@@ -1796,7 +1796,7 @@
   <string name="on_this_day_game_pause_positive">Pausar</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia juegos</string>
   <string name="on_this_day_game_feed_entry_card_title">¿Qué fue primero?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero hoy.</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero en la fecha de hoy.</string>
   <string name="on_this_day_game_result">Obtuviste %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Más preguntas en %s</string>
   <string name="on_this_day_game_your_stats">Tus estadísticas</string>
@@ -1825,7 +1825,7 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Mantener desactivadas</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificaciones del juego desactivadas.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificaciones del juego activadas.</string>
-  <string name="on_this_day_game_notification_text">Las preguntas de hoy de «¿Qué fue primero?» ya están disponibles para jugar.</string>
+  <string name="on_this_day_game_notification_text">Las preguntas de hoy del juego «¿Qué fue primero?» ya están disponibles.</string>
   <string name="on_this_day_game_report_email_subject">Informe de problemas - Wikipedia juegos</string>
   <string name="on_this_day_game_report_email_body">Tuve un problema con la función Wikipedia juegos:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]</string>
   <string name="on_this_day_game_notification_undo">Deshacer</string>
