@@ -248,6 +248,9 @@ class LoginActivity : BaseActivity() {
                 binding.login2faText.requestFocus()
                 FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
+                if (captchaResult != null) {
+                    FeedbackUtil.showError(this@LoginActivity, caught)
+                }
                 captchaResult = CaptchaResult(captchaId)
                 captchaHandler.handleCaptcha(token, captchaResult!!)
             }

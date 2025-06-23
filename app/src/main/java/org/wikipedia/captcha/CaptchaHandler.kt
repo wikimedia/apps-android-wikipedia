@@ -34,6 +34,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         binding.captchaSubmitButton.isVisible = !submitButtonText.isNullOrEmpty()
         binding.requestAccountText.text = StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
         binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
+        binding.requestAccountText.isVisible = isModal
         binding.captchaImage.setOnClickListener { requestNewCaptcha() }
     }
 
