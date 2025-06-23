@@ -18,6 +18,7 @@
 * HajFunk
 * Hikemaniac
 * Hwboehm
+* JorgeElias2302
 * Justman10000
 * Killarnee
 * KimKelting
@@ -28,6 +29,7 @@
 * Metalhead64
 * Mike is Michi
 * Mirzali
+* MoritzMT20
 * MrBenjo
 * MuratTheTurkish
 * NoPartyThisTime
@@ -299,7 +301,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Seite&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/de\"&gt;Team-Seite&lt;/a&gt;</string>
   <string name="about_translators_heading">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
@@ -1776,4 +1778,7 @@
   <string name="on_this_day_game_review_results_btn_text">Ergebnisse überprüfen</string>
   <string name="on_this_day_game_score_message">Sie haben %1$d/%2$d im heutigen Spiel erzielt.</string>
   <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Weiterspielen</string>
+  <string name="recommended_reading_list_interest_select_minimum">Wähle mindestens ein Interesse aus</string>
+  <string name="recommended_reading_list_page_description_daily">Deine tägliche Leseliste. Erfahre mehr über neue, speziell für Dich ausgewählte Themen. Aktualisierung um Mitternacht.</string>
+  <string name="recommended_reading_list_page_description_monthly">Deine monatliche Leseliste. Erfahre mehr über neue, speziell für dich ausgewählte Themen. Aktualisierungen jeweils am ersten Tag des Monats.</string>
 </resources>
