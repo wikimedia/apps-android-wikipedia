@@ -480,11 +480,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
 
-        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
+        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh").flatMap { langCode ->
+            WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
+        }
 
         fun isLangSupported(lang: String): Boolean {
-            val parentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(lang) ?: lang
-            return LANG_CODES_SUPPORTED.contains(parentLanguageCode)
+            return LANG_CODES_SUPPORTED.contains(lang)
         }
 
         fun dateReleasedForLang(lang: String): LocalDate {
