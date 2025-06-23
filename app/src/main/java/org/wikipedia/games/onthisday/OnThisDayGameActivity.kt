@@ -90,7 +90,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.errorView.backClickListener = View.OnClickListener {
             finish()
         }
-
         binding.questionCard1.setOnClickListener {
             enqueueSubmit(it as WikiCardView)
         }
@@ -368,6 +367,13 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         binding.centerContent.isVisible = false
         binding.correctIncorrectText.text = null
         binding.currentQuestionContainer.isVisible = true
+
+        binding.root.post {
+            if (!isDestroyed) {
+                binding.questionContainer1.minimumHeight = binding.questionScroll1.height - DimenUtil.roundedDpToPx(16f)
+                binding.questionContainer2.minimumHeight = binding.questionScroll2.height - DimenUtil.roundedDpToPx(16f)
+            }
+        }
         supportInvalidateOptionsMenu()
     }
 
