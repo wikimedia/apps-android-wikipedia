@@ -276,6 +276,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.compose.activity)
     implementation(libs.compose.view.model)
+    implementation(libs.androidx.navigation.compose)
 
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
