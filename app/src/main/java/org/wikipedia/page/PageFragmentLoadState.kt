@@ -182,7 +182,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         Category(title = category.title, lang = title.wikiSite.languageCode)
                     }.orEmpty()
                     if (categoryList.isNotEmpty()) {
-                        AppDatabase.instance.categoryDao().insertAll(categoryList)
+                        AppDatabase.instance.categoryDao().upsertAll(categoryList)
                     }
 
                     if (delayLoadHtml) {
