@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 30,
-    "identityHash": "d99be9ecca43c23bc048ef363e1a06c1",
+    "identityHash": "4e13c8977ab552142b469654386b4ed6",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -553,20 +553,8 @@
       },
       {
         "tableName": "Category",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`year` INTEGER NOT NULL, `month` INTEGER NOT NULL, `title` TEXT NOT NULL, `lang` TEXT NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`year`, `month`, `title`, `lang`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `lang` TEXT NOT NULL, `timeStamp` INTEGER NOT NULL, PRIMARY KEY(`title`, `lang`, `timeStamp`))",
         "fields": [
-          {
-            "fieldPath": "year",
-            "columnName": "year",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "month",
-            "columnName": "month",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "title",
             "columnName": "title",
@@ -580,8 +568,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "count",
-            "columnName": "count",
+            "fieldPath": "timeStamp",
+            "columnName": "timeStamp",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -589,10 +577,9 @@
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "year",
-            "month",
             "title",
-            "lang"
+            "lang",
+            "timeStamp"
           ]
         }
       },
@@ -734,7 +721,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd99be9ecca43c23bc048ef363e1a06c1')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4e13c8977ab552142b469654386b4ed6')"
     ]
   }
 }
