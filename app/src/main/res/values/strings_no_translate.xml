@@ -10,6 +10,7 @@
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
+    <string name="short_description_help_url_en">https://en.wikipedia.org/wiki/Wikipedia:Short_description</string>
     <string name="quality_and_intent_filters_url">https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters</string>
     <string name="temp_accounts_help_url">https://www.mediawiki.org/wiki/Help:Temporary_accounts</string>
     <string name="account_vanish_url">https://meta.m.wikimedia.org/wiki/Special:GlobalVanishRequest</string>
@@ -23,6 +24,9 @@
     <string name="donor_privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Donor_privacy_policy</string>
     <string name="on_this_day_game_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TrivaGame</string>
     <string name="on_this_day_game_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dgame%26utm_medium%3Dlink%26utm_campaign%3Dfirst</string>
+    <string name="year_in_review_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dwmfapp%26utm_medium%3Dlink%26utm_campaign%3Dyir_2025&amp;pli=1</string>
+    <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used</string>
+    <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

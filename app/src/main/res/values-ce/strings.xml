@@ -86,7 +86,7 @@
   <string name="login_username_hint">Декъашхочун цӀе</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Шина-факторан аутентификацин код</string>
+  <string name="login_2fa_hint" fuzzy="true">Шина-факторан аутентификацин код</string>
   <string name="onboarding_card_login">Чувала</string>
   <string name="page_editing_login">ЧугӀо</string>
   <string name="reading_lists_sync_login">ЧугӀо</string>
@@ -109,7 +109,7 @@
   <string name="history_empty_message">Кхузахь хьой бешна болу йаззамашка хьажа.</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
-  <string name="create_account_activity_title">Кхолла аккаунт</string>
+  <string name="create_account_activity_title">Аккаунт кхолла</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
   <string name="create_account_email_hint">Электронан поштан адрес (ца хилча а мега)</string>
   <string name="create_account_password_repeat_hint">Йуха а йазйе пароль</string>

@@ -14,6 +14,7 @@
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
+  <string name="search_icon_content_description">ڳولو</string>
   <string name="filter_hint_filter_my_lists_and_articles">میݙیاں تندیراں چھاݨو</string>
   <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>
@@ -112,7 +113,7 @@
   <string name="login_username_hint">صارف دا ناں</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint">ݙو جزی تصیدیقی کوڈ</string>
+  <string name="login_2fa_hint" fuzzy="true">ݙو جزی تصیدیقی کوڈ</string>
   <string name="onboarding_card_login">لاگ ان تھیوو</string>
   <string name="page_editing_login">لاگ ان تھیوو</string>
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>
@@ -165,6 +166,7 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="about_contributors_heading">ونگاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
@@ -625,10 +627,10 @@
   <string name="revision_compare_button">موازنہ کرو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">وٹاؤ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">١ ہفتے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">١ مہینے کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">٣ مہینیاں کیتے</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">٦ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">١ ہفتے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">١ مہینے کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">٣ مہینیاں کیتے</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">٦ مہینیاں کیتے</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">ہک ہفتہ</string>
   <string name="watchlist_expiry_dialog_one_month">ہک مہیناں</string>
@@ -721,6 +723,7 @@
   <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
   <string name="on_this_day_game_dialog_button">چلاؤ</string>
   <string name="on_this_day_game_next">اڳلا سوال</string>
+  <string name="on_this_day_game_share_button">شیئر</string>
   <string name="on_this_day_game_pause_title">کِھیݙ کوں روکو؟</string>
   <string name="on_this_day_game_pause_body">تُہاݙی اَڳوتری کوں ݙینہہ کیتے محفوظ کیتا ویسی۔ تساں گیم کوں اپݨی ایکسپلور فیڈ تے ڳول سڳدو۔</string>
   <string name="on_this_day_game_pause_positive">سمجھ ڳئے</string>
@@ -738,4 +741,9 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
+  <string name="recommended_reading_list_page_snackbar_day">ݙین٘ہ</string>
+  <string name="recommended_reading_list_page_snackbar_week">ہفتہ</string>
+  <string name="recommended_reading_list_page_snackbar_month">مہینہ</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">روزانہ</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">ہفتہ وار</string>
 </resources>

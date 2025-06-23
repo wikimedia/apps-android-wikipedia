@@ -170,7 +170,7 @@ class DescriptionEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         var text = firstRevision?.contentMain.orEmpty()
         val baseRevId = firstRevision?.revId ?: 0
         text = updateDescriptionInArticle(text, currentDescription)
-        val automaticallyAddedEditSummary = L10nUtil.getStringForArticleLanguage(pageTitle,
+        val automaticallyAddedEditSummary = L10nUtil.getString(pageTitle,
             if (pageTitle.description.isNullOrEmpty()) R.string.edit_summary_added_short_description
             else R.string.edit_summary_updated_short_description)
         var editSummary = automaticallyAddedEditSummary

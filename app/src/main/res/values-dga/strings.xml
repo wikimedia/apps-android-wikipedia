@@ -139,8 +139,8 @@
   <string name="login_username_hint">Tonton-yuori</string>
   <string name="login_password_hint">Gboribiri</string>
   <string name="account_creation_password_hint">Gboribiri</string>
-  <string name="login_2fa_hint">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Ɔɔtɛtikeesiŋ Koodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Aseŋɛɛ ka fo eŋ Two-factor authentication! Gaafera leɛ gaa a pegi kpoŋ a kyɛ kpɛ ne fo 2FA token, a paaŋ leɛ wa.</string>
   <string name="onboarding_card_login">Kpɛ</string>
   <string name="page_editing_login">Kpɛ</string>
   <string name="reading_lists_sync_login">Kpɛ</string>
@@ -227,14 +227,12 @@
   <string name="privacy_policy_description">Gondo yɛlwaanoo</string>
   <string name="terms_of_use_description">Sagebo yelsɛgeree</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yɛlɛ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gama binziiri toŋ</string>
   <string name="about_contributors_heading">Tontomba</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Leɛ leɛre ba</string>
   <string name="about_translators_translatewiki">A app ŋa da leɛŋ a yi leɛ leɛreba ŋa naŋ maŋ tona zaala toma na a yi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Sori terebo</string>
@@ -528,8 +526,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Atekele sãã la pɛll yaga poɔ</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ko la be saseɛ kpinnaa poɔ ko pɛll kannaa zaa:</string>
   <string name="reading_lists_sync_reminder_title">Nyige kannoo pɛll tɔraa?</string>
-  <string name="reading_lists_sync_reminder_text">Atekele naŋ biŋ fo kannoo pɛll na baŋ tage gaa la fo wikipiideɛ die daga pampana. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare sori ko fo pɛll ka o na biŋ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;zanne yɛlɛ yaga&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Atekele naŋ biŋ fo kannoo pɛll na baŋ tage gaa la fo wikipiideɛ die daga pampana. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare sori ko fo pɛll ka o na biŋ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;zanne yɛlɛ yaga&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Eŋ tɔre ka a e boŋyeni</string>
   <string name="reading_list_login_reminder_title">E ka kannoo pɛllɛ kpɛtaa</string>
   <string name="reading_lists_login_reminder_text">Kannoo pɛll na baŋ tɔre kpɛ la taa e boŋyeni pampana mansiŋ yaga eŋɛ. Yuo fo wikipiideɛ die daga kpɛ a bare fo pɛll sori ka o na biŋ.</string>
@@ -823,8 +821,6 @@
   <string name="description_edit_voice_input_description">Yelyaga de emmbo</string>
   <string name="description_edit_learn_more">Zanne yɛlɛ yaga kyaare atekele bigruu</string>
   <string name="description_edit_image_caption_learn_more">Zanne yɛlɛ yaga kyaare enfuoni yelzu ŋmaa</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">A sɛgre e la fẽẽ yaga.</string>
   <string name="description_ends_with_punctuation">A sɛgere ba seŋ ka o baare ne tannoo tombiri.</string>
   <string name="description_starts_with_uppercase">Piili neŋ sɛgebi bile see ka o waa yo-meŋa.</string>
@@ -1272,14 +1268,12 @@
   <string name="revision_rollback_success">Maale eŋ leɛ la.</string>
   <string name="revision_compare_button">Tag-lantaa kaa nyɛ</string>
   <string name="revision_compare_two_only">Boma ayi yoŋ la baŋ baŋ iri</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ane o yelyaga peegyi de paale la fo pɛll kaare %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">kyili</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Aŋ gɛrɛ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">a ko dagbuli yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">a ko kyuu yeni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">a ko kyuuri ata</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">a ko kyuuri ayɔɔbo</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s o yelyaga peegyi iri yi la fo pɛll-kaare.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">a ko dagbuli yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">a ko kyuu yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">a ko kyuuri ata</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">a ko kyuuri ayɔɔbo</string>
   <string name="watchlist_expiry_dialog_title">Iri pɛll kaare vuo wagere</string>
   <string name="watchlist_expiry_dialog_permanent">Kpi maroo</string>
   <string name="watchlist_expiry_dialog_one_week">daagbuli yeni</string>

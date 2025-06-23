@@ -37,6 +37,9 @@
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_languages">Пошук мови</string>
+  <string name="search_back_button_content_description">Повернутися</string>
+  <string name="search_clear_query_content_description">Очистити запит</string>
+  <string name="search_icon_content_description">Пошук</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
@@ -172,7 +175,9 @@
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
-  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! будь ласка, поверніться до основної діяльності та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
+  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! Будь ласка, увійдіть в систему з головного екрану і введіть свій токен 2FA.</string>
+  <string name="login_email_auth_hint">Код підтвердження електронної пошти</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потрібна перевірка електронної пошти! Увійдіть із головного екрана та введіть код підтвердження електронної пошти.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
   <string name="reading_lists_sync_login">Увійти до системи</string>
@@ -262,24 +267,23 @@
   <string name="privacy_policy_description">Політика конфіденційності</string>
   <string name="terms_of_use_description">Умови використання</string>
   <string name="about_wikipedia_url">https://uk.wikipedia.org/wiki/Вікіпедія:Про</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/uk</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/uk</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/uk</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/uk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_tags</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
+  <string name="about_logo_content_description">Логотип пазла-глобуса Вікіпедії</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
   <string name="edit_abandon_confirm_yes">Так</string>
   <string name="edit_abandon_confirm_no">Ні</string>
@@ -622,8 +626,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Стаття входить до декількох списків</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s тепер не буде доступна автономно для всіх списків:</string>
   <string name="reading_lists_sync_reminder_title">Увімкнути синхронізацію читальних списків?</string>
-  <string name="reading_lists_sync_reminder_text">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатися більше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатися більше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Увімкнути синхронізацію</string>
   <string name="reading_list_login_reminder_title">Синхронізувати читальні списки</string>
   <string name="reading_lists_login_reminder_text">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігати такі списки.</string>
@@ -954,15 +958,13 @@
   <string name="description_edit_help_title">Інформація: Описи статей</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
   <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів статей! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
   <string name="description_edit_license_notice">Змінюючи опис статті, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">зазвичай починається з маленької літери</string>
   <string name="description_edit_voice_input_description">Голосове введення</string>
   <string name="description_edit_learn_more">Докладніше про описи статей</string>
   <string name="description_edit_image_caption_learn_more">Докладніше про підписи до зображень</string>
-  <string name="description_edit_description_learn_more_url">https\n://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/uk#Image_captions</string>
   <string name="description_too_short">Текст закороткий.</string>
   <string name="description_too_long">Намагайтеся обмежувати обсяг описів, щоб користувачі могли зрозуміти предмет статті з одного погляду</string>
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
@@ -1494,14 +1496,12 @@
   <string name="revision_rollback_success">Редагування відкочено.</string>
   <string name="revision_compare_button">Порівняти</string>
   <string name="revision_compare_two_only">Можна вибрати лише дві версії.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Сторінка %1$s та її сторінка обговорення додані до вашого списку спостереження %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Змінити</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">на постійно</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 тиждень</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 місяць</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 місяці</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 місяців</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Сторінка %s та її сторінка обговорення вилучені з вашого списку спостереження.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 тиждень</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 місяць</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 місяці</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 місяців</string>
   <string name="watchlist_expiry_dialog_title">Оберіть період, упродовж якого стежити за сторінкою</string>
   <string name="watchlist_expiry_dialog_permanent">Постійно</string>
   <string name="watchlist_expiry_dialog_one_week">1 тиждень</string>
@@ -1810,12 +1810,13 @@
   <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
   <string name="on_this_day_game_progress">%1$d з %2$d</string>
   <string name="on_this_day_game_score">Рахунок: %d</string>
+  <string name="on_this_day_game_submit">Надіслати</string>
   <string name="on_this_day_game_correct">Правильно!</string>
   <string name="on_this_day_game_incorrect">Неправильно!</string>
   <string name="on_this_day_game_point">+1 бал</string>
   <string name="on_this_day_game_next">Наступне запитання</string>
   <string name="on_this_day_game_finish">Остаточний результат</string>
-  <string name="on_this_day_game_share">Поділитися з друзями</string>
+  <string name="on_this_day_game_share_button">Поділитися</string>
   <string name="on_this_day_game_pause_title">Призупинити гру?</string>
   <string name="on_this_day_game_pause_body">Ваш прогрес буде збережено. Ви можете знайти гру у своїй стрічці.</string>
   <string name="on_this_day_game_pause_negative">Продовжити грати</string>
@@ -1858,8 +1859,104 @@
   <string name="on_this_day_game_report_email_body">У мене виникла проблема з функцією ігор Вікіпедії:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
   <string name="on_this_day_game_notification_undo">Скасувати</string>
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
+  <string name="on_this_day_game_share_screen_title">Мій сьогоднішній результат\nу «Що було першим?» — \n%1$d/%2$d.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Тематика:</string>
   <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
   <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
-  <string name="back_button_content_description">Повернутися</string>
-  <string name="about_screen_logo_accessibility_text">Логотип пазла-глобуса Вікіпедії</string>
+  <string name="on_this_day_game_archive_calendar_title">Виберіть гру за датою.</string>
+  <string name="on_this_day_game_score_toast_message">Ваш результат цього дня — %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Продовжити сьогоднішню гру</string>
+  <string name="on_this_day_game_current_progress_message">Ви на %d питанні.</string>
+  <string name="on_this_day_game_archive_btn_text">Відграти архів</string>
+  <string name="on_this_day_game_review_results_btn_text">Переглянути результати</string>
+  <string name="on_this_day_game_score_message">Ваш результат сьогодні — %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
+  <string name="on_this_day_game_sound_on">Увімкнути звук</string>
+  <string name="on_this_day_game_sound_off">Вимкнути звук</string>
+  <string name="recommended_reading_list_title">Рекомендації</string>
+  <string name="recommended_reading_list_onboarding_card_title">Відкрийте статті, підібрані спеціально для вас</string>
+  <string name="recommended_reading_list_onboarding_card_message">Ваш щотижневий список статей Вікіпедії для читання, підібраний спеціально для вас.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Новинка!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Розпочати</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Ні, дякую</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Щоб пізніше налаштувати рекомендований список читання, перейдіть у Налаштування.</string>
+  <string name="recommended_reading_list_interest_source_message">Як нам слід скласти ваш список рекомендованого читання?</string>
+  <string name="recommended_reading_list_interest_source_interests">Дозвольте мені вибрати на основі моїх інтересів</string>
+  <string name="recommended_reading_list_interest_source_saved">Вибрати для мене на основі моїх збережених статей</string>
+  <string name="recommended_reading_list_interest_source_history">Вибрати для мене на основі моєї історії читання</string>
+  <string name="recommended_reading_list_interest_pick_title">Що вас цікавить?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Пошук статті</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">Вибрано %d</item>
+    <item quantity="few">Вибрано %d</item>
+    <item quantity="many">Вибрано %d</item>
+    <item quantity="other">Вибрано %d</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Виберіть принаймні один інтерес</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Випадковий вибір</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Ми випадковим чином відібрали для вас кілька статей.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Скасувати</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Ви впевнені, що хочете випадковим чином відтворити свій вибір?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Це очистить ваш поточний вибір і призведе до випадкового вибору нових статей.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Так, виберіть для мене</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Ні, не треба</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Зроблено для %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Зроблено для вас</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• 1 стаття</item>
+    <item quantity="few">• %d статі</item>
+    <item quantity="many">• %d статей</item>
+    <item quantity="other">• %d статей</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Ваш щоденний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення опівночі.</string>
+  <string name="recommended_reading_list_page_description_weekly">Ваш щотижневий список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення на початку тижня.</string>
+  <string name="recommended_reading_list_page_description_monthly">Ваш щомісячний список для читання. Дізнавайтеся про нові теми, підібрані спеціально для вас. Оновлення першого числа кожного місяця.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Налаштувати</string>
+  <string name="recommended_reading_list_page_overflow_about">Про цю функцію</string>
+  <string name="recommended_reading_list_page_snackbar">%1$d нових статей додаються кожні %2$s. Ваші рекомендації зберігаються локально на вашому пристрої.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Налаштувати рекомендації</string>
+  <string name="recommended_reading_list_page_snackbar_day">День</string>
+  <string name="recommended_reading_list_page_snackbar_week">Тиждень</string>
+  <string name="recommended_reading_list_page_snackbar_month">Місяць</string>
+  <string name="recommended_reading_list_settings_section_header">Рекомендації</string>
+  <string name="recommended_reading_list_settings_title">Налаштування рекомендацій</string>
+  <string name="recommended_reading_list_settings_toggle">Рекомендований список читання</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Рекомендації вимкнено. Вікіпедія не підказуватиме вам статті для читання.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Вимкнути рекомендації?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Якщо ви вимкнете рекомендації, то перестанете отримувати рекомендації від Вікіпедії %s.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Вимкнути</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Ні, залишити увімкненими</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Рекомендації вимкнено. Ви можете будь-коли знову ввімкнути їх у налаштуваннях.</string>
+  <string name="recommended_reading_list_settings_articles">статей</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Оновлення %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">щодня</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">щотижня</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">щомісяця</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Щодня</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Щотижня</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Щомісяця</string>
+  <string name="recommended_reading_list_settings_updates_base_title">На чому базуються рекомендації</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">На основі ваших інтересів</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">На основі ваших збережених статей</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">На основі вашої історії читання</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Налаштувати спосіб створення рекомендацій?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Якщо ви зміните спосіб створення рекомендацій, то і ваші поточні рекомендації будуть зміняться.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Змінити</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Ні, не треба</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Ваші рекомендації тепер базуються на ваших інтересах.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Ваші рекомендації тепер базуються на ваших збережених статтях.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Ваші рекомендації тепер базуються на вашій історії читання.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Скасувати</string>
+  <string name="recommended_reading_list_settings_interests">Інтереси</string>
+  <string name="recommended_reading_list_settings_notifications_title">Сповіщення</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Вікіпедія не надсилатиме вам сповіщення про оновлення рекомендацій.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Сповіщення для рекомендацій вимкнено. Ви не отримуватимете сповіщення про оновлення рекомендацій.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Вимкнути сповіщення?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Якщо ви вимкнете сповіщення, ви більше не отримуватимете нагадування про оновлення рекомендацій.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Вимкнути їх</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ні, залишити увімкненими</string>
+  <string name="recommended_reading_list_notification_title">Ваш список рекомендацій для читання %s готовий.</string>
+  <string name="recommended_reading_list_notification_subtitle">Натисніть, щоб переглянути свої останні рекомендації.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Коли рекомендації оновляться, Вікіпедія надішле вам сповіщення.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Рекомендації увімкнено. Вікіпедія підказуватиме вам статті для читання.</string>
 </resources>

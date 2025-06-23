@@ -59,11 +59,11 @@ class SearchResultsViewModel : ViewModel() {
                     if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
-                                getSearchResultsFromTabs(searchTerm)
+                                getSearchResultsFromTabs(wikiSite, searchTerm)
                             }, async {
-                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm)
+                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(wikiSite, searchTerm)
                             }, async {
-                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(searchTerm)
+                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(wikiSite, searchTerm)
                             }).awaitAll().forEach {
                                 resultList.addAll(it.results.take(1))
                             }
@@ -125,10 +125,10 @@ class SearchResultsViewModel : ViewModel() {
             return null
         }
 
-        private fun getSearchResultsFromTabs(searchTerm: String): SearchResults {
+        private fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.getBackStackPositionTitle()?.let {
-                    if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
+                    if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                         return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                     }
                 }

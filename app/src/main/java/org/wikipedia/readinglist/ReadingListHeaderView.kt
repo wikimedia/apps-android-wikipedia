@@ -13,20 +13,16 @@ import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
-class ReadingListHeaderView : FrameLayout {
+class ReadingListHeaderView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     private val binding = ViewReadingListHeaderBinding.inflate(LayoutInflater.from(context), this)
     private var imageViews = listOf(binding.readingListHeaderImage0, binding.readingListHeaderImage1, binding.readingListHeaderImage2,
             binding.readingListHeaderImage3, binding.readingListHeaderImage4, binding.readingListHeaderImage5)
     private var readingList: ReadingList? = null
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
     init {
         if (!isInEditMode) {
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
             binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(
                 ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.TOP)
             clearThumbnails()

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_file_save"
+        android:title="@string/view_featured_image_card_download"/>
+    <item android:id="@+id/menu_file_share"
+        android:title="@string/gallery_menu_share"/>
+</menu>

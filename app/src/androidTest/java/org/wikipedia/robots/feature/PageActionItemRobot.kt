@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.app.Activity
 import android.app.Instrumentation
 import android.content.Intent
@@ -9,7 +10,6 @@ import org.wikipedia.R
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.theme.Theme
 
 class PageActionItemRobot : BaseRobot() {
