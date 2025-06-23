@@ -275,6 +275,7 @@
   <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
+  <string name="about_logo_content_description">Wikipédia puzzle-glóbusz logója</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
   <string name="edit_abandon_confirm_yes">Igen</string>
   <string name="edit_abandon_confirm_no">Nem</string>
