@@ -10,6 +10,7 @@
 * Postituvi
 * Pyscowicz
 * Rivoz
+* Yupik
 -->
 <resources>
   <string name="app_name_prod">Vikipeedia</string>
@@ -183,6 +184,7 @@
   <string name="preference_title_show_images">Näita pilte</string>
   <string name="preference_title_download_only_over_wifi">Laadi alla vaid WiFi võrgust</string>
   <string name="dialog_title_download_only_over_wifi">Kas kinnitad allalaadimise kasutades mobiilset andmesidet?</string>
+  <string name="read_more_section">Loe rohkem</string>
   <string name="gallery_save_progress">Fail on allalaadimisel…</string>
   <string name="gallery_save_success">Fail on salvestatud.</string>
   <string name="close_all_tabs_confirm_yes">Jah</string>

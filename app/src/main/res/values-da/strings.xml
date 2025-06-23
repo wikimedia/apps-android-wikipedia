@@ -9,6 +9,7 @@
 * Gorbi
 * Jens Jensen
 * Joedalton
+* JorgeElias2302
 * Kenn.jensen
 * Kranix
 * Mads Haupt
@@ -260,13 +261,13 @@
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Holdsiden&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
@@ -592,8 +593,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
   <string name="reading_lists_sync_reminder_title">Aktiver synkronisering af læseliste?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikler gemt i læselister kan nu synkroniseres med din Wikipediakonto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få yderligere information&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine læselister gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Yderligere information&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikler gemt på læselister kan nu synkroniseres til din Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipedia-konto og tillad, at dine lister gemmes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Få flere oplysninger&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkr. læselister</string>
   <string name="reading_lists_login_reminder_text">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
@@ -1753,16 +1754,70 @@
   <string name="on_this_day_game_report_email_body">Jeg er stødt på et problem med Wikipedia-spilfunktionen:\n- [Beskriv specifikt problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv foreslået løsning]</string>
   <string name="on_this_day_game_notification_undo">Fortryd</string>
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hvilken kom først?\" et dagligt trivia-spil på Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_share_screen_title">Jeg scorede %1$d/%2$d på\n\"Hvad kom først?\"\ni dag.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Emner inkluderet:</string>
   <string name="on_this_day_game_survey_q1">Hvor tilfreds var du med dette spil?</string>
   <string name="on_this_day_game_survey_q2">Vil du være interesseret i at spille andre Wikipedia-spil?</string>
+  <string name="on_this_day_game_archive_calendar_title">Vælg et spil efter dato at spille.</string>
+  <string name="on_this_day_game_score_toast_message">Du opnåede %1$d/%2$d på denne dag.</string>
+  <string name="on_this_day_game_continue_btn_text">Fortsæt dagens spil</string>
+  <string name="on_this_day_game_current_progress_message">Du er på spørgsmål %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Afspil arkivet</string>
+  <string name="on_this_day_game_review_results_btn_text">Gennemgå resultater</string>
+  <string name="on_this_day_game_score_message">Du scorede %1$d/%2$d i dagens kamp.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Fortsæt med at spille</string>
+  <string name="on_this_day_game_sound_on">Tænd for lyden</string>
+  <string name="on_this_day_game_sound_off">Sluk for lyden</string>
   <string name="recommended_reading_list_title">Opdag</string>
+  <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
+  <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ny!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Kom igang</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nej tak</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Gå til Indstillinger for at konfigurere din anbefalede læseliste senere.</string>
+  <string name="recommended_reading_list_interest_source_message">Hvordan skal vi opbygge din anbefalede læseliste?</string>
+  <string name="recommended_reading_list_interest_source_interests">Lad mig vælge ud fra mine interesser</string>
+  <string name="recommended_reading_list_interest_source_saved">Vælg for mig baseret på mine gemte artikler</string>
+  <string name="recommended_reading_list_interest_source_history">Vælg for mig ud fra min læsehistorie</string>
+  <string name="recommended_reading_list_interest_pick_title">Hvad er du interesseret i?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Søg efter en artikel</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d valgt</item>
+    <item quantity="other">%d udvalgte</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Vælg mindst én interesse</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Vælg tilfældigt</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Vi har tilfældigt udvalgt et par artikler til dig.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Fortryd</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Er du sikker på, at du vil randomisere dit valg?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Dette vil rydde dine nuværende valg og vælge nye artikler tilfældigt.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Ja, vælg for mig</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Glem ikke</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Lavet til %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Lavet til dig</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d artikel</item>
+    <item quantity="other">• %d artikler</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Din daglige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer ved midnat.</string>
+  <string name="recommended_reading_list_page_description_weekly">Din ugentlige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer i starten af ​​ugen.</string>
+  <string name="recommended_reading_list_page_description_monthly">Din månedlige læseliste. Lær om nye emner, udvalgt til dig. Opdateringer den første i hver måned.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Tilpas</string>
+  <string name="recommended_reading_list_page_overflow_about">Om denne funktion</string>
+  <string name="recommended_reading_list_page_snackbar">Opdage avil opdatere med %1$d nye artikler hver %2$s. Dine anbefalinger gemmes lokalt på din enhed.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Tilpas Opdage</string>
   <string name="recommended_reading_list_page_snackbar_day">Dag</string>
   <string name="recommended_reading_list_page_snackbar_week">Uge</string>
   <string name="recommended_reading_list_page_snackbar_month">Måned</string>
   <string name="recommended_reading_list_settings_section_header">Anbefalinger</string>
+  <string name="recommended_reading_list_settings_title">Opdag indstillinger</string>
+  <string name="recommended_reading_list_settings_toggle">Opdag læseliste</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Opdage er slået fra. Wikipedia vil ikke anbefale dig artikler at læse.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Vil du slå Opdage fra?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Hvis du slår Opdage fra, vil du stoppe med at modtage %s læseanbefalinger fra Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Sluk den</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nej, fortsæt med det</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Opdage er blevet slået fra. Du kan tænde den igen når som helst i indstillingerne.</string>
   <string name="recommended_reading_list_settings_articles">artikler</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">dagligt</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ugentligt</string>
