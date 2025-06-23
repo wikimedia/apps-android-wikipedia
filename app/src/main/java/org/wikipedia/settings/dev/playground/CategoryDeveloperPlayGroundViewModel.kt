@@ -113,8 +113,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                         )
                     }
 
-                    println("orange --> inserted ${batch.size} records to Category}")
-                    AppDatabase.instance.categoryDao().insertAll(batch)
+                    AppDatabase.instance.categoryDao().upsertAll(batch)
 
                     inserted += batch.size
                 }
