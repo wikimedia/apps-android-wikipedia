@@ -1861,8 +1861,6 @@
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_share_screen_title">I scored %1$d/%2$d on \n\"Which came first?\" \ntoday.</string>
     <string name="on_this_day_game_share_screen_subtitle">Topics included:</string>
-    <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
-    <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
     <string name="on_this_day_game_archive_calendar_title">Choose a game by date to play.</string>
     <string name="on_this_day_game_score_toast_message">You scored %1$d/%2$d on this day.</string>
     <string name="on_this_day_game_continue_btn_text">Continue today\'s game</string>
