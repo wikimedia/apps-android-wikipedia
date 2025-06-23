@@ -15,6 +15,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.OnSelectionChangedListener
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
@@ -58,7 +59,7 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
     protected fun prepareAndOpenArchiveCalendar(viewModel: OnThisDayGameViewModel) {
         lifecycleScope.launch {
             val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]
+            val localDate = startDateBasedOnLanguage[WikipediaApp.instance.languageState.getDefaultLanguageCode(viewModel.wikiSite.languageCode) ?: viewModel.wikiSite.languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
             showArchiveCalendar(

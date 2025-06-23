@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -23,6 +24,7 @@ import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -140,6 +142,22 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     events.add(event2)
                     allEvents.remove(event2)
                 }
+            }
+
+            // Update language variant if needed for pages in events
+            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
+            if (hasParentLanguageCode) {
+                val newEvents = mutableListOf<OnThisDay.Event>()
+                events.forEach { event ->
+                    val newPages = L10nUtil.getPagesForLanguageVariant(event.pages, wikiSite, shouldUpdateExtracts = true)
+                    newEvents.add(OnThisDay.Event(
+                        text = event.text,
+                        year = event.year,
+                        pages = newPages
+                    ))
+                }
+                events.clear()
+                events.addAll(newEvents)
             }
 
             totalState.langToState[wikiSite.languageCode]?.let {
@@ -465,11 +483,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
 
         fun isLangSupported(lang: String): Boolean {
-            return LANG_CODES_SUPPORTED.contains(lang)
-        }
-
-        fun isLangABTested(lang: String): Boolean {
-            return isLangSupported(lang) && lang != "de"
+            val parentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(lang) ?: lang
+            return LANG_CODES_SUPPORTED.contains(parentLanguageCode)
         }
 
         fun dateReleasedForLang(lang: String): LocalDate {
