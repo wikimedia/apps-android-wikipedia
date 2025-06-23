@@ -370,6 +370,9 @@
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <activity
+            android:name=".yearinreview.YearInReviewActivity"/>
+      
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
             android:windowSoftInputMode="adjustResize" />
 

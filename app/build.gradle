@@ -38,7 +38,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 35
-        versionCode 50536
+        versionCode 50537
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -276,6 +276,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.compose.activity)
     implementation(libs.compose.view.model)
+    implementation(libs.androidx.navigation.compose)
 
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
