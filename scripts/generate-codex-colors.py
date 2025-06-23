@@ -50,7 +50,7 @@ def to_camel_case(text):
 def generate_compose_raw_color_file(colors_dict, file_path):
     content = ["package org.wikipedia.compose.theme\n\n",
                "import androidx.compose.ui.graphics.Color\n\n",
-               f"// CODEX VERSION ${CODEX_VERSION}\n",
+               f"// CODEX VERSION {CODEX_VERSION}\n",
                "object ComposeColors {\n"]
 
     sorted_colors = sorted(colors_dict.items())
