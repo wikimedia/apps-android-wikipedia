@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -69,15 +68,14 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
                 } else {
                     year
                 }
-                AppDatabase.instance.categoryDao().insert(
-                    Category(
-                        month = 1,
-                        year = finalYear,
-                        title = title,
-                        lang = languageCode,
-                        count = 1
-                    )
+                val category = Category(
+                    month = 1,
+                    year = finalYear,
+                    title = title,
+                    lang = languageCode,
+                    count = 1
                 )
+                AppDatabase.instance.categoryDao().upsertAll(listOf(category))
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error generating sample data", e)
@@ -135,7 +133,7 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
             L.e(throwable)
         }) {
             try {
-                deleteOldDataInBatches(Year.now().value, 100)
+                AppDatabase.instance.categoryDao().deleteOlderThanInBatch(Year.now().value + 1)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories", e)
@@ -146,21 +144,12 @@ class CategoryDeveloperPlayGroundViewModel : ViewModel() {
         }
     }
 
-    suspend fun deleteOldDataInBatches(year: Int, batchSize: Int) {
-        var deletedCount = 0
-        do {
-            deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(year, batchSize)
-            L.d("category deletedCount --> $deletedCount")
-            delay(1000)
-        } while (deletedCount > 0)
-    }
-
     fun deleteBeforeYear(context: Context, yearsAgo: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
             try {
-                deleteOldDataInBatches(yearsAgo, 100)
+                AppDatabase.instance.categoryDao().deleteOlderThanInBatch(yearsAgo)
                 loadCategories()
             } catch (e: Exception) {
                 L.e("Error deleting categories data of $yearsAgo years ago", e)

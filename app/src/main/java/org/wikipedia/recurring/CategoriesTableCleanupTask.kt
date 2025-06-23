@@ -15,15 +15,12 @@ class CategoriesTableCleanupTask : RecurringTask() {
 
     override suspend fun run(lastRun: Date) {
         val twoYearsAgoTimeStamp = LocalDateTime.now().year - CLEANUP_TIME_IN_YEARS
-        deleteOldDataInBatches(twoYearsAgoTimeStamp, 1000)
+        deleteOldDataInBatches(twoYearsAgoTimeStamp)
         L.d("Successfully deleted Category data older than $CLEANUP_TIME_IN_YEARS years")
     }
 
-    suspend fun deleteOldDataInBatches(year: Int, batchSize: Int) {
-        var deletedCount = 0
-        do {
-            deletedCount = AppDatabase.instance.categoryDao().deleteOlderThanInBatch(year, batchSize)
-        } while (deletedCount > 0)
+    suspend fun deleteOldDataInBatches(year: Int) {
+        AppDatabase.instance.categoryDao().deleteOlderThanInBatch(year)
     }
 
     companion object {

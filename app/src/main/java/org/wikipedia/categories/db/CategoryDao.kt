@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 
 @Dao
 interface CategoryDao {
@@ -30,9 +31,10 @@ interface CategoryDao {
     @Query("DELETE FROM Category")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE year <:year LIMIT :batchSize)")
-    suspend fun deleteOlderThanInBatch(year: Int, batchSize: Int): Int
+    @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE year <:year)")
+    suspend fun deleteOlderThanInBatch(year: Int): Int
 
+    @Transaction
     suspend fun upsertAll(list: List<Category>) {
         list.forEach { category ->
             findByPrimaryKey(category.year, category.month, category.title, category.lang)?.let {
