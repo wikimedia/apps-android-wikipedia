@@ -31,7 +31,7 @@ interface CategoryDao {
     @Query("DELETE FROM Category")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE year <:year)")
+    @Query("DELETE FROM Category WHERE rowid IN (SELECT rowid FROM Category WHERE year < :year)")
     suspend fun deleteOlderThan(year: Int): Int
 
     @Transaction

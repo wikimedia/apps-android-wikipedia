@@ -333,8 +333,8 @@ abstract class AppDatabase : RoomDatabase() {
                 // Step 2: Populate the new table with the transformed data from the old table
                 db.execSQL("INSERT INTO Category_temp (year, month, title, lang, count)" +
                         "    SELECT" +
-                        "        COALESCE(CAST(strftime('%Y', timeStamp) AS INTEGER), ${LocalDate.now().year}) AS year," +
-                        "        COALESCE(CAST(strftime('%m', timeStamp) AS INTEGER), ${LocalDate.now().monthValue}) AS month," +
+                        "        COALESCE(CAST(strftime('%Y', timeStamp / 1000, 'unixepoch') AS INTEGER), ${LocalDate.now().year}) AS year," +
+                        "        COALESCE(CAST(strftime('%m', timeStamp / 1000, 'unixepoch') AS INTEGER), ${LocalDate.now().monthValue}) AS month," +
                         "        title," +
                         "        lang," +
                         "        COUNT(*) AS count" +
