@@ -70,6 +70,7 @@ def generate_wikipedia_color(main_color_data, file_path):
     content = ["package org.wikipedia.compose.theme\n\n",
                "import androidx.compose.runtime.Immutable\n"
                "import androidx.compose.ui.graphics.Color\n\n",
+               f"// CODEX VERSION {CODEX_VERSION}\n",
                "@Immutable\ndata class WikipediaColor(\n"]
     pascal_names = [to_camel_case(name) for name in base_colors.keys()]
     for name in pascal_names:
