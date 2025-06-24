@@ -8,6 +8,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
@@ -115,8 +116,10 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     // Lengthy operation during which the db state may change...
                     totalSize = savePageFor(page)
                     success = true
-                } catch (e: InterruptedException) {
-                    // fall through
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: InterruptedException) {
+                        // fall through
                 } catch (e: Exception) {
                     // This can be an IOException from the storage media, or several types
                     // of network exceptions from malformed URLs, timeouts, etc.
@@ -242,6 +245,8 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     percentage += updateRate
                     page.downloadProgress = percentage.toInt()
                     FlowEventBus.post(PageDownloadEvent(page))
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     if (isRetryable(e)) {
                         throw e
