@@ -33,7 +33,7 @@ class ReadingFocusModeTest : BaseTest<MainActivity>(
             .navigateToMoreMenu()
             .goToSettings()
         settingsRobot
-            .clickAppTheme() // test failed here bug: Waited for the root of the view hierarchy to have window focus and not request layout for 10 seconds. If you specified a non default root matcher, it may be picking a root that never takes focus. Root:
+            .clickAppTheme()
         appThemeRobot
             .toggleReadingFocusMode()
             .backToHomeScreen()
