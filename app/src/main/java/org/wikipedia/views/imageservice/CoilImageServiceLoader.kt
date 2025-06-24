@@ -111,12 +111,9 @@ class CoilImageServiceLoader : ImageServiceLoader {
             val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
             requestBuilder.placeholder(placeHolder).error(placeHolder)
         }
-        val isGif = ImageUrlUtil.isGif(url)
-        if (!isGif) {
-            when {
-                (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
-                else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
-            }
+        when {
+            (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
+            !ImageUrlUtil.isGif(url) -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
         }
 
         if (listener != null) {
