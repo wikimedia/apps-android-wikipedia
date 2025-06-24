@@ -24,6 +24,7 @@ import coil3.toBitmap
 import org.wikipedia.R
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 
 class CoilImageServiceLoader : ImageServiceLoader {
@@ -110,10 +111,12 @@ class CoilImageServiceLoader : ImageServiceLoader {
             val placeHolder = ResourceUtil.getThemedColor(context, R.attr.border_color).toDrawable()
             requestBuilder.placeholder(placeHolder).error(placeHolder)
         }
-
-        when {
-            (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
-            else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
+        val isGif = ImageUrlUtil.isGif(url)
+        if (!isGif) {
+            when {
+                (detectFace == true && shouldDetectFace(url)) -> requestBuilder.transformations(FaceDetectTransformation(), DimImageTransformation())
+                else -> requestBuilder.transformations(WhiteBackgroundTransformation(), DimImageTransformation())
+            }
         }
 
         if (listener != null) {
@@ -143,6 +146,6 @@ class CoilImageServiceLoader : ImageServiceLoader {
     private fun shouldDetectFace(url: String?): Boolean {
         if (url.isNullOrEmpty()) return false
         // TODO: not perfect; should ideally detect based on MIME type.
-        return url.endsWith(".jpg", true) || url.endsWith(".jpeg", true)
+        return url.endsWith(".jpg", true) || url.endsWith(".jpeg", true) || url.endsWith(".png", true)
     }
 }
