@@ -519,4 +519,15 @@
             android:title="Category" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Year in Review">
+        
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_year_in_review_is_enabled"
+            android:title="@string/preference_key_year_in_review_is_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_survey_shown"
+            android:title="@string/preference_key_yir_survey_shown" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
