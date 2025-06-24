@@ -763,10 +763,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_entry_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_entry_dialog_shown, value)
 
-    var otdGameSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_survey_shown, value)
-
     var otdGameFirstPlayedShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_game_first_played_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_game_first_played_shown, value)
@@ -780,6 +776,14 @@ object Prefs {
     var isOtdSoundOn
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_otd_sound_on, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
+
+    var isYearInReviewEnabled: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
+
+    var yirSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_survey_shown, value)
 
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)

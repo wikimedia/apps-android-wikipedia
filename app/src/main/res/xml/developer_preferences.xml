@@ -488,10 +488,6 @@
             android:title="@string/preference_developer_otd_reset_notification_state" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_otd_game_survey_shown"
-            android:title="@string/preference_key_otd_game_survey_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_otd_game_first_played_shown"
             android:title="@string/preference_key_otd_game_first_played_shown" />
 
@@ -523,4 +519,15 @@
             android:title="Category" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Year in Review">
+        
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_year_in_review_is_enabled"
+            android:title="@string/preference_key_year_in_review_is_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_survey_shown"
+            android:title="@string/preference_key_yir_survey_shown" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

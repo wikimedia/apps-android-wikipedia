@@ -404,6 +404,7 @@
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
     <string name="nav_item_donate">Donate</string>
+    <string name="nav_item_year_in_review">Year In Review</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
@@ -1860,8 +1861,6 @@
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
     <string name="on_this_day_game_share_screen_title">I scored %1$d/%2$d on \n\"Which came first?\" \ntoday.</string>
     <string name="on_this_day_game_share_screen_subtitle">Topics included:</string>
-    <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
-    <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
     <string name="on_this_day_game_archive_calendar_title">Choose a game by date to play.</string>
     <string name="on_this_day_game_score_toast_message">You scored %1$d/%2$d on this day.</string>
     <string name="on_this_day_game_continue_btn_text">Continue today\'s game</string>
@@ -1872,6 +1871,58 @@
     <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
+
+    <!-- Year In Review -->
+    <string name="year_in_review_learn_more">Learn More</string>
+    <string name="year_in_review_get_started">Get Started</string>
+    <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
+    <string name="year_in_review_navigate_left">Navigate Left</string>
+    <string name="year_in_review_share_icon">Share Icon</string>
+    <string name="year_in_review_heart_icon">Heart Icon</string>
+    <string name="year_in_review_navigate_right">Navigate Right</string>
+    <string name="year_in_review_donate">Donate</string>
+    <string name="year_in_review_information_icon">Information Icon</string>
+    <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
+    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
+    <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
+    <string name="year_in_review_entry_dialog_continue">Continue</string>
+    <plurals name="year_in_review_read_count_headline">
+        <item quantity="one">You read %d article this year</item>
+        <item quantity="other">You read %d articles this year</item>
+    </plurals>
+    <plurals name="year_in_review_read_count_bodytext">
+        <item quantity="one">This year, you read %1$d article, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+        <item quantity="other">This year, you read %1$d articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_headline">
+        <item quantity="one">You edited Wikipedia %d time</item>
+        <item quantity="other">You edited Wikipedia %d times</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_bodytext">
+        <item quantity="one">You edited Wikipedia %d time. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+        <item quantity="other">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+    </plurals>
+    <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
+    <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
+    <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
+    <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
+    <string name="year_in_review_survey_satisfied">Satisfied</string>
+    <string name="year_in_review_survey_neutral">Neutral</string>
+    <string name="year_in_review_survey_unsatisfied">Unsatisfied</string>
+    <string name="year_in_review_survey_very_unsatisfied">Very unsatisfied</string>
+    <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
+    <string name="year_in_review_survey_cancel">Cancel</string>
+    <string name="year_in_review_survey_submit">Submit</string>
+    <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
+    <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
+    <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
+    <string name="year_in_review_share_subject">Year In Review Image and Link</string>
+    <string name="year_in_review_globe_icon">Globe Icon</string>
+
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
