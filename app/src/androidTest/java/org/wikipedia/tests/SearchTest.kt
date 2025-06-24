@@ -34,9 +34,10 @@ class SearchTest : BaseTest<MainActivity>(
     @Test
     fun startSearchTest() {
         systemRobot
+            .disableDarkMode(context)
             .clickOnSystemDialogWithText("Allow")
         homeScreenRobot
-            .clickSearchContainer() // test failed here bug: 06-23 15:56:45.222  6712  6785 E EspressoError: No views in hierarchy found matching: (view.getId() is <2131297712/org.wikipedia.dev:id/search_container> and (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle))
+            .clickSearchContainer()
         searchRobot
             .typeTextInView(SEARCH_TERM)
             .verifySearchResult(ARTICLE_TITLE)
