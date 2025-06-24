@@ -924,7 +924,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 swipeRefreshLayout.isRefreshing = false
             } else {
                 Prefs.isReadingListSyncEnabled = true
-                ReadingListSyncAdapter.manualSyncWithRefresh()
+
+                // TODO: Change this back to the less forceful manualSyncWithRefresh() when the
+                // service-side endpoint is fixed.
+                // https://phabricator.wikimedia.org/T351149
+                ReadingListSyncAdapter.manualSyncWithForce()
             }
         }
     }
