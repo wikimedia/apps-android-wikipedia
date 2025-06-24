@@ -45,7 +45,7 @@ class TableOfContentsTest : BaseTest<PageActivity>(
 
     private fun tocTest() {
         pageRobot
-            .openTableOfContents() // test failed here bug: 06-23 16:12:25.801 15274 15347 E EspressoError: No views in hierarchy found matching: (view.getId() is <2131297441/org.wikipedia.dev:id/page_contents> and view.getContentDescription() is "Contents" and (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle))
+            .openTableOfContents()
             .clickOutside()
             .openTableOfContents()
             .clickOnTOCItem(5)

@@ -47,7 +47,7 @@ class SavedArticleTest : BaseTest<MainActivity>(
                 }
             })
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE) // test failed here bug: 06-23 16:06:45.221 11706 11997 E EspressoError: No views in hierarchy found matching: view.getId() is <2131296743/org.wikipedia.dev:id/feed_view>
+            .scrollToItem(title = FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()
             .clickSave()
         setDeviceOrientation(isLandscape = true)
