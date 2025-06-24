@@ -13,6 +13,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.wikipedia.TestLogRule
+import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
@@ -80,6 +81,9 @@ abstract class BaseTest<T : AppCompatActivity>(
         activityScenarioRule.scenario.onActivity {
             activity = it
         }
+        val instance = WikipediaApp.instance
+        val appLanguageCodeList = instance.languageState.appLanguageCodes
+        instance.languageState.removeAppLanguageCodes(appLanguageCodeList.filter { it != "en" })
     }
 
     protected fun setDeviceOrientation(isLandscape: Boolean) {

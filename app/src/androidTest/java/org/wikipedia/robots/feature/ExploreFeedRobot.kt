@@ -14,6 +14,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.hasSibling
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -78,9 +79,18 @@ class ExploreFeedRobot : BaseRobot() {
             onView(
                 allOf(
                     withId(R.id.view_list_card_list),
-                    childAtPosition(withId(R.id.view_list_card_list_container), 0)
-                )
-            ).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                    hasSibling(
+                        allOf(
+                            withId(R.id.view_list_card_header),
+                            hasDescendant(
+                                allOf(
+                                    withId(R.id.view_card_header_title),
+                                    withText("Top read")
+                                )
+                            )
+                        )
+                    )
+                )).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
                 .perform()
             pressBack()
             delay(TestConfig.DELAY_MEDIUM)
@@ -125,7 +135,6 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickPictureOfTheDay() = apply {
-        delay(5000)
         click.onViewWithId(R.id.view_featured_image_card_content_container)
         delay(TestConfig.DELAY_SHORT)
     }
