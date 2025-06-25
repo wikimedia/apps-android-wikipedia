@@ -15,8 +15,7 @@ object GifMatchers {
             }
 
             override fun matchesSafely(imageView: ImageView): Boolean {
-                var drawable = imageView.drawable
-                return drawable is Animatable
+                return imageView.drawable is Animatable
             }
         }
     }

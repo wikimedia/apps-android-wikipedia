@@ -81,9 +81,9 @@ abstract class BaseTest<T : AppCompatActivity>(
         activityScenarioRule.scenario.onActivity {
             activity = it
         }
-        val instance = WikipediaApp.instance
-        val appLanguageCodeList = instance.languageState.appLanguageCodes
-        instance.languageState.removeAppLanguageCodes(appLanguageCodeList.filter { it != "en" })
+        WikipediaApp.instance.languageState.let {
+            it.removeAppLanguageCodes(it.appLanguageCodes.filter { it != "en" })
+        }
     }
 
     protected fun setDeviceOrientation(isLandscape: Boolean) {
