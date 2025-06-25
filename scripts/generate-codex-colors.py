@@ -128,14 +128,14 @@ def generate_wikipedia_color_class(base_colors, file_path):
         return False
 
 # Append light or dark color tokens to the file
-def append_color_tokens(base_colors, file_path, mode_name):
-    if not base_colors:
+def append_color_tokens(colors, file_path, mode_name):
+    if not colors:
         print(f"Warning: No {mode_name} colors to append")
         return False
 
     content = [f"\nval {mode_name}Colors = WikipediaColor(\n"]
-    for base_name, original_value_name in sorted(base_colors.items()):
-        content.append(f"\t{base_name} = ComposeColors.{original_value_name},\n")
+    for name, original_value_name in sorted(colors.items()):
+        content.append(f"\t{name} = ComposeColors.{original_value_name},\n")
     content.append(")\n")
 
     try:
