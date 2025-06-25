@@ -8,8 +8,6 @@ Step 1: (run without arguments)
     - Bump versionCode
     - Make a new commit
 
-After this run 'git review' and + the commit.
-
 Cross-platform compatible - works on Windows, macOS, and Linux.
 """
 import subprocess
@@ -100,4 +98,4 @@ def bump(file_path):
 
 if __name__ == '__main__':
     bump('app/build.gradle')
-    print('BUMP NOTICE! Merge the new `bumpVersionCodeTest` into Main.)')
+    print('BUMP NOTICE! Merge the new `' + VERSION_CODE_BRANCH + '` into Main.)')
