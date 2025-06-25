@@ -24,8 +24,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.login.LoginActivity
+import org.wikipedia.login.ResetPasswordActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
@@ -266,6 +269,7 @@ object FeedbackUtil {
             is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
             is EditHistoryListActivity -> R.id.edit_history_coordinator
             is TalkTopicsActivity -> R.id.talkTopicsSnackbar
+            is LoginActivity, CreateAccountActivity, ResetPasswordActivity -> R.id.layout_coordinator
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)
