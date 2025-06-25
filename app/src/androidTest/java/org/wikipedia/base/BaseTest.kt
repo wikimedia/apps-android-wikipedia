@@ -13,6 +13,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.wikipedia.TestLogRule
+import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
@@ -79,6 +80,9 @@ abstract class BaseTest<T : AppCompatActivity>(
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
             activity = it
+        }
+        WikipediaApp.instance.languageState.let {
+            it.removeAppLanguageCodes(it.appLanguageCodes.filter { it != "en" })
         }
     }
 
