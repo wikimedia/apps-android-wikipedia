@@ -33,7 +33,7 @@ def set_version_code(data):
     if not match:
         raise ValueError('Version code not found')
     version_code = int(match.group('value'))
-    next_version_code = '\g<key> {}'.format(version_code + 1)
+    next_version_code = r'\g<key> {}'.format(version_code + 1)
     return version_code_pattern.sub(next_version_code, data)
 
 
@@ -98,4 +98,4 @@ def bump(file_path):
 
 if __name__ == '__main__':
     bump('app/build.gradle')
-    print('BUMP NOTICE! Merge the new `' + VERSION_CODE_BRANCH + '` into Main.)')
+    print('BUMP NOTICE! Merge the new `' + VERSION_CODE_BRANCH + '` into Main.')
