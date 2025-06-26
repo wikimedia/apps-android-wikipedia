@@ -198,6 +198,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.readingListSwipeRefresh.isRefreshing = false
                                 update()
                                 maybeShowCustomizeSnackbar()
+                                Prefs.isNewRecommendedReadingListGenerated = false
+                                FlowEventBus.post(NewRecommendedReadingListEvent())
                             }
                             is Resource.Error -> {
                                 L.e(it.throwable)
@@ -447,9 +449,9 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     viewModel.generateRecommendedReadingList()
                 } else {
                     update()
+                    Prefs.isNewRecommendedReadingListGenerated = false
+                    FlowEventBus.post(NewRecommendedReadingListEvent())
                 }
-                Prefs.isNewRecommendedReadingListGenerated = false
-                FlowEventBus.post(NewRecommendedReadingListEvent())
             }
         }
     }
