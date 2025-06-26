@@ -37,9 +37,9 @@
 * Tomato Cream
 * Trizek (WMF)
 * Verdy p
-* voyagerfan
 * Wladek92
 * Zoranzoki21
+* voyagerfan
 -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
   <string name="app_name_prod">{{Doc-protected-established}}\n\nName of the app as it will appear on the home screen. Should be the canonical, locally-trademarked name of Wikipedia, and identical to these messages:\n* iOS app name: {{msg-wm|Wikipedia-ios-meta-CFBundleDisplayName}}\n* Portal site name: {{msg-wm|Portals-wiki.name}}\n{{Identical|Wikipedia}}</string>
@@ -432,6 +432,7 @@
   <string name="preference_title_collapse_tables">Title of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="preference_summary_collapse_tables">Description of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
+  <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
   <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
   <string name="enable_location_service">Button label for enabling location services\n{{Identical|Enable}}</string>
@@ -1789,8 +1790,6 @@
   <string name="on_this_day_game_continue_playing_btn_text">label for continue playing button.</string>
   <string name="on_this_day_game_sound_on">Menu item label when game sound is turned off.</string>
   <string name="on_this_day_game_sound_off">Menu item label when game sound is turned on./</string>
-  <string name="about_screen_logo_accessibility_text">Accessibility text informing users that this is a logo of a wikipedia puzzle globe.</string>
-  <string name="nav_item_year_in_review">Text label for the Year in review menu item that shows in the main navigation drawer.</string>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>

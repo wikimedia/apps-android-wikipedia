@@ -1737,8 +1737,6 @@
   <string name="on_this_day_game_share_link_message">Io joca a “Qual ha evenite primo?”, un quiz quotidian sur le app Android de Wikipedia %s</string>
   <string name="on_this_day_game_share_screen_title">Hodie io ha obtenite un score de %1$d/%2$d sur “Qual ha evenite primo?”.</string>
   <string name="on_this_day_game_share_screen_subtitle">Topicos includite:</string>
-  <string name="on_this_day_game_survey_q1">Quanto satisfacite esseva tu con le joco?</string>
-  <string name="on_this_day_game_survey_q2">Te interessarea jocar altere jocos de Wikipedia?</string>
   <string name="on_this_day_game_archive_calendar_title">Elige per data un joco a jocar.</string>
   <string name="on_this_day_game_score_toast_message">Tu score de hodie es %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_btn_text">Continuar le joco de hodie</string>
