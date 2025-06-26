@@ -1756,8 +1756,6 @@
   <string name="on_this_day_game_share_link_message">Jeg spiller \"Hvilken kom først?\" et dagligt trivia-spil på Wikipedias Android-app %s</string>
   <string name="on_this_day_game_share_screen_title">Jeg scorede %1$d/%2$d på\n\"Hvad kom først?\"\ni dag.</string>
   <string name="on_this_day_game_share_screen_subtitle">Emner inkluderet:</string>
-  <string name="on_this_day_game_survey_q1">Hvor tilfreds var du med dette spil?</string>
-  <string name="on_this_day_game_survey_q2">Vil du være interesseret i at spille andre Wikipedia-spil?</string>
   <string name="on_this_day_game_archive_calendar_title">Vælg et spil efter dato at spille.</string>
   <string name="on_this_day_game_score_toast_message">Du opnåede %1$d/%2$d på denne dag.</string>
   <string name="on_this_day_game_continue_btn_text">Fortsæt dagens spil</string>

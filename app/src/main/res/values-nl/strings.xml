@@ -1776,6 +1776,4 @@
   <string name="on_this_day_game_report_email_body">Ik ben een probleem tegengekomen met de functie Wikipedia-spellen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="on_this_day_game_notification_undo">Ongedaan maken</string>
   <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
-  <string name="on_this_day_game_survey_q1">Hoe tevreden was u met dit spel?</string>
-  <string name="on_this_day_game_survey_q2">Zou u geïnteresseerd zijn in het spelen van andere Wikipedia-spellen?</string>
 </resources>

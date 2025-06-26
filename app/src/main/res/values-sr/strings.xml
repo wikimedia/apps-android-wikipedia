@@ -1665,10 +1665,14 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да укључији их</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
-  <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
   <string name="on_this_day_game_continue_playing_btn_text">Настави игру</string>
   <string name="on_this_day_game_sound_on">Искључи звук</string>
   <string name="on_this_day_game_sound_off">Укључи звук</string>
+  <string name="year_in_review_learn_more">Сазнајте више</string>
+  <string name="year_in_review_donate">Донирај</string>
+  <string name="year_in_review_entry_dialog_continue">Настави</string>
+  <string name="year_in_review_survey_cancel">Откажи</string>
+  <string name="year_in_review_survey_submit">Проследи</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
@@ -1688,4 +1692,6 @@
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Нема везе</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Опозови</string>
   <string name="recommended_reading_list_settings_notifications_title">Обавештења</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Искључи их</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
 </resources>

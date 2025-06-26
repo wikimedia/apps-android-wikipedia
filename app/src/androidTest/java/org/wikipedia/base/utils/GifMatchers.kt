@@ -1,5 +1,6 @@
 package org.wikipedia.base.utils
 
+import android.graphics.drawable.Animatable
 import android.view.View
 import android.widget.ImageView
 import androidx.test.espresso.matcher.BoundedMatcher
@@ -14,12 +15,7 @@ object GifMatchers {
             }
 
             override fun matchesSafely(imageView: ImageView): Boolean {
-                val drawable = imageView.drawable
-
-                return when (drawable) {
-                    // @TODO: Add a way to identify if image is drwable
-                    else -> false
-                }
+                return imageView.drawable is Animatable
             }
         }
     }

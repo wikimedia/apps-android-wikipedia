@@ -529,7 +529,7 @@
     <item quantity="other">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;أنت لستُ مُسجلًا.&lt;/b&gt; بمجرد إصدارها، سيتم ربط عنوان IP الخاص بك مع التحريرات الخاصة بك.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;لم تقم بتسجيل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سيتم إنشاء حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;لم تسجل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سينشأ حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;أنت تستخدم حسابًا مؤقتًا.&lt;/b&gt; سيتم نسب تعديلك إلى %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
   <string name="temp_account_login_status">&lt;b&gt;أنت تستخدم حاليًا حسابًا مؤقتًا.&lt;/b&gt; لن يتم نقل التعديلات التي أجريتها باستخدام الحساب المؤقت %1$s إلى حسابك الدائم عند تسجيل الدخول. قم بتسجيل الدخول أو إنشاء حساب للحصول على رصيد باسم المستخدم الخاص بك، من بين مزايا أخرى.</string>
   <string name="temp_account_end_session">أنه الجلسة</string>
@@ -1982,8 +1982,6 @@
   <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
   <string name="on_this_day_game_share_screen_title">لقد حصلت على %1$d/%2$d في \n\"أيهما جاء أولاً؟\" \nاليوم.</string>
   <string name="on_this_day_game_share_screen_subtitle">المواضيع المتضمنة:</string>
-  <string name="on_this_day_game_survey_q1">ما مدى رضاك عن هذه اللعبة؟</string>
-  <string name="on_this_day_game_survey_q2">هل ترغب في لعب ألعاب ويكيبيديا المختلفة؟</string>
   <string name="on_this_day_game_archive_calendar_title">اختر لعبة حسب التاريخ للعب.</string>
   <string name="on_this_day_game_score_toast_message">لقد حصلت على %1$d/%2$d في هذا اليوم.</string>
   <string name="on_this_day_game_continue_btn_text">تابع مباراة اليوم</string>

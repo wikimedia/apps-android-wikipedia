@@ -161,6 +161,7 @@
   <string name="login_2fa_other_workflow_error_msg">İki faktorlu autentifikasiya tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və 2FA kodunu daxil edin.</string>
   <string name="login_email_auth_hint">E-poçt doğrulama kodu</string>
   <string name="login_email_auth_other_workflow_error_msg">E-poçt təsdiqi tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və e-poçt doğrulama kodunuzu daxil edin.</string>
+  <string name="login_background_error_msg">Yenidən giriş etmək mümkün olmadı. Zəhmət olmasa, əsas ekrana qayıt və manual daxil ol.</string>
   <string name="onboarding_card_login">Daxil ol</string>
   <string name="page_editing_login">Daxil ol</string>
   <string name="reading_lists_sync_login">Daxil ol</string>
@@ -397,6 +398,7 @@
   <string name="preference_title_collapse_tables">Cədvəlləri bağla</string>
   <string name="preference_summary_collapse_tables">Məlumat qutuları, istinadlar və qeydlər kimi məqalələrdəki cədvəlləri avtomatik olaraq bağlayın.</string>
   <string name="nav_item_donate">Maddi kömək</string>
+  <string name="nav_item_year_in_review">İlin İcmalı</string>
   <string name="error_voice_search_not_available">Üzr istəyirik, səs tanıma mövcud deyil.</string>
   <string name="location_service_disabled">Məkan xidmətləri deaktivdir.</string>
   <string name="enable_location_service">Aktivləşdir</string>
@@ -1738,8 +1740,6 @@
   <string name="on_this_day_game_share_link_message">Mən Vikipediya Android tətbiqində \"Hansı birinci baş verib?\" gündəlik trivia oyununu oynayıram %s</string>
   <string name="on_this_day_game_share_screen_title">Mən bu gün \"Hansı birinci baş verib?\" oyununda %1$d/%2$d xal topladım.</string>
   <string name="on_this_day_game_share_screen_subtitle">Daxil olan mövzular:</string>
-  <string name="on_this_day_game_survey_q1">Bu oyundan nə dərəcədə razı qaldınız?</string>
-  <string name="on_this_day_game_survey_q2">Fərqli Vikipediya oyunlarını oynamaqda maraqlanırsınız?</string>
   <string name="on_this_day_game_archive_calendar_title">Oynamaq üçün tarixə görə oyun seçin.</string>
   <string name="on_this_day_game_score_toast_message">Bu gün %1$d/%2$d xal topladınız.</string>
   <string name="on_this_day_game_continue_btn_text">Bugünkü oyuna davam edin</string>
@@ -1750,6 +1750,24 @@
   <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
   <string name="on_this_day_game_sound_on">Səsi aç</string>
   <string name="on_this_day_game_sound_off">Səsi söndür</string>
+  <string name="year_in_review_learn_more">Ətraflı öyrən</string>
+  <string name="year_in_review_get_started">Başla</string>
+  <string name="year_in_review_topbar_w_icon">Vikipediya W ikonu</string>
+  <string name="year_in_review_navigate_left">Sola naviqasiya</string>
+  <string name="year_in_review_share_icon">Paylaş ikonu</string>
+  <string name="year_in_review_heart_icon">Ürək ikonu</string>
+  <string name="year_in_review_navigate_right">Sağa naviqasiya</string>
+  <string name="year_in_review_donate">İanə et</string>
+  <string name="year_in_review_information_icon">Məlumat ikonu</string>
+  <string name="year_in_review_get_started_headline">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
+  <string name="year_in_review_get_started_bodytext">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın. Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="year_in_review_entry_dialog_title">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
+  <string name="year_in_review_entry_dialog_bodytext">Vikipediyada oxuduğumuz və redaktə etdiyimiz məqalələr haqqında məlumatlara bax və il ərzindəki əsas məqamları paylaş.</string>
+  <string name="year_in_review_entry_dialog_continue">Davam et</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Bu il %d məqalə oxumusunuz</item>
+    <item quantity="other">Bu il %d məqalə oxumusunuz</item>
+  </plurals>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
