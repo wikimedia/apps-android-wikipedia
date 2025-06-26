@@ -44,29 +44,28 @@ class InputActions {
             })
     }
 
-    fun selectLastTypedText(@IdRes viewId: Int, textToSelect: String) {
+    fun getCurrentText(@IdRes viewId: Int): String {
         var currentText = ""
         onView(withId(viewId))
             .perform(object : ViewAction {
-                override fun getConstraints(): Matcher<View?>? {
+                override fun getConstraints(): Matcher<View> {
                     return allOf(isDisplayed(), isAssignableFrom(EditText::class.java))
                 }
 
-                override fun getDescription(): String = "Get current text"
+                override fun getDescription(): String {
+                    return "Get current text from EditText"
+                }
 
-                override fun perform(
-                    uiController: UiController?,
-                    view: View?
-                ) {
+                override fun perform(uiController: UiController, view: View) {
                     val editText = view as EditText
                     currentText = editText.text.toString()
                 }
             })
-        // Find the last occurrence of the text to select
-        val startIndex = currentText.lastIndexOf(textToSelect)
-        if (startIndex != -1) {
-            val endIndex = startIndex + textToSelect.length
-            selectText(viewId, startIndex, endIndex)
-        }
+        return currentText
+    }
+
+    fun closeKeyboard(@IdRes viewId: Int) {
+        onView(withId(viewId))
+            .perform(closeSoftKeyboard())
     }
 }

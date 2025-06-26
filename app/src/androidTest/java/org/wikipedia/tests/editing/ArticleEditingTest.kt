@@ -32,7 +32,19 @@ class ArticleEditingTest : BaseTest<PageActivity>(
     private val dialogRobot = DialogRobot()
     private val pageRobot = PageRobot(context)
     private val pageActionItemRobot = PageActionItemRobot()
-
+    val boldText = "Bold text"
+    val italicText = "Italic text"
+    val underlineText = "Underline text"
+    val strikeThroughText = "Strikethrough text"
+    val superScript = "2"
+    val subScript = "10"
+    val fullText = "What is Espresso Test?\n\n" +
+            "$boldText\n\n" +
+            "$italicText\n\n" +
+            "$underlineText\n\n" +
+            "$strikeThroughText\n\n" +
+            "X${superScript}\n\n" +
+            "X$subScript\n\n"
     @Test
     fun runTest() {
         pageRobot
@@ -43,13 +55,21 @@ class ArticleEditingTest : BaseTest<PageActivity>(
             .click("Got it")
         editorRobot
             .replaceTextInEditWindow("")
-            .typeInEditWindow("What is Espresso Test?\n")
-            .typeInEditWindow("\nThis is a bold text.")
-            .selectLastTypedText("This is a bold text.")
+            .typeInEditWindow(fullText)
+            .selectSpecificText(boldText)
             .clickTextFormatButton()
             .applyBoldFormat()
-            .typeInEditWindow("\nThis is an Italic text.")
-            .selectLastTypedText("This is an Italic text.")
+            .selectSpecificText(italicText)
             .applyItalicFormat()
+            .selectSpecificText(underlineText)
+            .applyUnderlineFormat()
+            .selectSpecificText(strikeThroughText)
+            .applyStrikeThroughFormat()
+            .selectSpecificText(superScript)
+            .applySuperScriptFormat()
+            .selectSpecificText(subScript)
+            .applySuperScriptFormat()
+            .closeKeyboard()
+            .showPreview()
     }
 }

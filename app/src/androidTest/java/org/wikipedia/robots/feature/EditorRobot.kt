@@ -67,16 +67,55 @@ class EditorRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun selectText(start: Int, end: Int) = apply {
-        input.selectText(R.id.edit_section_text, start, end)
+    fun applyUnderlineFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_underline)
+        delay(TestConfig.DELAY_SHORT)
     }
 
-    fun selectLastTypedText(text: String) = apply {
-        input.selectLastTypedText(R.id.edit_section_text, text)
+    fun applyStrikeThroughFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_strikethrough)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applySuperScriptFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_sup)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applySubScriptFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_sub)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun selectSpecificText(targetText: String) = apply {
+        val currentText = input.getCurrentText(R.id.edit_section_text)
+        val position = findTextPosition(currentText, targetText)
+        if (position != null)
+            input.selectText(R.id.edit_section_text, position.first, position.second)
+    }
+
+    fun closeKeyboard() = apply {
+        input.closeKeyboard(R.id.edit_section_text)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun showPreview() = apply {
+        click.onViewWithText("Next")
+        delay(TestConfig.DELAY_LARGE)
     }
 
     fun pressBack() = apply {
         goBack()
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    private fun findTextPosition(fullText: String, targetText: String): Pair<Int, Int>? {
+        val startIndex = fullText.indexOf(targetText)
+        return if (startIndex != -1) {
+            val endIndex = startIndex + targetText.length
+            Pair(startIndex, endIndex)
+        } else {
+            null
+        }
     }
 }
