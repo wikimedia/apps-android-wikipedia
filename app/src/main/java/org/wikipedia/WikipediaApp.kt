@@ -298,7 +298,7 @@ class WikipediaApp : Application() {
         }
     }
 
-    fun commitTabState(tab: Tab?) {
+    fun commitTabState(tab: Tab? = null) {
         CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {
