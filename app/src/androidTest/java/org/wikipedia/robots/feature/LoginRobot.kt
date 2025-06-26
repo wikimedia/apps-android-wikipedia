@@ -33,6 +33,7 @@ class LoginRobot : BaseRobot() {
             setPasswordFromBuildConfig()
             loginUser()
         } catch (e: Exception) {
+            pressBack()
             Log.e("LoginRobotError:", "User already logged in.")
         }
     }

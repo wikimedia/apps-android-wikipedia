@@ -14,7 +14,6 @@ import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
 import org.wikipedia.robots.DialogRobot
 import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
-import org.wikipedia.robots.screen.HomeScreenRobot
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -29,7 +28,6 @@ class TableOfContentsTest : BaseTest<PageActivity>(
     )
 ) {
     private val pageRobot = PageRobot(context)
-    private val homeScreenRobot = HomeScreenRobot()
     private val dialogRobot = DialogRobot()
     private val systemRobot = SystemRobot()
 
