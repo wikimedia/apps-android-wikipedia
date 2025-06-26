@@ -1758,8 +1758,6 @@
   <string name="on_this_day_game_share_link_message">Épp a „Melyik volt előbb?” napi triviajátékot játszom a Wikipédia Android-alkalmazásban! %s</string>
   <string name="on_this_day_game_share_screen_title">Ma %1$d/%2$d pontot értem el a\n„Mi volt előbb?” játékban.</string>
   <string name="on_this_day_game_share_screen_subtitle">A témák között szerepelt:</string>
-  <string name="on_this_day_game_survey_q1">Mennyire voltál elégedett ezzel a játékkal?</string>
-  <string name="on_this_day_game_survey_q2">Szívesen kipróbálnál más Wikipédia játékokat is?</string>
   <string name="on_this_day_game_archive_calendar_title">Válassz egy játékot dátum alapján!</string>
   <string name="on_this_day_game_score_toast_message">Ezen a napon %1$d/%2$d pontot szereztél.</string>
   <string name="on_this_day_game_continue_btn_text">A mai játék folytatása</string>

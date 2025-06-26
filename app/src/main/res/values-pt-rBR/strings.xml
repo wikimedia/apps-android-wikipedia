@@ -1745,8 +1745,6 @@
   <string name="on_this_day_game_share_link_message">Estou jogando \"O que veio primeiro?\", um jogo diário de perguntas e respostas no aplicativo Wikipedia para Android %s</string>
   <string name="on_this_day_game_share_screen_title">Hoje, obtive uma pontuação de %1$d/%2$d em \n\"O que veio primeiro?\".</string>
   <string name="on_this_day_game_share_screen_subtitle">Os tópicos incluíram:</string>
-  <string name="on_this_day_game_survey_q1">Qual foi o seu nível de satisfação com este jogo?</string>
-  <string name="on_this_day_game_survey_q2">Você teria interesse em jogar diferentes jogos da Wikipédia?</string>
   <string name="on_this_day_game_archive_calendar_title">Escolha um jogo por data para jogar.</string>
   <string name="on_this_day_game_score_toast_message">Você marcou %1$d/%2$d neste dia.</string>
   <string name="on_this_day_game_continue_btn_text">Continue o jogo de hoje</string>

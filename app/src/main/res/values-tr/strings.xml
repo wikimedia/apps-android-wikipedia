@@ -20,6 +20,7 @@
 * Incelemeelemani
 * Jelican9
 * Joseph
+* Karacehennem
 * Katpatuka
 * KorkmazO
 * Kumkumuk
@@ -198,6 +199,7 @@
   <string name="login_2fa_other_workflow_error_msg">İki aşamalı kimlik doğrulama gerekli! Lütfen ana ekrana dönüp, 2AKD anahtarınızla giriş yapın ve ardından tekrar deneyin.</string>
   <string name="login_email_auth_hint">E-posta doğrulama kodu</string>
   <string name="login_email_auth_other_workflow_error_msg">E-posta doğrulaması gerekiyor! Lütfen ana ekrandan giriş yapın ve e-posta doğrulama kodunuzu girin.</string>
+  <string name="login_background_error_msg">Tekrar giriş yapılamıyor. Lütfen ana ekrana geri dönüp manuel olarak giriş yapın.</string>
   <string name="onboarding_card_login">Oturum aç</string>
   <string name="page_editing_login">Oturum aç</string>
   <string name="reading_lists_sync_login">Oturum aç</string>

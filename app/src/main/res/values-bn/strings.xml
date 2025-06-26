@@ -1210,4 +1210,10 @@
   <string name="on_this_day_game_score">স্কোর: %d</string>
   <string name="on_this_day_game_correct">সঠিক!</string>
   <string name="on_this_day_game_point">+১ পয়েন্ট</string>
+  <string name="year_in_review_get_started">শুরু করুন</string>
+  <string name="year_in_review_topbar_w_icon">উইকিপিডিয়া ডব্লিউ আইকন</string>
+  <string name="year_in_review_donate">দান করুন</string>
+  <string name="year_in_review_information_icon">তথ্য আইকন</string>
+  <string name="year_in_review_survey_cancel">বাতিল</string>
+  <string name="year_in_review_survey_submit">জমা দিন</string>
 </resources>
