@@ -1841,6 +1841,4 @@
   <string name="on_this_day_game_report_email_body">Naletel_a sem na težavo z možnostjo iger Wikipedije:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
   <string name="on_this_day_game_notification_undo">Razveljavi</string>
   <string name="on_this_day_game_share_link_message">Igram \"Kaj se je zgodilo najprej?\", vsakodnevno zanimivo igro v aplikaciji Wikipedia Android %s</string>
-  <string name="on_this_day_game_survey_q1">Kako zadovoljni ste bili s to igro?</string>
-  <string name="on_this_day_game_survey_q2">Bi vas zanimalo igranje različnih iger Wikipedije?</string>
 </resources>

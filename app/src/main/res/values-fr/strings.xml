@@ -221,6 +221,7 @@
   <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Veuillez vous reconnecter depuis l’écran principal avec votre authentification a double facteur.</string>
   <string name="login_email_auth_hint">Code de vérification par email</string>
   <string name="login_email_auth_other_workflow_error_msg">Vérification de l\'adresse e-mail requise ! Veuillez vous connecter depuis l\'écran principal et saisir votre code de vérification.</string>
+  <string name="login_background_error_msg">Impossible de vous reconnecter. Veuillez revenir à l’écran principal et vous connecter manuellement.</string>
   <string name="onboarding_card_login">Se connecter</string>
   <string name="page_editing_login">Se connecter</string>
   <string name="reading_lists_sync_login">Se connecter</string>
@@ -461,6 +462,7 @@
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
   <string name="nav_item_donate">Faire un don</string>
+  <string name="nav_item_year_in_review">Bilan de l’année</string>
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de géolocalisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
@@ -1756,7 +1758,7 @@
   <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
   <string name="on_this_day_game_entry_dialog_title">Présentation</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
-  <string name="on_this_day_game_entry_dialog_button">Jouez au jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_entry_dialog_button">Jouer au jeu d\'aujourd\'hui</string>
   <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles sur le fil Explorer.</string>
   <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_dialog_button">Lecture</string>
@@ -1778,13 +1780,13 @@
   <string name="on_this_day_game_feed_entry_card_title">Qu\'est-ce qui est venu en premier ?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
   <string name="on_this_day_game_result">Vous avez marqué %1$d/%2$d.</string>
-  <string name="on_this_day_game_next_in">Prochain match dans %s</string>
+  <string name="on_this_day_game_next_in">Prochain jeu dans %s</string>
   <string name="on_this_day_game_your_stats">Vos statistiques</string>
   <plurals name="on_this_day_game_stats_games_played">
     <item quantity="one">Partie jouée</item>
     <item quantity="other">Parties jouées</item>
   </plurals>
-  <string name="on_this_day_game_stats_average_score">Pointage moyen</string>
+  <string name="on_this_day_game_stats_average_score">Score moyen</string>
   <string name="on_this_day_game_stats_streak">Série actuelle</string>
   <string name="on_this_day_game_result_subtitle">Articles référencés dans le jeu d\'aujourd\'hui</string>
   <string name="on_this_day_game_completed_message">Merci d\'avoir joué. Un nouveau jeu « Qui est arrivé en premier ? » est disponible quotidiennement sur le fil d\'actualité Explore.</string>
@@ -1812,18 +1814,65 @@
   <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
   <string name="on_this_day_game_share_screen_title">J\'ai obtenu un score de %1$d/%2$d sur « Qu\'est-ce qui est venu en premier ? ».</string>
   <string name="on_this_day_game_share_screen_subtitle">Thèmes abordés :</string>
-  <string name="on_this_day_game_survey_q1">Dans quelle mesure avez-vous été satisfait de ce jeu ?</string>
-  <string name="on_this_day_game_survey_q2">Seriez-vous intéressé à jouer à différents jeux Wikipédia ?</string>
   <string name="on_this_day_game_archive_calendar_title">Choisissez un jeu par date.</string>
   <string name="on_this_day_game_score_toast_message">Votre score pour ce jour est de %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_btn_text">Continuer le jeu du jour</string>
   <string name="on_this_day_game_current_progress_message">Vous êtes à la question %d.</string>
-  <string name="on_this_day_game_archive_btn_text">Jouer à l\'archive</string>
+  <string name="on_this_day_game_archive_btn_text">Jeux des jours précédents</string>
   <string name="on_this_day_game_review_results_btn_text">Voir les résultats</string>
   <string name="on_this_day_game_score_message">Votre score au jeu du jour est de %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_playing_btn_text">Continuer à jouer</string>
   <string name="on_this_day_game_sound_on">Activer le son</string>
   <string name="on_this_day_game_sound_off">Désactiver le son</string>
+  <string name="year_in_review_learn_more">En savoir plus</string>
+  <string name="year_in_review_get_started">Commencer</string>
+  <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>
+  <string name="year_in_review_navigate_left">Naviguer vers la gauche</string>
+  <string name="year_in_review_share_icon">Icône de partage</string>
+  <string name="year_in_review_heart_icon">Icône de cœur</string>
+  <string name="year_in_review_navigate_right">Naviguer vers la droite</string>
+  <string name="year_in_review_donate">Faire un don</string>
+  <string name="year_in_review_information_icon">Icône des informations</string>
+  <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
+  <string name="year_in_review_get_started_bodytext">Consultez des informations sur les articles que vous lisez sur l’application Wikipédia et les modifications que vous avez apportées. Votre historique de lecture est protégé. Les informations de lecture sont calculées à l’aide des données stockées localement sur votre appareil.</string>
+  <string name="year_in_review_entry_dialog_title">Explorez votre bilan Wikipédia</string>
+  <string name="year_in_review_entry_dialog_bodytext">Consultez des informations sur les articles lus et modifiés, et partagez les moments forts de notre année sur Wikipédia.</string>
+  <string name="year_in_review_entry_dialog_continue">Continuer</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Vous avez lu %d article cette année</item>
+    <item quantity="other">Vous avez lu %d articles cette année</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Cette année, vous avez lu %1$d article, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
+    <item quantity="other">Cette année, vous avez lu %1$d articles, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Vous avez modifié Wikipédia %d fois</item>
+    <item quantity="other">Vous avez modifié Wikipédia %d fois</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
+    <item quantity="other">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipédia était disponible dans plus de 300 langues</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipédia comptait plus de 63 millions d’articles dans plus de $2 langues actives. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Les contributeurs de l’applicatio iOS ont réalisé plus de 452 257 modifications.</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">La communauté de contributeurs bénévoles de Wikipédia a réalisé plus de 452 257 modifications via l’application iOS depuis le début de l’année. Le cœur et l’âme de Wikipédia résident dans sa communauté mondiale de contributeurs bénévoles, donateurs et milliards de lecteurs comme vous — tous unis pour partager un accès illimité à des informations fiables.</string>
+  <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
+  <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="year_in_review_survey_very_satisfied">Très satisfait</string>
+  <string name="year_in_review_survey_satisfied">Satisfait</string>
+  <string name="year_in_review_survey_neutral">Neutre</string>
+  <string name="year_in_review_survey_unsatisfied">Insatisfait</string>
+  <string name="year_in_review_survey_very_unsatisfied">Très insatisfait</string>
+  <string name="year_in_review_survey_placeholder_text">Des suggestions ?</string>
+  <string name="year_in_review_survey_cancel">Annuler</string>
+  <string name="year_in_review_survey_submit">Soumettre</string>
+  <string name="year_in_review_screendeck_image_content_description">Image pour l’écran principal du bilan de l’année</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Image pour l’écran de dialogue d’entrée du bilan de l’année</string>
+  <string name="year_in_review_screenshot_error">Impossible de générer une capture d’écran : %s</string>
+  <string name="year_in_review_share_subject">Image et lien du bilan de l’année</string>
+  <string name="year_in_review_globe_icon">Icône de globe</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
@@ -1832,7 +1881,7 @@
   <string name="recommended_reading_list_onboarding_card_negative_button">Non merci</string>
   <string name="recommended_reading_list_onboarding_card_negative_snackbar">La configuration de votre liste de lectures recommandées reste possible depuis les paramètres.</string>
   <string name="recommended_reading_list_interest_source_message">Que voulez-vous voir dans votre liste de lectures recommandées ?</string>
-  <string name="recommended_reading_list_interest_source_interests">Laissez-moi choisir en fonction de mes intérêts</string>
+  <string name="recommended_reading_list_interest_source_interests">Choisir en fonction de mes intérêts</string>
   <string name="recommended_reading_list_interest_source_saved">Choisissez pour moi en fonction de mes articles enregistrés</string>
   <string name="recommended_reading_list_interest_source_history">Choisissez pour moi en fonction de mon historique de lecture</string>
   <string name="recommended_reading_list_interest_pick_title">Qu\'est-ce qui vous intéresse ?</string>
@@ -1850,14 +1899,14 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Oui, choisissez pour moi</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">En fait non</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Pour %s</string>
-  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Pour toi</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Pour toi :</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">1 article</item>
     <item quantity="other">%d articles</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour à minuit.</string>
-  <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour en début de semaine.</string>
-  <string name="recommended_reading_list_page_description_monthly">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets, sélectionnés juste pour vous. Mises à jour le premier de chaque mois.</string>
+  <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour à minuit.</string>
+  <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour en début de semaine.</string>
+  <string name="recommended_reading_list_page_description_monthly">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour le premier de chaque mois.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personnaliser</string>
   <string name="recommended_reading_list_page_overflow_about">À propos de cette fonctionnalité</string>
   <string name="recommended_reading_list_page_snackbar">La Découverte sera mise à jour avec %1$d nouveaux articles tous les %2$s. Vos recommandations sont stockées localement sur votre appareil.</string>
@@ -1870,7 +1919,7 @@
   <string name="recommended_reading_list_settings_toggle">Listes de lectures de la Découverte</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">La Découverte est désactivée. Wikipédia ne vous recommandera pas d\'articles à lire.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Désactiver la Découverte ?</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si vous désactivez la Découverte, vous ne recevrez plus %s recommandations de lecture de Wikipédia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si vous désactivez la Découverte, vous ne recevrez plus de recommandations de lecture de Wikipédia %s.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Désactiver</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Non, laisser activé</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">La Découverte a été désactivée. Vous pouvez la réactiver à tout moment dans les paramètres.</string>

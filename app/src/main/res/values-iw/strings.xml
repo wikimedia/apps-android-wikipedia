@@ -1852,6 +1852,4 @@
   <string name="on_this_day_game_report_email_body">נתקלתי בבעיה בתכונת משחקי ויקיפדיה:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
   <string name="on_this_day_game_notification_undo">ביטול</string>
   <string name="on_this_day_game_share_link_message">שיחקתי ב\"מה היה קודם?\", משחק טריוויה יומי ביישום האנדרואיד של ויקיפדיה %s</string>
-  <string name="on_this_day_game_survey_q1">עד כמה היית מרוצה מהמשחק הזה?</string>
-  <string name="on_this_day_game_survey_q2">האם מעניין אותך לשחק במשחקי ויקיפדיה שונים?</string>
 </resources>

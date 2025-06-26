@@ -1861,8 +1861,6 @@
   <string name="on_this_day_game_share_link_message">Я граю в «Що було першим?» — щоденну вікторину в застосунку Вікіпедії для Android %s</string>
   <string name="on_this_day_game_share_screen_title">Мій сьогоднішній результат\nу «Що було першим?» — \n%1$d/%2$d.</string>
   <string name="on_this_day_game_share_screen_subtitle">Тематика:</string>
-  <string name="on_this_day_game_survey_q1">Наскільки ви були задоволені цією грою?</string>
-  <string name="on_this_day_game_survey_q2">Чи цікаво було б вам грати в різні ігри Вікіпедії?</string>
   <string name="on_this_day_game_archive_calendar_title">Виберіть гру за датою.</string>
   <string name="on_this_day_game_score_toast_message">Ваш результат цього дня — %1$d/%2$d.</string>
   <string name="on_this_day_game_continue_btn_text">Продовжити сьогоднішню гру</string>

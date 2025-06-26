@@ -1756,8 +1756,6 @@
   <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Kumpi tuli ensin?\" -triviapeliä Wikipedian Android-sovelluksessa %s</string>
   <string name="on_this_day_game_share_screen_title">Sain tänään %1$d/%2$d pistettä \"Kumpi tuli ensin?\" -pelissä.</string>
   <string name="on_this_day_game_share_screen_subtitle">Mukana olleet aiheet:</string>
-  <string name="on_this_day_game_survey_q1">Kuinka tyytyväinen olit tähän peliin?</string>
-  <string name="on_this_day_game_survey_q2">Olisitko kiinnostunut pelaamaan muita erilaisia Wikipedia-pelejä?</string>
   <string name="on_this_day_game_archive_calendar_title">Valitse peli päivämäärän mukaan.</string>
   <string name="on_this_day_game_score_toast_message">Sait kyseisenä päivänä %1$d/%2$d pistettä.</string>
   <string name="on_this_day_game_continue_btn_text">Jatka tämän päivän peliä</string>
@@ -1768,6 +1766,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Jatka pelaamista</string>
   <string name="on_this_day_game_sound_on">Laita ääni päälle</string>
   <string name="on_this_day_game_sound_off">Laita ääni pois</string>
+  <string name="year_in_review_learn_more">Lisätietoja</string>
+  <string name="year_in_review_get_started">Aloita</string>
+  <string name="year_in_review_topbar_w_icon">Wikipedian W-kuvake</string>
+  <string name="year_in_review_navigate_left">Mene vasemmalle</string>
+  <string name="year_in_review_share_icon">Jaa-kuvake</string>
+  <string name="year_in_review_heart_icon">Sydän-kuvake</string>
+  <string name="year_in_review_navigate_right">Mene oikealle</string>
+  <string name="year_in_review_donate">Lahjoita</string>
+  <string name="year_in_review_information_icon">Tietoa-kuvake</string>
+  <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
+  <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
   <string name="recommended_reading_list_title">Löydä artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_title">Löydä juuri sinulle valittuja artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_message">Viikoittainen Wikipedia-artikkeleiden lukulistasi, kuratoitu juuri sinulle.</string>
