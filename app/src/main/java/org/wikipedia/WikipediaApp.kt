@@ -298,17 +298,38 @@ class WikipediaApp : Application() {
         }
     }
 
-    fun commitTabState() {
+    fun commitTabState(tab: Tab?) {
         CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {
-            if (tabList.isEmpty()) {
+            if (tab == null) {
+                // Regular tab commit
                 AppDatabase.instance.tabDao().deleteAll()
-                initTabs()
+                if (tabList.isEmpty()) {
+                    initTabs()
+                } else {
+                    AppDatabase.instance.tabDao().insertTabs(tabList)
+                }
             } else {
-                AppDatabase.instance.tabDao().deleteAll()
-                AppDatabase.instance.tabDao().insertTabs(tabList)
+                // Update the specific tab
+                AppDatabase.instance.tabDao().updateTab(tab)
             }
+        }
+    }
+
+    fun insertTab(tab: Tab) {
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            AppDatabase.instance.tabDao().insertTab(tab)
+        }
+    }
+
+    fun deleteTab(tab: Tab) {
+        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
+            L.e(t)
+        }) {
+            AppDatabase.instance.tabDao().deleteTab(tab)
         }
     }
 

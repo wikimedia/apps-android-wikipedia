@@ -284,7 +284,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         app.commitTabState()
-        val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        val time = if (app.tabList.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -326,8 +326,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // if the current tab can no longer go back, then close the tab before exiting
         if (app.tabList.isNotEmpty()) {
-            app.tabList.removeAt(app.tabList.size - 1)
-            app.commitTabState()
+            val tab = app.tabList.removeAt(app.tabList.size - 1)
+            app.deleteTab(tab)
         }
         return false
     }

@@ -14,10 +14,11 @@ object TabUtil {
         if (app.tabCount > 0) {
             app.tabList.add(0, tab)
             while (app.tabList.size > Constants.MAX_TABS) {
-                app.tabList.removeAt(0)
+                val removeTab = app.tabList.removeAt(0)
+                app.deleteTab(removeTab)
             }
         }
         tab.backStack.add(PageBackStackItem(entry.title, entry))
-        app.commitTabState()
+        app.insertTab(tab)
     }
 }
