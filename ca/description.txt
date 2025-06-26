@@ -4,7 +4,7 @@ Característiques:
 
 Explora el canal - El nou «explora el canal» ofereix continguts recomanats i actualitzats constantment a la pantalla d'inici de la Viquipèdia, inclosos articles de tendència, esdeveniments d'actualitat, lectures suggerides i molt més.
 
-Cerca integrada per veu - Troba fàcilment el que estàs buscant amb una barra de cerca prominent a la part superior de l'app, inclosa la cerca habilitada per veu al teu dispositiu.
+Cerca integrada per veu - Troba fàcilment el que estàs cercant amb una barra de cerca prominent a la part superior de l'app, inclosa la cerca habilitada per veu al teu dispositiu.
 
 A prop - Obteniu més informació sobre el que us envolta seleccionant punts en un mapa interactiu per veure articles relacionats amb la vostra ubicació actual i propera.
 
