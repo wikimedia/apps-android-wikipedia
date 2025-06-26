@@ -52,6 +52,8 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
                         .clickOnSystemDialogWithText(text = "Allow")
                     homeScreenRobot
                         .navigateToNotifications()
+                    systemRobot
+                        .clickOnSystemDialogWithText(text = "No thanks")
                         .pressBack()
                     // Final Feed View Test which appears after user logs in and user has to be online
                     exploreFeedRobot

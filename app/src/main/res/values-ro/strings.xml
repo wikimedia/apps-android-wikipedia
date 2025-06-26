@@ -356,7 +356,7 @@
   <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="gallery_edit_button_content_description">Modifică descriere imagine</string>
   <string name="gallery_add_image_caption_button">Adaugă descriere imagine</string>
-  <string name="gallery_add_image_caption_in_language_button">Adaudă descriere imagine (%s)</string>
+  <string name="gallery_add_image_caption_in_language_button">Adaugă legendă (%s)</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>
   <string name="cc_logo">Licență Creative Commons</string>
@@ -920,7 +920,7 @@
   <string name="suggested_edits_article_cta_image_caption_in_language">Adaugă descriere imagine (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vizualizare</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adaugă descriere imagine</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adaudă descriere imagine (%s)</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adaugă legendă (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adaugă etichete imagine</string>
   <string name="suggested_edits_task_action_text_add">Adaugă</string>
   <string name="suggested_edits_task_action_text_translate">Traduceți</string>
@@ -1381,6 +1381,4 @@
   <string name="survey_dialog_general_no">Nu</string>
   <string name="survey_dialog_general_maybe">Pot fi</string>
   <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
-  <string name="on_this_day_game_survey_q1">Cât de mulțumit ai fost de acest joc?</string>
-  <string name="on_this_day_game_survey_q2">Ați fi interesat să jucați diferite jocuri Wikipedia?</string>
 </resources>

@@ -294,7 +294,7 @@
   <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/de</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.de</string>
@@ -627,8 +627,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Der Artikel erscheint in mehreren Listen</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
   <string name="reading_lists_sync_reminder_title">Synchronisierung von Leselisten anschalten?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Leselisten können jetzt zwischen deinen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikel, die in Leselisten gespeichert sind, können jetzt mit deinem Wikipedia-Benutzerkonto synchronisiert werden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Leselisten können jetzt zwischen deinen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de#Synced_reading_lists\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisierung aktivieren</string>
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
   <string name="reading_lists_login_reminder_text">Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
@@ -1625,6 +1625,7 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Findet mit mittlerer Genauigkeit einen mittleren Anteil an Bearbeitungen mit schlechter Absicht.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Sehr wahrscheinlich schlechte Absicht</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Sehr genau beim Auffinden der meisten offensichtlichen Bearbeitungen mit einer schlechten Absicht.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Versuche %s zu entfernen, um mehr Bearbeitungen zu sehen</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filter</item>
@@ -1770,14 +1771,12 @@
   <string name="on_this_day_game_report_email_body">Ich habe ein Problem mit der Funktion „Wikipedia-Spiele“ festgestellt:\n- [Beschreiben Sie das spezifische Problem]\n\nDas Verhalten, das ich gerne sehen würde, ist:\n- [Beschreiben Sie die vorgeschlagene Lösung]</string>
   <string name="on_this_day_game_notification_undo">Widerrufen</string>
   <string name="on_this_day_game_share_link_message">Ich spiele „Was war zuerst da?“, ein tägliches Quiz-Spiel in der Wikipedia-Android-App %s</string>
-  <string name="on_this_day_game_survey_q1">Wie zufrieden waren Sie mit diesem Spiel?</string>
-  <string name="on_this_day_game_survey_q2">Hätten Sie Interesse, andere Wikipedia-Spiele zu spielen?</string>
   <string name="on_this_day_game_continue_btn_text">Das heutige Spiel fortsetzen</string>
   <string name="on_this_day_game_current_progress_message">Sie sind bei Frage %d .</string>
   <string name="on_this_day_game_archive_btn_text">Spielen Sie das Archiv ab</string>
   <string name="on_this_day_game_review_results_btn_text">Ergebnisse überprüfen</string>
   <string name="on_this_day_game_score_message">Sie haben %1$d/%2$d im heutigen Spiel erzielt.</string>
-  <string name="on_this_day_game_continue_playing_btn_text" fuzzy="true">Weiterspielen</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Weiterspielen</string>
   <string name="recommended_reading_list_interest_select_minimum">Wähle mindestens ein Interesse aus</string>
   <string name="recommended_reading_list_page_description_daily">Deine tägliche Leseliste. Erfahre mehr über neue, speziell für Dich ausgewählte Themen. Aktualisierung um Mitternacht.</string>
   <string name="recommended_reading_list_page_description_monthly">Deine monatliche Leseliste. Erfahre mehr über neue, speziell für dich ausgewählte Themen. Aktualisierungen jeweils am ersten Tag des Monats.</string>

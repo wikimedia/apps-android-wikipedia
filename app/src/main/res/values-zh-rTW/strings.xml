@@ -1768,6 +1768,4 @@
   <string name="on_this_day_game_report_email_body">我遇到了維基百科遊戲功能的問題：\n- [描述具體問題]\n\n我希望看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="on_this_day_game_notification_undo">還原</string>
   <string name="on_this_day_game_share_link_message">我正在遊玩維基百科 Android 應用程式上的每日小知識遊戲「哪一個先開始？」%s</string>
-  <string name="on_this_day_game_survey_q1">您對此遊戲的滿意度如何？</string>
-  <string name="on_this_day_game_survey_q2">您有興趣遊玩不同的維基百科遊戲嗎？</string>
 </resources>
