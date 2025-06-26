@@ -354,6 +354,7 @@ abstract class AppDatabase : RoomDatabase() {
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
                     MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
                     MIGRATION_30_31)
+                .allowMainThreadQueries() // TODO: remove after resolving main thread issues in DAO classes
                 .fallbackToDestructiveMigration(false)
                 .build()
         }
