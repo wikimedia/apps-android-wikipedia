@@ -45,7 +45,7 @@ class SearchRobot : BaseRobot() {
 
     fun typeTextInView(searchTerm: String) = apply {
         // Type in our search term
-        input.typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
+        input.replaceTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
 
         // Give the API plenty of time to return results
         delay(TestConfig.DELAY_LARGE)
