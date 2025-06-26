@@ -1756,8 +1756,6 @@
   <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
   <string name="on_this_day_game_share_screen_title">Jag fick %1$d/%2$d poäng på\n\"Vad kom först?\"\nidag.</string>
   <string name="on_this_day_game_share_screen_subtitle">Ämnen innefattar:</string>
-  <string name="on_this_day_game_survey_q1">Hur nöjd var du med det här spelet?</string>
-  <string name="on_this_day_game_survey_q2">Skulle du vara intresserad av att spela olika Wikipedia-spel?</string>
   <string name="on_this_day_game_archive_calendar_title">Välj ett spel efter datum att spela.</string>
   <string name="on_this_day_game_score_toast_message">Du fick %1$d/%2$d poäng den här dagen.</string>
   <string name="on_this_day_game_continue_btn_text">Fortsätt dagens spel</string>
