@@ -83,180 +83,180 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 // introduced Offline Object table
             }
         }
         val MIGRATION_20_21 = object : Migration(20, 21) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 // introduced Talk Page Seen table
             }
         }
         val MIGRATION_21_22 = object : Migration(21, 22) {
-            override fun migrate(database: SupportSQLiteDatabase) {}
+            override fun migrate(db: SupportSQLiteDatabase) {}
         }
         val MIGRATION_22_23 = object : Migration(22, 23) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 val defaultLang = WikipediaApp.instance.appOrSystemLanguageCode
                 val defaultAuthority = WikipediaApp.instance.wikiSite.authority()
                 val defaultTitle = MainPageNameData.valueFor(defaultLang)
 
                 // convert Recent Searches table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `RecentSearch` (`text` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, PRIMARY KEY(`text`))")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `RecentSearch` (`text` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, PRIMARY KEY(`text`))")
                 try {
-                    database.execSQL("INSERT OR REPLACE INTO RecentSearch (text, timestamp) SELECT text, timestamp FROM recentsearches")
-                } catch (e: Exception) {
+                    db.execSQL("INSERT OR REPLACE INTO RecentSearch (text, timestamp) SELECT text, timestamp FROM recentsearches")
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("DROP TABLE IF EXISTS recentsearches")
+                db.execSQL("DROP TABLE IF EXISTS recentsearches")
 
                 // convert Talk Pages Seen table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `TalkPageSeen_temp` (`sha` TEXT NOT NULL, PRIMARY KEY(`sha`))")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `TalkPageSeen_temp` (`sha` TEXT NOT NULL, PRIMARY KEY(`sha`))")
                 try {
-                    database.query("SELECT * FROM sqlite_master WHERE type='table' AND name='talkpageseen'").use {
+                    db.query("SELECT * FROM sqlite_master WHERE type='table' AND name='talkpageseen'").use {
                         if (it.count > 0) {
-                            database.execSQL("INSERT OR REPLACE INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
-                            database.execSQL("DROP TABLE talkpageseen")
+                            db.execSQL("INSERT OR REPLACE INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
+                            db.execSQL("DROP TABLE talkpageseen")
                         }
                     }
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("ALTER TABLE TalkPageSeen_temp RENAME TO TalkPageSeen")
+                db.execSQL("ALTER TABLE TalkPageSeen_temp RENAME TO TalkPageSeen")
 
                 // convert Edit Summaries table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `EditSummary` (`summary` TEXT NOT NULL, `lastUsed` INTEGER NOT NULL, PRIMARY KEY(`summary`))")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `EditSummary` (`summary` TEXT NOT NULL, `lastUsed` INTEGER NOT NULL, PRIMARY KEY(`summary`))")
                 try {
-                    database.execSQL("INSERT OR REPLACE INTO EditSummary (summary, lastUsed) SELECT summary, lastUsed FROM editsummaries")
-                } catch (e: Exception) {
+                    db.execSQL("INSERT OR REPLACE INTO EditSummary (summary, lastUsed) SELECT summary, lastUsed FROM editsummaries")
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("DROP TABLE IF EXISTS editsummaries")
+                db.execSQL("DROP TABLE IF EXISTS editsummaries")
 
                 // convert Offline Objects table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `OfflineObject_temp` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `url` TEXT NOT NULL, `lang` TEXT NOT NULL, `path` TEXT NOT NULL, `status` INTEGER NOT NULL, `usedByStr` TEXT NOT NULL)")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `OfflineObject_temp` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `url` TEXT NOT NULL, `lang` TEXT NOT NULL, `path` TEXT NOT NULL, `status` INTEGER NOT NULL, `usedByStr` TEXT NOT NULL)")
                 try {
-                    database.query("SELECT * FROM sqlite_master WHERE type='table' AND name='offlineobject'").use {
+                    db.query("SELECT * FROM sqlite_master WHERE type='table' AND name='offlineobject'").use {
                         if (it.count > 0) {
-                            database.execSQL("INSERT INTO OfflineObject_temp (id, url, lang, path, status, usedByStr) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
-                            database.execSQL("DROP TABLE offlineobject")
+                            db.execSQL("INSERT INTO OfflineObject_temp (id, url, lang, path, status, usedByStr) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
+                            db.execSQL("DROP TABLE offlineobject")
                         }
                     }
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("ALTER TABLE OfflineObject_temp RENAME TO OfflineObject")
+                db.execSQL("ALTER TABLE OfflineObject_temp RENAME TO OfflineObject")
 
                 // Delete vestigial Reading List tables that might have been left over from very old DB versions.
-                database.execSQL("DROP TABLE IF EXISTS readinglist")
-                database.execSQL("DROP TABLE IF EXISTS readinglistpage")
+                db.execSQL("DROP TABLE IF EXISTS readinglist")
+                db.execSQL("DROP TABLE IF EXISTS readinglistpage")
 
                 // convert Reading List tables
-                database.execSQL("CREATE TABLE IF NOT EXISTS `ReadingList` (`listTitle` TEXT NOT NULL, `description` TEXT, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `sizeBytes` INTEGER NOT NULL, `dirty` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
-                database.execSQL("CREATE TABLE IF NOT EXISTS `ReadingListPage` (`wiki` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `description` TEXT, `thumbUrl` TEXT, `listId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `offline` INTEGER NOT NULL, `status` INTEGER NOT NULL, `sizeBytes` INTEGER NOT NULL, `lang` TEXT NOT NULL, `revId` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `ReadingList` (`listTitle` TEXT NOT NULL, `description` TEXT, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `sizeBytes` INTEGER NOT NULL, `dirty` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `ReadingListPage` (`wiki` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `description` TEXT, `thumbUrl` TEXT, `listId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `offline` INTEGER NOT NULL, `status` INTEGER NOT NULL, `sizeBytes` INTEGER NOT NULL, `lang` TEXT NOT NULL, `revId` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
                 try {
-                    database.execSQL("INSERT INTO ReadingList (id, listTitle, description, mtime, atime, sizeBytes, dirty, remoteId) SELECT _id, COALESCE(readingListTitle,''), readingListDescription, readingListMtime, readingListAtime, readingListSizeBytes, readingListDirty, readingListRemoteId FROM localreadinglist")
-                    database.execSQL("INSERT INTO ReadingListPage (id, wiki, namespace, displayTitle, apiTitle, description, thumbUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId) SELECT _id, site, namespace, title, COALESCE(apiTitle,title), description, thumbnailUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId FROM localreadinglistpage")
-                } catch (e: Exception) {
+                    db.execSQL("INSERT INTO ReadingList (id, listTitle, description, mtime, atime, sizeBytes, dirty, remoteId) SELECT _id, COALESCE(readingListTitle,''), readingListDescription, readingListMtime, readingListAtime, readingListSizeBytes, readingListDirty, readingListRemoteId FROM localreadinglist")
+                    db.execSQL("INSERT INTO ReadingListPage (id, wiki, namespace, displayTitle, apiTitle, description, thumbUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId) SELECT _id, site, namespace, title, COALESCE(apiTitle,title), description, thumbnailUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId FROM localreadinglistpage")
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("DROP TABLE IF EXISTS localreadinglist")
-                database.execSQL("DROP TABLE IF EXISTS localreadinglistpage")
+                db.execSQL("DROP TABLE IF EXISTS localreadinglist")
+                db.execSQL("DROP TABLE IF EXISTS localreadinglistpage")
 
                 // convert History table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `timeSpentSec` INTEGER NOT NULL)")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `timeSpentSec` INTEGER NOT NULL)")
                 try {
-                    database.execSQL("INSERT INTO HistoryEntry (id, authority, lang, apiTitle, displayTitle, namespace, source, timestamp, timeSpentSec) SELECT _id, COALESCE(site,'$defaultAuthority'), COALESCE(lang,'$defaultLang'), COALESCE(title,'$defaultTitle'), COALESCE(displayTitle,''), COALESCE(namespace,''), COALESCE(source,2), COALESCE(timestamp,0), COALESCE(timeSpent,0) FROM history")
-                } catch (e: Exception) {
+                    db.execSQL("INSERT INTO HistoryEntry (id, authority, lang, apiTitle, displayTitle, namespace, source, timestamp, timeSpentSec) SELECT _id, COALESCE(site,'$defaultAuthority'), COALESCE(lang,'$defaultLang'), COALESCE(title,'$defaultTitle'), COALESCE(displayTitle,''), COALESCE(namespace,''), COALESCE(source,2), COALESCE(timestamp,0), COALESCE(timeSpent,0) FROM history")
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("DROP TABLE IF EXISTS history")
+                db.execSQL("DROP TABLE IF EXISTS history")
 
                 // convert Page Images table
-                database.execSQL("CREATE TABLE IF NOT EXISTS `PageImage` (`lang` TEXT NOT NULL, `namespace` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `imageName` TEXT, PRIMARY KEY(`lang`, `namespace`, `apiTitle`))")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `PageImage` (`lang` TEXT NOT NULL, `namespace` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `imageName` TEXT, PRIMARY KEY(`lang`, `namespace`, `apiTitle`))")
                 try {
-                    database.execSQL("INSERT OR REPLACE INTO PageImage (lang, namespace, apiTitle, imageName) SELECT COALESCE(lang,'$defaultLang'), COALESCE(namespace,''), COALESCE(title,'$defaultTitle'), imageName FROM pageimages")
-                } catch (e: Exception) {
+                    db.execSQL("INSERT OR REPLACE INTO PageImage (lang, namespace, apiTitle, imageName) SELECT COALESCE(lang,'$defaultLang'), COALESCE(namespace,''), COALESCE(title,'$defaultTitle'), imageName FROM pageimages")
+                } catch (_: Exception) {
                     // ignore further errors
                 }
-                database.execSQL("DROP TABLE pageimages")
+                db.execSQL("DROP TABLE pageimages")
             }
         }
         val MIGRATION_23_24 = object : Migration(23, 24) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
             }
         }
         val MIGRATION_24_25 = object : Migration(24, 25) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
             }
         }
         val MIGRATION_25_26 = object : Migration(25, 26) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
             }
         }
         val MIGRATION_26_27 = object : Migration(26, 27) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 // Rename the existing HistoryEntry table, which we're preserving for now (in case
                 // things go wrong with migrations in the field).
-                database.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
+                db.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
 
                 // Create the "new" HistoryEntry table, which will match the new HistoryEntry structure.
-                database.execSQL("CREATE TABLE `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
+                db.execSQL("CREATE TABLE `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
 
                 // Copy everything from the old table to the new one, minus the columns that were removed.
-                database.execSQL("INSERT INTO HistoryEntry (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry_old")
+                db.execSQL("INSERT INTO HistoryEntry (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry_old")
 
                 // Add new columns to the PageImage table, will will now serve as a more general
                 // table for page metadata, not just the thumbnail.
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
 
                 // Copy the metadata from the removed columns in the old HistoryEntry table into the
                 // new columns in the PageImage table.
-                database.execSQL("UPDATE PageImage SET description = (SELECT description FROM HistoryEntry_old WHERE PageImage.lang = HistoryEntry_old.lang AND PageImage.namespace = HistoryEntry_old.namespace AND PageImage.apiTitle = HistoryEntry_old.apiTitle)")
-                database.execSQL("UPDATE PageImage SET timeSpentSec = COALESCE((SELECT timeSpentSec FROM HistoryEntry_old WHERE PageImage.lang = HistoryEntry_old.lang AND PageImage.namespace = HistoryEntry_old.namespace AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
+                db.execSQL("UPDATE PageImage SET description = (SELECT description FROM HistoryEntry_old WHERE PageImage.lang = HistoryEntry_old.lang AND PageImage.namespace = HistoryEntry_old.namespace AND PageImage.apiTitle = HistoryEntry_old.apiTitle)")
+                db.execSQL("UPDATE PageImage SET timeSpentSec = COALESCE((SELECT timeSpentSec FROM HistoryEntry_old WHERE PageImage.lang = HistoryEntry_old.lang AND PageImage.namespace = HistoryEntry_old.namespace AND PageImage.apiTitle = HistoryEntry_old.apiTitle), 0)")
             }
         }
         val MIGRATION_27_28 = object : Migration(27, 28) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
             }
         }
         val MIGRATION_26_28 = object : Migration(26, 28) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 // Rename the existing HistoryEntry table, which we're preserving for now (in case
                 // things go wrong with migrations in the field).
-                database.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
+                db.execSQL("ALTER TABLE HistoryEntry RENAME TO HistoryEntry_old")
 
                 // Create the "new" HistoryEntry table, which will match the new HistoryEntry structure.
-                database.execSQL("CREATE TABLE `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
+                db.execSQL("CREATE TABLE `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `prevId` INTEGER NOT NULL DEFAULT -1)")
 
                 // Create indexes on the new and old HistoryEntry table.
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_old_lang_namespace_apiTitle ON HistoryEntry_old (lang, namespace, apiTitle)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_lang_namespace_apiTitle ON HistoryEntry (lang, namespace, apiTitle)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_HistoryEntry_old_lang_namespace_apiTitle ON HistoryEntry_old (lang, namespace, apiTitle)")
 
                 // Copy everything from the old table to the new one, minus the columns that were removed.
-                database.execSQL("INSERT INTO HistoryEntry (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry_old")
+                db.execSQL("INSERT INTO HistoryEntry (authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source) SELECT authority, lang, apiTitle, displayTitle, id, namespace, timestamp, source FROM HistoryEntry_old")
 
                 // Add new columns to the PageImage table, will will now serve as a more general
                 // table for page metadata, not just the thumbnail.
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
-                database.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN timeSpentSec INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN description TEXT DEFAULT ''")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN geoLat REAL NOT NULL DEFAULT 0.0")
+                db.execSQL("ALTER TABLE PageImage ADD COLUMN geoLon REAL NOT NULL DEFAULT 0.0")
 
                 // Create an index on the PageImage table.
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_PageImage_lang_namespace_apiTitle ON PageImage (lang, namespace, apiTitle)")
 
                 // Copy the metadata from the removed columns in the old HistoryEntry table into the
                 // new columns in the PageImage table, for PageImage rows that already exist.
-                database.execSQL("UPDATE PageImage SET" +
+                db.execSQL("UPDATE PageImage SET" +
                         " description = (SELECT HistoryEntry_old.description" +
                         "     FROM HistoryEntry_old" +
                         "     WHERE PageImage.lang = HistoryEntry_old.lang" +
@@ -270,7 +270,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 // For PageImage rows that don't already exist (i.e. HistoryEntries that didn't have
                 // a thumbnail), insert them and copy the other metadata.
-                database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
+                db.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, description, timeSpentSec)" +
                         " SELECT lang, namespace, apiTitle, description, COALESCE(timeSpentSec, 0) as timeSpentSec FROM" +
                         " (SELECT lang, namespace, apiTitle, description, MAX(COALESCE(timeSpentSec, 0)) as timeSpentSec" +
                         "     FROM HistoryEntry_old GROUP BY lang, namespace, apiTitle) AS HistoryUnique" +
@@ -341,7 +341,6 @@ abstract class AppDatabase : RoomDatabase() {
                         "    FROM Category GROUP BY year, month, title, lang")
 
                 // Step 3: Drop the old table
-                // TODO: maybe we should not drop the table, but rather rename it to Category_old
                 db.execSQL("DROP TABLE Category")
                 // Step 4: Rename the temporary table to the original table name
 
@@ -355,8 +354,7 @@ abstract class AppDatabase : RoomDatabase() {
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
                     MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
                     MIGRATION_30_31)
-                .allowMainThreadQueries() // TODO: remove after migration
-                .fallbackToDestructiveMigration()
+                .fallbackToDestructiveMigration(false)
                 .build()
         }
     }
