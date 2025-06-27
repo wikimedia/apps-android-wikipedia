@@ -1,8 +1,10 @@
 package org.wikipedia.robots.feature
 
 import BaseRobot
+import android.util.Log
 import android.view.KeyEvent
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -10,6 +12,9 @@ import org.wikipedia.R
 import org.wikipedia.base.TestConfig
 
 class EditorRobot : BaseRobot() {
+    val currentWikiText
+        get() = input.getCurrentText(R.id.edit_section_text)
+
     fun replaceTextInEditWindow(text: String) = apply {
         input.replaceTextInView(R.id.edit_section_text, text)
         delay(TestConfig.DELAY_MEDIUM)
@@ -87,11 +92,54 @@ class EditorRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun selectSpecificText(targetText: String) = apply {
-        val currentText = input.getCurrentText(R.id.edit_section_text)
-        val position = findTextPosition(currentText, targetText)
-        if (position != null)
-            input.selectText(R.id.edit_section_text, position.first, position.second)
+    fun applyLargeTextFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_text_large)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applySmallTextFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_text_small)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applyCodeFormat() = apply {
+        click.onViewWithId(R.id.wikitext_button_code)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickHeadingFormats() = apply {
+        click.onViewWithId(R.id.wikitext_button_heading)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applyH2() = apply {
+        click.onViewWithId(R.id.wikitext_button_h2)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applyH3() = apply {
+        click.onViewWithId(R.id.wikitext_button_h3)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applyH4() = apply {
+        click.onViewWithId(R.id.wikitext_button_h4)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun applyH5() = apply {
+        click.onViewWithId(R.id.wikitext_button_h5)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun closeTextFormatting() = apply {
+        click.onViewWithId(R.id.close_button)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun closeHeadlinesFormatting() = apply {
+        click.onViewWithId(R.id.closeButton)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun closeKeyboard() = apply {
@@ -99,13 +147,41 @@ class EditorRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun showPreview() = apply {
+    fun closeEditNotice() = apply {
+        try {
+            click.onViewWithId(R.id.editNoticeCloseButton)
+        } catch (e: NoMatchingViewException) {
+            Log.e("EditorRobot", "${e.message}")
+        } catch (e: Exception) {
+            Log.e("EditorRobot", "Unexpected Error: ${e.message}")
+        }
+    }
+
+    fun clickNext() = apply {
         click.onViewWithText("Next")
         delay(TestConfig.DELAY_LARGE)
     }
 
-    fun pressBack() = apply {
-        goBack()
+    fun clickPublish() = apply {
+        click.onViewWithText("Publish")
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun checkMinorEdit() = apply {
+        click.onViewWithId(R.id.minorEditCheckBox)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun selectSpecificText(targetText: String) = apply {
+        val currentText = input.getCurrentText(R.id.edit_section_text)
+        val position = findTextPosition(currentText, targetText)
+        if (position != null) {
+            input.selectText(R.id.edit_section_text, position.first, position.second)
+        }
+    }
+
+    fun scrollToEndOfTextFormatting() = apply {
+        swipe.left(R.id.wiki_text_keyboard_formatting_horizontal_scroll_view)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -117,5 +193,10 @@ class EditorRobot : BaseRobot() {
         } else {
             null
         }
+    }
+
+    fun pressBack() = apply {
+        goBack()
+        delay(TestConfig.DELAY_SHORT)
     }
 }
