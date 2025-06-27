@@ -194,7 +194,6 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
-    implementation libs.metrics.platform
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor

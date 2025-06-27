@@ -213,7 +213,7 @@ interface Service {
         @Field("token") token: String
     ): MwPostResponse
 
-    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service%3Deventgate-analytics-external")
     suspend fun getStreamConfigs(): MwStreamConfigsResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")

@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'com.google.devtools.ksp'
+    id 'kotlin-android'
+    id 'kotlinx-serialization'
+}
+
+final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
+
+android {
+    namespace 'org.wikimedia.metrics_platform'
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility = JAVA_VERSION
+        targetCompatibility = JAVA_VERSION
+    }
+
+    kotlinOptions {
+        jvmTarget = JAVA_VERSION
+    }
+    compileSdk 35
+}
+
+dependencies {
+    coreLibraryDesugaring libs.desugar.jdk.libs
+
+    implementation libs.kotlin.stdlib.jdk8
+    implementation libs.kotlinx.coroutines.core
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.kotlinx.serialization.json
+
+    implementation libs.material
+    implementation libs.appcompat
+    implementation libs.core.ktx
+    implementation libs.browser
+    implementation libs.constraintlayout
+    implementation libs.fragment.ktx
+    implementation libs.paging.runtime.ktx
+    implementation libs.palette.ktx
+    implementation libs.preference.ktx
+    implementation libs.recyclerview
+    implementation libs.viewpager2
+    implementation libs.flexbox
+    implementation libs.drawerlayout
+    implementation libs.swiperefreshlayout
+    implementation libs.work.runtime.ktx
+
+    implementation libs.okhttp.tls
+    implementation libs.okhttp3.logging.interceptor
+    implementation libs.retrofit
+    implementation libs.commons.lang3
+    implementation libs.jsoup
+    implementation libs.photoview
+    implementation libs.balloon
+    implementation libs.retrofit2.kotlinx.serialization.converter
+
+    implementation libs.android.sdk
+    implementation libs.android.plugin.annotation.v9
+
+    implementation libs.androidx.room.runtime
+    annotationProcessor libs.androidx.room.compiler
+    ksp libs.androidx.room.compiler
+    implementation libs.androidx.room.ktx
+}

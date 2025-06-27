@@ -1,0 +1,46 @@
+[ {
+	"$schema": "/analytics/product_metrics/app/click_custom/1.0.0",
+	"meta": {
+		"stream": "mediawiki.metrics_platform.click_custom",
+		"domain": "en.wikipedia.org"
+	},
+	"font_size": "small",
+	"is_full_width": true,
+	"screen_size": 1080,
+	"agent": {
+		"app_flavor": "devdebug",
+		"app_install_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+		"app_theme": "LIGHT",
+		"app_version": 123456,
+		"app_version_name": "2.7.50470-dev-2024-02-14",
+		"client_platform": "android",
+		"client_platform_family": "app",
+		"device_family": "samsung",
+		"device_language": "en",
+		"release_status": "dev"
+	},
+	"page": {
+		"id": 30715282,
+		"title": "Dark_Souls",
+		"namespace_id": 0,
+		"revision_id": 1084793259
+	},
+	"mediawiki": {
+		"database": "enwiki"
+	},
+	"performer": {
+		"is_logged_in": false,
+		"id": 0,
+		"session_id": "eeeeeeeeeeeeeeeeeeee",
+		"pageview_id": "eeeeeeeeeeeeeeeeeeee"
+	},
+	"action" : "TestClickCustom",
+	"action_subtype" : "TestActionSubtype",
+	"action_source" : "TestActionSource",
+	"action_context" : "TestActionContext",
+	"element_id" : "TestElementId",
+	"element_friendly_name" : "TestElementFriendlyName",
+	"funnel_entry_token" : "TestFunnelEntryToken",
+	"funnel_event_sequence_position" : 8,
+	"dt" : "${json-unit.ignore}"
+} ]

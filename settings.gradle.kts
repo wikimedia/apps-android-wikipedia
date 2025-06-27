@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 }
 
 include(":app")
+include(":analytics:metrics-platform")
