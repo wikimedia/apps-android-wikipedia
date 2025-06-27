@@ -4,7 +4,6 @@ import androidx.room.Room
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.platform.app.InstrumentationRegistry
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.nullValue
@@ -123,7 +122,7 @@ class UpgradeFromPreRoomTest(private val fromVersion: Int) {
         val historyEntry = historyDao.findEntryBy("ru.wikipedia.org", "ru", "Обама,_Барак")!!
         assertThat(historyEntry.displayTitle, equalTo("Обама, Барак"))
 
-        val talkPageSeen = talkPageSeenDao.getAll().first()
+        val talkPageSeen = talkPageSeenDao.getAll()
         if (fromVersion == 22) {
             assertThat(talkPageSeen.count(), equalTo(2))
             assertThat(offlineObjectDao.getOfflineObject("https://en.wikipedia.org/api/rest_v1/page/summary/Joe_Biden")!!.path, equalTo("/data/user/0/org.wikipedia.dev/files/offline_files/481b1ef996728fd9994bd97ab19733d8"))
