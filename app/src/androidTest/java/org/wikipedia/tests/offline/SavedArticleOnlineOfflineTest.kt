@@ -1,4 +1,4 @@
-package org.wikipedia.tests.articles
+package org.wikipedia.tests.offline
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -26,6 +26,10 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
 
     @Test
     fun runTest() {
+        if (!isOnline()) {
+            systemRobot
+                .turnOffAirplaneMode()
+        }
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         searchRobot
@@ -73,7 +77,7 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
         dialogRobot
             .dismissBigEnglishDialog()
         savedScreenRobot
-            .verifyPageIsOffline(context)
+            .verifyPageIsOffline()
         systemRobot
             .turnOffAirplaneMode()
     }

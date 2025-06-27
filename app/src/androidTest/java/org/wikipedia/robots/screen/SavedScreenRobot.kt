@@ -2,7 +2,6 @@ package org.wikipedia.robots.screen
 
 import BaseRobot
 import android.app.Activity
-import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -90,12 +89,8 @@ class SavedScreenRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun verifyPageIsOffline(context: Context) = apply {
-        try {
-            verify.messageOfSnackbar(context.getString(R.string.page_offline_notice_last_date))
-        } catch (e: Exception) {
-            Log.e("SavedScreenRobotError:", "Snackbar is not visible.")
-        }
+    fun verifyPageIsOffline() = apply {
+        verify.viewWithIdIsNotVisible(R.id.page_error)
     }
 
     fun clickFilterList() = apply {
