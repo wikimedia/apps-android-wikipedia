@@ -383,4 +383,9 @@ class PageRobot(private val context: Context) : BaseRobot() {
         click.onViewWithText("Got it")
         delay(TestConfig.DELAY_SHORT)
     }
+
+    fun clickEditIntroductionMenuItem() = apply {
+        click.onDisplayedViewWithText(viewId = R.id.title, text = "Edit introduction")
+        delay(TestConfig.DELAY_LARGE)
+    }
 }
