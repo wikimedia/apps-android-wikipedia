@@ -457,7 +457,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         if (localPage == null) {
             localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
-            updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle)!= null
+            updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle) != null
         }
         localPage.remoteId = remotePage.id
         if (updateOnly) {
