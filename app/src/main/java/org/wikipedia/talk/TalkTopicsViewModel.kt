@@ -141,7 +141,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
         }
     }
 
-    fun topicSeen(threadItem: ThreadItem?): Boolean {
+    suspend fun topicSeen(threadItem: ThreadItem?): Boolean {
         return threadSha(threadItem)?.run { talkPageDao.getTalkPageSeen(this) != null } ?: false
     }
 

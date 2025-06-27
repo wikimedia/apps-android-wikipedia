@@ -10,14 +10,18 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemReadingListPreviewSaveSelectItemBinding
 import org.wikipedia.databinding.ViewReadingListPreviewSaveDialogBinding
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -35,7 +39,7 @@ class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = 
     private lateinit var readingList: ReadingList
     private lateinit var savedReadingListPages: MutableList<ReadingListPage>
     private lateinit var callback: Callback
-    private var currentReadingLists: MutableList<ReadingList>
+    private var currentReadingLists = emptyList<ReadingList>()
     var readingListMode = ReadingListMode.PREVIEW
 
     init {
@@ -45,7 +49,11 @@ class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = 
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true, skipSearchBar = true))
-        currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
+        coroutineScope().launch(CoroutineExceptionHandler {
+            _, throwable -> L.w(throwable)
+        }) {
+            currentReadingLists = AppDatabase.instance.readingListDao().getAllLists()
+        }
         binding.readingListTitle.doOnTextChanged { _, _, _, _ ->
             validateTitleAndList()
         }

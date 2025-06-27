@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist.sync
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.Context
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.work.Constraints
@@ -339,7 +340,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                             for (i in ids.indices) {
                                 localPages[i].remoteId = ids[i]
                             }
-                            AppDatabase.instance.readingListPageDao().updatePages(localPages)
+                            AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
                         }
                     } catch (t: Throwable) {
                         // TODO: optimization opportunity -- if the server can return the ID
@@ -385,7 +386,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                                 }
                             }
                         }
-                        AppDatabase.instance.readingListPageDao().updatePages(localPages)
+                        AppDatabase.instance.readingListPageDao().updateReadingListPages(localPages)
                     }
                 }
             } catch (e: CancellationException) {
@@ -447,7 +448,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         return extras
     }
 
-    private fun createOrUpdatePage(listForPage: ReadingList,
+    private suspend fun createOrUpdatePage(listForPage: ReadingList,
                                    remotePage: RemoteReadingListEntry) {
         val remoteTitle = pageTitleFromRemoteEntry(remotePage)
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == remoteTitle }
@@ -456,9 +457,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         if (localPage == null) {
             localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
-            if (AppDatabase.instance.readingListPageDao().pageExistsInList(listForPage, remoteTitle)) {
-                updateOnly = true
-            }
+            updateOnly = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, remoteTitle)!= null
         }
         localPage.remoteId = remotePage.id
         if (updateOnly) {
@@ -470,7 +469,7 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
         }
     }
 
-    private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
+    private suspend fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
             localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, title)

@@ -29,6 +29,9 @@ interface ReadingListPageDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateReadingListPage(page: ReadingListPage)
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateReadingListPages(pages: List<ReadingListPage>)
+
     @Delete
     suspend fun deleteReadingListPage(page: ReadingListPage)
 
@@ -95,20 +98,16 @@ interface ReadingListPageDao {
         list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE))
     }
 
-    suspend fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean) {
-        addPagesToList(list, pages)
-        if (queueForSync) {
-            ReadingListSyncAdapter.manualSync()
-        }
-    }
-
     @Transaction
-    suspend fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>) {
+    suspend fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean) {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
         FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync()
+        }
     }
 
     @Transaction
@@ -126,17 +125,6 @@ interface ReadingListPageDao {
             ReadingListSyncAdapter.manualSync()
         }
         return addedTitles
-    }
-
-    @Transaction
-    suspend fun updatePages(pages: List<ReadingListPage>) {
-        for (page in pages) {
-            updateReadingListPage(page)
-        }
-    }
-
-    suspend fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
-        updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
     }
 
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
@@ -161,14 +149,6 @@ interface ReadingListPageDao {
         else SearchResults(pages.take(2).map {
             SearchResult(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResult.SearchResultType.READING_LIST)
         }.toMutableList())
-    }
-
-    suspend fun pageExistsInList(list: ReadingList, title: PageTitle): Boolean {
-        return getPageByTitle(list, title) != null
-    }
-
-    suspend fun resetUnsavedPageStatus() {
-        updateStatus(ReadingListPage.STATUS_SAVED, ReadingListPage.STATUS_QUEUE_FOR_SAVE, false)
     }
 
     @Transaction
