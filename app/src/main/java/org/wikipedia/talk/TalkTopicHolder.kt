@@ -36,82 +36,78 @@ class TalkTopicHolder internal constructor(
     private lateinit var threadItem: ThreadItem
 
     fun bindItem(item: ThreadItem) {
-        context.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
-            item.seen = viewModel.topicSeen(item)
-            threadItem = item
-            val topicTitle = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
-            StringUtil.setHighlightedAndBoldenedText(binding.topicTitleText, topicTitle, viewModel.currentSearchQuery)
-            binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
-            itemView.setOnClickListener(this@TalkTopicHolder)
+        item.seen = viewModel.topicSeen(item)
+        threadItem = item
+        val topicTitle = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
+        StringUtil.setHighlightedAndBoldenedText(binding.topicTitleText, topicTitle, viewModel.currentSearchQuery)
+        binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
+        itemView.setOnClickListener(this@TalkTopicHolder)
 
-            // setting tag for swipe action text
-            if (!threadItem.seen) {
-                itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_read))
-                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
-            } else {
-                itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_unread))
-                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
-            }
-
-            binding.topicOverflowMenu.setOnClickListener {
-                showOverflowMenu(it)
-            }
-
-            val allReplies = threadItem.allReplies.toList()
-
-            if (allReplies.isEmpty()) {
-                binding.topicUserIcon.isVisible = false
-                binding.topicUsername.isVisible = false
-                binding.topicReplyIcon.isVisible = false
-                binding.topicReplyNumber.isVisible = false
-                binding.topicLastCommentDate.isVisible = false
-                binding.topicContentText.isVisible = false
-                val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
-                binding.otherContentContainer.isVisible = isHeaderTemplate
-                if (isHeaderTemplate) {
-                    StringUtil.setHighlightedAndBoldenedText(binding.otherContentText,
-                        RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " "),
-                        viewModel.currentSearchQuery)
-                }
-                return@launch
-            }
-            binding.otherContentContainer.isVisible = false
-
-            // Last comment
-            binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-            StringUtil.setHighlightedAndBoldenedText(binding.topicContentText,
-                RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " "),
-                viewModel.currentSearchQuery)
-            binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
-
-            // Username with involved user number exclude the author
-            val usersInvolved = allReplies.map { it.author }.distinct().size - 1
-            val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
-            val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
-            StringUtil.setHighlightedAndBoldenedText(binding.topicUsername, usernameText, viewModel.currentSearchQuery)
-            binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-            binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
-            binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
-            ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
-
-            // Amount of replies, exclude the topic in replies[].
-            val replyNumber = allReplies.size - 1
-            val replyNumberColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
-            binding.topicReplyNumber.isVisible = replyNumber > 0
-            binding.topicReplyIcon.isVisible = replyNumber > 0
-            binding.topicReplyNumber.text = replyNumber.toString()
-            binding.topicReplyNumber.setTextColor(ResourceUtil.getThemedColor(context, replyNumberColor))
-            ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
-
-            // Last comment date
-            val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
-            val lastCommentColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
-            binding.topicLastCommentDate.text = lastCommentDate
-            binding.topicLastCommentDate.isVisible = lastCommentDate != null
-            binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
+        // setting tag for swipe action text
+        if (!threadItem.seen) {
+            itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_read))
+            itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
+        } else {
+            itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_unread))
+            itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
         }
+
+        binding.topicOverflowMenu.setOnClickListener {
+            showOverflowMenu(it)
+        }
+
+        val allReplies = threadItem.allReplies.toList()
+
+        if (allReplies.isEmpty()) {
+            binding.topicUserIcon.isVisible = false
+            binding.topicUsername.isVisible = false
+            binding.topicReplyIcon.isVisible = false
+            binding.topicReplyNumber.isVisible = false
+            binding.topicLastCommentDate.isVisible = false
+            binding.topicContentText.isVisible = false
+            val isHeaderTemplate = TalkTopicActivity.isHeaderTemplate(threadItem)
+            binding.otherContentContainer.isVisible = isHeaderTemplate
+            if (isHeaderTemplate) {
+                StringUtil.setHighlightedAndBoldenedText(binding.otherContentText,
+                    RichTextUtil.stripHtml(StringUtil.removeStyleTags(threadItem.othercontent)).trim().replace("\n", " "),
+                    viewModel.currentSearchQuery)
+            }
+            return
+        }
+        binding.otherContentContainer.isVisible = false
+
+        // Last comment
+        binding.topicContentText.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+        StringUtil.setHighlightedAndBoldenedText(binding.topicContentText,
+            RichTextUtil.stripHtml(allReplies.last().html).trim().replace("\n", " "),
+            viewModel.currentSearchQuery)
+        binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
+
+        // Username with involved user number exclude the author
+        val usersInvolved = allReplies.map { it.author }.distinct().size - 1
+        val usernameText = allReplies.maxByOrNull { it.date ?: Date() }?.author.orEmpty() + (if (usersInvolved > 1) " +$usersInvolved" else "")
+        val usernameColor = if (threadItem.seen) R.attr.inactive_color else R.attr.progressive_color
+        StringUtil.setHighlightedAndBoldenedText(binding.topicUsername, usernameText, viewModel.currentSearchQuery)
+        binding.topicUserIcon.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUsername.isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
+        binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
+        ImageViewCompat.setImageTintList(binding.topicUserIcon, ResourceUtil.getThemedColorStateList(context, usernameColor))
+
+        // Amount of replies, exclude the topic in replies[].
+        val replyNumber = allReplies.size - 1
+        val replyNumberColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
+        binding.topicReplyNumber.isVisible = replyNumber > 0
+        binding.topicReplyIcon.isVisible = replyNumber > 0
+        binding.topicReplyNumber.text = replyNumber.toString()
+        binding.topicReplyNumber.setTextColor(ResourceUtil.getThemedColor(context, replyNumberColor))
+        ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
+
+        // Last comment date
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
+        val lastCommentColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
+        binding.topicLastCommentDate.text = lastCommentDate
+        binding.topicLastCommentDate.isVisible = lastCommentDate != null
+        binding.topicLastCommentDate.setTextColor(ResourceUtil.getThemedColor(context, lastCommentColor))
     }
 
     override fun onClick(v: View?) {
