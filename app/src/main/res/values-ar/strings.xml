@@ -5,9 +5,9 @@
 * Ahmed Alyamoor
 * Alaa
 * Alshamiri1
-* Amire80
 * Asaifm
 * Asma
+* Cigaryno
 * Cooltey
 * Dbrant
 * Dr-Taher
@@ -42,10 +42,14 @@
 * Sonic N800
 * Tala Ali
 * Ulhvulgv
+* Wrai
+* XIDME
 * Youssef
 * أيوب
 * أَحمد
 * بدارين
+* بدر
+* جودت
 * ديفيد
 * عبد الإله صديقي
 * علاء
@@ -63,10 +67,14 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث الصوتي</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
+  <string name="search_back_button_content_description">رجوع</string>
+  <string name="search_clear_query_content_description">مسح الاستعلام</string>
+  <string name="search_icon_content_description">بحث</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">تعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="nav_item_search">بحث</string>
+  <string name="nav_item_contribute">ساهم</string>
   <string name="error_network_error">لا يُمكن الاتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -102,9 +110,25 @@
   <string name="page_edit_history_filter_by">الفرز حسب</string>
   <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
-  <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
+  <string name="page_edit_history_filter_by_anon">التعديلات غير المسجلة ( %s )</string>
   <string name="page_edit_history_filter_by_bot">تعديلات البوت (%s)</string>
   <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="zero">لا تعديل منذ %2$s</item>
+    <item quantity="one">تعديل واحد منذ %2$s</item>
+    <item quantity="two">تعديلين منذ %2$s</item>
+    <item quantity="few">%1$d تعديلات منذ %2$s</item>
+    <item quantity="many">%1$d تعديل منذ %2$s</item>
+    <item quantity="other">%1$d تعديل منذ %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="zero">لا تعديل منذ %2$s (%3$s)</item>
+    <item quantity="one">%1$d تعديل واحد منذ %2$s (%3$s)</item>
+    <item quantity="two">تعديلين منذ %2$s(%3$s)</item>
+    <item quantity="few">%1$d تعديلات منذ %2$s(%3$s)</item>
+    <item quantity="many">%1$d تعديل منذ %2$s(%3$s)</item>
+    <item quantity="other">%1$d تعديل منذ %2$s(%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">حاول تغيير &lt;a href=\"#\"&gt;عوامل التصفية&lt;/a&gt; لرؤية المزيد من التعديلات</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
@@ -133,6 +157,7 @@
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
   <string name="menu_page_archive">الأرشيف</string>
   <string name="menu_long_press_open_page">افتح</string>
+  <string name="menu_long_press_open_in_places">مفتوح في الأماكن</string>
   <string name="menu_long_press_open_in_new_tab">افتح في تبويب جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
   <string name="menu_text_select_define">عرّف</string>
@@ -158,12 +183,17 @@
   <string name="langlinks_your_wikipedia_languages">لغات ويكيبيديا الخاصة بك</string>
   <string name="menu_save_changes">انشر التغييرات</string>
   <string name="edit_saved_successfully">تم نشر التعديل!</string>
+  <string name="stub_article_edit_saved_successfully">نُشر التعديل! قد يستغرق ظهور التغييرات بعض الوقت.</string>
   <string name="dialog_message_edit_failed">فشل التعديل!</string>
   <string name="dialog_message_edit_failed_retry">إعادة المحاولة</string>
   <string name="dialog_message_edit_failed_cancel">إلغاء</string>
   <string name="dialog_message_leaving_edit">لم تُنشر تغييراتك حتى الآن. هل أنت متأكد أنك تريد ترك هذه الصفحة؟</string>
   <string name="dialog_message_leaving_edit_leave">المغادرة</string>
   <string name="dialog_message_leaving_edit_stay">البقاء</string>
+  <string name="dialog_confirm_delete_donation_history_title">تأكيد الحذف</string>
+  <string name="dialog_confirm_delete_donation_history_message">سيتم تطبيق هذا فقط على التبرعات المقدمة من هذا الجهاز.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">حذف</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">إلغاء</string>
   <string name="menu_show_toc">جدول المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
   <string name="search_reading_list_no_results">لا نتائج في %s</string>
@@ -178,8 +208,10 @@
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="account_creation_password_hint">كلمة السر</string>
-  <string name="login_2fa_hint">رمز التحقق بخطوتين</string>
-  <string name="login_2fa_other_workflow_error_msg">التوثيق بخطوتين مطلوب! يرجى الرجوع إلى النشاط الرئيسي وتسجيل الدخول باستخدام الرمز المميز 2FA، ثم إعادة المحاولة.</string>
+  <string name="login_2fa_hint">رمز المصادقة الثنائية</string>
+  <string name="login_2fa_other_workflow_error_msg">المصادقة الثنائية مطلوبة! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز المصادقة الثنائية.</string>
+  <string name="login_email_auth_hint">رمز التحقق من البريد الإلكتروني</string>
+  <string name="login_email_auth_other_workflow_error_msg">مطلوب التحقق من بريدك الإلكتروني! يُرجى تسجيل الدخول من الشاشة الرئيسية، وإدخال رمز التحقق.</string>
   <string name="onboarding_card_login">تسجيل الدخول</string>
   <string name="page_editing_login">تسجيل الدخول</string>
   <string name="reading_lists_sync_login">تسجيل الدخول</string>
@@ -200,6 +232,9 @@
   <string name="logged_out_in_background_dialog">لقد تم تسجيل خروجك من ويكيبيديا، هل ترغب في تسجيل الدخول مرة أخرى؟</string>
   <string name="logged_out_in_background_login">تسجيل الدخول</string>
   <string name="logged_out_in_background_cancel">إلغاء</string>
+  <string name="account_vanish_request_title">حذف الحساب</string>
+  <string name="account_vanish_request_confirm_title">تحذير من اختفاء الحساب</string>
+  <string name="account_vanish_request_confirm">المحو هو &lt;b&gt;الملاذ الأخير&lt;/b&gt; ويجب &lt;b&gt;استخدامه فقط عندما ترغب في التوقف عن التحرير إلى الأبد&lt;/b&gt; وأيضًا لإخفاء أكبر عدد ممكن من ارتباطاتك السابقة.&lt;br/&gt;&lt;br/&gt; يُحذف الحساب على ويكيبيديا عن طريق تغيير اسم حسابك بحيث لا يتمكن الآخرون من التعرف على مساهماتك في عملية تسمى محو الحسابات. &lt;b&gt;لا يضمن المحو عدم الكشف عن الهوية تمامًا أو إزالة المساهمات في المشاريع&lt;/b&gt; .</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
   <string name="history_offline_articles_toast">قد لا تكون بعض المقالات في السجل قابلة للعرض دون اتصال.</string>
@@ -266,24 +301,23 @@
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/ar</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ar</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جيريت&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جيت هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;رخصة أباتشي 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;رخصة المشاع الإبداعي الملزمة بنسبة العمل لمؤلفه وبترخيص الأعمال المشتقة بالمثل&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جيت هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;رخصة أباتشي 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;رخصة المشاع الإبداعي الملزمة بنسبة العمل لمؤلفه وبترخيص الأعمال المشتقة بالمثل&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
+  <string name="about_logo_content_description">شعار لغز ويكيبيديا</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="edit_abandon_confirm_yes">نعم</string>
   <string name="edit_abandon_confirm_no">لا</string>
@@ -298,13 +332,25 @@
   <string name="edit_redo">أعد</string>
   <string name="edit_rollback">استرجاع</string>
   <string name="edit_warn">تنبيه</string>
+  <string name="edit_damage">الضرر %s</string>
+  <string name="edit_intent">%s نية</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="zero">%s بايت </item>
+    <item quantity="one">%s بايت</item>
+    <item quantity="two">%s بايت</item>
+    <item quantity="few">%s بايت</item>
+    <item quantity="many">%s بايت</item>
+    <item quantity="other">%s بايت</item>
+  </plurals>
   <string name="edit_zoom_in">تكبير</string>
   <string name="edit_zoom_out">تصغير</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
-  <string name="edit_summary_tag_links">تمت إضافة وصلات</string>
+  <string name="edit_summary_tag_links">أضفتُ وصلات</string>
   <string name="edit_summary_tag_other">أخرى</string>
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
+  <string name="edit_summary_added_short_description">أُضيف وصف مختصر</string>
+  <string name="edit_summary_updated_short_description">وصف قصير محدّث</string>
   <string name="edit_conflict_title">تضارب تحرير</string>
   <string name="edit_conflict_message">تم تعديل الصفحة بالفعل من قبل مستخدم مختلف، وتتعارض مع تعديلك; الرجاء نسخ التعديلات، والعودة وتحديث الصفحة، ثم حاول التعديل مرة أخرى.</string>
   <string name="edit_notices">ملاحظات التحرير</string>
@@ -391,7 +437,6 @@
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_title">الوصول السريع لجدول المحتويات</string>
   <string name="tool_tip_toc_text">يمكنك الآن التحرك لليسار لفتح جدول المحتويات، وأيضا النقر والجر على زر الدحرجة هذا للقفز سريعا إلى أقسام مختلفة من مقالة.</string>
-  <string name="tool_tip_lang_button">يمكنك الآن البحث وقراءة لغات ويكيبيديا المتعددة في التطبيق.\n\nاضغط على الأيقونة لإضافة المزيد من اللغات.</string>
   <string name="error_response_malformed">الاستجابة من الملقم لم تكن مهيأة بشكل صحيح.</string>
   <string name="error_unknown">حدث خطأ غير معروف.</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
@@ -436,6 +481,7 @@
   <string name="link_preview_dialog_save_button">حفظ</string>
   <string name="link_preview_dialog_saved_button">محفوظة</string>
   <string name="link_preview_dialog_share_button">شارك</string>
+  <string name="link_preview_stub_placeholder_text">هذه المقالة عبارة عن جزء صغير، مما يعني أنه لا يوجد محتوى كافٍ في المقالة لإنشاء معاينة. ومع ذلك، يمكنك تغيير ذلك.</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="error_user_page_does_not_exist">لا تحتوي ويكيبيديا على &lt;a href=\"%1$s\"&gt;صفحة مستخدم&lt;/a&gt; بهذا الاسم بالضبط. بشكل عام، يجب إنشاء هذه الصفحة وتحريرها بواسطة &lt;b&gt;%2$s&lt;/b&gt;. إذا كان لديك شك، يرجى التحقق من أن \"%3$s\" وجود.</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
@@ -445,6 +491,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
+  <string name="preference_title_delete_local_donation_history">حذف سجل التبرعات المحلية</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">تبويب جديد</string>
@@ -455,7 +502,38 @@
   <string name="error_blocked_start">بداية المنع: %s</string>
   <string name="error_blocked_expiry">انتهاء صلاحية المنع: %s</string>
   <string name="error_blocked_id">معرف المنع: %s</string>
+  <string name="error_blocked_footer">يمكنك الاتصال بـ&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; أو أي &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;إداري&lt;/a&gt; آخر لمناقشة المنع.</string>
   <string name="theme_chooser_menu_item_short_tooltip">تخصيص شريط الأدوات الخاص بك</string>
+  <string name="error_blocked_footer_no_blocker">يمكنك التواصل مع أحد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;الإداريين&lt;/a&gt; لمناقشة المنع.</string>
+  <string name="temp_account_not_logged_in">أنت غير مسجل الدخول</string>
+  <string name="temp_account_anon_ip_dialog_body">بمجرد إجراء تعديل، سيتم ربط عنوان IP الخاص بك بتعديلاتك.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
+  <string name="temp_account_anon_dialog_body">بمجرد إجراء تعديل، سيتم إنشاء &lt;b&gt;حساب مؤقت&lt;/b&gt; لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
+  <string name="temp_account_temp_dialog_body">سيتم نسب تعديلك إلى %1$s . سيكون عنوان IP الخاص بك مرئيًا للمسؤولين.&lt;br /&gt;&lt;br /&gt; إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; ، فسيتم نسب تعديلاتك إلى الاسم الذي تختاره، من بين مزايا أخرى.</string>
+  <string name="temp_account_dialog_ok">عُلِم</string>
+  <string name="temp_account_using_title">أنت تستخدم حساباً مؤقتاً</string>
+  <string name="temp_account_dialog_discard">تجاهل التغييرات وتسجيل الدخول</string>
+  <plurals name="temp_account_created">
+    <item quantity="zero">لا حساب مؤقت تم إنشاؤه</item>
+    <item quantity="one">تم إنشاء الحساب المؤقت %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+    <item quantity="two">تم إنشاء الحسابين المؤقتين %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+    <item quantity="few">تم إنشاء الحسابات المؤقتة القليلة %1$s بعد نشر تعديلك. وسوف تنتهي صلاحيتها خلال %2$d يوم.</item>
+    <item quantity="many">تم إنشاء الحسابات المؤقتة %1$s بعد نشر تعديلك. وسوف تنتهي صلاحيتها خلال %2$d يوم.</item>
+    <item quantity="other">تم إنشاء الحساب المؤقت %1$s بعد نشر تعديلك. وسوف ينتهي صلاحيته خلال %2$d يوم.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="zero">لا حساب انتهت صلاحيته</item>
+    <item quantity="one">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
+    <item quantity="two">حساان انتهت صلاحيتهما</item>
+    <item quantity="few">حسابات قليلة انتهت صلاحيتها</item>
+    <item quantity="many">حسابات كثيرة انتهت صلاحيتها</item>
+    <item quantity="other">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;أنت لستُ مُسجلًا.&lt;/b&gt; بمجرد إصدارها، سيتم ربط عنوان IP الخاص بك مع التحريرات الخاصة بك.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;لم تسجل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سينشأ حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;أنت تستخدم حسابًا مؤقتًا.&lt;/b&gt; سيتم نسب تعديلك إلى %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
+  <string name="temp_account_login_status">&lt;b&gt;أنت تستخدم حاليًا حسابًا مؤقتًا.&lt;/b&gt; لن يتم نقل التعديلات التي أجريتها باستخدام الحساب المؤقت %1$s إلى حسابك الدائم عند تسجيل الدخول. قم بتسجيل الدخول أو إنشاء حساب للحصول على رصيد باسم المستخدم الخاص بك، من بين مزايا أخرى.</string>
+  <string name="temp_account_end_session">أنه الجلسة</string>
+  <string name="temp_account_end_session_confirm">سيؤدي هذا إلى تسجيل خروجك من حسابك المؤقت. هل تريد الاستمرار؟</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -487,6 +565,7 @@
   <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
   <string name="editing_syntax_highlight_label">تسليط الضوء على التركيب</string>
   <string name="editing_line_numbers_label">أظهر أرقام الأسطر</string>
+  <string name="editing_monospace_font_label">استخدم خطًا أحادي المسافة</string>
   <string name="editing_typing_suggestions">إظهار اقتراحات الطباعة</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
@@ -500,6 +579,14 @@
   <string name="reading_list_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات.</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="reading_list_add_to_list_button">أضف إلى قائمة</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="zero">لا مقالة\n</item>
+    <item quantity="one">مقالة واحدة\n</item>
+    <item quantity="two">مقالتين\n</item>
+    <item quantity="few">%d مقالات\n</item>
+    <item quantity="many">%d مقالة\n</item>
+    <item quantity="other">%d مقالة</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="zero">لا مقالات</item>
     <item quantity="one">مقالة واحدة، %2$.2f ميغابايت</item>
@@ -507,6 +594,14 @@
     <item quantity="few">%1$d مقالات، %2$.2f ميغابايت</item>
     <item quantity="many">%1$d مقالة، %2$.2f ميغابايت</item>
     <item quantity="other">%1$d مقالات، %2$.2f ميغابايت</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="zero">لا مقالة متاحة بلا إنترنت\n</item>
+    <item quantity="one">مقالة واحدة متاحة بلا إنترنت\n</item>
+    <item quantity="two">مقالتان متاحتان بلا إنترنت\n</item>
+    <item quantity="few">%1$d من %2$d مقالات متاحة بلا إنترنت\n</item>
+    <item quantity="many">%1$d من %2$d مقالة متاحة بلا إنترنت\n</item>
+    <item quantity="other">%1$d من %2$d مقالة متاحة بلا إنترنت\n</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="zero">لا مقالات</item>
@@ -549,6 +644,22 @@
     <item quantity="many">...</item>
     <item quantity="other">%d مقالة أزيلة من القائمة</item>
   </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="zero">%d مقالة أُزيلت من  %s\n</item>
+    <item quantity="one">مقالة واحدة أُزيلت من  %s\n</item>
+    <item quantity="two">مقالتان أُزيلت من  %s\n</item>
+    <item quantity="few">%d مقالات أُزيلت من  %s\n</item>
+    <item quantity="many">%d مقالة أُزيلت من  %s\n</item>
+    <item quantity="other">%d مقالة أُزيلت من  %s\n</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="zero">%d قائمة محذوفة\n</item>
+    <item quantity="one">قائمة محذوفة\n</item>
+    <item quantity="two">قائمتان محذوفتان\n</item>
+    <item quantity="few">%d قوائم محذوفة\n</item>
+    <item quantity="many">%d قائمة محذوفة\n</item>
+    <item quantity="other">%d قائمة محذوفة\n</item>
+  </plurals>
   <string name="reading_lists_default_list_delete_message">القائمة الافتراضية %s لا يمكن حذفها.</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s محذوف. القائمة الافتراضية %2$s لا يمكن حذفها.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">تم حذف القوائم. القائمة الإفتراضية %s لا يمكن حذفها .</string>
@@ -573,8 +684,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
   <string name="reading_lists_sync_reminder_title">تشغيل مزامنة قائمة القراءة؟</string>
-  <string name="reading_lists_sync_reminder_text">يمكن الآن مزامنة المقالات المحفوظة لقوائم القراءة مع حساب ويكيبيديا الخاص بك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;معرفة المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">يمكنك الآن مزامنة المقالات المحفوظة في قوائم القراءة مع حسابك على ويكيبيديا. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">يمكنك الآن مزامنة قوائم القراءة عبر الأجهزة. سجّل دخولك إلى حسابك على ويكيبيديا واحفظ قوائمك. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;تعرّف على المزيد&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
@@ -587,6 +698,14 @@
   <string name="reading_list_articles_moved_to_named">نُقلت %1$d مقالات إلى %2$s</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من أنك تريد حذف %s؟</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">حذف القائمة (القوائم) المحددة؟</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="zero">هل أنت متأكد أنك تريد حذف القائمة\n</item>
+    <item quantity="one">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
+    <item quantity="two">هل أنت متأكد أنك تريد حذف %d قائمتين\n</item>
+    <item quantity="few">هل أنت متأكد أنك تريد حذف %d قوائم\n</item>
+    <item quantity="many">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
+    <item quantity="other">هل أنت متأكد أنك تريد حذف %d قائمة\n</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">سجل الدخول لتمكين المزامنة</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">سجل الدخول للسماح بقوائم قراءتك ليتم حفظها في حسابك.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">إلغاء</string>
@@ -642,6 +761,22 @@
   <string name="reading_lists_import_failure_message">فشل استيراد قوائم القراءة</string>
   <string name="reading_lists_export_select_lists_message">حدد القائمة (القوائم) للتصدير</string>
   <string name="reading_lists_export_completed_message">تم تصدير قائمة (قوائم) القراءة</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="zero">لا قوائم قراءة تم تصديرها</item>
+    <item quantity="one">فشل تصدير قائمة القراءة</item>
+    <item quantity="two">فشل تصدير قائمتي القراءة</item>
+    <item quantity="few">فشل تصدير قوائم القراءة</item>
+    <item quantity="many">فشل تصدير قوائم القراءة</item>
+    <item quantity="other">فشل تصدير قوائم القراءة</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="zero">لا قوائم قراءة تم استيرادها</item>
+    <item quantity="one">قائمة القراءة المستوردة</item>
+    <item quantity="two">قائمتا قراءة تم استيرادهما</item>
+    <item quantity="few">قوائم قراءة قليلة تم استيرادها</item>
+    <item quantity="many">قوائم قراءة كثيرة تم استيرادها</item>
+    <item quantity="other">قوائم القراءة تم استيرادها</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">قائمة مشتركة</string>
   <string name="reading_lists_preview_save_button">حفظ</string>
   <string name="reading_lists_preview_save_dialog_title">حفظ القائمة</string>
@@ -657,7 +792,7 @@
   <string name="notification_channel_description">تقدم التنزيل</string>
   <string name="notification_syncing_pause_button">وقف</string>
   <string name="notification_syncing_resume_button">استئناف</string>
-  <string name="notification_syncing_cancel_button">ألغ</string>
+  <string name="notification_syncing_cancel_button">إلغاء</string>
   <string name="notification_syncing_reading_list_channel_title">مزامنة قوائم القراءة</string>
   <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
   <string name="notification_many_unread">لديك  %d إشعارات غير مقروءة</string>
@@ -739,6 +874,22 @@
   <string name="notifications_direct_reply_error">لا يمكن الرد تلقائيا.</string>
   <string name="notifications_mark_all_as_read_message">%d تم وضع علامة مقروءة</string>
   <string name="notifications_mark_all_as_unread_message">%d تم وضع علامة غير مقروءة</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="zero">لا علامة تم وضعها على أنه مقروء</item>
+    <item quantity="one">1 تم وضع علامة على أنه مقروء</item>
+    <item quantity="two">تم وضع علامتين على أنه مقروء</item>
+    <item quantity="few">تم وضع علامة على أنه مقروء</item>
+    <item quantity="many">تم وع علامة على أنه مقروء</item>
+    <item quantity="other">%d تم وضع علامة على أنه مقروء</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="zero">لم يتم وضع علامة على أنه غير مقروء</item>
+    <item quantity="one">1 تم وضع علامة عليه كغير مقروء</item>
+    <item quantity="two">تم وضضع علامتين على أنه غير مقروء</item>
+    <item quantity="few">تم وضع علامة على أنه غير مقروء</item>
+    <item quantity="many">تم وضع علامة على أنه غير مقروء</item>
+    <item quantity="other">%d تم وضع علامة عليه كغير مقروء</item>
+  </plurals>
   <string name="watchlist_title">قائمة المراقبة</string>
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
@@ -760,6 +911,7 @@
   <string name="preference_title_notification_email_user">تلقي بريد إلكتروني</string>
   <string name="preference_summary_notification_email_user">أرسل إليك شخص ما بريدًا إلكترونيًا من خلال الويكي</string>
   <string name="preference_title_notification_user_rights">تغييرات صلاحيات المستخدم</string>
+  <string name="preference_summary_notification_user_rights">تم الاستلام عند تغيير حقوق المستخدم الخاصة بك</string>
   <string name="preference_title_notification_article_linked">وصلات إلى المقالات التي أنشأتها</string>
   <string name="preference_summary_notification_article_linked">يتم تلقيها عند إنشاء رابط جديد لصفحة قمت بإنشائها</string>
   <string name="preference_category_push_notifications">دفع الإخطارات</string>
@@ -774,6 +926,14 @@
   <string name="notifications_filter_icon_content_description">تصفية الإخطارات</string>
   <string name="notifications_filter_update_app_languages">تحديث لغات التطبيق</string>
   <string name="notifications_empty_search_message">حاول إزالة %s لكي ترى إخطارات اكثر</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="zero">لا مرشح</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other">%d مرشحات</item>
+  </plurals>
   <string name="notifications_select_all_filters">حدد كل عوامل التصفية</string>
   <string name="notifications_tab_filter_all">الكل</string>
   <string name="notifications_tab_filter_mentions">الإشارات</string>
@@ -784,11 +944,11 @@
   <string name="notifications_swipe_action_read">مقروءة</string>
   <string name="notifications_swipe_action_unread">غير مقروءة</string>
   <string name="notifications_menu_check_all">حدّد كل العناصر</string>
-  <string name="notifications_menu_uncheck_all">ألغ تحديد كل العناصر</string>
+  <string name="notifications_menu_uncheck_all">إلغاء تحديد كل العناصر</string>
   <string name="notifications_wiki_filter_header">مرشّح الويكي</string>
   <string name="notifications_type_filter_header">مرشّح النوع</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">جميع \"مواقع الويكي\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">جميع \"الأنواع\"</string>
+  <string name="notifications_all_wikis_text">جميع الويكيات</string>
+  <string name="notifications_all_types_text">جميع الأنواع</string>
   <string name="notifications_menu_user_talk_page">صفحة نقاش %s</string>
   <string name="notifications_offline_disable_message">هذه الميزة غير متوفرة دون اتصال.</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
@@ -842,6 +1002,7 @@
   <string name="feed_item_type_main_page">الصفحة الرئيسية لويكيبيديا مع المحتوى اليومي المختار</string>
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
   <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
+  <string name="feed_item_type_places">المقالات القريبة بناءً على الموقع الحالي</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="customize_lang_selection_dialog_ok_button_text">حسنا</string>
@@ -851,6 +1012,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
   <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
+  <string name="feed_language_variants_removal_dialog_title">حدد متغير لغة إقليمي للحصول على تجربة قراءة أفضل</string>
+  <string name="feed_language_variants_removal_dialog_message">أنت تستخدم حاليًا متغيرًا عامًا غير مدعوم للغة الصينية كلغة ويكيبيديا الأساسية لديك</string>
+  <string name="feed_language_variants_removal_dialog_save">حفظ</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">يرجى تحديث اللغات الثانوية الخاصة بك</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">أنت تستخدم حاليًا متغيرًا عامًا غير مدعوم باللغة الصينية كلغة ثانوية. يُرجى الانتقال إلى إعداداتك لتحديد لغة ثانوية جديدة أو لتأكيد قائمة اللغات لديك.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">اذهب إلى الإعدادات</string>
   <string name="top_read_activity_title">الأكثر قراءة في %s</string>
   <string name="tabs_activity_title">نوافذ التبويب</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
@@ -869,11 +1036,11 @@
   <string name="description_edit_add_image_caption">إضافة تعليق الصورة</string>
   <string name="description_edit_edit_image_caption">تحرير تعليق الصورة</string>
   <string name="description_edit_translate_image_caption">ترجمة تعليق الصورة</string>
-  <string name="description_edit_cancel_hint">ألغ</string>
+  <string name="description_edit_cancel_hint">إلغاء</string>
   <string name="description_edit_help_title">معلومات: وصف المقالة</string>
   <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرا لاهتمامك المستمر بتحرير أوصاف المقالات! لإجراء تعديلات إضافية؛ يُرجَى تسجيل الدخول إلى حساب ويكيبيديا الخاص بك.</string>
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
@@ -881,10 +1048,13 @@
   <string name="description_edit_learn_more">تعرف على المزيد حول أوصاف المقالة</string>
   <string name="description_edit_image_caption_learn_more">تعرف على المزيد حول التسميات التوضيحية للصور</string>
   <string name="description_too_short">النص قصير للغاية.</string>
+  <string name="description_too_long">حاول أن تجعل الأوصاف قصيرة حتى يتمكن المستخدمون من فهم موضوع المقالة في لمحة واحدة</string>
   <string name="description_ends_with_punctuation">النص يجب أن لا ينتهي بعلامة ترقيم.</string>
+  <string name="description_starts_with_article">تجنب البدء بأدوات التعريف مثل \"a\" أو \"the\".</string>
   <string name="description_starts_with_uppercase">ابدأ بحرف صغير إلا إذا كانت الكلمة الأولى هي اسم علم.</string>
   <string name="description_starts_with_lowercase">تجنّب البدء بأحرف صغيرة.</string>
   <string name="description_is_in_different_language">يظهر أن النص بلغة غير متوقّعة. اللغة يجب أن تكون %s.</string>
+  <string name="description_verification_notice">يرجى التأكد من أن الوصف الذي كتبته موجود في %1$s . لا تتردد في تجاهل هذا التحذير إذا كان الوصف الذي كتبته موجودًا في %2$s.</string>
   <string name="description_edit_suggested_description_button_text">أظهِر الأوصاف المقترحة</string>
   <string name="description_edit_suggested_description_button_tooltip">جرب  وصف المقالات المُقترحة آليًا</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
@@ -917,6 +1087,9 @@
   <string name="suggested_edits_describe_articles">صِف المقالات</string>
   <string name="suggested_edits_caption_images">تعليقات الصور</string>
   <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
+  <string name="suggested_edits_edit_patrol">تحرير الدورية</string>
+  <string name="suggested_edits_edit_patrol_hint">قم بمراجعة التعديلات الأخيرة وتحديد ما إذا كانت بناءة أم لا.</string>
+  <string name="suggested_edits_edit_patrol_review">مراجعة</string>
   <string name="suggested_edits_review_description">مراجعة وصف المقالة</string>
   <string name="suggested_edits_add_description_button">أضف وصفا</string>
   <string name="suggested_edits_edit_description_button">تحرير الوصف</string>
@@ -978,8 +1151,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">أضف وسومًا للصور</string>
-  <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
   <string name="suggested_edits_task_action_text_add">إضافة</string>
   <string name="suggested_edits_task_action_text_translate">ترجمة</string>
   <string name="suggested_edits_image_captions">تعليقات الصورة</string>
@@ -1032,6 +1203,14 @@
     <item quantity="many">مساهمات</item>
     <item quantity="other">مساهمة</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="zero">لا تعديلات</item>
+    <item quantity="one">تحرير</item>
+    <item quantity="two">تعديلان</item>
+    <item quantity="few">تعديلات قليلة</item>
+    <item quantity="many">تعديلات كثيرة</item>
+    <item quantity="other">تعديلات</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="zero">و لا يوم</item>
     <item quantity="one">يوم واحدة</item>
@@ -1044,7 +1223,7 @@
   <string name="suggested_edits_what_is_text">تقدم التعديلات المقترحة فرصًا للمساهمات الصغيرة والحيوية في ويكيبيديا.</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
-  <string name="suggested_edits_disabled_title">مُعطَّل</string>
+  <string name="suggested_edits_disabled_title">معطل</string>
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
@@ -1060,8 +1239,23 @@
   <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_views">%s مشاهدة</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="zero">لم تشاهد في آخر 30 يوما</item>
+    <item quantity="one">تمت مشاهدته مرة واحدة في الثلاثين يومًا الماضية.</item>
+    <item quantity="two">تمت مشاهدته مرتين في آخر 30 يوما</item>
+    <item quantity="few">تمت مشاهدته قليلا في آخر 30 مرة</item>
+    <item quantity="many">تمت مشاهدته كثيرا في آخر 30 يوما</item>
+    <item quantity="other">تمت مشاهدته %s مرة في الثلاثين يومًا الماضية.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">شوهدت %s مرة في آخر 30 يوماً</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="zero">أنت لم تضف أي وسم</item>
+    <item quantity="one">لقد أضفت %d وسم</item>
+    <item quantity="two">أنت أضفت وسمين</item>
+    <item quantity="few">أنت أضفت وسوما قليلة</item>
+    <item quantity="many">أنت أضفت وسوما كثيرة</item>
+    <item quantity="other">لقد أضفت %d وسم</item>
+  </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
@@ -1077,17 +1271,71 @@
   <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
   <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
   <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">درّب خوارزمية الصور</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="zero">لا وسوم</item>
+    <item quantity="one">وسم %1$s</item>
+    <item quantity="two">وسمان</item>
+    <item quantity="few">وسوم قليلة</item>
+    <item quantity="many">وسوم كثيرة</item>
+    <item quantity="other">وسوم %1$s</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="zero">لا حروف</item>
+    <item quantity="one">%1$s حرف</item>
+    <item quantity="two">حرفان</item>
+    <item quantity="few">حروف قليلة</item>
+    <item quantity="many">حروف كثيرة</item>
+    <item quantity="other">%1$s حرف</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="zero">أنت لم تزل أي حرف</item>
+    <item quantity="one">لقد قمت بإزالة %d حرف</item>
+    <item quantity="two">أنت أزلت حرفين</item>
+    <item quantity="few">أنت أزلت حروفا قليلة</item>
+    <item quantity="many">أنت أزلت حروفا كثيرة</item>
+    <item quantity="other">لقد قمت بإزالة %d حرف</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="zero">أنت لم تضف أي حرف</item>
+    <item quantity="one">لقد أضفت %d حرفًا</item>
+    <item quantity="two">أنت أضفت حرفين</item>
+    <item quantity="few">أنت أضفت حروفا قليلة</item>
+    <item quantity="many">أنت أضفت حروفا كثيرة</item>
+    <item quantity="other">لقد أضفت %d حرفًا</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">صور المقالة:</string>
+  <string name="suggested_edits_image_recommendations_task_detail">أضف الصور المقترحة إلى مقالات ويكيبيديا لتحسين الفهم.</string>
+  <string name="image_recommendation_task_instruction">هل ستصيف هذه الصورة إلى المقالة؟</string>
+  <string name="image_recommendation_tutorial">درس تعليمي</string>
   <string name="image_recommendation_accept">نعم</string>
   <string name="image_recommendation_reject">لا</string>
   <string name="image_recommendation_notsure">لست متأكدًا</string>
-  <string name="image_recommendation_reject_title" fuzzy="true">لم لا؟</string>
+  <string name="image_recommendation_reject_title">سبب الرفض</string>
+  <string name="image_recommendation_reject_subtitle">سبب الرفض مجهول وسيؤدي إلى تحسين اقتراحات الصور المستقبلية.</string>
+  <string name="image_recommendation_reject_not_relevant">الصورة غير متعلقة</string>
+  <string name="image_recommendation_reject_no_info">لا معلومات كافية لاتخاذ قرار</string>
+  <string name="image_recommendation_reject_offensive">الصورة فيها تهجّم</string>
+  <string name="image_recommendation_reject_low_quality">الصورة منخفضة الجودة</string>
+  <string name="image_recommendation_reject_dont_know">لا أعرف هذا الموضوع</string>
+  <string name="image_recommendation_reject_other">أخرى</string>
+  <string name="image_recommendation_reject_submit">إرسال</string>
+  <string name="image_recommendation_tooltip_main">إضافة صور مطلوبة إلى المقالات في التعديلات المقترحة</string>
+  <string name="image_recommendation_onboarding_1">تساعد الصور الأشخاص على الفهم، لكن العديد من المقالات لا تحتوي عليها.</string>
+  <string name="image_recommendation_onboarding_2">أنت من يقرر ما إذا كان ينبغي وضع الصورة المقترحة في مقالة ويكيبيديا.</string>
+  <string name="image_recommendation_onboarding_3">يتم إنشاء الاقتراحات آليًا وسوف تستخدم حكمك لتقرر ما إذا كنت ستقبلها أم ترفضها.</string>
   <string name="image_recommendation_onboarding_4">الصور مأخوذة من ويكيميديا ​​كومنز، وهي مجموعة من الصور المرخصة بحرية والتي تستخدمها ويكيبيديا.</string>
+  <string name="image_recommendation_tooltip_1">قم بمراجعة هذه المقالة لفهم موضوعها</string>
+  <string name="image_recommendation_tooltip_2">فحص الصورة والمعلومات المرتبطة بها</string>
+  <string name="image_recommendation_tooltip_3">قرر ما إذا كانت الصورة تساعد القراء على فهم هذا الموضوع بشكل أفضل</string>
   <string name="image_recommendation_tooltip_next">التالي</string>
+  <string name="image_recommendation_tooltip_warning">يرجى مراجعة المقال لفهم موضوعه ومعاينة الصورة</string>
+  <string name="image_recommendation_depleted">عذراً، لا تتوفر صور مقترحة أخرى في الوقت الحالي. يُرجى استكشاف &lt;a href=\"#\"&gt;التعديلات المقترحة&lt;/a&gt; الأخرى أو العودة لاحقًا.</string>
+  <string name="suggested_edits_report_feature">مشكلة مع الميزة</string>
+  <string name="suggested_edits_report_feature_subject">مشكلة مع التعديلات المقترحة</string>
   <string name="edit_summary_added_image">أضيفت صورة</string>
   <string name="edit_summary_added_caption">إضافة شرح لصورة</string>
   <string name="edit_summary_added_image_and_caption">إضافة صورة وشرح</string>
+  <string name="edit_published_view">عرض</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1110,6 +1358,8 @@
   <string name="onboarding_explore_text">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
   <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">البيانات والخصوصية</string>
+  <string name="onboarding_data_privacy_text">نعتقد أنه لا ينبغي عليك تقديم معلومات شخصية للمشاركة في حركة المعرفة الحرة. بيانات الاستخدام التي يتم جمعها لهذا التطبيق مجهولة. تعرف على المزيد حول &lt;a href=\"#privacy\"&gt;سياسة الخصوصية&lt;/a&gt; &lt;a href=\"#termsOfUse\"&gt;وشروط الاستخدام&lt;/a&gt; الخاصة بنا.</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
@@ -1118,6 +1368,7 @@
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
+  <string name="app_shortcuts_places">الأماكن</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text">المزيد في هذا اليوم</string>
   <string name="events_count_text">%1$s حدثًا من %2$s–%3$d</string>
@@ -1156,10 +1407,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">احتفظ بلغة ويكيبيديا واحدة على الأقل للبحث عن المحتوى وقراءته.</string>
   <string name="more_language_options">المزيد</string>
   <string name="add_wikipedia_languages_text">أضف لغات ويكيبيديا</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">هل تريد إزالة متغير صيني من لغات تطبيقك؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">لديك حاليا مجموعة من المتغيرات الصينية التقليدية والمبسطة في لغات تطبيقك، تحديث إعدادات لغات تطبيقك؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">تعديل اللغات</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرًا</string>
   <string name="remove_language_dialog_cancel_button_text">إلغاء</string>
   <string name="remove_language_dialog_ok_button_text">حسنا</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">حسنا</string>
@@ -1189,15 +1436,16 @@
   <string name="wikitext_template">قالب</string>
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
+  <string name="wikitext_mention_user">الإشارة إلى مستخدم</string>
   <string name="insert_media_title">إدراج وسائط</string>
   <string name="insert_media_search_description">حدد ملفا من ويكيميديا ​​كومنز</string>
   <string name="insert_media_search_hint">البحث عن وسائط</string>
-  <string name="insert_media_settings" fuzzy="true">إعدادات الوسائط</string>
+  <string name="insert_media_settings">إضافة تفاصيل الصورة</string>
   <string name="insert_media_settings_uploaded_image">الصورة التي تم تحميلها</string>
-  <string name="insert_media_settings_caption" fuzzy="true">تعليق</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
+  <string name="insert_media_settings_caption">تعليق الصورة</string>
+  <string name="insert_media_settings_caption_description">علامة الصورة المرئية في المقالة</string>
   <string name="insert_media_settings_alternative_text">نص بديل</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
+  <string name="insert_media_settings_alternative_text_description">وصف للقراء ذوي الإعاقة البصرية</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
   <string name="insert_media_advanced_settings_wrap_image">التفاف النص حول الصورة</string>
   <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>
@@ -1210,13 +1458,23 @@
   <string name="insert_media_advanced_settings_image_type_frameless">بلا إطار</string>
   <string name="insert_media_advanced_settings_image_type_frame">إطار</string>
   <string name="insert_media_advanced_settings_image_type_basic">أساسي</string>
+  <string name="insert_media_advanced_settings_image_type_tip">يمكنك تحديد كيفية ظهور عنصر الوسائط على الصفحة. يجب أن يكون هذا هو تنسيق الصورة المصغرة ليكون متسقًا مع الصفحات الأخرى في جميع الحالات تقريبًا.</string>
   <string name="insert_media_advanced_settings_image_size">حجم الصورة</string>
   <string name="insert_media_advanced_settings_image_size_default">افتراضي</string>
   <string name="insert_media_advanced_settings_image_size_custom">مخصص</string>
-  <string name="insert_media_advanced_settings_image_size_custom_width">عرض</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">العرض</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">طول</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">بك</string>
   <string name="insert_media_insert_button">إدراج</string>
+  <string name="templates_search_hint">قوالب البحث</string>
+  <string name="templates_insert_button">إدراج</string>
+  <string name="templates_param_suggested_value">على سبيل المثال %s</string>
+  <string name="templates_param_optional_hint">%s (اختياري)</string>
+  <string name="templates_param_suggested_hint">%s (مقترح)</string>
+  <string name="templates_learn_more_link">تعلم المزيد</string>
+  <string name="templates_description_incomplete">القوالب هي من إنشاء المستخدم وقد تفتقر إلى الأوصاف الكاملة.</string>
+  <string name="templates_description_empty">لا يوجد وصف للقالب \"%s\" حتى الآن.</string>
+  <string name="templates_description_missing_data">هذا القالب يفتقد &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; ، وتم إنشاء معلماته &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerated&lt;/a&gt; . ونتيجة لذلك، يفتقر القالب ومعلماته إلى الأوصاف.</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
   <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
@@ -1232,6 +1490,18 @@
   <string name="talk_user_title">نقاش: %s</string>
   <string name="talk_new_topic">موضوع جديد</string>
   <string name="talk_new_topic_submitted">أُضيف الموضوع</string>
+  <string name="talk_warn">تحذير</string>
+  <string name="talk_warn_save_dialog_title">هل تريد حفظ التعديلات؟</string>
+  <string name="talk_warn_save_dialog_message">حفظ كرسالة جديدة</string>
+  <string name="talk_warn_save_dialog_existing_new_message">حفظ كرسالة جديدة في القائمة</string>
+  <string name="talk_warn_save_dialog_existing_update_message">تحديث الرسالة الموجودة</string>
+  <string name="talk_warn_save_dialog_hint">عنوان الرسالة</string>
+  <string name="talk_warn_save_dialog_publish">نشر</string>
+  <string name="talk_warn_save_dialog_cancel">إلغاء</string>
+  <string name="talk_warn_save_dialog_dont_save">لا تحفظ</string>
+  <string name="talk_warn_submitted">تم نشر الرسالة في صفحة نقاش المستخدم الخاصة بالمحرر</string>
+  <string name="talk_warn_submitted_and_saved">تم حفظ الرسالة ونشرها في صفحة نقاش المستخدم الخاصة بالمحرر</string>
+  <string name="talk_warn_saved_messages">رسائل محفوظة</string>
   <string name="talk_page_empty">صفحة النقاش هذه فارغة.</string>
   <string name="talk_page_empty_title">تبدأ المحادثة هنا</string>
   <string name="talk_page_empty_content">صفحات النقاش هي حيث يناقش الناس كيفية جعل المحتوى على ويكيبيديا أفضل ما يمكن أن يكون. ابدأ بإضافة موضوع مناقشة جديد للتواصل والتعاون مع مجتمع Wikipedians.</string>
@@ -1242,6 +1512,7 @@
   <string name="talk_message_hint">صياغة رسالة</string>
   <string name="talk_message_empty">لا يمكن أن تكون الرسالة فارغة.</string>
   <string name="talk_subject_empty">لا يمكن أن يكون الموضوع فارغًا.</string>
+  <string name="talk_subject_duplicate">اسم الموضوع موجود بالفعل. حاول استخدام اسم آخر.</string>
   <string name="talk_response_submitted">نُشِر الرد.</string>
   <string name="talk_snackbar_undo">تراجع</string>
   <string name="talk_last_modified">&lt;b&gt;آخر تعديل %1$s&lt;/b&gt; بواسطة %2$s</string>
@@ -1259,6 +1530,22 @@
   <string name="talk_overflow_sort_topic_name">اسم الموضوع</string>
   <string name="talk_new_topic_exit_dialog_title">هل أنت متأكد أنك تريد الخروج؟</string>
   <string name="talk_new_topic_exit_dialog_message">لن يتم حفظ الموضوع و نص المحتوى.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="zero">لا ردود</item>
+    <item quantity="one">إظهار الرد</item>
+    <item quantity="two">إظهار الردين</item>
+    <item quantity="few">إظهار الردود</item>
+    <item quantity="many">إظهار الردود</item>
+    <item quantity="other">إظهار الردود ( %d )</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="zero">لا ردود</item>
+    <item quantity="one">إخفاء الرد</item>
+    <item quantity="two">إخفاء الردين</item>
+    <item quantity="few">إخفاء الردود</item>
+    <item quantity="many">إخفاء الردود</item>
+    <item quantity="other">إخفاء الردود ( %d )</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">تم الاشتراك في \"%s\"</string>
   <string name="talk_thread_unsubscribed_from">إلغاء الاشتراك \"%s\"</string>
   <string name="talk_list_item_overflow_subscribe">اشترك</string>
@@ -1294,7 +1581,7 @@
   <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
   <string name="thank_dialog_text">\"الشكر\" هي طريقةٌ سهلةٌ لإظهار التقدير لعمل أحد المحررين في ويكيبيديا. لا يمكن التراجع عن \"الشكر\" وهي معروضةٌ علنًا.</string>
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
-  <string name="thank_dialog_negative_button_text">ألغ</string>
+  <string name="thank_dialog_negative_button_text">إلغاء</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
   <string name="menu_option_view_user_profile">عرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
@@ -1304,26 +1591,27 @@
   <string name="revision_diff_from">من:</string>
   <string name="revision_diff_to">إلى:</string>
   <string name="revision_diff_line_num">السطر %d</string>
+  <string name="revision_diff_lines_from_to">الأسطر %1$d–%2$d</string>
   <string name="revision_diff_line_added">سطر مُضاف</string>
   <string name="revision_diff_line_removed">سطر مُزال</string>
   <string name="revision_diff_paragraph_added">فقرة مُضافة</string>
   <string name="revision_diff_paragraph_removed">فقرة مُزالة</string>
-  <string name="revision_undo_title" fuzzy="true">تراجع عن التعديل</string>
-  <string name="revision_undo_message" fuzzy="true">سيؤدي هذا إلى التراجع عن التغييرات التي تم إجراؤها بواسطة مراجعة (مراجعات) المقالة المعروضة هنا.</string>
-  <string name="revision_undo_reason" fuzzy="true">للمتابعة ، يرجى تقديم سبب للتراجع عن هذا التعديل:</string>
+  <string name="revision_diff_protected">التغييرات التي أجريت في هذه المراجعة ليست متاحة للعامة.</string>
+  <string name="revision_undo_title">هل انت متأكد من أنك تريد التراجع عن التعديل؟</string>
+  <string name="revision_undo_message">التراجع يعني إرجاع تأثيرات تعديل واحد أو أكثر.</string>
+  <string name="revision_undo_summary_hint">ملخص (اختياري)</string>
+  <string name="revision_undo_reason">شارك سبب العودة</string>
   <string name="revision_undo_success">تم التراجع عن المراجعة.</string>
   <string name="revision_rollback_dialog_title">هل أنت متأكد أنك تريد التراجع عن التعديلات؟</string>
   <string name="revision_rollback_success">تم إرجاع التعديلات.</string>
   <string name="revision_compare_button">مقارنة</string>
   <string name="revision_compare_two_only">يمكن اختيار فقط مراجعين اثنين</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">لمدة أسبوع واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">لمدة شهر واحد</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">لمدة 3 أشهر</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">لمدة 6 أشهر</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">أُزيلت %s وصفحة نقاشها من قائمة مراقبتك.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">أسبوع واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">شهر واحد</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 أشهر</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 أشهر</string>
   <string name="watchlist_expiry_dialog_title">حدّد الفترة الزمنية لقائمة المراقبة</string>
   <string name="watchlist_expiry_dialog_permanent">دائمًا</string>
   <string name="watchlist_expiry_dialog_one_week">أسبوع واحد</string>
@@ -1384,6 +1672,14 @@
   <string name="watchlist_search_bar_hint">بحث أو تصفية قائمة المراقبة</string>
   <string name="watchlist_search_bar_filter_hint">مرشح قائمة المراقبة</string>
   <string name="watchlist_empty_search_message">لا توجد نتائج ، حاول إزالة %s لرؤية المزيد.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="zero">لا مرشحات</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other"> %d مرشحات</item>
+  </plurals>
   <string name="preview_edit_title">معاينة التعديل</string>
   <string name="preview_edit_summarize_edit_title">تلخيص التحرير</string>
   <string name="preview_edit_summarize_edit_hint">كيف حسّنت الصفحة؟</string>
@@ -1408,6 +1704,8 @@
   <string name="media_playback_error">خطأ في تشغيل الوسائط.</string>
   <string name="user_contrib_menu_label">مساهمات</string>
   <string name="user_contrib_filter_activity_title">تصفية المساهمات</string>
+  <string name="action_item_view_on_map">أظهر على الخريطة</string>
+  <string name="action_item_view_on_map_unavailable">الإحداثيات الجغرافية غير متوفرة لهذه الصفحة</string>
   <string name="shareable_reading_lists_import_dialog_title">استيراد قائمة القراءة المشتركة</string>
   <string name="shareable_reading_lists_import_dialog_content">كيف تريد تسمية القائمة التي تمت مشاركتها معك؟</string>
   <string name="shareable_reading_lists_new_indicator">*جديد*</string>
@@ -1418,16 +1716,370 @@
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
   <string name="reading_list_share_message_v2">مرحبًا! أرغب في مشاركة قائمة قراءة ويكيبيديا الخاصة بي معك:</string>
-  <string name="reading_list_share_survey_title">هل يمكنك مساعدتنا في تحسين \"مشاركة قوائم القراءة\"؟</string>
-  <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
+  <string name="talk_templates_empty_message">قم بإنشاء رسائلك الخاصة أو استخدم &lt;a href=\"#\"&gt;رسائل نموذجية&lt;/a&gt; للبدء.</string>
+  <string name="talk_templates_new_message_title">رسالة جديدة</string>
+  <string name="talk_templates_new_message_subject_hint">الموضوع</string>
+  <string name="talk_templates_new_message_compose_hint">كتابة الرسالة</string>
+  <string name="talk_templates_new_message_save">حفظ</string>
+  <string name="talk_templates_new_message_dialog_title">حفظ التعديلات</string>
+  <string name="talk_templates_new_message_dialog_description">أضف عنوانًا واحفظ الرسالة.</string>
+  <string name="talk_templates_new_message_dialog_hint">عنوان الرسالة</string>
+  <string name="talk_templates_new_message_dialog_save">حفظ</string>
+  <string name="talk_templates_new_message_dialog_cancel">إلغاء</string>
+  <string name="talk_templates_new_message_dialog_exists">القالب \"%s\" موجود بالفعل.</string>
+  <string name="talk_templates_new_message_saved">تم حفظ الرسالة</string>
+  <string name="talk_templates_edit_message_dialog_title">عدل الرسالة</string>
+  <string name="talk_templates_edit_message_dialog_save">حفظ</string>
+  <string name="talk_templates_edit_message_dialog_delete">حذف</string>
+  <string name="talk_templates_edit_message_updated">تم تحديث الرسالة</string>
+  <string name="talk_templates_menu_remove_message">إزالة الرسالة</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="zero">لا رسائل لحذفها من القائمة</item>
+    <item quantity="one">هل أنت متأكد أنك تريد حذف الرسالة من القائمة؟</item>
+    <item quantity="two">هل أنت متأكد أنك تريد حذف الرسالتين من القائمة؟</item>
+    <item quantity="few">هل أنت متأكد أنك تريد حذف الرسائل القليلة من القائمة؟</item>
+    <item quantity="many">هل أنت متأكد أنك تريد حف الرسائل الكثيرة من القائمة؟</item>
+    <item quantity="other">هل أنت متأكد أنك تريد حذف الرسائل من القائمة؟</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="zero">لا رسائل تم حذفها</item>
+    <item quantity="one">تم حذف الرسالة</item>
+    <item quantity="two">تم حف الرسالتين</item>
+    <item quantity="few">تم حذف الرسائل القليلة</item>
+    <item quantity="many">تم حف الرسائل الكثيرة</item>
+    <item quantity="other">تم حذف الرسائل</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">لا يمكن أن يكون العنوان فارغا.</string>
+  <string name="talk_templates_your_messages_tab_title">رسائلك</string>
+  <string name="talk_templates_example_messages_tab_title">أمثلة لرسائل</string>
+  <string name="patroller_tasks_edits_list_search_hint">البحث عن التعديلات أو تصفيتها</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">العلامات: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">لا شيء</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">اعرض صفحة المستخدم</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">اعرض صفحة النقاش</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">معلومات المستخدم</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">عرض مساهمات المستخدم</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">شكر</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">معلومات المستخدم</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;الحساب من:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;عدد التحرير:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">أغلق</string>
+  <string name="patroller_tasks_filters_title">المرشحات</string>
+  <string name="patroller_tasks_filters_reset">إعادة ضبط</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">ويكي</string>
+  <string name="patroller_tasks_filters_all_text">الكل</string>
+  <string name="patroller_tasks_filters_user_status_header">تسجيل المستخدم وتجربته</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">غير مسجل</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">المحررون الذين لم يسجلوا الدخول.</string>
+  <string name="patroller_tasks_filters_user_status_registered">مسجل</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">المحررون المسجلون.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">القادمون الجدد</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">المحررون المسجلون الذين لديهم أقل من 10 تعديلات في 4 أيام من النشاط.</string>
+  <string name="patroller_tasks_filters_user_status_learners">المتعلمون</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">المحررين المسجلين الذين تتراوح خبرتهم بين \"القادمين الجدد\" و\"المستخدمين ذوي الخبرة\".</string>
+  <string name="patroller_tasks_filters_user_status_experienced">المستخدمون ذوو الخبرة</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">محررون مسجلون مع أكثر من 500 تعديل و 30 يومًا من النشاط.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">أحدث المراجعات</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">أحدث المراجعات</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">ليست آخر مراجعة</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">المساهمات الأوتوماتيكية</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">بوت</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">بشري (ليس بوت)</string>
+  <string name="patroller_tasks_filters_significance_header">الأهمية</string>
+  <string name="patroller_tasks_filters_significance_minor">تعديلات طفيفة</string>
+  <string name="patroller_tasks_filters_significance_edits">تعديلات غير طفيفة</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">توقعات جودة المساهمة</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">جيد جدا على الأرجح</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">دقة عالية في العثور على جميع التعديلات الخالية من المشاكل تقريبا.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">قد تكون بها مشاكل</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">العثور على معظم التعديلات الخاطئة أو الضارة ولكن بدقة أقل.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">على الأرجح بها مشاكل</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">بدقة متوسطة، يُعثر على جزء متوسط تعديلات المشكلات.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">من المحتمل جدا أن تكون بها مشاكل</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">دقيقة للغاية في العثور على التعديلات الأكثر وضوحا أو ضررا بشكل واضح.</string>
+  <string name="patroller_tasks_filters_user_intent_header">توقعات نية المستخدم</string>
+  <string name="patroller_tasks_filters_user_intent_good">من المحتمل جدا حسن النية</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">دقة عالية في العثور على جميع التعديلات حسنة النية تقريبا.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">قد يكون سوء نية</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">تجد معظم التعديلات التخريبية لكن مع دقة أقل.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">سوء نية محتمل</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">بدقة متوسطة، يجد متوسط التعديلات السيئة.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">من المحتمل جدا سوء النية</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">دقيقة للغاية في العثور على أكثر التعديلات سوءا.</string>
+  <string name="patroller_tasks_filters_empty_search_message">حاول إزالة %s لرؤية المزيد من التعديلات</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="zero">لا مرشح</item>
+    <item quantity="one">%d مرشح</item>
+    <item quantity="two">مرشحان</item>
+    <item quantity="few">مرشحات قليلة</item>
+    <item quantity="many">مرشحات كثيرة</item>
+    <item quantity="other"> %d مرشحات</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">تاريخ تعديل الصفحة</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">رجوع كامل</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">هل أنت متأكد أنك تريد الاسترجاع؟</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">استرجاع مكتمل</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">عرض</string>
+  <string name="patroller_tasks_overflow_report">مشكلة مع الميزة</string>
+  <string name="patroller_tasks_overflow_learn">معرفة المزيد</string>
+  <string name="patroller_onboarding_one_title">المساهمة في الإشراف ومراجعة تعديلات ويكيبيديا.</string>
+  <string name="patroller_onboarding_one_content">تعزيز جودة محتوى ويكيبيديا من خلال مراجعة موجز التحرير الأخير بشكل نشط وتقديم التوجيه ومراقبة الجودة وتشجيع المحررين الآخرين.</string>
+  <string name="patroller_onboarding_two_title">تقديم الملاحظات ومراقبة التعديلات واتخاذ الإجراءات على شاشة الاختلاف</string>
+  <string name="patroller_onboarding_two_thank_title">شكر</string>
+  <string name="patroller_onboarding_two_thank_content">هل رأيت تعديلاً منتجاً؟ أشكر المستخدم على مساهمته.</string>
+  <string name="patroller_onboarding_two_watch_title">راقب</string>
+  <string name="patroller_onboarding_two_watch_content">هل تريد متابعة تعديلات المقالات؟ أضفها إلى قائمة المراقبة الخاصة بك. اعرضها ضمن \"المزيد\".</string>
+  <string name="patroller_onboarding_two_talk_title">نقاش</string>
+  <string name="patroller_onboarding_two_talk_content">تواصل مع المحررين الآخرين. احفظ رسائل صفحة المناقشة المستخدمة بشكل متكرر أو استخدم قالبًا.</string>
+  <string name="patroller_onboarding_two_undo_title">التراجع/الرجوع</string>
+  <string name="patroller_onboarding_two_undo_content">اختر \"تراجع\" للتراجع عن تعديل قد يؤدي إلى التدمير أو استرجاعه.</string>
+  <string name="patroller_diff_tooltip_one">يتنبأ الضرر بما إذا كان التعديل يسبب ضررًا للويكي.</string>
+  <string name="patroller_diff_tooltip_two">تتنبأ النية باحتمالية حفظ التعديل بحسن نية.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">كيف يمكننا تحسين هذه الميزة؟</string>
+  <string name="patroller_diff_menu_edit_history_title">تاريخ تعديل المقالة</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">التغذية الراجعة</string>
+  <string name="patroller_diff_feedback_tooltip">اضغط على القائمة الفرعية لإرسال تعليقاتك في أي وقت ضمن \"مشكلة في الميزة\".</string>
+  <string name="patroller_saved_message_title_vandalism">تحذير من التخريب</string>
+  <string name="patroller_saved_message_title_editing_tests">تحرير الاختبارات</string>
+  <string name="patroller_saved_message_title_npov">وجهة النظر المحايدة</string>
+  <string name="patroller_saved_message_title_auto_trans">ترجمة آلية</string>
+  <string name="patroller_saved_message_title_coi_rem">تذكير بشأن تضارب المصالح</string>
+  <string name="patroller_saved_message_title_final_warning">تحذير نهائي</string>
+  <string name="patroller_saved_message_title_copy_vio">تنبيه انتهاك حقوق الطبع والنشر</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">إضافة ملخص تعديل</string>
+  <string name="patroller_saved_message_title_do_not_censor">لا تقم بالرقابة</string>
+  <string name="patroller_saved_message_title_art_imp">اقتراح تحسين المقال</string>
+  <string name="patroller_saved_message_body_vandalism">مرحبًا {{{username}}}، أود أن أعلمك أنني تراجعت عن واحدة أو أكثر من [{{{diffLink}}}|مساهماتك الأخيرة] لأنها لا تبدو بناءة. إذا كنت تعتقد أنني ارتكبت خطأ أو لديك أسئلة، يمكنك ترك رسالة على [[User talk:{{{senderUserName}}}|صفحة نقاشي]]. يرجى ملاحظة أن التخريب المستمر قد يؤدي إلى فرض قيود.</string>
+  <string name="patroller_saved_message_body_editing_tests">مرحبًا {{{username}}}، يسعدني أن ويكيبيديا لفتت انتباهك وأنك مهتم بتعلم كيفية التحرير فيها. لقد نجح اختبار التحرير الذي أجريته؛ ومع ذلك، يجب أن تضع في اعتبارك أن هدف هذا المشروع هو تطوير موسوعة موثوقة وكاملة يمكن للجميع الرجوع إليها. لقد أثر تعديلك على المحتوى، لذا فقد تمت إزالته.\nإذا كنت تريد معرفة كيفية تحرير ويكيبيديا، فإن [[Wikipedia:Sandbox|sandbox]] تحت تصرفك. إذا كانت تعليقاتك خاصة بمقالة ما، فإن المكان الصحيح هو صفحة نقاش تلك المقالة.</string>
+  <string name="patroller_saved_message_body_npov">مرحبًا {{{username}}}، بعض المساهمات التي قدمتها لا تفي بالحياد المطلوب للامتثال لسياسة [[Wikipedia:NPOV|وجهة نظر محايدة]] الخاصة بويكيبيديا. ولهذا السبب، تم تعديل بعض المحتوى أو إزالته. يُرجى تعديل الفقرات أو الأقسام التي تعرض وجهة نظر جزئية، واستبدالها بنص أكثر حيادية وموضوعية بما يتماشى مع ما هو متوقع في الموسوعة.</string>
+  <string name="patroller_saved_message_body_auto_trans">مرحبًا {{{username}}}، ربما تكون بعض المساهمات التي قدمتها عبارة عن ترجمات آلية، ولهذا السبب تم تعديلها أو تمييزها باستخدام القالب. إذا لم يتم إجراء أي تحسينات على المقالة، فقد يتم حذفها.\n\nإذا كان لديك أي أسئلة على الرغم من كل هذه المعلومات، فلا تتردد في ترك رسالة على [[User talk:{{{senderUserName}}}|my talk page]]. لا تيأس من هذه الحادثة الصغيرة. مساهماتك مهمة جدًا لويكيبيديا.</string>
+  <string name="patroller_saved_message_body_coi_rem">مرحبًا {{{username}}}، أقدر تعاونك على ويكيبيديا؛ ومع ذلك، لاحظت أنك في [[Wikipedia:Conflict_of_interest|تضارب المصالح]]. تضارب المصالح هو عدم التوافق بين أهداف ويكيبيديا المتمثلة في الحياد والموثوقية والأهداف الخاصة لبعض المحررين أو الأفراد أو الكيانات أو الشركات من أي نوع.\n\nتخضع جميع المساهمات في المساحة الرئيسية لسياسات معايير المحتوى الخاصة بهذه ويكيبيديا ([[Wikipedia:What_Wikipedia_is_not|ما لا تمثله ويكيبيديا]])، والجودة الموسوعية ([[Wikipedia:Verifiability|قابلية التحقق]] و[[Wikipedia:No_original_research|عدم وجود بحث أصلي]])، وطريقة التحرير ([[Wikipedia:Neutral_point_of_view|وجهة نظر محايدة]])، وشرعية المحتوى ([[Wikipedia:Copyrights|حقوق الطبع والنشر]]). من المتوقع أن يلتزم جميع الناشرين بهذه السياسات عند إنشاء المحتوى وتقييمه واحترام تصرفات الناشرين الآخرين وتحمل حسن النية لضمان اتباع هذه السياسات.\n\nإذا قمت بالتحرير بموجب تضارب المصالح، فيجب عليك تطبيق السياسة المقابلة بعناية خاصة؛ وإلا، فقد يتم اعتبار حساب المستخدم الخاص بك لأغراض خاصة ويتم حظره. لا تتردد في التواصل معي على صفحة نقاشي إذا كان لديك أي أسئلة.</string>
+  <string name="patroller_saved_message_body_final_warning">نظرًا لأنك قمت بإجراء تعديلات مدمرة متعددة، فإن هذا سيكون بمثابة تحذيرك الأخير. إذا قمت بتخريب ويكيبيديا مرة أخرى، فسيتم منعك من التحرير.</string>
+  <string name="patroller_saved_message_body_copy_vio">يبدو أن تعديلك الأخير يتضمن مواد محمية بحقوق الطبع والنشر دون إذن. يرجى التأكد من أن كل المحتوى يتوافق مع سياسات حقوق الطبع والنشر الخاصة بويكيبيديا لتجنب الإزالة.</string>
+  <string name="patroller_saved_message_body_edit_summary">مرحبًا {{{username}}}، يبدو أنك قمت بإزالة محتوى من ويكيبيديا دون ترك ملخص التحرير. يُرجى ترك ملخص التحرير كلما قمت بإضافة أو إزالة محتوى إلى ويكيبيديا.</string>
+  <string name="patroller_saved_message_body_do_not_censor">مرحبًا {{{username}}}، يبدو أنك قمت بإزالة المحتوى دون مناقشته على صفحة نقاش المقال. يرجى ملاحظة أن ويكيبيديا ليست خاضعة للرقابة، ولا ينبغي إزالة المحتوى لأنه مثير للجدل. إذا كنت تعتقد أن المعلومات غير دقيقة، فيرجى التوصل إلى إجماع على صفحة نقاش المقال.</string>
+  <string name="talk_warn_learn_more_label">تعرف على عناصر نائبة الرسائل</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
+  <string name="talk_warn_saved_messages_usage_instruction">استخدم رسالة المثال أدناه لتخصيصها وإرسالها وحفظها في رسائلك.</string>
+  <string name="patroller_saved_message_body_art_imp">مرحبًا {{{username}}}. مقالتك بداية رائعة! ولجعلها أفضل، فكر في إضافة المزيد من المراجع إلى مصادر موثوقة. يساعد هذا في التحقق من المعلومات وتحسين جودة المقالة. راجع إرشادات ويكيبيديا هذه حول [[Wikipedia:Reliable_sources|مصادر موثوقة]] لمزيد من التفاصيل.</string>
+  <string name="talk_templates_menu_edit_title">عدل</string>
   <string name="data_opt_in_accept">قبول</string>
   <string name="data_opt_in_reject">رفض</string>
   <string name="page_issues_title">مشكلات الصفحة</string>
   <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
-  <string name="places_survey_very_satisfied_option">راض جدا</string>
-  <string name="places_survey_very_unsatisfied_option">غير راض جدا</string>
-  <string name="places_survey_dialog_title" fuzzy="true">المساعدة في تحسين \"الأماكن\"</string>
-  <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
+  <string name="email_report_image_recommendations_subject">تقرير المشكلة - ميزة توصيات الصور</string>
+  <string name="email_report_image_recommendations_body">لقد واجهت مشكلة مع ميزة توصيات الصور:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="email_report_patroller_tasks_subject">تقرير المشكلة - تعديل ميزة الدورية</string>
+  <string name="email_report_patroller_tasks_body">لقد واجهت مشكلة مع ميزة تحرير الدورية:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]\n\n[لقطات الشاشة أو الروابط]</string>
+  <string name="donation_campaign_maybe_later_snackbar">سنذكركم مرة أخرى غدا.</string>
+  <string name="donation_campaign_donated_snackbar">شكرًا لك أيها المتبرع العزيز! كرمك يساعد في استمرار ازدهار ويكيبيديا والمواقع الشقيقة لها.</string>
+  <string name="donation_campaign_go_back_button">رجوع</string>
+  <string name="menu_single_webview_open_external">افتح في متصفح النظام</string>
+  <string name="donate_gpay_dialog_title">التبرع باستخدام Google Pay؟</string>
+  <string name="donate_gpay_dialog_description">قم بالتبرع باستخدام Google Pay أو اختر طريقة دفع أخرى.</string>
+  <string name="donate_gpay_dialog_pay_button">التبرع باستخدام Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">طريقة الدفع الأخرى</string>
+  <string name="donate_gpay_activity_title">حدد المبلغ</string>
+  <string name="donate_gpay_check_transaction_fee">سأضيف بسخاء %s لتغطية رسوم المعاملة حتى تتمكن من الاحتفاظ بـ 100٪ من تبرعي.</string>
+  <string name="donate_gpay_check_recurring">اجعل هذا تبرعًا متكررًا شهريًا.</string>
+  <string name="donate_gpay_check_send_email">نعم، يمكن لمؤسسة ويكيميديا أن ترسل لي بريدًا إلكترونيًا من حين لآخر.</string>
+  <string name="donate_gpay_minimum_amount">الرجاء تحديد المبلغ (الحد الأدنى %s)</string>
+  <string name="donate_gpay_maximum_amount">لا يمكننا قبول تبرعات تزيد عن %s من خلال تطبيقنا. يرجى الاتصال بفريق التبرعات الكبرى لدينا على benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;شكرا لك!&lt;/b&gt; كرمك تجاه ويكيبيديا يعني الكثير بالنسبة لنا.</string>
+  <string name="donate_gpay_help_problems">مشاكل في التبرع؟</string>
+  <string name="donate_gpay_help_other_ways">طرق أخرى للعطاء</string>
+  <string name="donate_gpay_help_faq">الأسئلة الأكثر تكرارا</string>
+  <string name="donate_gpay_help_tax">معلومات حول إمكانية خصم الضرائب</string>
+  <string name="donation_history_deleted_message_snackbar">تم حذف تاريخ المتبرع</string>
+  <string name="places_title">أماكن</string>
+  <string name="places_permissions_denied">يلزم الحصول على إذن تحديد الموقع الجغرافي لرؤية موقعك على الخريطة. يُرجى المحاولة مرة أخرى.</string>
+  <string name="places_search_hint">ابحث عن أماكن</string>
+  <string name="places_filter_title">فلترة حسب اللغة</string>
+  <string name="places_toggle_buttons_map">خريطة</string>
+  <string name="places_toggle_buttons_list">قائمة</string>
   <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
+  <string name="places_card_title">الأماكن القريبة</string>
+  <string name="places_card_action">المزيد من الأماكن القريبة</string>
+  <string name="places_card_enable_location_card_message">الأماكن هي طريقة تعتمد على الخريطة لاستكشاف ويكيبيديا</string>
+  <string name="places_card_enable_location_card_button">تمكين الموقع</string>
+  <string name="places_card_distance_suffix">%s بعيدا</string>
+  <string name="places_card_distance_unknown">مسافة غير معروفة</string>
+  <string name="places_empty_message_snackbar">لا توجد مقالات قريبة. حاول تصغير الخريطة وتحريكها.</string>
+  <string name="survey_dialog_title">ساعدنا على تحسين هذه الميزة</string>
+  <string name="survey_dialog_message">هل أنت راض عن هذه الميزة؟</string>
+  <string name="survey_dialog_option_satisfied">راضي</string>
+  <string name="survey_dialog_option_neutral">محايد</string>
+  <string name="survey_dialog_option_unsatisfied">غير راضٍ</string>
+  <string name="survey_dialog_option_very_satisfied">راض جدا</string>
+  <string name="survey_dialog_option_very_unsatisfied">غير راض جدا</string>
+  <string name="survey_dialog_cancel">إلغاء</string>
+  <string name="survey_dialog_submit">إرسال</string>
+  <string name="survey_dialog_next">التالي</string>
+  <string name="survey_dialog_general_yes">نعم</string>
+  <string name="survey_dialog_general_no">لا</string>
+  <string name="survey_dialog_general_maybe">ربما</string>
+  <string name="survey_dialog_input_hint">ملاحظات إضافية</string>
+  <string name="survey_dialog_submitted_snackbar">تم إرسال التعليقات. شكرا لك!</string>
+  <string name="on_this_day_game_entry_dialog_title">مقدمة</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">ألعاب ويكيبيديا</string>
+  <string name="on_this_day_game_entry_dialog_button">العب لعبة اليوم</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">ألعاب ويكيبيديا موجوجة على موجز الاستكشاف.</string>
+  <string name="on_this_day_game_title">أيهما جاء أولا؟</string>
+  <string name="on_this_day_game_dialog_button">العب</string>
+  <string name="on_this_day_game_splash_message">خمّن أيّ حدث جاء أولاً في هذا اليوم في التاريخ</string>
+  <string name="on_this_day_game_progress">%1$d من %2$d</string>
+  <string name="on_this_day_game_score">النتيجة: %d</string>
+  <string name="on_this_day_game_submit">إرسال</string>
+  <string name="on_this_day_game_correct">صحيح!</string>
+  <string name="on_this_day_game_incorrect">خطأ!</string>
+  <string name="on_this_day_game_point">+1 نقطة</string>
+  <string name="on_this_day_game_next">السؤال التالي</string>
+  <string name="on_this_day_game_finish">النتائج النهائية</string>
+  <string name="on_this_day_game_share_button">شارك</string>
+  <string name="on_this_day_game_pause_title">إيقاف اللعبة مؤقتًا؟</string>
+  <string name="on_this_day_game_pause_body">سيتم حفظ تقدمك لهذا اليوم. يمكنك العثور على اللعبة في موجز Explore الخاص بك.</string>
+  <string name="on_this_day_game_pause_negative">استمر باللعب</string>
+  <string name="on_this_day_game_pause_positive">فهمتها</string>
+  <string name="on_this_day_game_feed_entry_card_heading">العاب ويكيبيديا</string>
+  <string name="on_this_day_game_feed_entry_card_title">أيهما جاء أولا؟</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">خمن ما هو الحدث الذي حدث أولاً في هذا اليوم في التاريخ؟</string>
+  <string name="on_this_day_game_result">لقد حصلت على %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">المباراة القادمة في %s</string>
+  <string name="on_this_day_game_your_stats">إحصائياتك</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="zero">لا لعبة</item>
+    <item quantity="one">لعبة لعبت</item>
+    <item quantity="two">لعبتان لعبتا</item>
+    <item quantity="few">ألعاب قليلة لعبت</item>
+    <item quantity="many">ألعاب كثيرة لعبت</item>
+    <item quantity="other">الألعاب التي لعبت</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">متوسط النتيجة</string>
+  <string name="on_this_day_game_stats_streak">السلسلة الحالية</string>
+  <string name="on_this_day_game_result_subtitle">المقالات المشار إليها في مباراة اليوم</string>
+  <string name="on_this_day_game_completed_message">شكرًا لك على اللعب. تتوفر لعبة جديدة بعنوان \"أيهما جاء أولاً؟\" يوميًا على موجز Explore.</string>
+  <string name="on_this_day_game_menu_notifications">إشعارات اللعبة</string>
+  <string name="on_this_day_game_menu_info">يتعلم أكثر</string>
+  <string name="on_this_day_game_menu_feedback">مشكلة مع الميزة</string>
+  <string name="on_this_day_game_article_read_button">اقرأ المقال</string>
+  <string name="on_this_day_game_article_related_event_title">حدث مرتبط بهذه المقالة</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">لقد حصلت على هذا السؤال بشكل صحيح</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">لقد أخطأت في هذا السؤال</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">إيقاف تشغيل إشعارات اللعبة؟</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">إذا قمت بإيقاف تشغيل إشعارات الدفع، فلن تتلقى بعد الآن تذكيرًا يوميًا عندما تتوفر لعبة جديدة للعب.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">تشغيل إشعارات اللعبة؟</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">تنبهك إشعارات اللعبة يوميًا عندما تتوفر لعبة جديدة للعب.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">لا، ابقهم على حالهم</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">أطفئهم</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">نعم، قم بتشغيلها</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">ابق بعيدا عنهم</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">تم إيقاف إشعارات اللعبة.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">إشعارات اللعبة مفعلة.</string>
+  <string name="on_this_day_game_notification_text">لعبة اليوم \"أيهما جاء أولاً؟\" جاهزة للعب.</string>
+  <string name="on_this_day_game_report_email_subject">تقرير المشكلة - ألعاب ويكيبيديا</string>
+  <string name="on_this_day_game_report_email_body">لقد واجهت مشكلة مع ميزة ألعاب ويكيبيديا:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="on_this_day_game_notification_undo">رجوع</string>
+  <string name="on_this_day_game_share_link_message">ألعب لعبة \"أيهما جاء أولاً؟\" وهي لعبة تفاهات يومية على تطبيق Wikipedia Android %s</string>
+  <string name="on_this_day_game_share_screen_title">لقد حصلت على %1$d/%2$d في \n\"أيهما جاء أولاً؟\" \nاليوم.</string>
+  <string name="on_this_day_game_share_screen_subtitle">المواضيع المتضمنة:</string>
+  <string name="on_this_day_game_archive_calendar_title">اختر لعبة حسب التاريخ للعب.</string>
+  <string name="on_this_day_game_score_toast_message">لقد حصلت على %1$d/%2$d في هذا اليوم.</string>
+  <string name="on_this_day_game_continue_btn_text">تابع مباراة اليوم</string>
+  <string name="on_this_day_game_current_progress_message">أنت في السؤال %d.</string>
+  <string name="on_this_day_game_archive_btn_text">تشغيل الأرشيف</string>
+  <string name="on_this_day_game_review_results_btn_text">نتائج المراجعة</string>
+  <string name="on_this_day_game_score_message">لقد أحرزت %1$d/%2$d في مباراة اليوم.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">استمر باللعب</string>
+  <string name="on_this_day_game_sound_on">تشغيل الصوت</string>
+  <string name="on_this_day_game_sound_off">إيقاف الصوت</string>
+  <string name="recommended_reading_list_title">يكتشف</string>
+  <string name="recommended_reading_list_onboarding_card_title">اكتشف المقالات المختارة خصيصًا لك</string>
+  <string name="recommended_reading_list_onboarding_card_message">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>
+  <string name="recommended_reading_list_onboarding_card_new">جديد!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">البدء</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">ًلا شكرا</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">لإعداد قائمة القراءة الموصى بها لاحقًا، انتقل إلى الإعدادات.</string>
+  <string name="recommended_reading_list_interest_source_message">كيف يمكننا بناء قائمة القراءة الموصى بها؟</string>
+  <string name="recommended_reading_list_interest_source_interests">دعني أختار بناءً على اهتماماتي</string>
+  <string name="recommended_reading_list_interest_source_saved">اختر لي بناءً على مقالاتي المحفوظة</string>
+  <string name="recommended_reading_list_interest_source_history">اختر لي بناءً على تاريخ قراءتي</string>
+  <string name="recommended_reading_list_interest_pick_title">ما الذي يثير اهتمامك؟</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">ابحث عن مقال</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="zero">...</item>
+    <item quantity="one">%d محددة</item>
+    <item quantity="two">...</item>
+    <item quantity="few">...</item>
+    <item quantity="many">...</item>
+    <item quantity="other">%d محددة</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">حدد اهتمامًا واحدًا على الأقل</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">اختيار عشوائي</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">لقد قمنا باختيار عدد قليل من المقالات لك بشكل عشوائي.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">التراجع</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">هل أنت متأكد أنك تريد اختيارك بشكل عشوائي؟</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">سيؤدي هذا إلى مسح اختياراتك الحالية واختيار مقالات جديدة بشكل عشوائي.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">نعم اختر لي</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">لا تهتم</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">مصنوع لـ %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">مصنوع لك</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="zero">لا مقال</item>
+    <item quantity="one">• %d مقال</item>
+    <item quantity="two">مقالان</item>
+    <item quantity="few">مقالات قليلة</item>
+    <item quantity="many">مقالات كثيرة</item>
+    <item quantity="other">• %d مقال</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">قائمة قراءاتك اليومية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات منتصف الليل.</string>
+  <string name="recommended_reading_list_page_description_weekly">قائمة قراءاتك الأسبوعية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في بداية الأسبوع.</string>
+  <string name="recommended_reading_list_page_description_monthly">قائمة قراءاتك الشهرية. تعرّف على مواضيع جديدة، مختارة خصيصًا لك. تحديثات في أول كل شهر.</string>
+  <string name="recommended_reading_list_page_overflow_customize">تخصيص</string>
+  <string name="recommended_reading_list_page_overflow_about">حول هذه الميزة</string>
+  <string name="recommended_reading_list_page_snackbar">سيتم تحديث تطبيق Discover بإضافة %1$d مقالة جديدة كل %2$s . سيتم تخزين توصياتك محليًا على جهازك.</string>
+  <string name="recommended_reading_list_page_snackbar_action">تخصيص الاكتشاف</string>
+  <string name="recommended_reading_list_page_snackbar_day">يوم</string>
+  <string name="recommended_reading_list_page_snackbar_week">أسبوع</string>
+  <string name="recommended_reading_list_page_snackbar_month">شهر</string>
+  <string name="recommended_reading_list_settings_section_header">التوصيات</string>
+  <string name="recommended_reading_list_settings_title">اكتشف الإعدادات</string>
+  <string name="recommended_reading_list_settings_toggle">اكتشف قائمة القراءة</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">خاصية \"اكتشف\" مُعطّلة. لن تُوصي ويكيبيديا بقراءة مقالاتك.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">إيقاف تشغيل Discover؟</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">إذا قمت بإيقاف تشغيل Discover، فسوف تتوقف عن تلقي %s من توصيات القراءة من Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">أطفئه</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">لا، استمر في ذلك</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">تم إيقاف ميزة \"اكتشف\". يمكنك إعادة تفعيلها في أي وقت من الإعدادات.</string>
+  <string name="recommended_reading_list_settings_articles">المقالات</string>
+  <string name="recommended_reading_list_settings_updates_frequency">التحديثات %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">يوميًا</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">أسبوعي</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">شهريا</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">كل يوم</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">كل اسبوع</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">كل شهر</string>
+  <string name="recommended_reading_list_settings_updates_base_title">كيف تم بناء Discover</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">بناءً على اهتماماتك</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">استنادًا إلى المقالات المحفوظة لديك</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">بناءً على تاريخ قراءتك</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">تعديل كيفية بناء Discover؟</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">إذا قمت بتعديل كيفية إنشاء Discover للتوصيات، فسيتم استبدال توصياتك الحالية.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">تعديل</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">لا تهتم</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">توصياتك الآن تعتمد على اهتماماتك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">تعتمد توصياتك الآن على المقالات المحفوظة لديك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">تعتمد توصياتك الآن على سجل القراءة الخاص بك.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">التراجع</string>
+  <string name="recommended_reading_list_settings_interests">الاهتمامات</string>
+  <string name="recommended_reading_list_settings_notifications_title">إشعارات</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">لن ترسل لك ويكيبيديا إشعارًا عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">تم إيقاف إشعارات Discover. لن تتلقى إشعارًا عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">إيقاف تشغيل الإشعارات؟</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">إذا قمت بإيقاف تشغيل الإشعارات، فلن تتلقى بعد الآن تذكيرات عند تحديث Discover.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">أطفئهم</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">لا، ابقهم على حالهم</string>
+  <string name="recommended_reading_list_notification_title">قائمة القراءة %s Discover الخاصة بك جاهزة.</string>
+  <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>
 </resources>

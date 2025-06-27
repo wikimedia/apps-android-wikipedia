@@ -29,15 +29,6 @@ class ParcelableTest {
 
     @Test
     @Throws(Throwable::class)
-    fun testPageProperties() {
-        val wiki = WikiSite.forLanguageCode("en")
-        val title = PageTitle("Talk", "India", wiki)
-        val props = PageProperties(title, false)
-        TestParcelUtil.test(props)
-    }
-
-    @Test
-    @Throws(Throwable::class)
     fun testPagePropertiesFromSummary() {
         val json = TestFileUtil.readRawFile("rb_page_summary_geo.json")
         val summary = JsonUtil.decodeFromString<PageSummary>(json)!!
@@ -52,7 +43,7 @@ class ParcelableTest {
     fun testPageImage() {
         val wiki = WikiSite.forLanguageCode("en")
         val title = PageTitle("Talk", "India", wiki)
-        val pageImage = PageImage(title, "Testing image")
+        val pageImage = PageImage(title, "Testing image", "Test description", 1.2, 3.4)
         TestParcelUtil.test(pageImage)
     }
 }

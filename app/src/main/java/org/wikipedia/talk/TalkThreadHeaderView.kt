@@ -36,7 +36,7 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         binding.pageTitleText.movementMethod = movementMethod
         val baseTitle = TalkTopicsActivity.getNonTalkPageTitle(pageTitle)
         val pageTitleText = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } +
-                ": " + "<a href='" + baseTitle.uri + "'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+                ": " + "<a href='" + baseTitle.uri + "'>${StringUtil.removeNamespace(StringUtil.removeHTMLTags(pageTitle.displayText))}</a>")
         StringUtil.setHighlightedAndBoldenedText(binding.pageTitleText, pageTitleText, searchQuery)
 
         binding.threadTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(item)

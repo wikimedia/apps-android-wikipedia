@@ -5,8 +5,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ReleaseUtil
-import java.util.*
+import java.util.Locale
 
 class AppLanguageState(context: Context) {
 
@@ -36,8 +37,8 @@ class AppLanguageState(context: Context) {
     val appLanguageCode: String
         get() = appLanguageCodes.first()
 
-    val remainingAvailableLanguageCodes: List<String>
-        get() = LanguageUtil.availableLanguages.filter { !_appLanguageCodes.contains(it) && appLanguageLookUpTable.isSupportedCode(it) }
+    val remainingSuggestedLanguageCodes: List<String>
+        get() = LanguageUtil.suggestedLanguagesFromSystem.filter { !_appLanguageCodes.contains(it) && appLanguageLookUpTable.isSupportedCode(it) }
 
     val systemLanguageCode: String
         get() {
@@ -58,6 +59,10 @@ class AppLanguageState(context: Context) {
             }
             if (!Prefs.isShowDeveloperSettingsEnabled && !ReleaseUtil.isPreBetaRelease) {
                 codes.remove(AppLanguageLookUpTable.TEST_LANGUAGE_CODE)
+            }
+            if (!Prefs.isShowDeveloperSettingsEnabled) {
+                codes.remove(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)
+                codes.remove(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)
             }
             return codes
         }
@@ -130,9 +135,9 @@ class AppLanguageState(context: Context) {
 
     fun getWikiLanguageName(langCode: String): String {
         return when (langCode) {
-            Constants.WIKI_CODE_COMMONS -> WikipediaApp.instance.getString(R.string.wikimedia_commons)
-            Constants.WIKI_CODE_WIKIDATA -> WikipediaApp.instance.getString(R.string.wikidata)
-            else -> getAppLanguageCanonicalName(langCode).orEmpty().ifEmpty { langCode }
+            Constants.WIKI_CODE_COMMONS -> L10nUtil.getString(R.string.wikimedia_commons)
+            Constants.WIKI_CODE_WIKIDATA -> L10nUtil.getString(R.string.wikidata)
+            else -> getAppLanguageLocalizedName(langCode).orEmpty().ifEmpty { langCode }
         }
     }
 
@@ -143,7 +148,7 @@ class AppLanguageState(context: Context) {
     private fun initAppLanguageCodes() {
         if (_appLanguageCodes.isEmpty()) {
             if (Prefs.isInitialOnboardingEnabled) {
-                setAppLanguageCodes(remainingAvailableLanguageCodes)
+                setAppLanguageCodes(remainingSuggestedLanguageCodes)
             } else {
                 // If user has never changed app language before
                 addAppLanguageCode(systemLanguageCode)

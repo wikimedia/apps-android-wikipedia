@@ -10,7 +10,6 @@ object Constants {
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
-    const val ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65
     const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
@@ -19,9 +18,12 @@ object Constants {
     const val ARG_TITLE = "title"
     const val ARG_WIKISITE = "wikiSite"
     const val ARG_TEXT = "text"
+    const val ARG_BOOLEAN = "boolean"
+    const val ARG_NUMBER = "number"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
+    const val INTENT_APP_SHORTCUT_PLACES = "appShortcutPlaces"
     const val INTENT_EXTRA_ACTION = "intentAction"
     const val INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList"
     const val INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab"
@@ -69,7 +71,6 @@ object Constants {
         INTENT_PROCESS_TEXT("intentProcessText"),
         INTENT_SHARE("intentShare"),
         INTENT_UNKNOWN("intentUnknown"),
-        LANG_VARIANT_DIALOG("lang_variant_dialog"),
         LEAD_IMAGE("leadImage"),
         LINK_PREVIEW_MENU("linkPreviewMenu"),
         MOST_READ_ACTIVITY("mostRead"),
@@ -107,6 +108,7 @@ object Constants {
         USER_CONTRIB_ACTIVITY("userContribActivity"),
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
+        ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame")
     }
 
     enum class ImageEditType(name: String) {

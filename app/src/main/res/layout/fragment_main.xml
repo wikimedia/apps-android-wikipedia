@@ -28,61 +28,23 @@
         android:background="?attr/border_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_container"/>
+        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_layout"/>
 
-    <LinearLayout
-        android:id="@+id/main_nav_tab_container"
+    <org.wikipedia.navtab.NavTabLayout
+        android:id="@+id/main_nav_tab_layout"
         android:background="?attr/paper_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_bar_height"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@color/color_state_nav_tab"
+        app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
+        app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
+        app:itemTextColor="@color/color_state_nav_tab"
+        app:labelVisibilityMode="labeled"
+        app:tabGravity="fill"
+        app:itemPaddingTop="8dp"
+        app:elevation="0dp"/>
 
-        <org.wikipedia.navtab.NavTabLayout
-            android:id="@+id/main_nav_tab_layout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
-            app:itemIconTint="@color/color_state_nav_tab"
-            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
-            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
-            app:itemTextColor="@color/color_state_nav_tab"
-            app:labelVisibilityMode="labeled"
-            app:tabGravity="fill"
-            app:itemPaddingTop="8dp"
-            app:elevation="0dp"/>
-
-        <FrameLayout
-            android:id="@+id/nav_more_container"
-            android:layout_width="0dp"
-            android:layout_weight="0.2"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/nav_item_more"
-            android:background="?attr/selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/menu_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_horizontal"
-                app:tint="?attr/placeholder_color"
-                app:srcCompat="@drawable/ic_menu_white_24dp" />
-
-            <TextView
-                style="@style/BottomNavigationTextAppearance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="44dp"
-                android:textAlignment="center"
-                android:text="@string/nav_item_more"
-                android:textColor="?attr/placeholder_color"/>
-
-        </FrameLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 <!-- Authors:
 * Aaribaud
 * Alno
-* Amire80
+* Bananax47
 * Bbernrd
 * BlueCamille
 * Blurby
@@ -21,6 +21,7 @@
 * Eneelk
 * Envlh
 * Eric.LEWIN
+* Escargot bleu
 * Fitoschido
 * Florian COLLIN
 * Framawiki
@@ -37,11 +38,13 @@
 * KATRINE1992
 * Kimyungjog
 * Linedwell
+* Lofhi
 * Ltrlg
 * Lulucmy
 * Léon973
 * MSClaudiu
 * Macofe
+* Mahabarata
 * Mazighafalkun
 * McDutchie
 * Melimeli
@@ -51,8 +54,10 @@
 * Niridya
 * Noé
 * Obscaeris
+* Oujon
 * Oupsa
 * Papawy
+* Pyb
 * Seb35
 * SleaY
 * Tacsipacsi
@@ -66,6 +71,7 @@
 * Wladek92
 * Wnagxsi
 * Zarisi
+* ꠢꠣꠍꠘ ꠞꠣꠎꠣ
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -75,13 +81,17 @@
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
-  <string name="search_hint">Rechercher sur Wikipédia</string>
-  <string name="search_hint_voice_search">Rechercher vocalement</string>
+  <string name="search_hint">Rechercher Wikipédia</string>
+  <string name="search_hint_voice_search">Recherche de saisi vocale</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
+  <string name="search_back_button_content_description">Revenir en arrière</string>
+  <string name="search_clear_query_content_description">Effacer la requête</string>
+  <string name="search_icon_content_description">Rechercher</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
   <string name="nav_item_search">Rechercher</string>
+  <string name="nav_item_contribute">Contribuer</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="card_offline_error_retry">Réessayer</string>
@@ -117,7 +127,7 @@
   <string name="page_edit_history_filter_by">Filtrer par</string>
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifications par utilisateur (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Modifications anonymes (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -156,6 +166,7 @@
   <string name="menu_page_recently_viewed">Consulté récemment</string>
   <string name="menu_page_archive">Archiver</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
+  <string name="menu_long_press_open_in_places">Ouvrir dans Lieux</string>
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
   <string name="menu_text_select_define">Définition</string>
@@ -169,6 +180,7 @@
   <string name="map_view_link_text">Afficher sur une carte</string>
   <string name="other_languages_indication_text">Lire dans une autre langue</string>
   <string name="language_count_link_text">Disponible dans %d autres langues</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="edit_anon_warning">Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
@@ -180,12 +192,17 @@
   <string name="langlinks_your_wikipedia_languages">Vos langues Wikipédia</string>
   <string name="menu_save_changes">Publier les modifications</string>
   <string name="edit_saved_successfully">Modification publiée !</string>
+  <string name="stub_article_edit_saved_successfully">Modification publiée ! Les changements peuvent mettre du temps à apparaître.</string>
   <string name="dialog_message_edit_failed">Échec de la modification !</string>
   <string name="dialog_message_edit_failed_retry">Réessayer</string>
   <string name="dialog_message_edit_failed_cancel">Annuler</string>
   <string name="dialog_message_leaving_edit">Vos modifications n’ont pas encore été publiées. Êtes-vous sûr de vouloir quitter cette page ?</string>
   <string name="dialog_message_leaving_edit_leave">Quitter</string>
   <string name="dialog_message_leaving_edit_stay">Rester</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmer la suppression</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ceci ne s’appliquera qu’aux dons effectués à partir de cet appareil.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Supprimer</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annuler</string>
   <string name="menu_show_toc">Sommaire</string>
   <string name="search_no_results_found">Aucun résultat trouvé</string>
   <string name="search_reading_list_no_results">Aucun résultat trouvé dans « %s »</string>
@@ -201,7 +218,10 @@
   <string name="login_password_hint">Mot de passe</string>
   <string name="account_creation_password_hint">Mot de passe</string>
   <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
-  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Veuillez revenir à l’activité principale et vous connecter avec votre jeton d’authentification, puis réessayez.</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Veuillez vous reconnecter depuis l’écran principal avec votre authentification a double facteur.</string>
+  <string name="login_email_auth_hint">Code de vérification par email</string>
+  <string name="login_email_auth_other_workflow_error_msg">Vérification de l\'adresse e-mail requise ! Veuillez vous connecter depuis l\'écran principal et saisir votre code de vérification.</string>
+  <string name="login_background_error_msg">Impossible de vous reconnecter. Veuillez revenir à l’écran principal et vous connecter manuellement.</string>
   <string name="onboarding_card_login">Se connecter</string>
   <string name="page_editing_login">Se connecter</string>
   <string name="reading_lists_sync_login">Se connecter</string>
@@ -291,24 +311,23 @@
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/fr</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fr</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/fr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Code source disponible sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
+  <string name="about_logo_content_description">Logo du globe-puzzle Wikipédia</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
   <string name="edit_abandon_confirm_yes">Oui</string>
   <string name="edit_abandon_confirm_no">Non</string>
@@ -336,6 +355,8 @@
   <string name="edit_summary_tag_links">Liens ajoutés</string>
   <string name="edit_summary_tag_other">Autre</string>
   <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
+  <string name="edit_summary_added_short_description">Description courte ajoutée</string>
+  <string name="edit_summary_updated_short_description">Description courte importée</string>
   <string name="edit_conflict_title">Conflit de modification</string>
   <string name="edit_conflict_message">La page a déjà été modifiée par un autre utilisateur et est en conflit avec votre modification. Veuillez copier vos modifications, revenir en arrière et actualiser la page, puis essayer de la modifier à nouveau.</string>
   <string name="edit_notices">Avertissements de modification</string>
@@ -418,7 +439,6 @@
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant glisser à gauche pour ouvrir le tableau des contenus et cliquer-glisser ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
-  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia en différentes langues dans l’application.\n\n\nCliquez sur l’icône pour ajouter plus de langues.</string>
   <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : « %s »</string>
@@ -442,10 +462,11 @@
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
   <string name="nav_item_donate">Faire un don</string>
+  <string name="nav_item_year_in_review">Bilan de l’année</string>
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de géolocalisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
-  <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les endroits proches de vous.</string>
+  <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les lieux proches de vous.</string>
   <string name="location_permissions_enable_action">Activer</string>
   <string name="error_webview_updating">Le Système WebView Android est actuellement en cours de mise à jour. Veuillez réessayer ultérieurement.</string>
   <plurals name="multi_items_selected">
@@ -469,6 +490,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
+  <string name="preference_title_delete_local_donation_history">Supprimer l’historique local des dons</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Correspondre au thème du système</string>
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
@@ -483,6 +505,24 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
+  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour mieux associer vos modifications futures et pour accéder à d\'autres fonctionnalités.</string>
+  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour vous permettre de protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour obtenir un crédit pour les modifications futures et accéder à d\'autres fonctionnalités.</string>
+  <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible par les administrateurs.&lt;br /&gt;&lt;br /&gt;Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos modifications seront attribuées à un pseudonyme que vous choisirez, parmi d\'autres avantages.</string>
+  <string name="temp_account_dialog_ok">Compris !</string>
+  <string name="temp_account_using_title">Vous utilisez un compte temporaire</string>
+  <string name="temp_account_dialog_discard">Annuler les modifications et se connecter</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Le compte temporaire %1$s a été créé après la publication de votre modification. Il expirera dans %2$d jour.</item>
+    <item quantity="other">Le compte temporaire %1$s a été créé après la publication de votre modification. Il expirera dans %2$d jours.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Le compte expirera dans %d jour.</item>
+    <item quantity="other">Le compte expirera dans %d jours.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Vous n\'êtes pas connecté&lt;/b&gt;. Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Vous n\'êtes pas connecté.&lt;/b&gt; Une fois que vous aurez fait une modification, un compte temporaire vous sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Vous utilisez un compte temporaire.&lt;/b&gt; Votre modification sera attribuée à %1$s. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Vous utilisez actuellement un compte temporaire.&lt;/b&gt; Les modifications effectuées avec le compte temporaire %1$s ne seront pas transférées sur votre compte permanent lorsque vous vous connecterez. Entrez ou créez un compte pour obtenir un crédit à votre nom d\'utilisateur, parmi d\'autres avantages.</string>
   <string name="temp_account_end_session">Terminer la session</string>
   <string name="temp_account_end_session_confirm">Cela vous déconnectera de votre compte temporaire. Voulez-vous continuer ?</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
@@ -607,8 +647,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
   <string name="reading_lists_sync_reminder_title">Activer la synchronisation de la liste de lecture ?</string>
-  <string name="reading_lists_sync_reminder_text">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et autorisez la sauvegarde de vos listes. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Les articles enregistrés dans les listes de lecture peuvent maintenant être synchronisés avec votre compte Wikipédia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et autorisez la sauvegarde de vos listes. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
@@ -641,7 +681,7 @@
   <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Organiser des articles dans des listes</string>
-  <string name="no_user_lists_msg">Créer des listes d’endroits à visiter, des sujets favoris et beaucoup plus</string>
+  <string name="no_user_lists_msg">Créer des listes de lieux à visiter, de sujets favoris et beaucoup plus</string>
   <string name="reading_list_saved_list_rename">%1$s (créé par l’utilisateur)</string>
   <string name="split_reading_list_message">Les listes de lecture sont limitées à %d articles par liste. Les listes existantes qui en avait trop ont été scindées en plusieurs listes.</string>
   <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
@@ -865,10 +905,11 @@
   <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
-  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimedia Commons</string>
+  <string name="feed_item_type_featured_image">Image remarquable du jour de Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
+  <string name="feed_item_type_places">Articles à proximité en fonction de votre emplacement actuel</string>
   <string name="feed_empty_message">Il n’y a rien dans votre flux d\'exploration</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -878,6 +919,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
+  <string name="feed_language_variants_removal_dialog_title">Sélectionnez une variante linguistique régionale pour une meilleure expérience de lecture</string>
+  <string name="feed_language_variants_removal_dialog_message">Vous utilisez actuellement une variante générique de la langue chinoise non prise en charge comme langue principale de Wikipédia</string>
+  <string name="feed_language_variants_removal_dialog_save">Enregistrer</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Veuillez mettre à jour vos langues secondaires</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Vous utilisez actuellement une variante générique du chinois non prise en charge comme langue secondaire. Veuillez accéder à vos paramètres pour sélectionner une nouvelle langue secondaire ou pour confirmer votre liste de langues.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Aller aux paramètres</string>
   <string name="top_read_activity_title">Les plus lus sur %s</string>
   <string name="tabs_activity_title">Onglets</string>
   <string name="description_edit_text_hint">Description de l’article</string>
@@ -907,9 +954,8 @@
   <string name="description_edit_voice_input_description">Entrée vocale</string>
   <string name="description_edit_learn_more">En savoir plus sur les descriptions d’articles</string>
   <string name="description_edit_image_caption_learn_more">En savoir plus sur les légendes des images</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Descriptions_d\'articles</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="description_too_short">Le texte est trop court.</string>
+  <string name="description_too_long">Essayez de garder les descriptions courtes afin que les utilisateurs puissent comprendre les articles au premier coup d’œil</string>
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
@@ -1008,8 +1054,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Ajouter des balises d’image</string>
-  <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
   <string name="suggested_edits_task_action_text_add">Ajouter</string>
   <string name="suggested_edits_task_action_text_translate">Traduire</string>
   <string name="suggested_edits_image_captions">Légende des images</string>
@@ -1057,6 +1101,10 @@
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Modification</item>
+    <item quantity="other">Modifications</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d jour</item>
@@ -1175,7 +1223,7 @@
   <string name="onboarding_get_started">C’est parti</string>
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Plongez dans le contenu sans fin de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
@@ -1188,6 +1236,7 @@
   <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
+  <string name="app_shortcuts_places">Lieux</string>
   <string name="on_this_day_card_title">Ce jour-là</string>
   <string name="more_events_text">Davantage sur ce jour-là</string>
   <string name="events_count_text">%1$s événements en %2$s–%3$d</string>
@@ -1218,10 +1267,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Gardez au moins une langue de Wikipédia avec laquelle vous pourrez chercher et lire du contenu.</string>
   <string name="more_language_options">plus</string>
   <string name="add_wikipedia_languages_text">Ajouter des langues de Wikipédia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Supprimer une variante chinoise des langues de votre application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes chinoises (traditionnelle et simplifiée) définies dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
   <string name="remove_language_dialog_cancel_button_text">Annuler</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1285,6 +1330,11 @@
   <string name="templates_insert_button">Insérer</string>
   <string name="templates_param_suggested_value">par exemple %s</string>
   <string name="templates_param_optional_hint">%s (facultatif)</string>
+  <string name="templates_param_suggested_hint">%s (suggéré)</string>
+  <string name="templates_learn_more_link">En savoir plus</string>
+  <string name="templates_description_incomplete">Les modèles sont générés par l\'utilisateur et peuvent manquer de descriptions complètes.</string>
+  <string name="templates_description_empty">Le modèle « %s » n\'a pas encore de description.</string>
+  <string name="templates_description_missing_data">Il manque un &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; à ce modèle et ses paramètres ont été &lt;a href=\"%2$s\"&gt;générés automatiquement&lt;/a&gt;. Par conséquent, le modèle et ses paramètres manquent de descriptions.</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Se connecter / rejoindre Wikipédia</string>
   <string name="main_tooltip_text">Bonjour %s, saviez-vous que chacun peut mettre à jour Wikipédia ?</string>
@@ -1308,8 +1358,10 @@
   <string name="talk_warn_save_dialog_hint">Titre du message</string>
   <string name="talk_warn_save_dialog_publish">Publier</string>
   <string name="talk_warn_save_dialog_cancel">Annuler</string>
+  <string name="talk_warn_save_dialog_dont_save">Annuler</string>
   <string name="talk_warn_submitted">Message publié sur la page de discussion utilisateur de l’éditeur</string>
   <string name="talk_warn_submitted_and_saved">Message enregistré et publié sur la page de discussion utilisateur de l’éditeur</string>
+  <string name="talk_warn_saved_messages">Messages enregistrés</string>
   <string name="talk_page_empty">Cette page de discussion est vide.</string>
   <string name="talk_page_empty_title">La conversation commence ici</string>
   <string name="talk_page_empty_content">Les pages de discussion sont des endroits pour discuter de la façon de rendre le contenu de Wikipédia le meilleur possible. Commencez par ajouter un nouveau sujet de discussion pour vous connecter et collaborer avec une communauté de Wikipédiens.</string>
@@ -1320,6 +1372,7 @@
   <string name="talk_message_hint">Composer un message</string>
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
+  <string name="talk_subject_duplicate">Le nom du sujet existe déjà. Essayez-en un autre.</string>
   <string name="talk_response_submitted">Réponse postée.</string>
   <string name="talk_snackbar_undo">Annuler</string>
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
@@ -1405,14 +1458,12 @@
   <string name="revision_rollback_success">Modifications révoquées.</string>
   <string name="revision_compare_button">Comparer</string>
   <string name="revision_compare_two_only">Seulement deux versions peuvent être sélectionnées.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pour 1 semaine</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pour 1 mois</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pour 3 mois</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pour 6 mois</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s et sa page de discussion ont été supprimés de votre liste de suivi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 semaine</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mois</string>
   <string name="watchlist_expiry_dialog_title">Sélectionner la période de temps de la liste de suivi</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semaine</string>
@@ -1513,8 +1564,6 @@
   <string name="reading_list_share_menu_label">Partager...</string>
   <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
-  <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
-  <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
   <string name="talk_templates_empty_message">Créez vos propres messages ou utilisez &lt;a href=\"#\"&gt;message d\'exemple&lt;/a&gt; pour commencer.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
@@ -1541,6 +1590,8 @@
     <item quantity="other">Les messages ont été supprimés</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Le titre ne peut pas être vide.</string>
+  <string name="talk_templates_your_messages_tab_title">Vos messages</string>
+  <string name="talk_templates_example_messages_tab_title">Messages d\'exemple</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Balises : %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Aucune</string>
@@ -1567,7 +1618,7 @@
   <string name="patroller_tasks_filters_user_status_learners">Apprenants</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">Éditeurs inscrits dont l’expérience est entre « Nouveaux arrivants » et « Utilisateurs expérimentés ».</string>
   <string name="patroller_tasks_filters_user_status_experienced">Utilisateurs expérimentés</string>
-  <string name="patroller_tasks_filters_user_status_experienced_desc">Éditeurs inscrits avec plus de 500 modifications et 30 jours d’activité</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Contributeurs inscrits avec plus de 500 modifications et 30 jours d’activité</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Dernières révisions</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Dernière révision</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Pas la dernière révision</string>
@@ -1614,19 +1665,15 @@
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de surveillance. Consultez-la sous « Plus ».</string>
+  <string name="patroller_onboarding_two_talk_title">Discussion</string>
+  <string name="patroller_onboarding_two_talk_content">Communiquer avec d\'autres contributeurs. Enregistrer les messages des pages de discussion couramment utilisés ou utiliser un modèle.</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
   <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
   <string name="patroller_diff_tooltip_one">Dommage prédit si une modification cause des dommages à un wiki.</string>
   <string name="patroller_diff_tooltip_two">L’intention prédit la probabilité qu’une modification soit enregistrée de bonne foi.</string>
-  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
-  <string name="patroller_diff_feedback_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Comment pouvons-nous améliorer la fonctionnalité ?</string>
+  <string name="patroller_diff_menu_edit_history_title">Historique des modifications de l’article</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
-  <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="patroller_diff_feedback_tooltip">Appuyez sur le menu de débordement pour soumettre des commentaires à tout moment sous « Problème avec la fonctionnalité ».</string>
   <string name="patroller_saved_message_title_vandalism">Avertissement de vandalisme</string>
   <string name="patroller_saved_message_title_editing_tests">Tests d\'édition</string>
@@ -1647,7 +1694,11 @@
   <string name="patroller_saved_message_body_copy_vio">Bonjour {{{username}}}. Votre récente modification semble inclure du matériel protégé par le droit d\'auteur sans autorisation. Veuillez vous assurer que tout le contenu est [[WP:VDA|conforme aux politiques de Wikipédia en matière de droits d\'auteur]] afin d\'éviter toute annulation.</string>
   <string name="patroller_saved_message_body_edit_summary">Bonjour {{{username}}}, il semble que vous ayez supprimé du contenu de Wikipédia sans l\'expliquer dans le résumé de modification. Veuillez laisser un résumé de modification chaque fois que vous ajoutez ou supprimez du contenu sur Wikipédia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Bonjour {{{username}}}, il semble que vous ayez supprimé un contenu sans en discuter au préalable sur la page de discussion de l\'article. Veuillez noter que Wikipédia n\'est pas censurée et qu\'un contenu ne doit pas être supprimé parce qu\'il est controversé. Si vous pensez que l\'information est inexacte, veuillez parvenir à un consensus sur la page de discussion de l\'article.</string>
+  <string name="talk_warn_learn_more_label">En savoir plus sur les messages de substitution</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Message_placeholders</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Utilisez un exemple de message ci-dessous pour personnaliser, envoyer et enregistrer vos messages.</string>
   <string name="patroller_saved_message_body_art_imp">Bonjour {{{username}}} ! Votre article est un excellent début ! Pour l\'améliorer encore, pensez à ajouter davantage de références à des sources fiables. Cela permet de vérifier les informations et d\'améliorer la qualité de l\'article. Pour plus de détails, consultez les pages de [[Wikipedia:Reliable_sources|sources fiables]].</string>
+  <string name="talk_templates_menu_edit_title">Modifier</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
@@ -1660,20 +1711,248 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="donate_gpay_dialog_title">Faire un don avec Google Pay ?</string>
+  <string name="donate_gpay_dialog_description">Faites un don avec Google Pay ou choisissez un autre mode de paiement.</string>
+  <string name="donate_gpay_dialog_pay_button">Faire un don avec Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Autre moyen de paiement</string>
+  <string name="donate_gpay_activity_title">Sélectionnez le montant</string>
+  <string name="donate_gpay_check_transaction_fee">J\'ajouterai généreusement %s pour couvrir les frais de transaction afin de que vous puissiez conserver 100%% de mon don.</string>
+  <string name="donate_gpay_check_recurring">En faire un don mensuel récurrent.</string>
+  <string name="donate_gpay_check_send_email">Oui, la Fondation Wikimedia peut m\'envoyer un courriel de temps en temps.</string>
+  <string name="donate_gpay_minimum_amount">Veuillez sélectionner un montant (minimum %s)</string>
+  <string name="donate_gpay_maximum_amount">Nous ne pouvons pas accepter de dons supérieurs à %s via notre application. Veuillez contacter notre équipe chargée des dons importants à l\'adresse benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Merci beaucoup.&lt;/b&gt; Votre générosité envers Wikipédia signifie tellement pour nous.</string>
+  <string name="donate_gpay_help_problems">Problèmes pour faire un don ?</string>
+  <string name="donate_gpay_help_other_ways">Autres moyens de donner</string>
   <string name="donate_gpay_help_faq">Foire aux questions</string>
+  <string name="donate_gpay_help_tax">Informations sur les conditions de déductibilité fiscale</string>
+  <string name="donation_history_deleted_message_snackbar">Historique des donateurs supprimé</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
-  <string name="places_nav_tab_tooltip_message">Découvrez les articles Wikipédia autour de vous avec Lieux</string>
-  <string name="places_article_menu_tooltip_message">Appuyez sur « Afficher sur la carte » pour explorer l’emplacement de cet article.</string>
-  <string name="places_survey_very_satisfied_option">Très satisfait</string>
-  <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
-  <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>
-  <string name="places_survey_feedback_dialog_title">Comment améliorer les « Lieux » ?</string>
-  <string name="places_survey_dialog_cancel">Annuler</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que voudriez-vous que nous changions ou améliorions ?</string>
   <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
+  <string name="places_card_title">Lieux à proximité</string>
+  <string name="places_card_action">Plus de lieux à proximité</string>
+  <string name="places_card_enable_location_card_message">Lieux est un moyen d\'explorer Wikipédia à partir d\'une carte</string>
+  <string name="places_card_enable_location_card_button">Activer la localisation</string>
+  <string name="places_card_distance_suffix">situé à %s</string>
+  <string name="places_card_distance_unknown">Distance inconnue</string>
+  <string name="places_empty_message_snackbar">Il n\'y a pas d\'articles à proximité. Essayez de dézoomer ou de déplacer la carte.</string>
+  <string name="survey_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
+  <string name="survey_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="survey_dialog_option_satisfied">Satisfait</string>
+  <string name="survey_dialog_option_neutral">Neutre</string>
+  <string name="survey_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="survey_dialog_option_very_satisfied">Très satisfait</string>
+  <string name="survey_dialog_option_very_unsatisfied">Très insatisfait</string>
+  <string name="survey_dialog_cancel">Annuler</string>
+  <string name="survey_dialog_submit">Soumettre</string>
+  <string name="survey_dialog_next">Suivant</string>
+  <string name="survey_dialog_general_yes">Oui</string>
+  <string name="survey_dialog_general_no">Non</string>
+  <string name="survey_dialog_general_maybe">Peut être</string>
+  <string name="survey_dialog_input_hint">Commentaires supplémentaires</string>
+  <string name="survey_dialog_submitted_snackbar">Commentaire envoyé. Merci !</string>
+  <string name="on_this_day_game_entry_dialog_title">Présentation</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Jeux de Wikipédia</string>
+  <string name="on_this_day_game_entry_dialog_button">Jouer au jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Les jeux Wikipédia sont disponibles sur le fil Explorer.</string>
+  <string name="on_this_day_game_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_dialog_button">Lecture</string>
+  <string name="on_this_day_game_splash_message">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
+  <string name="on_this_day_game_progress">%1$d sur %2$d</string>
+  <string name="on_this_day_game_score">Score : %d</string>
+  <string name="on_this_day_game_submit">Valider</string>
+  <string name="on_this_day_game_correct">Correct !</string>
+  <string name="on_this_day_game_incorrect">Incorrecte !</string>
+  <string name="on_this_day_game_point">+1 point</string>
+  <string name="on_this_day_game_next">Question suivante</string>
+  <string name="on_this_day_game_finish">Résultats finaux</string>
+  <string name="on_this_day_game_share_button">Partager</string>
+  <string name="on_this_day_game_pause_title">Mettre le jeu en pause ?</string>
+  <string name="on_this_day_game_pause_body">Votre progression sera sauvegardée pour la journée. Vous pouvez retrouver le jeu dans votre fil d\'actualité Explorer.</string>
+  <string name="on_this_day_game_pause_negative">Continuer à jouer</string>
+  <string name="on_this_day_game_pause_positive">Compris !</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Jeux de Wikipédia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Qu\'est-ce qui est venu en premier ?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Devinez quel événement s’est produit en premier ce jour-là dans l’histoire.</string>
+  <string name="on_this_day_game_result">Vous avez marqué %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Prochain jeu dans %s</string>
+  <string name="on_this_day_game_your_stats">Vos statistiques</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Partie jouée</item>
+    <item quantity="other">Parties jouées</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Score moyen</string>
+  <string name="on_this_day_game_stats_streak">Série actuelle</string>
+  <string name="on_this_day_game_result_subtitle">Articles référencés dans le jeu d\'aujourd\'hui</string>
+  <string name="on_this_day_game_completed_message">Merci d\'avoir joué. Un nouveau jeu « Qui est arrivé en premier ? » est disponible quotidiennement sur le fil d\'actualité Explore.</string>
+  <string name="on_this_day_game_menu_notifications">Notifications de jeu</string>
+  <string name="on_this_day_game_menu_info">En savoir plus</string>
+  <string name="on_this_day_game_menu_feedback">Problème avec la fonctionnalité</string>
+  <string name="on_this_day_game_article_read_button">Lire l’article</string>
+  <string name="on_this_day_game_article_related_event_title">Événement lié à cet article</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Vous avez répondu correctement à cette question</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Vous avez mal répondu à cette question</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Désactiver les notifications de jeu ?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Si vous désactivez les notifications push, vous ne recevrez plus de rappel quotidien lorsqu\'un nouveau jeu est disponible.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Activer les notifications de jeu ?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Les notifications de jeu vous alertent quotidiennement lorsqu\'un nouveau jeu est disponible.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Non, garde-les allumés</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Éteignez-les</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Oui, allumez-les</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Gardez-les à l\'écart</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notifications de jeu désactivées.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notifications de jeu activées.</string>
+  <string name="on_this_day_game_notification_text">Le jeu d\'aujourd\'hui « Qui est arrivé en premier ? » est prêt à être joué.</string>
+  <string name="on_this_day_game_report_email_subject">Rapport de problème - Wikipédia</string>
+  <string name="on_this_day_game_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de jeux de Wikipédia : \n- [Décrire le problème spécifique] \n\nLe comportement que j\'aimerais voir est : \n- [Décrire la solution proposée]</string>
+  <string name="on_this_day_game_notification_undo">Annuler</string>
+  <string name="on_this_day_game_share_link_message">Je joue à « Qui est arrivé en premier ? », un jeu-questionnaire quotidien sur l\'application Android Wikipédia %s</string>
+  <string name="on_this_day_game_share_screen_title">J\'ai obtenu un score de %1$d/%2$d sur « Qu\'est-ce qui est venu en premier ? ».</string>
+  <string name="on_this_day_game_share_screen_subtitle">Thèmes abordés :</string>
+  <string name="on_this_day_game_archive_calendar_title">Choisissez un jeu par date.</string>
+  <string name="on_this_day_game_score_toast_message">Votre score pour ce jour est de %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Continuer le jeu du jour</string>
+  <string name="on_this_day_game_current_progress_message">Vous êtes à la question %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Jeux des jours précédents</string>
+  <string name="on_this_day_game_review_results_btn_text">Voir les résultats</string>
+  <string name="on_this_day_game_score_message">Votre score au jeu du jour est de %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Continuer à jouer</string>
+  <string name="on_this_day_game_sound_on">Activer le son</string>
+  <string name="on_this_day_game_sound_off">Désactiver le son</string>
+  <string name="year_in_review_learn_more">En savoir plus</string>
+  <string name="year_in_review_get_started">Commencer</string>
+  <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>
+  <string name="year_in_review_navigate_left">Naviguer vers la gauche</string>
+  <string name="year_in_review_share_icon">Icône de partage</string>
+  <string name="year_in_review_heart_icon">Icône de cœur</string>
+  <string name="year_in_review_navigate_right">Naviguer vers la droite</string>
+  <string name="year_in_review_donate">Faire un don</string>
+  <string name="year_in_review_information_icon">Icône des informations</string>
+  <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
+  <string name="year_in_review_get_started_bodytext">Consultez des informations sur les articles que vous lisez sur l’application Wikipédia et les modifications que vous avez apportées. Votre historique de lecture est protégé. Les informations de lecture sont calculées à l’aide des données stockées localement sur votre appareil.</string>
+  <string name="year_in_review_entry_dialog_title">Explorez votre bilan Wikipédia</string>
+  <string name="year_in_review_entry_dialog_bodytext">Consultez des informations sur les articles lus et modifiés, et partagez les moments forts de notre année sur Wikipédia.</string>
+  <string name="year_in_review_entry_dialog_continue">Continuer</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Vous avez lu %d article cette année</item>
+    <item quantity="other">Vous avez lu %d articles cette année</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Cette année, vous avez lu %1$d article, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
+    <item quantity="other">Cette année, vous avez lu %1$d articles, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Vous avez modifié Wikipédia %d fois</item>
+    <item quantity="other">Vous avez modifié Wikipédia %d fois</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
+    <item quantity="other">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipédia était disponible dans plus de 300 langues</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipédia comptait plus de 63 millions d’articles dans plus de $2 langues actives. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Les contributeurs de l’applicatio iOS ont réalisé plus de 452 257 modifications.</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">La communauté de contributeurs bénévoles de Wikipédia a réalisé plus de 452 257 modifications via l’application iOS depuis le début de l’année. Le cœur et l’âme de Wikipédia résident dans sa communauté mondiale de contributeurs bénévoles, donateurs et milliards de lecteurs comme vous — tous unis pour partager un accès illimité à des informations fiables.</string>
+  <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
+  <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
+  <string name="year_in_review_survey_very_satisfied">Très satisfait</string>
+  <string name="year_in_review_survey_satisfied">Satisfait</string>
+  <string name="year_in_review_survey_neutral">Neutre</string>
+  <string name="year_in_review_survey_unsatisfied">Insatisfait</string>
+  <string name="year_in_review_survey_very_unsatisfied">Très insatisfait</string>
+  <string name="year_in_review_survey_placeholder_text">Des suggestions ?</string>
+  <string name="year_in_review_survey_cancel">Annuler</string>
+  <string name="year_in_review_survey_submit">Soumettre</string>
+  <string name="year_in_review_screendeck_image_content_description">Image pour l’écran principal du bilan de l’année</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Image pour l’écran de dialogue d’entrée du bilan de l’année</string>
+  <string name="year_in_review_screenshot_error">Impossible de générer une capture d’écran : %s</string>
+  <string name="year_in_review_share_subject">Image et lien du bilan de l’année</string>
+  <string name="year_in_review_globe_icon">Icône de globe</string>
+  <string name="recommended_reading_list_title">Découvrir</string>
+  <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
+  <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nouveau</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Commencer</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Non merci</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">La configuration de votre liste de lectures recommandées reste possible depuis les paramètres.</string>
+  <string name="recommended_reading_list_interest_source_message">Que voulez-vous voir dans votre liste de lectures recommandées ?</string>
+  <string name="recommended_reading_list_interest_source_interests">Choisir en fonction de mes intérêts</string>
+  <string name="recommended_reading_list_interest_source_saved">Choisissez pour moi en fonction de mes articles enregistrés</string>
+  <string name="recommended_reading_list_interest_source_history">Choisissez pour moi en fonction de mon historique de lecture</string>
+  <string name="recommended_reading_list_interest_pick_title">Qu\'est-ce qui vous intéresse ?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Rechercher un article</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d sélectionné</item>
+    <item quantity="other">%d sélectionnés</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Sélectionnez au moins un intérêt</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Sélection aléatoire</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Nous avons sélectionné au hasard quelques articles pour vous.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Annuler</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Êtes-vous sûr de vouloir une sélection aléatoire ?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Cela effacera vos sélections actuelles et choisira de nouveaux articles au hasard.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Oui, choisissez pour moi</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">En fait non</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Pour %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Pour toi :</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">1 article</item>
+    <item quantity="other">%d articles</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour à minuit.</string>
+  <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour en début de semaine.</string>
+  <string name="recommended_reading_list_page_description_monthly">Votre liste de lecture mensuelle. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour le premier de chaque mois.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personnaliser</string>
+  <string name="recommended_reading_list_page_overflow_about">À propos de cette fonctionnalité</string>
+  <string name="recommended_reading_list_page_snackbar">La Découverte sera mise à jour avec %1$d nouveaux articles tous les %2$s. Vos recommandations sont stockées localement sur votre appareil.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personnaliser la Découverte</string>
+  <string name="recommended_reading_list_page_snackbar_day">Jour</string>
+  <string name="recommended_reading_list_page_snackbar_week">Semaine</string>
+  <string name="recommended_reading_list_page_snackbar_month">Mois</string>
+  <string name="recommended_reading_list_settings_section_header">Recommandations</string>
+  <string name="recommended_reading_list_settings_title">Paramètres de la Découverte</string>
+  <string name="recommended_reading_list_settings_toggle">Listes de lectures de la Découverte</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">La Découverte est désactivée. Wikipédia ne vous recommandera pas d\'articles à lire.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Désactiver la Découverte ?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Si vous désactivez la Découverte, vous ne recevrez plus de recommandations de lecture de Wikipédia %s.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Désactiver</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Non, laisser activé</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">La Découverte a été désactivée. Vous pouvez la réactiver à tout moment dans les paramètres.</string>
+  <string name="recommended_reading_list_settings_articles">articles</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Mises à jour %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">quotidien</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">hebdomadaire</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">mensuel</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Chaque jour</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Chaque semaine</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Chaque mois</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Comment la Découverte est construite</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">En fonction de vos intérêts</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">En fonction de vos articles enregistrés</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">En fonction de votre historique de lecture</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Ajuster la façon dont la Découverte est construite ?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Si vous ajustez la manière dont la Découverte génère des recommandations, vos recommandations actuelles seront remplacées.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajuster</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">En fait non</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Vos recommandations sont désormais basées sur vos intérêts.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Vos recommandations sont désormais basées sur vos articles enregistrés.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Vos recommandations sont désormais basées sur votre historique de lecture.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Annuler</string>
+  <string name="recommended_reading_list_settings_interests">Centres d\'intérêt</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notifications</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipédia ne vous enverra pas de notification lorsque la Découverte sera mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Les notifications pour la Découverte sont désactivées. Vous ne recevrez pas de notification lorsque la Découverte est mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Désactiver les notifications ?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Si vous désactivez les notifications, vous ne recevrez plus de rappels lorsque la Découverte est mise à jour.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Les désactiver</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Non, les laisser activées</string>
+  <string name="recommended_reading_list_notification_title">Votre liste de lecture %s à découvrir est prête.</string>
+  <string name="recommended_reading_list_notification_subtitle">Appuyez pour voir vos dernières recommandations.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Lorsque votre Découverte est mise à jour, Wikipédia vous enverra une notification.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
 </resources>

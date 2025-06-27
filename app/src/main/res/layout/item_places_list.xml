@@ -53,14 +53,14 @@
 
     </LinearLayout>
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/listItemThumbnail"
+        app:shapeAppearanceOverlay="@style/CircularImageView"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:contentDescription="@null"
-        android:src="@drawable/ic_wikipedia_w"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
+        android:src="@drawable/ic_w_logo_circle"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

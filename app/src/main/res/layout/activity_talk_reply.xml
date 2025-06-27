@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:id="@+id/talkScrollContainer"
@@ -46,6 +47,10 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp" />
 
+            <include
+                android:id="@+id/footerContainer"
+                layout="@layout/inflate_edit_account_footer" />
+
             <TextView
                 android:id="@+id/learnMoreButton"
                 style="@style/P"
@@ -63,6 +68,7 @@
                 android:drawablePadding="12dp"
                 app:drawableStartCompat="@drawable/ic_open_in_new_black_24px"
                 app:drawableTint="?attr/secondary_color" />
+
         </LinearLayout>
     </ScrollView>
 

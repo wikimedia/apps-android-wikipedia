@@ -90,7 +90,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             displayedLists.clear()
             displayedLists.addAll(readingLists)
             if (!showDefaultList && displayedLists.isNotEmpty()) {
-                displayedLists.removeAt(0)
+                displayedLists.removeIf { it.isDefault }
             }
             ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
             adapter.notifyDataSetChanged()
@@ -117,7 +117,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             override fun onSuccess(text: String, description: String) {
                 addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
             }
-            override fun onCancel() { }
         }).show()
     }
 
@@ -157,17 +156,9 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(readingList: ReadingList) {
             addAndDismiss(readingList, titles)
         }
-
-        override fun onRename(readingList: ReadingList) {}
-        override fun onDelete(readingList: ReadingList) {}
-        override fun onSaveAllOffline(readingList: ReadingList) {}
-        override fun onRemoveAllOffline(readingList: ReadingList) {}
-        override fun onSelectList(readingList: ReadingList) {}
-        override fun onChecked(readingList: ReadingList) {}
-        override fun onShare(readingList: ReadingList) {}
     }
 
-    private class ReadingListItemHolder constructor(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {
+    private class ReadingListItemHolder(itemView: ReadingListItemView) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(readingList: ReadingList) {
             (itemView as ReadingListItemView).setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
         }

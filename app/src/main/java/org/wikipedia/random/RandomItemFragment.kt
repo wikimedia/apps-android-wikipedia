@@ -17,9 +17,9 @@ import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentRandomItemBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 
@@ -27,7 +27,7 @@ class RandomItemFragment : Fragment() {
 
     private var _binding: FragmentRandomItemBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: RandomItemViewModel by viewModels { RandomItemViewModel.Factory(requireArguments()) }
+    private val viewModel: RandomItemViewModel by viewModels()
 
     val isLoadComplete: Boolean get() = viewModel.summary != null
     val title: PageTitle? get() = viewModel.summary?.getPageTitle(viewModel.wikiSite)
@@ -52,7 +52,7 @@ class RandomItemFragment : Fragment() {
             viewModel.getRandomPage()
         }
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wikiSite.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.wikiSite.languageCode)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {

@@ -2,8 +2,12 @@
 <!-- Authors:
 * AVSmalnad77
 * Ananth subray
+* Anzx
 * Ashay vb
+* Gopala Krishna A
+* Kavitha G. Kana
 * MSG17
+* Mahaveer Indra
 * MuratTheTurkish
 * Nayvik
 * Omshivaprakash
@@ -29,6 +33,7 @@
   <string name="nav_item_suggested_edits">ಸಂಪಾದನೆಗಳು</string>
   <string name="nav_item_more">ಇನ್ನಷ್ಟು</string>
   <string name="nav_item_search">ಹುಡುಕು</string>
+  <string name="nav_item_contribute">ಕೊಡುಗೆ ನೀಡಿ</string>
   <string name="error_network_error">ಅಂತರ್ಜಾಲಕ್ಕೆ ಸಂಪರ್ಕಿಸಲು ಆಗುತ್ತಿಲ್ಲ.</string>
   <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="card_offline_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
@@ -49,6 +54,7 @@
   <string name="image_content_description">ಚಿತ್ರ: %s</string>
   <string name="page_content_description">ಪುಟ: %s</string>
   <string name="wikimedia_commons">ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್</string>
+  <string name="wikidata">ವಿಕಿಡೇಟಾ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="dialog_message_clear_history">ಇದು ನಿಮ್ಮ ಎಲ್ಲಾ ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸುತ್ತದೆ ಮತ್ತು ಪ್ರಸ್ತುತ ತೆರೆದಿರುವ ಯಾವುದೇ ಟ್ಯಾಬ್‌ಗಳನ್ನು ಮುಚ್ಚುತ್ತದೆ. ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?</string>
   <string name="dialog_message_clear_history_yes">ಹೌದು</string>
@@ -57,40 +63,63 @@
   <string name="image_share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="search_redirect_from">%s ಇಂದ ಪುನರ್ನಿರ್ದೇಶಿತ</string>
   <string name="page_edit_history_activity_title">ಬದಲಾವಣೆಗಳ ಇತಿಹಾಸ: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">ಸಂಪಾದನಾ ಇತಿಹಾಸ ಖಾಲಿ ಇದೆ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ಸಂಪಾದನಾ ಇತಿಹಾಸವನ್ನು ಹುಡುಕಿ ಅಥವಾ ಆರಿಸಿ</string>
+  <string name="page_edit_history_filter_by">ಆರಿಸಿ</string>
   <string name="page_edit_history_filter_by_all">ಎಲ್ಲಾ ಸಂಪಾದನೆಗಳು (%s)</string>
   <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರರ ಸಂಪಾದನೆಗಳು (%s)</string>
-  <string name="page_edit_history_filter_by_anon">ಅನಾಮಧೇಯ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ನೋಂದಾಯಿಸದ ಸಂಪಾದನೆಗಳು ( %s )</string>
   <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದನೆಗಳು (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$sರಿಂದ %2$sರವರೆಗಿನ ಸಂಪಾದನೆ</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d ಸಂಪಾದನೆಗಳು</item>
+    <item quantity="other">%2$s ರಿಂದ %1$d ಸಂಪಾದನೆಗಳು</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">&lt;a href=\"#\"&gt;ವನ್ನು ಆರಿಸಿ&lt;/a&gt; ಹೆಚ್ಚಿನ ಇತಿಹಾಸವನ್ನು ನೋಡಿ</string>
   <string name="menu_page_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
   <string name="menu_page_other_languages">ಭಾಷೆ ಬದಲಾಯಿಸಿ</string>
   <string name="menu_page_find_in_page">ಲೇಖನದಲ್ಲಿ ಹುಡುಕಿ</string>
   <string name="menu_page_add_to_watchlist">ವೀಕ್ಷಣಾಪಟ್ಟಿಗೆ ಸೇರಿಸು</string>
+  <string name="menu_page_watch">ವೀಕ್ಷಿಸಿ</string>
+  <string name="menu_page_unwatch">ವೀಕ್ಷಣಾಪಟ್ಟಿಯಿಂದ ತೆಗೆ</string>
   <string name="menu_page_view_talk">ಚರ್ಚೆ ಪುಟವನ್ನು ವೀಕ್ಷಿಸಿ</string>
   <string name="menu_page_talk_page">ಚರ್ಚೆಪುಟ</string>
   <string name="menu_page_view_edit_history">ಸಂಪಾದನೆ ಇತಿಹಾಸವನ್ನು ನೋಡಿ</string>
+  <string name="menu_page_edit_history">ಸಂಪಾದನೆಯ ಇತಿಹಾಸ</string>
   <string name="menu_page_remove_from_watchlist">ವೀಕ್ಷಣಾಪಟ್ಟಿಯಿಂದ ತೆಗೆ</string>
+  <string name="menu_page_watched">ನೋಡಿದ್ದು</string>
   <string name="edit_section_find_in_page">ಪಠ್ಯದಲ್ಲಿ ಹುಡುಕಿ</string>
+  <string name="menu_page_font_and_theme">ಅಕ್ಷರ ಮತ್ತು ವಿನ್ಯಾಸ</string>
   <string name="menu_page_add_to_list">ಓದುವ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
   <string name="menu_page_add_to_default_list">ಉಳಿಸಿ</string>
   <string name="feed_card_add_to_list">ಓದುವ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
   <string name="feed_card_add_to_default_list">ಉಳಿಸಿ</string>
   <string name="menu_page_share">ಕೊಂಡಿಯನ್ನು ಹಂಚು</string>
+  <string name="menu_article_share">ಲೇಖನ ಹುಡುಕಿ</string>
+  <string name="menu_page_article_share">ಹಂಚು</string>
   <string name="menu_page_open_a_new_tab">ಹೊಸ ಟ್ಯಾಬ್ ತೆರೆ</string>
   <string name="menu_page_new_tab">ಹೊಸ ಟ್ಯಾಬ್</string>
   <string name="menu_page_reading_lists">ಓದುವ ಪಟ್ಟಿಗಳು</string>
   <string name="menu_page_recently_viewed">ಇತ್ತೀಚೆಗೆ ನೋಡಿಲಾದ</string>
+  <string name="menu_page_archive">ದಾಖಲಿಸು</string>
   <string name="menu_long_press_open_page">ತೆರೆ</string>
+  <string name="menu_long_press_open_in_places">ಸ್ಥಳಗಳಲ್ಲಿ ತೆರೆಯಿರಿ</string>
   <string name="menu_long_press_open_in_new_tab">ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ತೆರೆ</string>
   <string name="menu_long_press_copy_page">ಕೊಂಡಿ ವಿಳಾಸವನ್ನು ನಕಲು ಮಾಡು</string>
+  <string name="menu_text_select_define">ವ್ಯಾಖ್ಯಾನಿಸು</string>
   <string name="on_this_day_page_share">ಹಂಚು</string>
   <string name="reading_list_page_share">ಹಂಚು</string>
   <string name="menu_text_select_edit_here">ಇಲ್ಲಿ ಸಂಪಾದಿಸಿ</string>
+  <string name="menu_edit_article">ಲೇಖನ ಸಂಪಾದಿಸಿ</string>
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %s</string>
   <string name="talk_page_link_text">ಚರ್ಚೆ ಪುಟವನ್ನು ವೀಕ್ಷಿಸಿ</string>
   <string name="edit_history_link_text">ಸಂಪಾದನೆ ಇತಿಹಾಸವನ್ನು ನೋಡಿ</string>
   <string name="map_view_link_text">ಒಂದು ಭೂಪಟದಲ್ಲಿ ನೋಡಿ</string>
   <string name="other_languages_indication_text">ಬೇರೆ ಭಾಷೆಯಲ್ಲಿ ಓದಿ</string>
   <string name="language_count_link_text">%d ಬೇರೆ ಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿದೆ</string>
+  <string name="edit_save_action_license_logged_in">ಪ್ರಕಟಿಸುವ ಮೂಲಕ, ನೀವು &lt;a href=\"%1$s\"&gt;ಬಳಕೆಯ ನಿಯಮಗಳಿಗೆ&lt;/a&gt; ಒಪ್ಪುತ್ತೀರಿ ಮತ್ತು ನಿಮ್ಮ ಕೊಡುಗೆಗಳನ್ನು &lt;a href=\"%2$s\"&gt;CC BY-SA&lt;/a&gt; ಪರವಾನಗಿ ಅಡಿಯಲ್ಲಿ ಮಾರ್ಪಡಿಸಲಾಗದಂತೆ ಬಿಡುಗಡೆ ಮಾಡಲು ಒಪ್ಪುತ್ತೀರಿ.</string>
+  <string name="edit_anon_warning">ಲಾಗಿನ್ ಮಾಡದಿದ್ದರೆ, ನೀವು ಸಂಪಾದಿಸಲು ಬಳಸಿದ ಉಪಕರಣದ ಐಪಿ ವಿಳಾಸ ಎಲ್ಲರಿಗೂ ಕಾಣಿಸುತ್ತದೆ. &lt;a href=\"https://#login\"&gt;ಲಾಗಿನ್&lt;/a&gt; ಆದರೆ ನಿಮ್ಮ ಲಾಗಿನ್ ಹೆಸರು ಮಾತ್ರ ಕಾಣಿಸುವ ಮೂಲಕ ನಿಮ್ಮ ಖಾಸಗಿತನವನ್ನು ರಕ್ಷಿಸಿಕೊಳ್ಳಬಹುದು.</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯ ಭಾಷೆಗಳು</string>
   <string name="langlinks_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇರೆಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.</string>
@@ -99,6 +128,7 @@
   <string name="langlinks_your_wikipedia_languages">ನಿಮ್ಮ ವಿಕಿಪೀಡಿಯ ಭಾಷೆಗಳು</string>
   <string name="menu_save_changes">ಬದಲಾವಣೆಗಳನ್ನು ಪ್ರಕಟಿಸು</string>
   <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಪ್ರಕಟಿಸಲಾಗಿದೆ!</string>
+  <string name="stub_article_edit_saved_successfully">ಸಂಪಾದನೆ ಪ್ರಕಟವಾಗಿದೆ! ಇದು ಕಾಣಿಸಿಕೊಳ್ಳಲು ಸ್ವಲ್ಪ ಸಮಯ ತಗಲಬಹುದು.</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ!</string>
   <string name="dialog_message_edit_failed_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="dialog_message_edit_failed_cancel">ರದ್ದುಮಾಡಿ</string>
@@ -114,10 +144,13 @@
   <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರ ಕಾಣುತ್ತಿಲ್ಲವೇ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ಖಾತೆಗಾಗಿ ಕೋರಿಕೆ ಸಲ್ಲಿಸಿ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ಮೇಲಿನ ಪದಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ</string>
   <string name="title_captcha">CAPTCHA ನಮೂದಿಸಿ</string>
+  <string name="edit_section_captcha_reload">ಕ್ಯಾಪ್ಚಾ ಪುನರ್ ಕಾಣಿಸಲು ತಟ್ಟಿರಿ.</string>
   <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಗೆ ಲಾಗ್ ಇನ್ ಆಗಿ</string>
   <string name="login_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="account_creation_password_hint">ಪ್ರವೇಶಪದ</string>
+  <string name="login_2fa_hint" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ ಸಂಕೇತ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ! ದಯವಿಟ್ಟು ಮುಖ್ಯ ಚಟುವಟಿಕೆಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ನಿಮ್ಮ 2ಎಫ್ಎ ಟೋಕನ್‌ನೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ, ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
   <string name="onboarding_card_login">ಲಾಗ್ ಇನ್</string>
   <string name="page_editing_login">ಲಾಗ್ ಇನ್</string>
   <string name="reading_lists_sync_login">ಲಾಗ್ ಇನ್</string>
@@ -126,6 +159,8 @@
   <string name="login_activity_title">ಲಾಗ್ ಇನ್</string>
   <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ…</string>
   <string name="login_success_toast">ಲಾಗಿನ್ ಆಯಿತು!</string>
+  <string name="reset_password_title">ನಿಮ್ಮ ಪ್ರವೇಶಪದ ನಮೂದಿಸಿ</string>
+  <string name="reset_password_description">ನೀವು ತಾತ್ಕಾಲಿಕ ಗುಪ್ತಪದವನ್ನು ಬಳಸಿ ಲಾಗಿನ್ ಆಗಿದ್ದೀರಿ. ಲಾಗಿನ್ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ನಿಮ್ಮದೇ ಆದ ಹೊಸ ಗುಪ್ತಪದವನ್ನು ನಮೂದಿಸಿ.</string>
   <string name="reset_password_hint">ಹೊಸ ಪ್ರವೇಶಪದ</string>
   <string name="reset_password_button">ಉಳಿಸಿ ಮತ್ತು ಲಾಗ್ ಇನ್ ಆಗಿ</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
@@ -135,6 +170,9 @@
   <string name="logged_out_in_background_dialog">ನಿಮ್ಮನ್ನು ವಿಕಿಪೀಡಿಯದಿಂದ ಲಾಗ್ ಔಟ್ ಮಾಡಲಾಯಿತು. ಇನ್ನೊಮ್ಮೆ ಲಾಗ್ ಇನ್ ಆಗಲು ಬಯಸುವಿರಾ?</string>
   <string name="logged_out_in_background_login">ಲಾಗ್ ಇನ್</string>
   <string name="logged_out_in_background_cancel">ರದ್ದು ಮಾಡು</string>
+  <string name="account_vanish_request_title">ಖಾತೆ ಅಳಿಸಿ</string>
+  <string name="account_vanish_request_confirm_title">ಖಾತೆ ಅಳಿಸುವಿಕೆಯ ಎಚ್ಚರಿಕೆ</string>
+  <string name="account_vanish_request_confirm">ಅಳಿಸುವುದು &lt;b&gt;ಕೊನೆಯ ಉಪಾಯವಾಗಿದೆ&lt;/b&gt; ಮತ್ತು &lt;b&gt;ನೀವು ಸಂಪಾದನೆಯನ್ನು ಶಾಶ್ವತವಾಗಿ ನಿಲ್ಲಿಸಲು ಮತ್ತು ಸಾಧ್ಯವಾದಷ್ಟು ನಿಮ್ಮ ಹಿಂದಿನ ಸಂಪಾದನೆಗಳನ್ನು ಮರೆಮಾಡಲು ಬಯಸಿದಾಗ ಮಾತ್ರ ಬಳಸಬೇಕು&lt;/b&gt;. &lt;br/&gt;ವಿಕಿಪೀಡಿಯಾದಲ್ಲಿ ಖಾತೆಯನ್ನು ಅಳಿಸುವುದನ್ನು ನಿಮ್ಮ ಖಾತೆಯ ಹೆಸರನ್ನು ಬದಲಾಯಿಸುವ ಮೂಲಕ ಮಾಡಲಾಗುತ್ತದೆ,&lt;br/&gt; ಆದ್ದರಿಂದ ಖಾತೆಯನ್ನು ಅಳಿಸುವ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ನಿಮ್ಮ ಕೊಡುಗೆಗಳನ್ನು ಇತರರು ಗುರುತಿಸುವುದಿಲ್ಲ. &lt;b&gt;ಅಳಿಸುವಿಕೆಯು ಸಂಪೂರ್ಣ ಅನಾಮಧೇಯತೆಯನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ ಅಥವಾ ಯೋಜನೆಗಳಿಗೆ ಕೊಡುಗೆಗಳನ್ನು ತೆಗೆದುಹಾಕುವುದಿಲ್ಲ&lt;/b&gt; .</string>
   <string name="history_empty_title">ಇತ್ತೀಚೆಗೆ ನೋಡಿದ ಯಾವುದೇ ಲೇಖನಗಳಿಲ್ಲ</string>
   <string name="history_empty_message">ಇಲ್ಲಿ ನೀವು ಏನು ಓದುತ್ತಿದ್ದೀರಿ ಎಂದು ಜಾಡು ಹಿಡಿಯಿರಿ</string>
   <string name="history_offline_articles_toast">ಇತಿಹಾಸದಲ್ಲಿರುವ ಕೆಲ ಲೇಖನಗಳು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ನೋಡಲು ಆಗದೇ ಇರಬಹುದು.</string>
@@ -151,22 +189,34 @@
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ</string>
   <string name="create_account_email_hint">ಮಿಂಚಂಚೆ(ಐಚ್ಛಿಕ)</string>
   <string name="create_account_password_repeat_hint">ಪ್ರವೇಶಪದವನ್ನು ಪುನಃಸ್ಥಾಪಿಸಿ.</string>
+  <string name="create_account_password_is_username">ಪಾಸ್‌ವರ್ಡ್ ಬಳಕೆದಾರರ ಹೆಸರಿನಂತೆಯೇ ಇರುವಂತಿಲ್ಲ</string>
   <string name="create_account_passwords_mismatch_error">ಗುಪ್ತಪದಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
   <string name="create_account_email_error">ಸಮರ್ಪಕ ಮಿಂಚಂಚೆ ವಿಳಾಸ</string>
   <string name="create_account_username_error">ಬಳಕೆದಾರ ಹೆಸರಿನಲ್ಲಿ ಅಮಾನ್ಯ ಅಕ್ಷರಗಳು</string>
+  <string name="create_account_password_error">ಪಾಸ್ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು</string>
   <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
   <string name="create_account_next">ಮುಂದಿನ</string>
   <string name="email_recommendation_dialog_title">ಇ-ಅಂಚೆ ವಿಳಾಸವಿಲ್ಲದೆ ಖಾತೆ ರಚಿಸಬೇಕೇ?</string>
+  <string name="email_recommendation_dialog_message">ಇಮೇಲ್ ವಿಳಾಸವು ಐಚ್ಛಿಕವಾಗಿದ್ದರೂ, ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನೀವು ಎಂದಾದರೂ ಕಳೆದುಕೊಂಡರೆ ಖಾತೆ ಮರುಪಡೆಯುವಿಕೆಗೆ ಇಮೇಲ್ ಅಗತ್ಯವಿರುವುದರಿಂದ ಇದನ್ನು &lt;b&gt;ಮುಖ್ಯವಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ&lt;/b&gt;.</string>
+  <string name="email_recommendation_message">ಖಾತೆಯನ್ನು ಮರುಪಡೆಯಲು ಇಮೇಲ್ ಅಗತ್ಯವಿರುವ ಕಾರಣ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ಇ-ಅಂಚೆ ಇಲ್ಲದೆ ಮುಂದುವರೆಯಿರಿ</string>
   <string name="email_recommendation_dialog_create_with_email_action">ಇ-ಅಂಚೆ ವಿಳಾಸವನ್ನು ಸೇರಿಸಿ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="create_account_name_unavailable">ಬಳಕೆದಾರ ಹೆಸರು \"%s\" ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಬೇರೆ ಹೆಸರನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</string>
   <string name="create_account_ip_block_message">ಕ್ಷಮಿಸಿ, ಪ್ರಸ್ತುತ ನಿಮ್ಮ ಐಪಿ ವಿಳಾಸವು ಹೊಸ ಖಾತೆಯನ್ನು ರಚಿಸುವುದರಿಂದ ನಿರ್ಬಂಧಿತವಾಗಿದೆ.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ವಿವರಗಳು</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
   <string name="preferences_account_heading">ಖಾತೆ</string>
+  <string name="wikipedia_app_faq">ವಿಕಿಪೀಡಿಯ ಅಪ್ಲಿಕೇಶನ್ FAQ</string>
+  <string name="send_feedback">ಅಪ್ಲಿಕೇಶನ್ ಬಗ್ಗೆ ಫೀಡ್‌ಬ್ಯಾಕ್ ಕಳುಹಿಸಿ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
+  <string name="preferences_heading_syncing">ಸಿಂಕ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <string name="preferences_heading_data_usage">ಡೇಟಾ ಬಳಕೆ</string>
   <string name="preferences_heading_experimental">ಪ್ರಾಯೋಗಿಕ</string>
+  <string name="preference_title_sync_reading_lists_from_account">ಓದುವ ಪಟ್ಟಿಯನ್ನು ಸಿಂಕ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <string name="preference_title_download_reading_list_articles">ಓದುವ ಪಟ್ಟಿ ಲೇಖನಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
+  <string name="preference_summary_sync_reading_lists">ನಿಮ್ಮ ವಿಕಿಪೀಡಿಯ ಖಾತೆಗೆ ಉಳಿಸುವ ಮೂಲಕ ವಿವಿಧ ಸಾಧನಗಳಲ್ಲಿ ಓದುವ ಪಟ್ಟಿಗಳನ್ನು ಸಿಂಕ್ ಮಾಡಿ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿಯನ್ನು ತೋರಿಸಲು ಆಗಲಿಲ್ಲ</string>
   <string name="page_protected_sysop">ಈ ಪುಟವು ಪೂರ್ಣವಾಗಿ ಸಂರಕ್ಷಿತವಾಗಿದೆ.</string>
   <string name="page_protected_can_not_edit_title">ಈ ಪುಟವು ಸಂರಕ್ಷಿತವಾಗಿದೆ</string>
@@ -177,11 +227,9 @@
   <string name="privacy_policy_description">ಗೌಪ್ಯತಾ ನೀತಿ</string>
   <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
   <string name="about_wikipedia_url">https://kn.wikipedia.org/wiki/ವಿಕಿಪೀಡಿಯ:ನಮ್ಮ_ಬಗ್ಗೆ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ಕೊಡುಗೆದಾರರು</string>
   <string name="about_translators_heading">ಅನುವಾದಕರು</string>
   <string name="about_app_license_heading">ಪರವಾನಗಿ</string>
@@ -191,7 +239,7 @@
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
   <string name="edit_how_page_improved">ನೀವು ಪುಟವನ್ನು ಹೇಗೆ ಉತ್ತಮಪಡಿಸಿದ್ದೀರಿ?</string>
   <string name="edit_next">ಮುಂದೆ</string>
-  <string name="edit_done">ಪ್ರಕಟಿಸು</string>
+  <string name="edit_done">ಪ್ರಕಟಿಸಿ</string>
   <string name="edit_preview">ಮುನ್ನೋಟ</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s ಬೈಟ್</item>
@@ -353,7 +401,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ರದ್ದು ಮಾಡು</string>
   <string name="tabs_activity_title">ಟ್ಯಾಬ್‌ಗಳು</string>
   <string name="description_edit_article_description_label">ಲೇಖನ</string>
-  <string name="description_edit_save">ಪ್ರಕಟಿಸು</string>
+  <string name="description_edit_save">ಪ್ರಕಟಿಸಿ</string>
   <string name="description_edit_read">ಓದು</string>
   <string name="description_edit_cancel_hint">ರದ್ದುಮಾಡಿ</string>
   <string name="description_too_short">ಪಠ್ಯ ತುಂಬಾ ಚಿಕ್ಕದಾಗಿದೆ.</string>
@@ -408,7 +456,6 @@
     <item quantity="other">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">ಕೊನೆಯ ೩೦ ದಿನಗಳಲ್ಲಿ %s ಸಲ ನೋಡಲಾಗಿದೆ.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ನಿನ್ನೆ</string>
   <string name="suggested_card_more_edits">ಇನ್ನಷ್ಟು ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
   <string name="description_edit_revert_subtitle">ವಿಕಿಪೀಡಿಯ ಸಂಪಾದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!</string>
@@ -439,7 +486,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">ಎಲ್ಲಾ ಭಾಷೆಗಳನ್ನು ತೆಗೆಯಲು ಆಗುವುದಿಲ್ಲ</string>
   <string name="more_language_options">ಇನ್ನಷ್ಟು</string>
   <string name="add_wikipedia_languages_text">ವಿಕಿಪೀಡಿಯ ಭಾಷೆಗಳನ್ನು ಸೇರಿಸಿ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಭಾಷೆಗಳನ್ನು ಸಂಪಾದಿಸಿ</string>
   <string name="remove_language_dialog_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
   <string name="remove_language_dialog_ok_button_text">ಸರಿ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ಸರಿ</string>

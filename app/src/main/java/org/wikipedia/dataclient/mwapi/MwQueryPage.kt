@@ -24,8 +24,9 @@ class MwQueryPage {
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
     @SerialName("entityterms") val entityTerms: EntityTerms? = null
+    val categories: List<CategoryResponse>? = null
 
-    private val ns = 0
+    val ns = 0
     val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
     val varianttitles: Map<String, String>? = null
@@ -93,6 +94,7 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
+        @SerialName("temp") val isTemp = false
         @SerialName("timestamp") val timeStamp: String = ""
         val size = 0
         val user: String = ""
@@ -146,4 +148,10 @@ class MwQueryPage {
         val label: List<String> = emptyList()
         val description: List<String> = emptyList()
     }
+
+    @Serializable
+    data class CategoryResponse(
+        val ns: Int,
+        val title: String
+    )
 }

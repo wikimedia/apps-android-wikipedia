@@ -27,6 +27,10 @@
                     android:data="@string/terms_of_use_url"
                     />
         </org.wikipedia.settings.PreferenceMultiLine>
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_send_feedback"
+            android:title="@string/send_feedback"
+            android:widgetLayout="@layout/preference_multiline_with_external_link" />
     </PreferenceCategory>
 
 </PreferenceScreen>

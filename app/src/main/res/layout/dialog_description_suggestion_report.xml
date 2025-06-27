@@ -118,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="flagNoExtractUi|actionDone"
-                android:inputType="textMultiLine"
+                android:inputType="textShortMessage"
                 android:lineSpacingExtra="6sp"
                 android:maxLength="@integer/description_max_chars"
                 android:textSize="16sp">

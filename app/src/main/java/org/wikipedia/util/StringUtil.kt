@@ -50,11 +50,6 @@ object StringUtil {
         return s.encodeUtf8().md5().hex()
     }
 
-    fun strip(str: CharSequence?): CharSequence {
-        // TODO: remove this function once Kotlin conversion of consumers is complete.
-        return if (str.isNullOrEmpty()) "" else str.trim()
-    }
-
     fun intToHexStr(i: Int): String {
         return String.format("x%08x", i)
     }

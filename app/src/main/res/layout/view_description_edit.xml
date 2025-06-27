@@ -45,7 +45,9 @@
                 android:textStyle="bold"
                 android:text="@string/description_edit_edit_description"
                 android:textColor="?attr/primary_color"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="20sp" />
 
             <TextView
                 android:id="@+id/view_description_edit_save_button"
@@ -225,10 +227,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin">
             <include
                 android:id="@+id/captcha_container"
                 android:visibility="gone"
+                tools:visibility="visible"
                 layout="@layout/group_captcha"/>
         </ScrollView>
 

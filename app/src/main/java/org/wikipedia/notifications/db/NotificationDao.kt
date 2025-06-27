@@ -1,6 +1,11 @@
 package org.wikipedia.notifications.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,6 +18,9 @@ interface NotificationDao {
 
     @Delete
     suspend fun deleteNotification(notification: Notification)
+
+    @Query("DELETE FROM Notification")
+    fun deleteAll()
 
     @Query("SELECT * FROM Notification")
     fun getAllNotifications(): List<Notification>

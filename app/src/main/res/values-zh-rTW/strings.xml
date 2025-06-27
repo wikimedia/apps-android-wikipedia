@@ -14,6 +14,7 @@
 * Kly
 * LEEJACK
 * LNDDYL
+* Lakejason0
 * Liuxinyu970226
 * Madeleinemcc
 * Mikepanhu
@@ -34,6 +35,7 @@
 * 沈澄心
 * 漢黑玉
 * 烈羽
+* 阿南之人
 -->
 <resources>
   <string name="app_name_prod">維基百科</string>
@@ -46,10 +48,14 @@
   <string name="search_hint">搜尋維基百科</string>
   <string name="search_hint_voice_search">語音輸入搜尋</string>
   <string name="search_hint_search_languages">搜尋語言</string>
+  <string name="search_back_button_content_description">返回</string>
+  <string name="search_clear_query_content_description">清除查詢</string>
+  <string name="search_icon_content_description">搜尋</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
   <string name="nav_item_suggested_edits">編輯</string>
   <string name="nav_item_more">更多</string>
   <string name="nav_item_search">搜尋</string>
+  <string name="nav_item_contribute">貢獻</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -85,7 +91,7 @@
   <string name="page_edit_history_filter_by">篩選依據</string>
   <string name="page_edit_history_filter_by_all">所有編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_user">使用者編輯 (%s 筆)</string>
-  <string name="page_edit_history_filter_by_anon">匿名編輯 (%s 筆)</string>
+  <string name="page_edit_history_filter_by_anon">未註冊編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_bot">機器人編輯 (%s 筆)</string>
   <string name="page_edit_history_metrics_content_description">%1$s 到 %2$s 之間的計量</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -124,6 +130,7 @@
   <string name="menu_page_recently_viewed">近期檢視</string>
   <string name="menu_page_archive">存檔</string>
   <string name="menu_long_press_open_page">開啟</string>
+  <string name="menu_long_press_open_in_places">在地點開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁中開啟</string>
   <string name="menu_long_press_copy_page">複製連結位址</string>
   <string name="menu_text_select_define">定義</string>
@@ -155,6 +162,10 @@
   <string name="dialog_message_leaving_edit">修改尚未發布，確定要離開此頁面嗎？</string>
   <string name="dialog_message_leaving_edit_leave">離開</string>
   <string name="dialog_message_leaving_edit_stay">留在這裡</string>
+  <string name="dialog_confirm_delete_donation_history_title">確認刪除</string>
+  <string name="dialog_confirm_delete_donation_history_message">這僅套用到透過此裝置所做過的捐款。</string>
+  <string name="dialog_confirm_delete_donation_history_delete">刪除</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">取消</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">找不到結果</string>
   <string name="search_reading_list_no_results">在「%s」查無結果</string>
@@ -170,7 +181,9 @@
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
   <string name="login_2fa_hint">雙重驗證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請從主畫面登入，並輸入您的雙重驗證令牌中的代碼。</string>
+  <string name="login_email_auth_hint">電子郵件驗證碼</string>
+  <string name="login_email_auth_other_workflow_error_msg">需要電子郵件驗證！請從主畫面登錄，並輸入您的電子郵件驗證碼。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -260,24 +273,23 @@
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E6%A0%87%E7%AD%BE</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;團隊頁面&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;團隊頁面&lt;/a&gt;</string>
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
+  <string name="about_logo_content_description">維基百科拼圖球標誌</string>
   <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
@@ -305,12 +317,14 @@
   <string name="edit_summary_tag_links">新增連結</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
+  <string name="edit_summary_added_short_description">已新增簡短描述</string>
+  <string name="edit_summary_updated_short_description">已更新簡短描述</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
-  <string name="edit_notices">編輯說明</string>
+  <string name="edit_notices">編輯提示</string>
   <string name="edit_notices_please_read">編輯前請閱讀</string>
-  <string name="edit_notices_show_auto">自動顯示編輯通知</string>
-  <string name="edit_notices_tooltip">點按此按鈕可查看此條目的編輯通知。</string>
+  <string name="edit_notices_show_auto">自動顯示編輯提示</string>
+  <string name="edit_notices_tooltip">點按此按鈕可查看此條目的編輯提示。</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
@@ -387,7 +401,6 @@
   <string name="page_view_in_browser">在瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
-  <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖示以新增更多語言。</string>
   <string name="error_response_malformed">來自伺服器的回應格式不正確。</string>
   <string name="error_unknown">發生不明錯誤。</string>
   <string name="format_error_server_message">訊息：\"%s\"</string>
@@ -438,6 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗佈景主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
+  <string name="preference_title_delete_local_donation_history">刪除本地捐款紀錄</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統佈景主題</string>
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
@@ -452,8 +466,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">自訂您的工具列</string>
   <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="temp_account_not_logged_in">您尚未登入</string>
-  <string name="temp_account_anon_dialog_body">一旦您做出編輯，會為您建立&lt;b&gt;臨時帳號&lt;/b&gt;以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
-  <string name="temp_account_temp_dialog_body">您的編輯將會歸在%1$s名下。管理員可看到您的 IP 位址。&lt;br /&gt;&lt;br /&gt;如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;，您做出的編輯將會歸在您所選的使用者名稱，並擁有其他好處。</string>
+  <string name="temp_account_anon_ip_dialog_body">一旦您做出編輯，您的IP位址將與您的編輯相關聯。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
+  <string name="temp_account_anon_dialog_body">一旦您做出編輯，會為您建立&lt;b&gt;臨時帳號&lt;/b&gt;以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
+  <string name="temp_account_temp_dialog_body">您的編輯將會歸在%1$s名下。管理員可看到您的 IP 位址。&lt;br /&gt;&lt;br /&gt;如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#createaccount\"&gt;建立帳號&lt;/a&gt;，您做出的編輯將會歸在您所選的使用者名稱，並擁有其他好處。</string>
   <string name="temp_account_dialog_ok">了解</string>
   <string name="temp_account_using_title">您正在使用臨時帳號</string>
   <string name="temp_account_dialog_discard">放棄更改並登入</string>
@@ -465,6 +480,7 @@
     <item quantity="one">帳號會在 %d 天後失效。</item>
     <item quantity="other">帳號會在 %d 天後失效。</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;您還沒有登入。&lt;/b&gt;一旦您進行編輯，做過的編輯內容會歸在您的 IP 位址名義下。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登入。&lt;/b&gt;一旦您做出編輯，會為您建立臨時帳號以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用臨時帳號。&lt;/b&gt;您做出的編輯內容會歸在%1$s名下。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;。</string>
   <string name="temp_account_login_status">&lt;b&gt;您目前使用的是臨時帳號。&lt;/b&gt;當您登入時，使用臨時帳號「%1$s」所做過的編輯不會轉移到您的永久帳號。登入或建立帳號，可讓編輯記錄在您使用者名稱的名下，以及其他好處。</string>
@@ -481,12 +497,12 @@
   <string name="article_menu_bar_contents_button">目次</string>
   <string name="article_header_edit_hint">編輯…</string>
   <string name="article_header_edit_description">編輯條目說明</string>
-  <string name="article_header_edit_lead_section">編輯首節</string>
+  <string name="article_header_edit_lead_section">編輯首段</string>
   <string name="color_theme_select">佈景主題</string>
   <string name="color_theme_light">明亮</string>
   <string name="color_theme_dark">陰暗</string>
   <string name="color_theme_black">漆黑</string>
-  <string name="color_theme_sepia">深褐</string>
+  <string name="color_theme_sepia">棕褐色</string>
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式之外其餘文字大小部份，請在您的系統文字大小做變更。</string>
   <string name="preference_title_app_theme">套用佈景主題</string>
@@ -592,8 +608,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">出現在多個清單的條目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s不再用於所有閱讀清單的可用離線內容：</string>
   <string name="reading_lists_sync_reminder_title">開啟閱讀清單同步？</string>
-  <string name="reading_lists_sync_reminder_text">條目已儲存至閱讀清單，現在已可同步至您的百科帳號。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据\"&gt;了解更多&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">閱讀清單現可跨裝置同步。登入您的維基百科帳號來允許您的清單可被儲存。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">條目已儲存至閱讀清單，現在已可同步至您的百科帳號。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">閱讀清單現可跨裝置同步。登入您的維基百科帳號來允許您的清單可被儲存。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">啟用同步</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
   <string name="reading_lists_login_reminder_text">閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
@@ -815,7 +831,7 @@
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
-  <string name="view_main_page_card_title">維基百科今日</string>
+  <string name="view_main_page_card_title">維基百科今日焦點</string>
   <string name="view_main_page_card_action">檢視主頁面</string>
   <string name="view_featured_image_card_title">每日圖片</string>
   <string name="view_featured_image_card_download">下載</string>
@@ -853,6 +869,7 @@
   <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
+  <string name="feed_item_type_places">基於目前位置附近的相關條目</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
   <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
@@ -862,6 +879,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
+  <string name="feed_language_variants_removal_dialog_title">選擇區域語言變體來改善閱讀體驗</string>
+  <string name="feed_language_variants_removal_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的主要維基百科語言</string>
+  <string name="feed_language_variants_removal_dialog_save">儲存</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">請更新您的次要語言</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">您目前使用了未受支援通用中文語言變體來作為您的次要語言。請前往設定來選擇新的次要語言，或是確認您的語言清單。</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">前往設定</string>
   <string name="top_read_activity_title">在 %s 的熱門條目</string>
   <string name="tabs_activity_title">分頁</string>
   <string name="description_edit_text_hint">條目描述</string>
@@ -884,16 +907,15 @@
   <string name="description_edit_help_title">資訊：條目描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您對編輯條目描述有長期興趣！要繼續編輯，請登入維基百科。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
   <string name="description_edit_voice_input_description">語音輸入</string>
   <string name="description_edit_learn_more">了解更多關於條目描述的內容</string>
   <string name="description_edit_image_caption_learn_more">了解更多關於圖片說明的內容</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E6%9D%A1%E7%9B%AE%E6%8F%8F%E8%BF%B0</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/zh#%E5%9B%BE%E5%83%8F%E8%AF%B4%E6%98%8E</string>
   <string name="description_too_short">文字太短。</string>
+  <string name="description_too_long">請儘量保持描述簡短，使條目的主題一目了然</string>
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
@@ -992,8 +1014,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">新增圖片說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增圖片說明（%s）</string>
   <string name="suggested_edits_feed_card_add_image_tags">新增圖片標籤</string>
-  <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
-  <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
   <string name="suggested_edits_task_action_text_add">新增</string>
   <string name="suggested_edits_task_action_text_translate">翻譯</string>
   <string name="suggested_edits_image_captions">圖片說明</string>
@@ -1042,6 +1062,10 @@
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">編輯</item>
+    <item quantity="other">編輯</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d 天</item>
     <item quantity="other">%d 天</item>
@@ -1075,7 +1099,6 @@
     <item quantity="one">您已新增 %d 個標籤</item>
     <item quantity="other">您已新增 %d 個標籤</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_encourage_account_creation_title">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="suggested_edits_encourage_account_creation_message">建議編輯是在 Android 上編輯維基百科的新方式。這能讓您做出微小；但對於維基百科是至關重要的貢獻。\n我們的目標是讓所有人能夠更輕鬆地編輯！請登入或加入維基百科來開始。</string>
@@ -1110,7 +1133,7 @@
   <string name="suggested_edits_image_recommendations_task_title">條目圖片</string>
   <string name="suggested_edits_image_recommendations_task_detail">將建議的圖片加到維基百科條目來加強理解。</string>
   <string name="image_recommendation_task_instruction">您要將此圖片加到條目裡嗎？</string>
-  <string name="image_recommendation_tutorial">教程</string>
+  <string name="image_recommendation_tutorial">教學</string>
   <string name="image_recommendation_accept">是</string>
   <string name="image_recommendation_reject">否</string>
   <string name="image_recommendation_notsure">不確定</string>
@@ -1158,11 +1181,11 @@
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_maybe_later">稍後再說</string>
-  <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
-  <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-  <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
-  <string name="onboarding_data_privacy_title">資料與隱私</string>
+  <string name="onboarding_explore_title">「探索」頁的新樣貌</string>
+  <string name="onboarding_explore_text">時常更新的「探索」頁，讓您沉迷於維基百科而無法自拔。&lt;br/&gt;依照您的喜好，&lt;b&gt;自訂&lt;/b&gt;首頁內容。您可以從「&lt;b&gt;歷史上的今天&lt;/b&gt;」瞭解歷史事件，也可以使用「&lt;b&gt;隨機&lt;/b&gt;」碰碰運氣。</string>
+  <string name="onboarding_reading_list_sync_title">閱讀清單同步更新</string>
+  <string name="onboarding_reading_list_sync_text_v2">對於想要稍後閱讀的條目，您可以建立閱讀清單，即使在離線時也可使用。&lt;br/&gt;登入維基百科帳號後方可同步閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">資料及隱私權</string>
   <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
@@ -1172,6 +1195,7 @@
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
+  <string name="app_shortcuts_places">地點</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
@@ -1202,10 +1226,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">請保留至少一種用在搜尋與閱讀內容的維基語言。</string>
   <string name="more_language_options">更多</string>
   <string name="add_wikipedia_languages_text">新增維基百科語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">從您的應用程式語言裡移除中文異體?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
   <string name="remove_language_dialog_cancel_button_text">取消</string>
   <string name="remove_language_dialog_ok_button_text">確認</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">確認</string>
@@ -1397,14 +1417,12 @@
   <string name="revision_rollback_success">已回退編輯。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">變更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 週</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 個月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 個月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 個月</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s與該討論頁已從您的監視清單裡移除。</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6個月</string>
   <string name="watchlist_expiry_dialog_title">選擇監視清單時間週期</string>
   <string name="watchlist_expiry_dialog_permanent">永久</string>
   <string name="watchlist_expiry_dialog_one_week">1 週</string>
@@ -1505,8 +1523,6 @@
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">與其他人分享這份閱讀清單</string>
   <string name="reading_list_share_message_v2">您好！我想與您分享我的維基百科閱讀清單：</string>
-  <string name="reading_list_share_survey_title">您願意幫助我們改善「分享閱讀清單」嗎？</string>
-  <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
   <string name="talk_templates_empty_message">建立您自己的訊息，或使用&lt;a href=\"#\"&gt;範例訊息&lt;/a&gt;來開始。</string>
   <string name="talk_templates_new_message_title">新訊息</string>
   <string name="talk_templates_new_message_subject_hint">主旨</string>
@@ -1614,16 +1630,9 @@
   <string name="patroller_onboarding_two_undo_content">選擇「撤銷」以撤銷或回退可能帶有破壞性的編輯。</string>
   <string name="patroller_diff_tooltip_one">破壞預測編輯是否有對 wiki 造成破壞。</string>
   <string name="patroller_diff_tooltip_two">意圖預測保存的編輯是出自善意的可能性。</string>
-  <string name="patroller_diff_feedback_dialog_title">幫助我們改善這個功能</string>
-  <string name="patroller_diff_feedback_dialog_message">您滿意這個功能嗎？</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">滿意</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">普通</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">不滿意</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">我們如何改進功能？</string>
   <string name="patroller_diff_menu_edit_history_title">條目編輯歷史</string>
   <string name="patroller_diff_feedback_dialog_input_hint">意見回饋</string>
-  <string name="patroller_diff_feedback_dialog_submit">提交</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">意見回饋提交成功。</string>
   <string name="patroller_diff_feedback_tooltip">點選溢出選單，在「功能問題」下方隨時提交回饋。</string>
   <string name="patroller_saved_message_title_vandalism">破壞警告</string>
   <string name="patroller_saved_message_title_editing_tests">編輯測試</string>
@@ -1675,19 +1684,88 @@
   <string name="donate_gpay_help_other_ways">其他給予方式</string>
   <string name="donate_gpay_help_faq">常見問題</string>
   <string name="donate_gpay_help_tax">減稅資訊</string>
+  <string name="donation_history_deleted_message_snackbar">已刪除捐款紀錄</string>
   <string name="places_title">地點</string>
   <string name="places_permissions_denied">需要位置權限才能在地圖上查看您的位置。請再試一次。</string>
   <string name="places_search_hint">搜尋地點</string>
   <string name="places_filter_title">篩選語言</string>
   <string name="places_toggle_buttons_map">地圖</string>
   <string name="places_toggle_buttons_list">清單</string>
-  <string name="places_nav_tab_tooltip_message">透過地點來探索位於您周遭的維基百科條目</string>
-  <string name="places_article_menu_tooltip_message">輕觸「在地圖上查看」即可探索該條目的所在位置</string>
-  <string name="places_survey_very_satisfied_option">非常滿意</string>
-  <string name="places_survey_very_unsatisfied_option">非常不滿意</string>
-  <string name="places_survey_dialog_title">協助改善「地點」</string>
-  <string name="places_survey_feedback_dialog_title">如何改善「地點」？</string>
-  <string name="places_survey_dialog_cancel">取消</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
   <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
+  <string name="places_card_title">附近地點</string>
+  <string name="places_card_action">更多的附近地點</string>
+  <string name="places_card_enable_location_card_message">地點是一種基於地圖來探索維基百科的方式</string>
+  <string name="places_card_enable_location_card_button">啟用位置</string>
+  <string name="places_card_distance_suffix">距離 %s</string>
+  <string name="places_card_distance_unknown">未知距離</string>
+  <string name="places_empty_message_snackbar">附近沒有條目。請嘗試縮小並移動地圖。</string>
+  <string name="survey_dialog_title">協助我們改善討論頁</string>
+  <string name="survey_dialog_message">您滿意這個功能嗎？</string>
+  <string name="survey_dialog_option_satisfied">滿意</string>
+  <string name="survey_dialog_option_neutral">普通</string>
+  <string name="survey_dialog_option_unsatisfied">不滿意</string>
+  <string name="survey_dialog_option_very_satisfied">非常滿意</string>
+  <string name="survey_dialog_option_very_unsatisfied">非常不滿意</string>
+  <string name="survey_dialog_cancel">取消</string>
+  <string name="survey_dialog_submit">提交</string>
+  <string name="survey_dialog_next">下一題</string>
+  <string name="survey_dialog_general_yes">是</string>
+  <string name="survey_dialog_general_no">否</string>
+  <string name="survey_dialog_general_maybe">也許</string>
+  <string name="survey_dialog_input_hint">額外回饋</string>
+  <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
+  <string name="on_this_day_game_entry_dialog_title">介紹</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">維基百科遊戲</string>
+  <string name="on_this_day_game_entry_dialog_button">遊玩今天的遊戲</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在探索摘要中取得。</string>
+  <string name="on_this_day_game_title">哪一個先開始？</string>
+  <string name="on_this_day_game_dialog_button">遊玩</string>
+  <string name="on_this_day_game_splash_message">猜猜歷史上的這一天最先發生的事件是什麼。</string>
+  <string name="on_this_day_game_progress">%1$d（共 %2$d 題）</string>
+  <string name="on_this_day_game_score">得分：%d</string>
+  <string name="on_this_day_game_correct">正確！</string>
+  <string name="on_this_day_game_incorrect">錯誤！</string>
+  <string name="on_this_day_game_point">+1 分</string>
+  <string name="on_this_day_game_next">下一個問題</string>
+  <string name="on_this_day_game_finish">最終結果</string>
+  <string name="on_this_day_game_pause_title">暫停遊戲？</string>
+  <string name="on_this_day_game_pause_body">您的進度會在當天內保存。您可以在探索摘要中找到該遊戲。</string>
+  <string name="on_this_day_game_pause_negative">繼續遊玩</string>
+  <string name="on_this_day_game_pause_positive">了解</string>
+  <string name="on_this_day_game_feed_entry_card_heading">維基百科遊戲</string>
+  <string name="on_this_day_game_feed_entry_card_title">哪一個先開始？</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜歷史上的這一天最先發生的事件是什麼。</string>
+  <string name="on_this_day_game_result">您的得分 %1$d/%2$d。</string>
+  <string name="on_this_day_game_next_in">下一個遊戲會在 %s 開始</string>
+  <string name="on_this_day_game_your_stats">您的狀態</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">玩過的遊戲</item>
+    <item quantity="other">玩過的遊戲</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">平均分數</string>
+  <string name="on_this_day_game_stats_streak">目前連勝</string>
+  <string name="on_this_day_game_result_subtitle">今天遊戲中引用到的條目</string>
+  <string name="on_this_day_game_completed_message">感謝您的遊玩。新的「哪一個先開始？」遊戲每日會在探索摘要中提供。</string>
+  <string name="on_this_day_game_menu_notifications">遊戲通知</string>
+  <string name="on_this_day_game_menu_info">了解更多</string>
+  <string name="on_this_day_game_menu_feedback">功能問題</string>
+  <string name="on_this_day_game_article_read_button">閱讀條目</string>
+  <string name="on_this_day_game_article_related_event_title">與此條目相關的事件</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">您答對了這個問題</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">您答錯了這個問題</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">關閉遊戲通知？</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">若您關閉推播通知，您將不再每天收到當有新遊戲可玩時的提醒。</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">開啟遊戲通知？</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">當有新的遊戲可玩時，遊戲通知會每天提醒您。</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">不，保持開啟</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">關閉它們</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">是的，開啟它們</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">保持關閉</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">遊戲通知關閉。</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">遊戲通知開啟。</string>
+  <string name="on_this_day_game_notification_text">今天的遊戲「哪一個先開始？」已準備好開始。</string>
+  <string name="on_this_day_game_report_email_subject">問題報告 - 維基百科遊戲</string>
+  <string name="on_this_day_game_report_email_body">我遇到了維基百科遊戲功能的問題：\n- [描述具體問題]\n\n我希望看到的結果是：\n- [描述建議的解決方案]</string>
+  <string name="on_this_day_game_notification_undo">還原</string>
+  <string name="on_this_day_game_share_link_message">我正在遊玩維基百科 Android 應用程式上的每日小知識遊戲「哪一個先開始？」%s</string>
 </resources>

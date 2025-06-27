@@ -12,12 +12,13 @@ import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderLargeBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
-import org.wikipedia.views.FaceAndColorDetectImageView.OnImageLoadListener
+import org.wikipedia.views.imageservice.ImageLoadListener
+import org.wikipedia.views.imageservice.ImageService
 
 class CardLargeHeaderView : ConstraintLayout {
     constructor(context: Context) : super(context)
@@ -35,13 +36,13 @@ class CardLargeHeaderView : ConstraintLayout {
     val sharedElements get() = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
 
     fun setLanguageCode(langCode: String): CardLargeHeaderView {
-        L10nUtil.setConditionalLayoutDirection(this, langCode)
+        setLayoutDirectionByLang(langCode)
         return this
     }
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, roundedCorners = true, cropped = true, listener = ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, listener = CardImageLoadListener())
         return this
     }
 
@@ -60,8 +61,9 @@ class CardLargeHeaderView : ConstraintLayout {
                 ContextCompat.getColor(context, R.color.gray600))
     }
 
-    private inner class ImageLoadListener : OnImageLoadListener {
-        override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+    private inner class CardImageLoadListener : ImageLoadListener {
+        override fun onSuccess(image: Any, width: Int, height: Int) {
+            val palette = Palette.from(ImageService.getBitmap(image)).generate()
             var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.gray300))
             var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.gray500))
             if (WikipediaApp.instance.currentTheme.isDark) {
@@ -74,7 +76,7 @@ class CardLargeHeaderView : ConstraintLayout {
             setGradientDrawableBackground(color1, color2)
         }
 
-        override fun onImageFailed() {
+        override fun onError(error: Throwable) {
             resetBackgroundColor()
         }
     }

@@ -57,7 +57,7 @@
   <string name="page_edit_history_filter_by">ДӀанийсде</string>
   <string name="page_edit_history_filter_by_all">Деррига хувцамаш (%s)</string>
   <string name="page_edit_history_filter_by_user">Доакъашхой хувцамаш (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимаша даь хувцамаш (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Анонимаша даь хувцамаш (%s)</string>
   <string name="page_edit_history_filter_by_bot">Боташа даь хувцамаш (%s)</string>
   <string name="page_edit_history_metrics_content_description">Гойтаргаш: %1$s — %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -142,8 +142,8 @@
   <string name="login_username_hint">Доакъашхочун цIи</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Шинфактора аутентификацен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
+  <string name="login_2fa_hint" fuzzy="true">Шинфактора аутентификацен код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ши фактор йола аутентификаци я эшаш! Дехар да, укх чура хьай керттерча гӀулакхага юха а вахе, 2FA-токенца чувала система чу, тӀаккха хье де ваьлар кхы цхьаькхазза де хьажа.</string>
   <string name="onboarding_card_login">Чувáла</string>
   <string name="page_editing_login">Чувáла</string>
   <string name="reading_lists_sync_login">Чувáла</string>
@@ -151,9 +151,9 @@
   <string name="menu_login">Чувáла</string>
   <string name="login_activity_title">Чувáла</string>
   <string name="login_in_progress_dialog_message">Системача чувалар...</string>
-  <string name="login_success_toast">Система чу чувалар кхоачашдаьд!</string>
+  <string name="login_success_toast">Системача чувалар кхоачашдаьд!</string>
   <string name="reset_password_title">ДӀаоттае хьай пароль</string>
-  <string name="reset_password_description">Цхьан юкъа мара болх беш хургйоаца пароль чуязъяьй Ӏа. Система чу чувалар кхоачашдергдолаш керда пароль дӀаоттае.</string>
+  <string name="reset_password_description">Цхьан юкъа мара болх беш хургйоаца пароль чуязъяьй Ӏа. Системача чувалар кхоачашдергдолаш керда пароль дӀаоттае.</string>
   <string name="reset_password_hint">Керда пароль</string>
   <string name="reset_password_button">ДӀа а яздаь чувáла</string>
   <string name="preference_title_logout">Аравала</string>
@@ -230,17 +230,15 @@
   <string name="privacy_policy_description">КъайлагӀарча хӀамай политика</string>
   <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
   <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
   <string name="about_contributors_heading">Автораш</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
@@ -358,7 +356,6 @@
   <string name="page_view_in_browser">Укх оагIонга браузера чу хьажар</string>
   <string name="tool_tip_toc_title">Чулоацамá сиха тIакхачар</string>
   <string name="tool_tip_toc_text">ХIанз Хьа йиш я чулоацам хьабеларгболаш экран аьрдехьа дIахьакха, цул совгIа йиш я ползунок хьа а лаьца лохегIа Iокхостае оагIон разделашта сиха тIакхоачаргволаш.</string>
-  <string name="tool_tip_lang_button">ХӀанз приложене чу хьа аьттув ба Википеден массехк меттала статьяш лаха а еша.\n\nТоӀабе хьарака тӀа, кхадола метташ тӀатохаргдолаш.</string>
   <string name="error_response_malformed">Сервера жоп харцахьа формат яь да.</string>
   <string name="error_unknown">Довзаш доаца гӀалат даьннад.</string>
   <string name="format_error_server_message">Хоам: %s</string>
@@ -539,8 +536,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">лустам дуккхача листамашта юкъе ба</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s массадолча дешара листамашка тӀакхоачача хургьяц офлайн-раже:</string>
   <string name="reading_lists_sync_reminder_title">Дешара мугӀамай синхронизаци хьалсага езий?</string>
-  <string name="reading_lists_sync_reminder_text">Хьа мугӀамашкара еша дӀаяхкача статьяштеи хьа аккаунтаи хӀанз синхронизаци е йиш я. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Цу хьакъехьа дукхагӀа довза&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ма дарра хá&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Хьа мугӀамашкара еша дӀаяхкача статьяштеи хьа аккаунтаи хӀанз синхронизаци е йиш я. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Цу хьакъехьа дукхагӀа довза&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ма дарра хá&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронизаци хьалсага</string>
   <string name="reading_list_login_reminder_title">Синхронизаци хьае дешара листамá</string>
   <string name="reading_lists_login_reminder_text">Дешара листамашта тайп-тайпарча чоалхашта юкъе синхронизаци е йиш я. Хьай аккаунта чу чувала(-яла), тӀаккха листамаш дӀадахка/дӀаязде пурам ле.</string>
@@ -838,8 +835,6 @@
   <string name="description_edit_voice_input_description">Оазаца Ӏочуяздар</string>
   <string name="description_edit_learn_more">Статьяех лаьцачох ма дарра</string>
   <string name="description_edit_image_caption_learn_more">Суртех лаьцачох ма дарра</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/inh#%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8F_%D1%81%D1%82%D0%B0%D1%82%D0%B5%D0%B9</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/inh#%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%B8_%D0%BA_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC</string>
   <string name="description_too_short">Сов лоаца я ер текст.</string>
   <string name="description_ends_with_punctuation">Текста тӀехьа зам латтийта йиш яц.</string>
   <string name="description_starts_with_uppercase">ЗӀамигача алапаца дӀайолае текст, нагахьа санна хьалхара дош цхьан хӀаман е сага цӀи еце.</string>
@@ -937,8 +932,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сурта цӀи тӀатоха</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурта цӀи тӀатоха (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурта фосташ тӀатоха</string>
-  <string name="suggested_edits_snackbar_survey_text">Мишта хет хьона тоадар?\nПриложене чу тоадарах лаьца хоаттаме Ӏа дакъа лоацаре тхона чӀоагӀа новкъостал хургдар.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Хоаттаме дáкъа лаца</string>
   <string name="suggested_edits_task_action_text_add">ТӀатоха</string>
   <string name="suggested_edits_task_action_text_translate">Таржам де</string>
   <string name="suggested_edits_image_captions">Суртах лаьца дар</string>
@@ -1023,7 +1016,6 @@
     <item quantity="one">Ӏа %d фост тӀатехад</item>
     <item quantity="other">Ӏа %d фост тӀатехад</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Селхан</string>
   <string name="suggested_edits_encourage_account_creation_title">Хой хьона моллагӀа саг Википеди тоае йиш йолаш волга?</string>
   <string name="suggested_edits_encourage_account_creation_message">Оаха хьога де мегаргда аьнна дӀагойташ дола тоадар — Википеди Androida тӀа тоаяра керда наькъаш да. Цу тайпара тоадарца Википедена чӀоагӀа эшаш бола болх бу Ӏа. Тхо кхача гӀертар да — Википеди тоаяр массанена атта хилар. Чувала е регистраци е Википеде чу, болх дӀаболабергболаш.</string>
@@ -1121,10 +1113,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Цхьа мотт мукъагӀа бита бéза хьа, дéша а лаха а йиш хургйолаш</string>
   <string name="more_language_options">кхы а да метташ</string>
   <string name="add_wikipedia_languages_text">Википеден метташ тӀатоха</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Метташта юкъера ченкий мотт дӀабаккха безий?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Къаьнара ченкий а цхьалха ченкий а метташ да хьога. Царех цаӀ дӀабаккха йиш хургйолаш, меттай оттамаш кердадаха дезий?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Метташ хувца</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Эшац, хӀанзара оттамаш дита.</string>
   <string name="remove_language_dialog_cancel_button_text">А</string>
   <string name="remove_language_dialog_ok_button_text">ХӀАЪА</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ХӀАЪА</string>
@@ -1284,14 +1272,12 @@
   <string name="revision_rollback_success">Хувцамаш юхатеттад.</string>
   <string name="revision_compare_button">ВӀаший йиста</string>
   <string name="revision_compare_two_only">Ши кеп мара харжа йиш яц.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Доакъашхочун оагӀув а %1$s, цун къамаьл-оагӀув а, тӀатехай хьа зем-листама чу (%2$s).</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Хувца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">массаза а</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">цхьан кӀирá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">цхьан беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">кхаь беттá</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ялх беттá</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s яха оагӀув а цун къамаьл-оагӀув а дӀаяьккхай хьа дешара листама чура.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">цхьан кӀирá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">цхьан беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">кхаь беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ялх беттá</string>
   <string name="watchlist_expiry_dialog_title">Зем бара ха хьахаржа</string>
   <string name="watchlist_expiry_dialog_permanent">Массехана</string>
   <string name="watchlist_expiry_dialog_one_week">1 кӀира</string>

@@ -29,4 +29,6 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
     override val wikiSite = fragment.title?.wikiSite
 
     override val referrer = fragment.title?.uri
+
+    override val historyEntryId get() = fragment.model.curEntry?.id ?: -1
 }

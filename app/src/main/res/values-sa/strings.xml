@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Charunandan16
+* Naveen Sankar
 * NehalDaveND
 -->
 <resources>
@@ -173,6 +174,10 @@
   <string name="color_theme_dark">श्यामम्</string>
   <string name="user_option_sync_label">इष्टतमानि</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true"> निःशुल्कः ज्ञानकोशः...प्रायः ३०० भाषासु</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषासम्पादनम्</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">मास्तु, धन्यवादः</string>
+  <string name="on_this_day_game_entry_dialog_title">परिचायते</string>
+  <string name="on_this_day_game_entry_dialog_button">अद्यतनं क्रीडां क्रीड</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">विकिपीडिया-क्रीडाः Explore feed इत्यत्र उपलभ्यन्ते ।</string>
+  <string name="on_this_day_game_score">अङ्कः : %d</string>
+  <string name="on_this_day_game_feed_entry_card_heading">विकिपीडिया-क्रीडाः</string>
+  <string name="on_this_day_game_feed_entry_card_title" fuzzy="true">प्रथमं किम् आगतं ?</string>
 </resources>

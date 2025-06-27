@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Authors:
-* Iflaq
-* Rishabhbhat
-* Tajamul9
-* Teashae
--->
 <resources>
   <string name="app_name_prod">وِکیٖپیٖڈیا</string>
   <string name="app_name_beta">وِکیٖپیٖڈیا آزمائشی</string>
@@ -55,7 +49,7 @@
   <string name="page_edit_history_filter_by">سٕنٛدی طرفہٕ فِلٹر</string>
   <string name="page_edit_history_filter_by_all">تمام ایٚڈِٹٕز %s</string>
   <string name="page_edit_history_filter_by_user">رُکُن ایٚڈِٹٕز %s</string>
-  <string name="page_edit_history_filter_by_anon">اؠنان اؠڑِٹٕز (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">اؠنان اؠڑِٹٕز (%s)</string>
   <string name="page_edit_history_filter_by_bot">باٹ ایٚڈِٹٕز %s</string>
   <string name="page_edit_history_metrics_content_description">حساب %1$s پؠٹھہٕ تس %2$s تسم</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -138,8 +132,8 @@
   <string name="login_username_hint">صٲرِف ناو</string>
   <string name="login_password_hint">پاسوٲڈ</string>
   <string name="account_creation_password_hint">پاسوٲڈ</string>
-  <string name="login_2fa_hint">دۄیِم-فیکٹر تصدیٖقی کوڈ</string>
-  <string name="login_2fa_other_workflow_error_msg">دۄیِم-فیکٹر تصدیٖقٕچ چھےٚ ضروٗرتھ! مہربٲنی کرِتھ گٕژھیوٚ اَہَم سرگرمی کُن واپس تہٕ دٲخل گژھیوٚ پنٔنہِ 2FA ٹوکنہٕ سٕتی، پتہٕ کٕریٚو دۄبارٕ کوٗشس.</string>
+  <string name="login_2fa_hint" fuzzy="true">دۄیِم-فیکٹر تصدیٖقی کوڈ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">دۄیِم-فیکٹر تصدیٖقٕچ چھےٚ ضروٗرتھ! مہربٲنی کرِتھ گٕژھیوٚ اَہَم سرگرمی کُن واپس تہٕ دٲخل گژھیوٚ پنٔنہِ 2FA ٹوکنہٕ سٕتی، پتہٕ کٕریٚو دۄبارٕ کوٗشس.</string>
   <string name="onboarding_card_login">دٲخِل گَژھُن</string>
   <string name="page_editing_login">دٲخِل گَژھُن</string>
   <string name="reading_lists_sync_login">دٲخِل گَژھُن</string>
@@ -213,17 +207,15 @@
   <string name="privacy_policy_description">رازدٲری اصوٗل</string>
   <string name="terms_of_use_description">اِستِمالٕک شَرٕط</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia: مُتلق</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/رازدأری اصوٗل</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/رازدأری اصوٗل</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کُتُب خانہٕ استعمال</string>
   <string name="about_contributors_heading">صٲرفیٖن</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">تَرجَمہٕ کار</string>
   <string name="about_translators_translatewiki">یَتھ ایپلِیکیشَنِہ چھُ رَزاکار صٲرفَو تَرجَمہٕ کورمُت &lt;a href=\"https://translatewiki.net\"&gt;تَرجَمہٕ وِکی پؠٹھ&lt;/a&gt;</string>
   <string name="about_app_license_heading">اِجازَت نامہٕ</string>
@@ -571,7 +563,6 @@
   <string name="suggested_edits_contribution_image_label">شکل</string>
   <string name="suggested_edits_contribution_article_label">مَضموٗن</string>
   <string name="suggested_edits_contribution_views">%s وُچھنہٕ آمُت</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">راتھ</string>
   <string name="suggested_edits_encourage_account_creation_title">تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمِل گژھُن</string>
@@ -607,8 +598,6 @@
   <string name="wikipedia_languages_remove_action_mode_title">زَبان ہَٹٲوِو</string>
   <string name="more_language_options">بێیہِ</string>
   <string name="add_wikipedia_languages_text">ویٖکیٖپیٖڈیا زبان کٕریٚو جمع/ایٚڈ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نَہ، شُکریا</string>
   <string name="remove_language_dialog_cancel_button_text">مَنسوٗخ</string>
   <string name="remove_language_dialog_ok_button_text">ٹھیٖک چھُ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ٹھیٖک چھُ</string>
@@ -749,13 +738,12 @@
   <string name="revision_rollback_success">ایڑِٹ آیہِ واپس کرنہٕ</string>
   <string name="revision_compare_button">مُقابلہٕ کٕریٚو</string>
   <string name="revision_compare_two_only">صِرف یِن زٕ رِوِجنَن چُنٔنہٕ نہٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s تہٕ أمی سُنٛد بَحَث صَفہٕ چھُ آمُت جمع کرنہٕ تُہنٛدِس وُچھنٕچ فہرستس منٛز %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بَدلاو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">پوُرٕ پٲٹھی</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">أکِس ہَفتس کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">أکِس رؠتَس کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ترؠن رؠتَن کھٲترٕ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">شؠن رؠتَن کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">أکِس ہَفتس کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">أکِس رؠتَس کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ترؠن رؠتَن کھٲترٕ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">شؠن رؠتَن کھٲترٕ</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">اکھ ہَفتہٕ</string>
   <string name="watchlist_expiry_dialog_one_month">اکھ رؠتھ</string>
@@ -806,5 +794,5 @@
   <string name="data_opt_in_accept">تسلیٖم کرُن</string>
   <string name="data_opt_in_reject">رد کرن</string>
   <string name="places_toggle_buttons_list">فِہرِست</string>
-  <string name="places_survey_dialog_cancel">مَنسوٗخ</string>
+  <string name="survey_dialog_cancel">مَنسوٗخ</string>
 </resources>

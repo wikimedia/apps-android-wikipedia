@@ -4,19 +4,15 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewMessageCardBinding
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+class MessageCardView(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     val binding = ViewMessageCardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -28,12 +24,12 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         binding.messageTextView.text = text
     }
 
-    fun setImageResource(@DrawableRes imageResource: Int, visible: Boolean) {
+    fun setImageResource(@DrawableRes imageResource: Int = -1, visible: Boolean) {
         if (visible) {
-            binding.imageView.visibility = View.VISIBLE
+            binding.imageView.visibility = VISIBLE
             binding.imageView.setImageResource(imageResource)
         } else {
-            binding.imageView.visibility = View.GONE
+            binding.imageView.visibility = GONE
         }
     }
 
@@ -48,10 +44,17 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
     fun setNegativeButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
         binding.negativeButton.text = context.getString(stringRes)
         binding.negativeButton.setOnClickListener(listener)
-        binding.negativeButton.visibility = View.VISIBLE
+        binding.negativeButton.visibility = VISIBLE
         if (applyListenerToContainer) {
             binding.containerClickArea.setOnClickListener(listener)
         }
+    }
+
+    fun setOnboarding(message: String) {
+        setImageResource(R.drawable.ic_suggested_edits_onboarding, true)
+        binding.messageTitleView.visibility = GONE
+        binding.messageTextView.text = StringUtil.fromHtml(message.toString())
+        binding.buttonsContainer.visibility = GONE
     }
 
     fun setPaused(message: String) {
@@ -84,21 +87,35 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
-    fun setRequiredLogin(fragment: Fragment) {
-        binding.imageView.visibility = View.VISIBLE
+    fun setRequiredLogin(onClickListener: OnClickListener) {
+        binding.imageView.visibility = VISIBLE
+        binding.messageTitleView.visibility = VISIBLE
+        binding.buttonsContainer.visibility = VISIBLE
         binding.messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         binding.messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         binding.imageView.setImageResource(R.drawable.ic_require_login_header)
         binding.positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        binding.positiveButton.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
-        binding.containerClickArea.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
+        binding.positiveButton.setOnClickListener(onClickListener)
+        binding.containerClickArea.setOnClickListener(onClickListener)
+    }
+
+    fun setMessageLabel(message: String?) {
+        binding.messageLabel.text = message
+        binding.messageLabel.visibility = if (message.isNullOrEmpty()) GONE else VISIBLE
     }
 
     private fun setDefaultState() {
-        binding.imageView.visibility = View.VISIBLE
+        binding.imageView.visibility = VISIBLE
+        binding.messageTitleView.visibility = VISIBLE
+        binding.buttonsContainer.visibility = VISIBLE
         binding.positiveButton.text = context.getString(R.string.suggested_edits_learn_more)
         binding.positiveButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
-        binding.containerClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        binding.containerClickArea.setOnClickListener {
+            UriUtil.visitInExternalBrowser(
+                context,
+                Uri.parse(context.getString(R.string.android_app_edit_help_url))
+            )
+        }
     }
 }

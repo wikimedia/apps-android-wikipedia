@@ -10,5 +10,6 @@ class DonationConfig(
     val currencyMaximumDonation: Map<String, Float> = emptyMap(),
     val currencyAmountPresets: Map<String, List<Float>> = emptyMap(),
     val currencyTransactionFees: Map<String, Float> = emptyMap(),
-    val countryCodeEmailOptInRequired: List<String> = emptyList()
+    val countryCodeEmailOptInRequired: List<String> = emptyList(),
+    val countryCodeGooglePayEnabled: List<String> = emptyList()
 )

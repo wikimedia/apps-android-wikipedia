@@ -18,10 +18,14 @@
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_languages">Пребарување на јазик</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Исчисти барање</string>
+  <string name="search_icon_content_description">Пребарување</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
+  <string name="nav_item_contribute">Учествувајте</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -36,7 +40,7 @@
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
   <string name="notification_archive_undo">Врати</string>
-  <string name="app_settings">Поставки за прилогот</string>
+  <string name="app_settings">Нагодувања за прилогот</string>
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
@@ -57,7 +61,7 @@
   <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Сите уредувања (%s)</string>
   <string name="page_edit_history_filter_by_user">Кориснички уредувања (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Анонимни уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Уредувања на непријавени (%s)</string>
   <string name="page_edit_history_filter_by_bot">Ботовски уредувања (%s)</string>
   <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -96,6 +100,7 @@
   <string name="menu_page_recently_viewed">Неодамна посетени</string>
   <string name="menu_page_archive">Архива</string>
   <string name="menu_long_press_open_page">Отвори</string>
+  <string name="menu_long_press_open_in_places">Отвори во Места</string>
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="menu_text_select_define">Во речник</string>
@@ -127,6 +132,10 @@
   <string name="dialog_message_leaving_edit">Вашите промени сè уште не се објавени. Дали сигурно сакате да ја напуштите страницава?</string>
   <string name="dialog_message_leaving_edit_leave">Напушти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
+  <string name="dialog_confirm_delete_donation_history_title">Потврдете бришење</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ова ќе важи само за прилозите дадени од овој уред.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Избриши</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Содржина</string>
   <string name="search_no_results_found">Нема пронајдов ништо</string>
   <string name="search_reading_list_no_results">Не најдов ништо за „%s“</string>
@@ -142,7 +151,10 @@
   <string name="login_password_hint">Лозинка</string>
   <string name="account_creation_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Код за двочинителска заверка</string>
-  <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
+  <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Најавете се од главниот екран и внесете го кодот од вашата 2FA-шифра.</string>
+  <string name="login_email_auth_hint">Испрати го потврдниот код на е-пошта</string>
+  <string name="login_email_auth_other_workflow_error_msg">Се бара потврда по е-пошта! Најавете се од главниот екран, па внесете го потврдниот код добиен по е-пошта.</string>
+  <string name="login_background_error_msg">Не можам да ве пренајавам. Навратете се на главниот екран и најавете се рачно.</string>
   <string name="onboarding_card_login">Најава</string>
   <string name="page_editing_login">Најава</string>
   <string name="reading_lists_sync_login">Најава</string>
@@ -163,9 +175,9 @@
   <string name="logged_out_in_background_dialog">Одјавени сте од Википедија. Дали сакате пак да се најавите?</string>
   <string name="logged_out_in_background_login">Најава</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
-  <string name="account_vanish_request_title">Гаснење на сметка</string>
-  <string name="account_vanish_request_confirm_title">Предупредување за гаснење на сметка</string>
-  <string name="account_vanish_request_confirm">Гаснењето е &lt;b&gt;последно средство&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена гаснење на сметка.&lt;b&gt;Гаснењето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
+  <string name="account_vanish_request_title">Исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm_title">Предупредување за исчезнување на сметка</string>
+  <string name="account_vanish_request_confirm">Исчезнувањето е &lt;b&gt;крајна мерка&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена „исчезнување“ на сметка.&lt;b&gt;Исчезнувањето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>
@@ -178,7 +190,7 @@
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
   <string name="login_forgot_password">Ја заборавивте лозинката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
-  <string name="create_account_activity_title">Направи кориничка сметка</string>
+  <string name="create_account_activity_title">Направи сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
@@ -232,24 +244,23 @@
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
+  <string name="about_logo_content_description">Википедиино лого со топка-сложувалка</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Не</string>
@@ -277,6 +288,8 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
+  <string name="edit_summary_added_short_description">Додаден краток опис</string>
+  <string name="edit_summary_updated_short_description">Изменет краток опис</string>
   <string name="edit_conflict_title">Спротивставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
   <string name="edit_notices">Белешки за уредување</string>
@@ -295,7 +308,7 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
-  <string name="search_results_count_zero">Нема исход</string>
+  <string name="search_results_count_zero">Не најдов ништо</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ставка</item>
     <item quantity="other">%d ставки</item>
@@ -359,7 +372,6 @@
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
   <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
-  <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
   <string name="format_error_server_message">Порака: „%s“</string>
@@ -383,6 +395,7 @@
   <string name="preference_title_collapse_tables">Склопи табели</string>
   <string name="preference_summary_collapse_tables">Автоматски склопувај ги табелите во статии како со инфокутиите, наводите и белешките.</string>
   <string name="nav_item_donate">Дарувајте</string>
+  <string name="nav_item_year_in_review">Преглед на годината</string>
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
   <string name="enable_location_service">Овозможи</string>
@@ -410,6 +423,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
+  <string name="preference_title_delete_local_donation_history">Избришете историја на месно дарување</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
@@ -424,8 +438,9 @@
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="temp_account_not_logged_in">Не сте најавени</string>
-  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;Создајте сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
-  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
+  <string name="temp_account_anon_ip_dialog_body">Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувањата што ги правите.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#createaccount\n\"&gt;направете сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
   <string name="temp_account_dialog_ok">Јасно</string>
   <string name="temp_account_using_title">Користите привремена сметка</string>
   <string name="temp_account_dialog_discard">Отфрли промени и најави ме</string>
@@ -437,6 +452,7 @@
     <item quantity="one">Сметката ќе истече за %d ден.</item>
     <item quantity="other">Сметката ќе истече за %d дена.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Штом ќе направите уредување, вашата IP-адреса ќе биде поврзана со уредувања што ги правите.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Откако ќе направите уредување, ќе ви биде создадена привремена сметка за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Користите привремена сметка.&lt;/b&gt; Вашето уредување му е припишано на %1$s. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Моменталално користите приврмена сметка.&lt;/b&gt; Уредувањата направени од привремената сметка %1$s нема да се префрлат во трајната сметка кога ќе се најавите. Најавете се или направете сметка за уредувањата да му се припишуваат на вашето корисничко име, меѓу други поволности.</string>
@@ -564,8 +580,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
   <string name="reading_lists_sync_reminder_title">Да го вклучам усогласувањето на списоците за читање?</string>
-  <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списоците за читање сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите списоци. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статиите зачувани во списоците за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списоците за читање сега можат да се усогласат низ разни уреди. Најавете се со вашата сметка на Википедија и дозволете зачувување на вашите списоци. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
@@ -589,7 +605,7 @@
   <string name="reading_list_turned_sync_off_dialog_title">Усогласувањето на списоците за читање е исклучено</string>
   <string name="reading_list_turned_sync_off_dialog_text">Усогласувањето на списоците за читање е исклучено, а зачуваните статии на уредите од кои сте се најавиле повеќе не се во резерва. Вклучете ги списоците за читање во Поставките.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ОК</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">Поставки</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Нагодувања</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Да го вклучам усогласувањето на списоците за читање?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статиите зачувани во списоци за читање сега можат да се усогласат со вашата сметка на Википедија. &lt;a href=\"#faq\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
@@ -653,7 +669,7 @@
   <string name="reading_lists_preview_save_dialog_save">Зачувај</string>
   <string name="reading_lists_preview_saved_snackbar">Списокот а читање е зачуван</string>
   <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
-  <string name="user_option_sync_label">Поставки</string>
+  <string name="user_option_sync_label">Нагодувања</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
@@ -747,7 +763,7 @@
   <string name="preference_summary_notification_article_linked">Се добива кога некој ќе стави нова врска ваша до статија</string>
   <string name="preference_category_push_notifications">Доставни известувања</string>
   <string name="preference_title_customize_push_notifications">Прилагоди доставни известувања</string>
-  <string name="preference_category_display_settings">Поставки за приказ</string>
+  <string name="preference_category_display_settings">Нагодувања за приказ</string>
   <string name="preference_title_hide_read_notifications">Скриј прочитани известувања</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википедија</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
@@ -826,6 +842,7 @@
   <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
+  <string name="feed_item_type_places">Статии во близина врз основа на тековната местоположба</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
@@ -835,6 +852,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
+  <string name="feed_language_variants_removal_dialog_title">Изберете регионална јазична варијанта за да го подобрите читачкото доживување</string>
+  <string name="feed_language_variants_removal_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како ваш главен јазик на Википедија</string>
+  <string name="feed_language_variants_removal_dialog_save">Зачувај</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Подновете ги вашите споредни јазици</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Моментално користите неподдржана општа варијанта на кинескиот јазик како спореден јазик. Одете во нагодувањата за да  изберете нов спореден јазик или за да го потврдите вашиот список на јазици.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Оди на Нагодувањата</string>
   <string name="top_read_activity_title">Најчитани на %s</string>
   <string name="tabs_activity_title">Јазичиња</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
@@ -857,16 +880,15 @@
   <string name="description_edit_help_title">Инфо: Описи на статии</string>
   <string name="description_edit_help_about_wikidata">За Википодатоците</string>
   <string name="description_edit_help_wikidata_guide">Водич за пишување описи на Википодатоците</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описи на статиите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на статијата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_helper_text_lowercase_warning">обично почнува со мала буква</string>
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
+  <string name="description_too_long">Трудете се описите да бидат кратки, така што читателите би можеле да разберат што обработува статијата со еден поглед</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
@@ -965,8 +987,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис на сликата</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Додајте ознаки на сликите</string>
-  <string name="suggested_edits_snackbar_survey_text">Какво е вашето уредувачко доживување? Би ценеле ако ја пополните анкетата за уредување од прилог.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Пополнете ја анкетата</string>
   <string name="suggested_edits_task_action_text_add">Додај</string>
   <string name="suggested_edits_task_action_text_translate">Преведи</string>
   <string name="suggested_edits_image_captions">Описи на слики</string>
@@ -1015,6 +1035,10 @@
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
@@ -1048,7 +1072,6 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
@@ -1145,6 +1168,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="app_shortcuts_places">Места</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
@@ -1175,10 +1199,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Задржете барем еден јазик на Википедија од кој ќе пребарувате и читате содржини.</string>
   <string name="more_language_options">повеќе</string>
   <string name="add_wikipedia_languages_text">Додај јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Да отстранам кинеска варијанта од јазиците на прилогот?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тековно имате и традиционален и упростен кинески во јазиците на прилогот. Да ги изменам јазичните поставки?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Измени јазици</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодарам</string>
   <string name="remove_language_dialog_cancel_button_text">Откажи</string>
   <string name="remove_language_dialog_ok_button_text">ОК</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
@@ -1217,7 +1237,7 @@
   <string name="insert_media_settings_caption">Опис на сликата</string>
   <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
+  <string name="insert_media_settings_alternative_text_description">Опис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1370,14 +1390,12 @@
   <string name="revision_rollback_success">Уредувањата се отповикани.</string>
   <string name="revision_compare_button">Спореди</string>
   <string name="revision_compare_two_only">Можете да изберете само две преработки.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 недела</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеци</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и нејзината разговорна страница се отстранети од вашите набљудувања.</string>
   <string name="watchlist_expiry_dialog_title">Изберете временски период на Набљудуваните</string>
   <string name="watchlist_expiry_dialog_permanent">Трајно</string>
   <string name="watchlist_expiry_dialog_one_week">1 недела</string>
@@ -1478,8 +1496,6 @@
   <string name="reading_list_share_menu_label">Сподели…</string>
   <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
-  <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
-  <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
@@ -1587,16 +1603,9 @@
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
   <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
-  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
-  <string name="patroller_diff_feedback_dialog_message">Дали сте задоволни со оваа функција?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
   <string name="patroller_diff_menu_edit_history_title">Историја на уредување на статијата</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
-  <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
   <string name="patroller_diff_feedback_tooltip">Допрете на расклопното мени за да поднесете мислење во било кое време со „Проблем со функцијата“.</string>
   <string name="patroller_saved_message_title_vandalism">Предупредување за вандализам</string>
   <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
@@ -1648,19 +1657,233 @@
   <string name="donate_gpay_help_other_ways">Други начини на дарување</string>
   <string name="donate_gpay_help_faq">Често поставувани прашања</string>
   <string name="donate_gpay_help_tax">Информации за даночното олеснување</string>
+  <string name="donation_history_deleted_message_snackbar">Историјата на дарување е избришана</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
   <string name="places_search_hint">Пребарај места</string>
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
-  <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
-  <string name="places_article_menu_tooltip_message">Допрете на „Погл. на карта“ за да го истражите наоѓалиштето на оваа статија</string>
-  <string name="places_survey_very_satisfied_option">Многу задоволен</string>
-  <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
-  <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
-  <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
-  <string name="places_survey_dialog_cancel">Откажи</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
+  <string name="places_card_title">Околни места</string>
+  <string name="places_card_action">Повеќе места во близина</string>
+  <string name="places_card_enable_location_card_message">Места е картографски начин за истражување на Википедија</string>
+  <string name="places_card_enable_location_card_button">Овозможи местоположба</string>
+  <string name="places_card_distance_suffix">на %s од вас</string>
+  <string name="places_card_distance_unknown">Непозната оддалеченост</string>
+  <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
+  <string name="survey_dialog_title">Помогнете ни да и подобриме Разговорните страници</string>
+  <string name="survey_dialog_message">Дали сте задоволни со оваа функција?</string>
+  <string name="survey_dialog_option_satisfied">Задоволителна е</string>
+  <string name="survey_dialog_option_neutral">Неутрално</string>
+  <string name="survey_dialog_option_unsatisfied">Незадоволителна е</string>
+  <string name="survey_dialog_option_very_satisfied">Многу задоволен</string>
+  <string name="survey_dialog_option_very_unsatisfied">Многу незадоволен</string>
+  <string name="survey_dialog_cancel">Откажи</string>
+  <string name="survey_dialog_submit">Поднеси</string>
+  <string name="survey_dialog_next">Следно</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Не</string>
+  <string name="survey_dialog_general_maybe">Можеби</string>
+  <string name="survey_dialog_input_hint">Дополнително мислење</string>
+  <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено. Ви благодариме!</string>
+  <string name="on_this_day_game_entry_dialog_title">Ви претставуваме</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Википедиини игри</string>
+  <string name="on_this_day_game_entry_dialog_button">Играјте ја денешната игра</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Википедиините игри се достапни на тековникот „Истражи“.</string>
+  <string name="on_this_day_game_title">Што се случило попрво?</string>
+  <string name="on_this_day_game_dialog_button">Играј</string>
+  <string name="on_this_day_game_splash_message">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
+  <string name="on_this_day_game_progress">%1$d од %2$d</string>
+  <string name="on_this_day_game_score">Бодови: %d</string>
+  <string name="on_this_day_game_submit">Поднеси</string>
+  <string name="on_this_day_game_correct">Точно!</string>
+  <string name="on_this_day_game_incorrect">Погрешно!</string>
+  <string name="on_this_day_game_point">+1 бод</string>
+  <string name="on_this_day_game_next">Следно прашање</string>
+  <string name="on_this_day_game_finish">Конечен исход</string>
+  <string name="on_this_day_game_share_button">Сподели</string>
+  <string name="on_this_day_game_pause_title">Да се паузира играта?</string>
+  <string name="on_this_day_game_pause_body">Напредокот постигнат денес ќе биде зачуван. Играта ќе ја најдете во вашиот тековник „Истражи“.</string>
+  <string name="on_this_day_game_pause_negative">Продолжи со играње</string>
+  <string name="on_this_day_game_pause_positive">Јасно</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Википедиини игри</string>
+  <string name="on_this_day_game_feed_entry_card_title">Што се случило попрво?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
+  <string name="on_this_day_game_result">Освоивте %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Следна игра за %s</string>
+  <string name="on_this_day_game_your_stats">Ваша статистика</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Играна игра</item>
+    <item quantity="other">Играни игри</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Просечно бодови</string>
+  <string name="on_this_day_game_stats_streak">Тековна седенка</string>
+  <string name="on_this_day_game_result_subtitle">Статии на кои се однесува денешната игра</string>
+  <string name="on_this_day_game_completed_message">Благодариме што играте. Имаме нова игра „Што се случило попрво?“ секој ден во тековникот Истражи.</string>
+  <string name="on_this_day_game_menu_notifications">Известувања во играта</string>
+  <string name="on_this_day_game_menu_info">Дознајте повеќе</string>
+  <string name="on_this_day_game_menu_feedback">Проблем со функцијата</string>
+  <string name="on_this_day_game_article_read_button">Прочитајте ја статијата</string>
+  <string name="on_this_day_game_article_related_event_title">Настан поврзан со статијава</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Точно одговоривте на прашањево</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Погрешно одоговоривте на прашањево</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Да ги искучам известувањата за играта?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Ако ги исклучите известувањата, повеќе нема да примате секојдневен потсетник кога ќе има нова игра.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Да ги вклучам известувањата за играта?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Известувањата за играта ви даваат на знаење кога ќе има нова игра за играње.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Не, задржи ги</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Исклучи ги</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да, вклучи ги</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека стојат исклучени</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Известувањата за играта се исклучени.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Известувањата за играта се вклучени.</string>
+  <string name="on_this_day_game_notification_text">Денешната игра „Што се случило попрво?“ е спремна за играње.</string>
+  <string name="on_this_day_game_report_email_subject">Пријава на проблем — Википедиини игри</string>
+  <string name="on_this_day_game_report_email_body">Наидов на проблем со функцијата Википедиини игри:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
+  <string name="on_this_day_game_notification_undo">Врати</string>
+  <string name="on_this_day_game_share_link_message">Ја играм „Што се случило попрво?“ — дневна игра за општи познавања на прилогот на Википедија за Андроид %s</string>
+  <string name="on_this_day_game_share_screen_title">Денес освоив %1$d/%2$d на \n„Што се случило попрво?“.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Вклучени теми:</string>
+  <string name="on_this_day_game_archive_calendar_title">Изберете игра за играње според датум.</string>
+  <string name="on_this_day_game_score_toast_message">На овој ден освоивте %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Продолжи со денешната игра</string>
+  <string name="on_this_day_game_current_progress_message">Сега сте напрашањето %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Играј од архивата</string>
+  <string name="on_this_day_game_review_results_btn_text">Преглед на исходот</string>
+  <string name="on_this_day_game_score_message">На денешната игра освоивте %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Продолжи со играта</string>
+  <string name="on_this_day_game_sound_on">Вклучи звук</string>
+  <string name="on_this_day_game_sound_off">Исклучи звук</string>
+  <string name="year_in_review_learn_more">Дознајте повеќе</string>
+  <string name="year_in_review_get_started">Започнете</string>
+  <string name="year_in_review_topbar_w_icon">Икона W на Википедија</string>
+  <string name="year_in_review_navigate_left">Оди лево</string>
+  <string name="year_in_review_share_icon">Икона за споделување</string>
+  <string name="year_in_review_heart_icon">Икона на срце</string>
+  <string name="year_in_review_navigate_right">Оди десно</string>
+  <string name="year_in_review_donate">Дарувајте</string>
+  <string name="year_in_review_information_icon">Икона за информации</string>
+  <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
+  <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите. Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
+  <string name="year_in_review_entry_dialog_title">Истражете ја вашата ретроспектива на Википедија</string>
+  <string name="year_in_review_entry_dialog_bodytext">Погледајте сознанија за тоа какви статии читавме и уредувавме, и споделете ги најважните моменти во нашата година на Википедија.</string>
+  <string name="year_in_review_entry_dialog_continue">Продолжи</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Годинава прочитавте %d статија</item>
+    <item quantity="other">Годинава прочитавте %d статии</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Годинава прочитавте %1$d статија, меѓу кои %2$s, %3$s и %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
+    <item quantity="other">Годинава прочитавте %1$d статии, меѓу кои %2$s, %3$s и and %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Википедија ја уредивте еднаш</item>
+    <item quantity="other">Википедија ја уредивте %d пати</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Википедија ја уредивте еднаш. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
+    <item quantity="other">Википедија ја уредивте %d пати. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Википедија беше достапна на преку 300 јазици</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Годинава Википедија имаше преку 63 милиони статии на над 300 активни јазици. Се придруживте на милиони луѓе во проширување на знаењето и истражувањето на разновидни теми.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Уредниците од прилогот за iOS направија преку 452.257 уредувања</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">Википедиината заедница на доброволни уредници направи преку 452.257 уредувања на прилогот за iOS. Сржта на Википедија е нашата глобална заедница на доброволни учесници, дарители и милијарди читатели како вас — сите обединети во напорот за споделување на неограничен пристап до проверени информации.</string>
+  <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
+  <string name="year_in_review_survey_subtitle">Дали сте задоволни со оваа функција?</string>
+  <string name="year_in_review_survey_very_satisfied">Многу задоволен</string>
+  <string name="year_in_review_survey_satisfied">Задоволен</string>
+  <string name="year_in_review_survey_neutral">Воздржан</string>
+  <string name="year_in_review_survey_unsatisfied">Незадоволен</string>
+  <string name="year_in_review_survey_very_unsatisfied">Многу незадоволен</string>
+  <string name="year_in_review_survey_placeholder_text">Имате други размисли?</string>
+  <string name="year_in_review_survey_cancel">Откажи</string>
+  <string name="year_in_review_survey_submit">Поднеси</string>
+  <string name="year_in_review_screendeck_image_content_description">Сликовен ресурс за главниот екран за Преглед на годината</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Сликовен ресурс за екранот со дијалог за Преглед на годината</string>
+  <string name="year_in_review_screenshot_error">Не можев да ја создадам екранската снимка: %s</string>
+  <string name="year_in_review_share_subject">Слика и врска за Преглед на годината</string>
+  <string name="year_in_review_globe_icon">Икона на глобус</string>
+  <string name="recommended_reading_list_title">Откриј</string>
+  <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
+  <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвен токму за вас.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Започнете</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Не, благодарам</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">За да го поставите вашиот препорачан список на читање подоцна, одете на Поставки.</string>
+  <string name="recommended_reading_list_interest_source_message">Како да го составиме вашиот препорачан список за читање?</string>
+  <string name="recommended_reading_list_interest_source_interests">Сакам да изберам според моите интереси</string>
+  <string name="recommended_reading_list_interest_source_saved">Избери ми според моите зачувани статии</string>
+  <string name="recommended_reading_list_interest_source_history">Избери ми според мојата историја на читање</string>
+  <string name="recommended_reading_list_interest_pick_title">Што ве интересира?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Пребарајте статија</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">Избрана %d</item>
+    <item quantity="other">Избрани %d</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Изберете барем еден интерес</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Избери случајно</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Еве неколку статии по случаен избор.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Врати</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Дали сигурно сакате да го направите изборот случаен?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Ова ќе ги тргне вашите тековни избори и ќе избере нови статии по случаен избор.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Да, избери ми</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Заборави</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Направено за %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Направено за вас</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d статија</item>
+    <item quantity="other">• %d статии</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Вшаиот дневен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на полноќ.</string>
+  <string name="recommended_reading_list_page_description_weekly">Вшаиот неделен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на почетокот на неделата.</string>
+  <string name="recommended_reading_list_page_description_monthly">Вшаиот месечен список за читање. Осознајте повеќе теми, избрани токму за вас. Се подновува на почетокот на секој месец.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Прилагоди</string>
+  <string name="recommended_reading_list_page_overflow_about">За функцијава</string>
+  <string name="recommended_reading_list_page_snackbar">Откриј ќе се подновува со %1$d нови статии на секој %2$s. Вашите препораки се складираат месно на вашиот уред.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Прилагоди го Откриј</string>
+  <string name="recommended_reading_list_page_snackbar_day">Ден</string>
+  <string name="recommended_reading_list_page_snackbar_week">Недела</string>
+  <string name="recommended_reading_list_page_snackbar_month">Месец</string>
+  <string name="recommended_reading_list_settings_section_header">Препораки</string>
+  <string name="recommended_reading_list_settings_title">Поставки за Откриј</string>
+  <string name="recommended_reading_list_settings_toggle">Список на читање од Откриј</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Откриј е исклучен. Википедија нема да ви препорачува статии за читање.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Да го исклучам Откриј?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Ако го исклучите Откриј, ќе престанете да добивате препораки за читање од Википедија %s.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Исклучи</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Не, задржи</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Откриј е исклучен. Можете повторно да го вклучите во секое време во поставките.</string>
+  <string name="recommended_reading_list_settings_articles">статии</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Се подновува %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">неделно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Секој ден</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Секоја недела</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Секој месец</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Како се изготвува Откриј</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Според вашите интереси</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Според вашите зачувани статии</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Според вашата историја на читање</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Да прилагодиме како се изготвува Откриј?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Ако прилагодите како Откриј создава препораки, вашите тековни препораки ќе бидат заменети.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Прилагоди</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Заборави</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Вашите препораки сега се засноваат на вашите интереси.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Вашите препораки сега се засноваат на вашите зачувани статии.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Вашите препораки сега се засноваат на вашата историја на читање.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Врати</string>
+  <string name="recommended_reading_list_settings_interests">Интереси</string>
+  <string name="recommended_reading_list_settings_notifications_title">Известувања</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Википедија нема да ви праќа известувања секојпат кога ќе се поднови Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Известувањата за Откриј се исклучени. Нема да добивате известувања секојпат кога ќе се поднови Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Да ги искучам известувањата?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Ако ги ислкучите известувањата, повеќе неам да добивате потсетници кога ќе се подновува Откриј.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Исклучи ги</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Не, задржи ги</string>
+  <string name="recommended_reading_list_notification_title">Вашиот %s список за читање од Откриј е готов.</string>
+  <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Откриј е вклучен. Википедија ќе ви препорачува статии за читање.</string>
 </resources>

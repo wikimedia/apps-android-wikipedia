@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogCategoriesBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -28,14 +28,14 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private val itemCallback = ItemCallback()
-    private val viewModel: CategoryDialogViewModel by viewModels { CategoryDialogViewModel.Factory(requireArguments()) }
+    private val viewModel: CategoryDialogViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogCategoriesBinding.inflate(inflater, container, false)
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireActivity())
         binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = false, drawEnd = false))
         binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         binding.categoriesError.isVisible = false
         binding.categoriesNoneFound.isVisible = false

@@ -2,11 +2,11 @@ package org.wikipedia.readinglist.db
 
 import androidx.room.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.log.L
 
 @Dao
@@ -52,7 +52,7 @@ interface ReadingListDao {
         val lists = getListsWithoutContents()
         val pages = AppDatabase.instance.readingListPageDao().getAllPagesToBeSynced()
         pages.forEach { page ->
-            lists.first { it.id == page.listId }.apply { this.pages.add(page) }
+            lists.firstOrNull { it.id == page.listId }?.apply { this.pages.add(page) }
         }
         return lists
     }
@@ -104,7 +104,7 @@ interface ReadingListDao {
     fun getDefaultList(): ReadingList {
         return getListsWithoutContents().find { it.isDefault } ?: run {
             L.w("(Re)creating default list.")
-            createNewList("", WikipediaApp.instance.getString(R.string.default_reading_list_description))
+            createNewList("", L10nUtil.getString(R.string.default_reading_list_description))
         }
     }
 

@@ -8,19 +8,20 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Date
+import java.util.Random
 
 class NotificationViewModel : ViewModel() {
 
     private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
     private val notificationList = mutableListOf<Notification>()
     private var dbNameMap = mapOf<String, WikiSite>()
@@ -31,7 +32,7 @@ class NotificationViewModel : ViewModel() {
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Pair<List<NotificationListItemContainer>, Boolean>>())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -42,8 +43,8 @@ class NotificationViewModel : ViewModel() {
     }
 
     private fun filterAndPostNotifications() {
-        _uiState.value = UiState.Success(processList(notificationRepository.getAllNotifications()),
-            !currentContinueStr.isNullOrEmpty())
+        val pair = Pair(processList(notificationRepository.getAllNotifications()), !currentContinueStr.isNullOrEmpty())
+        _uiState.value = Resource.Success(pair)
     }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
@@ -168,9 +169,6 @@ class NotificationViewModel : ViewModel() {
                 }
             }
             notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(notification)
-            if (!markUnread) {
-                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
-            }
         }
 
         viewModelScope.launch(handler) {
@@ -190,11 +188,5 @@ class NotificationViewModel : ViewModel() {
                 }
             filterAndPostNotifications()
         }
-    }
-
-    open class UiState {
-        class Success(val notifications: List<NotificationListItemContainer>,
-                      val fromContinuation: Boolean) : UiState()
-        class Error(val throwable: Throwable) : UiState()
     }
 }

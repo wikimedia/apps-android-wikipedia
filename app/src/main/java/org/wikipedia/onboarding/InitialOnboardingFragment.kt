@@ -22,12 +22,17 @@ import org.wikipedia.util.UriUtil
 class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     private var onboardingPageView: OnboardingPageView? = null
     override val doneButtonText = R.string.onboarding_get_started
+    var languageChanged = false
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
             advancePage()
         }
+    }
+
+    private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        languageChanged = true
     }
 
     override fun getAdapter(): FragmentStateAdapter {
@@ -47,7 +52,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override fun onListActionButtonClicked(view: OnboardingPageView) {
         onboardingPageView = view
-        requireContext().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), Constants.InvokeSource.ONBOARDING_DIALOG))
+        languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(requireContext(), Constants.InvokeSource.ONBOARDING_DIALOG))
     }
 
     override fun onResume() {
@@ -55,7 +60,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         onboardingPageView?.refreshLanguageList()
     }
 
-    private class OnboardingPagerAdapter constructor(fragment: Fragment) : FragmentStateAdapter(fragment) {
+    private class OnboardingPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun createFragment(position: Int): Fragment {
             return ItemFragment.newInstance(position)
         }

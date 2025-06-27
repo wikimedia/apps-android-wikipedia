@@ -1,15 +1,15 @@
 package org.wikipedia.talk
 
 import android.app.Activity
-import android.content.Context
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -18,12 +18,13 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import java.util.*
 
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
-        private val context: Context,
+        private val context: AppCompatActivity,
         private val viewModel: TalkTopicsViewModel,
         private val invokeSource: Constants.InvokeSource
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -124,7 +125,10 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun showOverflowMenu(anchorView: View) {
-        CoroutineScope(Dispatchers.Main).launch {
+        context.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            FeedbackUtil.showError(context, throwable)
+        }) {
             val subscribed = viewModel.isSubscribed(threadItem.name)
             threadItem.subscribed = subscribed
 
@@ -141,7 +145,7 @@ class TalkTopicHolder internal constructor(
 
             val readText = menu.menu.findItem(R.id.menu_mark_as_read)
             readText.setIcon(if (threadItem.seen) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24)
-            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
+            readText.setTitle(if (threadItem.seen) R.string.talk_list_item_overflow_mark_as_unread else R.string.talk_list_item_overflow_mark_as_read)
 
             menu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem?): Boolean {

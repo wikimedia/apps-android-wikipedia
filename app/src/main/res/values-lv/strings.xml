@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Edgars2007
 * MuratTheTurkish
 * Natalilake
@@ -88,7 +87,7 @@
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
   <string name="account_creation_password_hint">Parole</string>
-  <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
+  <string name="login_2fa_hint" fuzzy="true">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast" fuzzy="true">Pieslēgšanās veiksmīga!</string>
   <string name="reset_password_hint">Jaunā parole</string>
@@ -345,8 +344,6 @@
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Noņemt izvēlētās valodas?</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nevar noņemt visas valodas</string>
   <string name="more_language_options">vairāk</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
   <string name="remove_language_dialog_cancel_button_text">Atcelt</string>
   <string name="remove_language_dialog_ok_button_text">Labi</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Atcelt</string>

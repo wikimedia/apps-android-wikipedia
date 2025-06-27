@@ -14,7 +14,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +22,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityTemplatesSearchBinding
 import org.wikipedia.databinding.ItemTemplatesSearchBinding
@@ -42,7 +42,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private var templatesSearchAdapter: TemplatesSearchAdapter? = null
 
-    val viewModel: TemplatesSearchViewModel by viewModels { TemplatesSearchViewModel.Factory(intent.extras!!) }
+    val viewModel: TemplatesSearchViewModel by viewModels()
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
@@ -91,7 +91,7 @@ class TemplatesSearchActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.searchTemplatesFlow.collectLatest {
-                        templatesSearchAdapter?.submitData(it)
+                        templatesSearchAdapter?.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -182,7 +182,7 @@ class TemplatesSearchActivity : BaseActivity() {
         }
     }
 
-    private inner class TemplatesSearchAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(TemplatesSearchDiffCallback()) {
+    private inner class TemplatesSearchAdapter : PagingDataAdapterPatched<PageTitle, RecyclerView.ViewHolder>(TemplatesSearchDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): TemplatesSearchItemHolder {
             return TemplatesSearchItemHolder(ItemTemplatesSearchBinding.inflate(layoutInflater, parent, false))
         }

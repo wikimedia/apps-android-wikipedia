@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Duke of Wikipädia
 * Karapananguasú Kururú Teremembé
@@ -56,7 +55,7 @@
   <string name="page_edit_history_filter_by">Uyumuá yepé rupí</string>
   <string name="page_edit_history_filter_by_all">Pãnhé murupiawa (%s)</string>
   <string name="page_edit_history_filter_by_user">Puruçara murupiawa’etá (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Murupiawa puruçara kanhẽmu rupí (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Murupiawa puruçara kanhẽmu rupí (%s)</string>
   <string name="page_edit_history_filter_by_bot">Murupiawa irupĩtuwa rupí (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mumarawa %1$s çuiwara té %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -135,8 +134,8 @@
   <string name="login_username_hint">Puruçara rera</string>
   <string name="login_password_hint">Nhẽẽga Kabé</string>
   <string name="account_creation_password_hint">Nhẽẽga Kabé</string>
-  <string name="login_2fa_hint">Mukũiwatá Muereteçá yupinimaçawa</string>
-  <string name="login_2fa_other_workflow_error_msg">Mukũiwatá muereteçawa puraĩgawá, e-iwíri murakiçawa yupirũgawa upé açuí e-yumũdí ne 2FA kabé irũ, ariré e-çaá amũ ruê.</string>
+  <string name="login_2fa_hint" fuzzy="true">Mukũiwatá Muereteçá yupinimaçawa</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Mukũiwatá muereteçawa puraĩgawá, e-iwíri murakiçawa yupirũgawa upé açuí e-yumũdí ne 2FA kabé irũ, ariré e-çaá amũ ruê.</string>
   <string name="onboarding_card_login">Uiké</string>
   <string name="page_editing_login">Uiké</string>
   <string name="reading_lists_sync_login">Uiké</string>
@@ -211,13 +210,11 @@
   <string name="privacy_policy_description">Mirapuraçawa politika</string>
   <string name="terms_of_use_description">Puruçawa rekô\'etá</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yawá reçé</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/yrl</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="about_contributors_heading">Pitimũgara\'etá</string>
   <string name="about_translators_heading">Sinimukanhẽẽgara\'etá</string>
   <string name="about_app_license_heading">Mutarawa</string>
@@ -481,10 +478,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Yawá ti umurú umuçaká panhẽ nhẽẽga\'etá</string>
   <string name="more_language_options">Yawá píri</string>
   <string name="add_wikipedia_languages_text">Umburipíri Wikipediya nhẽẽga\'etá</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Umuçaká yepé Xinawara nũgara ne mburipawa nhẽẽga\'etá çuiwara?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Kuiriwara, ĩdé rerikú Xinawara Rikuçawara açui Pupuyawara tauçurimũ\'ana ne mburipawa nhẽẽga\'etá yumukaturuçawa upé. Umukuiriwara ne mburipawa nhẽẽga yumukaturuçawa\'etá?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Umurupiawa nhẽẽga\'etá</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ĩti, kuekatú</string>
   <string name="remove_language_dialog_cancel_button_text">Umuamunika</string>
   <string name="remove_language_dialog_ok_button_text">KATÚ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">KATÚ</string>
@@ -521,9 +514,9 @@
   <string name="menu_option_view_user_profile" fuzzy="true">Umaã puruçara mainãgawa sowa</string>
   <string name="menu_option_view_user_talk">Umaã murũgetaçawa sowa</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Usinimuka</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 yarika rupí</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 yarika rupí</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 yarika rupí</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 yarika rupí</string>
   <string name="watchlist_expiry_dialog_one_month">1 yarika</string>
   <string name="watchlist_expiry_dialog_three_months">3 yarika</string>
   <string name="watchlist_expiry_dialog_six_months">6 yarika</string>

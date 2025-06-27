@@ -1,9 +1,12 @@
 package org.wikipedia.page
 
 import android.app.SearchManager
+import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Gravity
@@ -11,6 +14,7 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -19,26 +23,29 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
-import androidx.core.view.updatePadding
+import androidx.core.view.updateLayoutParams
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Consumer
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
-import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.analytics.eventplatform.PlacesEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
@@ -51,11 +58,13 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
@@ -88,18 +97,25 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
-    private var app = WikipediaApp.instance
+    private lateinit var app: WikipediaApp
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
-    private val disposables = CompositeDisposable()
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+            FeedbackUtil.makeSnackbar(this, getString(R.string.edit_saved_successfully))
+                .addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                        if (!isDestroyed) {
+                            AccountUtil.maybeShowTempAccountWelcome(this@PageActivity)
+                        }
+                    }
+                }).show()
+
             // and reload the page...
             pageFragment.model.title?.let { title ->
                 pageFragment.model.curEntry?.let { entry ->
@@ -155,7 +171,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         startActivity(FilePageActivity.newIntent(this, imageTitle))
                     } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                         pageFragment.title?.let { pageTitle ->
-                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite, 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE))
+                            startActivity(GalleryActivity.newIntent(this, pageTitle, imageTitle.prefixedText, wikiSite))
                         }
                     }
                 }
@@ -165,11 +181,34 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!DeviceUtil.assertAppContext(this)) {
+            return
+        }
+
+        app = WikipediaApp.instance
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        disposables.add(app.bus.subscribe(EventBusConsumer()))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is ChangeTextSizeEvent -> {
+                            pageFragment.updateFontSize()
+                        }
+                        is ArticleSavedOrDeletedEvent -> {
+                            pageFragment.title?.run {
+                                if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
+                                    pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         updateProgressBar(false)
         pageFragment = supportFragmentManager.findFragmentById(R.id.page_fragment) as PageFragment
 
@@ -179,14 +218,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logSearchWikipediaClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTabsClick()
-            TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logTabsClick()
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
@@ -194,14 +232,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logMoreClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logMoreClick()
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logNotificationClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
@@ -214,11 +252,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
         binding.containerWithNavTrigger.callback = this
-        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { _, insets ->
-            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            binding.pageToolbarContainer.updatePadding(top = systemWindowInsets.top)
-            pageFragment.updateInsets(systemWindowInsets)
-            insets
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { view, insets ->
+            val insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updateLayoutParams<MarginLayoutParams> {
+                topMargin = insets.top
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+            WindowInsetsCompat.CONSUMED
         }
 
         // WikiArticleCard setup
@@ -272,7 +314,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 if (app.haveMainActivity) {
                     onBackPressed()
                 } else {
-                    pageFragment.goToMainTab()
+                    pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
                 true
             } else -> super.onOptionsItemSelected(item)
@@ -314,7 +356,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onDestroy() {
-        disposables.clear()
         Prefs.hasVisitedArticlePage = true
         super.onDestroy()
     }
@@ -357,7 +398,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
             pageFragment.articleInteractionEvent?.logTocSwipe()
-            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTocSwipe()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction.logTocSwipe()
             pageFragment.sidePanelHandler.showToC()
         }
     }
@@ -365,7 +406,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
-        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -429,19 +469,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
     }
 
-    override fun onPageRequestLangLinks(title: PageTitle) {
-        val langIntent = Intent()
-        langIntent.setClass(this, LangLinksActivity::class.java)
-        langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-        langIntent.putExtra(Constants.ARG_TITLE, title)
-        requestHandleIntentLauncher.launch(langIntent)
+    override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
+        requestHandleIntentLauncher.launch(LangLinksActivity.newIntent(this, title, historyEntryId))
     }
 
-    override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, source: Int, options: ActivityOptionsCompat?) {
-        if (source == GalleryActivity.SOURCE_LEAD_IMAGE) {
-            requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+    override fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?) {
+        if (isLeadImage) {
+            requestGalleryEditLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision), options)
         } else {
-            requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
+            requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision), options)
         }
     }
 
@@ -479,7 +515,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     val encodedListFromParameter = uri.getQueryParameter("limport")
                     Prefs.importReadingListsDialogShown = false
                     Prefs.receiveReadingListsData = encodedListFromParameter
-                    startActivity(ReadingListActivity.newIntent(this, true).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                    startActivity(ReadingListActivity.newIntent(this, ReadingListMode.PREVIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     finish()
                     return
                 }
@@ -490,15 +526,22 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
                     // ...Except if the URL came as a result of a successful donation, in which case
-                    // open it in a Custom Tab.
-                    val utmCampaign = uri.getQueryParameter("utm_campaign")
-                    if (utmCampaign != null && utmCampaign == "Android") {
-                        // TODO: need to verify if the page can be displayed and logged properly.
-                        DonorExperienceEvent.logImpression("webpay_processed")
-                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                            true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
-                        finish()
-                        return
+                    // treat it differently:
+                    if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
+                        CampaignCollection.addDonationResult(fromWeb = true,
+                            amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
+                            currency = uri.getQueryParameter("currency") ?: "",
+                            recurring = uri.getQueryParameter("recurring") == "1")
+                        // Check if the donation started from the app, but completed via web, in which case
+                        // show it in a SingleWebViewActivity.
+                        val campaign = uri.getQueryParameter("wmf_campaign")
+                        if (campaign != null && campaign == "Android") {
+                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                                true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
+                            finish()
+                            return
+                        }
                     }
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()
@@ -553,13 +596,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
-            val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
-                pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
-            articleLinkPreviewInteractionEvent.logNavigate()
-
-            ArticleLinkPreviewInteraction(pageFragment, entry.source).logNavigate()
-        }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
@@ -584,7 +620,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
-            app.appSessionEvent.pageViewed(entry)
         }
     }
 
@@ -641,17 +676,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun modifyMenu(mode: ActionMode) {
         val menu = mode.menu
-        val menuItemsList = menu.children.filter {
-            val title = it.title.toString()
-            !title.contains(getString(R.string.search_hint)) &&
-                    !(title.contains(getString(R.string.menu_text_select_define)) &&
-                            pageFragment.shareHandler.shouldEnableWiktionaryDialog())
-        }.toList()
-        menu.clear()
-        mode.menuInflater.inflate(R.menu.menu_text_select, menu)
-        menuItemsList.forEach {
-            menu.add(it.groupId, it.itemId, Menu.NONE, it.title).setIntent(it.intent).icon = it.icon
+
+        // Hide context items that are intended for showing in external apps.
+        menu.children.forEach {
+            if (it.title.toString().contains(getString(R.string.search_hint)) ||
+                (it.title.toString().contains(getString(R.string.menu_text_select_define)) && pageFragment.shareHandler.shouldEnableWiktionaryDialog())) {
+                it.isVisible = false
+            }
         }
+        // Append our custom items to the context menu.
+        mode.menuInflater.inflate(R.menu.menu_text_select, menu)
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
@@ -660,35 +694,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
             .show()
-    }
-
-    private fun maybeShowPlacesTooltip() {
-        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
-            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
-            return
-        }
-        enqueueTooltip {
-            FeedbackUtil.getTooltip(
-                this,
-                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
-                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                topOrBottomMargin = -8,
-                aboveOrBelow = false,
-                autoDismiss = false,
-                showDismissButton = true
-            ).apply {
-                PlacesEvent.logImpression("article_more_tooltip")
-                setOnBalloonDismissListener {
-                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
-                    isTooltipShowing = false
-                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
-                }
-                isTooltipShowing = true
-                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
-                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                setCurrentTooltip(this)
-            }
-        }
     }
 
     private fun maybeShowThemeTooltip() {
@@ -784,22 +789,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         updateNotificationsButton(true)
     }
 
-    private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any) {
-            when (event) {
-                is ChangeTextSizeEvent -> {
-                    pageFragment.updateFontSize()
-                }
-                is ArticleSavedOrDeletedEvent -> {
-                    if (!pageFragment.isAdded) {
-                        return
-                    }
-                    pageFragment.title?.run {
-                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
-                            pageFragment.updateBookmarkAndMenuOptionsFromDao()
-                        }
-                    }
-                }
+    override fun onProvideAssistContent(outContent: AssistContent) {
+        super.onProvideAssistContent(outContent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pageFragment.model.title?.let {
+                outContent.setWebUri(Uri.parse(it.uri))
             }
         }
     }

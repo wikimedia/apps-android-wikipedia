@@ -2,6 +2,8 @@
 <!-- Authors:
 * Ajeje Brazorf
 * Dbrant
+* GianAntonucci
+* Gmelfi
 * Statix64
 -->
 <resources>
@@ -15,9 +17,9 @@
   <string name="search_hint_voice_search">Arricerca vucali</string>
   <string name="search_hint_search_languages">Arricerca na lingua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Arricerca nti l\'elenchi</string>
-  <string name="nav_item_suggested_edits">Canciamenti</string>
+  <string name="nav_item_suggested_edits">Canci</string>
   <string name="nav_item_more">Àutri cosi</string>
-  <string name="nav_item_search">Arricerca</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">Nun fu pussìbbili cunnèttirisi a Internet.</string>
   <string name="page_error_retry">Ripruva</string>
   <string name="card_offline_error_retry">Ripruva</string>
@@ -50,7 +52,7 @@
   <string name="page_edit_history_filter_by">Filtra pi</string>
   <string name="page_edit_history_filter_by_all">Tutti li canciamenti (%s)</string>
   <string name="page_edit_history_filter_by_user">Canciamenti di l\'utenti (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Canciamenti anònimi (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Canciamenti anònimi (%s)</string>
   <string name="page_edit_history_filter_by_bot">Canciamenti dî bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statìstichi dû %1$s ô %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -106,9 +108,9 @@
   <string name="edit_save_action_license_anon">Pubbricannu, accetti li nostri &lt;a href=\"%1$s\"&gt;cunnizzioni d\'usu&lt;/a&gt; e accetti di rilassari li tò cuntribbuti sutta la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Li canciamenti vinirannu attribbuiti ô nnirizzu IP dû tò dispusitivu. Si &lt;a href=\"https://#login\"&gt;trasi&lt;/a&gt; avirrai majuri privacy.</string>
   <string name="edit_anon_warning">Li canciamenti vinirannu attribbuiti ô nnirizzu IP dû tò dispusitivu. Si &lt;a href=\"https://#login\"&gt;trasi&lt;/a&gt; avirrai majuri privacy.</string>
   <string name="preference_title_language">Lingui di Wikipedia</string>
-  <string name="langlinks_filter_hint">Risciduta</string>
+  <string name="langlinks_filter_hint">Va\' cerca</string>
   <string name="langlinks_empty">Sta pàggina nun è dispunìbbili n àutri lingui.</string>
-  <string name="langlinks_no_match">Nudda lingua attruvata</string>
+  <string name="langlinks_no_match">Nuḍḍa lingua attruvata</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
   <string name="langlinks_your_wikipedia_languages">Li tò lingui di Wikipedia</string>
   <string name="menu_save_changes">Pùbbrica li canciamenti</string>
@@ -120,10 +122,10 @@
   <string name="dialog_message_leaving_edit_leave">Lassa</string>
   <string name="dialog_message_leaving_edit_stay">Arresta</string>
   <string name="menu_show_toc">Ìnnici</string>
-  <string name="search_no_results_found">Nuddu risurtatu attruvatu</string>
-  <string name="search_reading_list_no_results">Nuddu risurtatu attruvatu n \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nuddu risurtatu attruvatu nti l\'elenchi di littura</string>
-  <string name="search_history_no_results">Nuddu risurtatu attruvatu ntâ crunuluggìa</string>
+  <string name="search_no_results_found">Nuḍḍu risurtatu attruvatu</string>
+  <string name="search_reading_list_no_results">Nuḍḍu risurtatu attruvatu n \"%s\"</string>
+  <string name="search_reading_lists_no_results">Nuḍḍu risurtatu attruvatu nti l\'elenchi di littura</string>
+  <string name="search_history_no_results">Nuḍḍu risurtatu attruvatu ntâ crunuluggìa</string>
   <string name="edit_section_captcha_message">P\'aiutari a cummàttiri lu spam autumàticu, nzirisci pi favuri li palori chi cumpàrunu sutta</string>
   <string name="edit_section_captcha_request_an_account_message">Nun arrinesci a taliari la mmàggini? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Richiedi nu cuntu&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Arripeti li palori di supra</string>
@@ -133,7 +135,7 @@
   <string name="login_username_hint">Nomu utenti</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Còdici autentificazzioni a dui fattura</string>
+  <string name="login_2fa_hint" fuzzy="true">Còdici autentificazzioni a dui fattura</string>
   <string name="onboarding_card_login">Trasi</string>
   <string name="page_editing_login">Trasi</string>
   <string name="reading_lists_sync_login">Trasi</string>
@@ -184,8 +186,8 @@
   <string name="privacy_policy_description">Pulìtica supra la privacy</string>
   <string name="terms_of_use_description">Cunnizzioni d\'usu</string>
   <string name="about_wikipedia_url">https://scn.wikipedia.org/wiki/Wikipedia:Àutri nfurmazzioni</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_contributors_heading">Cuntribbutura</string>
   <string name="about_translators_heading">Traduttura</string>
   <string name="about_app_license_heading">Licenza</string>
@@ -197,7 +199,7 @@
   <string name="edit_undo">Annulla</string>
   <string name="edit_summary_tag_other">Àutru</string>
   <string name="page_similar_titles">Pàggini sìmili</string>
-  <string name="search_results_count_zero">Nuddu risurtatu</string>
+  <string name="search_results_count_zero">Nuḍḍu risurtatu</string>
   <plurals name="search_results_count">
     <item quantity="one">1 risurtatu</item>
     <item quantity="other">%d risurtati</item>
@@ -281,18 +283,18 @@
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_swipe_action_read">Leggi</string>
   <string name="notifications_menu_user_talk_page">Pàggina di discussioni di %s</string>
-  <string name="view_main_page_card_title">Oi supra Wikipedia</string>
-  <string name="view_main_page_card_action">Talìa la pàggina principali</string>
+  <string name="view_main_page_card_title">Oji supra a Wikipedia</string>
+  <string name="view_main_page_card_action">Talìa a pàggina mastra</string>
   <string name="view_featured_image_card_title">Mmàggini dû jornu</string>
   <string name="view_featured_image_card_download">Scàrrica</string>
   <string name="view_featured_image_card_share">Cunnividi</string>
   <string name="menu_feed_overflow_label">Àutri opzioni</string>
   <string name="view_card_news_title">Ntî nutizzi</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">aieri</item>
-    <item quantity="other">%d jorna fa</item>
+    <item quantity="one">ajeri</item>
+    <item quantity="other">%d jorna arrè</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">oi</string>
+  <string name="view_continue_reading_card_subtitle_today">oji</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lettu %s</string>
   <string name="view_announcement_card_negative_action">No, grazzi</string>
   <string name="view_static_card_save_button_label">Sarva</string>
@@ -360,8 +362,7 @@
   <string name="suggested_edits_contribution_type_label">Tipu di cuntribbutu</string>
   <string name="suggested_edits_contribution_image_label">Mmàggini</string>
   <string name="suggested_edits_contribution_article_label">Vuci</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ajeri</string>
   <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
@@ -375,7 +376,7 @@
   <string name="this_year">Ovannu</string>
   <plurals name="diff_years">
     <item quantity="one">Oggiallannu</item>
-    <item quantity="other">%d anni fa</item>
+    <item quantity="other">%d anni arrè</item>
   </plurals>
   <string name="languages_list_activity_title">Agghiunci na lingua</string>
   <string name="languages_list_suggested_text">Cunzigghiatu</string>
@@ -385,8 +386,6 @@
   <string name="wikipedia_languages_add_language_text">Agghiunci lingua</string>
   <string name="more_language_options">àutru</string>
   <string name="add_wikipedia_languages_text">Agghiunci li lingui di Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Cancia lingui</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazzi</string>
   <string name="remove_language_dialog_cancel_button_text">Annulla</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -429,10 +428,10 @@
   <string name="menu_option_view_user_profile" fuzzy="true">Talìa la pàggina prufilu di l\'utenti</string>
   <string name="menu_option_view_user_talk">Talìa la pàggina di discussioni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pi 1 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pi 3 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pi 6 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pi 1 simana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pi 1 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pi 3 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pi 6 misi</string>
   <string name="watchlist_expiry_dialog_one_week">1 simana</string>
   <string name="watchlist_expiry_dialog_one_month">1 misi</string>
   <string name="watchlist_expiry_dialog_three_months">3 misi</string>

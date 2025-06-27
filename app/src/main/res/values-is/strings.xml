@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Amire80
 * Dbrant
 * Maxí
 * MuratTheTurkish
@@ -58,7 +57,7 @@
   <string name="page_edit_history_filter_by">Sía eftir:</string>
   <string name="page_edit_history_filter_by_all">Allar breytingar (%s)</string>
   <string name="page_edit_history_filter_by_user">Breytingar notanda (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Nafnlausar breytingar (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Nafnlausar breytingar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Breytingar vélmenna (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mælingar frá %1$s til %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -141,8 +140,8 @@
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
   <string name="account_creation_password_hint">Lykilorð</string>
-  <string name="login_2fa_hint">Tveggja-þrepa auðkenningarkóði</string>
-  <string name="login_2fa_other_workflow_error_msg">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
+  <string name="login_2fa_hint" fuzzy="true">Tveggja-þrepa auðkenningarkóði</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Krafist er tveggja-þrepa auðkenningar! Snúðu aftur í aðalverkefnið og skráðu þig inn með 2FA-teikninu þínu, prófaðu svo aftur.</string>
   <string name="onboarding_card_login">Skrá inn</string>
   <string name="page_editing_login">Skrá inn</string>
   <string name="reading_lists_sync_login">Skrá inn</string>
@@ -229,18 +228,16 @@
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
   <string name="about_wikipedia_url">https://is.wikipedia.org/wiki/Wikipedia:Um_verkefnið</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.is</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.is</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
   <string name="about_contributors_heading">framlög frá</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Síða teymisins&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Síða teymisins&lt;/a&gt;</string>
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
@@ -351,7 +348,6 @@
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="tool_tip_toc_title">Flýtiaðgangur í efnisyfirlit</string>
   <string name="tool_tip_toc_text">Þú getur núna strokið til vinstri til að opna efnisyfirlitið, eins geturðu ýtt og dregið á þessum skrunhnappi til að hoppa fljótt á milli einstakra efnishluta greinar.</string>
-  <string name="tool_tip_lang_button">Þú getur núna leitað og lesið á fleiri tungumálum Wikipedia í forritinu.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
@@ -532,8 +528,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Greinin er á mörgum listum</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s verður ekki lengur tiltækt án nettengingar úr öllum leslistum:</string>
   <string name="reading_lists_sync_reminder_title">Kveikja á samstillingu leslista?</string>
-  <string name="reading_lists_sync_reminder_text">Nú er hægt að samstilla greinar sem vistaðar hafa verið í leslista við Wikipedia-aðganginn þinn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Læra meira&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Vita meira&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Nú er hægt að samstilla greinar sem vistaðar hafa verið í leslista við Wikipedia-aðganginn þinn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Læra meira&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Virkja samstillingu</string>
   <string name="reading_list_login_reminder_title">Samstilla leslista</string>
   <string name="reading_lists_login_reminder_text">Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
@@ -825,15 +821,13 @@
   <string name="description_edit_help_title">Upplýsingar: Lýsingar greina</string>
   <string name="description_edit_help_about_wikidata">Um Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Leiðarvísir Wikidata fyrir hvernig eigi að skrifa lýsingar</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Takk fyrir viðvarandi áhuga þinn á að vinna með lýsingar greina. Til að gera fleiri breytingar, ættirðu að skrá þig inn á Wikipedia notandaaðganginn þinn.</string>
   <string name="description_edit_license_notice">Með því að breyta lýsingu á þessari grein, samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir óafturkræft út framlög þín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="description_edit_helper_text_lowercase_warning">byrjar yfirleitt með litlum bókstaf</string>
   <string name="description_edit_voice_input_description">Raddskipun</string>
   <string name="description_edit_learn_more">Frekari upplýsingar um lýsingar á greinum</string>
   <string name="description_edit_image_caption_learn_more">Frekari upplýsingar um myndatexta</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Textinn er of stuttur.</string>
   <string name="description_ends_with_punctuation">Textinn má ekki enda á greinarmerkjum.</string>
   <string name="description_starts_with_article">Forðastu að byrja greinar með “a” eða “the”.</string>
@@ -930,8 +924,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bæta við myndatexta</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bæta við myndatexta (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bæta við merkjum á myndir</string>
-  <string name="suggested_edits_snackbar_survey_text">Hvernig fannst þér vinnan við breytingar? Taktu þér smástund við að fylla út könnun á notkun forritsins við breytingar.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Taka þátt í könnun</string>
   <string name="suggested_edits_task_action_text_add">Bæta við</string>
   <string name="suggested_edits_task_action_text_translate">Þýða</string>
   <string name="suggested_edits_image_captions">Myndatextar</string>
@@ -1013,7 +1005,6 @@
     <item quantity="one">Þú bættir við %d merki</item>
     <item quantity="other">Þú bættir við %d merkjum</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Í gær</string>
   <string name="suggested_edits_encourage_account_creation_title">Vissir þú að allir geta breytt efni á Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Tillögur að breytingum er ný leið til að vinna við Wikipedia á Android. Þær hjálpa til við að gera smáar en mikilvægar breytingar á Wikipedia.\nMarkmið okkar er að einfalda vinnuna og gera hana aðgengilegri fyrir alla. Skráðu þig inn eða gakktu til liðs við Wikipedia til að komast í gang.</string>
@@ -1136,10 +1127,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Haltu að minnsta kosti einu Wikipedia-tungumáli til að leita að og lesa efni.</string>
   <string name="more_language_options">meira</string>
   <string name="add_wikipedia_languages_text">Bæta við Wikipedia-tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Fjarlægja tilbrigði kínversku úr tungumálum forritsins?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Þú ert núna með bæði hefðbundna og einfalda kínversku í tungumálum forritsins. Á að uppfæra tungumálastillingar þess?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Breyta tungumálum</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei, takk</string>
   <string name="remove_language_dialog_cancel_button_text">Hætta við</string>
   <string name="remove_language_dialog_ok_button_text">Í lagi</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Í lagi</string>
@@ -1307,14 +1294,12 @@
   <string name="revision_rollback_success">Breytingar afturkallaðar.</string>
   <string name="revision_compare_button">Bera saman</string>
   <string name="revision_compare_two_only">Aðeins er hægt að velja tvær útgáfur.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Síðunni %1$s og spjallsíðu hennar hefur verið bætt við á %2$s vaktlistann þinn.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Breyta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">endanlega</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">í 1 viku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">í 1 mánuð</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">í 3 mánuði</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">í 6 mánuði</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og spjallsíða hennar hafa verið fjarlægðar af vaktlistanum þínum.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">í 1 viku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">í 1 mánuð</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">í 3 mánuði</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">í 6 mánuði</string>
   <string name="watchlist_expiry_dialog_title">Veldu tímabil vaktlista</string>
   <string name="watchlist_expiry_dialog_permanent">Varanlegt</string>
   <string name="watchlist_expiry_dialog_one_week">1 vika</string>
@@ -1413,8 +1398,6 @@
   <string name="reading_list_share_menu_label">Deila…</string>
   <string name="reading_list_share_menu_tooltip">Deildu þessum leslista með öðrum</string>
   <string name="reading_list_share_message_v2">Hæ! Mig langar að deila Wikipedia-leslistanum mínum með þér:</string>
-  <string name="reading_list_share_survey_title">Gætirðu hjálpað okkur að bæta „Deila leslistum“?</string>
-  <string name="reading_list_share_survey_body">\"Deila leslistum\" er prófunareiginleiki og við þurfum álit þitt til að bæta eða fjarlægja hann.</string>
   <string name="data_opt_in_accept">Samþykkja</string>
   <string name="data_opt_in_reject">Hafna</string>
   <string name="page_issues_title">Vandamál varðandi síðu</string>

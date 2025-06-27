@@ -69,8 +69,8 @@
   <string name="nav_item_login">Masuk tu Wikipedia</string>
   <string name="login_username_hint">Gorar pamake</string>
   <string name="login_password_hint">Hata kunci</string>
-  <string name="login_2fa_hint">Kode otentikasi dua faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Otentikasi dua faktor iporluon! Kemamu mulak tu aktivitas utamo dot masuk log dohot token 2FA mu, dungni kajo mulak.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kode otentikasi dua faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Otentikasi dua faktor iporluon! Kemamu mulak tu aktivitas utamo dot masuk log dohot token 2FA mu, dungni kajo mulak.</string>
   <string name="menu_login">Masuk log</string>
   <string name="login_activity_title" fuzzy="true">Masuk tu Wikipedia</string>
   <string name="login_in_progress_dialog_message">Dompak masuk log</string>
@@ -135,15 +135,14 @@
   <string name="privacy_policy_description">Kabijakan privasi</string>
   <string name="terms_of_use_description">Katontuan panggunaan</string>
   <string name="about_wikipedia_url" fuzzy="true">https://id.m.wikipedia.org/wiki/Wikipedia:Parihal</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm#Baca_sacara_luring_dot_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm#Baca_sacara_luring_dot_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm</string>
   <string name="about_libraries_heading">Pustaha na ipake</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi on madung itarjamahkon ni panerjemah sukarela i &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
   <string name="about_app_license" fuzzy="true">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
-  <string name="tool_tip_lang_button">Amu sonnari bisa manjalaki dot mambaca i bahat saro i aplikasi.\n\n\n\nPisat ikon anso manamba lobi bahat saro.</string>
   <string name="feed_configure_menu_select_all">Patidaon sude</string>
   <string name="feed_configure_menu_deselect_all">Pajopi sude</string>
   <string name="feed_configure_language_warning">Roaon molo inda sude mocoman kartu tarsadio i sude saro Wikipedia. Edit saro na ipili Muyu i Pangaturan.</string>

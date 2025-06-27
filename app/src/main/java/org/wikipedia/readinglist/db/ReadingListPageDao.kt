@@ -1,8 +1,14 @@
 package org.wikipedia.readinglist.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
+import androidx.room.Update
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.WikipediaApp
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.page.Namespace
@@ -29,6 +35,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage")
     fun getAllPages(): List<ReadingListPage>
 
+    @Query("SELECT COUNT(*) FROM ReadingListPage")
+    suspend fun getPagesCount(): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     fun getPageById(id: Long): ReadingListPage?
 
@@ -43,12 +52,15 @@ interface ReadingListPageDao {
         apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
-    fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
+    suspend fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
+
+    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
@@ -59,8 +71,8 @@ interface ReadingListPageDao {
     @Query("UPDATE ReadingListPage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
     fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
-    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() LIMIT 1")
-    fun getRandomPage(): ReadingListPage?
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
+    fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     fun findPageBySearchTerm(term: String): List<ReadingListPage>
@@ -98,7 +110,7 @@ interface ReadingListPageDao {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -126,18 +138,18 @@ interface ReadingListPageDao {
         }
     }
 
-    fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
+    suspend fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
         updateThumbAndDescriptionByName(pageProto.lang, pageProto.apiTitle, thumbUrl, description)
     }
 
-    fun findPageInAnyList(title: PageTitle): ReadingListPage? {
+    suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
 
-    fun findPageForSearchQueryInAnyList(searchQuery: String): SearchResults {
+    fun findPageForSearchQueryInAnyList(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
@@ -146,7 +158,7 @@ interface ReadingListPageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val pages = findPageBySearchTerm("%$normalizedQuery%")
-                .filter { StringUtil.fromHtml(it.accentInvariantTitle).contains(normalizedQuery, true) }
+                .filter { wikiSite.languageCode == it.lang && StringUtil.fromHtml(it.accentInvariantTitle).contains(normalizedQuery, true) }
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {
@@ -171,7 +183,7 @@ interface ReadingListPageDao {
         if (queueForSync) {
             ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(false, *pages.toTypedArray()))
         SavedPageSyncService.enqueue()
     }
 
@@ -251,7 +263,7 @@ interface ReadingListPageDao {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_SAVE
             insertPageIntoDb(list, page)
         }
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, page))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, page))
 
         SavedPageSyncService.enqueue()
         if (queueForSync) {
@@ -269,7 +281,7 @@ interface ReadingListPageDao {
     private fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        WikipediaApp.instance.bus.post(ArticleSavedOrDeletedEvent(true, protoPage))
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
     private fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {

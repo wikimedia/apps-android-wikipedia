@@ -9,9 +9,9 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/android_daily_stats/2.0.0")
+@SerialName("/analytics/mobile_apps/android_daily_stats/2.1.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
-                      private val languages: List<String>) : MobileAppsEvent(STREAM_NAME) {
+                      private val languages: List<String>) : MobileAppsEventWithTemp(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.daily_stats"
@@ -28,7 +28,7 @@ class DailyStatsEvent(private val app_install_age_in_days: Long,
             return System.currentTimeMillis() - getInstallTime(context)
         }
 
-        private fun getInstallTime(context: Context): Long {
+        fun getInstallTime(context: Context): Long {
             return try {
                 context.packageManager.getPackageInfo(context.packageName, 0).firstInstallTime
             } catch (e: PackageManager.NameNotFoundException) {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Agne1992
-* Amire80
 * Eitvys200
 * Gediminas
 * Mantak111
@@ -65,7 +64,7 @@
   <string name="page_edit_history_filter_by">Filtruoti pagal</string>
   <string name="page_edit_history_filter_by_all">Visi pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_user">Naudotojo pakeitimai (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Anoniniai pakeitimai (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anoniniai pakeitimai (%s)</string>
   <string name="page_edit_history_filter_by_bot">Robotų pakeitimai (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrika nuo %1$s iki %2$s</string>
   <string name="page_edit_history_empty_search_message">Pabandykite pakeisti &lt;a href=\"#\"&gt;filtrus&lt;/a&gt;, kad matytumėte daugiau keitimų</string>
@@ -140,8 +139,8 @@
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
   <string name="account_creation_password_hint">Slaptažodis</string>
-  <string name="login_2fa_hint">Dviejų veiksnių autentifikavimo kodas</string>
-  <string name="login_2fa_other_workflow_error_msg">Reikalingas dviejų veiksnių autentifikavimas! Grįžkite į pagrindinę veiklą ir prisijunkite naudodami 2FA prieigos raktą, tada bandykite dar kartą.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dviejų veiksnių autentifikavimo kodas</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Reikalingas dviejų veiksnių autentifikavimas! Grįžkite į pagrindinę veiklą ir prisijunkite naudodami 2FA prieigos raktą, tada bandykite dar kartą.</string>
   <string name="onboarding_card_login">Prisijungti</string>
   <string name="page_editing_login">Prisijungti</string>
   <string name="reading_lists_sync_login">Prisijungti</string>
@@ -228,7 +227,7 @@
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -335,7 +334,6 @@
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="tool_tip_toc_title">Greita prieiga prie turinio</string>
   <string name="tool_tip_toc_text">Dabar galite braukti kairėn, kad atidarytumėte turinį, taip pat bakstelėkite ir vilkite šį slinkties mygtuką, kad greitai pereitumėte į skirtingas straipsnio dalis.</string>
-  <string name="tool_tip_lang_button">Dabar programėlėje galite ieškoti ir skaityti keliomis Vikipedijos kalbomis.\n\n\nBakstelėkite piktogramą, kad pridėtumėte daugiau kalbų.</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>
@@ -484,8 +482,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Straipsnis yra keliuose sąrašuose</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s toliau nenebus prieinamas neprisijungus visiems skaitymo sąrašams:</string>
   <string name="reading_lists_sync_reminder_title">Įjungti skaitymo sąrašo sinchronizavimą?</string>
-  <string name="reading_lists_sync_reminder_text">Straipsniai, išsaugoti jūsų skaitymo sąrašuose, dabar gali būti sinchronizuojami su jūsų Vikipedijos paskyrą.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Straipsniai, išsaugoti jūsų skaitymo sąrašuose, dabar gali būti sinchronizuojami su jūsų Vikipedijos paskyrą.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sužinokite daugiau&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Įgalinti sinchronizavimą</string>
   <string name="reading_list_login_reminder_title">Sinchronizuoti skaitymo sąrašus</string>
   <string name="reading_lists_login_reminder_text">Skaitymo sąrašai dabar gali būti sinchronizuojami tarp įrenginių. Prisijunkite prie savo Vikipedijos paskyros ir leiskite išsaugoti savo sąrašus.</string>
@@ -812,8 +810,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Pridėti paveikslėlio antraštę</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Pridėti paveikslėlio antraštę (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Pridėti paveikslėlio žymes</string>
-  <string name="suggested_edits_snackbar_survey_text">Kokie jūsų keitimo patirtis? Prašome užpildyti trumpą apklausą apie keitimus su programėle.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Atlikti apklausą</string>
   <string name="suggested_edits_task_action_text_add">Pridėti</string>
   <string name="suggested_edits_task_action_text_translate">Versti</string>
   <string name="suggested_edits_image_captions">Paveikslėlių antraštės</string>
@@ -872,7 +868,6 @@
   <string name="suggested_edits_contribution_article_label">Straipsnis</string>
   <string name="suggested_edits_contribution_views">%s peržiūros</string>
   <string name="suggested_edits_contribution_seen_text">Peržiūrėta %s kartu per pastarąsias 30 dienų.</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Vakar</string>
   <string name="suggested_edits_encourage_account_creation_title">Ar žinojote, kad visi gali redaguoti Vikipediją?</string>
   <string name="suggested_edits_encourage_account_creation_message">Siūlomi pakeitimai yra naujas būdas Android redaguoti Vikipediją. Tai padeda atlikti mažus, bet svarbius, Vikipedijos pakeitimus.\nMes siekiame padaryti redagavimą lengvesniu ir labiau prieinamu visiems! Prisijunkite ar užsiregistruokite prie Vikipedijos, kad pradėtumėte.</string>
@@ -972,10 +967,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Išlaikykite bent vieną Vikipedijos kalbą, kuria ieškoti ir skaityti turinį</string>
   <string name="more_language_options">daugiau</string>
   <string name="add_wikipedia_languages_text">Pridėti Vikipedijos kalbas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Pašalinti kinų variantą iš jūsų programėlės kalbų?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Šiuo metu turite tradicinės ir supaprastintos kinų kalbos variantus savo programėlės kalbose. Atnaujinti jūsų programėlės kalbų nustatymus?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Keisti kalbas</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, ačiū</string>
   <string name="remove_language_dialog_cancel_button_text">Atšaukti</string>
   <string name="remove_language_dialog_ok_button_text">Gerai</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Gerai</string>
@@ -1132,11 +1123,10 @@
   <string name="revision_compare_button">Palyginti</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Keisti</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">nuolat</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 savaitei</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mėnesiui</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mėnesiams</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mėnesiams</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ir jo aptarimo puslapis buvo pašalinti iš jūsų stebimųjų sąrašo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 savaitei</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 mėnesiui</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 mėnesiams</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 mėnesiams</string>
   <string name="watchlist_expiry_dialog_title">Pasirinkite stebimųjų sąrašo laiko periodą</string>
   <string name="watchlist_expiry_dialog_permanent">Nuolat</string>
   <string name="watchlist_expiry_dialog_one_week">1 savaitė</string>
@@ -1231,8 +1221,6 @@
   <string name="reading_list_share_menu_label">Dalintis…</string>
   <string name="reading_list_share_menu_tooltip">Dalintis šiuo skaitymo sąrašu su kitais</string>
   <string name="reading_list_share_message_v2">Labas! Noriu pasidalinti savo Vikipedijos skaitymo sąrašu su tavimi:</string>
-  <string name="reading_list_share_survey_title">Ar galite mums padėti patobulinti skaitymo sąrašų dalijimąsi?</string>
-  <string name="reading_list_share_survey_body">Skaitymo sąrašų dalijimasis yra bandoma funkcijas ir mums reikia jūsų grįžtamojo ryšio, kad galėtume patobulinti ar pašalinti šią funkciją.</string>
   <string name="data_opt_in_accept">Priimti</string>
   <string name="data_opt_in_reject">Atmesti</string>
   <string name="page_issues_title">Puslapio problemos</string>

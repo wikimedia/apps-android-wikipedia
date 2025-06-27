@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentMostReadBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
@@ -22,7 +23,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
@@ -32,7 +32,7 @@ class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TopReadViewModel by viewModels { TopReadViewModel.Factory(requireActivity().intent.extras!!) }
+    private val viewModel: TopReadViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -40,10 +40,12 @@ class TopReadFragment : Fragment() {
 
         val card = viewModel.card
 
-        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        appCompatActivity.supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+        (requireActivity() as AppCompatActivity).run {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+        }
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
+        binding.root.setLayoutDirectionByLang(card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
@@ -57,8 +59,6 @@ class TopReadFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
-
-    private val appCompatActivity get() = requireActivity() as AppCompatActivity
 
     private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
         DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {

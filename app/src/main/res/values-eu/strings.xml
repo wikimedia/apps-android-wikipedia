@@ -2,7 +2,6 @@
 <!-- Authors:
 * Alexgabi
 * Amaia
-* Amire80
 * An13sa
 * Asierog
 * Atzerritik
@@ -12,6 +11,7 @@
 * Izendegi
 * Iñaki LL
 * Joseba
+* Laquin
 * Mikel Ibaiba
 * MuratTheTurkish
 * Osoitz
@@ -64,7 +64,24 @@
   <string name="image_share_via">Partekatu honela</string>
   <string name="search_redirect_from">%s horretatik birzuzenduta</string>
   <string name="page_edit_history_activity_title">Berrikuspenen historia: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Hutsik editatu laburpena</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Bilatu edo iragazi aldaketak</string>
+  <string name="page_edit_history_filter_by">Honen arabera iragazi</string>
+  <string name="page_edit_history_filter_by_all">Aldaketa guztiak (%s)</string>
+  <string name="page_edit_history_filter_by_user">Erabiltzaileen aldaketak (%s)</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimoen aldaketak (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot-en aldaketak (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$stik %2$sra bitarteko metrikak</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">aldaketa bat %2$stik</item>
+    <item quantity="other">%1$d aldaketa %2$stik</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">aldaketa bat %2$stik (%3$s)</item>
+    <item quantity="other">%1$d aldaketa %2$stik (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Saiatu &lt;a href=\"#\"&gt;iragazkiak&lt;/a&gt; aldatzen edizio gehiago ikusteko</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
   <string name="menu_page_find_in_page">Aurkitu artikuluan</string>
@@ -84,12 +101,15 @@
   <string name="feed_card_add_to_list">Gehitu irakurketa zerrendara</string>
   <string name="feed_card_add_to_default_list">Gorde</string>
   <string name="menu_page_share">Partekatu esteka</string>
+  <string name="menu_article_share">Artikulua partekatu</string>
   <string name="menu_page_article_share">Partekatu</string>
   <string name="menu_page_open_a_new_tab">Ireki leiho berria</string>
   <string name="menu_page_new_tab">Fitxa berria</string>
   <string name="menu_page_reading_lists">Irakurketa zerrendak</string>
   <string name="menu_page_recently_viewed">Duela gutxi bisitatuak</string>
+  <string name="menu_page_archive">Artxiboa</string>
   <string name="menu_long_press_open_page">Ireki</string>
+  <string name="menu_long_press_open_in_places">Lekuetan ireki</string>
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
   <string name="menu_text_select_define">Definitu</string>
@@ -133,8 +153,8 @@
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="account_creation_password_hint">Pasahitza</string>
-  <string name="login_2fa_hint">Bi-faktoreko Autentikatze Kodea</string>
-  <string name="login_2fa_other_workflow_error_msg">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
+  <string name="login_2fa_hint" fuzzy="true">Bi-faktoreko Autentikatze Kodea</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
   <string name="onboarding_card_login">Saioa hasi</string>
   <string name="page_editing_login">Saioa hasi</string>
   <string name="reading_lists_sync_login">Saioa hasi</string>
@@ -219,13 +239,11 @@
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
   <string name="about_wikipedia_url">https://eu.wikipedia.org/wiki/Laguntza:Wikipediari_buruz</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
@@ -324,7 +342,6 @@
   <string name="all_tab_items_closed">Fitxa guztiak itxi dira.</string>
   <string name="tool_tip_bookmark_icon_title">Gehitu irakurketa zerrendara</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
-  <string name="tool_tip_lang_button">Orain hainbat Wikipedia hizkuntzatan bilatu eta irakurri ahalko duzu aplikazioan.\n\nSakatu ikonoa hizkuntza gehiago gehitzeko.</string>
   <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
@@ -345,7 +362,7 @@
   <string name="error_voice_search_not_available">Barkatu, ahots ezagutza ez dago erabilgarri.</string>
   <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
   <string name="enable_location_service">Gaitu</string>
-  <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure gertukoak ikusteko.</string>
+  <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure hurbilekoak ikusteko.</string>
   <string name="location_permissions_enable_action">Piztu</string>
   <string name="error_webview_updating">Android System WebView eguneratzen ari da une honetan. Mesedez, berriz saiatu geroago.</string>
   <string name="multi_select_items_selected">%d hautatu</string>
@@ -427,8 +444,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikulua zerrenda anitzetan agertzen da</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ez da erabilgarri egongo konexiorik gabe hurrengo zerrendetan:</string>
   <string name="reading_lists_sync_reminder_title">Irakurketa zerrendaren sinkronizazioa piztu?</string>
-  <string name="reading_lists_sync_reminder_text">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="reading_lists_login_reminder_text">Irakurketa-zerrendak gailu guztietan sinkronizatu daitezke. Hasi saioa zure Wikipedia kontuan, zure zerrendak gorde ahal izateko.</string>
@@ -651,8 +668,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ikusi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Gehitu irudi oineko testua</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Gehitu irudi oineko testua (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Nolakoa izan da zure esperientzia editatzen? Mesedez, hartu tarte bat eta erantzun aplikazioan editatzeari buruzko galdetegi hau.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Bete inkesta</string>
   <string name="suggested_edits_task_action_text_add">Gehitu</string>
   <string name="suggested_edits_task_action_text_translate">Itzuli</string>
   <string name="suggested_edits_image_captions">Irudi oineko testuak</string>
@@ -708,10 +723,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Gorde ezazu behintzat Wikipedia hizkuntza bat zeinetatik edukia bilatu eta irakurri ahalko duzun.</string>
   <string name="more_language_options">gehiago</string>
   <string name="add_wikipedia_languages_text">Wikipedia hizkuntzak gehitu</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Txineraren aldaera bat kendu nahi duzu zure aplikazioaren hizkuntzetatik?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Orain txineraren bi aldaerak, bai tradizionala bai sinplifikatua dituzu zure aplikazioaren hizkuntzetan. Zure aplikazioaren hizkuntza ezarpenak eguneratu nahi dituzu?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Hizkuntzak aldatu</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ez, eskerrik asko</string>
   <string name="remove_language_dialog_ok_button_text">Ados</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Ados</string>
   <string name="protected_page_warning_dialog_ok_button_text">Ados</string>
@@ -734,4 +745,5 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Utzi</string>
   <string name="talk_snackbar_survey_text">Eskerrik asko eztabaida orrialdeak erabiltzeagatik. Lagundu nahi al duzu aplikazioa hobetzen inkesta batean parte hartuz?</string>
   <string name="talk_snackbar_survey_action_text">Hasi</string>
+  <string name="places_title">Lekuak</string>
 </resources>

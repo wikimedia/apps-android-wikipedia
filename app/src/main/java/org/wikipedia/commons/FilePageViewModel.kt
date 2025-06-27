@@ -1,8 +1,7 @@
 package org.wikipedia.commons
 
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
@@ -11,21 +10,21 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.extensions.parcelable
+import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
-class FilePageViewModel(bundle: Bundle) : ViewModel() {
-
+class FilePageViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
-    private val allowEdit = bundle.getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT, true)
-    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+    private val allowEdit = savedStateHandle[FilePageActivity.INTENT_EXTRA_ALLOW_EDIT] ?: true
+    val pageTitle = savedStateHandle.get<PageTitle>(Constants.ARG_TITLE)!!
     var pageSummaryForEdit: PageSummaryForEdit? = null
+    var mediaInfo: ImageInfo? = null
 
     private val _uiState = MutableStateFlow(Resource<FilePage>())
     val uiState = _uiState.asStateFlow()
@@ -49,7 +48,7 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
             if (firstPage?.imageInfo() == null) {
                 // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                 firstPage = ServiceFactory.get(pageTitle.wikiSite)
-                    .getImageInfoSuspend(
+                    .getImageInfo(
                         pageTitle.prefixedText,
                         pageTitle.wikiSite.languageCode
                     ).query?.firstPage()
@@ -82,7 +81,7 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                 }
                 val isEditProtected = async {
                     ServiceFactory.get(Constants.commonsWikiSite)
-                        .getProtectionInfoSuspend(pageTitle.prefixedText).query?.isEditProtected
+                        .getProtectionWithUserInfo(pageTitle.prefixedText).query?.isEditProtected
                         ?: false
                 }
 
@@ -96,17 +95,12 @@ class FilePageViewModel(bundle: Bundle) : ViewModel() {
                     thumbnailHeight = imageInfo.thumbHeight
                 )
 
+                mediaInfo = imageInfo
+
                 _uiState.value = Resource.Success(filePage)
             } ?: run {
                 _uiState.value = Resource.Error(Throwable("No image info found."))
             }
-        }
-    }
-
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return FilePageViewModel(bundle) as T
         }
     }
 }

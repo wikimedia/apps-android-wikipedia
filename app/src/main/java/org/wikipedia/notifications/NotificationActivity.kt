@@ -41,10 +41,10 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
@@ -53,7 +53,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -75,7 +75,6 @@ class NotificationActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
-    private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
 
@@ -138,8 +137,8 @@ class NotificationActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
-                        is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
+                        is Resource.Success -> onNotificationsComplete(it.data.first, it.data.second)
+                        is Resource.Error -> setErrorState(it.throwable)
                     }
                 }
             }
@@ -150,7 +149,7 @@ class NotificationActivity : BaseActivity() {
         super.onResume()
         actionMode?.let {
             postprocessAndDisplay()
-            if (SearchActionModeCallback.`is`(it)) {
+            if (SearchActionModeCallback.matches(it)) {
                 searchActionModeCallback.refreshProvider()
             }
         }
@@ -317,7 +316,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun beginMultiSelect() {
-        if (SearchActionModeCallback.`is`(actionMode)) {
+        if (SearchActionModeCallback.matches(actionMode)) {
             finishActionMode()
         }
         if (!MultiSelectActionModeCallback.isTagType(actionMode)) {
@@ -345,10 +344,11 @@ class NotificationActivity : BaseActivity() {
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
-    private inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+    private inner class NotificationItemHolder(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
+        lateinit var linkHandler: NotificationLinkHandler
         var itemPosition = -1
 
         init {
@@ -367,6 +367,7 @@ class NotificationActivity : BaseActivity() {
             val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color)
             val inactiveColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.inactive_color)
 
+            this.linkHandler = NotificationLinkHandler(this@NotificationActivity, notificationCategory)
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
                 ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
@@ -398,7 +399,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
 
             val langCode = StringUtil.dbNameToLangCode(n.wiki)
-            L10nUtil.setConditionalLayoutDirection(itemView, langCode)
+            itemView.setLayoutDirectionByLang(langCode)
 
             n.title?.let { title ->
                 StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
@@ -485,7 +486,6 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
-                        NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
                         linkHandler.onUrlClick(url, null, "")
                     }
@@ -494,6 +494,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onLongClick(v: View): Boolean {
+            if (actionMode != null) {
+                return false
+            }
             beginMultiSelect()
             toggleSelectItem(container, itemPosition)
             return true
@@ -581,13 +584,10 @@ class NotificationActivity : BaseActivity() {
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             adjustRefreshViewLayoutParams(true)
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, getSearchHintString(),
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
-                    }
-
-                    override fun onQueryTextFocusChange() {
                     }
 
                     override fun onFilterIconClick() {
@@ -604,7 +604,7 @@ class NotificationActivity : BaseActivity() {
                     }
                 })
 
-            val menuItem = menu.add(searchHintString)
+            val menuItem = menu.add(getSearchHintString())
 
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 

@@ -16,13 +16,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
-class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class TalkThreadItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onExpandClick(item: ThreadItem)
         fun onReplyClick(item: ThreadItem)
@@ -47,13 +48,15 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         binding.overflowButton.setOnClickListener {
-            val builder = MenuBuilder(context)
-            MenuInflater(context).inflate(R.menu.menu_talk_thread_item, builder)
-            builder.setCallback(overflowMenuListener)
-            val helper = MenuPopupHelper(context, builder, binding.overflowButton)
-            helper.setForceShowIcon(true)
-            helper.gravity = Gravity.END
-            helper.show()
+            (context as? Activity)?.let { activity ->
+                val builder = MenuBuilder(activity)
+                activity.menuInflater.inflate(R.menu.menu_talk_thread_item, builder)
+                builder.setCallback(overflowMenuListener)
+                val helper = MenuPopupHelper(activity, builder, binding.overflowButton)
+                helper.setForceShowIcon(true)
+                helper.gravity = Gravity.END
+                helper.show()
+            }
         }
 
         binding.userNameTapTarget.setOnClickListener {
@@ -69,6 +72,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.author, searchQuery)
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
         binding.profileImage.isInvisible = !showAuthor
+        binding.profileImage.setImageResource(if (AccountUtil.isUserNameTemporary(item.author)) R.drawable.ic_temp_account else R.drawable.ic_user_avatar)
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
             val timestamp = DateUtil.getTimeAndDateString(context, it)

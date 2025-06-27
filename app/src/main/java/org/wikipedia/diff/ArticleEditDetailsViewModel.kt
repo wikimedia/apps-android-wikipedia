@@ -1,17 +1,15 @@
 package org.wikipedia.diff
 
 import android.net.Uri
-import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -19,20 +17,19 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
-import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.edit.Edit
-import org.wikipedia.extensions.parcelable
+import org.wikipedia.edit.EditTags
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistViewModel
 
-class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
-
-    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+class ArticleEditDetailsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private val invokeSource = savedStateHandle.get<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val rollbackRights = MutableLiveData<Resource<Boolean>>()
@@ -40,23 +37,24 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val diffText = MutableLiveData<Resource<DiffResponse>>()
     val singleRevisionText = MutableLiveData<Resource<Revision>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
-    val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
+    val watchResponse = SingleLiveData<Resource<Pair<Boolean, String>>>()
     val undoEditResponse = SingleLiveData<Resource<Edit>>()
     val rollbackResponse = SingleLiveData<Resource<RollbackPostResponse>>()
 
     val fromRecentEdits = invokeSource == InvokeSource.SUGGESTED_EDITS_RECENT_EDITS
 
-    var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    var pageTitle = savedStateHandle.get<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
         private set
-    var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
+    var pageId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_PAGE_ID] ?: -1
         private set
-    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
+    var revisionToId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO] ?: -1L
     var revisionTo: MwQueryPage.Revision? = null
-    var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
+    var revisionFromId = savedStateHandle[ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM] ?: -1L
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
     var hasRollbackRights = false
     var isWatched = false
+    var ns = 0
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
@@ -82,6 +80,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 if (revisionToId < 0) {
                     revisionToId = page.lastrevid
                 }
+                ns = page.ns
                 isWatched = page.watched
                 watchedStatus.postValue(Resource.Success(page))
                 hasRollbackRights = query.userInfo?.rights?.contains("rollback") == true
@@ -198,40 +197,22 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
-            if (unwatch) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
-            } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
-            }
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                    .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
-
-            if (unwatch) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
-            } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-            }
-
-            isWatched = response.getFirst()?.watched ?: false
-            watchResponse.postValue(Resource.Success(response))
+            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, WatchlistExpiry.NEVER, isWatched, Namespace.of(ns).talk())
+            isWatched = pair.first
+            watchResponse.postValue(Resource.Success(pair))
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoEditResponse.postValue(Resource.Error(throwable))
         }) {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
-            var summary = if (undoMessage != null) "$undoMessage $comment" else comment
-            if (fromRecentEdits) {
-                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
-            }
+            val summary = if (undoMessage != null) "$undoMessage $comment" else comment
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
-                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
+                    null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null, tags = getEditTags(EditTags.APP_UNDO))
             undoEditResponse.postValue(Resource.Success(undoResponse))
         }
     }
@@ -245,19 +226,17 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
 
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            var summary = rollbackSummaryMsg
-            if (fromRecentEdits) {
-                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
-            }
-            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
+            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, rollbackSummaryMsg, user, rollbackToken, tags = getEditTags(EditTags.APP_ROLLBACK))
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
     }
 
-    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ArticleEditDetailsViewModel(bundle) as T
+    private fun getEditTags(tag: String): String {
+        val tags = mutableListOf<String>()
+        if (fromRecentEdits) {
+            tags.add(EditTags.APP_SUGGESTED_EDIT)
         }
+        tags.add(tag)
+        return tags.joinToString(",")
     }
 }

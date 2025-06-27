@@ -1,34 +1,32 @@
 package org.wikipedia.page.linkpreview
 
 import android.location.Location
-import android.os.Bundle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistViewModel
 
-class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
+class LinkPreviewViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
-    val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
+    val historyEntry = savedStateHandle.get<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
     var pageTitle = historyEntry.title
-    var location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
+    var location = savedStateHandle.get<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = historyEntry.source == HistoryEntry.SOURCE_PLACES
-    val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
+    val lastKnownLocation = savedStateHandle.get<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isInReadingList = false
 
     var isWatched = false
@@ -43,7 +41,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
             val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite)
-                .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null) }
+                .getSummaryResponse(pageTitle.prefixedText) }
 
             val watchedCall = async { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
 
@@ -78,22 +76,23 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun loadGallery(revision: Long) {
-        if (Prefs.isImageDownloadEnabled) {
+    fun loadGallery() {
+        if (Prefs.isImageDownloadEnabled && !pageTitle.isFilePage) {
             viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.w("Failed to fetch gallery collection.", throwable)
             }) {
                 val mediaList = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getMediaListSuspend(pageTitle.prefixedText, revision)
+                    .getMediaList(pageTitle.prefixedText)
                 val maxImages = 10
                 val items = mediaList.getItems("image", "video").asReversed()
                 val titleList =
                     items.filter { it.showInGallery }.map { it.title }.take(maxImages)
-                if (titleList.isEmpty()) _uiState.value = LinkPreviewViewState.Completed
-                else {
+                if (titleList.isEmpty()) {
+                    _uiState.value = LinkPreviewViewState.Completed
+                } else {
                     val response = ServiceFactory.get(
                         pageTitle.wikiSite
-                    ).getImageInfoSuspend(
+                    ).getImageInfo(
                         titleList.joinToString("|"),
                         pageTitle.wikiSite.languageCode
                     )
@@ -108,34 +107,12 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun watchOrUnwatch(unwatch: Boolean) {
-        if (isWatched) {
-            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
-        } else {
-            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
-        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.w("Failed to fetch watch status.", throwable)
+            L.e("Failed to fetch watch status.", throwable)
         }) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
-
-            if (unwatch) {
-                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
-            } else {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-            }
-            response.getFirst()?.let {
-                isWatched = it.watched
-                _uiState.value = LinkPreviewViewState.Watch(isWatched)
-            }
-        }
-    }
-
-    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LinkPreviewViewModel(bunble) as T
+            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, unwatch, WatchlistExpiry.NEVER, isWatched, pageTitle.namespace().talk())
+            isWatched = pair.first
+            _uiState.value = LinkPreviewViewState.Watch(pair)
         }
     }
 }

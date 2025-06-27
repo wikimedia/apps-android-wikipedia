@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alesaru
-* Amire80
 * Andreyyshore
 * Carcassonne93
 * Danutz
@@ -15,9 +14,11 @@
 * Matrafox
 * Minisarm
 * NGC 54
+* Paloi Sciurala
 * Rapiteanu
 * SHaran (WMF)
 * Strainu
+* Trotinel Iftode
 * WebSourceContentRO
 * Wintereu
 -->
@@ -36,6 +37,7 @@
   <string name="nav_item_suggested_edits">Editări</string>
   <string name="nav_item_more">Mai mult</string>
   <string name="nav_item_search">Caută</string>
+  <string name="nav_item_contribute">Contribuie</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -71,13 +73,18 @@
   <string name="page_edit_history_filter_by">Filtrare după</string>
   <string name="page_edit_history_filter_by_all">Toate editările (%s)</string>
   <string name="page_edit_history_filter_by_user">Editări ale utilizatorului (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Editări anon (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Editări neînregistrate (%s)</string>
   <string name="page_edit_history_filter_by_bot">Modificări bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Valori de la %1$s la %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modificări de la %2$s</item>
     <item quantity="few">%1$d modificări de la%2$s</item>
     <item quantity="other">%1$d modificări de la%2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d editări de la %2$s (%3$s)</item>
+    <item quantity="few">%1$d editări de la %2$s (%3$s)</item>
+    <item quantity="other">%1$d editări de la %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Încercați să vă schimbați &lt;a href=\"#\"&gt;filters&lt;/a&gt; pentru a vedea mai multe editări</string>
   <string name="menu_page_show_tabs">Arată filele</string>
@@ -107,6 +114,7 @@
   <string name="menu_page_recently_viewed">Văzute recent</string>
   <string name="menu_page_archive">Arhivă</string>
   <string name="menu_long_press_open_page">Deschide</string>
+  <string name="menu_long_press_open_in_places">Deschide în Locuri</string>
   <string name="menu_long_press_open_in_new_tab">Deschide în filă nouă</string>
   <string name="menu_long_press_copy_page">Copiază adresa legăturii</string>
   <string name="menu_text_select_define">Definire</string>
@@ -131,12 +139,17 @@
   <string name="langlinks_your_wikipedia_languages">Limbile tale Wikipedia</string>
   <string name="menu_save_changes">Salvează modificările</string>
   <string name="edit_saved_successfully">Modificare salvată!</string>
+  <string name="stub_article_edit_saved_successfully">Editare publicată! Modificările vor apărea după ceva timp.</string>
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>
   <string name="dialog_message_edit_failed_retry">Reîncercare</string>
   <string name="dialog_message_edit_failed_cancel">Revocare</string>
   <string name="dialog_message_leaving_edit">Modificările dumnevoastră nu au fost încă salvate. Sigur doriți să părăsiți această pagină?</string>
   <string name="dialog_message_leaving_edit_leave">Părăsește</string>
   <string name="dialog_message_leaving_edit_stay">Rămâi</string>
+  <string name="dialog_confirm_delete_donation_history_title">Confirmați ștergerea</string>
+  <string name="dialog_confirm_delete_donation_history_message">Acest lucru se va aplica numai donațiilor făcute de pe acest dispozitiv.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Șterge</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Anulare</string>
   <string name="menu_show_toc">Cuprins</string>
   <string name="search_no_results_found">Niciun rezultat găsit</string>
   <string name="search_reading_list_no_results">Nu au fost găsite rezultate în \"%s\"</string>
@@ -151,8 +164,8 @@
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="account_creation_password_hint">Parolă</string>
-  <string name="login_2fa_hint">Autentificare cu doi factori</string>
-  <string name="login_2fa_other_workflow_error_msg">Necesită autentificare cu doi factori! Reveniți la activitatea principală și conectați-vă cu token-ul 2FA, apoi reîncercați.</string>
+  <string name="login_2fa_hint" fuzzy="true">Autentificare cu doi factori</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Necesită autentificare cu doi factori! Reveniți la activitatea principală și conectați-vă cu token-ul 2FA, apoi reîncercați.</string>
   <string name="onboarding_card_login">Autentificare</string>
   <string name="page_editing_login">Autentificați-vă</string>
   <string name="reading_lists_sync_login">Autentificare</string>
@@ -173,6 +186,9 @@
   <string name="logged_out_in_background_dialog">Ați fost deconectat de pe Wikipedia. Doriți să vă conectați din nou?</string>
   <string name="logged_out_in_background_login">Autentificare</string>
   <string name="logged_out_in_background_cancel">Revocare</string>
+  <string name="account_vanish_request_title">Șterge cont</string>
+  <string name="account_vanish_request_confirm_title">Șterge avertizarea ștergere cont</string>
+  <string name="account_vanish_request_confirm">Ștergerea este o &lt;b&gt;ultimă soluție&lt;/b&gt; și ar trebui &lt;b&gt;să fie folosită numai atunci când doriți să opriți editarea pentru totdeauna&lt;/b&gt; și, de asemenea, pentru a ascunde cât mai multe dintre asocierile dvs. anterioare.&lt;br/&gt;&lt;br/&gt;Ștergerea contului de pe Wikipedia se face prin schimbarea numelui contului dvs. pentru ca alții să nu vă recunoască contribuțiile într-un proces numit dispariția contului. &lt;b&gt;Vanishing nu garantează anonimatul complet și nu elimină contribuțiile la proiecte&lt;/b&gt;.</string>
   <string name="history_empty_title">Niciun articol recent văzut aici.</string>
   <string name="history_empty_message">Urmăriți ceea ce citiți aici.</string>
   <string name="history_offline_articles_toast">Unele articole din istorie să nu pot fi vizibile în timp ce sunt offline.</string>
@@ -240,21 +256,19 @@
   <string name="terms_of_use_description">Termeni de utilizare</string>
   <string name="about_wikipedia_url">https://ro.wikipedia.org/wiki/Wikipedia:Despre_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
-  <string name="about_app_license" fuzzy="true">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
+  <string name="about_app_license">Cod sursă disponibil pe &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub o &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licență Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -342,7 +356,7 @@
   <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="gallery_edit_button_content_description">Modifică descriere imagine</string>
   <string name="gallery_add_image_caption_button">Adaugă descriere imagine</string>
-  <string name="gallery_add_image_caption_in_language_button">Adaudă descriere imagine (%s)</string>
+  <string name="gallery_add_image_caption_in_language_button">Adaugă legendă (%s)</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>
   <string name="cc_logo">Licență Creative Commons</string>
@@ -365,7 +379,6 @@
   <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
   <string name="tool_tip_toc_title">Cuprins acces rapid</string>
   <string name="tool_tip_toc_text">Acum puteți glisa spre stânga pentru a deschide cuprinsul și, de asemenea, atingeți și trageți pe acest buton pentru a trece rapid la diferite secțiuni ale unui articol.</string>
-  <string name="tool_tip_lang_button">Acum puteți căuta și citi în mai multe limbi Wikipedia din aplicație.\n\n\nAtingeți pictograma pentru a adăuga mai multe limbi.</string>
   <string name="error_response_malformed">Răspunsul de la server nu a fost formatat corect.</string>
   <string name="error_unknown">A apărut o eroare necunoscută.</string>
   <string name="format_error_server_message">Mesaj: „%s”</string>
@@ -907,10 +920,8 @@
   <string name="suggested_edits_article_cta_image_caption_in_language">Adaugă descriere imagine (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vizualizare</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adaugă descriere imagine</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adaudă descriere imagine (%s)</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adaugă legendă (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Adaugă etichete imagine</string>
-  <string name="suggested_edits_snackbar_survey_text">Cum a fost experiența ta de editare? Vă rugăm să luați un moment pentru a completa sondajul cu privire la editarea în aplicație.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participă la sondaj</string>
   <string name="suggested_edits_task_action_text_add">Adaugă</string>
   <string name="suggested_edits_task_action_text_translate">Traduceți</string>
   <string name="suggested_edits_image_captions">Descrieri de imagine</string>
@@ -995,7 +1006,6 @@
     <item quantity="few">Ai adăugat etichetele %d</item>
     <item quantity="other">Ai adăugat etichetele %d</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_encourage_account_creation_title">Știați că toată lumea poate edita Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Editările sugerate sunt un nou mod de a edita Wikipedia pe Android. Vă ajută să faceți contribuții mici, dar vitale la Wikipedia.\nȚelul nostru este să facem procesul de editare și mai accesibil pentru toată lumea! Autentificați-vă sau alăturați-vă Wikipediei pentru a începe.</string>
@@ -1108,10 +1118,6 @@
   <string name="wikipedia_languages_remove_warning_dialog_content">Păstrați cel puțin o limbă Wikipedia din care să căutați și să citiți conținut.</string>
   <string name="more_language_options">mai mult</string>
   <string name="add_wikipedia_languages_text">Adaugă limbi Wikipedia</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eliminați o variantă chineză din limbile aplicației dvs.?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">În prezent, aveți variante de chineză tradiționale și simplificate setate în limbile aplicației dvs. Actualizați setările limbilor din aplicație?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifică limbile</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nu, mulțumesc</string>
   <string name="remove_language_dialog_cancel_button_text">Anulează</string>
   <string name="remove_language_dialog_ok_button_text">OK</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
@@ -1276,14 +1282,12 @@
   <string name="revision_rollback_success">Modificările au fost anulate.</string>
   <string name="revision_compare_button">Compară</string>
   <string name="revision_compare_two_only">Trebuie selectate doar două modificări</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s și pagina de discuție a sa au fost adăugate la lista de urmărire a dvs. %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pentru 1 săptămână</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pentru 1 lună</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pentru 3 luni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pentru 6 luni</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pentru 1 săptămână</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pentru 1 lună</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pentru 3 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pentru 6 luni</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
@@ -1354,10 +1358,6 @@
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil cu rea-credință</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
-  <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
-  <string name="patroller_diff_feedback_dialog_option_neutral">Neutru</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nemulțumit</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
   <string name="email_report_image_recommendations_subject">Raport de problemă - Funcția Recomandări de imagini</string>
@@ -1370,9 +1370,15 @@
   <string name="places_filter_title">Filtrare după limbă</string>
   <string name="places_toggle_buttons_map">Hartă</string>
   <string name="places_toggle_buttons_list">Listă</string>
-  <string name="places_nav_tab_tooltip_message">Descoperiți articole Wikipedia din jurul vostru cu Locuri</string>
-  <string name="places_survey_very_satisfied_option">Foarte mulțumit</string>
-  <string name="places_survey_very_unsatisfied_option">Foarte nemulțumit</string>
-  <string name="places_survey_dialog_title">Ajută să îmbunătățim „Locuri”</string>
-  <string name="places_survey_feedback_dialog_title">Cum se poate îmbunătăți „Locuri”?</string>
+  <string name="survey_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
+  <string name="survey_dialog_option_satisfied">Mulțumit</string>
+  <string name="survey_dialog_option_neutral">Neutru</string>
+  <string name="survey_dialog_option_unsatisfied">Nemulțumit</string>
+  <string name="survey_dialog_option_very_satisfied">Foarte mulțumit</string>
+  <string name="survey_dialog_option_very_unsatisfied">Foarte nemulțumit</string>
+  <string name="survey_dialog_next">Următorul</string>
+  <string name="survey_dialog_general_yes">Da</string>
+  <string name="survey_dialog_general_no">Nu</string>
+  <string name="survey_dialog_general_maybe">Pot fi</string>
+  <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
 </resources>

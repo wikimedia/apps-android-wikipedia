@@ -1,19 +1,19 @@
 package org.wikipedia.page
 
 import android.widget.Toast
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -23,7 +23,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
@@ -42,31 +41,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    private fun interface ErrorCallback {
-        fun call(error: Throwable)
-    }
-
-    private var networkErrorCallback: ErrorCallback? = null
-    private val app = WikipediaApp.instance
-    private val disposables = CompositeDisposable()
-
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
-        pageLoadCheckReadingLists()
+        pageLoad()
     }
 
-    fun loadFromBackStack(isRefresh: Boolean = false) {
+    fun loadFromBackStack() {
         if (currentTab.backStack.isEmpty()) {
             return
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY, isRefresh)
+        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY)
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
@@ -121,87 +112,97 @@ class PageFragmentLoadState(private var model: PageViewModel,
         if (!fragment.isAdded) {
             return
         }
-        val callback = networkErrorCallback
-        networkErrorCallback = null
         fragment.requireActivity().invalidateOptionsMenu()
-        callback?.call(caught)
+        fragment.onPageLoadError(caught)
     }
 
-    private fun pageLoadCheckReadingLists() {
-        model.title?.let {
-            disposables.clear()
-            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
-                    .subscribe())
-        }
-    }
-
-    private fun pageLoadFromNetwork(errorCallback: ErrorCallback) {
+    private fun pageLoad() {
         model.title?.let { title ->
-            fragment.updateQuickActionsAndMenuOptions()
-            networkErrorCallback = errorCallback
-            if (!fragment.isAdded) {
-                return
-            }
-            fragment.requireActivity().invalidateOptionsMenu()
-            fragment.callback()?.onPageUpdateProgressBar(true)
-            model.page = null
-            val delayLoadHtml = title.prefixedText.contains(":")
-            if (!delayLoadHtml) {
-                bridge.resetHtml(title)
-            }
-            if (title.namespace() === Namespace.SPECIAL) {
-                // Short-circuit the entire process of fetching the Summary, since Special: pages
-                // are not supported in RestBase.
-                bridge.resetHtml(title)
-                leadImagesHandler.loadLeadImage()
-                fragment.requireActivity().invalidateOptionsMenu()
-                fragment.onPageMetadataLoaded()
-                return
-            }
-            disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
-                    .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                            if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                            title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
-                    if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
-                    else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse())) { first, second -> Pair(first, second) }
-                .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        val pageSummaryResponse = pair.first
-                        val watchedResponse = pair.second
-                        val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                        val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
-                        if (pageSummaryResponse.body() == null) {
-                            throw RuntimeException("Summary response was invalid.")
-                        }
-                        val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
-                        createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                            showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                        }
-                        if (delayLoadHtml) {
-                            bridge.resetHtml(title)
-                        }
-                        fragment.onPageMetadataLoaded(redirectedFrom)
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                    L.e("Page details network error: ", throwable)
+                    commonSectionFetchOnCatch(throwable)
+                }) {
+                    model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
-                        if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
-                            checkAnonNotifications(title)
-                        }
-                    }) {
-                        L.e("Page details network response error: ", it)
-                        commonSectionFetchOnCatch(it)
+                    fragment.updateQuickActionsAndMenuOptions()
+                    fragment.requireActivity().invalidateOptionsMenu()
+                    fragment.callback()?.onPageUpdateProgressBar(true)
+                    model.page = null
+                    val delayLoadHtml = title.prefixedText.contains(":")
+                    if (!delayLoadHtml) {
+                        bridge.resetHtml(title)
                     }
-            )
+                    if (title.namespace() === Namespace.SPECIAL) {
+                        // Short-circuit the entire process of fetching the Summary, since Special: pages
+                        // are not supported in RestBase.
+                        bridge.resetHtml(title)
+                        leadImagesHandler.loadLeadImage()
+                        fragment.requireActivity().invalidateOptionsMenu()
+                        fragment.onPageMetadataLoaded()
+                        return@launch
+                    }
+
+                    val pageSummaryRequest = async {
+                        ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
+                            saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                            langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
+                    }
+                    val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
+                    val watchedRequest = async {
+                        if (makeWatchRequest) {
+                            ServiceFactory.get(title.wikiSite).getWatchedStatusWithCategories(title.prefixedText)
+                        } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                            AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+                        } else {
+                            MwQueryResponse()
+                        }
+                    }
+                    val categoriesRequest = async {
+                        if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
+                            ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+                        } else {
+                            MwQueryResponse()
+                        }
+                    }
+                    val pageSummaryResponse = pageSummaryRequest.await()
+                    val watchedResponse = watchedRequest.await()
+                    val categoriesResponse = categoriesRequest.await()
+                    val isWatched = watchedResponse.query?.firstPage()?.watched == true
+                    val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
+                    if (pageSummaryResponse.body() == null) {
+                        throw RuntimeException("Summary response was invalid.")
+                    }
+                    val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
+                    createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+                    if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
+                        showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
+                    }
+
+                    val categoryList = (categoriesResponse.query ?: watchedResponse.query)?.firstPage()?.categories?.map { category ->
+                        Category(title = category.title, lang = title.wikiSite.languageCode)
+                    }.orEmpty()
+                    if (categoryList.isNotEmpty()) {
+                        AppDatabase.instance.categoryDao().upsertAll(categoryList)
+                    }
+
+                    if (delayLoadHtml) {
+                        bridge.resetHtml(title)
+                    }
+                    fragment.onPageMetadataLoaded(redirectedFrom)
+
+                    if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                        checkAnonNotifications(title)
+                    }
+            }
         }
     }
 
     private fun checkAnonNotifications(title: PageTitle) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val response = ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            val response = ServiceFactory.get(title.wikiSite)
+                .getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
                 fragment.showAnonNotification()
             }
@@ -226,7 +227,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         val pageSummary = response.body()
-        val page = pageSummary?.toPage(model.title!!)
+        val page = pageSummary?.toPage(model.title)
         model.page = page
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
@@ -236,28 +237,45 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 title.fragment = response.raw().request.url.fragment
             }
             if (title.description.isNullOrEmpty()) {
-                app.appSessionEvent.noDescription()
+                WikipediaApp.instance.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()
             }
+            title.thumbUrl = pageSummary?.thumbnailUrl
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
 
-            // Update our history entry, in case the Title was changed (i.e. normalized)
-            val curEntry = model.curEntry
-            curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
-                model.curEntry!!.referrer = it.referrer
-            }
-
             // Update our tab list to prevent ZH variants issue.
-            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
+            WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
 
-            // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
-            title.thumbUrl = pageImage.imageName
+            // Update our history entry, in case the Title was changed (i.e. normalized)
+            model.curEntry?.let {
+                val entry = HistoryEntry(
+                    title,
+                    it.source,
+                    timestamp = it.timestamp
+                ).apply {
+                    referrer = it.referrer
+                    prevId = it.prevId
+                }
+                model.curEntry = entry
+
+                MainScope().launch {
+                    // Insert and/or update this history entry in the DB
+                    AppDatabase.instance.historyEntryDao().upsert(entry).run {
+                        model.curEntry?.id = this
+                    }
+
+                    // Update metadata in the DB
+                    AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
+                }
+
+                // And finally, count this as a page view.
+                WikipediaApp.instance.appSessionEvent.pageViewed(entry)
+                ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
+                ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
+            }
         }
     }
 }

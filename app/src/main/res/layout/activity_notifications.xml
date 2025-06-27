@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/notifications_coordinator_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/notifications_toolbar_container"
@@ -46,7 +47,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <org.wikipedia.views.WikiSwipeRefreshLayout
         android:id="@+id/notifications_refresh_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -140,5 +141,5 @@
 
         </FrameLayout>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </org.wikipedia.views.WikiSwipeRefreshLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

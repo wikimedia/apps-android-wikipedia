@@ -24,7 +24,7 @@ open class PageSummary(
     var description: String? = null,
     @SerialName("originalimage") private val originalImage: Thumbnail? = null,
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("extract_html") var extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
     @Serializable(with = LocationSerializer::class) var coordinates: Location? = null,
     val type: String = TYPE_STANDARD,
@@ -37,9 +37,6 @@ open class PageSummary(
 ) : Parcelable {
 
     val thumbnailUrl get() = thumbnail?.source
-    val thumbnailWidth get() = thumbnail?.width ?: 0
-    val thumbnailHeight get() = thumbnail?.height ?: 0
-    val originalImageUrl get() = originalImage?.source
     val apiTitle get() = titles?.canonical.orEmpty()
 
     // TODO: Make this return CharSequence, and automatically convert from HTML.
@@ -47,7 +44,7 @@ open class PageSummary(
 
     val leadImageName get() = thumbnailUrl?.let { getFilenameFromUploadUrl(it) }
 
-    val ns: Namespace get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
+    val ns get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
 
     constructor(displayTitle: String, prefixTitle: String, description: String?,
                 extract: String?, thumbnail: String?, lang: String) : this(
@@ -55,14 +52,16 @@ open class PageSummary(
         thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang
     )
 
-    fun toPage(title: PageTitle): Page {
-        return Page(adjustPageTitle(title), pageProperties = PageProperties(this))
+    fun toPage(title: PageTitle?): Page? {
+        return title?.let {
+            Page(adjustPageTitle(it), pageProperties = PageProperties(this))
+        }
     }
 
     private fun adjustPageTitle(title: PageTitle): PageTitle {
         var newTitle = title
-        if (titles?.canonical != null) {
-            newTitle = PageTitle(titles?.canonical, title.wikiSite, title.thumbUrl)
+        titles?.canonical?.let {
+            newTitle = PageTitle(it, title.wikiSite, title.thumbUrl)
             newTitle.fragment = title.fragment
         }
         newTitle.description = description
@@ -97,6 +96,5 @@ open class PageSummary(
         const val TYPE_STANDARD = "standard"
         const val TYPE_DISAMBIGUATION = "disambiguation"
         const val TYPE_MAIN_PAGE = "mainpage"
-        const val TYPE_NO_EXTRACT = "no-extract"
     }
 }

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -35,7 +36,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            <org.wikipedia.views.WikiSwipeRefreshLayout
                 android:id="@+id/edit_history_refresh_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -88,7 +89,7 @@
 
                 </FrameLayout>
 
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            </org.wikipedia.views.WikiSwipeRefreshLayout>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
