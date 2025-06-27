@@ -1,17 +1,35 @@
 package org.wikipedia.dataclient.okhttp
 
-import okhttp3.*
+import kotlinx.coroutines.runBlocking
+import okhttp3.Interceptor
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okio.*
+import okhttp3.Protocol
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.ResponseBody
+import okio.Buffer
+import okio.BufferedSink
+import okio.BufferedSource
+import okio.Source
+import okio.Timeout
+import okio.buffer
+import okio.sink
+import okio.source
+import okio.use
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import java.io.*
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.io.IOException
-import java.util.*
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 
 class OfflineCacheInterceptor : Interceptor {
 
@@ -49,7 +67,9 @@ class OfflineCacheInterceptor : Interceptor {
                 throw networkException
             }
         }
-        val obj = AppDatabase.instance.offlineObjectDao().findObject(url, lang)
+        val obj = runBlocking {
+            AppDatabase.instance.offlineObjectDao().findObject(url, lang)
+        }
         if (obj == null) {
             L.w("Offline object not present in database.")
             throw networkException
@@ -139,8 +159,8 @@ class OfflineCacheInterceptor : Interceptor {
         } ?: response
     }
 
-    private inner class CacheWritingSource constructor(private val source: BufferedSource, private val cacheSink: BufferedSink,
-                                                       private val obj: OfflineObject, private val title: String) : Source {
+    private inner class CacheWritingSource(private val source: BufferedSource, private val cacheSink: BufferedSink,
+                                           private val obj: OfflineObject, private val title: String) : Source {
         private var cacheRequestClosed = false
         private var failed = false
 
@@ -163,8 +183,9 @@ class OfflineCacheInterceptor : Interceptor {
                     // The cache response is complete!
                     cacheSink.close()
                     if (!failed) {
-                        // update the record in the database!
-                        AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        runBlocking {
+                            AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        }
                     }
                 }
                 return -1
@@ -192,9 +213,9 @@ class OfflineCacheInterceptor : Interceptor {
         }
     }
 
-    private inner class CacheWritingResponseBody constructor(private val source: Source,
-                                                             private val contentType: String?,
-                                                             private val contentLength: Long) : ResponseBody() {
+    private inner class CacheWritingResponseBody(private val source: Source,
+                                                 private val contentType: String?,
+                                                 private val contentLength: Long) : ResponseBody() {
         override fun contentType(): MediaType? {
             return contentType?.toMediaTypeOrNull()
         }
@@ -208,8 +229,8 @@ class OfflineCacheInterceptor : Interceptor {
         }
     }
 
-    private inner class CachedResponseBody constructor(private val file: File,
-                                                       private val contentType: String?) : ResponseBody() {
+    private inner class CachedResponseBody(private val file: File,
+                                           private val contentType: String?) : ResponseBody() {
         override fun contentType(): MediaType? {
             return contentType?.toMediaTypeOrNull()
         }

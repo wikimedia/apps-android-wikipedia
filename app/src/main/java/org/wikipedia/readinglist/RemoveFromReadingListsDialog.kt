@@ -1,11 +1,15 @@
 package org.wikipedia.readinglist
 
-import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.log.L
 
 class RemoveFromReadingListsDialog(private val listsContainingPage: List<ReadingList>) {
     fun interface Callback {
@@ -16,32 +20,42 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
         ReadingList.sort(listsContainingPage as MutableList<ReadingList>, ReadingList.SORT_BY_NAME_ASC)
     }
 
-    fun deleteOrShowDialog(context: Context, callback: Callback?) {
-        if (listsContainingPage.isNullOrEmpty()) {
+    fun deleteOrShowDialog(activity: AppCompatActivity, callback: Callback?) {
+        if (listsContainingPage.isEmpty()) {
             return
         }
         if (listsContainingPage.size == 1 && listsContainingPage[0].pages.isNotEmpty()) {
-            AppDatabase.instance.readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
-            callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
+            activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.w(throwable)
+            }) {
+                AppDatabase.instance.readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+                callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
+            }
             return
         }
-        showDialog(context, callback)
+        showDialog(activity, callback)
     }
 
-    private fun showDialog(context: Context, callback: Callback?) {
+    private fun showDialog(activity: AppCompatActivity, callback: Callback?) {
         val selectedLists = BooleanArray(listsContainingPage.size)
-        MaterialAlertDialogBuilder(context)
+        MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.reading_list_remove_from_lists)
             .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text) { _, _ ->
-                val newLists = (listsContainingPage zip selectedLists.asIterable())
-                    .filter { (_, selected) -> selected }
-                    .map { (listContainingPage, _) ->
-                        AppDatabase.instance.readingListPageDao().markPagesForDeletion(listContainingPage,
-                            listOf(listContainingPage.pages[0]))
-                        listContainingPage
+                activity.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                    L.w(throwable)
+                }) {
+                    val newLists = (listsContainingPage zip selectedLists.asIterable())
+                        .filter { (_, selected) -> selected }
+                        .map { (listContainingPage, _) ->
+                            AppDatabase.instance.readingListPageDao().markPagesForDeletion(
+                                listContainingPage,
+                                listOf(listContainingPage.pages[0])
+                            )
+                            listContainingPage
+                        }
+                    if (newLists.isNotEmpty()) {
+                        callback?.onDeleted(newLists, listsContainingPage[0].pages[0])
                     }
-                if (newLists.isNotEmpty()) {
-                    callback?.onDeleted(newLists, listsContainingPage[0].pages[0])
                 }
             }
             .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
