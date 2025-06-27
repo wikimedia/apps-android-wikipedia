@@ -24,31 +24,28 @@ import org.wikipedia.util.StringUtil
 @Dao
 interface ReadingListPageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertReadingListPage(page: ReadingListPage): Long
+    suspend fun insertReadingListPage(page: ReadingListPage): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateReadingListPage(page: ReadingListPage)
+    suspend fun updateReadingListPage(page: ReadingListPage)
 
     @Delete
-    fun deleteReadingListPage(page: ReadingListPage)
-
-    @Query("SELECT * FROM ReadingListPage")
-    fun getAllPages(): List<ReadingListPage>
+    suspend fun deleteReadingListPage(page: ReadingListPage)
 
     @Query("SELECT COUNT(*) FROM ReadingListPage")
     suspend fun getPagesCount(): Int
 
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
-    fun getPageById(id: Long): ReadingListPage?
+    suspend fun getPageById(id: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE status = :status AND offline = :offline")
-    fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
+    suspend fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE status = :status")
-    fun getPagesByStatus(status: Long): List<ReadingListPage>
+    suspend fun getPagesByStatus(status: Long): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND listId = :listId AND status != :excludedStatus")
-    fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
+    suspend fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
@@ -56,49 +53,49 @@ interface ReadingListPageDao {
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
-    fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
+    suspend fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
     suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
-    fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
+    suspend fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 
     @Query("UPDATE ReadingListPage SET thumbUrl = :thumbUrl, description = :description WHERE lang = :lang AND apiTitle = :apiTitle")
-    fun updateThumbAndDescriptionByName(lang: String, apiTitle: String, thumbUrl: String?, description: String?)
+    suspend fun updateThumbAndDescriptionByName(lang: String, apiTitle: String, thumbUrl: String?, description: String?)
 
     @Query("UPDATE ReadingListPage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
-    fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
+    suspend fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
     @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
-    fun getRandomPage(lang: String): ReadingListPage?
+    suspend fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
-    fun findPageBySearchTerm(term: String): List<ReadingListPage>
+    suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
 
     @Query("DELETE FROM ReadingListPage WHERE status = :status")
-    fun deletePagesByStatus(status: Long)
+    suspend fun deletePagesByStatus(status: Long)
 
     @Query("UPDATE ReadingListPage SET remoteId = -1")
-    fun markAllPagesUnsynced()
+    suspend fun markAllPagesUnsynced()
 
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
-    fun getAllPagesToBeSynced(): List<ReadingListPage>
+    suspend fun getAllPagesToBeSynced(): List<ReadingListPage>
 
-    fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
+    suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
-    fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
+    suspend fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
 
-    fun getAllPagesToBeUnsaved() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
+    suspend fun getAllPagesToBeUnsaved() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
 
-    fun getAllPagesToBeDeleted() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+    suspend fun getAllPagesToBeDeleted() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
 
-    fun populateListPages(list: ReadingList) {
+    suspend fun populateListPages(list: ReadingList) {
         list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE))
     }
 
-    fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean) {
+    suspend fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean) {
         addPagesToList(list, pages)
         if (queueForSync) {
             ReadingListSyncAdapter.manualSync()
@@ -106,7 +103,7 @@ interface ReadingListPageDao {
     }
 
     @Transaction
-    fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>) {
+    suspend fun addPagesToList(list: ReadingList, pages: List<ReadingListPage>) {
         for (page in pages) {
             insertPageIntoDb(list, page)
         }
@@ -115,7 +112,7 @@ interface ReadingListPageDao {
     }
 
     @Transaction
-    fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
+    suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
         val addedTitles = mutableListOf<String>()
         for (title in titles) {
             if (getPageByTitle(list, title) != null) {
@@ -132,7 +129,7 @@ interface ReadingListPageDao {
     }
 
     @Transaction
-    fun updatePages(pages: List<ReadingListPage>) {
+    suspend fun updatePages(pages: List<ReadingListPage>) {
         for (page in pages) {
             updateReadingListPage(page)
         }
@@ -149,7 +146,7 @@ interface ReadingListPageDao {
         )
     }
 
-    fun findPageForSearchQueryInAnyList(wikiSite: WikiSite, searchQuery: String): SearchResults {
+    suspend fun findPageForSearchQueryInAnyList(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
@@ -166,16 +163,16 @@ interface ReadingListPageDao {
         }.toMutableList())
     }
 
-    fun pageExistsInList(list: ReadingList, title: PageTitle): Boolean {
+    suspend fun pageExistsInList(list: ReadingList, title: PageTitle): Boolean {
         return getPageByTitle(list, title) != null
     }
 
-    fun resetUnsavedPageStatus() {
+    suspend fun resetUnsavedPageStatus() {
         updateStatus(ReadingListPage.STATUS_SAVED, ReadingListPage.STATUS_QUEUE_FOR_SAVE, false)
     }
 
     @Transaction
-    fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
+    suspend fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
         for (page in pages) {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
             updateReadingListPage(page)
@@ -187,12 +184,12 @@ interface ReadingListPageDao {
         SavedPageSyncService.enqueue()
     }
 
-    fun markPageForOffline(page: ReadingListPage, offline: Boolean, forcedSave: Boolean) {
+    suspend fun markPageForOffline(page: ReadingListPage, offline: Boolean, forcedSave: Boolean) {
         markPagesForOffline(listOf(page), offline, forcedSave)
     }
 
     @Transaction
-    fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
+    suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
         for (page in pages) {
             if (page.offline == offline && !forcedSave) {
                 continue
@@ -206,12 +203,12 @@ interface ReadingListPageDao {
         SavedPageSyncService.enqueue()
     }
 
-    fun purgeDeletedPages() {
+    suspend fun purgeDeletedPages() {
         deletePagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
     }
 
     @Transaction
-    fun movePagesToListAndDeleteSourcePages(sourceList: ReadingList, destList: ReadingList, titles: List<PageTitle>): List<String> {
+    suspend fun movePagesToListAndDeleteSourcePages(sourceList: ReadingList, destList: ReadingList, titles: List<PageTitle>): List<String> {
         val movedTitles = mutableListOf<String>()
         for (title in titles) {
             movePageToList(sourceList, destList, title)
@@ -224,7 +221,7 @@ interface ReadingListPageDao {
         return movedTitles
     }
 
-    private fun movePageToList(sourceList: ReadingList, destList: ReadingList, title: PageTitle) {
+    private suspend fun movePageToList(sourceList: ReadingList, destList: ReadingList, title: PageTitle) {
         if (sourceList.id == destList.id) {
             return
         }
@@ -239,14 +236,14 @@ interface ReadingListPageDao {
         }
     }
 
-    fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
+    suspend fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
 
-    fun addPageToList(list: ReadingList, title: PageTitle, queueForSync: Boolean) {
+    suspend fun addPageToList(list: ReadingList, title: PageTitle, queueForSync: Boolean) {
         addPageToList(list, title)
         SavedPageSyncService.enqueue()
         if (queueForSync) {
@@ -255,7 +252,7 @@ interface ReadingListPageDao {
     }
 
     @Transaction
-    fun addPageToLists(lists: List<ReadingList>, page: ReadingListPage, queueForSync: Boolean) {
+    suspend fun addPageToLists(lists: List<ReadingList>, page: ReadingListPage, queueForSync: Boolean) {
         for (list in lists) {
             if (getPageByTitle(list, ReadingListPage.toPageTitle(page)) != null) {
                 continue
@@ -271,20 +268,20 @@ interface ReadingListPageDao {
         }
     }
 
-    fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
+    suspend fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
 
-    private fun addPageToList(list: ReadingList, title: PageTitle) {
+    private suspend fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
         FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
-    private fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
+    private suspend fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
         page.listId = list.id
         page.id = insertReadingListPage(page)
     }
