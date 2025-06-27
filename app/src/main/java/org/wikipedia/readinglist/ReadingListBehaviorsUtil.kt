@@ -168,12 +168,9 @@ object ReadingListBehaviorsUtil {
         }
 
         activity.lifecycleScope.launch(exceptionHandler) {
-            val tempLists = AppDatabase.instance.readingListDao().getListsWithoutContents()
-            val existingTitles = ArrayList<String>()
-            for (list in tempLists) {
-                existingTitles.add(list.title)
-            }
-            existingTitles.remove(readingList.title)
+            val existingTitles = AppDatabase.instance.readingListDao().getListsWithoutContents()
+                .map { it.title }
+                .filterNot { it == readingList.title }
 
             ReadingListTitleDialog.readingListTitleDialog(
                 activity, readingList.title, readingList.description, existingTitles,
@@ -223,12 +220,8 @@ object ReadingListBehaviorsUtil {
                         pages.size, pages.size, readingList.title))
                 .setAction(R.string.reading_list_item_delete_undo) {
                     activity.lifecycleScope.launch(exceptionHandler) {
-                        val newPages = ArrayList<ReadingListPage>()
-                        for (page in pages) {
-                            newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-                        }
-                        AppDatabase.instance.readingListPageDao()
-                            .addPagesToList(readingList, newPages, true)
+                        val newPages = pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
+                        AppDatabase.instance.readingListPageDao().addPagesToList(readingList, newPages, true)
                         readingList.pages.addAll(newPages)
                         callback.onUndoDeleteClicked()
                     }
@@ -245,10 +238,7 @@ object ReadingListBehaviorsUtil {
                 activity.lifecycleScope.launch(exceptionHandler) {
                     val newList = AppDatabase.instance.readingListDao()
                         .createList(readingList.title, readingList.description)
-                    val newPages = ArrayList<ReadingListPage>()
-                    for (page in readingList.pages) {
-                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-                    }
+                    val newPages = readingList.pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
                     AppDatabase.instance.readingListPageDao()
                         .addPagesToList(newList, newPages, true)
                     callback.onUndoDeleteClicked()
@@ -268,9 +258,8 @@ object ReadingListBehaviorsUtil {
                     readingLists.filterNot { it.isDefault }.forEach {
                         val newList = AppDatabase.instance.readingListDao()
                             .createList(it.title, it.description)
-                        val newPages = ArrayList<ReadingListPage>()
-                        for (page in it.pages) {
-                            newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                        val newPages = it.pages.map { page ->
+                            ReadingListPage(ReadingListPage.toPageTitle(page))
                         }
                         AppDatabase.instance.readingListPageDao()
                             .addPagesToList(newList, newPages, true)

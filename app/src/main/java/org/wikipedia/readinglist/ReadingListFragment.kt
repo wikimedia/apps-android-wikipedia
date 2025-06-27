@@ -623,16 +623,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         it.description = null
                     }
                     viewModel.saveReadingList(it)
-
-                    Prefs.readingListRecentReceivedId = it.id
-
-                    if (isRecommendedList) {
-                        RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = it.pages.size)
-                    }
-
-                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
-                    requireActivity().finish()
                 }
                 .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
                 .create()
