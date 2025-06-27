@@ -14,11 +14,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
     - name: Checkout submodules
       run: git submodule update --init --recursive
     - name: Build, test, and lint
-      run: ./gradlew clean assembleAlphaRelease
+      run: ./gradlew clean assembleAlphaRelease --no-daemon
     - name: List
       run: ls -alR ./app/build/outputs/apk/
     - uses: kevin-david/zipalign-sign-android-release@v2
@@ -31,8 +32,8 @@ jobs:
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
-        # override default build-tools version (33.0.0) -- optional
-        BUILD_TOOLS_VERSION: "34.0.0"
+        # override default build-tools version (optional)
+        BUILD_TOOLS_VERSION: "35.0.0"
     - uses: actions/upload-artifact@v4
       name: Upload APK artifact
       with:

@@ -15,7 +15,10 @@ import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemPageListEntryBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -36,7 +39,7 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
     var item: T? = null
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         isFocusable = true
         setOnClickListeners()
@@ -75,10 +78,10 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
             } else {
                 binding.pageListItemImage.visibility = VISIBLE
                 binding.pageListItemImage.contentDescription = context.getString(R.string.image_content_description, binding.pageListItemTitle.text)
-                ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
+                ViewUtil.loadImage(binding.pageListItemImage, imageUrl)
             }
             binding.pageListItemSelectedImage.visibility = GONE
-            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
+            binding.pageListItemContainer.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, android.R.attr.selectableItemBackground))
         }
     }
 
@@ -137,12 +140,6 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         binding.pageListItemAction.contentDescription = context.getString(id)
     }
 
-    fun setListItemImageDimensions(width: Int, height: Int) {
-        binding.pageListItemImage.layoutParams.width = width
-        binding.pageListItemImage.layoutParams.height = height
-        requestLayout()
-    }
-
     fun setUpChipGroup(readingLists: List<ReadingList>) {
         binding.chipsScrollview.visibility = VISIBLE
         binding.chipsScrollview.setFadingEdgeLength(0)
@@ -174,5 +171,11 @@ class PageItemView<T>(context: Context) : FrameLayout(context) {
         binding.pageListItemTitle.alpha = alpha
         binding.pageListItemDescription.alpha = alpha
         binding.pageListItemImage.alpha = alpha
+    }
+
+    fun setViewsRead(read: Boolean) {
+        val readBackground = if (read) R.attr.background_color else R.attr.paper_color
+        binding.pageListItemTitle.setTypeface(Typeface.SANS_SERIF, if (read) Typeface.NORMAL else Typeface.BOLD)
+        binding.pageListItemContainer.setBackgroundColor(ResourceUtil.getThemedColor(context, readBackground))
     }
 }

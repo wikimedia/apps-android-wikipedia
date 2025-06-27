@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
+    alias(libs.plugins.compose.compiler)
 }
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -20,7 +21,7 @@ static def computeVersionName(versionCode, label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    compileSdk 34
+    compileSdk 35
 
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -36,8 +37,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdk 21
-        targetSdk 34
-        versionCode 50512
+        targetSdk 35
+        versionCode 50538
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -63,6 +64,7 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig true
+        compose true
     }
 
     androidResources {
@@ -162,7 +164,6 @@ configurations {
 }
 
 apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -194,10 +195,6 @@ dependencies {
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
-
-    implementation libs.glide
-    implementation libs.okhttp3.integration
-    ksp libs.glide.ksp
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
@@ -263,6 +260,29 @@ dependencies {
     androidTestImplementation libs.androidx.uiautomator
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
+
+    // Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.gif)
+    implementation(libs.coil.svg)
+
+    // Compose Library
+    def composeBom = platform(libs.composeBom)
+    implementation(composeBom)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.compose.activity)
+    implementation(libs.compose.view.model)
+    implementation(libs.androidx.navigation.compose)
+
+    // Compose Test Library
+    androidTestImplementation(libs.compose.test)
+    androidTestImplementation(composeBom)
+    debugImplementation(libs.compose.debug.test)
+    debugImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {

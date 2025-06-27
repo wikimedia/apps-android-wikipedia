@@ -148,7 +148,7 @@
   <string name="login_password_hint">Парола</string>
   <string name="account_creation_password_hint">Парола</string>
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
+  <string name="login_2fa_other_workflow_error_msg">Изисква се двуфакторно удостоверяване! Моля, влезте от главния екран и въведете кода от вашия 2FA токен.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -236,15 +236,13 @@
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
   <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
@@ -515,8 +513,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статията се намира в няколко списъка</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
   <string name="reading_lists_sync_reminder_title">Включване на синхронизиране на списъци за четене?</string>
-  <string name="reading_lists_sync_reminder_text">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
   <string name="reading_lists_login_reminder_text">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
@@ -881,7 +879,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавяне на описание за изображение</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавяне на описание за изображението (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавяне на етикети към изображения</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
   <string name="suggested_edits_image_captions">Описания на изображения</string>
@@ -1235,10 +1232,10 @@
   <string name="revision_compare_button">Сравняване</string>
   <string name="revision_compare_two_only">Могат да бъдат избрани само две версии.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промяна</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">за 1 седмица</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">за 1 месец</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">за 3 месеца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">за 6 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 седмица</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеца</string>
   <string name="watchlist_expiry_dialog_one_week">1 седмица</string>
   <string name="watchlist_expiry_dialog_one_month">1 месец</string>
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
@@ -1438,35 +1435,6 @@
   <string name="places_card_enable_location_card_button">Активиране на местоположението</string>
   <string name="places_card_distance_suffix">на %s от Вас</string>
   <string name="places_card_distance_unknown">Неизвестна отдалеченост</string>
-  <string name="donor_history_title">История на даренията</string>
-  <string name="donor_history_save_button">Съхраняване</string>
-  <string name="donor_history_update_donor_status_default">Актуализиране на дарителски статус</string>
-  <string name="donor_history_update_donor_status_donor">Дарител</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Не е дарител</string>
-  <string name="donor_history_last_donated">Последно дарение</string>
-  <string name="donor_history_last_donated_hint">Добавете дата на последното дарение</string>
-  <string name="donor_history_last_donated_date_picker_title">Избор на дата</string>
-  <string name="donor_history_last_donated_date_picker_label">Въведете дата</string>
-  <string name="donor_history_recurring_donor">Редовен дарител</string>
-  <string name="donor_history_donate_button">Дарете на Фондация Уикимедия</string>
-  <string name="donor_history_about_this_experiment">Относно този експеримент</string>
-  <string name="donor_history_updated_message_snackbar">Историята на дарителството е актуализирана</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Нямам мнение</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Оставете коментар</string>
-  <string name="contributions_dashboard_donation_dialog_title">Благодарим Ви, че подкрепяте свободното знание</string>
-  <string name="contributions_dashboard_donation_dialog_message">Вие сте част от 2%%, които избраха да подкрепят ресурса, на който разчитат милиони. За да демонстрираме нашата благодарност, таблото за управление на вашите дарения е актуализирано, за да разпознае статуса Ви на дарител. Искате ли да видите актуализацията?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Не, благодаря</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Да, покажете ми</string>
-  <string name="contributions_dashboard_entry_dialog_title">Разгледайте новите допълнения към таблото за управление на приносите</string>
-  <string name="contributions_dashboard_entry_dialog_message">Таблото за управление на приносите вече показва вашия статус на дарител. Искате ли да прегледате тази експериментална възможност?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Не, благодаря</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Да, покажете ми</string>
-  <string name="contributions_dashboard_badge_donor">Дарител</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Станете дарител</string>
-  <string name="contributions_dashboard_badge_update">Актуализиране на дарителски статус</string>
-  <string name="contributions_dashboard_app_icon_title">Икона на приложението</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Ползи от дарителството</string>
-  <string name="contributions_dashboard_logged_out_user">Излязъл потребител</string>
   <string name="survey_dialog_title">Помогнете ни да подобрим тази възможност</string>
   <string name="survey_dialog_message">Доволни ли сте от тази възможност?</string>
   <string name="survey_dialog_option_satisfied">Задоволителна</string>

@@ -1,15 +1,19 @@
 package org.wikipedia.feed.announcement
 
+import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.onboarding.YIROnboardingCard
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
@@ -44,18 +48,35 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                 } else {
                     binding.viewAnnouncementCardButtonsContainer.visibility = VISIBLE
                     binding.viewAnnouncementActionPositive.text = it.actionTitle()
+                    binding.viewAnnouncementActionPositive.tag = it.getId()
                     binding.viewAnnouncementDialogActionPositive.text = it.actionTitle()
+                    binding.viewAnnouncementDialogActionPositive.tag = it.getId()
                 }
                 if (!it.negativeText().isNullOrEmpty()) {
                     binding.viewAnnouncementActionNegative.text = it.negativeText()
+                    binding.viewAnnouncementActionNegative.tag = it.getId()
                     binding.viewAnnouncementDialogActionNegative.text = it.negativeText()
+                    binding.viewAnnouncementDialogActionNegative.tag = it.getId()
                 } else {
                     binding.viewAnnouncementActionNegative.visibility = GONE
                     binding.viewAnnouncementDialogActionNegative.visibility = GONE
                 }
                 if (it.hasImage()) {
                     binding.viewAnnouncementHeaderImage.visibility = VISIBLE
-                    binding.viewAnnouncementHeaderImage.loadImage(it.image())
+                    if (it.aspectRatio() != 0.0) {
+                        binding.viewAnnouncementHeaderImage.scaleType = ImageView.ScaleType.FIT_CENTER
+                        binding.viewAnnouncementHeaderImage.post {
+                            if ((context as? Activity)?.isDestroyed == true) {
+                                return@post
+                            }
+                            binding.viewAnnouncementHeaderImage.updateLayoutParams {
+                                height = (binding.viewAnnouncementHeaderImage.width / it.aspectRatio()).toInt()
+                            }
+                            binding.viewAnnouncementHeaderImage.loadImage(it.image())
+                        }
+                    } else {
+                        binding.viewAnnouncementHeaderImage.loadImage(it.image())
+                    }
                 } else {
                     binding.viewAnnouncementHeaderImage.visibility = GONE
                 }
@@ -85,6 +106,10 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     )
                     binding.viewAnnouncementContainer.radius = 0f
                 }
+            }
+
+            if (value is YIROnboardingCard) {
+                BreadCrumbLogEvent.logImpression(context, "YIR2024")
             }
         }
 

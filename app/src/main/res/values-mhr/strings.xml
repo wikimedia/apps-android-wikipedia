@@ -137,8 +137,8 @@
   <string name="login_username_hint">Ушнышын лӱмжӧ</string>
   <string name="login_password_hint">Шолыпмут</string>
   <string name="account_creation_password_hint">Шолыпмут</string>
-  <string name="login_2fa_hint">Кок йыжыҥан аутентификацийын кодшо</string>
-  <string name="login_2fa_other_workflow_error_msg">Кок факторан аутентификаций кӱлеш! Поро лийза, тӱҥ паша дек пӧртылза да системыш тендан 2FA токен ден пайдаланен пурыза, эше ик гана тыршен ончыза.</string>
+  <string name="login_2fa_hint" fuzzy="true">Кок йыжыҥан аутентификацийын кодшо</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Кок факторан аутентификаций кӱлеш! Поро лийза, тӱҥ паша дек пӧртылза да системыш тендан 2FA токен ден пайдаланен пурыза, эше ик гана тыршен ончыза.</string>
   <string name="onboarding_card_login">Пураш</string>
   <string name="page_editing_login">Пураш</string>
   <string name="reading_lists_sync_login">Пураш</string>
@@ -227,15 +227,13 @@
   <string name="privacy_policy_description">Шолыплык политике</string>
   <string name="terms_of_use_description">Кучылтмо келшык</string>
   <string name="about_wikipedia_url">https://mhr.wikipedia.org/wiki/Википедий:Палемдымаш</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr#Офлайныште_лудмаш_да_данный</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr#Офлайныште_лудмаш_да_данный</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>
   <string name="about_contributors_heading">Автор-влак</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
   <string name="about_translators_heading">Кусарыше-влак</string>
   <string name="about_translators_translatewiki">Тиде приложенийым &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; платформышто вӱмазе-влак кусареныт.</string>
   <string name="about_app_license_heading">Лицензий</string>
@@ -568,8 +566,6 @@
   <string name="description_edit_voice_input_description">Йӱкан пуртымаш</string>
   <string name="description_edit_learn_more">Статьян возен ончыктымашыже нерген кумданрак</string>
   <string name="description_edit_image_caption_learn_more">Сӱрет деке возыш нерген кумданрак</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
   <string name="description_too_short">Тиде текст утыжден кӱчык.</string>
   <string name="description_ends_with_punctuation">Текст препинаний пале-влак дене пытышаш огыл.</string>
   <string name="description_starts_with_uppercase">Икымше мут шкенле вуйлӱм огыл гын, изи буква дене тӱҥал.</string>
@@ -641,7 +637,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Сӱрет деке возышым ешараш</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сӱрет деке возышым ешараш (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сӱрет деке тег-влакым ешараш</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Йодыштмашым эрташ</string>
   <string name="suggested_edits_task_action_text_add">Ешараш</string>
   <string name="suggested_edits_task_action_text_translate">Кусараш</string>
   <string name="suggested_edits_image_captions">Сӱрет деке возыш-влак</string>

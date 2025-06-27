@@ -36,6 +36,8 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.imageservice.CoilImageServiceLoader
+import org.wikipedia.views.imageservice.ImageService
 import java.util.UUID
 
 class WikipediaApp : Application() {
@@ -120,8 +122,8 @@ class WikipediaApp : Application() {
     val haveMainActivity
         get() = activityLifecycleHandler.haveMainActivity()
 
-    val isAnyActivityResumed
-        get() = activityLifecycleHandler.isAnyActivityResumed
+    val currentResumedActivity
+        get() = activityLifecycleHandler.getResumedActivity()
 
     val voiceRecognitionAvailable by lazy {
         try {
@@ -163,6 +165,8 @@ class WikipediaApp : Application() {
         WikipediaFirebaseMessagingService.updateSubscription()
 
         EventPlatformClient.setUpStreamConfigs()
+
+        ImageService.setImplementation(CoilImageServiceLoader())
     }
 
     /**
@@ -171,9 +175,9 @@ class WikipediaApp : Application() {
     fun getAcceptLanguage(wiki: WikiSite?): String {
         val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
         return AcceptLanguageUtil.getAcceptLanguage(
-            languageState.getBcp47LanguageCode(wikiLang),
-            languageState.getBcp47LanguageCode(languageState.appLanguageCode),
-                languageState.getBcp47LanguageCode(languageState.systemLanguageCode))
+            wikiLang,
+            languageState.appLanguageCode,
+            languageState.systemLanguageCode)
     }
 
     fun constrainFontSizeMultiplier(mult: Int): Int {
@@ -241,6 +245,7 @@ class WikipediaApp : Application() {
             Prefs.isPushNotificationTokenSubscribed = false
             Prefs.pushNotificationTokenOld = ""
             Prefs.tempAccountWelcomeShown = false
+            Prefs.tempAccountCreateDay = 0L
             Prefs.tempAccountDialogShown = false
 
             val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()

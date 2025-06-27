@@ -1,12 +1,16 @@
 package org.wikipedia.history.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
 import org.wikipedia.history.HistoryEntry
 
 @Dao
 interface HistoryEntryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEntry(entry: HistoryEntry)
+    suspend fun insertEntry(entry: HistoryEntry): Long
 
     @Query("SELECT * FROM HistoryEntry WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findEntryBySearchTerm(term: String): HistoryEntry?
@@ -14,8 +18,20 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
-    @Query("SELECT * FROM HistoryEntry WHERE lang = :lang ORDER BY timestamp DESC LIMIT :count")
-    suspend fun getLastHistoryEntries(lang: String, count: Int): List<HistoryEntry>
+    @Query("SELECT * FROM HistoryEntry ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getHistoryEntriesByRandom(limit: Int): List<HistoryEntry>
+
+    @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
+    suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
+
+    @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate ")
+    suspend fun getHistoryCount(startDate: Long?, endDate: Long?): Int
+
+    @Query("SELECT DISTINCT displayTitle FROM HistoryEntry LIMIT 3")
+    suspend fun getDisplayTitles(): List<String>
+
+    @Query("SELECT COUNT(*) FROM HistoryEntry")
+    suspend fun getHistoryCount(): Int
 
     @Query("DELETE FROM HistoryEntry")
     suspend fun deleteAll()
@@ -35,16 +51,16 @@ interface HistoryEntryDao {
     }
 
     @Transaction
-    suspend fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
-        val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)
-        if (curEntry != null) {
-            curEntry.timeSpentSec += timeSpent
-            curEntry.source = entry.source
-            curEntry.timestamp = entry.timestamp
-            curEntry.description = entry.description
+    suspend fun upsert(entry: HistoryEntry): Long {
+        val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle, entry.timestamp.time)
+        return if (curEntry != null) {
+            // If this entry already exists, it implies that the page was refreshed, so it's OK not to
+            // create a new db entry. But just for good measure, lets update the displayTitle anyway,
+            // since it might have changed.
+            curEntry.displayTitle = entry.displayTitle
             insertEntry(curEntry)
         } else {
-            entry.timeSpentSec += timeSpent
+            // This is definitely a new visit to this page, so create a new db entry.
             insertEntry(entry)
         }
     }

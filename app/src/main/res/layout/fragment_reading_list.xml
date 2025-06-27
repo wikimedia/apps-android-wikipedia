@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_reading_list_coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/reading_list_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/readingListLeadHeight"
-        android:fitsSystemWindows="true">
+        android:layout_height="@dimen/readingListLeadHeight">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/reading_list_toolbar_container"
@@ -80,5 +78,21 @@
         </FrameLayout>
 
     </org.wikipedia.views.WikiSwipeRefreshLayout>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/errorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

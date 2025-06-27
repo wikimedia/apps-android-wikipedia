@@ -13,6 +13,7 @@ import org.wikipedia.feed.mainpage.MainPageClient
 import org.wikipedia.feed.places.PlacesFeedClient
 import org.wikipedia.feed.random.RandomClient
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
+import org.wikipedia.feed.wikigames.WikiGamesCardClient
 import org.wikipedia.model.EnumCode
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
@@ -22,7 +23,11 @@ enum class FeedContentType(private val code: Int,
                            @StringRes val subtitleId: Int,
                            val isPerLanguage: Boolean,
                            var showInConfig: Boolean = true) : EnumCode {
-
+    WIKI_GAMES(12, R.string.on_this_day_game_entry_dialog_subtitle, R.string.on_this_day_game_feed_entry_card_subtitle, true) {
+        override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
+            return if (isEnabled && age == 0 && WikipediaApp.instance.isOnline) WikiGamesCardClient() else null
+        }
+    },
     FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {
         override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
             return if (isEnabled) AggregatedFeedContentClient.FeaturedArticle(coroutineScope, aggregatedClient) else null

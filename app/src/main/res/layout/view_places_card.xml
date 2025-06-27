@@ -64,14 +64,14 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/placesCardThumbnail"
+                    app:shapeAppearanceOverlay="@style/CircularImageView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_w_logo_circle"
-                    android:scaleType="centerInside"
-                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
                     android:layout_marginHorizontal="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

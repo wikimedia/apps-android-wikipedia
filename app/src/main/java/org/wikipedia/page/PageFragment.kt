@@ -24,7 +24,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -35,6 +34,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
@@ -46,7 +46,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
@@ -73,9 +72,9 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.donate.DonorHistoryActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -100,10 +99,10 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
-import org.wikipedia.usercontrib.ContributionsDashboardHelper
 import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.ThrowableUtil
@@ -114,6 +113,7 @@ import org.wikipedia.views.PageActionOverflowView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
+import org.wikipedia.watchlist.WatchlistViewModel
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
@@ -137,7 +137,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageSetToolbarElevationEnabled(enabled: Boolean)
         fun onPageCloseActionMode()
         fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?)
-        fun onPageRequestLangLinks(title: PageTitle)
+        fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long)
         fun onPageRequestGallery(title: PageTitle, fileName: String, wikiSite: WikiSite, revision: Long, isLeadImage: Boolean, options: ActivityOptionsCompat?)
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
@@ -187,8 +187,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
-    val historyEntry get() = model.curEntry
-    val containerView get() = binding.pageContentsContainer
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
@@ -300,6 +298,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
+        if (ImageUrlUtil.isGif(page?.pageProperties?.leadImageUrl)) {
+            leadImagesHandler.loadLeadImage()
+        }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
     }
@@ -482,7 +483,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         dismissBottomSheet()
-        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
+        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK).apply {
+            prevId = model.curEntry?.id ?: -1
+        }
 
         if (title == model.title && !title.fragment.isNullOrEmpty()) {
             scrollToSection(title.fragment!!)
@@ -565,8 +568,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun startLangLinksActivity() {
+        val historyEntryId = model.curEntry?.id ?: -1
         model.title?.let {
-            callback()?.onPageRequestLangLinks(it)
+            callback()?.onPageRequestLangLinks(it, historyEntryId)
         }
     }
 
@@ -578,8 +582,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-                AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec)
+            MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
         }
     }
@@ -651,22 +655,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         webView.visibility = View.INVISIBLE
     }
 
-    @Suppress("KotlinConstantConditions")
-    private fun showWatchlistSnackbar() {
-        title?.let {
-            if (!model.isWatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (model.isWatched) {
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { _ ->
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(it, WatchlistExpiry.NEVER))
-                }
-                snackbar.show()
-            }
-        }
-    }
-
     fun updateWatchlistExpiry(expiry: WatchlistExpiry) {
         model.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
     }
@@ -685,19 +673,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
-                            return@launch
                         }
                     }
-                    maybeShowContributionsDashboardDialog()
                 }
             }
-        }
-    }
-
-    private fun maybeShowContributionsDashboardDialog() {
-        if (!Prefs.contributionsDashboardEntryDialogShown && ContributionsDashboardHelper.contributionsDashboardEnabled) {
-            ContributionsDashboardHelper.showEntryDialog(requireActivity())
-            Prefs.contributionsDashboardEntryDialogShown = true
         }
     }
 
@@ -908,11 +887,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun updateInsets(insets: Insets) {
-        val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + insets.top + REFRESH_SPINNER_ADDITIONAL_OFFSET
-        binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
-    }
-
     fun onPageMetadataLoaded(redirectedFrom: String? = null) {
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
@@ -944,6 +918,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(),
+            InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
+
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
         // handler), since the page metadata might have altered the lead image display state.
@@ -981,7 +958,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (currentTab.backStack.isNotEmpty() &&
                 title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || isRefresh) {
-                pageFragmentLoadState.loadFromBackStack(isRefresh)
+                pageFragmentLoadState.loadFromBackStack()
             } else if (!title.fragment.isNullOrEmpty()) {
                 scrollToSection(title.fragment!!)
             }
@@ -1247,20 +1224,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateWatchlist() {
         title?.let {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                FeedbackUtil.showError(requireActivity(), throwable)
                 L.d(throwable)
             }) {
-                val token = ServiceFactory.get(it.wikiSite).getWatchToken().query?.watchToken() ?: throw RuntimeException("Received empty watch token.")
-                val watch = ServiceFactory.get(it.wikiSite).watch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, token)
-                watch.getFirst()?.let { firstWatch ->
-                    if (model.isWatched) {
-                        WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
-                    } else {
-                        WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
-                    }
-                    model.isWatched = firstWatch.watched
-                    updateWatchlistExpiry(WatchlistExpiry.NEVER)
-                    showWatchlistSnackbar()
-                }
+                val pair = WatchlistViewModel.watchPageTitle(this, it, model.isWatched, WatchlistExpiry.NEVER, model.isWatched, it.namespace().talk())
+                model.isWatched = pair.first
+                updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                WatchlistViewModel.showWatchlistSnackbar(requireActivity() as AppCompatActivity, childFragmentManager, it, pair.first, pair.second)
                 updateQuickActionsAndMenuOptions()
             }
         }
@@ -1378,7 +1348,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                     }
-                }).show(historyEntry)
+                }).show(model.curEntry)
             } else {
                 title?.run {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
@@ -1503,18 +1473,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
-        }
-
-        override fun onDonorSelected() {
-            goToMainActivity(tab = NavTab.EDITS, tabExtra = Constants.INTENT_EXTRA_GO_TO_SE_TAB)
-        }
-
-        override fun onBecomeDonorSelected() {
-            (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ContributionsDashboardHelper.CAMPAIGN_ID)
-        }
-
-        override fun onUpdateDonorStatusSelected() {
-            startActivity(DonorHistoryActivity.newIntent(requireContext(), goBackToContributeTab = true))
         }
     }
 

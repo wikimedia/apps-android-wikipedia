@@ -53,20 +53,20 @@ class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandl
     fun fetchRecommendation() {
         _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
-            var page: MwQueryPage?
+            var page: MwQueryPage? = null
             var tries = 0
             do {
-                page = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
-            } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
+                page = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode, 5)
+            } while (tries++ < 10 && page != null && page.growthimagesuggestiondata.isNullOrEmpty())
 
             if (page?.growthimagesuggestiondata.isNullOrEmpty()) {
                 _uiState.value = Depleted()
                 return@launch
             }
 
-            recommendation = page?.growthimagesuggestiondata?.first()!!
+            recommendation = page.growthimagesuggestiondata.first()
             val wikiSite = WikiSite.forLanguageCode(langCode)
-            summary = ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
+            summary = ServiceFactory.getRest(wikiSite).getPageSummary(page.title)
             pageTitle = summary.getPageTitle(wikiSite)
 
             val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))

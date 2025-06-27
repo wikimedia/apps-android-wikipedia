@@ -94,10 +94,6 @@
             \nBeta: https://intake-analytics-beta.wmflabs.org
             \nLocal: http://host:8192" />
 
-        <Preference android:key="@string/preference_key_send_event_platform_test_event"
-            android:title="@string/preference_developer_send_event_platform_test_event_title"
-            android:summary="@string/preference_developer_send_event_platform_test_event_summary" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_event_platform_queue_size"
@@ -213,6 +209,10 @@
             android:title="dailyEventTask-lastrun" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_login_force_email_auth"
+            android:title="Force email authentication when logging in." />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
 
@@ -314,6 +314,10 @@
             android:key="@string/preference_key_temp_account_dialog_shown"
             android:title="@string/preference_key_temp_account_dialog_shown" />
 
+        <org.wikipedia.settings.LongPreference
+            android:key="@string/preference_key_temp_account_create_day"
+            android:title="@string/preference_key_temp_account_create_day" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -358,9 +362,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_suggested_edits_survey"
-            android:title="@string/preference_key_show_suggested_edits_survey" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_suggested_edits_tooltip"
@@ -385,6 +386,11 @@
             style="@style/IntPreference"
             android:key="@string/preference_key_suggested_edits_override_edits"
             android:title="@string/preference_key_suggested_edits_override_edits" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_contribution"
+            android:title="@string/preference_key_suggested_edits_override_contribution" />
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
@@ -444,38 +450,84 @@
             android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_is_donor"
-            android:title="@string/preference_key_is_donor" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_is_recurring_donor"
-            android:title="@string/preference_key_is_recurring_donor" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_donor_history_saved"
-            android:title="@string/preference_key_donor_history_saved" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_contributions_dashboard_survey_dialog_shown"
-            android:title="@string/preference_key_contributions_dashboard_survey_dialog_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_contributions_dashboard_entry_dialog_shown"
-            android:title="@string/preference_key_contributions_dashboard_entry_dialog_shown" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_rabbitHoles"
-            android:title="Test group for Rabbit Holes \n(0=control group, 1=suggested search, 2=suggested reading list)" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_suggested_reading_list_dialog_shown"
-            android:title="@string/preference_key_suggested_reading_list_dialog_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_suggested_content_survey_shown"
-            android:title="@string/preference_key_suggested_content_survey_shown" />
+            android:key="@string/preference_key_feed_yir_onboarding_card_enabled"
+            android:title="Year-in-review Feed Card" />
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="On this day game">
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_otd_entry_dialog_shown"
+            android:title="@string/preference_key_otd_entry_dialog_shown" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_otd_game_date_override"
+            android:title="Game date override (i.e. 2025-01-01)" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_otd_game_num_questions"
+            android:title="Game questions per day" />
+
+        <Preference
+            android:key="@string/preference_key_otd_game_state"
+            android:title="Reset today's game" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            android:key="@string/preference_key_otd_game_history"
+            android:title="Game history" />
+
+        <Preference
+            android:key="@string/preferences_developer_otd_show_notification"
+            android:title="@string/preferences_developer_otd_show_notification"/>
+
+        <Preference
+            android:key="@string/preference_key_otd_notification_state"
+            android:title="@string/preference_developer_otd_reset_notification_state" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_otd_game_first_played_shown"
+            android:title="@string/preference_key_otd_game_first_played_shown" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Recommended Reading list">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_enabled"
+            android:title="@string/preference_key_recommended_reading_list_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_onboarding_shown"
+            android:title="@string/preference_key_recommended_reading_list_onboarding_shown" />
+
+        <ListPreference
+            android:key="@string/preference_key_recommended_reading_list_notification_simulator"
+            android:title="Notification frequency Simulator"/>
+      
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedReadingList"
+            android:title="AB test group" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Playground">
+        <Preference
+            android:key="@string/preference_key_playground_category"
+            android:title="Category" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Year in Review">
+        
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_year_in_review_is_enabled"
+            android:title="@string/preference_key_year_in_review_is_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_survey_shown"
+            android:title="@string/preference_key_yir_survey_shown" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

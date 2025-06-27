@@ -46,8 +46,8 @@ internal class SuggestedEditsStatsView(context: Context, attrs: AttributeSet? = 
         binding.image.setImageResource(imageDrawable)
     }
 
-    fun getTitleView(): View {
-        return binding.title
+    fun getDescriptionView(): View {
+        return binding.description
     }
 
     fun setGoodnessState(severity: Int) {
