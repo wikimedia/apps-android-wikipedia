@@ -15,7 +15,7 @@ import java.time.Instant
  */
 @Serializable
 class PerformerData (
-    private val id: Int? = null,
+    val id: Int? = null,
     @SerialName("name") val name: String? = null,
     @SerialName("is_logged_in") val isLoggedIn: Boolean? = null,
     @SerialName("is_temp") val isTemp: Boolean? = null,

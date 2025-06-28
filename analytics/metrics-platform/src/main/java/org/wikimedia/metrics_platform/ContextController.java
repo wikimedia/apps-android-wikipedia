@@ -82,8 +82,6 @@ public class ContextController {
         event.setClientData(filteredData);
     }
 
-    @SuppressWarnings("checkstyle:CyclomaticComplexity")
-    @SuppressFBWarnings(value = "CC_CYCLOMATIC_COMPLEXITY", justification = "TODO: needs to be refactored")
     private ClientData filterClientData(ClientData clientData, Collection<String> requestedValues) {
         AgentData.AgentDataBuilder agentBuilder = AgentData.builder();
         PageData.PageDataBuilder pageBuilder = PageData.builder();

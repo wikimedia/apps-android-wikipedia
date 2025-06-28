@@ -6,7 +6,6 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.logging.Level.FINE;
 import static java.util.stream.Collectors.toList;
 import static org.wikimedia.metrics_platform.config.StreamConfigFetcher.ANALYTICS_API_ENDPOINT;
-import static org.wikimedia.metrics_platform.event.EventProcessed.fromEvent;
 
 import java.net.URL;
 import java.time.Duration;
@@ -26,10 +25,6 @@ import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.stream.Stream;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-import javax.annotation.concurrent.NotThreadSafe;
-
 import org.wikimedia.metrics_platform.config.ConfigFetcherRunnable;
 import org.wikimedia.metrics_platform.config.SourceConfig;
 import org.wikimedia.metrics_platform.config.StreamConfig;
@@ -43,13 +38,8 @@ import org.wikimedia.metrics_platform.json.GsonHelper;
 
 import com.google.gson.Gson;
 
-import lombok.Setter;
-import lombok.SneakyThrows;
-import lombok.experimental.Accessors;
-import lombok.extern.java.Log;
 import okhttp3.OkHttpClient;
 
-@Log
 public final class MetricsClient {
 
     public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
@@ -110,7 +100,7 @@ public final class MetricsClient {
      * @param event  event data
      */
     public void submit(Event event) {
-        EventProcessed eventProcessed = fromEvent(event);
+        EventProcessed eventProcessed = EventProcessed.fromEvent(event);
         addRequiredMetadata(eventProcessed);
         addToEventQueue(eventProcessed);
     }
@@ -431,12 +421,6 @@ public final class MetricsClient {
         return new Builder(clientData);
     }
 
-    @NotThreadSafe @ParametersAreNonnullByDefault
-    @Setter @Accessors(fluent = true)
-    @SuppressWarnings("checkstyle:classfanoutcomplexity") // As the main builder for the application, this class has
-                                                          // to fan out to almost everything. We could hide this by
-                                                          // using an injection framework (Guice?), but the added
-                                                          // dependency is probably not worth it.
     public static final class Builder {
 
         private final ClientData clientData;
@@ -524,7 +508,6 @@ public final class MetricsClient {
                     sendEventsInitialDelay.toMillis(), sendEventsInterval.toMillis(), MILLISECONDS);
         }
 
-        @SneakyThrows
         private static URL safeURL(String url) {
             return new URL(url);
         }
