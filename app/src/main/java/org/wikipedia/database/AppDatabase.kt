@@ -20,6 +20,8 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tabs.TabDao
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
@@ -38,7 +40,7 @@ import org.wikipedia.talk.db.TalkTemplateDao
 import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 31
+const val DATABASE_VERSION = 32
 
 @Database(
     entities = [
@@ -54,7 +56,8 @@ const val DATABASE_VERSION = 31
         TalkTemplate::class,
         Category::class,
         DailyGameHistory::class,
-        RecommendedPage::class
+        RecommendedPage::class,
+        Tab::class
     ],
     version = DATABASE_VERSION
 )
@@ -62,7 +65,8 @@ const val DATABASE_VERSION = 31
     DateTypeConverter::class,
     WikiSiteTypeConverter::class,
     NamespaceTypeConverter::class,
-    NotificationTypeConverters::class
+    NotificationTypeConverters::class,
+    PageBackStackItemTypeConverter::class
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -80,6 +84,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
     abstract fun recommendedPageDao(): RecommendedPageDao
+    abstract fun tabDao(): TabDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -347,13 +352,23 @@ abstract class AppDatabase : RoomDatabase() {
                 db.execSQL("ALTER TABLE Category_temp RENAME TO Category")
             }
         }
+        val MIGRATION_31_32 = object : Migration(31, 32) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
+                        "  `id` INTEGER NOT NULL, " +
+                        "  `backStack` TEXT NOT NULL, " +
+                        "  `backStackPosition` INTEGER NOT NULL, " +
+                        "  PRIMARY KEY(`id`)" +
+                        ")")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
                     MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
-                    MIGRATION_30_31)
+                    MIGRATION_30_31, MIGRATION_31_32)
                 .allowMainThreadQueries() // TODO: remove after resolving main thread issues in DAO classes
                 .fallbackToDestructiveMigration(false)
                 .build()
