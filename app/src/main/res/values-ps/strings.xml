@@ -474,7 +474,7 @@
   <string name="reverted_edit_dialog_ok_button_text">ښه</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">ناگارل</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلول</string>
-  <string name="watchlist_expiry_dialog_one_week">۱ اونۍ</string>
+  <string name="watchlist_expiry_dialog_one_week">۱ اوونۍ</string>
   <string name="watchlist_filter_all">ټول</string>
   <string name="watchlist_filter_pages">مخونه</string>
   <string name="watchlist_filter_other">بل</string>
