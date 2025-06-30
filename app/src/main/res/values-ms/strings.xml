@@ -641,7 +641,7 @@
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih untuk suntingan anda</string>
-  <string name="preference_title_notification_revert">Undurkan</string>
+  <string name="preference_title_notification_revert">Balikkan</string>
   <string name="preference_summary_notification_revert">Salah satu sumbangan anda telah diundurkan</string>
   <string name="preference_title_notification_login_fail">Log masuk</string>
   <string name="preference_summary_notification_login_fail">Aktiviti log masuk anda</string>
