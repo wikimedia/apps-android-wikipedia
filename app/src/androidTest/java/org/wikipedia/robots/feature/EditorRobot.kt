@@ -222,7 +222,7 @@ class EditorRobot : BaseRobot() {
     }
 
     fun verifyEditPublished(context: Context) = apply {
-        delay(TestConfig.DELAY_LARGE)
+        delay(TestConfig.DELAY_MEDIUM)
         verify.messageOfSnackbar(context.getString(R.string.edit_saved_successfully))
     }
 
