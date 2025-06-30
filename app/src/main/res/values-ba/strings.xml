@@ -32,6 +32,7 @@
   <string name="search_hint">Википедияла эҙләү</string>
   <string name="search_hint_voice_search">Телмәр ярҙамында эҙләү</string>
   <string name="search_hint_search_languages">Тел буйынса эҙләү</string>
+  <string name="search_back_button_content_description">Кирегә</string>
   <string name="filter_hint_filter_my_lists_and_articles">Минең исемлектәрҙе фильтрларға</string>
   <string name="nav_item_suggested_edits">Төҙәтеүҙәр</string>
   <string name="nav_item_more">Күберәк</string>

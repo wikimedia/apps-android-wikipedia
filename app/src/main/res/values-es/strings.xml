@@ -245,6 +245,7 @@
   <string name="login_2fa_other_workflow_error_msg">¡Se requiere una autenticación en dos pasos! Inicia sesión desde la pantalla principal e introduce el código desde tu Token 2FA</string>
   <string name="login_email_auth_hint">Código de verificación de correo electrónico</string>
   <string name="login_email_auth_other_workflow_error_msg">¡Se requiere de verificación de correo electrónico! Por favor inicia sesión desde la pantalla principal e ingresa el código de verificación de correo electrónico.</string>
+  <string name="login_background_error_msg">No se puede volver a iniciar sesión. Regrese a la pantalla principal e inicie sesión manualmente.</string>
   <string name="onboarding_card_login">Acceder</string>
   <string name="page_editing_login">Acceder</string>
   <string name="reading_lists_sync_login">Acceder</string>
@@ -485,6 +486,7 @@
   <string name="preference_title_collapse_tables">Minimizar tablas</string>
   <string name="preference_summary_collapse_tables">Minimizar automáticamente tablas en los artículos, como por ejemplo cajas de información, referencias y notas.</string>
   <string name="nav_item_donate">Apoyar</string>
+  <string name="nav_item_year_in_review">Resumen del año</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
@@ -1842,6 +1844,55 @@
   <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
   <string name="on_this_day_game_sound_on">Activar el sonido</string>
   <string name="on_this_day_game_sound_off">Desactivar el sonido</string>
+  <string name="year_in_review_learn_more">Más información</string>
+  <string name="year_in_review_get_started">Comenzar</string>
+  <string name="year_in_review_topbar_w_icon">Icono W de Wikipedia</string>
+  <string name="year_in_review_navigate_left">Navegar a la izquierda</string>
+  <string name="year_in_review_share_icon">Icono para compartir</string>
+  <string name="year_in_review_heart_icon">Icono de corazón</string>
+  <string name="year_in_review_navigate_right">Navegar a la derecha</string>
+  <string name="year_in_review_donate">Donar</string>
+  <string name="year_in_review_information_icon">Icono de información</string>
+  <string name="year_in_review_get_started_headline">Explora tu Wikipedia: Resumen del año</string>
+  <string name="year_in_review_get_started_bodytext">Consulta información sobre los artículos que leíste en la app de Wikipedia y las modificaciones que realizaste. Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
+  <string name="year_in_review_entry_dialog_title">Explora tu Wikipedia: Resumen</string>
+  <string name="year_in_review_entry_dialog_bodytext">Consulta información sobre los artículos que leímos y editamos, y comparta los aspectos más destacados de nuestro año en Wikipedia.</string>
+  <string name="year_in_review_entry_dialog_continue">Continuar</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Leíste %d artículo este año</item>
+    <item quantity="other">Leíste %d artículos este año</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Este año, leíste %1$d artículo, incluyendo %2$s, %3$s y %4$s. Wikipedia tenía más de 63 millones de artículos disponibles en más de 300 idiomas. Te uniste a millones de personas para ampliar el conocimiento y explorar diversos temas.</item>
+    <item quantity="other">Este año, leíste %1$d artículos, incluyendo %2$s, %3$s y %4$s. Wikipedia tenía más de 63 millones de artículos disponibles en más de 300 idiomas. Te uniste a millones de personas para ampliar el conocimiento y explorar diversos temas.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Editaste Wikipedia %d vez</item>
+    <item quantity="other">Editaste Wikipedia %d veces</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Editaste Wikipedia %d vez. Gracias por ser uno de los editores voluntarios que marcan la diferencia en los proyectos de Wikimedia en todo el mundo.</item>
+    <item quantity="other">Editaste Wikipedia  %d veces. Gracias por ser uno de los editores voluntarios que marcan la diferencia en los proyectos de Wikimedia en todo el mundo.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia estaba disponible en más de 300 idiomas</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia tuvo más de 63 millones de artículos en más de 300 idiomas activos este año. Te uniste a millones de personas para ampliar el conocimiento y explorar diversos temas.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Los editores de la aplicación iOS realizaron más de 452.257 ediciones</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">La comunidad de editores voluntarios de Wikipedia ha realizado más de 452.257 ediciones en la aplicación iOS en lo que va de año. El alma de Wikipedia es nuestra comunidad global de colaboradores voluntarios, donantes y miles de millones de lectores como tú, todos unidos para compartir acceso ilimitado a información fiable.</string>
+  <string name="year_in_review_survey_title">Ayude a mejorar Resumen del año</string>
+  <string name="year_in_review_survey_subtitle">¿Estás satisfecho con esta función?</string>
+  <string name="year_in_review_survey_very_satisfied">Muy satisfecho</string>
+  <string name="year_in_review_survey_satisfied">Satisfecho</string>
+  <string name="year_in_review_survey_neutral">Neutral</string>
+  <string name="year_in_review_survey_unsatisfied">Insatisfecho</string>
+  <string name="year_in_review_survey_very_unsatisfied">Muy insatisfecho</string>
+  <string name="year_in_review_survey_placeholder_text">¿Alguna idea adicional?</string>
+  <string name="year_in_review_survey_cancel">Cancelar</string>
+  <string name="year_in_review_survey_submit">Enviar</string>
+  <string name="year_in_review_screendeck_image_content_description">Recurso de imagen para la pantalla principal del Resumen del año</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Recurso de imagen para la pantalla de diálogo de entrada del Resumen del año</string>
+  <string name="year_in_review_screenshot_error">No se pudo generar captura de pantalla: %s</string>
+  <string name="year_in_review_share_subject">Imagen y enlace del Resumen del año</string>
+  <string name="year_in_review_globe_icon">Icono del globo</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
