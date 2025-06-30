@@ -1076,7 +1076,7 @@
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Onko sinulla hetki aikaa jatkaa Wikipedian parantamista? Tarkista nämä muokkausehdotukset.</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Olisiko sinulla hetki aikaa jatkaa Wikipedian parantamista? Tutustu näihin muokkausehdotuksiin.</string>
   <string name="suggested_edits_contributions_screen_title">Käyttäjän %s muokkaukset</string>
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
