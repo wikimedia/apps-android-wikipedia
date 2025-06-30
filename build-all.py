@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 Cross-platform build script for all release variants.
 Compatible with Windows, macOS, and Linux.
@@ -43,11 +43,11 @@ def main():
     
     builds = [
         # (description, args)
-        ("Beta with bundle", ["--beta", "--bundle"]),
-        ("Production with bundle", ["--prod", "--bundle"]),
-        ("Amazon channel", ["--channel", "amazon"]),
-        ("Samsung channel", ["--channel", "samsung"]),
-        ("Huawei channel", ["--channel", "huawei"]),
+        ("Beta bundle", ["--beta", "--bundle"]),
+        ("Production bundle", ["--prod", "--bundle"]),
+        ("Amazon APK", ["--channel", "amazon"]),
+        ("Samsung APK", ["--channel", "samsung"]),
+        ("Huawei APK", ["--channel", "huawei"]),
     ]
     
     success_count = 0
