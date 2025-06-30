@@ -9,7 +9,6 @@ Usage:
     python upload-all.py [options]
 
 Options:
-    --dry-run    Show what would be uploaded without actually uploading
     --verbose    Show detailed output during upload
     --help       Show this help message
 
@@ -88,7 +87,7 @@ def find_apk_files(pattern):
     return [f for f in files if f.endswith('.apk')]
 
 
-def upload_files(files, remote_path, scp_cmd, dry_run=False, verbose=False):
+def upload_files(files, remote_path, scp_cmd, verbose=False):
     """Upload files to remote server using SCP"""
     if not files:
         print(f"No files found to upload to {remote_path}")
@@ -97,12 +96,6 @@ def upload_files(files, remote_path, scp_cmd, dry_run=False, verbose=False):
     print(f"\nUploading {len(files)} file(s) to {remote_path}:")
     for file in files:
         print(f"  - {file}")
-    
-    if dry_run:
-        print("  [DRY RUN] Would execute:")
-        for file in files:
-            print(f"    {scp_cmd} {file} {REMOTE_HOST}:{remote_path}")
-        return True
     
     # Upload files
     success = True
@@ -151,17 +144,12 @@ def main():
         epilog="""
 Examples:
     python upload-all.py                    # Upload all APKs
-    python upload-all.py --dry-run          # Show what would be uploaded
     python upload-all.py --verbose          # Show detailed output
     python upload-all.py --scp-path /usr/bin/scp  # Use specific SCP path
 
 Note: You must have SSH key authentication set up for releases.discovery.wmnet
         """
     )
-    
-    parser.add_argument('--dry-run', 
-                       action='store_true',
-                       help='Show what would be uploaded without actually uploading')
     
     parser.add_argument('--verbose', '-v',
                        action='store_true', 
@@ -201,25 +189,19 @@ Note: You must have SSH key authentication set up for releases.discovery.wmnet
         print("No APK files found to upload.")
         sys.exit(0)
     
-    if args.dry_run:
-        print("\n=== DRY RUN MODE ===")
-    
     # Upload files
     all_success = True
     
     if beta_files:
-        success = upload_files(beta_files, BETA_REMOTE_PATH, scp_cmd, args.dry_run, args.verbose)
+        success = upload_files(beta_files, BETA_REMOTE_PATH, scp_cmd, args.verbose)
         all_success = all_success and success
     
     if stable_files:
-        success = upload_files(stable_files, STABLE_REMOTE_PATH, scp_cmd, args.dry_run, args.verbose)
+        success = upload_files(stable_files, STABLE_REMOTE_PATH, scp_cmd, args.verbose)
         all_success = all_success and success
     
     # Final status
-    if args.dry_run:
-        print("\n=== DRY RUN COMPLETE ===")
-        print("Use without --dry-run to actually upload the files.")
-    elif all_success:
+    if all_success:
         print("\n✓ All uploads completed successfully!")
     else:
         print("\n✗ Some uploads failed. Please check the output above.")
