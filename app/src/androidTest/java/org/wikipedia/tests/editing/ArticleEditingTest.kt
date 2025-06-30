@@ -62,7 +62,10 @@ class ArticleEditingTest : BaseTest<MainActivity>(
     @Test
     fun runTest() {
         proceedToTestArticle()
-        startEditing()
+        when (EditingType.entries.random()) {
+            EditingType.TEXT_FORMAT -> startTextFormatEditing()
+            EditingType.LIST_AND_MEDIA -> startListAndMediaEditing()
+        }
     }
 
     private fun proceedToTestArticle() {
@@ -88,7 +91,7 @@ class ArticleEditingTest : BaseTest<MainActivity>(
             .clickOnItemFromSearchList(0)
     }
 
-    private fun startEditing() {
+    private fun startTextFormatEditing() {
         pageRobot
             .clickOverFlowMenuToolbar()
         pageActionItemRobot
@@ -138,5 +141,44 @@ class ArticleEditingTest : BaseTest<MainActivity>(
             .clickNext()
             .checkMinorEdit()
             .clickPublish()
+        editorRobot
+            .verifyEditPublished(context)
+    }
+
+    private fun startListAndMediaEditing() {
+        pageRobot
+            .clickOverFlowMenuToolbar()
+        pageActionItemRobot
+            .clickEditArticles()
+        dialogRobot
+            .click("Got it")
+        editorRobot
+            .closeEditNotice()
+            .replaceTextInEditWindow("")
+            .typeInEditWindow("* Apple\n*Orange\n#Bread\n#Peanut Butter\n")
+            .clickUndoButton()
+            .clickRedoButton()
+            .clickInsertMediaButton()
+            .insertImageFrom(0)
+            .clickNext()
+            .clickInsert()
+            .clickEditWindow()
+            .typeInEditWindow("\n")
+            .clickInsertLinkButton()
+        searchRobot
+            .typeTextInView("What is Espresso")
+            .clickOnItemFromSearchList(0)
+        editorRobot
+            .clickNext()
+            // publishing screen
+            .clickNext()
+            .checkMinorEdit()
+            .clickPublish()
+        editorRobot
+            .verifyEditPublished(context)
+    }
+
+    enum class EditingType {
+        TEXT_FORMAT, LIST_AND_MEDIA
     }
 }

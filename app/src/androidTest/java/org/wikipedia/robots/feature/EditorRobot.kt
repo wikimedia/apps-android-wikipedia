@@ -1,6 +1,7 @@
 package org.wikipedia.robots.feature
 
 import BaseRobot
+import android.content.Context
 import android.util.Log
 import android.view.KeyEvent
 import androidx.test.espresso.Espresso.onView
@@ -18,6 +19,11 @@ class EditorRobot : BaseRobot() {
     fun replaceTextInEditWindow(text: String) = apply {
         input.replaceTextInView(R.id.edit_section_text, text)
         delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickEditWindow() = apply {
+        click.onViewWithId(R.id.edit_section_text)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun typeInEditWindow(text: String) = apply {
@@ -157,6 +163,31 @@ class EditorRobot : BaseRobot() {
         }
     }
 
+    fun clickUndoButton() = apply {
+        click.onViewWithId(R.id.wikitext_button_undo)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickRedoButton() = apply {
+        click.onViewWithId(R.id.wikitext_button_redo)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickInsertMediaButton() = apply {
+        click.onViewWithId(R.id.wikitext_button_insert_media)
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickInsertLinkButton() = apply {
+        click.onViewWithId(R.id.wikitext_button_link)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun insertImageFrom(position: Int) = apply {
+        list.clickOnItemInList(R.id.recyclerView, position)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun clickNext() = apply {
         click.onViewWithText("Next")
         delay(TestConfig.DELAY_LARGE)
@@ -164,6 +195,11 @@ class EditorRobot : BaseRobot() {
 
     fun clickPublish() = apply {
         click.onViewWithText("Publish")
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun clickInsert() = apply {
+        click.onViewWithText("Insert")
         delay(TestConfig.DELAY_LARGE)
     }
 
@@ -183,6 +219,11 @@ class EditorRobot : BaseRobot() {
     fun scrollToEndOfTextFormatting() = apply {
         swipe.left(R.id.wiki_text_keyboard_formatting_horizontal_scroll_view)
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun verifyEditPublished(context: Context) = apply {
+        delay(TestConfig.DELAY_LARGE)
+        verify.messageOfSnackbar(context.getString(R.string.edit_saved_successfully))
     }
 
     private fun findTextPosition(fullText: String, targetText: String): Pair<Int, Int>? {
