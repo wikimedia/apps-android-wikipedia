@@ -2,9 +2,6 @@
 """
 Cross-platform script to upload Wikipedia Android APKs to releases server.
 
-This script uploads beta and stable release APKs to the Wikimedia releases server
-using SCP. It's a Python equivalent of the upload-all.sh bash script.
-
 Usage:
     python upload-all.py [options]
 
