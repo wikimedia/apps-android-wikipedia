@@ -8,27 +8,7 @@ Step 1: (e.g., --beta):
     - Runs the selected (clean) Gradle builds (e.g. beta, prod, custom)
 
 Step 2: (e.g., --beta --push):
-    - Creates an annotat    parser.add_argument('--bundle',
-                       help='Build a bundle (AAB) in addition to APK.',
-                       action='store_true')
-    group.add_argument('--channel',
-                       help='Step 1: Custom versionName&channel. OEMs w/ Play')
-    group.add_argument('--app',
-                       help='Step 1: Custom versionName&channel. OEMs wout/ Play.')
-    parser.add_argument('--push', help='Step 2: create&push git tag to origin.',
-                        action='store_true')
-    args = parser.parse_args()
-    custom_channel = 'ignore'
-    build_type = 'Release'  # Default to release builds
-
-    if args.debug:
-        # For debug builds, use alpha flavor with debug build type
-        flavors = ['alpha']
-        targets = ['debug']
-        build_type = 'Debug'
-    elif args.alpha:d 'releases/versionName'
-    - Pushes the git tag to origin for history
-    - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: r, beta
+    - Creates an annotated tag called 'releases/versionName'
 
 To run
 1) tell people on #wikimedia-mobile you're about to bump the version,
@@ -246,14 +226,6 @@ def check_signing_config(flavors):
         if not os.path.exists(prod_props_file):
             print("ERROR: Production signing configuration required but not found.")
             print(f"Expected file: {prod_props_file}")
-            print()
-            print("To set up signing configuration:")
-            print("1. Create the directory: mkdir -p ~/.sign")
-            print("2. Copy the sample file:")
-            print(f"   cp {os.path.join(PATH_PREFIX, 'app', 'signing.properties.sample')} {prod_props_file}")
-            print("3. Edit the file with your actual keystore information")
-            print()
-            print("For development/testing, you can use debug builds which use the repo keystore.")
             sys.exit(1)
         else:
             print(f"Using production signing config: {prod_props_file}")
@@ -279,13 +251,6 @@ def validate_signing_config():
     try:
         with open(prod_props_file, 'r') as f:
             content = f.read()
-
-        # Check for common path issues
-        if '/Users/' in content and platform.system() == 'Windows':
-            print("WARNING: Found Unix-style path in signing.properties on Windows")
-            print("Please update the keystore path to use Windows format:")
-            print("Example: keystore=C:/path/to/your/keystore.jks")
-            print()
 
         # Extract keystore path
         keystore_match = re.search(r'keystore\s*=\s*(.+)', content)
