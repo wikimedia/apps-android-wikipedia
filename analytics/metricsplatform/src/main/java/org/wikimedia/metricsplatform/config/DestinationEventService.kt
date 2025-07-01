@@ -1,7 +1,8 @@
 package org.wikimedia.metricsplatform.config
 
+import android.net.Uri
 import com.google.gson.annotations.SerializedName
-import java.net.URL
+import androidx.core.net.toUri
 
 /**
  * Possible event destination endpoints which can be specified in stream configurations.
@@ -19,13 +20,13 @@ enum class DestinationEventService(baseUri: String) {
     @SerializedName("eventgate-logging-local")
     LOCAL("http://localhost:8192");
 
-    private val baseUri: URL = URL("$baseUri/v1/events")
+    private val baseUri = "$baseUri/v1/events".toUri()
 
-    fun getBaseUri(): URL {
+    fun getBaseUri(): Uri {
         return getBaseUri(false)
     }
 
-    fun getBaseUri(isDebug: Boolean): URL {
-        return if (isDebug) this.baseUri else URL("$baseUri?hasty=true")
+    fun getBaseUri(isDebug: Boolean): Uri {
+        return if (isDebug) this.baseUri else "$baseUri?hasty=true".toUri()
     }
 }

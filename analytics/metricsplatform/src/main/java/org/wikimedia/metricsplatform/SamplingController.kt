@@ -49,8 +49,8 @@ class SamplingController internal constructor(
     fun getSamplingId(unit: String): String {
         return when (unit) {
             SampleConfig.UNIT_SESSION -> return sessionController.sessionId
-            SampleConfig.UNIT_DEVICE -> return clientData.agentData.appInstallId.orEmpty()
-            SampleConfig.UNIT_PAGEVIEW -> return clientData.performerData.pageviewId.orEmpty()
+            SampleConfig.UNIT_DEVICE -> return clientData.agentData?.appInstallId.orEmpty()
+            SampleConfig.UNIT_PAGEVIEW -> return clientData.performerData?.pageviewId.orEmpty()
             else -> UUID.randomUUID().toString()
         }
     }

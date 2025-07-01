@@ -14,9 +14,9 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 open class ClientData (
-    @SerialName("agent") val agentData: AgentData = AgentData(),
-    @SerialName("page") val pageData: PageData = PageData(),
-    @SerialName("mediawiki") val mediawikiData: MediawikiData = MediawikiData(),
-    @SerialName("performer") val performerData: PerformerData = PerformerData(),
+    @SerialName("agent") val agentData: AgentData? = null,
+    @SerialName("page") val pageData: PageData? = null,
+    @SerialName("mediawiki") val mediawikiData: MediawikiData? = null,
+    @SerialName("performer") val performerData: PerformerData? = null,
     @SerialName("domain") val domain: String? = null
 )

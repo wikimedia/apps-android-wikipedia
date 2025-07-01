@@ -12,10 +12,10 @@ import org.wikimedia.metricsplatform.context.PerformerData
 
 @Serializable
 class EventProcessed : Event {
-    @SerialName("agent") var agentData: AgentData = AgentData()
-    @SerialName("page") var pageData: PageData = PageData()
-    @SerialName("mediawiki") var mediawikiData: MediawikiData = MediawikiData()
-    @SerialName("performer") var performerData: PerformerData = PerformerData()
+    @SerialName("agent") var agentData: AgentData? = null
+    @SerialName("page") var pageData: PageData? = null
+    @SerialName("mediawiki") var mediawikiData: MediawikiData? = null
+    @SerialName("performer") var performerData: PerformerData? = null
 
     @SerialName("action") var action: String? = null
     @SerialName("action_subtype") private var actionSubtype: String? = null
@@ -67,7 +67,7 @@ class EventProcessed : Event {
         schema: String?,
         stream: String,
         name: String?,
-        customData: MutableMap<String, String>?,
+        customData: Map<String, String>?,
         clientData: ClientData,
         sample: SampleConfig?,
         interactionData: InteractionData
@@ -85,15 +85,15 @@ class EventProcessed : Event {
         this.action = interactionData.action
     }
 
-    fun setClientData(clientData: ClientData) {
-        setAgentData(clientData.agentData)
-        setPageData(clientData.pageData)
-        setMediawikiData(clientData.mediawikiData)
-        setPerformerData(clientData.performerData)
+    fun applyClientData(clientData: ClientData) {
+        agentData = clientData.agentData
+        pageData = clientData.pageData
+        mediawikiData = clientData.mediawikiData
+        performerData = clientData.performerData
         this.clientData = clientData
     }
 
-    fun setInteractionData(interactionData: InteractionData) {
+    fun applyInteractionData(interactionData: InteractionData) {
         this.action = interactionData.action
         this.actionContext = interactionData.actionContext
         this.actionSource = interactionData.actionSource

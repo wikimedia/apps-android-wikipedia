@@ -25,7 +25,7 @@ open class MetricsEvent {
     protected fun submitEvent(
         streamName: String,
         eventName: String,
-        interactionData: InteractionData?,
+        interactionData: InteractionData? = null,
         pageData: PageData? = null
     ) {
         MetricsPlatform.client.submitInteraction(

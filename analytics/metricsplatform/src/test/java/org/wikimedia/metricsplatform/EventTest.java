@@ -88,7 +88,7 @@ class EventTest {
         assertThat(event.getPerformerData().getLanguagePrimary()).isEqualTo("zh-tw");
         assertThat(event.getPerformerData().getRegistrationDt()).isEqualTo("2023-03-01T01:08:30Z");
 
-        event.setInteractionData(DataFixtures.getTestInteractionData("TestAction"));
+        event.applyInteractionData(DataFixtures.getTestInteractionData("TestAction"));
 
         assertThat(event.getAction()).isEqualTo("TestAction");
         assertThat(event.getActionSource()).isEqualTo("TestActionSource");

@@ -23,10 +23,6 @@ class StreamConfig {
     val events
         get() = producerConfig?.metricsPlatformClientConfig?.events.orEmpty()
 
-    fun getDestinationEventService(): DestinationEventService {
-        return if (destinationEventService != null) destinationEventService!! else DestinationEventService.ANALYTICS
-    }
-
     fun hasCurationFilter(): Boolean {
         return producerConfig?.metricsPlatformClientConfig?.curationFilter != null
     }

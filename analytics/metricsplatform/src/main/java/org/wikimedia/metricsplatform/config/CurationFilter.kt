@@ -19,9 +19,9 @@ import java.util.function.Predicate
 
 @Serializable
 class CurationFilter : Predicate<EventProcessed> {
-    @SerialName("agent_app_install_id") var agentAppInstallIdRules: CurationRules<String?>? = null
-    @SerialName("agent_client_platform") var agentClientPlatformRules: CurationRules<String?>? = null
-    @SerialName("agent_client_platform_family") var agentClientPlatformFamilyRules: CurationRules<String?>? = null
+    @SerialName("agent_app_install_id") var agentAppInstallIdRules: CurationRules<String>? = null
+    @SerialName("agent_client_platform") var agentClientPlatformRules: CurationRules<String>? = null
+    @SerialName("agent_client_platform_family") var agentClientPlatformFamilyRules: CurationRules<String>? = null
     @SerialName("mediawiki_database") var mediawikiDatabase: CurationRules<String>? = null
     @SerialName("page_id") var pageIdRules: ComparableCurationRules<Int>? = null
     @SerialName("page_namespace_id") var pageNamespaceIdRules: ComparableCurationRules<Int>? = null
@@ -37,13 +37,13 @@ class CurationFilter : Predicate<EventProcessed> {
     @SerialName("performer_groups") var performerGroupsRules: CollectionCurationRules<String>? = null
     @SerialName("performer_is_logged_in") var performerIsLoggedInRules: CurationRules<Boolean>? = null
     @SerialName("performer_is_temp") var performerIsTempRules: CurationRules<Boolean>? = null
-    @SerialName("performer_registration_dt") var performerRegistrationDtRules: ComparableCurationRules<Instant?>? = null
+    @SerialName("performer_registration_dt") var performerRegistrationDtRules: ComparableCurationRules<Instant>? = null
 
     @SerialName("performer_language_groups")
-    var performerLanguageGroupsRules: CurationRules<String?>? = null
+    var performerLanguageGroupsRules: CurationRules<String>? = null
 
     @SerialName("performer_language_primary")
-    var performerLanguagePrimaryRules: CurationRules<String?>? = null
+    var performerLanguagePrimaryRules: CurationRules<String>? = null
 
     override fun test(event: EventProcessed): Boolean {
         return applyAgentRules(event.agentData)
@@ -52,40 +52,37 @@ class CurationFilter : Predicate<EventProcessed> {
                 && applyPerformerRules(event.performerData)
     }
 
-    private fun applyAgentRules(data: AgentData): Boolean {
-        return applyPredicate(this.agentAppInstallIdRules, data.appInstallId)
-                && applyPredicate(this.agentClientPlatformRules, data.clientPlatform)
-                && applyPredicate(
-            this.agentClientPlatformFamilyRules,
-            data.clientPlatformFamily
-        )
+    private fun applyAgentRules(data: AgentData?): Boolean {
+        return applyPredicate(this.agentAppInstallIdRules, data?.appInstallId)
+                && applyPredicate(this.agentClientPlatformRules, data?.clientPlatform)
+                && applyPredicate(this.agentClientPlatformFamilyRules, data?.clientPlatformFamily)
     }
 
-    private fun applyMediaWikiRules(data: MediawikiData): Boolean {
-        return applyPredicate(this.mediawikiDatabase, data.database)
+    private fun applyMediaWikiRules(data: MediawikiData?): Boolean {
+        return applyPredicate(this.mediawikiDatabase, data?.database)
     }
 
-    private fun applyPageRules(data: PageData): Boolean {
-        return applyPredicate(this.pageIdRules, data.id)
-                && applyPredicate(this.pageNamespaceIdRules, data.namespaceId)
-                && applyPredicate(this.pageNamespaceNameRules, data.namespaceName)
-                && applyPredicate(this.pageTitleRules, data.title)
-                && applyPredicate(this.pageRevisionIdRules, data.revisionId)
-                && applyPredicate(this.pageWikidataQidRules, data.wikidataItemQid)
-                && applyPredicate(this.pageContentLanguageRules, data.contentLanguage)
+    private fun applyPageRules(data: PageData?): Boolean {
+        return applyPredicate(this.pageIdRules, data?.id)
+                && applyPredicate(this.pageNamespaceIdRules, data?.namespaceId)
+                && applyPredicate(this.pageNamespaceNameRules, data?.namespaceName)
+                && applyPredicate(this.pageTitleRules, data?.title)
+                && applyPredicate(this.pageRevisionIdRules, data?.revisionId)
+                && applyPredicate(this.pageWikidataQidRules, data?.wikidataItemQid)
+                && applyPredicate(this.pageContentLanguageRules, data?.contentLanguage)
     }
 
-    private fun applyPerformerRules(data: PerformerData): Boolean {
-        return applyPredicate(this.performerIdRules, data.id)
-                && applyPredicate(this.performerNameRules, data.name)
-                && applyPredicate(this.performerSessionIdRules, data.sessionId)
-                && applyPredicate(this.performerPageviewIdRules, data.pageviewId)
-                && applyPredicate(this.performerGroupsRules, data.groups)
-                && applyPredicate(this.performerIsLoggedInRules, data.isLoggedIn)
-                && applyPredicate(this.performerIsTempRules, data.isTemp)
-                && applyPredicate(this.performerRegistrationDtRules, data.registrationDt)
-                && applyPredicate(this.performerLanguageGroupsRules, data.languageGroups)
-                && applyPredicate(this.performerLanguagePrimaryRules, data.languagePrimary)
+    private fun applyPerformerRules(data: PerformerData?): Boolean {
+        return applyPredicate(this.performerIdRules, data?.id)
+                && applyPredicate(this.performerNameRules, data?.name)
+                && applyPredicate(this.performerSessionIdRules, data?.sessionId)
+                && applyPredicate(this.performerPageviewIdRules, data?.pageviewId)
+                && applyPredicate(this.performerGroupsRules, data?.groups)
+                && applyPredicate(this.performerIsLoggedInRules, data?.isLoggedIn)
+                && applyPredicate(this.performerIsTempRules, data?.isTemp)
+                && applyPredicate(this.performerRegistrationDtRules, data?.registrationDt)
+                && applyPredicate(this.performerLanguageGroupsRules, data?.languageGroups)
+                && applyPredicate(this.performerLanguagePrimaryRules, data?.languagePrimary)
     }
 
     companion object {

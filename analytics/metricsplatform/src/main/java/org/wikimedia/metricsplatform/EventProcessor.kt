@@ -94,7 +94,7 @@ class EventProcessor(
         streamConfigMap: Map<String, StreamConfig>
     ): DestinationEventService {
         val streamConfig = streamConfigMap[event.stream]
-        return streamConfig?.getDestinationEventService() ?: DestinationEventService.ANALYTICS
+        return streamConfig?.destinationEventService ?: DestinationEventService.ANALYTICS
     }
 
     private fun sendEventsToDestination(

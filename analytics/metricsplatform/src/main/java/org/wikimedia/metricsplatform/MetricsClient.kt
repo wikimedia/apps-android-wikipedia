@@ -1,28 +1,19 @@
 package org.wikimedia.metricsplatform
 
-import okhttp3.OkHttpClient
 import org.wikimedia.metricsplatform.config.SourceConfig
 import org.wikimedia.metricsplatform.config.StreamConfig
-import org.wikimedia.metricsplatform.config.StreamConfigFetcher
 import org.wikimedia.metricsplatform.context.ClientData
 import org.wikimedia.metricsplatform.context.InteractionData
 import org.wikimedia.metricsplatform.event.Event
 import org.wikimedia.metricsplatform.event.EventProcessed
-import java.net.URL
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.BlockingQueue
-import java.util.concurrent.Executors
 import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.ThreadFactory
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
 
 class MetricsClient private constructor(
-    private val executorService: ScheduledExecutorService,
     /**
      * Handles logging session management. A new session begins (and a new session ID is created)
      * if the app has been inactive for 15 minutes or more.
@@ -126,13 +117,12 @@ class MetricsClient private constructor(
      * @param clientData client context data
      * @param customData custom data
      */
-    @JvmOverloads
     fun submitMetricsEvent(
         streamName: String?,
         schemaId: String?,
         eventName: String?,
         clientData: ClientData?,
-        customData: Map<String, String>?,
+        customData: Map<String, Any>?,
         interactionData: InteractionData? = null
     ) {
         if (streamName == null) {
@@ -161,7 +151,7 @@ class MetricsClient private constructor(
             event.clientData = clientData
         }
         if (customData != null) {
-            event.customData = customData
+            event.customData = customData.mapValues { it.value.toString() }
         }
         if (interactionData != null) {
             event.interactionData = interactionData
@@ -191,7 +181,7 @@ class MetricsClient private constructor(
         streamName: String?,
         eventName: String?,
         clientData: ClientData,
-        interactionData: InteractionData
+        interactionData: InteractionData?
     ) {
         submitMetricsEvent(
             streamName,
@@ -223,8 +213,8 @@ class MetricsClient private constructor(
         schemaId: String?,
         eventName: String?,
         clientData: ClientData,
-        interactionData: InteractionData,
-        customData: Map<String, String>?
+        interactionData: InteractionData?,
+        customData: Map<String, Any>?
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
     }
@@ -329,12 +319,9 @@ class MetricsClient private constructor(
      * application is resumed.
      */
     fun onAppPause() {
-        executorService.schedule(
-            Runnable { eventProcessor.sendEnqueuedEvents() },
-            0,
-            TimeUnit.MILLISECONDS
-        )
         sessionController.touchSession()
+
+        //eventProcessor.sendEnqueuedEvents()
     }
 
     /**
@@ -353,11 +340,9 @@ class MetricsClient private constructor(
      * Closes the session.
      */
     fun onAppClose() {
-        executorService.schedule({ eventProcessor.sendEnqueuedEvents() },
-            0,
-            TimeUnit.MILLISECONDS
-        )
         sessionController.closeSession()
+
+        //eventProcessor.sendEnqueuedEvents()
     }
 
     /**
@@ -377,7 +362,7 @@ class MetricsClient private constructor(
      * @param event event
      */
     private fun addRequiredMetadata(event: EventProcessed) {
-        event.performerData.sessionId = sessionController.sessionId
+        event.performerData?.let { it.sessionId = sessionController.sessionId }
         event.timestamp = DATE_FORMAT.format(Instant.now())
         event.setDomain(event.clientData.domain)
     }
@@ -393,7 +378,7 @@ class MetricsClient private constructor(
         var eventQueueAppendAttempts = max(eventQueue.size / 50, 10)
 
         while (!eventQueue.offer(event)) {
-            val removedEvent: EventProcessed? = eventQueue.remove()
+            val removedEvent = eventQueue.remove()
             if (removedEvent != null) {
                 //log.log(Level.FINE, removedEvent.name + " was dropped so that a newer event could be added to the queue.")
             }
@@ -414,19 +399,24 @@ class MetricsClient private constructor(
 
         private var samplingController: SamplingController? = null
 
-        private val httpClient: OkHttpClient = OkHttpClient()
-
-        private val streamConfigURL: URL = safeURL(StreamConfigFetcher.ANALYTICS_API_ENDPOINT)
-
-        private val isDebug = false
-
-        private val executorService: ScheduledExecutorService =
-            Executors.newScheduledThreadPool(1, SimpleThreadFactory())
+        private var isDebug = false
 
         private val sourceConfig: SourceConfig? = null
 
+        private var eventSender: EventSender? = null
+
         fun eventQueueCapacity(capacity: Int): Builder {
             eventQueue = LinkedBlockingQueue(capacity)
+            return this
+        }
+
+        fun eventSender(eventSender: EventSender): Builder {
+            this.eventSender = eventSender
+            return this
+        }
+
+        fun isDebug(isDebug: Boolean): Builder {
+            this.isDebug = isDebug
             return this
         }
 
@@ -442,13 +432,12 @@ class MetricsClient private constructor(
                 curationController,
                 sourceConfigRef,
                 samplingController!!,
-                EventSenderDefault(httpClient),
+                eventSender!!,
                 eventQueue,
                 isDebug
             )
 
             val metricsClient = MetricsClient(
-                executorService,
                 sessionController,
                 samplingController!!,
                 sourceConfigRef,
@@ -457,20 +446,6 @@ class MetricsClient private constructor(
             )
 
             return metricsClient
-        }
-
-        companion object {
-            private fun safeURL(url: String?): URL {
-                return URL(url)
-            }
-        }
-    }
-
-    private class SimpleThreadFactory : ThreadFactory {
-        private val counter = AtomicLong()
-
-        override fun newThread(r: Runnable?): Thread {
-            return Thread(r, "metrics-client-" + counter.incrementAndGet())
         }
     }
 

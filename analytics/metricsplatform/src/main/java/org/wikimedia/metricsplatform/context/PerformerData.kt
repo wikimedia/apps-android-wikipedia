@@ -21,7 +21,7 @@ data class PerformerData (
     @SerialName("is_temp") var isTemp: Boolean? = null,
     @SerialName("session_id") var sessionId: String? = null,
     @SerialName("pageview_id") var pageviewId: String? = null,
-    @SerialName("groups") var groups: MutableCollection<String?>? = null,
+    @SerialName("groups") var groups: Collection<String>? = null,
     @SerialName("language_groups") var languageGroups: String? = null,
     @SerialName("language_primary") var languagePrimary: String? = null,
     @SerialName("registration_dt") var registrationDt: Instant? = null
