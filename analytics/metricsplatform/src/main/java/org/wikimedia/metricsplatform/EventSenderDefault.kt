@@ -1,15 +1,15 @@
 package org.wikimedia.metricsplatform
 
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import org.wikimedia.metricsplatform.event.EventProcessed
 
 class EventSenderDefault(private val gson: com.google.gson.Gson,
                          private val httpClient: OkHttpClient
 ) : EventSender {
     override fun sendEvents(baseUri: java.net.URL, events: List<EventProcessed>) {
-        val request = okhttp3.Request.Builder()
+        val request = Request.Builder()
             .url(baseUri)
             .header("Accept", "application/json")
             .header(
@@ -20,8 +20,8 @@ class EventSenderDefault(private val gson: com.google.gson.Gson,
             .build()
 
         httpClient.newCall(request).execute().use { response ->
-            val status: kotlin.Int = response.code
-            val body: ResponseBody? = response.body
+            val status = response.code
+            val body = response.body
             if (!response.isSuccessful || status == 207) {
                 // In the case of a multi-status response (207), it likely means that one or more
                 // events were rejected. In such a case, the error is actually contained in

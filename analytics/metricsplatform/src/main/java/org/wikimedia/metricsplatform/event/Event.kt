@@ -16,7 +16,7 @@ open class Event(@Transient val _stream: String = "") {
 
     @SerialName("dt") var timestamp: String? = null
 
-    @SerialName("custom_data") var customData: MutableMap<String, String>? = null
+    @SerialName("custom_data") var customData: Map<String, String>? = null
 
     protected val meta = Meta(_stream)
 

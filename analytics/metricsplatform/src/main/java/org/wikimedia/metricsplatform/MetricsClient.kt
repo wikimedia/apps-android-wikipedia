@@ -10,9 +10,7 @@ import org.wikimedia.metricsplatform.event.Event
 import org.wikimedia.metricsplatform.event.EventProcessed
 import java.net.URL
 import java.time.Instant
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.LinkedBlockingQueue
@@ -102,7 +100,7 @@ class MetricsClient private constructor(
         streamName: String?,
         schemaId: String?,
         eventName: String?,
-        customData: MutableMap<String?, Any?>?
+        customData: Map<String, String>?
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, null, customData, null)
     }
@@ -133,9 +131,9 @@ class MetricsClient private constructor(
         streamName: String?,
         schemaId: String?,
         eventName: String?,
-        clientData: ClientData,
-        customData: MutableMap<String?, Any?>?,
-        interactionData: InteractionData = null
+        clientData: ClientData?,
+        customData: Map<String, String>?,
+        interactionData: InteractionData? = null
     ) {
         if (streamName == null) {
             //log.log(Level.FINE, "No stream has been specified, the submitMetricsEvent event is ignored and dropped.")
@@ -156,19 +154,21 @@ class MetricsClient private constructor(
             }
         }
 
-        val event = Event(schemaId!!, streamName, eventName)
-        event.clientData = clientData
-
+        val event = Event(schemaId!!)
+        event.stream = streamName
+        event.name = eventName
+        if (clientData != null) {
+            event.clientData = clientData
+        }
         if (customData != null) {
             event.customData = customData
         }
-
-        event.interactionData = interactionData
-
+        if (interactionData != null) {
+            event.interactionData = interactionData
+        }
         if (streamConfig != null && streamConfig.hasSampleConfig()) {
             event.sample = streamConfig.sampleConfig
         }
-
         submit(event)
     }
 
@@ -224,7 +224,7 @@ class MetricsClient private constructor(
         eventName: String?,
         clientData: ClientData,
         interactionData: InteractionData,
-        customData: MutableMap<String?, Any?>?
+        customData: Map<String, String>?
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
     }
@@ -270,7 +270,7 @@ class MetricsClient private constructor(
         schemaId: String?,
         eventName: String?,
         clientData: ClientData,
-        customData: MutableMap<String?, Any?>?,
+        customData: Map<String, String>?,
         interactionData: InteractionData
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
@@ -313,7 +313,7 @@ class MetricsClient private constructor(
         schemaId: String?,
         eventName: String?,
         clientData: ClientData,
-        customData: MutableMap<String?, Any?>?,
+        customData: Map<String, String>?,
         interactionData: InteractionData
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
@@ -353,8 +353,7 @@ class MetricsClient private constructor(
      * Closes the session.
      */
     fun onAppClose() {
-        executorService.schedule(
-            Runnable { eventProcessor.sendEnqueuedEvents() },
+        executorService.schedule({ eventProcessor.sendEnqueuedEvents() },
             0,
             TimeUnit.MILLISECONDS
         )
@@ -443,7 +442,7 @@ class MetricsClient private constructor(
                 curationController,
                 sourceConfigRef,
                 samplingController!!,
-                EventSenderDefault(gson, httpClient),
+                EventSenderDefault(httpClient),
                 eventQueue,
                 isDebug
             )
@@ -476,10 +475,7 @@ class MetricsClient private constructor(
     }
 
     companion object {
-        @JvmField
-        val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter
-            .ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT)
-            .withZone(ZoneId.of("UTC"))
+        val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
 
         const val METRICS_PLATFORM_LIBRARY_VERSION: String = "2.8"
         const val METRICS_PLATFORM_BASE_VERSION: String = "1.2.2"
