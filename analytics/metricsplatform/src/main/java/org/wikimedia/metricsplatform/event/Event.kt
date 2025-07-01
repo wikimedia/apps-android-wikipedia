@@ -12,7 +12,7 @@ open class Event(@Transient val _stream: String = "") {
     var name: String? = null
 
     @SerialName("\$schema")
-    var schema: String? = null
+    var schema: String = ""
 
     @SerialName("dt") var timestamp: String? = null
 

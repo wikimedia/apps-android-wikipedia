@@ -6,7 +6,8 @@ import org.wikimedia.metricsplatform.context.ClientData
 import org.wikimedia.metricsplatform.context.InteractionData
 import org.wikimedia.metricsplatform.event.Event
 import org.wikimedia.metricsplatform.event.EventProcessed
-import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.LinkedBlockingQueue
@@ -57,7 +58,7 @@ class MetricsClient private constructor(
      * @param event  event data
      */
     fun submit(event: Event) {
-        val eventProcessed: EventProcessed = EventProcessed.fromEvent(event)
+        val eventProcessed = EventProcessed.fromEvent(event)
         addRequiredMetadata(eventProcessed)
         addToEventQueue(eventProcessed)
     }
@@ -88,9 +89,9 @@ class MetricsClient private constructor(
      * @param customData custom data
      */
     fun submitMetricsEvent(
-        streamName: String?,
-        schemaId: String?,
-        eventName: String?,
+        streamName: String,
+        schemaId: String,
+        eventName: String,
         customData: Map<String, String>?
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, null, customData, null)
@@ -118,18 +119,13 @@ class MetricsClient private constructor(
      * @param customData custom data
      */
     fun submitMetricsEvent(
-        streamName: String?,
-        schemaId: String?,
-        eventName: String?,
+        streamName: String,
+        schemaId: String,
+        eventName: String,
         clientData: ClientData?,
         customData: Map<String, Any>?,
         interactionData: InteractionData? = null
     ) {
-        if (streamName == null) {
-            //log.log(Level.FINE, "No stream has been specified, the submitMetricsEvent event is ignored and dropped.")
-            return
-        }
-
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
         if (sourceConfig.get() != null) {
@@ -144,8 +140,8 @@ class MetricsClient private constructor(
             }
         }
 
-        val event = Event(schemaId!!)
-        event.stream = streamName
+        val event = Event(streamName)
+        event.schema = schemaId
         event.name = eventName
         if (clientData != null) {
             event.clientData = clientData
@@ -178,8 +174,8 @@ class MetricsClient private constructor(
      * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
      */
     fun submitInteraction(
-        streamName: String?,
-        eventName: String?,
+        streamName: String,
+        eventName: String,
         clientData: ClientData,
         interactionData: InteractionData?
     ) {
@@ -209,9 +205,9 @@ class MetricsClient private constructor(
      * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
      */
     fun submitInteraction(
-        streamName: String?,
-        schemaId: String?,
-        eventName: String?,
+        streamName: String,
+        schemaId: String,
+        eventName: String,
         clientData: ClientData,
         interactionData: InteractionData?,
         customData: Map<String, Any>?
@@ -229,7 +225,7 @@ class MetricsClient private constructor(
      * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
      */
     fun submitClick(
-        streamName: String?,
+        streamName: String,
         clientData: ClientData,
         interactionData: InteractionData
     ) {
@@ -256,9 +252,9 @@ class MetricsClient private constructor(
      * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
      */
     fun submitClick(
-        streamName: String?,
-        schemaId: String?,
-        eventName: String?,
+        streamName: String,
+        schemaId: String,
+        eventName: String,
         clientData: ClientData,
         customData: Map<String, String>?,
         interactionData: InteractionData
@@ -274,7 +270,7 @@ class MetricsClient private constructor(
      * @param interactionData common data for the base interaction schema
      */
     fun submitView(
-        streamName: String?,
+        streamName: String,
         clientData: ClientData,
         interactionData: InteractionData
     ) {
@@ -299,9 +295,9 @@ class MetricsClient private constructor(
      * @param interactionData common data for the base interaction schema
      */
     fun submitView(
-        streamName: String?,
-        schemaId: String?,
-        eventName: String?,
+        streamName: String,
+        schemaId: String,
+        eventName: String,
         clientData: ClientData,
         customData: Map<String, String>?,
         interactionData: InteractionData
@@ -363,7 +359,7 @@ class MetricsClient private constructor(
      */
     private fun addRequiredMetadata(event: EventProcessed) {
         event.performerData?.let { it.sessionId = sessionController.sessionId }
-        event.timestamp = DATE_FORMAT.format(Instant.now())
+        event.timestamp = DATE_FORMAT.format(ZonedDateTime.now(ZONE_Z))
         event.setDomain(event.clientData.domain)
     }
 
@@ -451,6 +447,7 @@ class MetricsClient private constructor(
 
     companion object {
         val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
+        val ZONE_Z = ZoneId.of("Z")
 
         const val METRICS_PLATFORM_LIBRARY_VERSION: String = "2.8"
         const val METRICS_PLATFORM_BASE_VERSION: String = "1.2.2"

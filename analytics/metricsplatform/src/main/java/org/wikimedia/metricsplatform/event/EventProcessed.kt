@@ -34,8 +34,8 @@ class EventProcessed : Event {
      * @param name event name
      * @param clientData agent, mediawiki, page, performer data
      */
-    constructor(schema: String?, stream: String, name: String, clientData: ClientData) : super(schema!!) {
-        this.stream = stream
+    constructor(schema: String, stream: String, name: String, clientData: ClientData) : super(stream) {
+        this.schema = schema
         this.name = name
         this.clientData = clientData
         this.agentData = clientData.agentData
@@ -64,15 +64,15 @@ class EventProcessed : Event {
      * leaving it as is for the time being rather than suppressing the error.
      */
     constructor(
-        schema: String?,
+        schema: String,
         stream: String,
         name: String?,
         customData: Map<String, String>?,
         clientData: ClientData,
         sample: SampleConfig?,
         interactionData: InteractionData
-    ) : super(schema!!) {
-        this.stream = stream
+    ) : super(stream) {
+        this.schema = schema
         this.name = name
         this.clientData = clientData
         this.agentData = clientData.agentData
