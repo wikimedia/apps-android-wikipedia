@@ -103,7 +103,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         val volumeIcon = if (Prefs.isOtdSoundOn) R.drawable.volume_off_24dp else R.drawable.volume_up_24dp
         val volumeTitle = if (Prefs.isOtdSoundOn) getString(R.string.on_this_day_game_sound_off) else getString(R.string.on_this_day_game_sound_on)
         volume.setIcon(volumeIcon)
-        volume.setTitle(volumeTitle)
+        volume.title = volumeTitle
         if (viewModel.gameState.value is OnThisDayGameViewModel.GameEnded) {
             notificationItem?.isVisible = true
             notificationItem?.setIcon(Prefs.otdNotificationState.getIcon())

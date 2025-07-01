@@ -48,7 +48,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
         viewModel.gameState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Resource.Loading -> updateOnLoading()
-                is OnThisDayGameViewModel.GameStarted -> handleGameStarted(state.data)
+                is OnThisDayGameViewModel.GameStarted -> handleGameStarted()
                 is OnThisDayGameViewModel.CurrentQuestion -> handleCurrentQuestion(state.data)
                 is OnThisDayGameViewModel.GameEnded -> handleGameEnded(state.data)
                 is Resource.Error -> updateOnError(state.throwable)
@@ -75,7 +75,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
         binding.errorView.setIconColorFilter(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
-    private fun handleGameStarted(state: OnThisDayGameViewModel.GameState) {
+    private fun handleGameStarted() {
         showGameMenu()
         with(binding) {
             playGameButton.setOnClickListener {
@@ -97,7 +97,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
-                startGame(state)
+                startGame()
             }
 
             if (viewModel.isArchiveGame) {
@@ -116,7 +116,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
             binding.gameMessageText.text = getString(R.string.on_this_day_game_score_message, score, state.totalQuestions)
             playGameButton.text = getString(R.string.on_this_day_game_review_results_btn_text)
             playGameButton.setOnClickListener {
-                showGameResults(state)
+                showGameResults()
             }
             playArchiveButton.isVisible = true
             playArchiveButton.setOnClickListener {
@@ -125,7 +125,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
         }
     }
 
-    private fun startGame(state: OnThisDayGameViewModel.GameState) {
+    private fun startGame() {
         WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         requireActivity().supportFragmentManager.popBackStack()
         requireActivity().supportFragmentManager.beginTransaction()
@@ -133,7 +133,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
             .commit()
     }
 
-    private fun showGameResults(state: OnThisDayGameViewModel.GameState) {
+    private fun showGameResults() {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, OnThisDayGameOverFragment.newInstance(viewModel.invokeSource), null)
             .commit()
