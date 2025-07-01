@@ -38,7 +38,7 @@ def upload_apks(name, pattern, upload_path):
     files = glob.glob(pattern)
     if files:
         try:
-            #subprocess.run(['scp'] + files + [upload_path], check=True)
+            subprocess.run(['scp'] + files + [upload_path], check=True)
             return True
         except subprocess.CalledProcessError as e:
             print(f"✗ Failed to upload {name} APKs: {e}")
