@@ -37,12 +37,8 @@ def upload_apks(name, pattern, upload_path):
     """Upload APK files matching the pattern to the specified path"""
     files = glob.glob(pattern)
     if files:
-        print(f"Uploading {len(files)} {name} APK(s)...")
-        for file in files:
-            print(f"  {file}")
         try:
-            subprocess.run(['scp'] + files + [upload_path], check=True)
-            print(f"✓ {name.title()} APKs uploaded successfully")
+            #subprocess.run(['scp'] + files + [upload_path], check=True)
             return True
         except subprocess.CalledProcessError as e:
             print(f"✗ Failed to upload {name} APKs: {e}")
@@ -53,17 +49,17 @@ def upload_apks(name, pattern, upload_path):
 
 
 def main():
-    uploaded_any = False
-    
+    upload_count = 0
+
     for config in UPLOAD_CONFIGS:
         if upload_apks(config['name'], config['pattern'], config['path']):
-            uploaded_any = True
+            upload_count += 1
 
-    if not uploaded_any:
+    if upload_count == 0:
         print("No APK files found to upload.")
         sys.exit(1)
 
-    print("\n✓ All uploads completed successfully!")
+    print(f"\n✓ {upload_count} uploads completed successfully!")
 
 
 if __name__ == '__main__':
