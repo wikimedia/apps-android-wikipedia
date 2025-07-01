@@ -46,6 +46,7 @@ class ArticleEditingTest : BaseTest<MainActivity>(
     val h4 = "Heading 4"
     val h5 = "Heading 5"
     val textFormattingTexts = "What is Espresso Test?\n\n" +
+            "==This is a page meant for testing android editing functionality==\n\n" +
             "$boldText\n\n" +
             "$italicText\n\n" +
             "$underlineText\n\n" +
@@ -155,7 +156,7 @@ class ArticleEditingTest : BaseTest<MainActivity>(
         editorRobot
             .closeEditNotice()
             .replaceTextInEditWindow("")
-            .typeInEditWindow("* Apple\n*Orange\n#Bread\n#Peanut Butter\n")
+            .typeInEditWindow("What is Espresso Test?\n\n==This is a page meant for testing android editing functionality==\n\n*Apple\n*Orange\n#Bread\n#Peanut Butter\n")
             .clickUndoButton()
             .clickRedoButton()
             .clickInsertMediaButton()

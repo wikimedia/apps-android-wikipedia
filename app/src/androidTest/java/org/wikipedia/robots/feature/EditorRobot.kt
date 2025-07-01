@@ -11,6 +11,7 @@ import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
+import org.wikipedia.util.StringUtil
 
 class EditorRobot : BaseRobot() {
     val currentWikiText
@@ -223,7 +224,9 @@ class EditorRobot : BaseRobot() {
 
     fun verifyEditPublished(context: Context) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        verify.messageOfSnackbar(context.getString(R.string.edit_saved_successfully))
+        val rawText = context.getString(R.string.edit_saved_successfully)
+        val processedText = StringUtil.fromHtml(rawText).trim().toString()
+        verify.messageOfSnackbar(processedText)
     }
 
     private fun findTextPosition(fullText: String, targetText: String): Pair<Int, Int>? {
