@@ -8,7 +8,7 @@ plugins {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    namespace 'org.wikimedia.metrics_platform'
+    namespace 'org.wikimedia.metricsplatform'
 
     compileOptions {
         coreLibraryDesugaringEnabled true

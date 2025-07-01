@@ -1,9 +1,9 @@
 package org.wikipedia.analytics.metricsplatform
 
-import org.wikimedia.metrics_platform.context.ClientData
-import org.wikimedia.metrics_platform.context.InteractionData
-import org.wikimedia.metrics_platform.context.PageData
-import org.wikimedia.metrics_platform.context.PerformerData
+import org.wikimedia.metricsplatform.context.ClientData
+import org.wikimedia.metricsplatform.context.InteractionData
+import org.wikimedia.metricsplatform.context.PageData
+import org.wikimedia.metricsplatform.context.PerformerData
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil

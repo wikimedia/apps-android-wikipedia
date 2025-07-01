@@ -1,10 +1,10 @@
 package org.wikipedia.analytics.metricsplatform
 
 import android.os.Build
-import org.wikimedia.metrics_platform.MetricsClient
-import org.wikimedia.metrics_platform.context.AgentData
-import org.wikimedia.metrics_platform.context.ClientData
-import org.wikimedia.metrics_platform.context.MediawikiData
+import org.wikimedia.metricsplatform.MetricsClient
+import org.wikimedia.metricsplatform.context.AgentData
+import org.wikimedia.metricsplatform.context.ClientData
+import org.wikimedia.metricsplatform.context.MediawikiData
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory

@@ -2,7 +2,7 @@ package org.wikipedia.analytics.metricsplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikimedia.metrics_platform.context.PageData
+import org.wikimedia.metricsplatform.context.PageData
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageFragment
