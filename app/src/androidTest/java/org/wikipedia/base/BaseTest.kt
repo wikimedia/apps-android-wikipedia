@@ -98,6 +98,10 @@ abstract class BaseTest<T : AppCompatActivity>(
         Thread.sleep(TestConfig.DELAY_MEDIUM)
     }
 
+    fun isOnline(): Boolean {
+        return WikipediaApp.instance.isOnline
+    }
+
     @After
     open fun tearDown() {
         Intents.release()
