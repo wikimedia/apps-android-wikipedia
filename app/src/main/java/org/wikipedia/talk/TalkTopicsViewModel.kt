@@ -135,7 +135,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
         }
     }
 
-    fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false) {
+    fun markAsSeen(threadItem: ThreadItem?, force: Boolean = false, action: (() -> Unit)) {
         threadSha(threadItem)?.let {
             viewModelScope.launch(actionHandler) {
                 if (topicSeen(threadItem) && !force) {
@@ -145,6 +145,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
                     talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
                     seenThreadItemsSha.add(it)
                 }
+                action()
             }
         }
     }

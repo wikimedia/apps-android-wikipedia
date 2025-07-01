@@ -124,8 +124,9 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun markAsSeen(force: Boolean = false) {
-        viewModel.markAsSeen(threadItem, force)
-        bindingAdapter?.notifyDataSetChanged()
+        viewModel.markAsSeen(threadItem, force) {
+            bindingAdapter?.notifyDataSetChanged()
+        }
     }
 
     private fun showOverflowMenu(anchorView: View) {
