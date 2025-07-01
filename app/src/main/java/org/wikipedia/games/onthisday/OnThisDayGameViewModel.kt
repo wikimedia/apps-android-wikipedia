@@ -24,7 +24,6 @@ import org.wikipedia.games.WikiGames
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -142,22 +141,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     events.add(event2)
                     allEvents.remove(event2)
                 }
-            }
-
-            // Update language variant if needed for pages in events
-            val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.languageCode).isNullOrEmpty()
-            if (hasParentLanguageCode) {
-                val newEvents = mutableListOf<OnThisDay.Event>()
-                events.forEach { event ->
-                    val newPages = L10nUtil.getPagesForLanguageVariant(event.pages, wikiSite, shouldUpdateExtracts = true)
-                    newEvents.add(OnThisDay.Event(
-                        text = event.text,
-                        year = event.year,
-                        pages = newPages
-                    ))
-                }
-                events.clear()
-                events.addAll(newEvents)
             }
 
             totalState.langToState[wikiSite.languageCode]?.let {
