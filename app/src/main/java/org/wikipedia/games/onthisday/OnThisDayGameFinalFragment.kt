@@ -139,9 +139,10 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
         binding.root.isVisible = false
         WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start")
         viewModel.relaunchForDate(date)
-        (requireActivity() as? OnThisDayGameActivity)?.apply {
-            animateQuestionsIn()
-        }
+        requireActivity().supportFragmentManager.popBackStack()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, OnThisDayGameFragment.newInstance(), null)
+            .commit()
     }
 
     override fun onDestroyView() {
