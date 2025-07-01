@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,9 +56,11 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.MonthDay
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
+class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
     private var _binding: FragmentOnThisDayGameFinalBinding? = null
     val binding get() = _binding!!
 
@@ -65,10 +68,12 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var timeUpdateRunnable: Runnable
     private var loadedImagesForShare = 0
+    private var mainActivity: OnThisDayGameActivity? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
+        mainActivity = (activity as? OnThisDayGameActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requireActivity().window.isNavigationBarContrastEnforced = true
         }
@@ -131,6 +136,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
 
         handler.post(timeUpdateRunnable)
         updateOnLoading()
+        mainActivity?.invalidateOptionsMenu()
         return binding.root
     }
 
@@ -141,7 +147,7 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
         viewModel.relaunchForDate(date)
         requireActivity().supportFragmentManager.popBackStack()
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameFragment.newInstance(), null)
+            .replace(R.id.fragmentContainer, OnThisDayGamePlayFragment.newInstance(), null)
             .commit()
     }
 
@@ -165,6 +171,12 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
     }
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, gameStatistics: OnThisDayGameViewModel.GameStatistics) {
+        mainActivity?.showAppBarDateText()
+        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
+            val text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
+            mainActivity?.updateAppBarDateText(text)
+        }
+
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
         binding.scrollContainer.isVisible = true
@@ -366,8 +378,8 @@ class OnThisDayGameFinalFragment : OnThisDayGameBaseFragment(), OnThisDayGameArt
     companion object {
         const val EXTRA_GAME_COMPLETED = "onThisDayGameCompleted"
 
-        fun newInstance(invokeSource: InvokeSource): OnThisDayGameFinalFragment {
-            return OnThisDayGameFinalFragment().apply {
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameOverFragment {
+            return OnThisDayGameOverFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
         }

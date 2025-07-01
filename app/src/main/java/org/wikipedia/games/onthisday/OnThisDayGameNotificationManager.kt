@@ -137,7 +137,7 @@ object OnThisDayGameNotificationManager {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             .setAction(ACTION_DAILY_GAME)
-        val timeUntilNextDay = OnThisDayGameFinalFragment.timeUntilNextDay().toMillis()
+        val timeUntilNextDay = OnThisDayGameOverFragment.timeUntilNextDay().toMillis()
         alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             System.currentTimeMillis() + timeUntilNextDay,

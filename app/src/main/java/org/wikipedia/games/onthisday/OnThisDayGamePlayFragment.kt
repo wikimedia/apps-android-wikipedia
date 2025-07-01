@@ -4,14 +4,11 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.media.MediaPlayer
-import android.os.Build
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.text.method.ScrollingMovementMethod
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,22 +16,18 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.core.animation.doOnEnd
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameBinding
 import org.wikipedia.feed.onthisday.OnThisDay
-import org.wikipedia.main.MainActivity
-import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
@@ -48,8 +41,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
 
-
-class OnThisDayGameFragment : Fragment() {
+class OnThisDayGamePlayFragment : Fragment() {
     private var _binding: FragmentOnThisDayGameBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
@@ -71,6 +63,15 @@ class OnThisDayGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         mediaPlayer = MediaPlayer()
         mainActivity = (activity as? OnThisDayGameActivity)
+
+        binding.errorView.retryClickListener = View.OnClickListener {
+            viewModel.loadGameState()
+        }
+
+        binding.errorView.backClickListener = View.OnClickListener {
+            requireActivity().finish()
+        }
+
         binding.questionCard1.setOnClickListener {
             enqueueSubmit(it as WikiCardView)
         }
@@ -128,7 +129,7 @@ class OnThisDayGameFragment : Fragment() {
                 is OnThisDayGameViewModel.GameStarted -> onGameStarted(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionCorrect -> onCurrentQuestionCorrect(it.data)
                 is OnThisDayGameViewModel.CurrentQuestionIncorrect -> onCurrentQuestionIncorrect(it.data)
-                is OnThisDayGameViewModel.GameEnded -> onGameEnded(it.data)
+                is OnThisDayGameViewModel.GameEnded -> onGameEnded()
                 is Resource.Error -> updateOnError(it.throwable)
             }
         }
@@ -328,18 +329,14 @@ class OnThisDayGameFragment : Fragment() {
         cardAnimatorSetOut.start()
     }
 
-
-    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
+    private fun onGameEnded() {
         mainActivity?.supportFragmentManager?.beginTransaction()
-            ?.add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            ?.add(R.id.fragmentContainer, OnThisDayGameOverFragment.newInstance(viewModel.invokeSource), null)
             ?.addToBackStack(null)
             ?.commit()
-
-        updateGameState(gameState)
-        mainActivity?.setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
+        mainActivity?.setResult(RESULT_OK, Intent().putExtra(OnThisDayGameOverFragment.EXTRA_GAME_COMPLETED, true))
 
         playSound("sound_logo")
-        hideViewsNotRequiredWhenGameEnds()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -468,20 +465,14 @@ class OnThisDayGameFragment : Fragment() {
         }
     }
 
-
-    fun hideViewsNotRequiredWhenGameEnds() {
-        binding.scoreView.isVisible = false
-        binding.currentQuestionContainer.isVisible = false
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer.release()
     }
 
     companion object {
-        fun newInstance(): OnThisDayGameFragment {
-            return OnThisDayGameFragment()
+        fun newInstance(): OnThisDayGamePlayFragment {
+            return OnThisDayGamePlayFragment()
         }
     }
 }

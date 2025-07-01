@@ -1,33 +1,20 @@
 package org.wikipedia.games.onthisday
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.text.format.DateFormat
-import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.DecelerateInterpolator
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
@@ -38,24 +25,16 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
-import org.wikipedia.views.ViewUtil
-import org.wikipedia.views.WikiCardView
 import java.time.LocalDate
-import java.time.MonthDay
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
-import java.util.Locale
 
 class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
@@ -78,14 +57,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
-
-        binding.errorView.retryClickListener = View.OnClickListener {
-            viewModel.loadGameState()
-        }
-        binding.errorView.backClickListener = View.OnClickListener {
-            finish()
-        }
-
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
@@ -102,13 +73,11 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             windowInsets
         }
 
-
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameOnboardingFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGameMenuFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
         hideAppBarDateText()
-
     }
 
     fun hideAppBarDateText() {
@@ -198,7 +167,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun isOnboardingFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameOnboardingFragment
+        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMenuFragment
     }
 
     private fun onFinish() {
@@ -233,23 +202,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .show()
     }
 
-//    private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState) {
-//        if (isOnboardingFragmentVisible()) {
-//            return
-//        }
-//
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
-//            .addToBackStack(null)
-//            .commit()
-//
-//        updateGameState(gameState)
-//        setResult(RESULT_OK, Intent().putExtra(OnThisDayGameFinalFragment.EXTRA_GAME_COMPLETED, true))
-//
-//        playSound("sound_logo")
-//        hideViewsNotRequiredWhenGameEnds()
-//    }
-
     fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
@@ -263,7 +215,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             OnThisDayGameNotificationManager.scheduleDailyGameNotification(this)
         }
     }
-
 
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
