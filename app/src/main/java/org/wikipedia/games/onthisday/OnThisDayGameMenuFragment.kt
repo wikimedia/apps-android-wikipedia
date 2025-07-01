@@ -41,6 +41,12 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        binding.errorView.retryClickListener = View.OnClickListener {
+            viewModel.loadGameState()
+        }
+        binding.errorView.backClickListener = View.OnClickListener {
+            requireActivity().finish()
+        }
         observeGameState()
     }
 
@@ -70,9 +76,11 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
 
     private fun updateOnError(t: Throwable) {
         binding.errorView.isVisible = true
+        binding.progressBar.isVisible = false
         binding.gameMenuContainer.isVisible = false
         binding.errorView.setError(t)
         binding.errorView.setIconColorFilter(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        binding.errorView.setErrorTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
     private fun handleGameStarted() {
