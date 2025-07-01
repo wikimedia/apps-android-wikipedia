@@ -31,7 +31,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.databinding.FragmentOnThisDayGameFinalBinding
+import org.wikipedia.databinding.FragmentOnThisDayGameOverBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -61,7 +61,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
-    private var _binding: FragmentOnThisDayGameFinalBinding? = null
+    private var _binding: FragmentOnThisDayGameOverBinding? = null
     val binding get() = _binding!!
 
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
@@ -72,7 +72,7 @@ class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArti
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentOnThisDayGameFinalBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGameOverBinding.inflate(inflater, container, false)
         mainActivity = (activity as? OnThisDayGameActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requireActivity().window.isNavigationBarContrastEnforced = true

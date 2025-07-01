@@ -156,7 +156,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onBackPressed() {
         WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
         if (viewModel.gameState.value !is Resource.Loading &&
-            !isOnboardingFragmentVisible() &&
+            !isGameMenuFragmentVisible() &&
             viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
             showPauseDialog()
             return
@@ -166,7 +166,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         onFinish()
     }
 
-    private fun isOnboardingFragmentVisible(): Boolean {
+    private fun isGameMenuFragmentVisible(): Boolean {
         return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMenuFragment
     }
 

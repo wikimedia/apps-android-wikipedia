@@ -26,7 +26,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.databinding.FragmentOnThisDayGameBinding
+import org.wikipedia.databinding.FragmentOnThisDayGamePlayBinding
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -42,7 +42,7 @@ import java.time.format.FormatStyle
 import java.util.Locale
 
 class OnThisDayGamePlayFragment : Fragment() {
-    private var _binding: FragmentOnThisDayGameBinding? = null
+    private var _binding: FragmentOnThisDayGamePlayBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private val cardAnimatorSetIn = AnimatorSet()
@@ -55,7 +55,7 @@ class OnThisDayGamePlayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOnThisDayGameBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGamePlayBinding.inflate(inflater, container, false)
         return binding.root
     }
 
