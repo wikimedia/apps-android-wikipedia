@@ -38,7 +38,6 @@ interface ReadingListDao {
     @Query("UPDATE ReadingList SET remoteId = -1")
     suspend fun markAllListsUnsynced()
 
-    @Transaction
     suspend fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()
         lists.forEach {
@@ -47,7 +46,6 @@ interface ReadingListDao {
         return lists.toMutableList()
     }
 
-    @Transaction
     suspend fun getListById(id: Long, populatePages: Boolean): ReadingList? {
         return getListById(id)?.apply {
             if (populatePages) {
@@ -56,7 +54,6 @@ interface ReadingListDao {
         }
     }
 
-    @Transaction
     suspend fun getAllListsWithUnsyncedPages(): List<ReadingList> {
         val lists = getListsWithoutContents()
         val pages = AppDatabase.instance.readingListPageDao().getAllPagesToBeSynced()
@@ -95,7 +92,6 @@ interface ReadingListDao {
         }
     }
 
-    @Transaction
     suspend fun getListsFromPageOccurrences(pages: List<ReadingListPage>): List<ReadingList> {
         val lists = getListsByIds(pages.map { it.listId }.toSet())
         pages.forEach { page ->
@@ -104,7 +100,6 @@ interface ReadingListDao {
         return lists
     }
 
-    @Transaction
     suspend fun createList(title: String, description: String?): ReadingList {
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")
@@ -113,7 +108,6 @@ interface ReadingListDao {
         return createNewList(title, description)
     }
 
-    @Transaction
     suspend fun getDefaultList(): ReadingList {
         return getListsWithoutContents().find { it.isDefault } ?: run {
             L.w("(Re)creating default list.")

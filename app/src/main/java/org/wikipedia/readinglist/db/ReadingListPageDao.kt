@@ -110,18 +110,15 @@ interface ReadingListPageDao {
         }
     }
 
-    @Transaction
     suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
         val addedTitles = mutableListOf<String>()
-        val protoPage = mutableListOf<ReadingListPage>()
         for (title in titles) {
             if (getPageByTitle(list, title) != null) {
                 continue
             }
-            protoPage.add(addPageToList(list, title))
+            addPageToList(list, title)
             addedTitles.add(title.displayText)
         }
-        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *protoPage.toTypedArray()))
         if (addedTitles.isNotEmpty()) {
             SavedPageSyncService.enqueue()
             ReadingListSyncAdapter.manualSync()
@@ -129,7 +126,6 @@ interface ReadingListPageDao {
         return addedTitles
     }
 
-    @Transaction
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
@@ -154,7 +150,6 @@ interface ReadingListPageDao {
         }.toMutableList())
     }
 
-    @Transaction
     suspend fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
         for (page in pages) {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
@@ -171,7 +166,6 @@ interface ReadingListPageDao {
         markPagesForOffline(listOf(page), offline, forcedSave)
     }
 
-    @Transaction
     suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
         for (page in pages) {
             if (page.offline == offline && !forcedSave) {
@@ -203,7 +197,6 @@ interface ReadingListPageDao {
         return movedTitles
     }
 
-    @Transaction
     private suspend fun movePageToList(sourceList: ReadingList, destList: ReadingList, title: PageTitle) {
         if (sourceList.id == destList.id) {
             return
@@ -211,8 +204,7 @@ interface ReadingListPageDao {
         val sourceReadingListPage = getPageByTitle(sourceList, title)
         if (sourceReadingListPage != null) {
             if (getPageByTitle(destList, title) == null) {
-                val page = addPageToList(destList, title)
-                FlowEventBus.post(ArticleSavedOrDeletedEvent(true, page))
+                addPageToList(destList, title)
             }
             markPagesForDeletion(sourceList, listOf(sourceReadingListPage))
             ReadingListSyncAdapter.manualSync()
@@ -220,7 +212,6 @@ interface ReadingListPageDao {
         }
     }
 
-    @Transaction
     suspend fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
@@ -228,7 +219,6 @@ interface ReadingListPageDao {
         )
     }
 
-    @Transaction
     suspend fun addPageToLists(lists: List<ReadingList>, page: ReadingListPage, queueForSync: Boolean) {
         for (list in lists) {
             if (getPageByTitle(list, ReadingListPage.toPageTitle(page)) != null) {
@@ -245,7 +235,6 @@ interface ReadingListPageDao {
         }
     }
 
-    @Transaction
     suspend fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
@@ -253,11 +242,10 @@ interface ReadingListPageDao {
         )
     }
 
-    @Transaction
-    private suspend fun addPageToList(list: ReadingList, title: PageTitle): ReadingListPage {
+    private suspend fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        return protoPage
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
     }
 
     private suspend fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
