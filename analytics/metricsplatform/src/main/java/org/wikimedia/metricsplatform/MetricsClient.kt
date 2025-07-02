@@ -14,31 +14,38 @@ import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
 
-class MetricsClient private constructor(
+class MetricsClient(
+    private val clientData: ClientData,
+    eventSender: EventSender,
+    sourceConfigInit: SourceConfig? = null,
+    queueCapacity: Int = 100,
+    val isDebug: Boolean = false
+) {
+
+    private val sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
+
     /**
      * Handles logging session management. A new session begins (and a new session ID is created)
      * if the app has been inactive for 15 minutes or more.
      */
-    private val sessionController: SessionController,
+    private val sessionController = SessionController()
+
     /**
      * Evaluates whether events for a given stream are in-sample based on the stream configuration.
      */
-    private val samplingController: SamplingController,
-    private val sourceConfig: AtomicReference<SourceConfig>,
-    eventQueue: BlockingQueue<EventProcessed>,
-    eventProcessor: EventProcessor
-) {
+    private val samplingController =SamplingController(clientData, sessionController)
 
-    private val eventQueue: BlockingQueue<EventProcessed>
-    private val eventProcessor: EventProcessor
+    private val eventQueue: BlockingQueue<EventProcessed> = LinkedBlockingQueue(queueCapacity)
 
-    /**
-     * MetricsClient constructor.
-     */
-    init {
-        this.eventQueue = eventQueue
-        this.eventProcessor = eventProcessor
-    }
+    private val eventProcessor: EventProcessor = EventProcessor(
+        ContextController(),
+        CurationController(),
+        sourceConfig,
+        samplingController,
+        eventSender,
+        eventQueue,
+        isDebug
+    )
 
     /**
      * Submit an event to be enqueued and sent to the Event Platform.
@@ -152,7 +159,7 @@ class MetricsClient private constructor(
         if (interactionData != null) {
             event.interactionData = interactionData
         }
-        if (streamConfig != null && streamConfig.hasSampleConfig()) {
+        if (streamConfig?.sampleConfig != null) {
             event.sample = streamConfig.sampleConfig
         }
         submit(event)
@@ -382,69 +389,6 @@ class MetricsClient private constructor(
         }
     }
 
-    val isFullyInitialized get() = sourceConfig.get() != null
-
-    val isEventQueueEmpty get() = eventQueue.isEmpty()
-
-    class Builder(private val clientData: ClientData) {
-        private val sourceConfigRef = AtomicReference<SourceConfig>()
-        private var eventQueue = LinkedBlockingQueue<EventProcessed>(10)
-        private val sessionController = SessionController()
-
-        private val curationController = CurationController()
-
-        private var samplingController: SamplingController? = null
-
-        private var isDebug = false
-
-        private val sourceConfig: SourceConfig? = null
-
-        private var eventSender: EventSender? = null
-
-        fun eventQueueCapacity(capacity: Int): Builder {
-            eventQueue = LinkedBlockingQueue(capacity)
-            return this
-        }
-
-        fun eventSender(eventSender: EventSender): Builder {
-            this.eventSender = eventSender
-            return this
-        }
-
-        fun isDebug(isDebug: Boolean): Builder {
-            this.isDebug = isDebug
-            return this
-        }
-
-        fun build(): MetricsClient {
-            if (sourceConfig != null) sourceConfigRef.set(sourceConfig)
-
-            if (samplingController == null) {
-                samplingController = SamplingController(clientData, sessionController)
-            }
-
-            val eventProcessor = EventProcessor(
-                ContextController(),
-                curationController,
-                sourceConfigRef,
-                samplingController!!,
-                eventSender!!,
-                eventQueue,
-                isDebug
-            )
-
-            val metricsClient = MetricsClient(
-                sessionController,
-                samplingController!!,
-                sourceConfigRef,
-                eventQueue,
-                eventProcessor
-            )
-
-            return metricsClient
-        }
-    }
-
     companion object {
         val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
         val ZONE_Z = ZoneId.of("Z")
@@ -453,9 +397,5 @@ class MetricsClient private constructor(
         const val METRICS_PLATFORM_BASE_VERSION: String = "1.2.2"
 
         const val METRICS_PLATFORM_SCHEMA_BASE: String = "/analytics/product_metrics/app/base/$METRICS_PLATFORM_BASE_VERSION"
-
-        fun builder(clientData: ClientData): Builder {
-            return Builder(clientData)
-        }
     }
 }

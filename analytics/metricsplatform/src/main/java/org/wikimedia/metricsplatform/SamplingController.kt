@@ -21,7 +21,7 @@ class SamplingController internal constructor(
      * @return true if in sample or false otherwise
      */
     fun isInSample(streamConfig: StreamConfig): Boolean {
-        if (!streamConfig.hasSampleConfig()) {
+        if (streamConfig.sampleConfig == null) {
             return true
         }
         val sampleConfig = streamConfig.sampleConfig!!

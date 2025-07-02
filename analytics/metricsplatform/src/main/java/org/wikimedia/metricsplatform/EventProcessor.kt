@@ -60,20 +60,20 @@ class EventProcessor(
 
         val streamConfigsMap = config.streamConfigsMap
 
-        val foo = pending.filter { event -> streamConfigsMap.containsKey(event.stream) }
+        pending.filter { event -> streamConfigsMap.containsKey(event.stream) }
             .filter { event ->
                 val cfg = streamConfigsMap[event.stream]
-                if (cfg!!.hasSampleConfig()) {
-                    event.sample = cfg.sampleConfig
+                if (cfg == null) {
+                    false
+                } else {
+                    cfg.sampleConfig?.let { event.sample = it }
+                    samplingController.isInSample(cfg)
                 }
-                samplingController.isInSample(cfg)
             }
             .filter { event -> eventPassesCurationRules(event, streamConfigsMap) }
             .groupBy { event -> destinationEventService(event, streamConfigsMap) }
             .forEach { (destinationEventService, pendingValidEvents) ->
-                this.sendEventsToDestination(
-                    destinationEventService, pendingValidEvents
-                )
+                this.sendEventsToDestination(destinationEventService, pendingValidEvents)
             }
     }
 

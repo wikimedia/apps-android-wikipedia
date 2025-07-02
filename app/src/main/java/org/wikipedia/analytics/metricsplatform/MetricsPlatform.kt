@@ -41,9 +41,12 @@ object MetricsPlatform {
         domain
     )
 
-    val client: MetricsClient = MetricsClient.builder(clientData)
-        .eventSender(EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client))
-        .eventQueueCapacity(Prefs.analyticsQueueSize)
-        .isDebug(ReleaseUtil.isDevRelease)
-        .build()
+    val client: MetricsClient = MetricsClient(
+        clientData,
+        EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client),
+        null,
+
+        queueCapacity = Prefs.analyticsQueueSize,
+        isDebug = ReleaseUtil.isDevRelease
+    )
 }
