@@ -45,7 +45,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/progressive_color" />
     </LinearLayout>
@@ -75,7 +75,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/progressive_color" />
     </LinearLayout>
@@ -99,7 +99,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/progressive_color" />
     </LinearLayout>
@@ -123,7 +123,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/progressive_color" />
 
@@ -148,7 +148,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/progressive_color" />
 
