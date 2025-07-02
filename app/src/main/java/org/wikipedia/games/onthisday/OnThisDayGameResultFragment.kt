@@ -31,7 +31,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.databinding.FragmentOnThisDayGameOverBinding
+import org.wikipedia.databinding.FragmentOnThisDayGameResultBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -60,8 +60,8 @@ import java.time.MonthDay
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
-    private var _binding: FragmentOnThisDayGameOverBinding? = null
+class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
+    private var _binding: FragmentOnThisDayGameResultBinding? = null
     val binding get() = _binding!!
 
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
@@ -72,7 +72,7 @@ class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArti
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentOnThisDayGameOverBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGameResultBinding.inflate(inflater, container, false)
         mainActivity = (activity as? OnThisDayGameActivity)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             requireActivity().window.isNavigationBarContrastEnforced = true
@@ -378,8 +378,8 @@ class OnThisDayGameOverFragment : OnThisDayGameBaseFragment(), OnThisDayGameArti
     companion object {
         const val EXTRA_GAME_COMPLETED = "onThisDayGameCompleted"
 
-        fun newInstance(invokeSource: InvokeSource): OnThisDayGameOverFragment {
-            return OnThisDayGameOverFragment().apply {
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameResultFragment {
+            return OnThisDayGameResultFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
         }

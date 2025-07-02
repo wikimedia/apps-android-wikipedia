@@ -331,10 +331,9 @@ class OnThisDayGamePlayFragment : Fragment() {
 
     private fun onGameEnded() {
         mainActivity?.supportFragmentManager?.beginTransaction()
-            ?.add(R.id.fragmentContainer, OnThisDayGameOverFragment.newInstance(viewModel.invokeSource), null)
-            ?.addToBackStack(null)
+            ?.add(R.id.fragmentContainer, OnThisDayGameResultFragment.newInstance(viewModel.invokeSource), null)
             ?.commit()
-        mainActivity?.setResult(RESULT_OK, Intent().putExtra(OnThisDayGameOverFragment.EXTRA_GAME_COMPLETED, true))
+        mainActivity?.setResult(RESULT_OK, Intent().putExtra(OnThisDayGameResultFragment.EXTRA_GAME_COMPLETED, true))
 
         playSound("sound_logo")
     }

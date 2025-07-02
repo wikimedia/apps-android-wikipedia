@@ -16,7 +16,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.databinding.FragmentOnThisDayGameMenuBinding
+import org.wikipedia.databinding.FragmentOnThisDayGameMainMenuBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -25,14 +25,14 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDate
 
-class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
-    private var _binding: FragmentOnThisDayGameMenuBinding? = null
+class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
+    private var _binding: FragmentOnThisDayGameMainMenuBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentOnThisDayGameMenuBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGameMainMenuBinding.inflate(inflater, container, false)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         return binding.root
@@ -143,7 +143,7 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
 
     private fun showGameResults() {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameOverFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGameResultFragment.newInstance(viewModel.invokeSource), null)
             .commit()
     }
 
@@ -157,8 +157,8 @@ class OnThisDayGameMenuFragment : OnThisDayGameBaseFragment() {
     companion object {
         private const val SHOW_ON_EXPLORE_FEED_COUNT = 2
 
-        fun newInstance(invokeSource: InvokeSource): OnThisDayGameMenuFragment {
-            return OnThisDayGameMenuFragment().apply {
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameMainMenuFragment {
+            return OnThisDayGameMainMenuFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
         }

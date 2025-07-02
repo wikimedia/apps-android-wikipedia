@@ -1,6 +1,5 @@
 package org.wikipedia.games.onthisday
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -41,7 +40,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
-    @SuppressLint("SourceLockedOrientationActivity", "ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -74,7 +72,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameMenuFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource), null)
             .addToBackStack(null)
             .commit()
         hideAppBarDateText()
@@ -167,7 +165,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun isGameMenuFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMenuFragment
+        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMainMenuFragment
     }
 
     private fun onFinish() {
