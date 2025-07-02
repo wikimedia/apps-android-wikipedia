@@ -199,7 +199,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         }
                         is ArticleSavedOrDeletedEvent -> {
                             pageFragment.title?.run {
-                                if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
+                                if (event.pages.any { it.apiTitle == prefixedText && it.lang == wikiSite.languageCode }) {
                                     pageFragment.updateBookmarkAndMenuOptionsFromDao()
                                 }
                             }
