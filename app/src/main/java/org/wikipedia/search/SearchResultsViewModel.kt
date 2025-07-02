@@ -127,7 +127,7 @@ class SearchResultsViewModel : ViewModel() {
 
         private fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
             WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
+                tab.getBackStackPositionTitle()?.let {
                     if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                         return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                     }

@@ -284,7 +284,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         app.commitTabState()
-        val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        val time = if (app.tabList.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -326,8 +326,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // if the current tab can no longer go back, then close the tab before exiting
         if (app.tabList.isNotEmpty()) {
-            app.tabList.removeAt(app.tabList.size - 1)
-            app.commitTabState()
+            val tab = app.tabList.removeAt(app.tabList.size - 1)
+            app.deleteTab(tab)
         }
         return false
     }
@@ -517,8 +517,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun selectedTabPosition(title: PageTitle): Int {
-        return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
+        return app.tabList.firstOrNull { it.getBackStackPositionTitle() != null &&
+                title == it.getBackStackPositionTitle() }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
@@ -544,7 +544,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
                         .query?.firstPage()?.let { page ->
-                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+                            WikipediaApp.instance.tabList.find { it.getBackStackPositionTitle() == title }?.getBackStackPositionTitle()?.apply {
                                 thumbUrl = page.thumbUrl()
                                 description = page.description
                             }
