@@ -110,7 +110,6 @@ interface ReadingListPageDao {
         }
     }
 
-    @Transaction
     suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
         val addedTitles = mutableListOf<String>()
         for (title in titles) {
@@ -151,7 +150,6 @@ interface ReadingListPageDao {
         }.toMutableList())
     }
 
-    @Transaction
     suspend fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
         for (page in pages) {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
@@ -168,7 +166,6 @@ interface ReadingListPageDao {
         markPagesForOffline(listOf(page), offline, forcedSave)
     }
 
-    @Transaction
     suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
         for (page in pages) {
             if (page.offline == offline && !forcedSave) {
@@ -187,7 +184,6 @@ interface ReadingListPageDao {
         deletePagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
     }
 
-    @Transaction
     suspend fun movePagesToListAndDeleteSourcePages(sourceList: ReadingList, destList: ReadingList, titles: List<PageTitle>): List<String> {
         val movedTitles = mutableListOf<String>()
         for (title in titles) {
@@ -223,15 +219,6 @@ interface ReadingListPageDao {
         )
     }
 
-    suspend fun addPageToList(list: ReadingList, title: PageTitle, queueForSync: Boolean) {
-        addPageToList(list, title)
-        SavedPageSyncService.enqueue()
-        if (queueForSync) {
-            ReadingListSyncAdapter.manualSync()
-        }
-    }
-
-    @Transaction
     suspend fun addPageToLists(lists: List<ReadingList>, page: ReadingListPage, queueForSync: Boolean) {
         for (list in lists) {
             if (getPageByTitle(list, ReadingListPage.toPageTitle(page)) != null) {

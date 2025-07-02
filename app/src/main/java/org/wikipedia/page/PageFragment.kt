@@ -1053,13 +1053,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().invalidateOptionsMenu()
     }
 
-    fun updateBookmarkAndMenuOptionsFromDao() {
+    suspend fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            lifecycleScope.launch {
-                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
-                updateQuickActionsAndMenuOptions()
-                requireActivity().invalidateOptionsMenu()
-            }
+            model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+            updateQuickActionsAndMenuOptions()
+            requireActivity().invalidateOptionsMenu()
         }
     }
 

@@ -326,23 +326,19 @@ object ReadingListBehaviorsUtil {
         if (addToDefault) {
             // If the title is a redirect, resolve it before saving to the reading list.
             (activity as AppCompatActivity).lifecycleScope.launch(exceptionHandler) {
-                var finalPageTitle = title
-                try {
-                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let {
-                            finalPageTitle = PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
-                        }
-                } finally {
-                    val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
-                    val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(finalPageTitle))
-                    if (addedTitles.isNotEmpty()) {
-                        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(finalPageTitle.displayText)))
-                            .setAction(R.string.reading_list_add_to_list_button) {
-                                moveToList(activity, defaultList.id, finalPageTitle, invokeSource, false, listener)
-                            }.show()
-                    } else {
-                        FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_article_already_exists_message, defaultList.title, title.displayText))
-                    }
+                val pageInfo = ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText).query?.firstPage()
+                val finalPageTitle = pageInfo?.let {
+                    PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
+                } ?: title
+                val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
+                val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(finalPageTitle))
+                if (addedTitles.isNotEmpty()) {
+                    FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(finalPageTitle.displayText)))
+                        .setAction(R.string.reading_list_add_to_list_button) {
+                            moveToList(activity, defaultList.id, finalPageTitle, invokeSource, false, listener)
+                        }.show()
+                } else {
+                    FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_article_already_exists_message, defaultList.title, title.displayText))
                 }
             }
         } else {

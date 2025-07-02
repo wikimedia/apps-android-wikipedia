@@ -117,7 +117,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
             isWatched = watchStatus.watched
             hasWatchlistExpiry = watchStatus.hasWatchlistExpiry()
 
-
             uiState.value = UiState.LoadTopic(pageTitle, threadItems)
         }
     }
