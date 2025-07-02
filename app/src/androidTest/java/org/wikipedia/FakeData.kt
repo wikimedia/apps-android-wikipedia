@@ -21,4 +21,14 @@ object FakeData {
     val position = 0
     val location: Location? = null
     val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
+
+    val testSiteTitle = PageTitle(
+        _displayText = "What is Espresso",
+        _text = "What is Espresso",
+        wikiSite = WikiSite(
+            languageCode = "test",
+            uri = Uri.parse("https://test.wikipedia.org")
+        )
+    )
+    val testSiteHistoryEntry = HistoryEntry(title = testSiteTitle, source = HistoryEntry.SOURCE_SEARCH)
 }

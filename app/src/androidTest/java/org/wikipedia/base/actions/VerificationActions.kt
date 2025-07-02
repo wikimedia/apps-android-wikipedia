@@ -95,11 +95,8 @@ class VerificationActions {
     }
 
     fun messageOfSnackbar(text: String) {
-        onView(
-            allOf(
-                withId(com.google.android.material.R.id.snackbar_text),
-                withText(text)
-            )).check(matches(isDisplayed()))
+        onView(withId(com.google.android.material.R.id.snackbar_text))
+            .check(matches(withText(text)))
     }
 
     fun textViewColor(
