@@ -241,22 +241,26 @@ class WikipediaApp : Application() {
             L.e(t)
         }) {
             L.d("Logging out")
-            AccountUtil.removeAccount()
-            Prefs.isPushNotificationTokenSubscribed = false
-            Prefs.pushNotificationTokenOld = ""
-            Prefs.tempAccountWelcomeShown = false
-            Prefs.tempAccountCreateDay = 0L
-            Prefs.tempAccountDialogShown = false
-
-            val token = ServiceFactory.get(wikiSite).getToken().query!!.csrfToken()
-            WikipediaFirebaseMessagingService.unsubscribePushToken(token!!, Prefs.pushNotificationToken)
-            ServiceFactory.get(wikiSite).postLogout(token)
+            ServiceFactory.get(wikiSite).getToken().query?.csrfToken()?.let { token ->
+                WikipediaFirebaseMessagingService.unsubscribePushToken(token, Prefs.pushNotificationToken)
+                ServiceFactory.get(wikiSite).postLogout(token)
+            }
         }.invokeOnCompletion {
-            SharedPreferenceCookieManager.instance.clearAllCookies()
-            AppDatabase.instance.notificationDao().deleteAll()
-            FlowEventBus.post(LoggedOutEvent())
-            L.d("Logout complete.")
+            resetAfterLogOut()
         }
+    }
+
+    fun resetAfterLogOut() {
+        AccountUtil.removeAccount()
+        Prefs.isPushNotificationTokenSubscribed = false
+        Prefs.pushNotificationTokenOld = ""
+        Prefs.tempAccountWelcomeShown = false
+        Prefs.tempAccountCreateDay = 0L
+        Prefs.tempAccountDialogShown = false
+        SharedPreferenceCookieManager.instance.clearAllCookies()
+        AppDatabase.instance.notificationDao().deleteAll()
+        FlowEventBus.post(LoggedOutEvent())
+        L.d("Logout complete.")
     }
 
     private fun enableWebViewDebugging() {
