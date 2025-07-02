@@ -112,13 +112,16 @@ interface ReadingListPageDao {
 
     suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
         val addedTitles = mutableListOf<String>()
+        val pages = mutableListOf<ReadingListPage>()
         for (title in titles) {
             if (getPageByTitle(list, title) != null) {
                 continue
             }
-            addPageToList(list, title)
+            val page = addPageToList(list, title)
+            pages.add(page)
             addedTitles.add(title.displayText)
         }
+        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         if (addedTitles.isNotEmpty()) {
             SavedPageSyncService.enqueue()
             ReadingListSyncAdapter.manualSync()
@@ -204,7 +207,8 @@ interface ReadingListPageDao {
         val sourceReadingListPage = getPageByTitle(sourceList, title)
         if (sourceReadingListPage != null) {
             if (getPageByTitle(destList, title) == null) {
-                addPageToList(destList, title)
+                val page = addPageToList(destList, title)
+                FlowEventBus.post(ArticleSavedOrDeletedEvent(true, page))
             }
             markPagesForDeletion(sourceList, listOf(sourceReadingListPage))
             ReadingListSyncAdapter.manualSync()
@@ -242,10 +246,10 @@ interface ReadingListPageDao {
         )
     }
 
-    private suspend fun addPageToList(list: ReadingList, title: PageTitle) {
+    private suspend fun addPageToList(list: ReadingList, title: PageTitle): ReadingListPage {
         val protoPage = ReadingListPage(title)
         insertPageIntoDb(list, protoPage)
-        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, protoPage))
+        return protoPage
     }
 
     private suspend fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
