@@ -2,6 +2,5 @@ Jinja2>=2.9.6
 lxml>=4.0.0
 MarkupSafe>=1.0
 Pillow>=4.2.1
-sh>=1.12.14
 unicodecsv>=0.14.1
 flake8>=3.4.1
