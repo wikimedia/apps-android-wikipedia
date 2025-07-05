@@ -24,7 +24,6 @@ import org.wikipedia.theme.Theme
 class FeedScreenTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java
 ) {
-
     private val exploreFeedRobot = ExploreFeedRobot()
     private val systemRobot = SystemRobot()
     private val homeScreenRobot = HomeScreenRobot()

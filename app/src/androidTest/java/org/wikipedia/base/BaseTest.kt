@@ -3,6 +3,7 @@ package org.wikipedia.base
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -12,6 +13,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.wikipedia.TestLogRule
+import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
@@ -33,7 +35,8 @@ data class DataInjector(
     val overrideEditsContribution: Int? = null,
     val intentBuilder: (Intent.() -> Unit)? = null,
     val showOneTimeCustomizeToolbarTooltip: Boolean = false,
-    val readingListShareTooltipShown: Boolean = true
+    val readingListShareTooltipShown: Boolean = true,
+    val otdEntryDialogShown: Boolean = true
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -46,6 +49,9 @@ abstract class BaseTest<T : AppCompatActivity>(
     @get:Rule
     var activityScenarioRule: ActivityScenarioRule<T>
 
+    @get:Rule
+    var composeTestRule = createComposeRule()
+
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
     protected var context: Context = InstrumentationRegistry.getInstrumentation().targetContext
@@ -56,6 +62,7 @@ abstract class BaseTest<T : AppCompatActivity>(
         Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
         Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
         Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
+        Prefs.otdEntryDialogShown = dataInjector.otdEntryDialogShown
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
@@ -68,16 +75,24 @@ abstract class BaseTest<T : AppCompatActivity>(
     @Before
     open fun setup() {
         Intents.init()
+        ComposeTestManager.setComposeTestRule(composeTestRule)
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
         activityScenarioRule.scenario.onActivity {
             activity = it
+        }
+        WikipediaApp.instance.languageState.let {
+            it.removeAppLanguageCodes(it.appLanguageCodes.filter { it != "en" })
         }
     }
 
     protected fun setDeviceOrientation(isLandscape: Boolean) {
         if (isLandscape) device.setOrientationRight() else device.setOrientationNatural()
         Thread.sleep(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun isOnline(): Boolean {
+        return WikipediaApp.instance.isOnline
     }
 
     @After

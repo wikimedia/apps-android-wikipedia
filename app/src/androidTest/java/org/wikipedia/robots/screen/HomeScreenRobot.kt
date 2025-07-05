@@ -1,5 +1,6 @@
 package org.wikipedia.robots.screen
 
+import BaseRobot
 import android.app.Activity
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
@@ -12,7 +13,6 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class HomeScreenRobot : BaseRobot() {
 

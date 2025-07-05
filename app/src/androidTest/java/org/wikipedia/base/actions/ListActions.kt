@@ -13,18 +13,24 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
+import org.hamcrest.Matchers.not
 import org.junit.Assert.assertEquals
 import org.wikipedia.R
 
@@ -47,7 +53,12 @@ class ListActions {
             )
     }
 
-    fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
+    fun clickOnItemInList(textViewId: Int) {
+        onView(withId(textViewId))
+            .perform(click())
+    }
+
+        fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
         onView(withId(listId))
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -85,11 +96,20 @@ class ListActions {
             )
     }
 
-    fun scrollToRecyclerViewInsideNestedScrollView(@IdRes recyclerViewId: Int, position: Int, viewAction: ViewAction) {
+    fun scrollToRecyclerViewInsideNestedScrollView(
+        @IdRes recyclerViewId: Int,
+        position: Int,
+        viewAction: ViewAction
+    ) {
         onView(withId(recyclerViewId))
             .perform(NestedScrollViewExtension())
         onView(withId(recyclerViewId))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(position, viewAction))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    viewAction
+                )
+            )
     }
 
     fun scrollToViewInsideNestedScrollView(@IdRes viewId: Int) {
@@ -100,7 +120,8 @@ class ListActions {
         recyclerViewId: Int = R.id.feed_view,
         title: String,
         textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
+        verticalOffset: Int = 200,
+        action: (() -> Unit)? = null
     ) = apply {
         var currentOccurrence = 0
         onView(withId(recyclerViewId))
@@ -141,11 +162,57 @@ class ListActions {
                     })
                 }
             }
+        action?.invoke()
     }
 
     fun verifyRecyclerViewItemCount(@IdRes viewId: Int, expectedCount: Int) {
         onView(withId(viewId))
             .check(hasItemCount(expectedCount))
+    }
+
+    fun verifyItemDoesNotExistAtPosition(
+        recyclerViewId: Int,
+        itemId: Int
+    ) {
+        onView(withId(recyclerViewId))
+            .check(
+                matches(
+                        hasDescendant(
+                            allOf(
+                                withId(itemId),
+                                not(isDisplayed())
+                            )
+                        )
+                )
+            )
+    }
+
+    fun verifyItemDoesNotExistWithText(
+        recyclerViewId: Int,
+        text: String
+    ) {
+        onView(withId(recyclerViewId))
+            .check(
+                matches(
+                    not(
+                        hasDescendant(
+                            allOf(
+                                withText(text),
+                                isDisplayed()
+                            )
+                        )
+                    )
+                )
+            )
+    }
+
+    private fun verifyItemAtPosition(
+        recyclerViewId: Int,
+        position: Int,
+        itemMatcher: Matcher<View>
+    ): ViewInteraction {
+        return onView(withId(recyclerViewId))
+            .check(matches(atPosition(position, itemMatcher)))
     }
 
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
@@ -169,17 +236,58 @@ class ListActions {
             assertEquals(adapter?.itemCount, expectedCount)
         }
     }
+
+    private fun atPosition(
+        position: Int,
+        itemMatcher: Matcher<View>
+    ): BoundedMatcher<View, RecyclerView> {
+        return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
+            override fun describeTo(description: Description) {
+                description.appendText("has item at position $position: ")
+                itemMatcher.describeTo(description)
+            }
+
+            override fun matchesSafely(recyclerView: RecyclerView): Boolean {
+                val viewHolder = recyclerView.findViewHolderForAdapterPosition(position)
+                    ?: return false
+                return itemMatcher.matches(viewHolder.itemView)
+            }
+        }
+    }
+
+    private fun findItemPosition(recyclerViewId: Int, matcher: Matcher<View>): Int {
+        var foundPosition = -1
+
+        onView(withId(recyclerViewId))
+            .check { view, _ ->
+                val recyclerView = view as RecyclerView
+                val itemCount = recyclerView.adapter?.itemCount ?: 0
+
+                for (position in 0 until itemCount) {
+                    val viewHolder = recyclerView.findViewHolderForAdapterPosition(position)
+                    if (viewHolder != null && matcher.matches(viewHolder.itemView)) {
+                        foundPosition = position
+                        break
+                    }
+                }
+            }
+        return foundPosition
+    }
 }
 
-class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) : ViewAction by scrollToAction {
+class NestedScrollViewExtension(scrollToAction: ViewAction = ViewActions.scrollTo()) :
+    ViewAction by scrollToAction {
     override fun getConstraints(): Matcher<View> {
         return Matchers.allOf(
             ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
             ViewMatchers.isDescendantOfA(
                 Matchers.anyOf(
-                ViewMatchers.isAssignableFrom(NestedScrollView::class.java),
-                ViewMatchers.isAssignableFrom(ScrollView::class.java),
-                ViewMatchers.isAssignableFrom(HorizontalScrollView::class.java),
-                ViewMatchers.isAssignableFrom(ListView::class.java))))
+                    ViewMatchers.isAssignableFrom(NestedScrollView::class.java),
+                    ViewMatchers.isAssignableFrom(ScrollView::class.java),
+                    ViewMatchers.isAssignableFrom(HorizontalScrollView::class.java),
+                    ViewMatchers.isAssignableFrom(ListView::class.java)
+                )
+            )
+        )
     }
 }

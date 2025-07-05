@@ -122,8 +122,8 @@
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">পাছৱৰ্ড</string>
   <string name="account_creation_password_hint">পাছৱৰ্ড</string>
-  <string name="login_2fa_hint">দুই-কাৰক প্ৰমাণীকৰণ ক\'ড</string>
-  <string name="login_2fa_other_workflow_error_msg">দুই-স্তৰীয় প্ৰমানীকৰণৰ আৱশ্যক! অনুগ্ৰহ কৰি মূল কাৰ্যলৈ গৈ আপোনাৰ 2FA ট\'কেন দি প্ৰৱেশ কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
+  <string name="login_2fa_hint" fuzzy="true">দুই-কাৰক প্ৰমাণীকৰণ ক\'ড</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">দুই-স্তৰীয় প্ৰমানীকৰণৰ আৱশ্যক! অনুগ্ৰহ কৰি মূল কাৰ্যলৈ গৈ আপোনাৰ 2FA ট\'কেন দি প্ৰৱেশ কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="onboarding_card_login">প্ৰৱেশ</string>
   <string name="page_editing_login">প্ৰৱেশ</string>
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>
@@ -210,8 +210,8 @@
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যৱহাৰৰ চৰ্তাৱলী</string>
   <string name="about_wikipedia_url">https://as.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
   <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
   <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
@@ -804,14 +804,12 @@
   <string name="thank_success_message">আপোনাৰ \'ধন্যবাদ\' %s-লৈ প্ৰেৰণ কৰা হ\'ল 👍</string>
   <string name="menu_option_view_user_profile" fuzzy="true">ব্যৱহাৰকাৰীৰ প্ৰ\'ফাইল পৃষ্ঠা চাওক</string>
   <string name="menu_option_view_user_talk">আলোচনা পৃষ্ঠা চাওক</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন %2$s আপোনাৰ চোৱাসূচীত যোগ কৰা হৈছে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">সলাওক</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীকৈ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাহৰ বাবে</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাহৰ বাবে</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন আপোনাৰ চোৱাসূচীৰ পৰা আঁতৰোৱা হৈছে।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">১ সপ্তাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">১ মাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">৩ মাহৰ বাবে</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">৬ মাহৰ বাবে</string>
   <string name="watchlist_expiry_dialog_title">চোৱাসূচীৰ সময়কাল বাছনি কৰক</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ী</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>

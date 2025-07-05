@@ -38,10 +38,21 @@ object RecurringTasksExecutor {
             .setConstraints(Constraints(requiresBatteryNotLow = true))
             .build()
 
+        val cleanupInterval = 365L * CategoriesTableCleanupWorker.CLEANUP_TIME_IN_YEARS
+        val categoriesCleanupRequest = PeriodicWorkRequestBuilder<CategoriesTableCleanupWorker>(cleanupInterval, TimeUnit.DAYS)
+            .setConstraints(Constraints(requiresBatteryNotLow = true))
+            .build()
+
+        val recommendedReadingListRequest = PeriodicWorkRequestBuilder<RecommendedReadingListWorker>(1, TimeUnit.DAYS)
+            .setConstraints(networkConstraints)
+            .build()
+
         val tasks = mutableMapOf(
             "REMOTE_CONFIG" to remoteConfigRefreshRequest,
             "DAILY_EVENT" to dailyEventRequest,
-            "OFFLINE_CLEANUP" to offlineCleanupRequest
+            "OFFLINE_CLEANUP" to offlineCleanupRequest,
+            "CATEGORIES_CLEANUP" to categoriesCleanupRequest,
+            "RECOMMENDED_READING" to recommendedReadingListRequest
         )
 
         if (ReleaseUtil.isAlphaRelease) {
@@ -50,9 +61,9 @@ object RecurringTasksExecutor {
                 .build()
         }
 
+        val workManager = WorkManager.getInstance(WikipediaApp.instance)
         tasks.forEach { (taskName, task) ->
-            WorkManager.getInstance(WikipediaApp.instance)
-                .enqueueUniquePeriodicWork(taskName, ExistingPeriodicWorkPolicy.KEEP, task)
+            workManager.enqueueUniquePeriodicWork(taskName, ExistingPeriodicWorkPolicy.KEEP, task)
         }
     }
 }

@@ -8,7 +8,7 @@
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия бета</string>
   <string name="app_name_alpha">Википедия альфа</string>
-  <string name="wikimedia">Викимедия</string>
+  <string name="wikimedia">Викимедиа</string>
   <string name="nav_item_back">Кери</string>
   <string name="page_tabs_back">Кери</string>
   <string name="nav_item_forward">Алгъа</string>
@@ -140,8 +140,8 @@
   <string name="login_username_hint">Хайырланыучуну аты</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Эки дараджалы аутентификация код</string>
-  <string name="login_2fa_other_workflow_error_msg">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Эки дараджалы аутентификация код</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Эки дараджалы аутентификация код керекди! Баш къуллугъугъузгъа кайтыгъыз эмда 2FA-токенни болушлугъу бла  системагъа киригиз, аны ызындан дагъыда бир сынагъыз.</string>
   <string name="onboarding_card_login">Кир</string>
   <string name="page_editing_login">Кир</string>
   <string name="reading_lists_sync_login">Кир</string>
@@ -163,8 +163,8 @@
   <string name="logged_out_in_background_login">Кир</string>
   <string name="logged_out_in_background_cancel">Ызына ал</string>
   <string name="account_vanish_request_title">Хыйсабны джокъ эт</string>
-  <string name="account_vanish_request_confirm_title">Хыйсабны джокъ этиу эсгертиу</string>
-  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm_title">Хыйсаб сюртюуню эсгертиую</string>
+  <string name="account_vanish_request_confirm">Джокъ этиу — &lt;b&gt;ахыр амалды&lt;/b&gt;, эмда аны  &lt;b&gt;тюзетиуню тамамы бла тохтатыргъа излегесиз хайырланыргъа керекди&lt;/b&gt;, неда эскиде ассоциацияланы бир мадар болуб аслам джашырыргъа излесегиз.&lt;br/&gt;&lt;br /&gt;Википедияда хыйсабны кетериу, башхала хыйсабны джокъ этиу атны джюрютген процессде сизни кошумугъузну танымазча, хыйсабыгъызны атын тюрлендириу бла этиледи.&lt;b&gt;Джокъ этиу толу анонимликни гарантия этмейди эмда проектде къошумларыгъызны къоратмайды&lt;/b&gt;.</string>
   <string name="history_empty_title">Кёб болмай кёргюзюлген статьяла джокъдула</string>
   <string name="history_empty_message">Окъугъан статьяларыгъызны былайдан ызлагъыз.</string>
   <string name="history_offline_articles_toast">Тарихдеги бир къауум статьтяла, оффлайн халда кёрюрча тюлдюле.</string>
@@ -231,18 +231,16 @@
   <string name="privacy_policy_description">Ташалыкъ политика</string>
   <string name="terms_of_use_description">Хайырланыу шартла</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Юсюнден</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/krc</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/krc</string>
-  <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/krc</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/krc</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/krc</string>
+  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/krc</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.krc</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.krc</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Хайырланнган китабханала</string>
   <string name="about_contributors_heading">Авторла</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/krc\"&gt;Команда бет&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/krc\"&gt;Команда бет&lt;/a&gt;</string>
   <string name="about_translators_heading">Кёчюрюучюле</string>
   <string name="about_translators_translatewiki">Бу программаны &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-деги волонтёрла кёчюргендиле.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -562,8 +560,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статья кёб тизмеде орун алады</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s мындан ары бу тизмеледе оффлайн джетиширча боллукъ тюлдю:</string>
   <string name="reading_lists_sync_reminder_title">Окъуу тизмени синхронизациясы джандырылсынмы?</string>
-  <string name="reading_lists_sync_reminder_text">Окъуу тизмелеригизге сакъланнган статьяланы, мындан ары Википедия хыйсабыгъыз бла синхронизация этерчады. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Окъуу тизмелеригизге сакъланнган статьяланы, мындан ары Википедия хыйсабыгъыз бла синхронизация этерчады. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Аслам бил&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхрозинацияны джандыр</string>
   <string name="reading_list_login_reminder_title">Окъуу тимзелени синхронизация эт</string>
   <string name="reading_lists_login_reminder_text">Окъуу тизмеле энди девайсла арасында синхронизация этилирчады. Википедия хыйсабыгъызда сессия ачыгъыз эмда тизмелеригизни сакъландырыууна эркинлик беригиз.</string>
@@ -860,8 +858,6 @@
   <string name="description_edit_voice_input_description">Ауаз киргизиу</string>
   <string name="description_edit_learn_more">Статья ачыкълауланы юсюнден аслам бил</string>
   <string name="description_edit_image_caption_learn_more">Сурат тюб джазыуланы юсюнден аслам бил</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текст асыры къысхады.</string>
   <string name="description_ends_with_punctuation">Текст тыйгъыч белгиле бла бошалыргъа керек тюлдю.</string>
   <string name="description_starts_with_uppercase">Биринчи сёз энчи ат тюл эсе, гитче хариф бла башла</string>
@@ -1358,14 +1354,12 @@
   <string name="revision_rollback_success">Тюзетиуле кери алындыла.</string>
   <string name="revision_compare_button">Тенглешдир</string>
   <string name="revision_compare_two_only">Къуру эки версия сайларгъа боллукъду.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s эмда аны сюзюу бети %2$s кёздеги тизмеге къошулду.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Тюрлендир</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">дайым</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ыйыкълыкъ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 кюнлюк</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 айлыкъ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 айлыкъ</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s эмда аны сюзюу бети кёздеги тизмегизден къоратылды.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ыйыкълыкъ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 кюнлюк</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 айлыкъ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 айлыкъ</string>
   <string name="watchlist_expiry_dialog_title">Кёздеги тизме заман кёзюуюн сайлагъыз</string>
   <string name="watchlist_expiry_dialog_permanent">Дайым</string>
   <string name="watchlist_expiry_dialog_one_week">1 ыйыкъ</string>

@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.databinding.GroupCaptchaBinding
 import org.wikipedia.databinding.ViewDescriptionEditBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
@@ -29,7 +30,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -110,7 +110,8 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
 
         binding.learnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(context, Uri.parse(WikipediaApp.instance.getString(if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
-                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) R.string.description_edit_description_learn_more_url
+                action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION)
+                if (pageTitle.wikiSite.languageCode == "en") R.string.short_description_help_url_en else R.string.description_edit_description_learn_more_url
             else R.string.description_edit_image_caption_learn_more_url)))
         }
     }
@@ -235,7 +236,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             !sourceSummary.pageTitle.description.isNullOrEmpty()) {
             binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
         }
-        L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode)
+        setLayoutDirectionByLang(if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode)
 
         binding.viewDescriptionEditReadArticleBarContainer.setSummary(pageSummaryForEdit)
         binding.viewDescriptionEditReadArticleBarContainer.setOnClickListener { performReadArticleClick() }

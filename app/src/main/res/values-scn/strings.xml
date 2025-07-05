@@ -17,9 +17,9 @@
   <string name="search_hint_voice_search">Arricerca vucali</string>
   <string name="search_hint_search_languages">Arricerca na lingua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Arricerca nti l\'elenchi</string>
-  <string name="nav_item_suggested_edits">Canciamenti</string>
+  <string name="nav_item_suggested_edits">Canci</string>
   <string name="nav_item_more">Àutri cosi</string>
-  <string name="nav_item_search">Arricerca</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">Nun fu pussìbbili cunnèttirisi a Internet.</string>
   <string name="page_error_retry">Ripruva</string>
   <string name="card_offline_error_retry">Ripruva</string>
@@ -135,7 +135,7 @@
   <string name="login_username_hint">Nomu utenti</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Còdici autentificazzioni a dui fattura</string>
+  <string name="login_2fa_hint" fuzzy="true">Còdici autentificazzioni a dui fattura</string>
   <string name="onboarding_card_login">Trasi</string>
   <string name="page_editing_login">Trasi</string>
   <string name="reading_lists_sync_login">Trasi</string>
@@ -186,8 +186,8 @@
   <string name="privacy_policy_description">Pulìtica supra la privacy</string>
   <string name="terms_of_use_description">Cunnizzioni d\'usu</string>
   <string name="about_wikipedia_url">https://scn.wikipedia.org/wiki/Wikipedia:Àutri nfurmazzioni</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_contributors_heading">Cuntribbutura</string>
   <string name="about_translators_heading">Traduttura</string>
   <string name="about_app_license_heading">Licenza</string>
@@ -376,7 +376,7 @@
   <string name="this_year">Ovannu</string>
   <plurals name="diff_years">
     <item quantity="one">Oggiallannu</item>
-    <item quantity="other">%d anni fa</item>
+    <item quantity="other">%d anni arrè</item>
   </plurals>
   <string name="languages_list_activity_title">Agghiunci na lingua</string>
   <string name="languages_list_suggested_text">Cunzigghiatu</string>
@@ -428,10 +428,10 @@
   <string name="menu_option_view_user_profile" fuzzy="true">Talìa la pàggina prufilu di l\'utenti</string>
   <string name="menu_option_view_user_talk">Talìa la pàggina di discussioni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pi 1 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pi 3 misi</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pi 6 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pi 1 simana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pi 1 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pi 3 misi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pi 6 misi</string>
   <string name="watchlist_expiry_dialog_one_week">1 simana</string>
   <string name="watchlist_expiry_dialog_one_month">1 misi</string>
   <string name="watchlist_expiry_dialog_three_months">3 misi</string>
