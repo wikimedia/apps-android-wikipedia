@@ -3,9 +3,6 @@ package org.wikipedia.views
 import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.view.ActionMode
 import android.view.LayoutInflater
 import android.view.View
@@ -19,53 +16,15 @@ import androidx.core.view.allViews
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestListener
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.databinding.ViewActionModeCloseButtonBinding
-import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.WhiteBackgroundTransformation
+import org.wikipedia.views.imageservice.ImageLoadListener
+import org.wikipedia.views.imageservice.ImageService
 
 object ViewUtil {
-    private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
-
-    fun loadImageWithRoundedCorners(view: ImageView, url: String?) {
-        loadImage(view, url, roundedCorners = true)
-    }
-
-    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, force: Boolean = false,
-                  @DrawableRes placeholderId: Int? = null, listener: RequestListener<Drawable?>? = null) {
-        var builder = Glide.with(view)
-                .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
-                .downsample(DownsampleStrategy.CENTER_INSIDE)
-
-        if (placeholderId != null) {
-            builder = builder.placeholder(placeholderId).error(placeholderId)
-        } else {
-            val placeholder = getPlaceholderDrawable(view.context)
-            builder = builder.placeholder(placeholder).error(placeholder)
-        }
-
-        builder = if (roundedCorners) {
-            builder.transform(CENTER_CROP_ROUNDED_CORNERS)
-        } else {
-            builder.transform(WhiteBackgroundTransformation())
-        }
-        if (listener != null) {
-            builder = builder.listener(listener)
-        }
-        builder.into(view)
-    }
-
-    fun getPlaceholderDrawable(context: Context): Drawable {
-        return ColorDrawable(getThemedColor(context, R.attr.border_color))
+    fun loadImage(view: ImageView, url: String?, force: Boolean = false,
+                  @DrawableRes placeholderId: Int? = null, listener: ImageLoadListener? = null) {
+        ImageService.loadImage(view, url, false, force, placeholderId, listener)
     }
 
     fun setCloseButtonInActionMode(context: Context, actionMode: ActionMode) {

@@ -12,6 +12,9 @@
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_languages">Search for a language</string>
+    <string name="search_back_button_content_description">Go back</string>
+    <string name="search_clear_query_content_description">Clear query</string>
+    <string name="search_icon_content_description">Search</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
@@ -153,8 +156,11 @@
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="account_creation_password_hint">Password</string>
-    <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please return to the main activity and log in with your 2FA token, then retry.</string>
+    <string name="login_2fa_hint">Two-factor authentication code</string>
+    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please login from the main screen, and enter the code from your 2FA token.</string>
+    <string name="login_email_auth_hint">Email verification code</string>
+    <string name="login_email_auth_other_workflow_error_msg">Email verification required! Please login from the main screen, and enter your email verification code.</string>
+    <string name="login_background_error_msg">Unable to re-login. Please go back to the main screen and log in manually.</string>
     <string name="onboarding_card_login">Log in</string>
     <string name="page_editing_login">Log in</string>
     <string name="reading_lists_sync_login">Log in</string>
@@ -244,24 +250,25 @@
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
     <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-    <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-    <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-    <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-    <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+    <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+    <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+    <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+    <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-    <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-    <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
+    <string name="android_app_edit_help_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits</string>
+    <string name="suggested_edits_image_tags_help_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
-    <string name="about_contributors"><![CDATA[<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android">Team page</a>]]></string>
+    <string name="about_contributors"><![CDATA[<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android">Team page</a>]]></string>
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
     <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
+    <string name="about_logo_content_description">Wikipedia puzzle globe logo</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
     <string name="edit_abandon_confirm_yes">Yes</string>
     <string name="edit_abandon_confirm_no">No</string>
@@ -397,6 +404,7 @@
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
     <string name="nav_item_donate">Donate</string>
+    <string name="nav_item_year_in_review">Year In Review</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
@@ -594,8 +602,8 @@
     <string name="reading_list_confirm_remove_article_from_offline_title">Article appears in multiple lists</string>
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
     <string name="reading_lists_sync_reminder_title">Turn on reading list syncing?</string>
-    <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
-    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
+    <string name="reading_lists_sync_reminder_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
+    <string name="reading_lists_login_reminder_text_with_link"><![CDATA[Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved. <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists">Learn more</a>]]></string>
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync reading lists</string>
     <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.</string>
@@ -911,15 +919,15 @@
     <string name="description_edit_help_title">Info: Article descriptions</string>
     <string name="description_edit_help_about_wikidata">About Wikidata</string>
     <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
-    <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+    <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
     <string name="description_edit_voice_input_description">Voice input</string>
     <string name="description_edit_learn_more">Learn more about article descriptions</string>
     <string name="description_edit_image_caption_learn_more">Learn more about image captions</string>
-    <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-    <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
+    <string name="description_edit_description_learn_more_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+    <string name="description_edit_image_caption_learn_more_url">https://mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_too_long">Try to keep descriptions short so users can understand the article\'s subject at a glance</string>
@@ -1476,14 +1484,12 @@
     <string name="revision_compare_two_only">Only two revisions can be selected.</string>
 
     <!-- Watchlist -->
-    <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
     <string name="watchlist_page_add_to_watchlist_snackbar_action">Change</string>
     <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanently</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">for 1 week</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">for 1 month</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">for 3 months</string>
-    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">for 6 months</string>
-    <string name="watchlist_page_removed_from_watchlist_snackbar">%s and its talk page have been removed from your watchlist.</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 week</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 month</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 months</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 months</string>
     <string name="watchlist_expiry_dialog_title">Select Watchlist time period</string>
     <string name="watchlist_expiry_dialog_permanent">Permanent</string>
     <string name="watchlist_expiry_dialog_one_week">1 week</string>
@@ -1725,7 +1731,7 @@
     <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Wikipedia without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Wikipedia.</string>
     <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Wikipedia is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
     <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
-    <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
+    <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
     <string name="talk_warn_saved_messages_usage_instruction">Use an example message below to customize, send and save to your messages.</string>
     <string name="patroller_saved_message_body_art_imp">Hello {{{username}}}. Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out this Wikipedia\'s guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string>
     <string name="talk_templates_menu_edit_title">Edit</string>
@@ -1808,12 +1814,13 @@
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_progress">%1$d of %2$d</string>
     <string name="on_this_day_game_score">Score: %d</string>
+    <string name="on_this_day_game_submit">Submit</string>
     <string name="on_this_day_game_correct">Correct!</string>
     <string name="on_this_day_game_incorrect">Incorrect!</string>
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
-    <string name="on_this_day_game_share">Share with friends</string>
+    <string name="on_this_day_game_share_button">Share</string>
     <string name="on_this_day_game_pause_title">Pause the game?</string>
     <string name="on_this_day_game_pause_body">Your progress will be saved for the day. You can find the game on your Explore feed.</string>
     <string name="on_this_day_game_pause_negative">Keep playing</string>
@@ -1854,8 +1861,152 @@
     <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="on_this_day_game_notification_undo">Undo</string>
     <string name="on_this_day_game_share_link_message">I\'m playing \"Which came first?\" a daily trivia game on the Wikipedia Android app %s</string>
-    <string name="on_this_day_game_survey_q1">How satisfied were you with this game?</string>
-    <string name="on_this_day_game_survey_q2">Would you be interested in playing different Wikipedia games?</string>
-    <string name="back_button_content_description">Go back</string>
-    <string name="about_screen_logo_accessibility_text">Wikipedia puzzle globe logo</string>
+    <string name="on_this_day_game_share_screen_title">I scored %1$d/%2$d on \n\"Which came first?\" \ntoday.</string>
+    <string name="on_this_day_game_share_screen_subtitle">Topics included:</string>
+    <string name="on_this_day_game_archive_calendar_title">Choose a game by date to play.</string>
+    <string name="on_this_day_game_score_toast_message">You scored %1$d/%2$d on this day.</string>
+    <string name="on_this_day_game_continue_btn_text">Continue today\'s game</string>
+    <string name="on_this_day_game_current_progress_message">You\'re on question %d.</string>
+    <string name="on_this_day_game_archive_btn_text">Play the archive</string>
+    <string name="on_this_day_game_review_results_btn_text">Review results</string>
+    <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
+    <string name="on_this_day_game_sound_on">Turn sound on</string>
+    <string name="on_this_day_game_sound_off">Turn sound off</string>
+
+    <!-- Year In Review -->
+    <string name="year_in_review_learn_more">Learn More</string>
+    <string name="year_in_review_get_started">Get Started</string>
+    <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
+    <string name="year_in_review_navigate_left">Navigate Left</string>
+    <string name="year_in_review_share_icon">Share Icon</string>
+    <string name="year_in_review_heart_icon">Heart Icon</string>
+    <string name="year_in_review_navigate_right">Navigate Right</string>
+    <string name="year_in_review_donate">Donate</string>
+    <string name="year_in_review_information_icon">Information Icon</string>
+    <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
+    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
+    <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
+    <string name="year_in_review_entry_dialog_continue">Continue</string>
+    <plurals name="year_in_review_read_count_headline">
+        <item quantity="one">You read %d article this year</item>
+        <item quantity="other">You read %d articles this year</item>
+    </plurals>
+    <plurals name="year_in_review_read_count_bodytext">
+        <item quantity="one">This year, you read %1$d article, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+        <item quantity="other">This year, you read %1$d articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_headline">
+        <item quantity="one">You edited Wikipedia %d time</item>
+        <item quantity="other">You edited Wikipedia %d times</item>
+    </plurals>
+    <plurals name="year_in_review_edit_count_bodytext">
+        <item quantity="one">You edited Wikipedia %d time. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+        <item quantity="other">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
+    </plurals>
+    <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
+    <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
+    <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
+    <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
+    <string name="year_in_review_survey_satisfied">Satisfied</string>
+    <string name="year_in_review_survey_neutral">Neutral</string>
+    <string name="year_in_review_survey_unsatisfied">Unsatisfied</string>
+    <string name="year_in_review_survey_very_unsatisfied">Very unsatisfied</string>
+    <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
+    <string name="year_in_review_survey_cancel">Cancel</string>
+    <string name="year_in_review_survey_submit">Submit</string>
+    <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
+    <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
+    <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
+    <string name="year_in_review_share_subject">Year In Review Image and Link</string>
+    <string name="year_in_review_globe_icon">Globe Icon</string>
+
+
+    <!--Recommended Reading list -->
+    <string name="recommended_reading_list_title">Discover</string>
+    <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
+    <string name="recommended_reading_list_onboarding_card_message">Your weekly reading list of Wikipedia articles, curated just for you.</string>
+    <string name="recommended_reading_list_onboarding_card_new">New!</string>
+    <string name="recommended_reading_list_onboarding_card_positive_button">Get started</string>
+    <string name="recommended_reading_list_onboarding_card_negative_button">No thanks</string>
+    <string name="recommended_reading_list_onboarding_card_negative_snackbar">To set up your recommended reading list later, go to Settings.</string>
+    <string name="recommended_reading_list_interest_source_message">How should we build your recommended reading list?</string>
+    <string name="recommended_reading_list_interest_source_interests">Let me choose based on my interests</string>
+    <string name="recommended_reading_list_interest_source_saved">Choose for me based on my saved articles</string>
+    <string name="recommended_reading_list_interest_source_history">Choose for me based on my reading history</string>
+    <string name="recommended_reading_list_interest_pick_title">What are you interested in?</string>
+    <string name="recommended_reading_list_interest_pick_search_hint">Search for an article</string>
+    <plurals name="recommended_reading_list_interest_pick_selected_articles">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <string name="recommended_reading_list_interest_select_minimum">Select at least one interest</string>
+    <string name="recommended_reading_list_interest_pick_random_button_content_description">Randomly select</string>
+    <string name="recommended_reading_list_interest_pick_random_snackbar">We\'ve randomly selected a few articles for you.</string>
+    <string name="recommended_reading_list_interest_pick_random_snackbar_action">Undo</string>
+    <string name="recommended_reading_list_interest_pick_random_dialog_title">Are you sure you want to randomize your selection?</string>
+    <string name="recommended_reading_list_interest_pick_random_dialog_message">This will clear your current selections and choose new articles at random.</string>
+    <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Yes, choose for me</string>
+    <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Never mind</string>
+    <string name="recommended_reading_list_page_subtitle_made_for">Made for %s</string>
+    <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Made for you</string>
+    <plurals name="recommended_reading_list_page_subtitle_articles">
+        <item quantity="one">• %d article</item>
+        <item quantity="other">• %d articles</item>
+    </plurals>
+    <string name="recommended_reading_list_page_description_daily">Your daily reading list. Learn about new topics, picked just for you. Updates at midnight.</string>
+    <string name="recommended_reading_list_page_description_weekly">Your weekly reading list. Learn about new topics, picked just for you. Updates at the beginning of the week.</string>
+    <string name="recommended_reading_list_page_description_monthly">Your monthly reading list. Learn about new topics, picked just for you. Updates on the first of each month.</string>
+    <string name="recommended_reading_list_page_overflow_customize">Customize</string>
+    <string name="recommended_reading_list_page_overflow_about">About this feature</string>
+    <string name="recommended_reading_list_page_snackbar">Discover will update with %1$d new articles each %2$s. Your recommendations are stored locally on your device.</string>
+    <string name="recommended_reading_list_page_snackbar_action">Customize Discover</string>
+    <string name="recommended_reading_list_page_snackbar_day">Day</string>
+    <string name="recommended_reading_list_page_snackbar_week">Week</string>
+    <string name="recommended_reading_list_page_snackbar_month">Month</string>
+    <string name="recommended_reading_list_settings_section_header">Recommendations</string>
+    <string name="recommended_reading_list_settings_title">Discover settings</string>
+    <string name="recommended_reading_list_settings_toggle">Discover reading list</string>
+    <string name="recommended_reading_list_settings_toggle_disable_message">Discover is off. Wikipedia won\'t recommend you articles to read.</string>
+    <string name="recommended_reading_list_settings_turn_off_dialog_title">Turn off Discover?</string>
+    <string name="recommended_reading_list_settings_turn_off_dialog_message">If you turn off Discover, you\'ll stop receiving %s reading recommendations from Wikipedia.</string>
+    <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Turn it off</string>
+    <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">No, keep it on</string>
+    <string name="recommended_reading_list_settings_turn_off_snackbar">Discover has been turned off. You can turn it back on anytime in settings.</string>
+    <string name="recommended_reading_list_settings_articles">articles</string>
+    <string name="recommended_reading_list_settings_updates_frequency">Updates %s</string>
+    <string name="recommended_reading_list_settings_updates_frequency_daily">daily</string>
+    <string name="recommended_reading_list_settings_updates_frequency_weekly">weekly</string>
+    <string name="recommended_reading_list_settings_updates_frequency_monthly">monthly</string>
+    <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Every day</string>
+    <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Every week</string>
+    <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Every month</string>
+    <string name="recommended_reading_list_settings_updates_base_title">How Discover is built</string>
+    <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Based on your interests</string>
+    <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Based on your saved articles</string>
+    <string name="recommended_reading_list_settings_updates_base_subtitle_history">Based on your reading history</string>
+    <string name="recommended_reading_list_settings_updates_base_dialog_title">Adjust how Discover is built?</string>
+    <string name="recommended_reading_list_settings_updates_base_dialog_message">If you adjust how Discover generates recommendations, your current recommendations will be replaced.</string>
+    <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Adjust</string>
+    <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Never mind</string>
+    <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Your recommendations are now based on your interests.</string>
+    <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Your recommendations are now based on your saved articles.</string>
+    <string name="recommended_reading_list_settings_updates_base_snackbar_history">Your recommendations are now based on your reading history.</string>
+    <string name="recommended_reading_list_settings_updates_base_snackbar_action">Undo</string>
+    <string name="recommended_reading_list_settings_interests">Interests</string>
+    <string name="recommended_reading_list_settings_notifications_title">Notifications</string>
+    <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia will not send you a notification when Discover is updated.</string>
+    <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notifications for Discover are turned off. You won\'t receive a notification when Discover is updated.</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_title">Turn off notifications?</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_message">If you turn off notifications, you will no longer receive reminders when Discover is updated.</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Turn them off</string>
+    <string name="recommended_reading_list_settings_notifications_dialog_negative_button">No, keep them on</string>
+    <string name="recommended_reading_list_notification_title">Your %s Discover reading list is ready.</string>
+    <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
+    <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>
+    <string name="recommended_reading_list_settings_toggle_enable_message">Discover is on. Wikipedia will recommend you articles to read.</string>
 </resources>

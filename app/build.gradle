@@ -38,7 +38,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 35
-        versionCode 50522
+        versionCode 50539
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -164,7 +164,6 @@ configurations {
 }
 
 apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -196,10 +195,6 @@ dependencies {
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
     implementation libs.metrics.platform
-
-    implementation libs.glide
-    implementation libs.okhttp3.integration
-    ksp libs.glide.ksp
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
@@ -266,6 +261,12 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
+    // Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.gif)
+    implementation(libs.coil.svg)
+
     // Compose Library
     def composeBom = platform(libs.composeBom)
     implementation(composeBom)
@@ -275,10 +276,13 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.compose.activity)
     implementation(libs.compose.view.model)
+    implementation(libs.androidx.navigation.compose)
 
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
+    debugImplementation(libs.compose.debug.test)
+    debugImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {

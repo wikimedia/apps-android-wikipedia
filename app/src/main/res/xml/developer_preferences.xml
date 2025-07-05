@@ -94,10 +94,6 @@
             \nBeta: https://intake-analytics-beta.wmflabs.org
             \nLocal: http://host:8192" />
 
-        <Preference android:key="@string/preference_key_send_event_platform_test_event"
-            android:title="@string/preference_developer_send_event_platform_test_event_title"
-            android:summary="@string/preference_developer_send_event_platform_test_event_summary" />
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_event_platform_queue_size"
@@ -213,6 +209,10 @@
             android:title="dailyEventTask-lastrun" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_login_force_email_auth"
+            android:title="Force email authentication when logging in." />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
 
@@ -313,6 +313,10 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_temp_account_dialog_shown"
             android:title="@string/preference_key_temp_account_dialog_shown" />
+
+        <org.wikipedia.settings.LongPreference
+            android:key="@string/preference_key_temp_account_create_day"
+            android:title="@string/preference_key_temp_account_create_day" />
 
     </PreferenceCategory>
 
@@ -484,9 +488,46 @@
             android:title="@string/preference_developer_otd_reset_notification_state" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_otd_game_survey_shown"
-            android:title="@string/preference_key_otd_game_survey_shown" />
+            android:key="@string/preference_key_otd_game_first_played_shown"
+            android:title="@string/preference_key_otd_game_first_played_shown" />
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Recommended Reading list">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_enabled"
+            android:title="@string/preference_key_recommended_reading_list_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recommended_reading_list_onboarding_shown"
+            android:title="@string/preference_key_recommended_reading_list_onboarding_shown" />
+
+        <ListPreference
+            android:key="@string/preference_key_recommended_reading_list_notification_simulator"
+            android:title="Notification frequency Simulator"/>
+      
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_recommendedReadingList"
+            android:title="AB test group" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Playground">
+        <Preference
+            android:key="@string/preference_key_playground_category"
+            android:title="Category" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Year in Review">
+        
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_year_in_review_is_enabled"
+            android:title="@string/preference_key_year_in_review_is_enabled" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_survey_shown"
+            android:title="@string/preference_key_yir_survey_shown" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

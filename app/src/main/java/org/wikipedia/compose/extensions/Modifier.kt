@@ -4,6 +4,7 @@ import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 
 fun Modifier.pulse(
     fromScale: Float = 1f,
@@ -59,10 +61,22 @@ fun Modifier.pulse(
     }
 }
 
+fun Modifier.noRippleClickable(
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    onClick: () -> Unit
+): Modifier = clickable(
+    enabled = enabled,
+    indication = null,
+    interactionSource = null,
+    onClickLabel = onClickLabel,
+    onClick = onClick
+)
+
 @Preview
 @Composable
 private fun PreviewPulse() {
-    BaseTheme {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         Scaffold(
             topBar = {
                 WikiTopAppBar(

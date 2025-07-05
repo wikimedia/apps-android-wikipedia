@@ -18,6 +18,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.R
@@ -404,6 +405,8 @@ class ReadingListSyncAdapter(context: Context, params: WorkerParameters) : Corou
                         AppDatabase.instance.readingListPageDao().updatePages(localPages)
                     }
                 }
+            } catch (e: CancellationException) {
+                throw e
             } catch (t: Throwable) {
                 var errorMsg = t
                 if (client.isErrorType(t, "not-set-up")) {

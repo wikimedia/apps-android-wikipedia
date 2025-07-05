@@ -101,7 +101,7 @@
   <string name="login_username_hint">ورتنوالے دا ناں</string>
   <string name="login_password_hint">پوچھنا شبد</string>
   <string name="account_creation_password_hint">پاس‌ورڈ</string>
-  <string name="login_2fa_hint">دو پکھی پرماݨیکرن کوڈ</string>
+  <string name="login_2fa_hint" fuzzy="true">دو پکھی پرماݨیکرن کوڈ</string>
   <string name="onboarding_card_login">لَوگ اِین کرو</string>
   <string name="page_editing_login">لَوگ اِین کرو</string>
   <string name="reading_lists_sync_login">لَوگ اِین کرو</string>

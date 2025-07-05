@@ -12,6 +12,7 @@
 * SHaran (WMF)
 * Sky Harbor
 * Stranger195
+* Ysrael214
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -146,8 +147,8 @@
   <string name="login_username_hint">Username</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Kailangan ng two-factor authentication! Bumalik po sa main activity at mag-login gamit ang SFA token niyo, pagkatapos, subukan muli.</string>
+  <string name="login_2fa_hint" fuzzy="true">Two-Factor Authentication Code</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Kailangan ng two-factor authentication! Bumalik po sa main activity at mag-login gamit ang SFA token niyo, pagkatapos, subukan muli.</string>
   <string name="onboarding_card_login">Mag-login</string>
   <string name="page_editing_login">Mag-login</string>
   <string name="reading_lists_sync_login">Mag-login</string>
@@ -234,14 +235,12 @@
   <string name="privacy_policy_description">Patakaran sa Pagkapribado</string>
   <string name="terms_of_use_description">Kasunduan sa Paggamit</string>
   <string name="about_wikipedia_url">https://tl.wikipedia.org/wiki/Wikipedia:Patungkol</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Mga ginamit na library</string>
   <string name="about_contributors_heading">Mga nag-ambag</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
@@ -534,8 +533,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Makikita ang artikulo sa maraming listahan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Di na mababasa offline ang %s sa mga ito:</string>
   <string name="reading_lists_sync_reminder_title">Buksan ang pag-sync ng mga babasahin?</string>
-  <string name="reading_lists_sync_reminder_text">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Pwede mo na\'ng i-sync ang mga artikulong naka-save sa mga babasahin mo gamit ang account mo sa Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Matuto pa&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Buksan ang pag-sync</string>
   <string name="reading_list_login_reminder_title">I-sync ang mga babasahin</string>
   <string name="reading_lists_login_reminder_text">Masi-sync na ang mga babasahin sa iba\'t-ibang device. Mag-login sa account mo sa Wikipedia at payagan na mai-save ang mga babasahin mo.</string>
@@ -926,7 +925,7 @@
   <string name="suggested_edits_image_tags_add_tag">Mag-tag</string>
   <string name="suggested_edits_image_zoom_tooltip">I-pinch para makalapit sa larawang ito.</string>
   <string name="suggested_edits_encouragement_message">%s, salamat sa mga edit mo. Nasa baba yung iba pang mga paraan para makatulong sa Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Kamusta %s&lt;/b&gt;, nasa baba yung mga mabibilis at madadaling paraan para makatulong sa Wikipedia. Kita mo agad yung pagbabagong magagawa mo pagkasimula mo. Tara, edit na!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Kumusta %s&lt;/b&gt;, nasa baba yung mga mabibilis at madadaling paraan para makatulong sa Wikipedia. Kita mo agad yung pagbabagong magagawa mo pagkasimula mo. Tara, edit na!</string>
   <string name="suggested_edits_image_captions_task_detail">Ilarawan ang larawan para matulungan ang mga mambabasa kung ano ba talaga ito.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Magbigay ng buod ng artikulo para matulungan ang mga mambabasa kung ano ba talaga ito agad.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Mga naambag mo hanggang sa puntong ito.</string>
@@ -1093,7 +1092,7 @@
   <string name="wikitext_preview_link">Link sa pagsilip</string>
   <string name="main_drawer_help">Tulong</string>
   <string name="main_drawer_login">Mag-login / Sumali sa Wikipedia</string>
-  <string name="main_tooltip_text">Kamusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
+  <string name="main_tooltip_text">Kumusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
   <string name="main_tooltip_text_v2">Alam mo bang pwedeng baguhin ng kahit sinuman ang Wikipedia?</string>
   <string name="main_tooltip_action_button">Magsimula</string>
   <string name="main_tooltip_watchlist_title">Binabantayan</string>
@@ -1126,14 +1125,12 @@
   <string name="thank_dialog_positive_button_text">Magpasalamat</string>
   <string name="thank_dialog_negative_button_text">Ikansela</string>
   <string name="thank_success_message">Nagpasalamat ka kay %s 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Nailagay na ang %1$s at ang usapan nito sa binabantayan mo %2$s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Baguhin</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">nang permanente</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">nang 1 linggo</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">nang 1 buwan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">nang 3 buwan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">nang 6 na buwan</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Natanggal na sa binabantayan mo ang %s at ang usapan nito.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">nang 1 linggo</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">nang 1 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">nang 3 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">nang 6 na buwan</string>
   <string name="watchlist_expiry_dialog_title">Pumili ng oras ng pagbantay</string>
   <string name="watchlist_expiry_dialog_permanent">Permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 linggo</string>

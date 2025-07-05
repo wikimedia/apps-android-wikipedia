@@ -24,6 +24,8 @@
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_voice_search">Klask gant ho mouezh</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
+  <string name="search_back_button_content_description">Distreiñ</string>
+  <string name="search_icon_content_description">Klask</string>
   <string name="filter_hint_filter_my_lists_and_articles">Silañ ma rolloù</string>
   <string name="nav_item_suggested_edits">Kemmoù</string>
   <string name="nav_item_more">Muioc\'h</string>
@@ -140,6 +142,8 @@
   <string name="dialog_message_leaving_edit">\"N\'eo ket bet embannet ho kemmoù c\'hoazh. Ha sur eo ho peus c\'hoant da guitaat ar bajenn-mañ ?\"</string>
   <string name="dialog_message_leaving_edit_leave">Mont kuit</string>
   <string name="dialog_message_leaving_edit_stay">Chom</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Dilemel</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Nullañ</string>
   <string name="menu_show_toc">Taolenn</string>
   <string name="search_no_results_found">N\'eus bet kavet disoc\'h ebet</string>
   <string name="search_reading_list_no_results">N\'eus bet kavet disoc\'h ebet e \"%s\"</string>
@@ -154,8 +158,8 @@
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
   <string name="account_creation_password_hint">Ger-tremen</string>
-  <string name="login_2fa_hint">Kod gwiriañ dezhañ daou faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Dilesadur gant daou faktor ret ! Distroit, mar plij, d\'an obererezh pennañ ha kevreit gant ho jedouer 2FA, klaskit en-dro goude-se.</string>
+  <string name="login_2fa_hint">Kod gwiriañ div-elfenn</string>
+  <string name="login_2fa_other_workflow_error_msg">Dilesadur div-elfenn ret ! Kit d’ar skramm pennañ ha kevreit mar plij, ha merkit ar c’hod eus ho jedouer 2FA.</string>
   <string name="onboarding_card_login">Kevreañ</string>
   <string name="page_editing_login">Kevreañ</string>
   <string name="reading_lists_sync_login">Kevreañ</string>
@@ -242,15 +246,13 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="about_wikipedia_url">https://br.wikipedia.org/wiki/Wikipedia:Diwar-benn</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
   <string name="about_contributors_heading">Kenlabourerien</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pajenn ar skipailh&lt;/a&gt;</string>
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
@@ -324,7 +326,7 @@
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
-  <string name="preference_summary_show_images">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
+  <string name="preference_summary_show_images">Gweredekaat pe diweredekaat kargañ skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="preference_title_download_only_over_wifi">Pellgargañ gant ar Wi-Fi hepken</string>
   <string name="dialog_title_download_only_over_wifi">Kadarnaat ar pellgargañ en ur implijout ar roadennoù hezoug ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
@@ -553,8 +555,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Pennadoù o tont wel e meur a roll</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Ne c\'haller ket mui kaout %s er mod digevreet en holl rolloù lenn :</string>
   <string name="reading_lists_sync_reminder_title">Gweredekaat sinkroneladur ar roll lenn ?</string>
-  <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Gallout a reer sinkronelaat ar rolloù lenn etre meur a ardivink. Kevreit ouzh ho kont Wikipedia hag aotreit enrollañ ho rolloù. a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Ar pennadoù enrollet e rolloù lenn a c\'hall bremañ bezañ sinkronelaet gant ho kont Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Gallout a reer sinkronelaat ar rolloù lenn etre meur a ardivink. Kevreit ouzh ho kont Wikipedia hag aotreit enrollañ ho rolloù. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Gweredekaat ar sinkroneladur</string>
   <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
   <string name="reading_lists_login_reminder_text">Ar rolloù lenn a c\'hall bremañ bezañ sinkronelaet etre ardivinkoù. Kevreit ouzh ho kont Wikipedia ha roit aotre da enrollañ ho rolloù.</string>
@@ -840,11 +842,9 @@
   <string name="description_edit_help_title">ditour : deskrivadurioù pennadoù</string>
   <string name="description_edit_help_about_wikidata">Diwar-benn Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù e deskrivadurioù pennadoù. Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia mar plij ganeoc\'h.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur ar pennad e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Re verr eo an destenn-mañ.</string>
   <string name="description_edit_success_saved">Embannet eo bet deskrivadur ar pennad !</string>
   <string name="description_edit_success_saved_snackbar">Embannet eo bet deskrivadur ar pennad !</string>
@@ -1184,10 +1184,10 @@
   <string name="revision_compare_button">Keñveriañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Kemmañ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">da badout</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">evit 1 sizhunvezh</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">evit 1 mizvezh</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">evit 3 miz</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">evit 6 miz</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 sizhunvezh</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mizvezh</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 miz</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 miz</string>
   <string name="watchlist_expiry_dialog_permanent">Da viken</string>
   <string name="watchlist_expiry_dialog_one_week">1 sizhunvezh</string>
   <string name="watchlist_expiry_dialog_one_month">1 mizvezh</string>
