@@ -32,13 +32,13 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTI
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
@@ -144,7 +144,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.callToActionButton.visibility = VISIBLE
         viewModel.sourceSummaryForEdit?.let {
             val langCode = viewModel.targetSummaryForEdit?.lang ?: it.lang
-            L10nUtil.setConditionalLayoutDirection(binding.cardView, langCode)
+            binding.cardView.setLayoutDirectionByLang(langCode)
         }
 
         when (viewModel.cardActionType) {

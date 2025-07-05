@@ -136,7 +136,7 @@ object FeedbackUtil {
     }
 
     fun makeSnackbar(view: View, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
+        val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()).trim(), duration)
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)

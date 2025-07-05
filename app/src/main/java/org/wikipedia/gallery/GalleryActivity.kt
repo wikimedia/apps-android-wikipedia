@@ -3,6 +3,7 @@ package org.wikipedia.gallery
 import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -99,6 +100,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             }
             fetchGalleryDescription(currentItem)
             setResult(ACTIVITY_RESULT_IMAGE_TAGS_ADDED)
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // ViewPager2 bug, will likely be fixed in the future
+        // https://issuetracker.google.com/issues/175796502
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val currentPosition = binding.pager.currentItem
+            val previousPosition = maxOf(currentPosition - 1, 0)
+            // Move to previous position without smoothScroll
+            binding.pager.setCurrentItem(previousPosition, false)
+            // move back to the original position without smoothScroll
+            binding.pager.setCurrentItem(currentPosition, false)
         }
     }
 

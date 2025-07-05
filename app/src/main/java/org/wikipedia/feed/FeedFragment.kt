@@ -135,7 +135,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onResume() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity())
+        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.

@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.ACTION_DAILY_GAME
 import org.wikipedia.notifications.NotificationPresenter
@@ -29,8 +30,6 @@ enum class OnThisDayGameNotificationState {
 }
 
 object OnThisDayGameNotificationManager {
-
-    private const val NOTIFICATION_TYPE_LOCAL = "local"
 
     fun handleNotificationClick(activity: Activity) {
         when (Prefs.otdNotificationState) {
@@ -114,10 +113,10 @@ object OnThisDayGameNotificationManager {
 
     fun showNotification(context: Context) {
         if (WikipediaApp.instance.currentResumedActivity !is OnThisDayGameActivity &&
-            OnThisDayGameViewModel.LANG_CODES_SUPPORTED.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) {
             NotificationPresenter.showNotification(
                 context = context,
-                builder = NotificationPresenter.getDefaultBuilder(context, 1, NOTIFICATION_TYPE_LOCAL),
+                builder = NotificationPresenter.getDefaultBuilder(context, 1, notificationCategory = NotificationCategory.GAMES),
                 id = 1,
                 title = context.getString(R.string.on_this_day_game_feed_entry_card_heading),
                 text = context.getString(R.string.on_this_day_game_notification_text),

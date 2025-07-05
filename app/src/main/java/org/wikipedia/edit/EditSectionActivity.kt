@@ -51,6 +51,7 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setTextDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -65,7 +66,6 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -175,7 +175,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             viewModel.editingAllowed = savedInstanceState.getBoolean(EXTRA_KEY_EDITING_ALLOWED, false)
             sectionTextModified = savedInstanceState.getBoolean(EXTRA_KEY_SECTION_TEXT_MODIFIED, false)
         }
-        L10nUtil.setConditionalTextDirection(binding.editSectionText, viewModel.pageTitle.wikiSite.languageCode)
+        binding.editSectionText.setTextDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         fetchSectionText()
 
@@ -200,7 +200,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             }
         }
 
-        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.editSectionText,
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.editSectionText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
 
@@ -478,7 +478,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             else -> {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
-                binding.editSectionContainer.isVisible = false
+                binding.editSectionScroll.isVisible = false
                 editPreviewFragment.showPreview(viewModel.pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
                 supportActionBar?.title = getString(R.string.edit_preview)
@@ -626,7 +626,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
+            binding.editSectionScroll.isVisible = true
         }
     }
 
@@ -676,9 +676,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private fun displaySectionText() {
         showProgressBar(false)
         binding.editSectionText.setText(viewModel.sectionWikitext)
-        binding.editSectionContainer.isVisible = true
+        binding.editSectionScroll.isVisible = true
         binding.editSectionText.isEnabled = viewModel.editingAllowed
-        binding.editKeyboardOverlay.isVisible = viewModel.editingAllowed
         scrollToHighlight(viewModel.textToHighlight)
     }
 
@@ -731,7 +730,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                 captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
                 altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
             editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
+            binding.editSectionScroll.isVisible = true
             supportActionBar?.title = null
 
             // If we came from the Image Recommendations workflow, bring back the Add Image activity.

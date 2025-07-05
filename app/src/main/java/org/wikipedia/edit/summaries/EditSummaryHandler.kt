@@ -7,8 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.edit.db.EditSummary
+import org.wikipedia.extensions.setTextDirectionByLang
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil.setConditionalTextDirection
 
 class EditSummaryHandler(private val coroutineScope: CoroutineScope,
                          private val container: View,
@@ -17,7 +17,7 @@ class EditSummaryHandler(private val coroutineScope: CoroutineScope,
 
     init {
         container.setOnClickListener { summaryEdit.requestFocus() }
-        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
+        summaryEdit.setTextDirectionByLang(title.wikiSite.languageCode)
 
         coroutineScope.launch {
             val summaries = AppDatabase.instance.editSummaryDao().getEditSummaries()

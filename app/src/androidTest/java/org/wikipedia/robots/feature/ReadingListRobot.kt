@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.app.Activity
 import android.content.Context
 import android.util.Log
@@ -18,9 +19,55 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class ReadingListRobot : BaseRobot() {
+
+    fun clickOnReadingLists(position: Int) = apply {
+        list.clickOnItemInList(
+            listId = R.id.recycler_view,
+            position
+        )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickOnReadingLists(title: String) = apply {
+        list.scrollToRecyclerView(
+            recyclerViewId = R.id.recycler_view,
+            title = title,
+            textViewId = R.id.item_title,
+            action = {
+                click.onDisplayedViewWithText(
+                    viewId = R.id.item_title,
+                    text = title
+                )
+            }
+        )
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickOnReadingListItem(position: Int) = apply {
+        list.clickOnItemInList(
+            listId = R.id.reading_list_recycler_view,
+            position = position
+        )
+    }
+
+    fun longClickReadingLists(position: Int) = apply {
+        list.longClickOnItemInList(
+            listId = R.id.recycler_view,
+            position = position
+        )
+    }
+
+    fun deleteList(context: Context) {
+        click.onViewWithText(context.getString(R.string.reading_list_menu_delete))
+    }
+
+    fun removeArticleList(listName: String) = apply {
+        click.onViewWithText("Remove from $listName")
+        delay(TestConfig.DELAY_LARGE)
+    }
+
     fun saveArticleToReadingList() = apply {
         click.onViewWithId(R.id.page_save)
         delay(TestConfig.DELAY_SHORT)
@@ -54,8 +101,24 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun clickOnGotIt() = apply {
-        click.onViewWithText("Got it")
-        delay(TestConfig.DELAY_MEDIUM)
+        try {
+            click.onViewWithText("Got it")
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("ReadingListRobot:", "Text does not exist.")
+        }
+    }
+
+    fun verifySavedArticleExists(title: String) = apply {
+        verify.viewWithTextDisplayed(title)
+    }
+
+    fun verifySavedArticleDoesNotExists(title: String) = apply {
+        verify.viewWithTextDoesNotExist(title)
+    }
+
+    fun verifyListDoesNotExist(title: String) = apply {
+        verify.viewWithTextDoesNotExist(title)
     }
 
     fun verifyArticleHasNotDownloaded() = apply {
