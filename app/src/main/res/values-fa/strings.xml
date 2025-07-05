@@ -1581,4 +1581,10 @@
   <string name="on_this_day_game_menu_info">اطلاعات بیشتر</string>
   <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
   <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
+  <string name="year_in_review_entry_dialog_continue">ادامه</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">شما امسال %d مقاله را مطالعه کرده‌اید</item>
+    <item quantity="other">شما امسال %d مقاله را مطالعه کرده‌اید</item>
+  </plurals>
+  <string name="year_in_review_survey_submit">ثبت</string>
 </resources>

@@ -1,6 +1,7 @@
 package org.wikipedia.login
 
 import android.widget.Toast
+import androidx.annotation.StringRes
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -69,7 +70,7 @@ class LoginClient {
     }
 
     suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
-            emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResponse {
+            emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResult {
         val loginToken = getLoginToken(wiki)
         val isContinuation = false
         val loginResponse = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password,
@@ -79,30 +80,34 @@ class LoginClient {
             returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL)
         val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
         if (loginResult.pass() && !loginResult.userName.isNullOrEmpty()) {
-            return loginResponse
+            return loginResult
         }
         // Make a call to authmanager to see if we need to provide a captcha.
         val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
         if (!captchaId.isNullOrEmpty()) {
             // TODO: Find a better way to boil up the warning about Captcha
-            Toast.makeText(WikipediaApp.instance, R.string.login_background_error_msg, Toast.LENGTH_LONG).show()
+            showToast(R.string.login_background_error_msg)
         } else if (LoginResult.STATUS_UI == loginResult.status) {
             if (loginResult is LoginOAuthResult) {
                 // TODO: Find a better way to boil up the warning about 2FA
-                Toast.makeText(WikipediaApp.instance,
-                    R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
+                showToast(R.string.login_2fa_other_workflow_error_msg)
             } else if (loginResult is LoginEmailAuthResult) {
                 // TODO: Find a better way to boil up the warning about Email auth
-                Toast.makeText(WikipediaApp.instance,
-                    R.string.login_email_auth_other_workflow_error_msg, Toast.LENGTH_LONG).show()
+                showToast(R.string.login_email_auth_other_workflow_error_msg)
             }
         }
-        throw LoginFailedException(loginResult.message)
+        return loginResult
     }
 
     private suspend fun getLoginToken(wiki: WikiSite): String {
         val response = ServiceFactory.get(wiki).getLoginToken()
         return response.query?.loginToken() ?: throw RuntimeException("Received empty login token.")
+    }
+
+    private fun showToast(@StringRes stringId: Int) {
+        WikipediaApp.instance.mainThreadHandler.post {
+            Toast.makeText(WikipediaApp.instance, stringId, Toast.LENGTH_LONG).show()
+        }
     }
 
     companion object {
