@@ -23,6 +23,8 @@ import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
 import org.wikipedia.analytics.metricsplatform.ArticleTocInteraction
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
@@ -97,7 +99,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         tocAdapter.setPage(page)
         rtl = L10nUtil.isLangRTL(page.title.wikiSite.languageCode)
         binding.tocList.rtl = rtl
-        L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, page.title.wikiSite.languageCode)
+        binding.sidePanelContainer.setLayoutDirectionByLang(page.title.wikiSite.languageCode)
         binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
             gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
         }
@@ -179,9 +181,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             sectionYOffsets.clear()
             sections.addAll(page.sections.filter { it.level < MAX_LEVELS })
             // add a fake section at the end to represent the "about this article" contents at the bottom:
-            sections.add(Section(ABOUT_SECTION_ID, 1,
-                    L10nUtil.getStringForArticleLanguage(page.title, R.string.about_article_section),
-                    L10nUtil.getStringForArticleLanguage(page.title, R.string.about_article_section), ""))
+            val heading = fragment.requireContext().getString(page.title, R.string.about_article_section)
+            sections.add(Section(ABOUT_SECTION_ID, 1, heading, heading, ""))
             highlightedSection = 0
             notifyDataSetChanged()
         }

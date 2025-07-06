@@ -41,10 +41,10 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
@@ -54,7 +54,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -401,7 +400,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
 
             val langCode = StringUtil.dbNameToLangCode(n.wiki)
-            L10nUtil.setConditionalLayoutDirection(itemView, langCode)
+            itemView.setLayoutDirectionByLang(langCode)
 
             n.title?.let { title ->
                 StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
@@ -488,7 +487,6 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
-                        NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
                         linkHandler.onUrlClick(url, null, "")
                     }
@@ -497,6 +495,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onLongClick(v: View): Boolean {
+            if (actionMode != null) {
+                return false
+            }
             beginMultiSelect()
             toggleSelectItem(container, itemPosition)
             return true

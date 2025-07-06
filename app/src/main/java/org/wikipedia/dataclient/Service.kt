@@ -31,6 +31,7 @@ import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Query
+import java.time.Instant
 
 /**
  * Retrofit service layer for all API interactions, including regular MediaWiki and RESTBase.
@@ -99,6 +100,7 @@ interface Service {
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
+        @Query("gsroffset") gsrOffset: Int? = null,
     ): MwQueryResponse
 
     // ------- Miscellaneous -------
@@ -163,7 +165,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     suspend fun parsePage(@Query("page") pageTitle: String): MwParseResponse
 
-    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&contentmodel=wikitext&disablelimitreport=1")
     suspend fun parseText(@Query("text") text: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
@@ -171,6 +173,9 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=categories&clshow=!hidden&cllimit=100")
+    suspend fun getCategoriesProps(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&pilicense=any&generator=categorymembers&inprop=varianttitles|displaytitle&gcmprop=ids|title")
     suspend fun getCategoryMembers(
@@ -285,21 +290,16 @@ interface Service {
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     suspend fun postLogIn(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("logintoken") token: String?,
-        @Field("loginreturnurl") url: String?
-    ): LoginResponse
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    suspend fun postLogIn(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("retype") retypedPass: String?,
-        @Field("OATHToken") twoFactorCode: String?,
-        @Field("logintoken") token: String?,
-        @Field("logincontinue") loginContinue: Boolean
+        @Field("username") user: String? = null,
+        @Field("password") pass: String? = null,
+        @Field("retype") retype: String? = null,
+        @Field("OATHToken") twoFactorCode: String? = null,
+        @Field("token") emailAuthToken: String? = null,
+        @Field("captchaId") captchaId: String? = null,
+        @Field("captchaWord") captchaWord: String? = null,
+        @Field("loginreturnurl") returnUrl: String? = null,
+        @Field("logintoken") loginToken: String? = null,
+        @Field("logincontinue") loginContinue: Boolean? = null
     ): LoginResponse
 
     @FormUrlEncoded
@@ -308,6 +308,9 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     suspend fun getAuthManagerInfo(): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo&amirequestsfor=login")
+    suspend fun getAuthManagerForLogin(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
@@ -438,6 +441,16 @@ interface Service {
             @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&meta=userinfo&uiprop=editcount")
+    suspend fun getUserContribsByTimeFrame(
+        @Query("ucuser") username: String,
+        @Query("uclimit") maxCount: Int,
+        @Query("ucstart") startDate: Instant,
+        @Query("ucend") endDate: Instant,
+        @Query("ucnamespace") ns: Int? = null,
+        @Query("uccontinue") uccontinue: String? = null
+    ): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
@@ -541,6 +554,10 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched&meta=userinfo&uiprop=rights")
     suspend fun getWatchedStatusWithRights(@Query("titles") titles: String): MwQueryResponse
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info|categories&converttitles=&redirects=&inprop=watched&clshow=!hidden&cllimit=100")
+    suspend fun getWatchedStatusWithCategories(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @Headers("Cache-Control: no-cache")

@@ -143,8 +143,8 @@
   <string name="login_username_hint">Sunan amfani</string>
   <string name="login_password_hint">Lambar sirri</string>
   <string name="account_creation_password_hint">Lambar sirri</string>
-  <string name="login_2fa_hint">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
-  <string name="login_2fa_other_workflow_error_msg">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
+  <string name="login_2fa_hint" fuzzy="true">Dalilan Ingantawa biyu na tantance kalmomin sirri</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ana buƙatar dalilai biyu na Ingantawa! Daure a koma zuwa ainihin aikin sannan a shiga da kalmomin sirri na 2FA ɗin ka, sannan a jarraba.</string>
   <string name="onboarding_card_login">Shiga</string>
   <string name="page_editing_login">Shiga</string>
   <string name="reading_lists_sync_login">Shiga</string>
@@ -231,14 +231,12 @@
   <string name="privacy_policy_description">Manufofin kariya</string>
   <string name="terms_of_use_description">Sharuɗɗan amfani</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
@@ -536,8 +534,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Maƙala ta bayyana a cikin jerin sunayen da yawa</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ba za su kasance a kan layi ba don duk jerin karatu:</string>
   <string name="reading_lists_sync_reminder_title">Yi amfani da jerin karatun tare?</string>
-  <string name="reading_lists_sync_reminder_text">Labaran da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Labaran da aka adana zuwa jerin karatu yanzu za a iya haɗa su zuwa asusun Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Bayar da haɗin kai</string>
   <string name="reading_list_login_reminder_title">Daidaita lissafin karatun</string>
   <string name="reading_lists_login_reminder_text">Ana iya haɗa jerin karatun yanzu a duk na\'urori. Shigar da asusun Wikipedia ka kuma bari a adana jerin ku.</string>
@@ -834,8 +832,6 @@
   <string name="description_edit_voice_input_description">Shigar da murya</string>
   <string name="description_edit_learn_more">Ƙari koyo game da bayanin labarin</string>
   <string name="description_edit_image_caption_learn_more">Koyi ƙarin bayani game da rubutun hoto</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_cations</string>
   <string name="description_too_short">Rubutun ya yi gajeren lokaci.</string>
   <string name="description_ends_with_punctuation">Dole ne rubutun ya ƙare da alamar rubutu ba.</string>
   <string name="description_starts_with_uppercase">Farawa da ƙananan harafi sai dai idan kalmar farko ta dace.</string>
@@ -1318,14 +1314,12 @@
   <string name="revision_rollback_success">An sake gyarawa.</string>
   <string name="revision_compare_button">Kwatanta</string>
   <string name="revision_compare_two_only">Za\'a iya zaɓar sake dubawa guda biyu kawai.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da shafin magana an kara su a cikin jerin masu kallo %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canja</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dindindin</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">na mako 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">na wata 1</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">na watanni 3</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">na watanni 6</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">An cire %s da shafin magana daga jerin masu kallo.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na mako 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na wata 1</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na watanni 3</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na watanni 6</string>
   <string name="watchlist_expiry_dialog_title">Zaɓin lokacin Watchlist</string>
   <string name="watchlist_expiry_dialog_permanent">Dindindin</string>
   <string name="watchlist_expiry_dialog_one_week">mako 1</string>

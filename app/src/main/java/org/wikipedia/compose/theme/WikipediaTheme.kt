@@ -1,29 +1,39 @@
 package org.wikipedia.compose.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.LocalIndication
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import org.wikipedia.WikipediaApp
+import org.wikipedia.theme.Theme
 
-enum class WikipediaThemeType {
-    SYSTEM, LIGHT, DARK, BLACK, SEPIA
-}
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BaseTheme(
-    wikipediaThemeType: WikipediaThemeType = WikipediaThemeType.SYSTEM,
+    currentTheme: Theme = WikipediaApp.instance.currentTheme,
     content: @Composable () -> Unit
 ) {
-    val wikipediaColorSystem = when (wikipediaThemeType) {
-        WikipediaThemeType.LIGHT -> LightColors
-        WikipediaThemeType.DARK -> DarkColors
-        WikipediaThemeType.BLACK -> BlackColors
-        WikipediaThemeType.SEPIA -> SepiaColors
-        WikipediaThemeType.SYSTEM -> if (isSystemInDarkTheme()) DarkColors else LightColors
+    val appTheme by remember { mutableStateOf(currentTheme) }
+
+    val wikipediaColorSystem = when (appTheme) {
+        Theme.LIGHT -> LightColors
+        Theme.DARK -> DarkColors
+        Theme.BLACK -> BlackColors
+        Theme.SEPIA -> SepiaColors
     }
+
+    val rippleConfig = RippleConfiguration(color = wikipediaColorSystem.overlayColor)
 
     CompositionLocalProvider(
         LocalWikipediaColor provides wikipediaColorSystem,
-        LocalWikipediaTypography provides Typography
+        LocalRippleConfiguration provides rippleConfig,
+        LocalIndication provides ripple()
     ) {
         content()
     }
@@ -33,8 +43,4 @@ object WikipediaTheme {
     val colors: WikipediaColor
         @Composable
         get() = LocalWikipediaColor.current
-
-    val typography: WikipediaTypography
-        @Composable
-        get() = LocalWikipediaTypography.current
 }

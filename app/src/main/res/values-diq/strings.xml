@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1917 Ekim Devrimi
 * Dbrant
+* GolyatGeri
 * Gorizon
 * Gırd
 * Kumkumuk
@@ -22,6 +23,7 @@
   <string name="search_hint">Wikipedia de bıvinê</string>
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
+  <string name="search_icon_content_description">Cı geyre</string>
   <string name="filter_hint_filter_my_lists_and_articles">Parzûnê listanê mı</string>
   <string name="nav_item_suggested_edits">Vurnayışi</string>
   <string name="nav_item_more">Zêde</string>
@@ -109,7 +111,7 @@
   <string name="login_username_hint">Namey karberi</string>
   <string name="login_password_hint">Parola</string>
   <string name="account_creation_password_hint">Parola</string>
-  <string name="login_2fa_hint">Dı Faktorın Kodê Araşt Kerdışi</string>
+  <string name="login_2fa_hint" fuzzy="true">Dı Faktorın Kodê Araşt Kerdışi</string>
   <string name="onboarding_card_login">Cı kewe</string>
   <string name="page_editing_login">Cı kewe</string>
   <string name="reading_lists_sync_login">Cı kewe</string>
@@ -176,14 +178,12 @@
   <string name="privacy_policy_description">Politikaya nımıteyiye</string>
   <string name="terms_of_use_description">Şertê gurenayışi</string>
   <string name="about_wikipedia_url">https://diq.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Karkerdena kıtıbxani</string>
   <string name="about_contributors_heading">İştırakkerdoği</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Pela taxıme&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Pela taxıme&lt;/a&gt;</string>
   <string name="about_translators_heading">Çarnayoği</string>
   <string name="about_app_license_heading">Lisans</string>
   <string name="about_activity_title">Heqa</string>
@@ -267,7 +267,7 @@
   <string name="tool_tip_toc_title">Pêt resayışê zerreki</string>
   <string name="format_error_server_message">Mesac : \"%s\"</string>
   <string name="address_copied">Adrese kopyayê panoyi biya.</string>
-  <string name="text_copied">Metin kopyayê panoy biyo</string>
+  <string name="text_copied">Metın be panoyi ra kopya bi.</string>
   <string name="button_continue_to_article">Meqaley bıwanê</string>
   <string name="button_continue_to_talk_page">Pela werênayışi ake</string>
   <string name="button_continue_to_disambiguation">Pelanê tay pêya bımocne</string>
@@ -489,7 +489,7 @@
   <string name="description_edit_translate_image_caption">Bınnuştey resımi açarnê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_help_title">Zang:Şınasiya meqaley</string>
-  <string name="description_edit_help_about_wikidata">Heqê Wikidata</string>
+  <string name="description_edit_help_about_wikidata">Heqê Wikidayıt</string>
   <string name="description_edit_success_saved">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_snackbar">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Şınastiya meqaley çapneyê  (%s)</string>
@@ -643,6 +643,10 @@
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 hefte</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aşme</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aşmi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aşmi</string>
   <string name="watchlist_filter_all">Pêro</string>
   <string name="watchlist_page_deleted">Esteriya</string>
   <string name="shareable_reading_lists_new_indicator">*newe*</string>

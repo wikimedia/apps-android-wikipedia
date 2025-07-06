@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Aca
 * Acamicamacaraca
 * Aktron
 * BadDog
@@ -30,6 +31,9 @@
   <string name="search_hint">Претрага</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_languages">Претражи језике</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Обриши упит</string>
+  <string name="search_icon_content_description">Претрага</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
@@ -158,8 +162,9 @@
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="account_creation_password_hint">Лозинка</string>
-  <string name="login_2fa_hint">Двофакторски токен или код за опоравак</string>
+  <string name="login_2fa_hint">Двофакторски аутентификациони код</string>
   <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
+  <string name="login_email_auth_hint">Имејл верификациони код</string>
   <string name="onboarding_card_login">Пријава</string>
   <string name="page_editing_login">Пријава</string>
   <string name="reading_lists_sync_login">Пријава</string>
@@ -248,17 +253,12 @@
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
   <string name="about_contributors_heading">Сарадници</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница тима&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели волонтери &lt;a href=\"https://translatewiki.net\"&gt;Транслејтвикија&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
@@ -572,8 +572,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више листа</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Страница „%s” више неће бити доступна офлајн за све листе за читање:</string>
   <string name="reading_lists_sync_reminder_title">Укључити синхронизацију листе за читање?</string>
-  <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_sync_reminder_text">Чланци сачувани на листама за читање сада се могу синхронизовати са вашим налогом на Википедији. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="reading_lists_login_reminder_text_with_link">Листе за читање сада се могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Омогући синхронизацију</string>
   <string name="reading_list_login_reminder_title">Синхронизација листа за читање</string>
   <string name="reading_lists_login_reminder_text">Листе за читање се сада могу синхронизовати између уређаја. Пријавите се на ваш налог на Википедији и дозволите чување листа.</string>
@@ -863,7 +863,7 @@
   <string name="description_edit_help_title">Информације: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланака. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
   <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и неопозиво прихватате објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">уобичајено почиње са малим словом</string>
@@ -1358,14 +1358,12 @@
   <string name="revision_rollback_success">Измене враћене.</string>
   <string name="revision_compare_button">Упореди</string>
   <string name="revision_compare_two_only">Могу се изабрати само две измене.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и пратећа страница за разговор су уклоњене са вашег списка надгледања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">недељу дана</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">месец дана</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и пратећа сзр су уклоњени са вашег списка надгледања.</string>
   <string name="watchlist_expiry_dialog_title">Одаберите период трајања надгледања</string>
   <string name="watchlist_expiry_dialog_permanent">Трајно</string>
   <string name="watchlist_expiry_dialog_one_week">недељу дана</string>
@@ -1642,12 +1640,13 @@
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_progress">%1$d од %2$d</string>
   <string name="on_this_day_game_score">Резултат: %d</string>
+  <string name="on_this_day_game_submit">Проследи</string>
   <string name="on_this_day_game_correct">Тачно!</string>
   <string name="on_this_day_game_incorrect">Нетачно!</string>
   <string name="on_this_day_game_point">+1 бод</string>
   <string name="on_this_day_game_next">Следеће питање</string>
   <string name="on_this_day_game_finish">Коначни резултат</string>
-  <string name="on_this_day_game_share">Подели са пријатељима</string>
+  <string name="on_this_day_game_share_button">Дели</string>
   <string name="on_this_day_game_pause_title">Паузирање игрице?</string>
   <string name="on_this_day_game_pause_negative">Настави играње</string>
   <string name="on_this_day_game_pause_positive">Разумео</string>
@@ -1656,11 +1655,43 @@
   <string name="on_this_day_game_next_in">Следећа игра %s</string>
   <string name="on_this_day_game_your_stats">Статистика</string>
   <string name="on_this_day_game_stats_average_score">Просечан резултат</string>
+  <string name="on_this_day_game_stats_streak">Тренутни низ</string>
   <string name="on_this_day_game_menu_info">Сазнајте више</string>
   <string name="on_this_day_game_article_read_button">Прочитај чланак</string>
   <string name="on_this_day_game_article_answer_correct_stats_message">Одговор је тачан</string>
   <string name="on_this_day_game_article_answer_incorrect_stats_message">Одговор није тачан</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Нека их укљученим</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Искључи их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да укључији их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нека их искљученим</string>
   <string name="on_this_day_game_notification_undo">Поништи</string>
-  <string name="on_this_day_game_survey_q1">Колико сте задовољни овом игром?</string>
-  <string name="back_button_content_description">Назад</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Настави игру</string>
+  <string name="on_this_day_game_sound_on">Искључи звук</string>
+  <string name="on_this_day_game_sound_off">Укључи звук</string>
+  <string name="year_in_review_learn_more">Сазнајте више</string>
+  <string name="year_in_review_donate">Донирај</string>
+  <string name="year_in_review_entry_dialog_continue">Настави</string>
+  <string name="year_in_review_survey_cancel">Откажи</string>
+  <string name="year_in_review_survey_submit">Проследи</string>
+  <string name="recommended_reading_list_title">Откриј</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Нема везе</string>
+  <string name="recommended_reading_list_page_snackbar_day">дан</string>
+  <string name="recommended_reading_list_page_snackbar_week">недеља</string>
+  <string name="recommended_reading_list_page_snackbar_month">месец</string>
+  <string name="recommended_reading_list_settings_section_header">Предлози</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">недељно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Сваки дан</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Сваке недеље</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Сваког месеца</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Прилагоди</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Нема везе</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Опозови</string>
+  <string name="recommended_reading_list_settings_notifications_title">Обавештења</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Искључи их</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
 </resources>

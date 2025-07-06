@@ -1,5 +1,7 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
+import android.content.Context
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
@@ -13,7 +15,6 @@ import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class LoginRobot : BaseRobot() {
 
@@ -32,8 +33,16 @@ class LoginRobot : BaseRobot() {
             setPasswordFromBuildConfig()
             loginUser()
         } catch (e: Exception) {
+            pressBack()
             Log.e("LoginRobotError:", "User already logged in.")
         }
+    }
+
+    fun logOutUser(context: Context) = apply {
+        click.onViewWithId(R.id.main_drawer_settings_container)
+        SettingsRobot()
+            .clickLogOut(context)
+        click.onViewWithText("Log out")
     }
 
     private fun clickLoginButton() = apply {

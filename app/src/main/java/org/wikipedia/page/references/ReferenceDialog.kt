@@ -15,11 +15,11 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentReferencesPagerBinding
 import org.wikipedia.databinding.ViewReferencePagerItemBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import java.util.Locale
 
@@ -42,7 +42,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                 binding.referencePager.adapter = ReferencesAdapter(this)
                 TabLayoutMediator(binding.pageIndicatorView, binding.referencePager) { _, _ -> }.attach()
                 binding.referencePager.setCurrentItem(it.selectedReferenceIndex, true)
-                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode)
+                binding.root.setLayoutDirectionByLang(it.linkHandler.wikiSite.languageCode)
             } ?: return@let null
         } ?: run {
             dismiss()
