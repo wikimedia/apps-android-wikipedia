@@ -10,6 +10,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -95,8 +96,11 @@ class VerificationActions {
     }
 
     fun messageOfSnackbar(text: String) {
-        onView(withId(com.google.android.material.R.id.snackbar_text))
-            .check(matches(withText(text)))
+        onView(allOf(
+            withId(com.google.android.material.R.id.snackbar_text),
+            withText(text),
+            isCompletelyDisplayed()
+        )).check(matches(isDisplayed()))
     }
 
     fun textViewColor(

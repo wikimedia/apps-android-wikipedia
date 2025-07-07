@@ -15,7 +15,6 @@ import org.wikipedia.robots.feature.SearchRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.LanguageListRobot
-import java.util.UUID
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -32,16 +31,16 @@ class ArticleEditingTest : BaseTest<MainActivity>(
     private val settingsRobot = SettingsRobot()
     private val languageListRobot = LanguageListRobot()
 
-    val boldText = "Bold text ${UUID.randomUUID()}"
-    val italicText = "Italic text ${UUID.randomUUID()}"
+    val boldText = "Bold text ${randomWord(5)}"
+    val italicText = "Italic text ${randomWord(6)}"
     val underlineText = "Underline text"
-    val strikeThroughText = "Strikethrough text ${UUID.randomUUID()}"
+    val strikeThroughText = "Strikethrough text ${randomWord(7)}"
     val superScript = "2"
     val subScript = "10"
     val largeText = "Large Text"
     val smallText = "Small Text"
     val code = "fun main() { println(\"Hello World!!\")}"
-    val h2 = "Heading 2 ${UUID.randomUUID()}"
+    val h2 = "Heading 2 ${randomWord(10)}"
     val h3 = "Heading 3"
     val h4 = "Heading 4"
     val h5 = "Heading 5"
@@ -177,6 +176,16 @@ class ArticleEditingTest : BaseTest<MainActivity>(
             .clickPublish()
         editorRobot
             .verifyEditPublished(context)
+    }
+
+    private fun randomWord(length: Int): String {
+        val alphabetsAndNumbers = "abcdefghijklmnopqrstuvwxyz0123456789"
+
+        return buildString {
+            repeat(length) { i ->
+                append(alphabetsAndNumbers.random())
+            }
+        }
     }
 
     enum class EditingType {
