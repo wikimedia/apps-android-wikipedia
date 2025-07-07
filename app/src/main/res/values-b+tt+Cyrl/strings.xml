@@ -206,7 +206,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:Мин блокланган</string>
   <string name="create_account_ip_block_details">Тулырак</string>
   <string name="preferences_general_heading">Гомуми</string>
-  <string name="preferences_account_heading">Хисап язмасы</string>
+  <string name="preferences_account_heading">Хисапъязма</string>
   <string name="wikipedia_app_faq">Википедия кушымтасы турында еш бирелә торган сораулар</string>
   <string name="send_feedback">Кушымта турында фикер белдерергә</string>
   <string name="create_account_account_created_toast">Хисап язмасы булдырылды!</string>
@@ -640,11 +640,11 @@
   <string name="reading_lists_preview_save_button">Сакларга</string>
   <string name="reading_lists_preview_save_dialog_title">Исемлекне сакларга</string>
   <string name="reading_lists_preview_save_dialog_text">Исемнәрне санап чыгыгыз һәм саклап калу өчен мәкаләләрне сайлагыз.</string>
-  <string name="reading_lists_preview_save_dialog_title_hint">Башисем</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Башлык</string>
   <string name="reading_lists_preview_save_dialog_cancel">Кире алу</string>
   <string name="reading_lists_preview_save_dialog_save">Сакларга</string>
   <string name="reading_lists_preview_saved_snackbar">Сакланган уку исемлеге</string>
-  <string name="reading_lists_preview_saved_snackbar_action">Карарга</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Күрсәт</string>
   <string name="user_option_sync_label">Көйләнмәләр</string>
   <string name="notification_reverted_title">Кире кагылган төзәтмә</string>
   <string name="notification_channel_title">Мәкаләләрне йөкләргә</string>
@@ -953,7 +953,7 @@
   <string name="suggested_edits_article_cta_image_tags">Сурәткә теглар өстәгез</string>
   <string name="suggested_edits_article_cta_image_caption">Сурәт язмасын өстәү</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Сурәт язмасын өстәү (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Карарга</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Күрсәт</string>
   <string name="suggested_edits_feed_card_add_image_caption">Сурәткә аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Сурәткә %s аңлатма өстәргә</string>
   <string name="suggested_edits_feed_card_add_image_tags">Сурәт тегларын өстәгез</string>
@@ -1105,7 +1105,7 @@
   <string name="edit_summary_added_image">Сурәт өстәлде</string>
   <string name="edit_summary_added_caption">Аңлатма өстәлгән</string>
   <string name="edit_summary_added_image_and_caption">Сурәт һәм аның аңлатма язуы өстәлде</string>
-  <string name="edit_published_view">Карарга</string>
+  <string name="edit_published_view">Күрсәт</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>
@@ -1243,7 +1243,7 @@
   <string name="text_input_dialog_ok_button_text">Ярар</string>
   <string name="text_input_dialog_cancel_button_text">Кире алу</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Кире алу</string>
-  <string name="talk_title">Сөйләшергә</string>
+  <string name="talk_title">Бәхәс</string>
   <string name="talk_user_title">%s белән сөйләшергә</string>
   <string name="talk_new_topic">Яңа тема</string>
   <string name="talk_new_topic_submitted">Тема басылган.</string>
@@ -1370,7 +1370,7 @@
   <string name="watchlist_empty">Сезнең күзәтү исемлегендә бернинди мәкаләләрегез дә юк.</string>
   <string name="watchlist_search">Күзәтү исемлегендә эзләү</string>
   <string name="watchlist_filter_all">Барысы</string>
-  <string name="watchlist_filter_talk">Сөйләшергә</string>
+  <string name="watchlist_filter_talk">Бәхәс</string>
   <string name="watchlist_filter_pages">Битләр</string>
   <string name="watchlist_filter_other">Башка</string>
   <string name="watchlist_page_moved">Күчерелгән</string>
@@ -1437,7 +1437,7 @@
   <string name="category_tab_subcategories">Төркемчәләр</string>
   <string name="category_empty">Бу төркемдә мәкаләләр табылмады.</string>
   <string name="subcategory_empty">Бу төркемдә төркемчәләр табылмады.</string>
-  <string name="search_namespaces">Исемнәр пространствосы</string>
+  <string name="search_namespaces">Исемаралар</string>
   <string name="revision_initial_none">Юк (бу беренче редакция)</string>
   <string name="user_contrib_activity_title">%s исемле кулланучының авторлык кертемнәре</string>
   <string name="archive_empty">Архивланган битләр табылмады.</string>
