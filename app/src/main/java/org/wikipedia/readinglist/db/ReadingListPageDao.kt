@@ -110,6 +110,7 @@ interface ReadingListPageDao {
         }
     }
 
+    @Transaction
     suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
         val pages = mutableListOf<ReadingListPage>()
         for (title in titles) {
@@ -127,6 +128,7 @@ interface ReadingListPageDao {
         return pages.map { it.displayTitle }
     }
 
+    @Transaction
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
@@ -183,6 +185,7 @@ interface ReadingListPageDao {
         deletePagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
     }
 
+    @Transaction
     suspend fun movePagesToListAndDeleteSourcePages(sourceList: ReadingList, destList: ReadingList, titles: List<PageTitle>): List<String> {
         val movedTitles = mutableListOf<String>()
         for (title in titles) {
@@ -196,7 +199,8 @@ interface ReadingListPageDao {
         return movedTitles
     }
 
-    private suspend fun movePageToList(sourceList: ReadingList, destList: ReadingList, title: PageTitle) {
+    @Transaction
+    suspend fun movePageToList(sourceList: ReadingList, destList: ReadingList, title: PageTitle) {
         if (sourceList.id == destList.id) {
             return
         }
