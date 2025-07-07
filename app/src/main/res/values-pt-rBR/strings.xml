@@ -442,6 +442,7 @@
   <string name="preference_title_collapse_tables">Recolher tabelas</string>
   <string name="preference_summary_collapse_tables">Recolher tabelas automaticamente em artigos, como infoboxes, referências e notas.</string>
   <string name="nav_item_donate">Doar</string>
+  <string name="nav_item_year_in_review">Resumo do ano</string>
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento de voz não está disponível.</string>
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
   <string name="enable_location_service">Habilitar</string>
@@ -1653,8 +1654,13 @@
   <string name="patroller_diff_menu_edit_history_title">Histórico de edições do artigo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
   <string name="patroller_saved_message_title_vandalism">Aviso de vandalismo</string>
+  <string name="patroller_saved_message_title_editing_tests">Testes de edição</string>
+  <string name="patroller_saved_message_title_npov">Ponto de vista neutro</string>
   <string name="patroller_saved_message_title_auto_trans">Tradução automática</string>
+  <string name="patroller_saved_message_title_coi_rem">Lembrete sobre conflito de interesses</string>
   <string name="patroller_saved_message_title_final_warning">Aviso final</string>
+  <string name="patroller_saved_message_title_copy_vio">Alerta de violação de direitos autorais</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Deixe um resumo da edição</string>
   <string name="patroller_saved_message_title_do_not_censor">Não censure</string>
   <string name="patroller_saved_message_title_art_imp">Sugestão para melhorar o artigo</string>
   <string name="talk_warn_learn_more_label">Saiba mais sobre os espaços reservados para mensagens</string>
@@ -1680,6 +1686,8 @@
   <string name="donate_gpay_check_transaction_fee">Gostaria de acrescentar %s para cobrir as taxas operacionais para que vocês possam receber 100%% da minha doação.</string>
   <string name="donate_gpay_check_recurring">Fazer uma doação mensal recorrente.</string>
   <string name="donate_gpay_check_send_email">Sim, a Wikimedia Foundation pode me mandar um e-mail ocasionalmente.</string>
+  <string name="donate_gpay_minimum_amount">Selecione um valor (mínimo %s)</string>
+  <string name="donate_gpay_maximum_amount">Não podemos aceitar doações superiores a %s através do nosso aplicativo. Entre em contato com a nossa equipe de grandes doações pelo e-mail benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Obrigado!&lt;/b&gt; Sua generosidade com a Wikipédia significa muito para nós.</string>
   <string name="donate_gpay_help_problems">Problemas para fazer doações?</string>
   <string name="donate_gpay_help_other_ways">Outras formas de doar</string>
@@ -1692,8 +1700,10 @@
   <string name="places_filter_title">Filtrar por idioma</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
+  <string name="places_empty_list">Esta área está vazia. Diminua o zoom &lt;a href=\"\"#&gt;no mapa&lt;/a&gt;.</string>
   <string name="places_card_title">Locais próximos</string>
   <string name="places_card_action">Mais locais próximos</string>
+  <string name="places_card_enable_location_card_message">O Lugares é uma forma baseada em mapas de explorar a Wikipédia.</string>
   <string name="places_card_enable_location_card_button">Ativar localização</string>
   <string name="places_card_distance_unknown">Distância desconhecida</string>
   <string name="places_empty_message_snackbar">Não há artigos próximos. Tente diminuir o zoom e mover o mapa.</string>
@@ -1757,8 +1767,12 @@
   <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Se você desativar as notificações push, não receberá mais um lembrete diário quando um novo jogo estiver disponível para jogar.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">Ativar notificações do jogo?</string>
   <string name="on_this_day_game_turn_on_notification_dialog_subtitle">As notificações do jogo alertam você diariamente quando um novo jogo está disponível para jogar.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Não, manter ativado</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Desativar</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Sim, ativar</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Manter desativado</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notificações do jogo desativadas.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificações do jogo ativadas.</string>
   <string name="on_this_day_game_notification_text">O jogo de hoje, \"O que veio primeiro?\", está pronto para começar.</string>
   <string name="on_this_day_game_report_email_subject">Relatório de problemas - Wikipédia jogos</string>
   <string name="on_this_day_game_notification_undo">Desfazer</string>
@@ -1778,6 +1792,25 @@
   <string name="year_in_review_learn_more">Saiba mais</string>
   <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_donate">Doar</string>
+  <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
+  <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="year_in_review_entry_dialog_title">Explore sua Wikipédia: Resumo</string>
+  <string name="year_in_review_entry_dialog_bodytext">Veja informações sobre os artigos que lemos e editamos e compartilhe os destaques do nosso ano na Wikipédia.</string>
+  <string name="year_in_review_entry_dialog_continue">Continuar</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Você leu %d artigo este ano</item>
+    <item quantity="other">Você leu %d artigos este ano</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Você editou a Wikipédia %d vez</item>
+    <item quantity="other">Você editou a Wikipédia %d vezes</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">A Wikipédia estava disponível em mais de 300 idiomas.</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">A Wikipédia tinha mais de 63 milhões de artigos em mais de 300 idiomas ativos este ano. Você se juntou a milhões de pessoas na expansão do conhecimento e na exploração de diversos tópicos.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Os editores do aplicativo iOS fizeram mais de 452.257 edições.</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">A comunidade de editores voluntários da Wikipédia fez mais de 452.257 edições no aplicativo iOS até agora este ano. O coração e a alma da Wikipédia são a nossa comunidade global de colaboradores voluntários, doadores e bilhões de leitores como você – todos unidos para compartilhar acesso ilimitado a informações confiáveis.</string>
+  <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
+  <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
   <string name="year_in_review_survey_satisfied">Satisfeito(a)</string>
   <string name="year_in_review_survey_neutral">Neutro</string>
@@ -1786,6 +1819,11 @@
   <string name="year_in_review_survey_placeholder_text">Alguma observação adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Enviar</string>
+  <string name="year_in_review_screendeck_image_content_description">Recursos de imagem para a tela principal do resumo do ano</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Recurso de imagem para a tela de diálogo de entrada do resumo do ano</string>
+  <string name="year_in_review_screenshot_error">Não foi possível gerar captura de tela: %s</string>
+  <string name="year_in_review_share_subject">Imagem e link do resumo do ano</string>
+  <string name="year_in_review_globe_icon">Ícone de globo</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
   <string name="recommended_reading_list_onboarding_card_message">Sua lista semanal de artigos da Wikipedia selecionados especialmente para você.</string>
@@ -1832,16 +1870,22 @@
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Desativar o Descobrir?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se você desativar o Descobrir, deixará de receber %s recomendações de leitura da Wikipédia.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desativar</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Não, manter ativado</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">O Descobrir foi desativado. Você pode reativá-lo a qualquer momento nas configurações.</string>
   <string name="recommended_reading_list_settings_articles">artigos</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Atualizações %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">diariamente</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">semanalmente</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">mensalmente</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Todo dia</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Toda semana</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Todo mês</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Como o Descobrir é construído</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Com base nos seus interesses</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Com base nos seus artigos salvos</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Com base no seu histórico de leitura</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Ajustar como o Descobrir é construído?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Se você ajustar a forma como o Descobrir gera recomendações, suas recomendações atuais serão substituídas.</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajustar</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Melhor não</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Suas recomendações agora são baseadas nos seus interesses.</string>
@@ -1851,7 +1895,10 @@
   <string name="recommended_reading_list_settings_interests">Interesses</string>
   <string name="recommended_reading_list_settings_notifications_title">Notificações</string>
   <string name="recommended_reading_list_settings_notifications_subtitle">A Wikipédia não enviará uma notificação quando o Discover for atualizado.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">As notificações do Descobrir estão desativadas. Você não receberá uma notificação quando o Descobrir for atualizado.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Desativar notificações?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Se você desativar as notificações, não receberá mais lembretes quando o Descobrir for atualizado.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desativar</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Não, manter ativado</string>
   <string name="recommended_reading_list_notification_subtitle">Toque para ver suas recomendações mais recentes.</string>
 </resources>
