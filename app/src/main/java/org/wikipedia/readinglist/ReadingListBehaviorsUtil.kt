@@ -357,7 +357,7 @@ object ReadingListBehaviorsUtil {
 
         activity.lifecycleScope.launch(exceptionHandler) {
             AppDatabase.instance.readingListPageDao()
-                .markPageForOffline(page, !page.offline, forcedSave)
+                .markPagesForOffline(listOf(page), !page.offline, forcedSave)
             FeedbackUtil.showMessage(
                 activity,
                 activity.resources.getQuantityString(

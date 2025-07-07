@@ -153,6 +153,7 @@ interface ReadingListPageDao {
         }.toMutableList())
     }
 
+    @Transaction
     suspend fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
         for (page in pages) {
             page.status = ReadingListPage.STATUS_QUEUE_FOR_DELETE
@@ -165,21 +166,18 @@ interface ReadingListPageDao {
         SavedPageSyncService.enqueue()
     }
 
-    suspend fun markPageForOffline(page: ReadingListPage, offline: Boolean, forcedSave: Boolean) {
-        markPagesForOffline(listOf(page), offline, forcedSave)
-    }
-
+    @Transaction
     suspend fun markPagesForOffline(pages: List<ReadingListPage>, offline: Boolean, forcedSave: Boolean) {
-        for (page in pages) {
-            if (page.offline == offline && !forcedSave) {
-                continue
+        val updatedPages = pages.map {
+            if (it.offline != offline || !forcedSave) {
+                it.offline = offline
+                if (forcedSave) {
+                    it.status = ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE
+                }
             }
-            page.offline = offline
-            if (forcedSave) {
-                page.status = ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE
-            }
-            updateReadingListPage(page)
+            it
         }
+        updateReadingListPages(updatedPages)
         SavedPageSyncService.enqueue()
     }
 
