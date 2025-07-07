@@ -487,11 +487,11 @@
     <item quantity="other">%1$d de %2$d artikli disponebla \'\'offline\'\', %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Klasifikez</string>
-  <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
-  <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
-  <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
-  <string name="reading_list_sort_by_recent">Ordenar segun antiqueso (unesme la maxim recenta)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesme la maxim antiqua)</string>
+  <string name="reading_list_sort_ellipsis">Ordinar segun...</string>
+  <string name="reading_list_sort_by_name">Ordinar segun nomo</string>
+  <string name="reading_list_sort_by_name_desc">Ordinar segun nomo (inversa)</string>
+  <string name="reading_list_sort_by_recent">Ordinar segun antiqueso (unesme la maxim recenta)</string>
+  <string name="reading_list_sort_by_recent_desc">Klasifikar segun antiqueso (unesme la maxim antiqua)</string>
   <string name="reading_list_sort_by_created">Organizar segun dato di kreado (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_created_desc">Organizar segun dato di kreado (unesme la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
