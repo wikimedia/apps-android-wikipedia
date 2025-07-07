@@ -5,6 +5,7 @@
 * Carcassonne93
 * Danutz
 * Dbrant
+* Dimitrie569
 * Ely en
 * Envlh
 * Fitoschido
@@ -33,6 +34,8 @@
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
+  <string name="search_back_button_content_description">Înapoi</string>
+  <string name="search_icon_content_description">Caută</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrează lista</string>
   <string name="nav_item_suggested_edits">Editări</string>
   <string name="nav_item_more">Mai mult</string>
@@ -164,8 +167,11 @@
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="account_creation_password_hint">Parolă</string>
-  <string name="login_2fa_hint" fuzzy="true">Autentificare cu doi factori</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Necesită autentificare cu doi factori! Reveniți la activitatea principală și conectați-vă cu token-ul 2FA, apoi reîncercați.</string>
+  <string name="login_2fa_hint">Codul de autentificare în doi factori</string>
+  <string name="login_2fa_other_workflow_error_msg">Necesită autentificare cu doi factori! Reveniți la ecranul principal, și introduceți codul din tokenul dvs. 2FA</string>
+  <string name="login_email_auth_hint">Codul de verificare prin e-mail</string>
+  <string name="login_email_auth_other_workflow_error_msg">Este necesară verificarea prin e-mail! Vă rugăm să vă autentificați din ecranul principal, și să introduceți codul de verificare prin e-mail.</string>
+  <string name="login_background_error_msg">Nu se poate reconecta. Vă rugăm să vă întoarceți la ecranul principal și să vă autentificați manual.</string>
   <string name="onboarding_card_login">Autentificare</string>
   <string name="page_editing_login">Autentificați-vă</string>
   <string name="reading_lists_sync_login">Autentificare</string>
@@ -256,21 +262,22 @@
   <string name="terms_of_use_description">Termeni de utilizare</string>
   <string name="about_wikipedia_url">https://ro.wikipedia.org/wiki/Wikipedia:Despre_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
   <string name="about_app_license">Cod sursă disponibil pe &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub o &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licență Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
+  <string name="about_logo_content_description">Sigla de glob de puzzle a Wikipediei</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
   <string name="edit_abandon_confirm_yes">Da</string>
   <string name="edit_abandon_confirm_no">Nu</string>
@@ -284,6 +291,9 @@
   <string name="edit_undo">Anulează</string>
   <string name="edit_redo">Reface</string>
   <string name="edit_rollback">Revenire</string>
+  <string name="edit_warn">Avertizează</string>
+  <string name="edit_damage">%s daune</string>
+  <string name="edit_intent">%s intenție</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="few">%s bytes</item>
@@ -296,6 +306,8 @@
   <string name="edit_summary_tag_links">Adăugat legături</string>
   <string name="edit_summary_tag_other">Altele</string>
   <string name="edit_summary_tag_other_hint">Alte modalități prin care ați îmbunătățit pagina</string>
+  <string name="edit_summary_added_short_description">Descriere scurtă adăugată</string>
+  <string name="edit_summary_updated_short_description">Descriere scurtă actualizată</string>
   <string name="edit_conflict_title">Conflict de editare</string>
   <string name="edit_conflict_message">Pagina a fost deja modificată de un alt utilizator și este în conflict cu modificarea dumneavoastră. Copiați modificările, reveniți și actualizați pagina, apoi încercați din nou să editați.</string>
   <string name="edit_notices">Înștiințări de editare</string>
@@ -392,6 +404,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Articolul nu poate fi încărcat în timp ce nu este conectat.</string>
   <string name="page_offline_notice_add_to_reading_list">Sugestie: adăugați articolul la o listă de citire și va fi descărcat după ce reveniți online.</string>
   <string name="page_offline_notice_last_date">Citiți o versiune offline a acestui articol salvată pe %s.</string>
+  <string name="redirected_from_snackbar">Redirecționat de la \"%s\"</string>
   <string name="button_get_directions">Indicații de orientare</string>
   <string name="error_no_maps_app">Nu s-a găsit nicio aplicație care să ofere indicații de orientare.</string>
   <string name="preference_title_customize_explore_feed">Explorare Flux</string>
@@ -401,6 +414,7 @@
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
   <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
   <string name="nav_item_donate">Donați</string>
+  <string name="nav_item_year_in_review">An În Retrospectivă</string>
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
   <string name="location_service_disabled">Serviciile de localizare sunt dezactivate.</string>
   <string name="enable_location_service">Activează</string>
@@ -419,6 +433,7 @@
   <string name="link_preview_dialog_save_button">Salvează</string>
   <string name="link_preview_dialog_saved_button">Salvat</string>
   <string name="link_preview_dialog_share_button">Distribuie</string>
+  <string name="link_preview_stub_placeholder_text">Acest articol este un ciot, ceea ce înseamnă faptul că nu există suficient conținut în articol pentru a genera o previzualizare. Cu toate acestea, dvs. puteți schimba asta.</string>
   <string name="error_page_does_not_exist">Această pagină nu există</string>
   <string name="error_user_page_does_not_exist">Wikipedia nu are o &lt;a href=\"%1$s\"&gt;pagină de utilizator&lt;/a&gt; cu exact acest nume. În general, această pagină ar trebui creată și editată de &lt;b&gt;%2$s&lt;/b&gt;. Dacă sunteți în dubiu, vă rugăm să verificați dacă „%3$s” există.</string>
   <string name="view_wiki_error_message_offline">Nu se poate conecta la internet</string>
@@ -428,6 +443,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Reducerea imaginii (în tema întunecată)</string>
   <string name="preference_title_prefer_offline_content">Preferă conținutul offline</string>
   <string name="preference_summary_prefer_offline_content">Salvați utilizarea datelor încărcând articole care sunt disponibile offline, în loc să încărcați întotdeauna ultima versiune a unui articol</string>
+  <string name="preference_title_delete_local_donation_history">Ștergeți istoricul donațiilor locale</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Potrivește tema sistemului</string>
   <string name="page_footer_license_text">Conținutul este disponibil sub $1, cu excepția cazului în care se menționează altfel</string>
   <string name="empty_tab_title">Filă nouă</string>
@@ -441,6 +457,11 @@
   <string name="error_blocked_footer">Puteţi contacta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; sau alt &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalizați-vă bara de instrumente</string>
   <string name="error_blocked_footer_no_blocker">Puteţi contacta un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
+  <string name="temp_account_not_logged_in">Nu sunteți autentificat</string>
+  <string name="temp_account_anon_ip_dialog_body">Odată ce faceți o editare, adresa dvs. IP va fi asociată cu editările dvs.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Autentificați-vă&lt;/a&gt; sau &lt;a href=\"https://#createaccount\"&gt;creați un cont&lt;/a&gt; pentru a primi credit pentru editările viitoare și pentru a accesa alte funcționalități.</string>
+  <string name="temp_account_anon_dialog_body">Odată ce faceți o editare, un &lt;b&gt;cont temporar&lt;/b&gt; va fi creat pentru dvs. pentru a vă proteja confidențialitatea. &lt;a href=\"%1$s\"&gt;Află mai multe&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Autentificați-vă&lt;/a&gt; sau &lt;a href=\"https://#createaccount\"&gt;Creați-vă un cont&lt;/a&gt; pentru a primi credit pentru modificările viitoare și pentru a accesa alte funcționalități.</string>
+  <string name="temp_account_dialog_ok">Am înțeles</string>
+  <string name="temp_account_using_title">Dvs. utilizați un cont temporar</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
