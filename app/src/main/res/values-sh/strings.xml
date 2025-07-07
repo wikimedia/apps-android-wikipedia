@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Aca
 * Conquistador
 * Vlad5250
 -->
@@ -14,7 +15,7 @@
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_voice_search">Pretraga glasom</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje spiskove</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje liste</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
   <string name="nav_item_more">Više</string>
   <string name="nav_item_search">Traži</string>
@@ -28,7 +29,7 @@
   <string name="error_back">Nazad</string>
   <string name="error_next">Sljedeće</string>
   <string name="menu_clear_all_history">Očisti historiju</string>
-  <string name="history_item_deleted">%s je uklonjen iz istorije</string>
+  <string name="history_item_deleted">Članak \"%s\" uklonjen je iz historije</string>
   <string name="history_items_deleted">%d članaka uklonjeno iz historije</string>
   <string name="history_item_delete_undo">Vrati</string>
   <string name="notification_archive_undo">Vrati</string>
@@ -37,7 +38,7 @@
   <string name="history_list_title">Historija</string>
   <string name="image_content_description">Slika: %s</string>
   <string name="page_content_description">Stranica: %s</string>
-  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikimedia_commons">Wikimedijina ostava</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Izbriši historiju pregledavanja</string>
   <string name="dialog_message_clear_history">Ovim ćete izbrisati svu historiju pregledavanja i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
@@ -70,22 +71,22 @@
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Smijeni jezik</string>
   <string name="menu_page_find_in_page">Pronađi u članku</string>
-  <string name="menu_page_add_to_watchlist">Dodaj na spisak praćenja</string>
+  <string name="menu_page_add_to_watchlist">Dodaj na listu praćenja</string>
   <string name="menu_page_watch">Prati</string>
   <string name="menu_page_unwatch">Prekini praćenje</string>
   <string name="menu_page_view_talk">Stranicu za razgovor</string>
   <string name="menu_page_talk_page">Stranica za razgovor</string>
   <string name="menu_page_view_edit_history">Historija izmjena</string>
   <string name="menu_page_edit_history">Historija izmjena</string>
-  <string name="menu_page_remove_from_watchlist">Ukloni sa spiska praćenja</string>
+  <string name="menu_page_remove_from_watchlist">Ukloni s liste praćenja</string>
   <string name="menu_page_watched">Praćeno</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
-  <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="menu_page_add_to_list">Dodaj na listu za čitanje</string>
   <string name="menu_page_add_to_default_list">Sačuvaj</string>
-  <string name="feed_card_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="feed_card_add_to_list">Dodaj na listu za čitanje</string>
   <string name="feed_card_add_to_default_list">Sačuvaj</string>
-  <string name="menu_page_share">Podijeli link</string>
+  <string name="menu_page_share">Podijeli vezu</string>
   <string name="menu_article_share">Podijeli članak</string>
   <string name="menu_page_article_share">Podijeli</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
@@ -95,7 +96,7 @@
   <string name="menu_page_archive">Arhiva</string>
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori novu karticu</string>
-  <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>
+  <string name="menu_long_press_copy_page">Kopiraj adresu veze</string>
   <string name="menu_text_select_define">U rječnik</string>
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
@@ -127,7 +128,7 @@
   <string name="menu_show_toc">Sadržaj</string>
   <string name="search_no_results_found">Nisam ništa našao</string>
   <string name="search_reading_list_no_results">Nisam pronašao ništa za \"%s\"</string>
-  <string name="search_reading_lists_no_results">Nisam pronašao ništa u spiskovima za čitanje</string>
+  <string name="search_reading_lists_no_results">Nema rezultata u listama za čitanje</string>
   <string name="search_history_no_results">Nisam pronašao ništa u historiji</string>
   <string name="edit_section_captcha_message">Da biste se zaštitili od automatiziranog spama, unesite riječi koje se pokazuju ispod</string>
   <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
@@ -138,8 +139,8 @@
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
   <string name="account_creation_password_hint">Lozinka</string>
-  <string name="login_2fa_hint" fuzzy="true">Kôd dvofaktorske autentikacije</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Neophodna je dvofaktorska autentikacija! Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA-žetonom te pokušajte ponovo.</string>
+  <string name="login_2fa_hint">Kod za dvofaktorsku potvrdu identiteta</string>
+  <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska potvrda identiteta. Prijavite se s glavnog ekrana i unesite kod iz svog 2FA žetona.</string>
   <string name="onboarding_card_login">Prijavi se</string>
   <string name="page_editing_login">Prijavi se</string>
   <string name="reading_lists_sync_login">Prijavi se</string>
@@ -154,7 +155,7 @@
   <string name="reset_password_button">Sačuvaj i prijavi me</string>
   <string name="preference_title_logout">Odjava</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
-  <string name="logout_prompt">Ovo će Vas odjaviti sa svih uređaja na kojima ste trenutno prijavljeni. Želite li nastaviti?</string>
+  <string name="logout_prompt">Ovo će Vas odjaviti sa svih uređaja na kojima ste prijavljeni. Želite li nastaviti?</string>
   <string name="logout_dialog_cancel_button_text">Otkaži</string>
   <string name="logged_out_in_background_title">Odjavljeni ste</string>
   <string name="logged_out_in_background_dialog">Odjavljeni ste s Wikipedije. Želite li se ponovo prijaviti?</string>
@@ -174,17 +175,17 @@
   <string name="create_account_already_have">Već imate račun?</string>
   <string name="create_account_activity_title">Izradi račun</string>
   <string name="dialog_create_account_checking_progress">Provjera</string>
-  <string name="create_account_email_hint">Adresa e-pošte (neobavezno)</string>
+  <string name="create_account_email_hint">E-adresa (poželjno)</string>
   <string name="create_account_password_repeat_hint">Ponovite lozinku</string>
   <string name="create_account_password_is_username">Lozinka ne može biti ista kao korisničko ime</string>
   <string name="create_account_passwords_mismatch_error">Lozinke se ne poklapaju</string>
-  <string name="create_account_email_error">Neispravna adresa e-pošte</string>
+  <string name="create_account_email_error">Neispravna e-adresa</string>
   <string name="create_account_username_error">Neispravni znakovi u korisničkom imenu</string>
   <string name="create_account_password_error">Lozinka mora da sadrži najmanje 8 znakova</string>
   <string name="create_account_generic_error">Nije moguće napraviti korisnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Otvoriti račun bez imejl-adrese?</string>
-  <string name="email_recommendation_dialog_message">Iako je imejl-adresa opcionalna, &lt;b&gt;preporučuje&lt;/b&gt; se, budući da je potrebna za oporavak računa, ako ikada zaboravite lozinku.</string>
+  <string name="email_recommendation_dialog_message">Iako e-adresa nije obavezna, &lt;b&gt;preporučuje se&lt;/b&gt;, jer je potrebna za oporavak računa u slučaju da zaboravite lozinku.</string>
   <string name="email_recommendation_message">Preporučuje se, budući da je imejl potreban za povratak računa.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Nastavi bez imejla</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj imejl-adresu</string>
@@ -205,21 +206,21 @@
   <string name="preference_title_download_reading_list_articles">Preuzimaj članke sa liste za čitanje</string>
   <string name="preference_summary_sync_reading_lists">Uskladite liste za čitanje na različitim uređajima tako što ćete ih spremite u Vaš račun na Wikipediji</string>
   <string name="preference_summary_sync_reading_lists_from_account">Uskladite liste za čitanje na različitim uređajima tako što ćete ih spremiti u svoj račun \"%s\" na Wikipediji</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti usklađene popise za čitanje s Vašeg računa \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovim ćete u potpunosti izbrisati sve ranije usklađene liste za čitanje sa udaljenog skladišta. Ukloniti sve usklađene liste s Vašeg naloga \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti sinhronizirane liste za čitanje s računa \"%s\"?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovim ćete u potpunosti izbrisati sve ranije sinhronizirane liste za čitanje s udaljenog skladišta. Želite li zaista ukloniti sve sinhronizirane liste s računa \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
   <string name="preference_summary_auto_upload_crash_reports">Prilog da šalje izvještaje o otkazivanjima pružaocu usluga treće strane kako bismo ispitali otkazivanja i ispravili grešku brže i lakše.</string>
-  <string name="editing_error_spamblacklist">Otkriveni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
+  <string name="editing_error_spamblacklist">Otkrivene su veze do blokiranih domena (%s). Uklonite ih pa pokušajte ponovno.</string>
   <string name="history_filter_list_hint">Historija filtera</string>
-  <string name="error_can_not_process_link">Nije moguće prikazati ovaj link</string>
+  <string name="error_can_not_process_link">Nije moguće prikazati ovu vezu</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
-  <string name="page_protected_other">Ova stranica je zaštićena na sljedećim razinama: %s</string>
-  <string name="page_protected_can_not_edit">Nažalost, Vaš račun trenutno nema ovlasti za uređivanje ove stranice.</string>
-  <string name="page_protected_can_not_edit_anon">Nažalost, ovu stranicu trenutno ne možete anonimno uređivati.</string>
+  <string name="page_protected_other">Ova stranica zaštićena je na sljedećim nivoima: %s</string>
+  <string name="page_protected_can_not_edit">Vaš račun nema prava potrebna za uređivanje ove stranice.</string>
+  <string name="page_protected_can_not_edit_anon">Ovu stranicu ne možete uređivati ako niste prijavljeni.</string>
   <string name="page_protected_can_not_edit_title">Ova stranica je zaštićena</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisak praćenja</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Pratite šta se dešava na člancima koji Vas zanimaju. Dodirnite meni s tri tačke i izaberite &lt;b&gt;Dodaj na spisak praćenja&lt;/b&gt; da biste vidjeli izmjene članka.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na listu praćenja</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Pratite šta se dešava na člancima koji Vas zanimaju. Dodirnite meni s tri tačke i izaberite &lt;b&gt;Dodaj na listu praćenja&lt;/b&gt; da biste vidjeli izmjene članka.</string>
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>
   <string name="about_description">O prilogu Wikipedia</string>
@@ -260,11 +261,11 @@
   <string name="edit_zoom_out">Udalji</string>
   <string name="edit_summary_tag_typo">Popravljen tipfeler</string>
   <string name="edit_summary_tag_grammar">Popravljena gramatička greška</string>
-  <string name="edit_summary_tag_links">Dodani linkovi</string>
+  <string name="edit_summary_tag_links">Dodane veze</string>
   <string name="edit_summary_tag_other">Ostalo</string>
   <string name="edit_summary_tag_other_hint">Drugi načini na koje ste poboljšali stranicu</string>
   <string name="edit_conflict_title">Sukob izmjena</string>
-  <string name="edit_conflict_message">Ovu stranicu je već izmijenio drugi korisnik, i sadržaj je u suprotnosti s Vašim. Prekopirajte svoje izmjene, preučitajte stranicu te je ponovo pokušajte izmijeniti.</string>
+  <string name="edit_conflict_message">Ovu stranicu je već izmijenio drugi korisnik, i sadržina je u suprotnosti s Vašom. Prekopirajte svoje izmjene, preučitajte stranicu te je ponovo pokušajte izmijeniti.</string>
   <string name="edit_notices">Uređivačke napomene</string>
   <string name="edit_notices_please_read">Pročitaj prije uređivanja</string>
   <string name="edit_notices_show_auto">Automatski prikaži uređivačke napomene</string>
@@ -276,8 +277,8 @@
   <string name="article_opened_in_background_tab">Članak je otvoren u pozadinskoj kartici.</string>
   <string name="abusefilter_title_warn">Ova izmjena je možda nekonstruktivna. Želite li zaista da je objavite?</string>
   <string name="abusefilter_title_disallow">Ne možete objaviti ovu izmjenu. Vratite se i promijenite je.</string>
-  <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sljedećih:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
-  <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu ili potencijalno vandalističnu.&lt;br /&gt;&lt;br /&gt;Wikipedia je enciklopedija — ovdje pripada samo neutralan i značajan sadržaj.</string>
+  <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sljedećih:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne vanjske veze ili slike&lt;br /&gt;· Ponavljanje znakova</string>
+  <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmjenu kao potencijalno nekonstruktivnu ili potencijalno vandalističnu.&lt;br /&gt;&lt;br /&gt;Wikipedia je enciklopedija — ovdje pripada samo neutralna i značajna sadržina.</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -336,7 +337,7 @@
   <string name="unnamed_tab_closed">Kartica je zatvorena.</string>
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
-  <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
+  <string name="tool_tip_bookmark_icon_title">Dodaj na listu za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na listu za čitanje.</string>
   <string name="tool_tip_toc_text">Sada možete prevlačiti ulijevo da biste otvorili sadržaj, a zatim dodirnuti i prevući dugme ovog pomerača da biste brzo prešli na druge odjeljke članka.</string>
   <string name="error_response_malformed">Odgovor servera nije ispravno formatiran.</string>
@@ -348,9 +349,9 @@
   <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
   <string name="button_continue_to_disambiguation">Pogl. slične stranice</string>
   <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
-  <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
+  <string name="button_add_to_reading_list">Dodaj na listu za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
-  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
+  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na listu za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="reading_lists_preview_save_button">Sačuvaj</string>
@@ -382,7 +383,7 @@
   <string name="user_contrib_filter_ns">Filtriraj po imenskom prostoru</string>
   <string name="user_contrib_filter_all">Svi imenski prostori</string>
   <string name="namespace_article">Članak</string>
-  <string name="user_contrib_current">trenutno</string>
+  <string name="user_contrib_current">aktualna</string>
   <string name="user_contrib_menu_label">Doprinosi</string>
   <string name="user_contrib_filter_activity_title">Filtriraj doprinose</string>
   <string name="data_opt_in_accept">Prihvati</string>
