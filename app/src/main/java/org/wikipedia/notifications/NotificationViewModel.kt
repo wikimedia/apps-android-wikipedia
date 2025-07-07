@@ -42,7 +42,7 @@ class NotificationViewModel : ViewModel() {
         fetchAndSave()
     }
 
-    private fun filterAndPostNotifications() {
+    private suspend fun filterAndPostNotifications() {
         val pair = Pair(processList(notificationRepository.getAllNotifications()), !currentContinueStr.isNullOrEmpty())
         _uiState.value = Resource.Success(pair)
     }
