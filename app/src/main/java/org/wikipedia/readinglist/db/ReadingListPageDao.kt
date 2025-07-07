@@ -111,7 +111,6 @@ interface ReadingListPageDao {
     }
 
     suspend fun addPagesToListIfNotExist(list: ReadingList, titles: List<PageTitle>): List<String> {
-        val addedTitles = mutableListOf<String>()
         val pages = mutableListOf<ReadingListPage>()
         for (title in titles) {
             if (getPageByTitle(list, title) != null) {
@@ -119,14 +118,13 @@ interface ReadingListPageDao {
             }
             val page = addPageToList(list, title)
             pages.add(page)
-            addedTitles.add(title.displayText)
         }
-        FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
-        if (addedTitles.isNotEmpty()) {
+        if (pages.isNotEmpty()) {
             SavedPageSyncService.enqueue()
             ReadingListSyncAdapter.manualSync()
+            FlowEventBus.post(ArticleSavedOrDeletedEvent(true, *pages.toTypedArray()))
         }
-        return addedTitles
+        return pages.map { it.displayTitle }
     }
 
     suspend fun findPageInAnyList(title: PageTitle): ReadingListPage? {
