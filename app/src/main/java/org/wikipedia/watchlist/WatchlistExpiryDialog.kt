@@ -29,7 +29,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Devices.PIXEL_7
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.os.bundleOf
@@ -44,7 +43,6 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.databinding.DialogWatchlistExpiryBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -59,14 +57,10 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private val viewModel: WatchlistExpiryDialogViewModel by viewModels()
-    private var _binding: DialogWatchlistExpiryBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var expiryOptions: Array<View>
     private val expiryList = listOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = DialogWatchlistExpiryBinding.inflate(inflater, container, false)
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme(
@@ -110,11 +104,6 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onStart() {
         super.onStart()
         BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.displayHeightPx
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun callback(): Callback? {
@@ -215,7 +204,7 @@ fun WatchlistExpiryDialogView(
     }
 }
 
-@Preview(device = PIXEL_7, showBackground = true)
+@Preview(showBackground = true)
 @Composable
 private fun WatchlistExpiryDialogViewPreview() {
     BaseTheme(
