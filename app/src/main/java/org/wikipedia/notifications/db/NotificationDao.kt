@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NotificationDao {
@@ -26,7 +25,7 @@ interface NotificationDao {
     suspend fun getAllNotifications(): List<Notification>
 
     @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki)")
-    suspend fun getNotificationsByWiki(wiki: List<String>): Flow<List<Notification>>
+    suspend fun getNotificationsByWiki(wiki: List<String>): List<Notification>
 
     @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki) AND `id` IN (:id)")
     suspend fun getNotificationById(wiki: String, id: Long): Notification?
