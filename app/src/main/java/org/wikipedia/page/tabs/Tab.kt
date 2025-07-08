@@ -4,16 +4,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import kotlinx.serialization.Serializable
-import org.wikipedia.database.PageBackStackItemTypeConverter
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
 @Entity
 @Serializable
-@TypeConverters(PageBackStackItemTypeConverter::class)
 class Tab(
-    @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    val backStack: MutableList<PageBackStackItem> = mutableListOf()
+    @PrimaryKey(autoGenerate = true) var id: Long = 0
 ) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
