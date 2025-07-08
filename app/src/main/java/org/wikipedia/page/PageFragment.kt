@@ -82,11 +82,15 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
+import org.wikipedia.page.PageActivity.TabPosition
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.campaign.CampaignDialog
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
+import org.wikipedia.page.pageload.PageLoadOptions
+import org.wikipedia.page.pageload.PageLoadRequest
+import org.wikipedia.page.pageload.PageLoader
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
@@ -152,16 +156,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
 
+    private lateinit var pageLoader: PageLoader
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
-    private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
     internal var metricsPlatformArticleEventToolbarInteraction = ArticleToolbarInteraction(this)
-    private var pageRefreshed = false
-    private var errorState = false
+    var pageRefreshed = false
+    var errorState = false
     private var scrolledUpForThemeChange = false
-    private var references: PageReferences? = null
+    var references: PageReferences? = null
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
@@ -180,9 +184,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var editHandler: EditHandler
     var revision = 0L
 
-    private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
-    private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    private val foregroundTabPosition get() = app.tabList.size
+    val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
+    val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
+    val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
     val currentTab get() = app.tabList.last()
     val title get() = model.title
@@ -237,11 +241,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
+
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
         shareHandler = ShareHandler(this, bridge)
-        pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
+        pageLoader = PageLoader(this, webView, bridge, leadImagesHandler, currentTab)
 
         if (callback() != null) {
             LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, PageContainerLongPressHandler(this))
@@ -282,9 +287,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
-        pageFragmentLoadState.updateCurrentBackStackItem()
+
+        pageLoader.updateCurrentBackStackItem()
         app.commitTabState()
-        val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        val time = if (app.tabList.size >= 1 && !pageLoader.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -310,7 +316,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!bridge.isLoading && !errorState) {
-            pageFragmentLoadState.onConfigurationChanged()
+            pageLoader.onConfigurationChanged()
         }
     }
 
@@ -321,7 +327,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             sidePanelHandler.hide()
             return true
         }
-        if (pageFragmentLoadState.goBack()) {
+        if (pageLoader.goBack()) {
             return true
         }
         // if the current tab can no longer go back, then close the tab before exiting
@@ -508,11 +514,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (position < app.tabList.size - 1) {
             val tab = app.tabList.removeAt(position)
             app.tabList.add(tab)
-            pageFragmentLoadState.setTab(tab)
+            pageLoader.setTab(tab)
         }
         if (app.tabCount > 0) {
             app.tabList.last().squashBackstack()
-            pageFragmentLoadState.loadFromBackStack()
+            pageLoader.loadFromBackStack()
         }
     }
 
@@ -521,49 +527,49 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
-    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
-        val selectedTabPosition = selectedTabPosition(title)
-        if (selectedTabPosition >= 0) {
-            setCurrentTabAndReset(selectedTabPosition)
-            return
-        }
-        if (shouldCreateNewTab) {
-            // create a new tab
-            val tab = Tab()
-            val isForeground = position == foregroundTabPosition
-            // if the requested position is at the top, then make its backstack current
-            if (isForeground) {
-                pageFragmentLoadState.setTab(tab)
-            }
-            // put this tab in the requested position
-            app.tabList.add(position, tab)
-            trimTabCount()
-            // add the requested page to its backstack
-            tab.backStack.add(PageBackStackItem(title, entry))
-            if (!isForeground) {
-                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
-                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let { page ->
-                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
-                                thumbUrl = page.thumbUrl()
-                                description = page.description
-                            }
-                        }
-                }
-            }
-            requireActivity().invalidateOptionsMenu()
-        } else {
-            pageFragmentLoadState.setTab(currentTab)
-            currentTab.backStack.add(PageBackStackItem(title, entry))
-        }
-    }
+//    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
+//        val selectedTabPosition = selectedTabPosition(title)
+//        if (selectedTabPosition >= 0) {
+//            setCurrentTabAndReset(selectedTabPosition)
+//            return
+//        }
+//        if (shouldCreateNewTab) {
+//            // create a new tab
+//            val tab = Tab()
+//            val isForeground = position == foregroundTabPosition
+//            // if the requested position is at the top, then make its backstack current
+//            if (isForeground) {
+//                pageFragmentLoadState.setTab(tab)
+//            }
+//            // put this tab in the requested position
+//            app.tabList.add(position, tab)
+//            trimTabCount()
+//            // add the requested page to its backstack
+//            tab.backStack.add(PageBackStackItem(title, entry))
+//            if (!isForeground) {
+//                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+//                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+//                        .query?.firstPage()?.let { page ->
+//                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+//                                thumbUrl = page.thumbUrl()
+//                                description = page.description
+//                            }
+//                        }
+//                }
+//            }
+//            requireActivity().invalidateOptionsMenu()
+//        } else {
+//            pageFragmentLoadState.setTab(currentTab)
+//            currentTab.backStack.add(PageBackStackItem(title, entry))
+//        }
+//    }
 
-    private fun dismissBottomSheet() {
+    fun dismissBottomSheet() {
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
         callback()?.onPageDismissBottomSheet()
     }
 
-    private fun updateProgressBar(visible: Boolean) {
+    fun updateProgressBar(visible: Boolean) {
         callback()?.onPageUpdateProgressBar(visible)
     }
 
@@ -878,9 +884,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun reloadFromBackstack(forceReload: Boolean = true) {
-        if (pageFragmentLoadState.setTab(currentTab) || forceReload) {
-            if (!pageFragmentLoadState.backStackEmpty()) {
-                pageFragmentLoadState.loadFromBackStack()
+        if (pageLoader.setTab(currentTab) || forceReload) {
+            if (!pageLoader.backStackEmpty()) {
+                pageLoader.loadFromBackStack()
             } else {
                 callback()?.onPageLoadMainPageInForegroundTab()
             }
@@ -930,85 +936,117 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
         if (app.tabCount == 0) {
-            openInNewTab(title, entry, foregroundTabPosition)
-            pageFragmentLoadState.loadFromBackStack()
+//            openInNewTab(title, entry, foregroundTabPosition)
+//            pageFragmentLoadState.loadFromBackStack()
+            loadPage(title, entry, PageLoadOptions(tabPosition = TabPosition.NEW_TAB_FOREGROUND))
+
         } else {
-            openInNewTab(title, entry, backgroundTabPosition)
-            (requireActivity() as PageActivity).animateTabsButton()
+//            openInNewTab(title, entry, backgroundTabPosition)
+//            (requireActivity() as PageActivity).animateTabsButton()
+            loadPage(title, entry, PageLoadOptions(tabPosition = TabPosition.NEW_TAB_BACKGROUND))
+
         }
     }
 
-    fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition)
-        pageFragmentLoadState.loadFromBackStack()
+//    fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
+////        openInNewTab(title, entry, foregroundTabPosition)
+////        pageFragmentLoadState.loadFromBackStack()
+//        loadPage(title, entry, PageLoadOptions(tabPosition = TabPosition.NEW_TAB_FOREGROUND))
+//
+//    }
+//
+//    fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
+////        val selectedTabPosition = selectedTabPosition(title)
+////
+////        if (selectedTabPosition == -1) {
+////            loadPage(title, entry, pushBackStack = true, squashBackstack = false)
+////            return
+////        }
+////        setCurrentTabAndReset(selectedTabPosition)
+//        loadPage(title, entry, PageLoadOptions(tabPosition = TabPosition.EXISTING_TAB))
+//    }
+
+    fun loadPage(title: PageTitle, entry: HistoryEntry, options: PageLoadOptions = PageLoadOptions()) {
+        val request = PageLoadRequest(title, entry, options)
+        pageLoader.loadPage(request)
     }
 
-    fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
-        val selectedTabPosition = selectedTabPosition(title)
+//    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
+//        // is the new title the same as what's already being displayed?
+//        // done
+//        if (currentTab.backStack.isNotEmpty() &&
+//                title == currentTab.backStack[currentTab.backStackPosition].title) {
+//            if (model.page == null || isRefresh) {
+//                pageFragmentLoadState.loadFromBackStack()
+//            } else if (!title.fragment.isNullOrEmpty()) {
+//                scrollToSection(title.fragment!!)
+//            }
+//            return
+//        }
+//
+//        // done
+//        if (squashBackstack) {
+//            if (app.tabCount > 0) {
+//                app.tabList.last().clearBackstack()
+//            }
+//        }
+//        loadPage(title, entry, pushBackStack, 0, isRefresh)
+//    }
 
-        if (selectedTabPosition == -1) {
-            loadPage(title, entry, pushBackStack = true, squashBackstack = false)
-            return
-        }
-        setCurrentTabAndReset(selectedTabPosition)
-    }
-
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
-        // is the new title the same as what's already being displayed?
-        if (currentTab.backStack.isNotEmpty() &&
-                title == currentTab.backStack[currentTab.backStackPosition].title) {
-            if (model.page == null || isRefresh) {
-                pageFragmentLoadState.loadFromBackStack()
-            } else if (!title.fragment.isNullOrEmpty()) {
-                scrollToSection(title.fragment!!)
-            }
-            return
-        }
-        if (squashBackstack) {
-            if (app.tabCount > 0) {
-                app.tabList.last().clearBackstack()
-            }
-        }
-        loadPage(title, entry, pushBackStack, 0, isRefresh)
-    }
-
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
-        // clear the title in case the previous page load had failed.
-        clearActivityActionBarTitle()
-
-        if (ExclusiveBottomSheetPresenter.getCurrentBottomSheet(childFragmentManager) !is ThemeChooserDialog) {
-            dismissBottomSheet()
-        }
-
-        if (AccountUtil.isLoggedIn) {
-            // explicitly check notifications for the current user
-            PollNotificationWorker.schedulePollNotificationJob(requireContext())
-        }
-
-        EventPlatformClient.AssociationController.beginNewPageView()
-
-        // update the time spent reading of the current page, before loading the new one
-        addTimeSpentReading(activeTimer.elapsedSec)
-        activeTimer.reset()
-        callback()?.onPageSetToolbarElevationEnabled(false)
-        sidePanelHandler.setEnabled(false)
-        errorState = false
-        binding.pageError.visibility = View.GONE
-        model.title = title
-        model.curEntry = entry
-        model.page = null
-        model.readingListPage = null
-        model.forceNetwork = isRefresh
-        webView.visibility = View.VISIBLE
-        binding.pageActionsTabLayout.visibility = View.VISIBLE
-        binding.pageActionsTabLayout.enableAllTabs()
-        updateProgressBar(true)
-        pageRefreshed = isRefresh
-        references = null
-        revision = 0
-        pageFragmentLoadState.load(pushBackStack)
-        scrollTriggerListener.stagedScrollY = stagedScrollY
-    }
+//    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
+//        // clear the title in case the previous page load had failed.
+//        // done
+//        clearActivityActionBarTitle()
+//
+//        // done
+//        if (ExclusiveBottomSheetPresenter.getCurrentBottomSheet(childFragmentManager) !is ThemeChooserDialog) {
+//            dismissBottomSheet()
+//        }
+//
+//        // not done
+//        if (AccountUtil.isLoggedIn) {
+//            // explicitly check notifications for the current user
+//            PollNotificationWorker.schedulePollNotificationJob(requireContext())
+//        }
+//
+//        // not done
+//        EventPlatformClient.AssociationController.beginNewPageView()
+//
+//        // update the time spent reading of the current page, before loading the new one
+//        // not done
+//        addTimeSpentReading(activeTimer.elapsedSec)
+//        activeTimer.reset()
+//
+//        // done
+//        updateProgressBar(true)
+//        callback()?.onPageSetToolbarElevationEnabled(false)
+//        sidePanelHandler.setEnabled(false)
+//
+//        // done
+//        errorState = false
+//        binding.pageError.visibility = View.GONE
+//        webView.visibility = View.VISIBLE
+//        binding.pageActionsTabLayout.visibility = View.VISIBLE
+//        binding.pageActionsTabLayout.enableAllTabs()
+//
+//        // done
+//        model.title = title
+//        model.curEntry = entry
+//        model.page = null
+//        model.readingListPage = null
+//        model.forceNetwork = isRefresh
+//
+//        // done
+//        pageRefreshed = isRefresh
+//        references = null
+//        revision = 0
+//
+//        // main load state
+//        pageFragmentLoadState.load(pushBackStack)
+//
+//        // @TODO: not applied
+//        scrollTriggerListener.stagedScrollY = stagedScrollY
+//    }
 
     fun updateFontSize() {
         webView.settings.defaultFontSize = app.getFontSize().toInt()
@@ -1119,7 +1157,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun scrollToSection(sectionAnchor: String) {
+    fun scrollToSection(sectionAnchor: String) {
         if (!isAdded) {
             return
         }
@@ -1164,12 +1202,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 binding.pageActionsTabLayout.enableAllTabs()
                 errorState = false
                 model.curEntry = HistoryEntry(title, HistoryEntry.SOURCE_HISTORY)
-                loadPage(title, entry, false, stagedScrollY, app.isOnline)
+                // loadPage(title, entry, false, stagedScrollY, app.isOnline)
+                loadPage(title, entry, PageLoadOptions(
+                    pushbackStack = false,
+                    isRefresh = app.isOnline,
+                    stagedScrollY = stagedScrollY
+                ))
             }
         }
     }
 
-   private fun clearActivityActionBarTitle() {
+
+    fun clearActivityActionBarTitle() {
         val currentActivity = requireActivity()
         if (currentActivity is PageActivity) {
             currentActivity.clearActionBarTitle()
@@ -1202,7 +1246,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun goForward() {
-        pageFragmentLoadState.goForward()
+        pageLoader.goForward()
     }
 
     fun showBottomSheet(dialog: BottomSheetDialogFragment) {

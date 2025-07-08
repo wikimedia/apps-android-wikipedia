@@ -42,23 +42,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var currentTab: Tab) {
 
     fun load(pushBackStack: Boolean) {
+        // done
         if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
         pageLoad()
-    }
-
-    fun loadFromBackStack() {
-        if (currentTab.backStack.isEmpty()) {
-            return
-        }
-        val item = currentTab.backStack[currentTab.backStackPosition]
-        // display the page based on the backstack item, stage the scrollY position based on
-        // the backstack item.
-        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY)
-        L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
     fun updateCurrentBackStackItem() {
@@ -71,41 +61,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
             item.title.description = it.description
             item.title.thumbUrl = it.thumbUrl
         }
-    }
-
-    fun setTab(tab: Tab): Boolean {
-        val isDifferent = tab != currentTab
-        currentTab = tab
-        return isDifferent
-    }
-
-    fun goBack(): Boolean {
-        if (currentTab.canGoBack()) {
-            currentTab.moveBack()
-            if (!backStackEmpty()) {
-                loadFromBackStack()
-                return true
-            }
-        }
-        return false
-    }
-
-    fun goForward(): Boolean {
-        if (currentTab.canGoForward()) {
-            currentTab.moveForward()
-            loadFromBackStack()
-            return true
-        }
-        return false
-    }
-
-    fun backStackEmpty(): Boolean {
-        return currentTab.backStack.isEmpty()
-    }
-
-    fun onConfigurationChanged() {
-        leadImagesHandler.loadLeadImage()
-        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
     }
 
     private fun commonSectionFetchOnCatch(caught: Throwable) {
@@ -122,16 +77,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     L.e("Page details network error: ", throwable)
                     commonSectionFetchOnCatch(throwable)
                 }) {
+                    // not done
                     model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(title)
 
+                    // done
                     fragment.updateQuickActionsAndMenuOptions()
                     fragment.requireActivity().invalidateOptionsMenu()
                     fragment.callback()?.onPageUpdateProgressBar(true)
+
                     model.page = null
+
+                    // done
                     val delayLoadHtml = title.prefixedText.contains(":")
                     if (!delayLoadHtml) {
                         bridge.resetHtml(title)
                     }
+
+                    // done
                     if (title.namespace() === Namespace.SPECIAL) {
                         // Short-circuit the entire process of fetching the Summary, since Special: pages
                         // are not supported in RestBase.
@@ -142,11 +104,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         return@launch
                     }
 
+                    // done
                     val pageSummaryRequest = async {
                         ServiceFactory.getRest(title.wikiSite).getSummaryResponse(title.prefixedText, cacheControl = model.cacheControl.toString(),
                             saveHeader = if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                             langHeader = title.wikiSite.languageCode, titleHeader = UriUtil.encodeURL(title.prefixedText))
                     }
+                    // done
                     val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
                     val watchedRequest = async {
                         if (makeWatchRequest) {
@@ -157,6 +121,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             MwQueryResponse()
                         }
                     }
+                    // done
                     val categoriesRequest = async {
                         if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
                             ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
@@ -167,29 +132,43 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     val pageSummaryResponse = pageSummaryRequest.await()
                     val watchedResponse = watchedRequest.await()
                     val categoriesResponse = categoriesRequest.await()
+                    // done
                     val isWatched = watchedResponse.query?.firstPage()?.watched == true
                     val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() == true
                     if (pageSummaryResponse.body() == null) {
                         throw RuntimeException("Summary response was invalid.")
                     }
+                    // done
                     val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
+
+                    // partial done
                     createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+
+                    // not done
                     if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                         showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                     }
 
+                    // done
                     val categoryList = (categoriesResponse.query ?: watchedResponse.query)?.firstPage()?.categories?.map { category ->
                         Category(title = category.title, lang = title.wikiSite.languageCode)
                     }.orEmpty()
+
+                    // not done
                     if (categoryList.isNotEmpty()) {
                         AppDatabase.instance.categoryDao().upsertAll(categoryList)
                     }
 
+
+                    // not done
                     if (delayLoadHtml) {
                         bridge.resetHtml(title)
                     }
+
+                    // done
                     fragment.onPageMetadataLoaded(redirectedFrom)
 
+                    // not done
                     if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                         checkAnonNotifications(title)
                     }

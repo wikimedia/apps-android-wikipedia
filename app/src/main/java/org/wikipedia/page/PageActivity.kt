@@ -62,6 +62,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.page.pageload.PageLoadOptions
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
@@ -119,7 +120,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // and reload the page...
             pageFragment.model.title?.let { title ->
                 pageFragment.model.curEntry?.let { entry ->
-                    pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
+//                    pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
                 }
             }
         }
@@ -613,13 +614,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // Close the link preview, if one is open.
             hideLinkPreview()
             onPageCloseActionMode()
-            when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
-                TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
-                TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
-                else -> pageFragment.openFromExistingTab(pageTitle, entry)
+            val options = when(position) {
+                TabPosition.CURRENT_TAB -> PageLoadOptions(tabPosition = position)
+                TabPosition.CURRENT_TAB_SQUASH -> PageLoadOptions(tabPosition = position, squashBackStack = true)
+                TabPosition.NEW_TAB_BACKGROUND -> PageLoadOptions(tabPosition = position)
+                TabPosition.NEW_TAB_FOREGROUND -> PageLoadOptions(tabPosition = position)
+                TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position)
             }
+            pageFragment.loadPage(pageTitle, entry, options)
+//            when (position) {
+//                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
+//                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
+//                TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
+//                TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
+//                else -> pageFragment.openFromExistingTab(pageTitle, entry)
+//            }
         }
     }
 
