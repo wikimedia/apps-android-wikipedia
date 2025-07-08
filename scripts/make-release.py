@@ -46,61 +46,28 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-# Use platform-specific gradlew command with proper path
-if platform.system() == 'Windows':
-    GRADLEW = os.path.join(PATH_PREFIX, 'gradlew.bat')
-else:
-    GRADLEW = os.path.join(PATH_PREFIX, 'gradlew')
 VERSION_START = '2.7'
 
-
-def p(*path_fragments):
-    """
-    Combine the path fragments with PATH_PREFIX as a base, and return
-    the new full path
-    """
-    return os.path.join(PATH_PREFIX, *path_fragments)
-
-
-def get_git_tag_name(target, version_name):
-    """
-    Returns name used for creating the tag
-    """
-    return target + '/' + version_name
-
-
-def git_tag(target, version_name):
-    """
-    Creates an annotated git tag for this release
-    """
-    tag_name = get_git_tag_name(target, version_name)
+def git_tag_and_push(target, version_name, push=False):
+    """Creates an annotated git tag for this release and optionally pushes it"""
+    tag_name = target + '/' + version_name
     subprocess.run(['git', 'tag', '-a', tag_name, '-m', target], check=True)
-
-
-def git_push_tag(target, version_name):
-    """
-    Pushes the git tag to origin
-    """
-    tag_name = get_git_tag_name(target, version_name)
-    print('pushing tag ' + tag_name)
-    subprocess.run(['git', 'push', 'origin', tag_name], check=True)
-
-
-def make_release(flavors, custom_channel, build_type='Release'):
-    return try_clean_build(GRADLEW, flavors, custom_channel, build_type)
-
-def make_bundle(flavors, custom_channel, build_type='Release'):
-    return try_clean_bundle(GRADLEW, flavors, custom_channel, build_type)
+    
+    if push:
+        print('pushing tag ' + tag_name)
+        subprocess.run(['git', 'push', 'origin', tag_name], check=True)
 
 
 def get_output_apk_file_name(flavor, build_type='release'):
     build_type_lower = build_type.lower()
     return f'app/build/outputs/apk/{flavor}/{build_type_lower}/app-{flavor}-{build_type_lower}.apk'
 
-def get_output_bundle_file_name(flavor, build_type='Release'):
-    return f'app/build/outputs/bundle/{flavor}{build_type}/app-{flavor}-{build_type.lower()}.aab'
+def get_output_bundle_file_name(flavor, build_type='release'):
+    # Bundle file naming: flavor is title case, build type in path is title case but in filename is lowercase
+    return f'app/build/outputs/bundle/{flavor}{build_type.title()}/app-{flavor}-{build_type.lower()}.aab'
 
 
 def verify_apk_exists(apk_path):
@@ -114,11 +81,10 @@ def verify_apk_exists(apk_path):
 
 
 def get_android_home():
-    android_home = os.environ['ANDROID_HOME']
-    if android_home:
-        return android_home
-    else:
+    android_home = os.environ.get('ANDROID_HOME')
+    if not android_home:
         sys.exit('$ANDROID_HOME not set')
+    return android_home
 
 
 def grep_from_build_file(property_name, regex):
@@ -130,10 +96,6 @@ def grep_from_build_file(property_name, regex):
                 res = found.groups()[0]
                 return res
     sys.exit("Could not find %s in %s" % (property_name, build_gradle_file_name))
-
-
-def get_build_tools_version_from_build_file():
-    return grep_from_build_file('buildToolsVersion', r'buildToolsVersion\s+\'(\S+)\'')
 
 
 def get_version_code_from_build_file():
@@ -182,23 +144,31 @@ def get_version_name_from_apk(apk_file):
         sys.exit(f"aapt failed with exit code {e.returncode}")
 
 
-def copy_apk(flavor, version_name, build_type='release'):
+def copy_build_artifact(artifact_type, flavor, version_name, build_type='release'):
+    """Copy APK or AAB artifact to releases folder"""
     folder_path = os.path.join(PATH_PREFIX, 'releases')
     os.makedirs(folder_path, exist_ok=True)
-    build_suffix = '' if build_type.lower() == 'release' else f'-{build_type.lower()}'
-    output_file = f'{folder_path}/wikipedia-{version_name}{build_suffix}.apk'
-    source_apk = os.path.join(PATH_PREFIX, get_output_apk_file_name(flavor, build_type))
-    shutil.copy2(source_apk, output_file)
-    print(' apk: %s' % output_file)
-    return output_file
+    
+    if artifact_type == 'apk':
+        build_suffix = '' if build_type.lower() == 'release' else f'-{build_type.lower()}'
+        output_file = f'{folder_path}/wikipedia-{version_name}{build_suffix}.apk'
+        source_file = os.path.join(PATH_PREFIX, get_output_apk_file_name(flavor, build_type))
+        print(' apk: %s' % output_file)
+        shutil.copy2(source_file, output_file)
+        return output_file
+    elif artifact_type == 'bundle':
+        output_file = f'{folder_path}/wikipedia-{version_name}.aab'
+        source_file = os.path.join(PATH_PREFIX, get_output_bundle_file_name(flavor, build_type))
+        print(' aab: %s' % output_file)
+        shutil.copy2(source_file, output_file)
+    else:
+        raise ValueError(f"Unknown artifact type: {artifact_type}")
 
-def copy_bundle(flavor, version_name, build_type='Release'):
-    folder_path = os.path.join(PATH_PREFIX, 'releases')
-    os.makedirs(folder_path, exist_ok=True)
-    output_file = f'{folder_path}/wikipedia-{version_name}.aab'
-    source_bundle = os.path.join(PATH_PREFIX, get_output_bundle_file_name(flavor, build_type))
-    shutil.copy2(source_bundle, output_file)
-    print(' aab: %s' % output_file)
+def copy_apk(flavor, version_name, build_type='release'):
+    return copy_build_artifact('apk', flavor, version_name, build_type)
+
+def copy_bundle(flavor, version_name, build_type='release'):
+    copy_build_artifact('bundle', flavor, version_name, build_type)
 
 
 def find_output_apk_for(label, version_code):
@@ -212,75 +182,18 @@ def find_output_apk_for(label, version_code):
     else:
         sys.exit("Found too many(%d) files for %s" % (len(apk_files), file_pattern))
 
-
-def check_signing_config(flavors):
-    """Check if the required signing configuration exists for the given flavors"""
-    # Flavors that require prod signing config
-    prod_signing_flavors = ['beta', 'prod', 'custom']
-
-    needs_prod_signing = any(flavor in prod_signing_flavors for flavor in flavors)
-
-    if needs_prod_signing:
-        # Check if production signing config exists
-        prod_props_file = os.path.expanduser('~/.sign/signing.properties')
-        if not os.path.exists(prod_props_file):
-            print("ERROR: Production signing configuration required but not found.")
-            print(f"Expected file: {prod_props_file}")
-            sys.exit(1)
-        else:
-            print(f"Using production signing config: {prod_props_file}")
-            # Validate the signing configuration
-            if not validate_signing_config():
-                sys.exit(1)
-    else:
-        # Check if repo keystore exists for debug signing
-        repo_keystore = os.path.join(PATH_PREFIX, 'repo.keystore')
-        if not os.path.exists(repo_keystore):
-            print(f"WARNING: Repo keystore not found at {repo_keystore}")
-            print("This may cause signing issues.")
-
-
-def validate_signing_config():
-    """Validate that the signing configuration is properly set up"""
-    prod_props_file = os.path.expanduser('~/.sign/signing.properties')
-
-    if not os.path.exists(prod_props_file):
-        return False
-
-    # Read and validate the properties file
-    try:
-        with open(prod_props_file, 'r') as f:
-            content = f.read()
-
-        # Extract keystore path
-        keystore_match = re.search(r'keystore\s*=\s*(.+)', content)
-        if keystore_match:
-            keystore_path = keystore_match.group(1).strip()
-
-            # Convert relative paths to absolute if needed
-            if not os.path.isabs(keystore_path):
-                # Try relative to user home
-                keystore_path = os.path.expanduser(keystore_path)
-
-            # Check if keystore exists
-            if not os.path.exists(keystore_path):
-                print(f"ERROR: Keystore file not found: {keystore_path}")
-                print("Please check the keystore path in your signing.properties file")
-                return False
-            else:
-                print(f"✓ Keystore found: {keystore_path}")
-                return True
-        else:
-            print("ERROR: No keystore path found in signing.properties")
-            return False
-
-    except Exception as e:
-        print(f"ERROR: Failed to read signing.properties: {e}")
-        return False
-
-
-def try_clean_build(gradlew_cmd, flavors, custom_channel, build_type, max_retries=3):
-    """Try to build with retries for Windows file locking issues"""
+def try_clean_gradle_build(flavors, custom_channel, build_type, task_type='assemble', max_retries=3, skip_clean=False):
+    """
+    Try to build with retries for Windows file locking issues
+    
+    Args:
+        flavors: List of flavors to build
+        custom_channel: Custom channel name
+        build_type: Build type (Release, Debug)
+        task_type: 'assemble' for APK builds, 'bundle' for AAB builds
+        max_retries: Maximum number of retry attempts
+        skip_clean: Whether to skip the clean task
+    """
     # Ensure we're in the project root directory
     original_dir = os.getcwd()
     os.chdir(PATH_PREFIX)
@@ -294,13 +207,21 @@ def try_clean_build(gradlew_cmd, flavors, custom_channel, build_type, max_retrie
 
                 if attempt > 0:
                     print(f"Retry attempt {attempt}/{max_retries - 1}")
-                    # Skip clean on retries to avoid file locking issues
                     print("Skipping clean task due to previous file locking error...")
-                else:
+                    skip_clean = True
+                elif not skip_clean:
                     args.append('clean')
 
                 args.append('-PcustomChannel=' + custom_channel)
-                tasks = ['assemble{0}{1}'.format(flavor.title(), build_type) for flavor in flavors]
+                
+                # Generate appropriate tasks based on task_type
+                if task_type == 'assemble':
+                    tasks = ['assemble{0}{1}'.format(flavor.title(), build_type) for flavor in flavors]
+                elif task_type == 'bundle':
+                    tasks = ['bundle{0}{1}'.format(flavor.title(), build_type) for flavor in flavors]
+                else:
+                    raise ValueError(f"Unknown task_type: {task_type}")
+                
                 args += tasks
 
                 print(f"Running: {' '.join(args)}")
@@ -345,15 +266,15 @@ def try_clean_build(gradlew_cmd, flavors, custom_channel, build_type, max_retrie
                             kill_gradle_daemons()
                         
                         print("Waiting 8 seconds before retry (longer wait for cache issues)...")
-                        import time
                         time.sleep(8)
                         continue
 
                 # If it's not a file locking error, or final attempt, fail
-                print("Build failed!")
+                task_name = task_type.title()
+                print(f"{task_name} build failed!")
                 print("STDOUT:", result.stdout)
                 print("STDERR:", result.stderr)
-                sys.exit(f"Gradle build failed with exit code {result.returncode}")
+                sys.exit(f"Gradle {task_type} build failed with exit code {result.returncode}")
 
             except Exception as e:
                 if attempt < max_retries - 1:
@@ -370,74 +291,13 @@ def try_clean_build(gradlew_cmd, flavors, custom_channel, build_type, max_retrie
         os.chdir(original_dir)
 
 
-def try_clean_bundle(gradlew_cmd, flavors, custom_channel, build_type, max_retries=3, skip_clean=True):
-    """Try to build bundle with retries for Windows file locking issues"""
-    # Ensure we're in the project root directory
-    original_dir = os.getcwd()
-    os.chdir(PATH_PREFIX)
-
-    try:
-        for attempt in range(max_retries):
-            try:
-                # Use relative path for gradlew when we're in the project root
-                gradlew_exe = 'gradlew.bat' if platform.system() == 'Windows' else './gradlew'
-                args = [gradlew_exe, '-q']
-
-                if attempt > 0:
-                    print(f"Bundle retry attempt {attempt}/{max_retries - 1}")
-                    print("Skipping clean task due to previous file locking error...")
-                    skip_clean = True
-
-                # Skip clean by default for bundle builds to avoid file locking after APK build
-                if not skip_clean:
-                    args.append('clean')
-
-                args.append('-PcustomChannel=' + custom_channel)
-                tasks = ['bundle{0}{1}'.format(flavor.title(), build_type) for flavor in flavors]
-                args += tasks
-
-                print(f"Running: {' '.join(args)}")
-                result = subprocess.run(args, capture_output=True, text=True)
-
-                if result.returncode == 0:
-                    return result
-
-                # Check if it's a file locking error
-                if 'Unable to delete directory' in result.stderr or 'Failed to delete' in result.stderr:
-                    if attempt < max_retries - 1:
-                        print("File locking error detected. This is common on Windows.")
-                        print("Waiting 3 seconds before retry...")
-                        import time
-                        time.sleep(3)
-                        skip_clean = True  # Skip clean on retry
-                        continue
-
-                # If it's not a file locking error, or final attempt, fail
-                print("Bundle build failed!")
-                print("STDOUT:", result.stdout)
-                print("STDERR:", result.stderr)
-                sys.exit(f"Gradle bundle build failed with exit code {result.returncode}")
-
-            except Exception as e:
-                if attempt < max_retries - 1:
-                    print(f"Bundle build attempt failed: {e}")
-                    print("Retrying...")
-                    continue
-                else:
-                    raise
-
-        print("All bundle retry attempts failed")
-        sys.exit(1)
-    finally:
-        # Restore original directory
-        os.chdir(original_dir)
-
 def kill_gradle_daemons():
     """Kill any running Gradle daemons to release file locks"""
     try:
         print("Attempting to stop Gradle daemons...")
-        # First try to stop daemons gracefully
-        result = subprocess.run(['gradlew.bat', '--stop'], 
+        # Use platform-specific gradlew command
+        gradlew_cmd = 'gradlew.bat' if platform.system() == 'Windows' else './gradlew'
+        result = subprocess.run([gradlew_cmd, '--stop'], 
                               cwd=PATH_PREFIX, 
                               capture_output=True, 
                               text=True, 
@@ -464,7 +324,6 @@ def clear_lint_cache():
             os.path.join(PATH_PREFIX, 'app', 'build', 'tmp', 'lint')
         ]
         
-        import time
         # Wait a moment for any processes to release files
         time.sleep(3)
         
@@ -501,7 +360,6 @@ def force_clear_build_directory():
         build_dir = os.path.join(PATH_PREFIX, 'app', 'build')
         if os.path.exists(build_dir):
             print(f"Force clearing build directory: {build_dir}")
-            import time
             time.sleep(2)
             
             if platform.system() == 'Windows':
@@ -553,28 +411,19 @@ def main():
     custom_channel = 'ignore'
     build_type = 'Release'  # Default to release builds
 
+    # Define build configurations
     if args.debug:
-        # For debug builds, use alpha flavor with debug build type
-        flavors = ['alpha']
-        targets = ['debug']
-        build_type = 'Debug'
+        flavors, targets, build_type = ['alpha'], ['debug'], 'Debug'
     elif args.alpha:
-        flavors = ['alpha']
-        targets = flavors
+        flavors, targets = ['alpha'], ['alpha']
     elif args.beta:
-        flavors = ['beta']
-        targets = flavors
+        flavors, targets = ['beta'], ['beta']
     elif args.prod:
-        flavors = ['prod']
-        targets = ['r']
+        flavors, targets = ['prod'], ['r']
     elif args.channel:
-        flavors = ['custom']
-        targets = [args.channel]
-        custom_channel = args.channel
+        flavors, targets, custom_channel = ['custom'], [args.channel], args.channel
     elif args.app:
-        flavors = ['custom']
-        targets = [args.app]
-        custom_channel = args.app
+        flavors, targets, custom_channel = ['custom'], [args.app], args.app
     else:
         print('Error. Please specify --beta, --prod, etc.')
         sys.exit(-1)
@@ -587,13 +436,8 @@ def main():
         apk_file = find_output_apk_for(label, get_version_code_from_build_file())
         version_name = get_version_name_from_apk(apk_file)
         for target in targets:
-            git_tag(target, version_name)
-            git_push_tag(target, version_name)
+            git_tag_and_push(target, version_name, push=True)
     else:
-        # Check signing configuration before building (skip for debug builds)
-        if build_type != 'Debug':
-            check_signing_config(flavors)
-
         # Handle cache clearing and force clean options
         if args.clear_cache:
             print("Clearing caches before build...")
@@ -605,18 +449,18 @@ def main():
             kill_gradle_daemons()
             force_clear_build_directory()
 
-        folder_path = 'releases'
-        os.makedirs(folder_path, exist_ok=True)
+        # Ensure releases directory exists
+        os.makedirs('releases', exist_ok=True)
 
         print('Building APK: ' + str(flavors) + f' ({build_type})')
-        try_clean_build(GRADLEW, flavors, custom_channel, build_type)
+        try_clean_gradle_build(flavors, custom_channel, build_type, 'assemble')
         version_name = get_version_name_from_apk(get_output_apk_file_name(flavors[0], build_type))
         print('Copying APK...')
         output_file = copy_apk(flavors[0], version_name, build_type)
 
         if args.bundle and build_type == 'Release':  # Only build bundles for release builds
             print('Building bundle: ' + str(flavors))
-            make_bundle(flavors, custom_channel, build_type)
+            try_clean_gradle_build(flavors, custom_channel, build_type, 'bundle', skip_clean=True)
             print('Copying bundle...')
             copy_bundle(flavors[0], version_name, build_type)
 
