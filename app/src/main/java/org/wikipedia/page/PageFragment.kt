@@ -152,7 +152,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
-    private val scrollTriggerListener = WebViewScrollTriggerListener()
+    val scrollTriggerListener = WebViewScrollTriggerListener()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
 
@@ -1311,7 +1311,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private inner class WebViewScrollTriggerListener : ObservableWebView.OnContentHeightChangedListener {
+    inner class WebViewScrollTriggerListener : ObservableWebView.OnContentHeightChangedListener {
         var stagedScrollY = 0
         override fun onContentHeightChanged(contentHeight: Int) {
             if (stagedScrollY > 0 && contentHeight * DimenUtil.densityScalar - webView.height > stagedScrollY) {

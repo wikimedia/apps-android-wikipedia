@@ -186,7 +186,7 @@ class PageLoader(
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        //fragment.loadPage(item.title, item.historyEntry, false, item.scrollY)
+        loadPage(request = PageLoadRequest(title = item.title, entry = item.historyEntry, options = PageLoadOptions(pushbackStack = false, stagedScrollY = item.scrollY)))
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
@@ -286,10 +286,14 @@ class PageLoader(
         fragment.model.hasWatchlistExpiry = result.hasWatchlistExpiry
         fragment.model.title = page?.title
 
-        // Load page content
         if (!request.title.prefixedText.contains(":")) {
             bridge.resetHtml(request.title)
         }
+
+        if (request.options.stagedScrollY > 0) {
+            fragment.scrollTriggerListener.stagedScrollY = request.options.stagedScrollY
+        }
+
         fragment.updateQuickActionsAndMenuOptions()
         fragment.requireActivity().invalidateOptionsMenu()
 
