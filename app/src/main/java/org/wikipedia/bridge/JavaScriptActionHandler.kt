@@ -6,7 +6,6 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getStrings
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
@@ -22,13 +21,6 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
-
-    fun getCssStyles(wikiSite: WikiSite): String {
-        val baseCSS = "<link rel=\"stylesheet\" href=\"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base\">"
-        val siteCSS = "<link rel=\"stylesheet\" href=\"https://${wikiSite.subdomain()}.wikipedia.org/api/rest_v1/data/css/mobile/site\">"
-        val extraCSS = if (WikipediaApp.instance.currentTheme.isDark) "<style>img.mwe-math-fallback-image-inline { -webkit-filter: invert(1); } </style>" else ""
-        return baseCSS + siteCSS + extraCSS
-    }
 
     fun setTopMargin(top: Int): String {
         return setMargins(16, top + 16, 16, 48)
