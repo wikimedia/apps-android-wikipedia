@@ -164,13 +164,6 @@ def copy_build_artifact(artifact_type, flavor, version_name, build_type='release
     else:
         raise ValueError(f"Unknown artifact type: {artifact_type}")
 
-def copy_apk(flavor, version_name, build_type='release'):
-    return copy_build_artifact('apk', flavor, version_name, build_type)
-
-def copy_bundle(flavor, version_name, build_type='release'):
-    copy_build_artifact('bundle', flavor, version_name, build_type)
-
-
 def find_output_apk_for(label, version_code):
     folder_path = 'releases'
     file_pattern = '%s/wikipedia-%s.%s-%s-*.apk' % (folder_path, VERSION_START, version_code, label)
@@ -456,13 +449,13 @@ def main():
         try_clean_gradle_build(flavors, custom_channel, build_type, 'assemble')
         version_name = get_version_name_from_apk(get_output_apk_file_name(flavors[0], build_type))
         print('Copying APK...')
-        output_file = copy_apk(flavors[0], version_name, build_type)
+        output_file = copy_build_artifact('apk', flavors[0], version_name, build_type)
 
         if args.bundle and build_type == 'Release':  # Only build bundles for release builds
             print('Building bundle: ' + str(flavors))
             try_clean_gradle_build(flavors, custom_channel, build_type, 'bundle', skip_clean=True)
             print('Copying bundle...')
-            copy_bundle(flavors[0], version_name, build_type)
+            copy_build_artifact('bundle', flavors[0], version_name, build_type)
 
         """
         Remove the '.' to match the Samsung app store APK naming style.
