@@ -3,7 +3,7 @@ package org.wikipedia.util
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageBackStackItem
+import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
 
 object TabUtil {

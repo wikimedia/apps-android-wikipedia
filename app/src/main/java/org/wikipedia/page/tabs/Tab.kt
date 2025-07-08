@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import kotlinx.serialization.Serializable
-import org.wikipedia.page.PageBackStackItem
+import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
 @Entity

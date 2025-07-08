@@ -90,6 +90,7 @@ import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
+import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu

@@ -20,6 +20,8 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.page.tabs.PageBackStackItem
+import org.wikipedia.page.tabs.PageBackStackItemDao
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.page.tabs.TabDao
 import org.wikipedia.pageimages.db.PageImage
@@ -57,7 +59,8 @@ const val DATABASE_VERSION = 32
         Category::class,
         DailyGameHistory::class,
         RecommendedPage::class,
-        Tab::class
+        Tab::class,
+        PageBackStackItem::class
     ],
     version = DATABASE_VERSION
 )
@@ -65,8 +68,7 @@ const val DATABASE_VERSION = 32
     DateTypeConverter::class,
     WikiSiteTypeConverter::class,
     NamespaceTypeConverter::class,
-    NotificationTypeConverters::class,
-    PageBackStackItemTypeConverter::class
+    NotificationTypeConverters::class
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -85,6 +87,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
     abstract fun recommendedPageDao(): RecommendedPageDao
     abstract fun tabDao(): TabDao
+    abstract fun pageBackStackItemDao(): PageBackStackItemDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -355,10 +358,21 @@ abstract class AppDatabase : RoomDatabase() {
         val MIGRATION_31_32 = object : Migration(31, 32) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
-                        "  `id` INTEGER NOT NULL, " +
-                        "  `backStack` TEXT NOT NULL, " +
-                        "  `backStackPosition` INTEGER NOT NULL, " +
-                        "  PRIMARY KEY(`id`)" +
+                        "  id INTEGER KEY AUTOINCREMENT NOT NULL " +
+                        ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `PageBackStackItem` (" +
+                        "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
+                        "  tabId INTEGER NOT NULL, " +
+                        "  apiTitle TEXT NOT NULL, " +
+                        "  displayTitle TEXT NOT NULL, " +
+                        "  langCode TEXT NOT NULL, " +
+                        "  namespace TEXT NOT NULL, " +
+                        "  timestamp INTEGER NOT NULL, " +
+                        "  scrollY INTEGER NOT NULL, " +
+                        "  source INTEGER NOT NULL, " +
+                        "  thumbUrl TEXT, " +
+                        "  description TEXT, " +
+                        "  extract TEXT " +
                         ")")
             }
         }
