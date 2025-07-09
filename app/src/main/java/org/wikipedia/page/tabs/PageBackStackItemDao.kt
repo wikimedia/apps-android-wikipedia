@@ -10,7 +10,7 @@ import androidx.room.Query
 interface PageBackStackItemDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPageBackStackItem(item: PageBackStackItem)
+    suspend fun insertPageBackStackItem(item: PageBackStackItem): Long
 
     @Query("SELECT * FROM PageBackStackItem WHERE id = :id")
     suspend fun getPageBackStackItem(id: Long): PageBackStackItem

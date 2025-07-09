@@ -87,18 +87,25 @@ object TabHelper {
                     AppDatabase.instance.tabDao().deleteTab(list.removeAt(0))
                 }
             }
-            tab.backStack.add(
-                PageBackStackItem(
-                    apiTitle = entry.title.prefixedText,
-                    displayTitle = entry.title.displayText,
-                    langCode = entry.title.wikiSite.languageCode,
-                    namespace = entry.title.namespace,
-                    thumbUrl = entry.title.thumbUrl,
-                    description = entry.title.description,
-                    extract = entry.title.extract,
-                    source = entry.source
-                )
+            // Add a new PageBackStackItem to database
+            val pageBackStackItem = PageBackStackItem(
+                apiTitle = entry.title.prefixedText,
+                displayTitle = entry.title.displayText,
+                langCode = entry.title.wikiSite.languageCode,
+                namespace = entry.title.namespace,
+                thumbUrl = entry.title.thumbUrl,
+                description = entry.title.description,
+                extract = entry.title.extract,
+                source = entry.source
             )
+            tab.backStack.add(pageBackStackItem)
+
+            // TODO: should move into a separate function?
+            tab.backStackIds.clear()
+            tab.backStack.forEach {
+                val id = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItem(it)
+                tab.backStackIds.add(id)
+            }
             AppDatabase.instance.tabDao().insertTab(tab)
         }
     }
