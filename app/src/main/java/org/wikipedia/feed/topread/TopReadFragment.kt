@@ -23,7 +23,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.TabUtil
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
@@ -77,7 +77,7 @@ class TopReadFragment : Fragment() {
     private inner class Callback : ListCardItemView.Callback {
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
-                TabUtil.openInNewBackgroundTab(entry)
+                TabHelper.openInNewBackgroundTab(entry)
                 FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab)
             } else {
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))

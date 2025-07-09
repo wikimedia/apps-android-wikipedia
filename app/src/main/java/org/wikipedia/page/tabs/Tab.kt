@@ -1,6 +1,7 @@
 package org.wikipedia.page.tabs
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageTitle
@@ -9,10 +10,13 @@ import org.wikipedia.page.PageTitle
 @Serializable
 class Tab(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    val backStack: MutableList<PageBackStackItem> = mutableListOf()
+    val backStackIds: List<Long> = emptyList()
 ) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
+
+    @Ignore
+    var backStack = mutableListOf<PageBackStackItem>()
 
     fun getBackStackPositionTitle(): PageTitle? {
         return backStack.getOrNull(backStackPosition)?.getPageTitle()

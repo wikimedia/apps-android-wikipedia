@@ -9,11 +9,8 @@ import android.speech.RecognizerIntent
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -32,7 +29,6 @@ import org.wikipedia.language.AcceptLanguageUtil
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
-import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -69,7 +65,6 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -115,10 +110,6 @@ class WikipediaApp : Application() {
             return defaultWikiSite!!
         }
 
-    // handle the case where we have a single tab with an empty backstack, which shouldn't count as a valid tab:
-    val tabCount
-        get() = if (tabList.size > 1) tabList.size else if (tabList.isEmpty()) 0 else if (tabList[0].backStack.isEmpty()) 0 else tabList.size
-
     val isOnline
         get() = connectionStateMonitor.isOnline()
 
@@ -151,12 +142,6 @@ class WikipediaApp : Application() {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
-
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            initTabs()
-        }
 
         enableWebViewDebugging()
         registerActivityLifecycleCallbacks(activityLifecycleHandler)
@@ -275,66 +260,6 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
-    }
-
-    // TODO: remove on 2026-02-01
-    private suspend fun migrateTabsToDatabase() {
-        withContext(Dispatchers.IO) {
-            if (Prefs.tabs.isEmpty() || AppDatabase.instance.tabDao().hasTabs()) {
-                return@withContext
-            }
-            AppDatabase.instance.tabDao().insertTabs(Prefs.tabs)
-
-            // TODO: enable this on 2026-02-01
-            // Prefs.clearTabs()
-        }
-    }
-
-    private suspend fun initTabs() {
-        withContext(Dispatchers.IO) {
-            migrateTabsToDatabase()
-            if (AppDatabase.instance.tabDao().hasTabs()) {
-                tabList.addAll(AppDatabase.instance.tabDao().getTabs())
-            }
-            if (tabList.isEmpty()) {
-                tabList.add(Tab())
-            }
-        }
-    }
-
-    fun commitTabState(tab: Tab? = null) {
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            if (tab == null) {
-                // Regular tab commit
-                AppDatabase.instance.tabDao().deleteAll()
-                if (tabList.isEmpty()) {
-                    initTabs()
-                } else {
-                    AppDatabase.instance.tabDao().insertTabs(tabList)
-                }
-            } else {
-                // Update the specific tab
-                AppDatabase.instance.tabDao().updateTab(tab)
-            }
-        }
-    }
-
-    fun insertTab(tab: Tab) {
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            AppDatabase.instance.tabDao().insertTab(tab)
-        }
-    }
-
-    fun deleteTab(tab: Tab) {
-        CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            AppDatabase.instance.tabDao().deleteTab(tab)
-        }
     }
 
     companion object {

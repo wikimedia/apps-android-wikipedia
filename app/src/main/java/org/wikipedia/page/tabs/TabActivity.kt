@@ -71,7 +71,7 @@ class TabActivity : BaseActivity() {
 
     override fun onPause() {
         super.onPause()
-        app.commitTabState()
+        TabHelper.commitTabState()
     }
 
     override fun onResume() {
@@ -91,13 +91,13 @@ class TabActivity : BaseActivity() {
                 true
             }
             R.id.menu_close_all_tabs -> {
-                if (app.tabList.isNotEmpty()) {
+                if (TabHelper.hasTabs()) {
                     MaterialAlertDialogBuilder(this).run {
                         setMessage(R.string.close_all_tabs_confirm)
                         setPositiveButton(R.string.close_all_tabs_confirm_yes) { _, _ ->
                             L.d("All tabs removed.")
-                            val appTabs = app.tabList.toMutableList()
-                            app.tabList.clear()
+                            val appTabs = TabHelper.list.toMutableList()
+                            TabHelper.list.clear()
                             binding.tabCountsView.updateTabCount(false)
                             binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(0, appTabs.size)
                             setResult(RESULT_LOAD_FROM_BACKSTACK)
@@ -111,7 +111,7 @@ class TabActivity : BaseActivity() {
                 true
             }
             R.id.menu_save_all_tabs -> {
-                if (app.tabList.isNotEmpty()) {
+                if (TabHelper.hasTabs()) {
                     saveTabsToList()
                 }
                 true
@@ -129,7 +129,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun saveTabsToList() {
-        val titlesList = app.tabList.filter { it.getBackStackPositionTitle() != null }.map { it.getBackStackPositionTitle()!! }
+        val titlesList = TabHelper.list.filter { it.getBackStackPositionTitle() != null }.map { it.getBackStackPositionTitle()!! }
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(titlesList, InvokeSource.TABS_ACTIVITY))
     }
@@ -148,10 +148,10 @@ class TabActivity : BaseActivity() {
         appTab.getBackStackPositionTitle()?.let {
             FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
-                    app.tabList.add(index, appTab)
+                    TabHelper.list.add(index, appTab)
                     binding.tabRecyclerView.adapter?.notifyItemInserted(adapterPosition)
                     binding.tabCountsView.updateTabCount(false)
-                    if (adapterPosition == 0 && app.tabCount > 1) {
+                    if (adapterPosition == 0 && TabHelper.hasTabs()) {
                         binding.tabRecyclerView.adapter?.notifyItemChanged(1)
                     }
                 }
@@ -163,9 +163,9 @@ class TabActivity : BaseActivity() {
     private fun showUndoAllSnackbar(appTabs: MutableList<Tab>) {
         FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed)).run {
             setAction(R.string.reading_list_item_delete_undo) {
-                app.tabList.addAll(appTabs)
+                TabHelper.list.addAll(appTabs)
                 appTabs.clear()
-                binding.tabRecyclerView.adapter?.notifyItemRangeInserted(0, app.tabList.size)
+                binding.tabRecyclerView.adapter?.notifyItemRangeInserted(0, TabHelper.list.size)
                 binding.tabCountsView.updateTabCount(false)
             }
             show()
@@ -198,7 +198,7 @@ class TabActivity : BaseActivity() {
     }
 
     private fun adapterPositionToTabIndex(adapterPosition: Int): Int {
-        return app.tabList.size - adapterPosition - 1
+        return TabHelper.list.size - adapterPosition - 1
     }
 
     private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
@@ -216,13 +216,13 @@ class TabActivity : BaseActivity() {
         override fun onClick(v: View) {
             val adapterPosition = bindingAdapterPosition
             val index = adapterPositionToTabIndex(adapterPosition)
-            if (index < 0 || index >= app.tabList.size) {
+            if (index < 0 || index >= TabHelper.list.size) {
                 return
             }
             if (v.id == R.id.tabContainer) {
-                if (index < app.tabList.size - 1) {
-                    val tab = app.tabList.removeAt(index)
-                    app.tabList.add(tab)
+                if (index < TabHelper.list.size - 1) {
+                    val tab = TabHelper.list.removeAt(index)
+                    TabHelper.list.add(tab)
                 }
                 cancelled = false
                 if (launchedFromPageActivity) {
@@ -247,7 +247,7 @@ class TabActivity : BaseActivity() {
         private fun doCloseTab() {
             val adapterPosition = bindingAdapterPosition
             val index = adapterPositionToTabIndex(adapterPosition)
-            val appTab = app.tabList.removeAt(index)
+            val appTab = TabHelper.list.removeAt(index)
             binding.tabCountsView.updateTabCount(false)
             bindingAdapter?.notifyItemRemoved(adapterPosition)
             if (adapterPosition == 0) {
@@ -264,11 +264,11 @@ class TabActivity : BaseActivity() {
         }
 
         override fun getItemCount(): Int {
-            return app.tabList.size
+            return TabHelper.list.size
         }
 
         override fun onBindViewHolder(holder: TabViewHolder, position: Int) {
-            holder.bindItem(app.tabList[adapterPositionToTabIndex(position)], position)
+            holder.bindItem(TabHelper.list[adapterPositionToTabIndex(position)], position)
         }
     }
 

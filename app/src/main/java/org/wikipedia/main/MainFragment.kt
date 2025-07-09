@@ -83,7 +83,7 @@ import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.TabUtil
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
@@ -355,7 +355,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
-            TabUtil.openInNewBackgroundTab(entry)
+            TabHelper.openInNewBackgroundTab(entry)
             showTabCountsAnimation = true
             requireActivity().invalidateOptionsMenu()
         } else {

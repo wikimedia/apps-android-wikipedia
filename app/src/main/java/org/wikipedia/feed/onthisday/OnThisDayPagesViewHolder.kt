@@ -20,7 +20,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TabUtil
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.FaceAndColorDetectImageView
 
@@ -92,7 +92,7 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    TabUtil.openInNewBackgroundTab(entry)
+                    TabHelper.openInNewBackgroundTab(entry)
                     FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
                 }
 

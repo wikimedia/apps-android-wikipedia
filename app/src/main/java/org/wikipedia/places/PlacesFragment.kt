@@ -91,7 +91,7 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TabUtil
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -741,7 +741,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
-            TabUtil.openInNewBackgroundTab(entry)
+            TabHelper.openInNewBackgroundTab(entry)
             requireActivity().invalidateOptionsMenu()
             binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
             binding.tabsButton.updateTabCount(true)
