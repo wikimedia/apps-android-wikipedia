@@ -12,7 +12,6 @@ import java.util.Date
 @Entity
 class PageBackStackItem(
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    val tabId: Long = 0,
     val apiTitle: String,
     val displayTitle: String,
     val langCode: String,
