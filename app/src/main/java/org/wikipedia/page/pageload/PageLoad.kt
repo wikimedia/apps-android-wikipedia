@@ -29,7 +29,13 @@ sealed class LoadType {
 
 sealed class LoadState {
     object Idle : LoadState()
-    object Loading : LoadState()
-    data class Success(val result: PageResult? = null) : LoadState()
+    data class SpecialPage(val request: PageLoadRequest): LoadState()
+    data class Loading(val isRefresh: Boolean = false) : LoadState()
+    data class Success(
+        val result: PageResult.Success? = null,
+        val isNewTabCreated: Boolean = false,
+        val title: PageTitle,
+        val stagedScrollY: Int = 0,
+        val loadedFromBackground: Boolean = false) : LoadState()
     data class Error(val throwable: Throwable) : LoadState()
 }

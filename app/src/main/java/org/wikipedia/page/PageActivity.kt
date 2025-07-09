@@ -622,13 +622,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position)
             }
             pageFragment.loadPage(pageTitle, entry, options)
-//            when (position) {
-//                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
-//                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
-//                TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
-//                TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
-//                else -> pageFragment.openFromExistingTab(pageTitle, entry)
-//            }
         }
     }
 

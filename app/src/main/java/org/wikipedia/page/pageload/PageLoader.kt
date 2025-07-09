@@ -199,19 +199,23 @@ class PageLoader(
     }
 
     private fun prepareForLoad(request: PageLoadRequest) {
+        // added to fragment
         fragment.clearActivityActionBarTitle()
         fragment.dismissBottomSheet()
 
+        // done added to load function
         if (request.options.squashBackStack) {
             if (app.tabCount > 0) {
                 app.tabList.last().clearBackstack()
             }
         }
 
+        // added to fragment
         fragment.updateProgressBar(true)
         fragment.sidePanelHandler.setEnabled(false)
         fragment.callback()?.onPageSetToolbarElevationEnabled(false)
 
+        // done
         // Update model
         fragment.model.title = request.title
         fragment.model.curEntry = request.entry
@@ -219,6 +223,7 @@ class PageLoader(
         fragment.model.readingListPage = null
         fragment.model.forceNetwork = request.options.isRefresh
 
+        // done
         // Clear previous state
         fragment.errorState = false
         fragment.binding.pageError.visibility = View.GONE
@@ -226,6 +231,7 @@ class PageLoader(
         fragment.binding.pageActionsTabLayout.visibility = View.VISIBLE
         fragment.binding.pageActionsTabLayout.enableAllTabs()
 
+        // done
         // Reset references and other state
         fragment.references = null
         fragment.revision = 0
@@ -233,21 +239,24 @@ class PageLoader(
     }
 
     private fun executeLoad(request: PageLoadRequest) {
+        // added to load function
         if (request.options.pushbackStack) {
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
         }
 
+        // added to on success state because this check should run before
         if (request.title.namespace() == Namespace.SPECIAL) {
             handleSpecialPage(request)
             return
         }
 
+        // done
         fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e("Page details network error: ", throwable)
             handleLoadError(throwable)
         }) {
-            updateLoadingState(LoadState.Loading)
+            updateLoadingState(LoadState.Loading())
             val result = dataFetcher.fetchPage(
                 request.title,
                 request.entry,
@@ -255,7 +264,7 @@ class PageLoader(
             )
             when (result) {
                 is PageResult.Success -> {
-                    updateLoadingState(LoadState.Success())
+                    //updateLoadingState(LoadState.Success())
                     handleLoadSuccess(result, request)
                 }
                 is PageResult.Error -> {
@@ -286,6 +295,8 @@ class PageLoader(
     }
 
     private fun handleLoadSuccess(result: PageResult.Success, request: PageLoadRequest) {
+        // done in createPageModel function
+        // data update
         val response = result.pageSummaryResponse
         val pageSummary = response.body()
         val page = pageSummary?.toPage(fragment.model.title)
@@ -294,17 +305,27 @@ class PageLoader(
         fragment.model.hasWatchlistExpiry = result.hasWatchlistExpiry
         fragment.model.title = page?.title
 
+
+        // in sucess state on fragment
+        // ui update
         if (!request.title.prefixedText.contains(":")) {
             bridge.resetHtml(request.title)
         }
 
+        // in sucess state on fragment
+        // ui update
+        // @TODO: scrollY is received from the item when loading back from stack done
         if (request.options.stagedScrollY > 0) {
             fragment.scrollTriggerListener.stagedScrollY = request.options.stagedScrollY
         }
 
+        // in sucess state on fragment
+        // ui update
         fragment.updateQuickActionsAndMenuOptions()
         fragment.requireActivity().invalidateOptionsMenu()
 
+        // in sucess state on fragment
+        // ui update
         leadImagesHandler.loadLeadImage()
         fragment.onPageMetadataLoaded(result.redirectedFrom)
     }

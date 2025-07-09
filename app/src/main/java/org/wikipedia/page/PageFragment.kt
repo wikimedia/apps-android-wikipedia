@@ -27,6 +27,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -84,8 +85,10 @@ import org.wikipedia.page.campaign.CampaignDialog
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
+import org.wikipedia.page.pageload.LoadState
 import org.wikipedia.page.pageload.PageLoadOptions
 import org.wikipedia.page.pageload.PageLoadRequest
+import org.wikipedia.page.pageload.PageLoadViewModel
 import org.wikipedia.page.pageload.PageLoader
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -117,6 +120,7 @@ import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
 
+// @TODO: offline test, visit article, save article turn airplane mode, chinese variant test, and other language test
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
 
@@ -188,6 +192,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val page get() = model.page
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
+    private lateinit var pageLoadViewModel: PageLoadViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -236,6 +241,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
+        pageLoadViewModel = ViewModelProvider(this, PageLoadViewModel.Factory)[PageLoadViewModel::class.java]
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
@@ -248,6 +254,71 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
+        }
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            pageLoadViewModel.loadState.collect { state ->
+                when (state) {
+                    is LoadState.Loading -> {
+                        clearActivityActionBarTitle()
+                        dismissBottomSheet()
+
+                        updateProgressBar(true)
+                        sidePanelHandler.setEnabled(false)
+                        callback()?.onPageSetToolbarElevationEnabled(false)
+
+
+                        // Clear previous state
+                        errorState = false
+                        binding.pageError.visibility = View.GONE
+                        webView.visibility = View.VISIBLE
+                        binding.pageActionsTabLayout.visibility = View.VISIBLE
+                        binding.pageActionsTabLayout.enableAllTabs()
+
+                        // Reset references and other state
+                        references = null
+                        revision = 0
+                        pageRefreshed = state.isRefresh
+                    }
+                    is LoadState.Success -> {
+                        // when new tab is created
+                        if (state.isNewTabCreated) {
+                            requireActivity().invalidateOptionsMenu()
+                        }
+                        if (state.loadedFromBackground) {
+                            (requireActivity() as PageActivity).animateTabsButton()
+                            return@collect
+                        }
+                        if (!state.title.prefixedText.contains(":")) {
+                            bridge.resetHtml(state.title)
+                        }
+                        scrollTriggerListener.stagedScrollY = state.stagedScrollY
+                        updateQuickActionsAndMenuOptions()
+                        requireActivity().invalidateOptionsMenu()
+                        leadImagesHandler.loadLeadImage()
+                        onPageMetadataLoaded(state.result?.redirectedFrom)
+
+                    }
+                    is LoadState.Error -> {}
+                    LoadState.Idle -> {}
+                    is LoadState.SpecialPage -> {
+                        bridge.resetHtml(state.request.title)
+                        leadImagesHandler.loadLeadImage()
+                        requireActivity().invalidateOptionsMenu()
+                        onPageMetadataLoaded()
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            pageLoadViewModel.currentPageModel.collect { pageViewModel ->
+                pageViewModel?.let {
+                    model = it
+                }
+            }
         }
     }
 
@@ -874,7 +945,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun loadPage(title: PageTitle, entry: HistoryEntry, options: PageLoadOptions = PageLoadOptions()) {
         val request = PageLoadRequest(title, entry, options)
-        pageLoader.loadPage(request)
+        // pageLoader.loadPage(request)
+         pageLoadViewModel.loadPage(request, webView.scrollY)
     }
 
     fun updateFontSize() {

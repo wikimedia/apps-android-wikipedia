@@ -17,27 +17,24 @@ import retrofit2.Response
 class PageDataFetcher {
 
     suspend fun fetchPage(title: PageTitle, entry: HistoryEntry, forceNetwork: Boolean = false): PageResult {
-        return try {
-            val cacheControl = if (forceNetwork) "no-cache" else "default"
 
-            val pageSummary = fetchPageSummary(title, cacheControl)
-            val watchStatus = fetchWatchStatus(title)
-            val categories = fetchCategories(title, watchStatus.myQueryResponse)
+        val cacheControl = if (forceNetwork) "no-cache" else "default"
 
-            if (pageSummary.body() == null) {
-                throw RuntimeException("Summary response was invalid.")
-            }
+        val pageSummary = fetchPageSummary(title, cacheControl)
+        val watchStatus = fetchWatchStatus(title)
+        val categories = fetchCategories(title, watchStatus.myQueryResponse)
 
-            PageResult.Success(
-                pageSummaryResponse = pageSummary,
-                categories = categories,
-                isWatched = watchStatus.isWatched,
-                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry,
-                redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) title.displayText else null
-            )
-        } catch (e: Exception) {
-            PageResult.Error(e)
+        if (pageSummary.body() == null) {
+            throw RuntimeException("Summary response was invalid.")
         }
+
+        return PageResult.Success(
+            pageSummaryResponse = pageSummary,
+            categories = categories,
+            isWatched = watchStatus.isWatched,
+            hasWatchlistExpiry = watchStatus.hasWatchlistExpiry,
+            redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) title.displayText else null
+        )
     }
     private suspend fun fetchPageSummary(title: PageTitle, cacheControl: String): Response<PageSummary> {
         return ServiceFactory.getRest(title.wikiSite).getSummaryResponse(
