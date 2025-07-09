@@ -1,12 +1,8 @@
 package org.wikipedia.page.pageload
 
-import org.wikipedia.categories.db.Category
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.Page
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import retrofit2.Response
 
 data class PageLoadRequest(
     val title: PageTitle,
@@ -19,20 +15,21 @@ data class PageLoadOptions(
     val squashBackStack: Boolean = false,
     val isRefresh: Boolean = false,
     val stagedScrollY: Int = 0,
+    val shouldLoadFromBackStack: Boolean = false,
     val tabPosition: PageActivity.TabPosition = PageActivity.TabPosition.CURRENT_TAB
 )
 
 sealed class LoadType {
-    object CurrentTab: LoadType()
-    object NewForegroundTab: LoadType()
-    object NewBackgroundTab: LoadType()
-    object ExistingTab: LoadType()
-    data class WithScrollPosition(val scrollY: Int): LoadType()
+    object CurrentTab : LoadType()
+    object NewForegroundTab : LoadType()
+    object NewBackgroundTab : LoadType()
+    object ExistingTab : LoadType()
+    object FromBackStack : LoadType()
 }
 
 sealed class LoadState {
-    object Idle: LoadState()
-    object Loading: LoadState()
-    data class Success(val result: PageResult? = null): LoadState()
-    data class Error(val throwable: Throwable): LoadState()
+    object Idle : LoadState()
+    object Loading : LoadState()
+    data class Success(val result: PageResult? = null) : LoadState()
+    data class Error(val throwable: Throwable) : LoadState()
 }

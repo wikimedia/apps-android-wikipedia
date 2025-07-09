@@ -3,17 +3,18 @@ package org.wikipedia.page
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler.WebViewMenuCallback
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.pageload.PageLoadOptions
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 
 class PageContainerLongPressHandler(private val fragment: PageFragment) : WebViewMenuCallback {
 
     override fun onOpenLink(entry: HistoryEntry) {
-        fragment.loadPage(entry.title, entry)
+        fragment.onPageLoadPage(entry.title, entry)
     }
 
     override fun onOpenInNewTab(entry: HistoryEntry) {
-        fragment.openInNewBackgroundTab(entry.title, entry)
+        fragment.loadPage(entry.title, entry, options = PageLoadOptions(tabPosition = PageActivity.TabPosition.NEW_TAB_BACKGROUND))
     }
 
     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {

@@ -12,7 +12,6 @@ import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
-import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
@@ -158,7 +157,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     if (categoryList.isNotEmpty()) {
                         AppDatabase.instance.categoryDao().upsertAll(categoryList)
                     }
-
 
                     // not done
                     if (delayLoadHtml) {

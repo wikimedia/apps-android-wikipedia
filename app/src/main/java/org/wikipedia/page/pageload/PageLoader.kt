@@ -9,18 +9,15 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import kotlin.text.get
 
 class PageLoader(
     private val fragment: PageFragment,
@@ -38,7 +35,7 @@ class PageLoader(
             is LoadType.NewForegroundTab -> loadInNewForegroundTab(request)
             is LoadType.NewBackgroundTab -> loadInNewBackgroundTab(request)
             is LoadType.ExistingTab -> loadInExistingTab(request)
-            is LoadType.WithScrollPosition -> loadWithScrollPosition(request)
+            is LoadType.FromBackStack -> loadWithScrollPosition(request)
         }
     }
 
@@ -89,11 +86,14 @@ class PageLoader(
     }
 
     private fun loadInNewBackgroundTab(request: PageLoadRequest) {
-        val isForeground = if (app.tabCount == 0) true else false
-        prepareForLoad(request)
-        createNewTab(request, isForeground = isForeground)
-        (fragment.requireActivity() as PageActivity).animateTabsButton()
-        executeLoad(request)
+        val isForeground = app.tabCount == 0
+        if (isForeground) {
+            createNewTab(request, isForeground = true)
+            loadFromBackStack()
+        } else {
+            createNewTab(request, isForeground = false)
+            (fragment.requireActivity() as PageActivity).animateTabsButton()
+        }
     }
 
     private fun loadInExistingTab(request: PageLoadRequest) {
@@ -134,7 +134,7 @@ class PageLoader(
                 loadBackgroundTabMetadata(request.title)
             }
             fragment.requireActivity().invalidateOptionsMenu()
-        }else {
+        } else {
             setTab(fragment.currentTab)
             fragment.currentTab.backStack.add(PageBackStackItem(request.title, request.entry))
         }
@@ -186,7 +186,15 @@ class PageLoader(
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        loadPage(request = PageLoadRequest(title = item.title, entry = item.historyEntry, options = PageLoadOptions(pushbackStack = false, stagedScrollY = item.scrollY)))
+        loadPage(request = PageLoadRequest(
+            title = item.title,
+            entry = item.historyEntry,
+            options = PageLoadOptions(
+                pushbackStack = false,
+                stagedScrollY = item.scrollY,
+                shouldLoadFromBackStack = true
+            ))
+        )
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
@@ -251,12 +259,12 @@ class PageLoader(
                     handleLoadSuccess(result, request)
                 }
                 is PageResult.Error -> {
-
+                    updateLoadingState(LoadState.Error(result.throwable))
+                    handleLoadError(result.throwable)
                 }
             }
         }
     }
-
 
     fun updateCurrentBackStackItem() {
         if (currentTab.backStack.isEmpty()) {
@@ -301,7 +309,6 @@ class PageLoader(
         fragment.onPageMetadataLoaded(result.redirectedFrom)
     }
 
-
     private fun handleLoadError(error: Throwable) {
         if (!fragment.isAdded) {
             return
@@ -321,7 +328,7 @@ class PageLoader(
 
     private fun determineLoadType(request: PageLoadRequest): LoadType {
         return when {
-            request.options.stagedScrollY > 0 -> LoadType.WithScrollPosition(request.options.stagedScrollY)
+            request.options.shouldLoadFromBackStack -> LoadType.FromBackStack
             request.options.tabPosition == PageActivity.TabPosition.NEW_TAB_FOREGROUND -> LoadType.NewForegroundTab
             request.options.tabPosition == PageActivity.TabPosition.NEW_TAB_BACKGROUND -> LoadType.NewBackgroundTab
             request.options.tabPosition == PageActivity.TabPosition.EXISTING_TAB -> LoadType.ExistingTab
@@ -338,5 +345,4 @@ class PageLoader(
         leadImagesHandler.loadLeadImage()
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
     }
-
 }

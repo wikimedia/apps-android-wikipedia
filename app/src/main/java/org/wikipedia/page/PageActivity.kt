@@ -614,7 +614,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // Close the link preview, if one is open.
             hideLinkPreview()
             onPageCloseActionMode()
-            val options = when(position) {
+            val options = when (position) {
                 TabPosition.CURRENT_TAB -> PageLoadOptions(tabPosition = position)
                 TabPosition.CURRENT_TAB_SQUASH -> PageLoadOptions(tabPosition = position, squashBackStack = true)
                 TabPosition.NEW_TAB_BACKGROUND -> PageLoadOptions(tabPosition = position)
