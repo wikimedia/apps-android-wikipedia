@@ -10,7 +10,8 @@ import org.wikipedia.page.PageTitle
 @Entity
 @Serializable
 class Tab(
-    @PrimaryKey(autoGenerate = true) var id: Long = 0
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val currentBackStackItemId: Long = -1
 ) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
