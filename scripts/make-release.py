@@ -10,19 +10,12 @@ Step 1: (e.g., --beta):
 Step 2: (e.g., --beta --push):
     - Creates an annotated tag called 'releases/versionName'
 
-To run
-1) tell people on #wikimedia-mobile you're about to bump the version,
-   so hold off on merging to main
-2) git checkout main
-3) git pull
-4) git reset --hard
-5) python scripts/make-release.py --prod (or --beta, --alpha, --debug)
+To run:
+1) Ensure a clean working directory, on main branch.
+2) Execute the build:  python scripts/make-release.py --prod (or --beta, --alpha, --debug)
 Note: the apk file locations are printed to stdout
-6) manual step: test the apk(s): adb install -r <apk file>
-7) python scripts/make-release.py --prod --push
-8) compile release note of prod using
-    git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges `git tag -l r/*|tail -1`..
-9) Upload prod apk to Play Store and to releases.mediawiki.org
+3) Test the built APK on your device(s).
+4) Generate and push the git tag:  python scripts/make-release.py --prod --push
 
 For development/testing without signing setup, use: --debug
 This builds a debug APK that can be installed for testing.
@@ -34,7 +27,6 @@ For Windows users experiencing file locking issues:
 
 Requires the environment variable ANDROID_HOME to run.
 For production builds (--beta, --prod), also requires signing configuration in ~/.sign/signing.properties
-Ensure you have a clean working directory before running as well.
 
 See also https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Release_process
 """
