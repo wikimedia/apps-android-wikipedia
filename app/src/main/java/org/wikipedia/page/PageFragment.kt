@@ -151,7 +151,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private val activeTimer = ActiveTimer()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val pageRefreshListener = OnRefreshListener { refreshPage() }
+    private val pageRefreshListener = OnRefreshListener {
+        webView.clearCache(true)
+        refreshPage()
+    }
     private val pageActionItemCallback = PageActionItemCallback()
 
     private lateinit var bridge: CommunicationBridge

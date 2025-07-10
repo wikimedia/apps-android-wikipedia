@@ -9,6 +9,7 @@
 * JohanahoJ
 * Jon Harald Søby
 * Jopparn
+* JorgeElias2302
 * Josve05a
 * Lokal Profil
 * Mjälten
@@ -168,6 +169,7 @@
   <string name="login_2fa_other_workflow_error_msg">Tvåstegsverifiering krävs! Logga in via huvudmenyn och ange din tvåstegsverifieringskod.</string>
   <string name="login_email_auth_hint">E-postverifieringskod</string>
   <string name="login_email_auth_other_workflow_error_msg">E-postverifiering krävs! Logga in från huvudmenyn och ange din e-postverifieringskod.</string>
+  <string name="login_background_error_msg">Det gick inte att logga in igen. Gå tillbaka till huvudskärmen och logga in manuellt.</string>
   <string name="onboarding_card_login">Logga in</string>
   <string name="page_editing_login">Logga in</string>
   <string name="reading_lists_sync_login">Logga in</string>
@@ -1783,6 +1785,7 @@
     <item quantity="one">%d vald</item>
     <item quantity="other">%d valda</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Välj minst ett intresse</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Slumpa</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Vi har slumpat fram några artiklar åt dig</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Ångra</string>
@@ -1796,9 +1799,9 @@
     <item quantity="one">• %d artikel</item>
     <item quantity="other">• %d artiklar</item>
   </plurals>
-  <string name="recommended_reading_list_page_description_daily" fuzzy="true">Din dagliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar vid midnatt.</string>
+  <string name="recommended_reading_list_page_description_daily">Din dagliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar vid midnatt.</string>
   <string name="recommended_reading_list_page_description_weekly">Din veckovisa läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar i början av veckan.</string>
-  <string name="recommended_reading_list_page_description_monthly" fuzzy="true">Din månatliga läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar den första i varje månad.</string>
+  <string name="recommended_reading_list_page_description_monthly">Din månatliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar den första i varje månad.</string>
   <string name="recommended_reading_list_page_overflow_customize">Anpassa</string>
   <string name="recommended_reading_list_page_overflow_about">Om den här funktionen</string>
   <string name="recommended_reading_list_page_snackbar">Upptäck uppdateras med %1$d nya artiklar varje %2$s. Dina rekommendationer lagras lokalt på din enhet.</string>

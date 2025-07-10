@@ -31,6 +31,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
+import java.io.IOException
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -150,18 +151,29 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     }
                     val makeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
                     val watchedRequest = async {
-                        if (makeWatchRequest) {
-                            ServiceFactory.get(title.wikiSite).getWatchedStatusWithCategories(title.prefixedText)
-                        } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
-                            AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                        } else {
+                        try {
+                            if (makeWatchRequest) {
+                                ServiceFactory.get(title.wikiSite)
+                                    .getWatchedStatusWithCategories(title.prefixedText)
+                            } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
+                                AnonymousNotificationHelper.maybeGetAnonUserInfo(title.wikiSite)
+                            } else {
+                                MwQueryResponse()
+                            }
+                        } catch (_: IOException) {
+                            L.w("Ignoring network error while fetching watched status.")
                             MwQueryResponse()
                         }
                     }
                     val categoriesRequest = async {
-                        if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
-                            ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
-                        } else {
+                        try {
+                            if (!makeWatchRequest && WikipediaApp.instance.isOnline) {
+                                ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+                            } else {
+                                MwQueryResponse()
+                            }
+                        } catch (_: IOException) {
+                            L.w("Ignoring network error while fetching categories.")
                             MwQueryResponse()
                         }
                     }
