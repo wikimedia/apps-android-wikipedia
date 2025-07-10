@@ -292,6 +292,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             (requireActivity() as PageActivity).animateTabsButton()
                             return@collect
                         }
+                        if (state.sectionAnchor != null) {
+                            scrollToSection(state.sectionAnchor)
+                            return@collect
+                        }
                         if (!state.title.prefixedText.contains(":")) {
                             bridge.resetHtml(state.title)
                         }

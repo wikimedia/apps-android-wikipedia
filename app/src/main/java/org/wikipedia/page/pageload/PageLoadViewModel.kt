@@ -51,13 +51,9 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             handleError(throwable)
         }) {
             try {
-                _loadState.value = LoadState.Loading(request.options.isRefresh)
-                _progressVisible.value = true
-                _errorState.value = null
-
                 when (determineLoadType(request)) {
-                    LoadType.CurrentTab -> {}
-                    LoadType.ExistingTab -> {}
+                    LoadType.CurrentTab -> loadInCurrentTab(request, webScrollY)
+                    LoadType.ExistingTab -> loadInExistingTab(request)
                     LoadType.FromBackStack -> loadFromBackStack(request, webScrollY)
                     LoadType.NewBackgroundTab -> loadInNewBackgroundTab(request)
                     LoadType.NewForegroundTab -> loadInNewForegroundTab(request, webScrollY)
@@ -96,28 +92,44 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
-    private suspend fun loadFromBackStack(request: PageLoadRequest, webScrollY: Int) {
-        if (request.options.pushbackStack) {
-            // update the topmost entry in the backstack, before we start overwriting things.
-            updateCurrentBackStackItem(webScrollY)
-            currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
+    private suspend fun loadInExistingTab(request: PageLoadRequest) {
+        val selectedTabPosition = selectedTabPosition(request.title)
+        if (selectedTabPosition == -1) {
+            loadPageData(request)
         }
-        loadPageData(request, false)
     }
 
-    private suspend fun loadInNewForegroundTab(request: PageLoadRequest, webScrollY: Int) {
+    private suspend fun loadInCurrentTab(request: PageLoadRequest, webScrollY: Int) {
+        val model = currentPageModel.value
+        if (currentTab.backStack.isNotEmpty() &&
+            request.title == currentTab.backStack[currentTab.backStackPosition].title) {
+            if (model?.page == null || request.options.isRefresh) {
+                loadFromBackStack()
+            } else if (!request.title.fragment.isNullOrEmpty()) {
+                _loadState.value = LoadState.Success(title = request.title, sectionAnchor = request.title.fragment)
+            }
+            return
+        }
         if (request.options.squashBackStack) {
             if (app.tabCount > 0) {
                 app.tabList.last().clearBackstack()
             }
         }
+        loadFromBackStack(request, webScrollY)
+    }
+
+    private suspend fun loadFromBackStack(request: PageLoadRequest, webScrollY: Int, isNewTabCreated: Boolean = false) {
         if (request.options.pushbackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem(webScrollY)
             currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
         }
-        val isNewTabCreated = createNewTab(request, isForeground = true)
         loadPageData(request, isNewTabCreated)
+    }
+
+    private suspend fun loadInNewForegroundTab(request: PageLoadRequest, webScrollY: Int) {
+        val isNewTabCreated = createNewTab(request, isForeground = true)
+        loadFromBackStack(request, webScrollY, isNewTabCreated)
     }
 
     private fun loadInNewBackgroundTab(request: PageLoadRequest) {
@@ -150,7 +162,10 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
-    private suspend fun loadPageData(request: PageLoadRequest, isNewTabCreated: Boolean) {
+    private suspend fun loadPageData(request: PageLoadRequest, isNewTabCreated: Boolean = false) {
+        _loadState.value = LoadState.Loading(request.options.isRefresh)
+        _progressVisible.value = true
+        _errorState.value = null
         val result = pageDataFetcher.fetchPage(
             title = request.title,
             entry = request.entry,

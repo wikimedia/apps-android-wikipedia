@@ -619,7 +619,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.CURRENT_TAB_SQUASH -> PageLoadOptions(tabPosition = position, squashBackStack = true)
                 TabPosition.NEW_TAB_BACKGROUND -> PageLoadOptions(tabPosition = position)
                 TabPosition.NEW_TAB_FOREGROUND -> PageLoadOptions(tabPosition = position, pushbackStack = false)
-                TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position)
+                TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position, pushbackStack = true, squashBackStack = true)
             }
             pageFragment.loadPage(pageTitle, entry, options)
         }

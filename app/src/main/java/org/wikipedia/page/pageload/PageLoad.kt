@@ -36,6 +36,7 @@ sealed class LoadState {
         val isNewTabCreated: Boolean = false,
         val title: PageTitle,
         val stagedScrollY: Int = 0,
-        val loadedFromBackground: Boolean = false) : LoadState()
+        val loadedFromBackground: Boolean = false,
+        val sectionAnchor: String? = null) : LoadState()
     data class Error(val throwable: Throwable) : LoadState()
 }
