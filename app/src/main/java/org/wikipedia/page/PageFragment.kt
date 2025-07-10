@@ -288,8 +288,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
-        app.commitTabState()
-        val time = if (app.tabList.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        TabHelper.commitTabState()
+        val time = if (TabHelper.hasTabs() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -330,10 +330,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return true
         }
         // if the current tab can no longer go back, then close the tab before exiting
-        if (app.tabList.isNotEmpty()) {
-            val tab = app.tabList.removeAt(app.tabList.size - 1)
-            app.deleteTab(tab)
-        }
+        TabHelper.removeTabAt(TabHelper.list.size - 1)
         return false
     }
 
@@ -510,20 +507,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun setCurrentTabAndReset(position: Int) {
         // move the selected tab to the bottom of the list, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
-        if (position < app.tabList.size - 1) {
-            val tab = app.tabList.removeAt(position)
-            app.tabList.add(tab)
+        if (position < TabHelper.list.size - 1) {
+            val tab = TabHelper.removeTabAt(position)
+            TabHelper.list.add(tab)
             pageFragmentLoadState.setTab(tab)
         }
-        if (app.tabCount > 0) {
-            app.tabList.last().squashBackstack()
+        if (TabHelper.count > 0) {
+            TabHelper.list.last().squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
 
     private fun selectedTabPosition(title: PageTitle): Int {
-        return app.tabList.firstOrNull { it.getBackStackPositionTitle() != null &&
-                title == it.getBackStackPositionTitle() }?.let { app.tabList.indexOf(it) } ?: -1
+        return TabHelper.list.firstOrNull { it.getBackStackPositionTitle() != null &&
+                title == it.getBackStackPositionTitle() }?.let { TabHelper.list.indexOf(it) } ?: -1
     }
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
@@ -541,15 +538,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 pageFragmentLoadState.setTab(tab)
             }
             // put this tab in the requested position
-            app.tabList.add(position, tab)
-            trimTabCount()
+            TabHelper.list.add(position, tab)
+            TabHelper.trimTabCount()
             // add the requested page to its backstack
             tab.backStack.add(PageBackStackItem(title, entry))
             if (!isForeground) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
                         .query?.firstPage()?.let { page ->
-                            WikipediaApp.instance.tabList.find { it.getBackStackPositionTitle() == title }?.getBackStackPositionTitle()?.apply {
+                            TabHelper.list.find { it.getBackStackPositionTitle() == title }?.getBackStackPositionTitle()?.apply {
                                 thumbUrl = page.thumbUrl()
                                 description = page.description
                             }
@@ -576,12 +573,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val historyEntryId = model.curEntry?.id ?: -1
         model.title?.let {
             callback()?.onPageRequestLangLinks(it, historyEntryId)
-        }
-    }
-
-    private fun trimTabCount() {
-        while (app.tabList.size > Constants.MAX_TABS) {
-            app.tabList.removeAt(0)
         }
     }
 
@@ -934,7 +925,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
-        if (app.tabCount == 0) {
+        if (TabHelper.count == 0) {
             openInNewTab(title, entry, foregroundTabPosition)
             pageFragmentLoadState.loadFromBackStack()
         } else {
@@ -961,7 +952,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
-                title == currentTab.backStack[currentTab.backStackPosition].title) {
+                title == currentTab.backStack[currentTab.backStackPosition].getPageTitle()) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack()
             } else if (!title.fragment.isNullOrEmpty()) {
@@ -970,8 +961,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         if (squashBackstack) {
-            if (app.tabCount > 0) {
-                app.tabList.last().clearBackstack()
+            if (TabHelper.count > 0) {
+                TabHelper.list.last().clearBackstack()
             }
         }
         loadPage(title, entry, pushBackStack, 0, isRefresh)

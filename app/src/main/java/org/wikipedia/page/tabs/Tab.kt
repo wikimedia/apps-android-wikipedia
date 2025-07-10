@@ -67,11 +67,13 @@ class Tab(
     }
 
     fun clearBackstack() {
+        // TODO: handle the ids
         backStack.clear()
         backStackPosition = -1
     }
 
     fun squashBackstack() {
+        // TODO: handle the ids
         backStack.lastOrNull()?.let {
             backStack.clear()
             backStack.add(it)

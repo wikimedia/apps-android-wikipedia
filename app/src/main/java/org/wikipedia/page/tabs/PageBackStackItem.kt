@@ -23,6 +23,17 @@ class PageBackStackItem(
     var description: String? = null,
     var extract: String? = null
 ) {
+    constructor(title: PageTitle, entry: HistoryEntry) : this(
+        apiTitle = title.prefixedText,
+        displayTitle = title.displayText,
+        langCode = title.wikiSite.languageCode,
+        namespace = title.namespace,
+        thumbUrl = title.thumbUrl,
+        description = title.description,
+        extract = title.extract,
+        source = entry.source
+    )
+
     fun getPageTitle(): PageTitle {
         return PageTitle(namespace, apiTitle, WikiSite.Companion.forLanguageCode(langCode)).apply {
             this.displayText = displayTitle

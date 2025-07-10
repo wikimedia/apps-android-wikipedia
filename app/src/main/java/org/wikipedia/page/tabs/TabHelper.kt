@@ -61,6 +61,16 @@ object TabHelper {
         return list.isNotEmpty() && (list.size > 1 || list[0].backStack.isNotEmpty())
     }
 
+    fun removeTabAt(position: Int): Tab {
+        return list.removeAt(position)
+    }
+
+    fun trimTabCount() {
+        while (list.size > Constants.MAX_TABS) {
+            list.removeAt(0)
+        }
+    }
+
     fun commitTabState() {
         coroutineScope.launch(coroutineExceptionHandler) {
             if (list.isEmpty()) {
@@ -95,10 +105,7 @@ object TabHelper {
             val tab = if (count == 0) list[0] else Tab()
             if (count > 0) {
                 list.add(0, tab)
-                while (list.size > Constants.MAX_TABS) {
-                    val tabToRemove = list.removeAt(0)
-                    deleteTabs(listOf(tabToRemove))
-                }
+                trimTabCount()
             }
             // Add a new PageBackStackItem to database
             val pageBackStackItem = PageBackStackItem(
@@ -112,7 +119,7 @@ object TabHelper {
                 source = entry.source
             )
             tab.backStack.add(pageBackStackItem)
-            insertTabs(listOf(tab))
+            commitTabState()
         }
     }
 
