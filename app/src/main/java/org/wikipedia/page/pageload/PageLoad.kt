@@ -3,6 +3,7 @@ package org.wikipedia.page.pageload
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.PageViewModel
 
 data class PageLoadRequest(
     val title: PageTitle,

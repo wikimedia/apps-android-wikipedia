@@ -1360,17 +1360,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             pageLoadViewModel.pageLoadState.collect { state ->
-                when (state.uiState) {
-                    is PageLoadUiState.Loading -> handleLoadingState(state.uiState)
-                    is PageLoadUiState.Success -> handleSuccessPageLoadingState(state.uiState)
-                    is PageLoadUiState.SpecialPage -> handleSpecialLoadingPage(state.uiState)
-                    is PageLoadUiState.Error -> {}
-                }
                 if (state.isTabCreated) {
                     requireActivity().invalidateOptionsMenu()
                 }
                 if (state.currentPageModel != null) {
                     model = state.currentPageModel
+                }
+                when (state.uiState) {
+                    is PageLoadUiState.Loading -> handleLoadingState(state.uiState)
+                    is PageLoadUiState.Success -> handleSuccessPageLoadingState(state.uiState)
+                    is PageLoadUiState.SpecialPage -> handleSpecialLoadingPage(state.uiState)
+                    is PageLoadUiState.Error -> {}
                 }
             }
         }
@@ -1409,6 +1409,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             !state.title.prefixedText.contains(":") -> bridge.resetHtml(state.title)
         }
+        pageLoadViewModel.updateTabListToPreventZHVariantIssue(model.title)
+        pageLoadViewModel.saveInformationToDatabase(model, state.result?.pageSummaryResponse?.body())
         scrollTriggerListener.stagedScrollY = state.stagedScrollY
         updateQuickActionsAndMenuOptions()
         requireActivity().invalidateOptionsMenu()

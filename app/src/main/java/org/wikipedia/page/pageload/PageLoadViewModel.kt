@@ -14,8 +14,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageBackStackItem
@@ -71,11 +75,54 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
+    fun updateTabListToPreventZHVariantIssue(title: PageTitle?) {
+        if (title == null) return
+        WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
+    }
+
+    fun saveInformationToDatabase(
+        currentPageModel: PageViewModel?,
+        pageSummary: PageSummary?
+    ) {
+        val pageModel = currentPageModel ?: return
+        val title = currentPageModel.title ?: return
+
+        viewModelScope.launch {
+            pageModel.curEntry?.let {
+                val entry = HistoryEntry(
+                    title,
+                    it.source,
+                    timestamp = it.timestamp
+                ).apply {
+                    referrer = it.referrer
+                    prevId = it.prevId
+                }
+                pageModel.curEntry = entry
+                // Insert and/or update this history entry in the DB
+                AppDatabase.instance.historyEntryDao().upsert(entry).run {
+                    pageModel.curEntry?.id = this
+                }
+
+                // Update metadata in the DB
+                AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
+
+                // And finally, count this as a page view.
+                WikipediaApp.instance.appSessionEvent.pageViewed(entry)
+                ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
+
+                // @TODO: requires fragment
+                // ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
+            }
+        }
+    }
+
     private suspend fun loadInExistingTab(request: PageLoadRequest) {
         val selectedTabPosition = selectedTabPosition(request.title)
         if (selectedTabPosition == -1) {
             loadPageData(request)
+            return
         }
+        switchToExistingTab(selectedTabPosition)
     }
 
     private suspend fun loadInCurrentTab(request: PageLoadRequest, webScrollY: Int) {
@@ -242,13 +289,27 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
 
     private suspend fun createPageModel(request: PageLoadRequest, result: PageResult.Success): PageViewModel {
         return PageViewModel().apply {
-            title = request.title
             curEntry = request.entry
             forceNetwork = request.options.isRefresh
             readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(request.title)
-            page = result.pageSummaryResponse.body()?.toPage(title)
+            val response = result.pageSummaryResponse
+            val pageSummary = response.body()
+            page = pageSummary?.toPage(request.title)
+            title = page?.title
             isWatched = result.isWatched
             hasWatchlistExpiry = result.hasWatchlistExpiry
+            title?.let {
+                if (!response.raw().request.url.fragment.isNullOrEmpty()) {
+                    it.fragment = response.raw().request.url.fragment
+                }
+                if (it.description.isNullOrEmpty()) {
+                    WikipediaApp.instance.appSessionEvent.noDescription()
+                }
+                if (!it.isMainPage) {
+                    it.displayText = page?.displayTitle.orEmpty()
+                }
+                it.thumbUrl = pageSummary?.thumbnailUrl
+            }
         }
     }
 
