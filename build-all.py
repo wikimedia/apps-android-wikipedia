@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """
-Cross-platform build script for all release variants.
-Compatible with Windows, macOS, and Linux.
+Convenience script for building all release variants at once.
 """
 
 import os
