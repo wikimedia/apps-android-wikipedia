@@ -553,7 +553,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
             FeedbackUtil.makeSnackbar(requireActivity(), message)
                 .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle))
                 }
                         .addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
