@@ -20,6 +20,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.util.StringUtil
 
 class SearchResultsViewModel : ViewModel() {
@@ -126,7 +127,7 @@ class SearchResultsViewModel : ViewModel() {
         }
 
         private fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
-            WikipediaApp.instance.tabList.forEach { tab ->
+            TabHelper.list.forEach { tab ->
                 tab.getBackStackPositionTitle()?.let {
                     if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                         return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))

@@ -63,6 +63,7 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.search.SearchActivity
@@ -140,7 +141,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private val requestBrowseTabLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (app.tabCount == 0 && it.resultCode != TabActivity.RESULT_NEW_TAB) {
+        if (TabHelper.count == 0 && it.resultCode != TabActivity.RESULT_NEW_TAB) {
             // They browsed the tabs and cleared all of them, without wanting to open a new tab.
             finish()
             return@registerForActivityResult
@@ -632,7 +633,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private fun loadFilePageFromBackStackIfNeeded() {
         if (pageFragment.currentTab.backStack.isNotEmpty()) {
             val item = pageFragment.currentTab.backStack[pageFragment.currentTab.backStackPosition]
-            loadNonArticlePageIfNeeded(item.title)
+            loadNonArticlePageIfNeeded(item.getPageTitle())
         }
     }
 

@@ -8,8 +8,8 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import java.util.Date
 
-@Serializable
 @Entity
+@Serializable
 class PageBackStackItem(
     @PrimaryKey(autoGenerate = true) var id: Long = -1,
     val apiTitle: String,
@@ -17,7 +17,7 @@ class PageBackStackItem(
     val langCode: String,
     val namespace: String,
     val timestamp: Long = Date().time,
-    val scrollY: Int = 0,
+    var scrollY: Int = 0,
     var source: Int = HistoryEntry.Companion.SOURCE_INTERNAL_LINK,
     var thumbUrl: String? = null,
     var description: String? = null,

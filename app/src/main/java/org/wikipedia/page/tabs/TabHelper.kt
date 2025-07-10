@@ -47,7 +47,7 @@ object TabHelper {
             val tab = AppDatabase.instance.tabDao().getTabs()
             tab.forEach {
                 // Use the backStackIds to get the full backStack items from the database
-                val backStackItems = AppDatabase.instance.pageBackStackItemDao().getPageBackStackItems(it.backStackIds)
+                val backStackItems = AppDatabase.instance.pageBackStackItemDao().getPageBackStackItems(it.getBackStackIds())
                 it.backStack = backStackItems.toMutableList()
             }
             list.addAll(tab)
@@ -129,9 +129,8 @@ object TabHelper {
             // get the last order from the table
             var lastOrder = AppDatabase.instance.tabDao().getTabs().maxOfOrNull { it.order } ?: 0
             tabs.forEach { tab ->
-                tab.backStackIds.clear()
                 val ids = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItems(tab.backStack)
-                tab.backStackIds.addAll(ids)
+                tab.setBackStackIds(ids)
                 tab.order = ++lastOrder
             }
             AppDatabase.instance.tabDao().insertTabs(tabs)
@@ -141,7 +140,7 @@ object TabHelper {
     private suspend fun deleteTabs(tabs: List<Tab>) {
         withContext(Dispatchers.IO) {
             if (tabs.isEmpty()) return@withContext
-            val backStackIdsToDelete = tabs.flatMap { it.backStackIds }.distinct()
+            val backStackIdsToDelete = tabs.flatMap { it.getBackStackIds() }.distinct()
             // Delete all backStack items associated with the tabs to be deleted
             AppDatabase.instance.pageBackStackItemDao().deletePageBackStackItemsById(backStackIdsToDelete)
             AppDatabase.instance.tabDao().deleteTabs(tabs)
@@ -162,12 +161,11 @@ object TabHelper {
                 val existingTab = AppDatabase.instance.tabDao().getTabById(tab.id)
                 if (existingTab != null) {
                     // First, find removed backstack items
-                    // TODO: make sure to handle backStackIds correctly
-                    val removedBackStackIds = existingTab.backStackIds.subtract(tab.backStackIds)
-                    if (removedBackStackIds.isNotEmpty()) {
+                    val removedBackStacks = existingTab.backStack.subtract(tab.backStack).filter { it.id != -1L }
+                    if (removedBackStacks.isNotEmpty()) {
                         // Delete removed backstack items from the database
                         AppDatabase.instance.pageBackStackItemDao()
-                            .deletePageBackStackItemsById(removedBackStackIds.toList())
+                            .deletePageBackStackItemsById(removedBackStacks.map { it.id }.toList())
                     }
 
                     // Second, find new backstack items if the id is -1, insert them to the database
@@ -183,8 +181,7 @@ object TabHelper {
 
                     // Finally, update the tab with the new backStackIds and order
                     tab.order = index
-                    tab.backStackIds.clear()
-                    tab.backStackIds.addAll(backStackIds)
+                    tab.setBackStackIds(backStackIds)
                     AppDatabase.instance.tabDao().updateTab(tab)
                 } else {
                     insertTabs(listOf(tab))

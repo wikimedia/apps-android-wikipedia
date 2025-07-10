@@ -357,13 +357,13 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_31_32 = object : Migration(31, 32) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
+                db.execSQL("CREATE TABLE IF NOT EXISTS Tab (" +
                         "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
                         "  order INTEGER NOT NULL, " +
-                        "  backStackIds TEXT NOT NULL, " +
+                        "  pageBackStackItemIds TEXT NOT NULL, " +
                         "  backStackPosition INTEGER NOT NULL " +
                         ")")
-                db.execSQL("CREATE TABLE IF NOT EXISTS `PageBackStackItem` (" +
+                db.execSQL("CREATE TABLE IF NOT EXISTS PageBackStackItem (" +
                         "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
                         "  apiTitle TEXT NOT NULL, " +
                         "  displayTitle TEXT NOT NULL, " +

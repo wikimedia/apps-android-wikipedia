@@ -11,13 +11,25 @@ import org.wikipedia.page.PageTitle
 class Tab(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     var order: Int = 0,
-    val backStackIds: MutableList<Long> = mutableListOf()
+    var backStackIds: String = ""
 ) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
 
     @Ignore
     var backStack = mutableListOf<PageBackStackItem>()
+
+    fun setBackStackIds(ids: List<Long>) {
+        backStackIds = ids.joinToString(separator = ",")
+    }
+
+    fun getBackStackIds(): List<Long> {
+        return if (backStackIds.isEmpty()) {
+            emptyList()
+        } else {
+            backStackIds.split(",").mapNotNull { it.toLongOrNull() }
+        }
+    }
 
     fun getBackStackPositionTitle(): PageTitle? {
         return backStack.getOrNull(backStackPosition)?.getPageTitle()
@@ -67,13 +79,11 @@ class Tab(
     }
 
     fun clearBackstack() {
-        // TODO: handle the ids
         backStack.clear()
         backStackPosition = -1
     }
 
     fun squashBackstack() {
-        // TODO: handle the ids
         backStack.lastOrNull()?.let {
             backStack.clear()
             backStack.add(it)

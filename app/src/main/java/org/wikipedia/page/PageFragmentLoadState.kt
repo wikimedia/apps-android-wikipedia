@@ -24,6 +24,7 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
@@ -59,8 +60,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY)
-        L.d("Loaded page " + item.title.displayText + " from backstack")
+        fragment.loadPage(item.getPageTitle(), item.getHistoryEntry(), false, item.scrollY)
+        L.d("Loaded page " + item.displayTitle + " from backstack")
     }
 
     fun updateCurrentBackStackItem() {
@@ -69,10 +70,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         item.scrollY = webView.scrollY
-        model.title?.let {
-            item.title.description = it.description
-            item.title.thumbUrl = it.thumbUrl
-        }
+        item.description = model.title?.description
+        item.thumbUrl = model.title?.thumbUrl
     }
 
     fun setTab(tab: Tab): Boolean {
@@ -260,7 +259,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             fragment.requireActivity().invalidateOptionsMenu()
 
             // Update our tab list to prevent ZH variants issue.
-            WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
+            TabHelper.list.getOrNull(TabHelper.count - 1)?.setBackStackPositionTitle(title)
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             model.curEntry?.let {
