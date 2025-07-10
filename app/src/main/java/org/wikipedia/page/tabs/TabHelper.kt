@@ -64,14 +64,15 @@ object TabHelper {
     fun commitTabState(tab: Tab? = null) {
         coroutineScope.launch (coroutineExceptionHandler) {
             if (tab == null) {
-                // Regular tab commit
-                AppDatabase.instance.tabDao().deleteAll()
                 if (list.isEmpty()) {
+                    AppDatabase.instance.tabDao().deleteAll()
                     initTabs()
                 } else {
-                    AppDatabase.instance.tabDao().insertTabs(list)
+                    val tabsToDelete = AppDatabase.instance.tabDao().getTabs() - list
+                    deleteTabs(tabsToDelete)
                 }
             } else {
+                // TODO: handle this
                 // Update the specific tab
                 AppDatabase.instance.tabDao().updateTab(tab)
             }
@@ -84,7 +85,8 @@ object TabHelper {
             if (count > 0) {
                 list.add(0, tab)
                 while (list.size > Constants.MAX_TABS) {
-                    AppDatabase.instance.tabDao().deleteTab(list.removeAt(0))
+                    val tabToRemove = list.removeAt(0)
+                    deleteTabs(listOf(tabToRemove))
                 }
             }
             // Add a new PageBackStackItem to database
@@ -99,14 +101,38 @@ object TabHelper {
                 source = entry.source
             )
             tab.backStack.add(pageBackStackItem)
+            insertTabs(listOf(tab))
+        }
+    }
 
-            // TODO: should move into a separate function?
-            tab.backStackIds.clear()
-            tab.backStack.forEach {
-                val id = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItem(it)
-                tab.backStackIds.add(id)
+    private suspend fun insertTabs(tabs: List<Tab>) {
+        withContext(Dispatchers.IO) {
+            if (tabs.isEmpty()) return@withContext
+            // get the last order from the table
+            var lastOrder = AppDatabase.instance.tabDao().getTabs().maxOfOrNull { it.order } ?: 0
+            tabs.forEach { tab ->
+                tab.backStackIds.clear()
+                val ids = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItems(tab.backStack)
+                tab.backStackIds.addAll(ids)
+                tab.order = ++lastOrder
             }
-            AppDatabase.instance.tabDao().insertTab(tab)
+            AppDatabase.instance.tabDao().insertTabs(tabs)
+        }
+    }
+
+    private suspend fun deleteTabs(tabs: List<Tab>) {
+        withContext(Dispatchers.IO) {
+            if (tabs.isEmpty()) return@withContext
+            val backStackIdsToDelete = tabs.flatMap { it.backStackIds }.distinct()
+            // Delete all backStack items associated with the tabs to be deleted
+            AppDatabase.instance.pageBackStackItemDao().deletePageBackStackItemsById(backStackIdsToDelete)
+            AppDatabase.instance.tabDao().deleteTabs(tabs)
+            // Reset the order of the remaining tabs
+            val remainingTabs = AppDatabase.instance.tabDao().getTabs()
+            remainingTabs.forEachIndexed { index, tab ->
+                tab.order = index + 1
+            }
+            AppDatabase.instance.tabDao().updateTabs(remainingTabs)
         }
     }
 }

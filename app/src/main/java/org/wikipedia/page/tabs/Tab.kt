@@ -10,6 +10,7 @@ import org.wikipedia.page.PageTitle
 @Serializable
 class Tab(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    var order: Int = 0,
     val backStackIds: MutableList<Long> = mutableListOf()
 ) {
     var backStackPosition: Int = -1

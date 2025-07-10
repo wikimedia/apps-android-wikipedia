@@ -23,8 +23,14 @@ interface TabDao {
     @Query("DELETE FROM Tab")
     suspend fun deleteAll()
 
+    @Delete
+    suspend fun deleteTabs(tabs: List<Tab>)
+
     @Update
     suspend fun updateTab(tab: Tab)
+
+    @Update
+    suspend fun updateTabs(tabs: List<Tab>)
 
     @Delete
     suspend fun deleteTab(tab: Tab)

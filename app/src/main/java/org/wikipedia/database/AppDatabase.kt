@@ -359,7 +359,8 @@ abstract class AppDatabase : RoomDatabase() {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
                         "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
-                        "  backStackIds TEXT NOT NULL " +
+                        "  order INTEGER NOT NULL, " +
+                        "  backStackIds TEXT NOT NULL, " +
                         "  backStackPosition INTEGER NOT NULL " +
                         ")")
                 db.execSQL("CREATE TABLE IF NOT EXISTS `PageBackStackItem` (" +

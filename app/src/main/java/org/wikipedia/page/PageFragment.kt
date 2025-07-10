@@ -92,6 +92,7 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -183,9 +184,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    private val foregroundTabPosition get() = app.tabList.size
+    private val foregroundTabPosition get() = TabHelper.list.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList.last()
+    val currentTab get() = TabHelper.list.last()
     val title get() = model.title
     val page get() = model.page
     val isLoading get() = bridge.isLoading
