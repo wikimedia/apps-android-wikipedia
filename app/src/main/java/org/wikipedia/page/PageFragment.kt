@@ -85,9 +85,9 @@ import org.wikipedia.page.campaign.CampaignDialog
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
-import org.wikipedia.page.pageload.LoadState
 import org.wikipedia.page.pageload.PageLoadOptions
 import org.wikipedia.page.pageload.PageLoadRequest
+import org.wikipedia.page.pageload.PageLoadUiState
 import org.wikipedia.page.pageload.PageLoadViewModel
 import org.wikipedia.page.pageload.PageLoader
 import org.wikipedia.page.references.PageReferences
@@ -256,74 +256,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             reloadFromBackstack()
         }
         setupObservers()
-    }
-
-    private fun setupObservers() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            pageLoadViewModel.loadState.collect { state ->
-                when (state) {
-                    is LoadState.Loading -> {
-                        clearActivityActionBarTitle()
-                        dismissBottomSheet()
-
-                        updateProgressBar(true)
-                        sidePanelHandler.setEnabled(false)
-                        callback()?.onPageSetToolbarElevationEnabled(false)
-
-
-                        // Clear previous state
-                        errorState = false
-                        binding.pageError.visibility = View.GONE
-                        webView.visibility = View.VISIBLE
-                        binding.pageActionsTabLayout.visibility = View.VISIBLE
-                        binding.pageActionsTabLayout.enableAllTabs()
-
-                        // Reset references and other state
-                        references = null
-                        revision = 0
-                        pageRefreshed = state.isRefresh
-                    }
-                    is LoadState.Success -> {
-                        // when new tab is created
-                        if (state.isNewTabCreated) {
-                            requireActivity().invalidateOptionsMenu()
-                        }
-                        if (state.loadedFromBackground) {
-                            (requireActivity() as PageActivity).animateTabsButton()
-                            return@collect
-                        }
-                        if (state.sectionAnchor != null) {
-                            scrollToSection(state.sectionAnchor)
-                            return@collect
-                        }
-                        if (!state.title.prefixedText.contains(":")) {
-                            bridge.resetHtml(state.title)
-                        }
-                        scrollTriggerListener.stagedScrollY = state.stagedScrollY
-                        updateQuickActionsAndMenuOptions()
-                        requireActivity().invalidateOptionsMenu()
-                        leadImagesHandler.loadLeadImage()
-                        onPageMetadataLoaded(state.result?.redirectedFrom)
-
-                    }
-                    is LoadState.Error -> {}
-                    LoadState.Idle -> {}
-                    is LoadState.SpecialPage -> {
-                        bridge.resetHtml(state.request.title)
-                        leadImagesHandler.loadLeadImage()
-                        requireActivity().invalidateOptionsMenu()
-                        onPageMetadataLoaded()
-                    }
-                }
-            }
-        }
-        viewLifecycleOwner.lifecycleScope.launch {
-            pageLoadViewModel.currentPageModel.collect { pageViewModel ->
-                pageViewModel?.let {
-                    model = it
-                }
-            }
-        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -1422,6 +1354,73 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
         }
+    }
+
+    // UI observers
+    private fun setupObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            pageLoadViewModel.pageLoadState.collect { state ->
+                when (state.uiState) {
+                    is PageLoadUiState.Loading -> handleLoadingState(state.uiState)
+                    is PageLoadUiState.Success -> handleSuccessPageLoadingState(state.uiState)
+                    is PageLoadUiState.SpecialPage -> handleSpecialLoadingPage(state.uiState)
+                    is PageLoadUiState.Error -> {}
+                }
+                if (state.isTabCreated) {
+                    requireActivity().invalidateOptionsMenu()
+                }
+                if (state.currentPageModel != null) {
+                    model = state.currentPageModel
+                }
+            }
+        }
+    }
+
+    private fun handleLoadingState(state: PageLoadUiState.Loading) {
+        clearActivityActionBarTitle()
+        dismissBottomSheet()
+
+        updateProgressBar(true)
+        sidePanelHandler.setEnabled(false)
+        callback()?.onPageSetToolbarElevationEnabled(false)
+
+        // Clear previous state
+        errorState = false
+        binding.pageError.visibility = View.GONE
+        webView.visibility = View.VISIBLE
+        binding.pageActionsTabLayout.visibility = View.VISIBLE
+        binding.pageActionsTabLayout.enableAllTabs()
+
+        // Reset references and other state
+        references = null
+        revision = 0
+        pageRefreshed = state.isRefresh
+    }
+
+    private fun handleSuccessPageLoadingState(state: PageLoadUiState.Success) {
+        when {
+            state.loadedFromBackground -> {
+                (requireActivity() as PageActivity).animateTabsButton()
+                return
+            }
+            state.sectionAnchor != null -> {
+                scrollToSection(state.sectionAnchor)
+                return
+            }
+            !state.title.prefixedText.contains(":") -> bridge.resetHtml(state.title)
+        }
+        scrollTriggerListener.stagedScrollY = state.stagedScrollY
+        updateQuickActionsAndMenuOptions()
+        requireActivity().invalidateOptionsMenu()
+        leadImagesHandler.loadLeadImage()
+        onPageMetadataLoaded(state.result?.redirectedFrom)
+    }
+
+    private fun handleSpecialLoadingPage(state: PageLoadUiState.SpecialPage) {
+        bridge.resetHtml(state.request.title)
+        leadImagesHandler.loadLeadImage()
+        requireActivity().invalidateOptionsMenu()
+        onPageMetadataLoaded()
     }
 
     companion object {

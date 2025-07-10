@@ -256,7 +256,7 @@ class PageLoader(
             L.e("Page details network error: ", throwable)
             handleLoadError(throwable)
         }) {
-            updateLoadingState(LoadState.Loading())
+            updateLoadingState(PageLoadUiState.Loading())
             val result = dataFetcher.fetchPage(
                 request.title,
                 request.entry,
@@ -264,11 +264,11 @@ class PageLoader(
             )
             when (result) {
                 is PageResult.Success -> {
-                    //updateLoadingState(LoadState.Success())
+                    // updateLoadingState(LoadState.Success())
                     handleLoadSuccess(result, request)
                 }
                 is PageResult.Error -> {
-                    updateLoadingState(LoadState.Error(result.throwable))
+                    updateLoadingState(PageLoadUiState.Error(result.throwable))
                     handleLoadError(result.throwable)
                 }
             }
@@ -305,7 +305,6 @@ class PageLoader(
         fragment.model.hasWatchlistExpiry = result.hasWatchlistExpiry
         fragment.model.title = page?.title
 
-
         // in sucess state on fragment
         // ui update
         if (!request.title.prefixedText.contains(":")) {
@@ -338,11 +337,11 @@ class PageLoader(
         fragment.onPageLoadError(error)
     }
 
-    private fun updateLoadingState(state: LoadState) {
+    private fun updateLoadingState(state: PageLoadUiState) {
         when (state) {
-            is LoadState.Loading -> fragment.updateProgressBar(true)
-            is LoadState.Success -> fragment.updateProgressBar(false)
-            is LoadState.Error -> fragment.updateProgressBar(false)
+            is PageLoadUiState.Loading -> fragment.updateProgressBar(true)
+            is PageLoadUiState.Success -> fragment.updateProgressBar(false)
+            is PageLoadUiState.Error -> fragment.updateProgressBar(false)
             else -> {}
         }
     }

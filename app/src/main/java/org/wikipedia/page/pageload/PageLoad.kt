@@ -27,16 +27,14 @@ sealed class LoadType {
     object FromBackStack : LoadType()
 }
 
-sealed class LoadState {
-    object Idle : LoadState()
-    data class SpecialPage(val request: PageLoadRequest): LoadState()
-    data class Loading(val isRefresh: Boolean = false) : LoadState()
+sealed class PageLoadUiState {
+    data class SpecialPage(val request: PageLoadRequest) : PageLoadUiState()
+    data class Loading(val isRefresh: Boolean = false) : PageLoadUiState()
     data class Success(
         val result: PageResult.Success? = null,
-        val isNewTabCreated: Boolean = false,
         val title: PageTitle,
         val stagedScrollY: Int = 0,
         val loadedFromBackground: Boolean = false,
-        val sectionAnchor: String? = null) : LoadState()
-    data class Error(val throwable: Throwable) : LoadState()
+        val sectionAnchor: String? = null) : PageLoadUiState()
+    data class Error(val throwable: Throwable) : PageLoadUiState()
 }
