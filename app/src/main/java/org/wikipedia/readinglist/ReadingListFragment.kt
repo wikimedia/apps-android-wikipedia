@@ -48,6 +48,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
+import org.wikipedia.extensions.serializable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
@@ -117,9 +118,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         appCompatActivity.supportActionBar!!.title = ""
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.readingListToolbar, true)
 
-        readingListMode = (requireArguments().getSerializable(ReadingListActivity.EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
-        readingListId = requireArguments().getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
-        invokeSource = requireArguments().getSerializable(ReadingListActivity.EXTRA_SOURCE) as InvokeSource?
+        val args = requireArguments()
+        readingListMode = args.serializable(ReadingListActivity.EXTRA_READING_LIST_MODE) ?: ReadingListMode.DEFAULT
+        readingListId = args.getLong(ReadingListActivity.EXTRA_READING_LIST_ID, -1)
+        invokeSource = args.serializable(ReadingListActivity.EXTRA_SOURCE)
 
         touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         ItemTouchHelper(touchCallback).attachToRecyclerView(binding.readingListRecyclerView)

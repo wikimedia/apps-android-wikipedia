@@ -37,6 +37,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -187,7 +188,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             viewModel.loadTopics()
         }
 
-        invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        invokeSource = intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
 
         binding.talkNewTopicButton.isVisible = false
 

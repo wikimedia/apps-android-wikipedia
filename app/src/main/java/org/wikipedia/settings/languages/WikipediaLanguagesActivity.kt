@@ -5,12 +5,13 @@ import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment.Companion.newInstance
 import org.wikipedia.widgets.WidgetProviderFeaturedPage.Companion.forceUpdateWidget
 
 class WikipediaLanguagesActivity : SingleFragmentActivity<WikipediaLanguagesFragment>() {
     override fun createFragment(): WikipediaLanguagesFragment {
-        return newInstance(intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
+        return newInstance(intent.serializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!)
     }
 
     override fun onDestroy() {
