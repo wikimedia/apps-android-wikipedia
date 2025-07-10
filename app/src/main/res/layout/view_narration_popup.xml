@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/overflow_card_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/articleThumbnail"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            android:background="?attr/destructive_background"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/articleTitle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toEndOf="@id/articleThumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="?attr/secondary_color"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Lorem ipsum" />
+
+        <View
+            android:id="@+id/divider0"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/border_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleTitle" />
+
+
+
+        <ImageView
+            android:id="@+id/decreaseSpeedButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/divider0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/remove_circle_24px"
+            app:tint="?attr/secondary_color"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/increaseSpeedButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/divider0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add_circle_24"
+            app:tint="?attr/secondary_color"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/speedText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider0"
+            android:layout_marginTop="4dp"
+            android:textAlignment="center"
+            android:textColor="?attr/secondary_color"
+            android:textStyle="bold"
+            android:text="1.0x" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/speedText"
+            android:textAlignment="center"
+            android:textColor="?attr/secondary_color"
+            android:textSize="12sp"
+            android:text="Speed" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/border_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/decreaseSpeedButton" />
+
+        <ImageView
+            android:id="@+id/seekBackButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_replay_10"
+            app:tint="?attr/secondary_color"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/playPauseButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:layout_constraintStart_toEndOf="@id/seekBackButton"
+            app:srcCompat="@drawable/ic_pause_black_24dp"
+            app:tint="?attr/secondary_color"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/seekForwardButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:layout_constraintStart_toEndOf="@id/playPauseButton"
+            app:srcCompat="@drawable/ic_forward_10"
+            app:tint="?attr/secondary_color"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/border_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBackButton" />
+
+        <TextView
+            android:id="@+id/stopButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            android:background="?attr/destructive_background"
+            android:foreground="?attr/selectableItemBackground"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?attr/destructive_color"
+            android:textSize="16sp"
+            android:text="Stop playback" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>
