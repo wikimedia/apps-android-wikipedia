@@ -146,6 +146,7 @@ class OnThisDayGamePlayFragment : Fragment() {
     private fun onGameStarted(gameState: OnThisDayGameViewModel.GameState) {
         updateInitialScores(gameState)
         updateGameState(gameState)
+        animateQuestionsIn()
     }
 
     private fun onCurrentQuestion(gameState: OnThisDayGameViewModel.GameState) {
