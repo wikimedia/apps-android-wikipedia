@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 """
-Cross-platform script to upload Wikipedia Android APKs to releases server.
-
-This is a Python equivalent of the upload-all.sh bash script.
-It uploads beta and stable release APKs to the Wikimedia releases server using SCP.
-
-Usage:
-    python upload-all.py
+Uploads all built APKs to the Wikimedia releases server.
 
 Requirements:
     - SCP must be available in PATH
