@@ -23,7 +23,7 @@ object TabHelper {
         get() = if (list.size > 1) list.size else if (list.isEmpty()) 0 else if (list[0].backStack.isEmpty()) 0 else list.size
 
     init {
-        coroutineScope.launch (coroutineExceptionHandler) {
+        coroutineScope.launch(coroutineExceptionHandler) {
             initTabs()
         }
     }
@@ -61,26 +61,37 @@ object TabHelper {
         return list.isNotEmpty() && (list.size > 1 || list[0].backStack.isNotEmpty())
     }
 
-    fun commitTabState(tab: Tab? = null) {
-        coroutineScope.launch (coroutineExceptionHandler) {
-            if (tab == null) {
-                if (list.isEmpty()) {
-                    AppDatabase.instance.tabDao().deleteAll()
-                    initTabs()
-                } else {
-                    val tabsToDelete = AppDatabase.instance.tabDao().getTabs() - list
-                    deleteTabs(tabsToDelete)
-                }
+    fun commitTabState() {
+        coroutineScope.launch(coroutineExceptionHandler) {
+            if (list.isEmpty()) {
+                AppDatabase.instance.tabDao().deleteAll()
+                initTabs()
             } else {
-                // TODO: handle this
-                // Update the specific tab
-                AppDatabase.instance.tabDao().updateTab(tab)
+                val existingTabs = AppDatabase.instance.tabDao().getTabs()
+                val removedTabsFromList = existingTabs.subtract(list.toSet())
+                val newTabsFromList = list.subtract(existingTabs.toSet())
+
+                // First, delete tabs that are no longer in the list
+                if (removedTabsFromList.isNotEmpty()) {
+                    deleteTabs(removedTabsFromList.toList())
+                }
+
+                // Then, insert new tabs that are not in the existing tabs
+                if (newTabsFromList.isNotEmpty()) {
+                    insertTabs(newTabsFromList.toList())
+                }
+
+                // Finally, update the existing tabs with new backStack or order
+                val tabsToUpdate = existingTabs - newTabsFromList - removedTabsFromList
+                if (tabsToUpdate.isNotEmpty()) {
+                    updateTabs(tabsToUpdate.toList())
+                }
             }
         }
     }
 
     fun openInNewBackgroundTab(entry: HistoryEntry) {
-        coroutineScope.launch (coroutineExceptionHandler) {
+        coroutineScope.launch(coroutineExceptionHandler) {
             val tab = if (count == 0) list[0] else Tab()
             if (count > 0) {
                 list.add(0, tab)
@@ -133,6 +144,45 @@ object TabHelper {
                 tab.order = index + 1
             }
             AppDatabase.instance.tabDao().updateTabs(remainingTabs)
+        }
+    }
+
+    private suspend fun updateTabs(tabs: List<Tab>) {
+        withContext(Dispatchers.IO) {
+            if (tabs.isEmpty()) return@withContext
+            tabs.forEachIndexed { index, tab ->
+                // Find the existing tab in the database
+                val existingTab = AppDatabase.instance.tabDao().getTabById(tab.id)
+                if (existingTab != null) {
+                    // First, find removed backstack items
+                    // TODO: make sure to handle backStackIds correctly
+                    val removedBackStackIds = existingTab.backStackIds.subtract(tab.backStackIds)
+                    if (removedBackStackIds.isNotEmpty()) {
+                        // Delete removed backstack items from the database
+                        AppDatabase.instance.pageBackStackItemDao()
+                            .deletePageBackStackItemsById(removedBackStackIds.toList())
+                    }
+
+                    // Second, find new backstack items if the id is -1, insert them to the database
+                    val backStackIds = mutableListOf<Long>()
+                    tab.backStack.forEach { item ->
+                        if (item.id == -1L) {
+                            val newId = AppDatabase.instance.pageBackStackItemDao()
+                                .insertPageBackStackItem(item)
+                            item.id = newId
+                        }
+                        backStackIds.add(item.id)
+                    }
+
+                    // Finally, update the tab with the new backStackIds and order
+                    tab.order = index
+                    tab.backStackIds.clear()
+                    tab.backStackIds.addAll(backStackIds)
+                    AppDatabase.instance.tabDao().updateTab(tab)
+                } else {
+                    insertTabs(listOf(tab))
+                }
+            }
         }
     }
 }

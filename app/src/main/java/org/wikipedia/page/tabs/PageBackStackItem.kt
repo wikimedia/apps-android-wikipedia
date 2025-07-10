@@ -11,7 +11,7 @@ import java.util.Date
 @Serializable
 @Entity
 class PageBackStackItem(
-    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    @PrimaryKey(autoGenerate = true) var id: Long = -1,
     val apiTitle: String,
     val displayTitle: String,
     val langCode: String,

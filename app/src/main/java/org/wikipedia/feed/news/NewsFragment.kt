@@ -24,6 +24,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DeviceUtil
@@ -31,7 +32,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration

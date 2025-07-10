@@ -20,6 +20,9 @@ interface TabDao {
     @Query("SELECT * FROM Tab")
     suspend fun getTabs(): List<Tab>
 
+    @Query("SELECT * FROM Tab WHERE id = :id")
+    suspend fun getTabById(id: Long): Tab?
+
     @Query("DELETE FROM Tab")
     suspend fun deleteAll()
 
