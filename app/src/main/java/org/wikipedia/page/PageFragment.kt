@@ -50,11 +50,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.analytics.metricsplatform.ArticleToolbarInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
@@ -1043,9 +1045,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 binding.pageActionsTabLayout.enableAllTabs()
                 errorState = false
                 model.curEntry = HistoryEntry(title, HistoryEntry.SOURCE_HISTORY)
-                // loadPage(title, entry, false, stagedScrollY, app.isOnline)
+                 loadPage(title, entry, options = PageLoadOptions(pushBackStack = false, stagedScrollY = stagedScrollY, isRefresh = app.isOnline))
                 loadPage(title, entry, PageLoadOptions(
-                    pushbackStack = false,
+                    pushBackStack = false,
                     isRefresh = app.isOnline,
                     stagedScrollY = stagedScrollY
                 ))
@@ -1392,7 +1394,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 when (state) {
                     is UiState.Error -> {}
                     UiState.Loading -> {}
-                    is UiState.Success -> {}
+                    is UiState.Success -> {
+                        pageLoadViewModel.saveCategories(state.data)
+                    }
                 }
             }
         }
@@ -1404,9 +1408,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            pageLoadViewModel.pageLoadState.collect { uiState ->
+            pageLoadViewModel.pageLoadUiState.collect { uiState ->
                 when (uiState) {
-                    is PageLoadUiState.Loading -> handleLoadingState(uiState)
+                    is PageLoadUiState.LoadingPrep -> handleLoadingState(uiState)
                     is PageLoadUiState.Success -> handleSuccessPageLoadingState(uiState)
                     is PageLoadUiState.SpecialPage -> handleSpecialLoadingPage(uiState)
                     is PageLoadUiState.Error -> {}
@@ -1415,7 +1419,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun handleLoadingState(state: PageLoadUiState.Loading) {
+    private fun handleLoadingState(state: PageLoadUiState.LoadingPrep) {
         clearActivityActionBarTitle()
         dismissBottomSheet()
 
@@ -1444,6 +1448,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
+
+        updateQuickActionsAndMenuOptions()
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun handleSuccessPageLoadingState(state: PageLoadUiState.Success) {
@@ -1454,11 +1461,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             !state.title.prefixedText.contains(":") -> bridge.resetHtml(state.title)
         }
+        updateProgressBar(false)
         pageLoadViewModel.updateTabListToPreventZHVariantIssue(model.title)
-        pageLoadViewModel.saveInformationToDatabase(model, state.result)
+
+        if (model.title != null && state.result != null) {
+            pageLoadViewModel.saveInformationToDatabase(model, state.result, sendEvent = { entry ->
+                WikipediaApp.instance.appSessionEvent.pageViewed(entry)
+                ArticleLinkPreviewInteractionEvent(model.title!!.wikiSite.dbName(), state.result.pageId, entry.source).logNavigate()
+                ArticleLinkPreviewInteraction(this, entry.source).logNavigate()
+            })
+        }
+
         scrollTriggerListener.stagedScrollY = state.stagedScrollY
-        updateQuickActionsAndMenuOptions()
-        requireActivity().invalidateOptionsMenu()
         leadImagesHandler.loadLeadImage()
         onPageMetadataLoaded(state.redirectedFrom)
     }

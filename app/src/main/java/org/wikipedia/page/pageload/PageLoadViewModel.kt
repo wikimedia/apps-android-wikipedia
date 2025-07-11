@@ -15,12 +15,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
@@ -32,8 +32,8 @@ import retrofit2.Response
 
 class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
 
-    private val _pageLoadState = MutableStateFlow<PageLoadUiState>(PageLoadUiState.Loading())
-    val pageLoadState = _pageLoadState.asStateFlow()
+    private val _pageLoadUiState = MutableStateFlow<PageLoadUiState>(PageLoadUiState.LoadingPrep())
+    val pageLoadUiState = _pageLoadUiState.asStateFlow()
 
     private val _watchResponseState = MutableStateFlow<UiState<WatchStatus>>(UiState.Loading)
     val watchResponseState = _watchResponseState.asStateFlow()
@@ -61,7 +61,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                 LoadType.CurrentTab -> loadInCurrentTab(request, webScrollY)
                 LoadType.ExistingTab -> loadInExistingTab(request)
                 LoadType.FromBackStack -> {
-                    if (request.options.pushbackStack) {
+                    if (request.options.pushBackStack) {
                         // update the topmost entry in the backstack, before we start overwriting things.
                         updateCurrentBackStackItem(webScrollY)
                         currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
@@ -101,12 +101,20 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         WikipediaApp.instance.tabList.getOrNull(WikipediaApp.instance.tabCount - 1)?.setBackStackPositionTitle(title)
     }
 
+    fun saveCategories(categories: List<Category>) {
+        viewModelScope.launch {
+            if (categories.isNotEmpty()) {
+                AppDatabase.instance.categoryDao().upsertAll(categories)
+            }
+        }
+    }
+
     fun saveInformationToDatabase(
-        currentPageModel: PageViewModel?,
-        pageSummary: PageSummary?
+        pageModel: PageViewModel,
+        pageSummary: PageSummary,
+        sendEvent: (HistoryEntry) -> Unit
     ) {
-        val pageModel = currentPageModel ?: return
-        val title = currentPageModel.title ?: return
+        val title = pageModel.title ?: return
 
         viewModelScope.launch {
             pageModel.curEntry?.let {
@@ -125,14 +133,10 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                 }
 
                 // Update metadata in the DB
-                AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary?.coordinates?.latitude, pageSummary?.coordinates?.longitude)
+                AppDatabase.instance.pageImagesDao().upsertForMetadata(entry, title.thumbUrl, title.description, pageSummary.coordinates?.latitude, pageSummary.coordinates?.longitude)
 
                 // And finally, count this as a page view.
-                WikipediaApp.instance.appSessionEvent.pageViewed(entry)
-                ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
-
-                // @TODO: requires fragment
-                // ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
+                sendEvent(entry)
             }
         }
     }
@@ -191,7 +195,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                 app.tabList.last().clearBackstack()
             }
         }
-        if (request.options.pushbackStack) {
+        if (request.options.pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem(webScrollY)
             currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
@@ -226,7 +230,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             title = item.title,
             entry = item.historyEntry,
             options = PageLoadOptions(
-                pushbackStack = false,
+                pushBackStack = false,
                 stagedScrollY = item.scrollY,
                 shouldLoadFromBackStack = true,
             ))
@@ -235,7 +239,11 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
     }
 
     fun loadPageData(request: PageLoadRequest) {
-        _pageLoadState.value = PageLoadUiState.Loading()
+        _pageLoadUiState.value = PageLoadUiState.LoadingPrep(isRefresh = request.options.isRefresh, title = request.title)
+        if (request.title.namespace() == Namespace.SPECIAL) {
+            _pageLoadUiState.value = PageLoadUiState.SpecialPage(request)
+            return
+        }
         viewModelScope.launch {
             val pageSummary = async {
                 val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
@@ -244,7 +252,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             pageSummary.body()?.let { value ->
                 val pageModel = createPageModel(request, pageSummary)
                 _currentPageViewModel.value = pageModel
-                _pageLoadState.value = PageLoadUiState.Success(
+                _pageLoadUiState.value = PageLoadUiState.Success(
                     result = value,
                     title = request.title,
                     stagedScrollY = request.options.stagedScrollY,
@@ -359,7 +367,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
 
     private fun handleError(throwable: Throwable) {
         L.e(throwable)
-        _pageLoadState.value = PageLoadUiState.Error(throwable)
+        _pageLoadUiState.value = PageLoadUiState.Error(throwable)
     }
 
     private fun determineLoadType(request: PageLoadRequest): LoadType {

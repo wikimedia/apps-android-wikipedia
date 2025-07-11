@@ -12,7 +12,7 @@ data class PageLoadRequest(
 )
 
 data class PageLoadOptions(
-    val pushbackStack: Boolean = true,
+    val pushBackStack: Boolean = true,
     val squashBackStack: Boolean = false,
     val isRefresh: Boolean = false,
     val stagedScrollY: Int = 0,
@@ -30,7 +30,7 @@ sealed class LoadType {
 
 sealed class PageLoadUiState {
     data class SpecialPage(val request: PageLoadRequest) : PageLoadUiState()
-    data class Loading(val isRefresh: Boolean = false) : PageLoadUiState()
+    data class LoadingPrep(val isRefresh: Boolean = false, val title: PageTitle? = null) : PageLoadUiState()
     data class Success(
         val result: PageSummary? = null,
         val title: PageTitle,

@@ -120,7 +120,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // and reload the page...
             pageFragment.model.title?.let { title ->
                 pageFragment.model.curEntry?.let { entry ->
-//                    pageFragment.loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
+                    pageFragment.loadPage(title, entry, options = PageLoadOptions(pushBackStack = false, squashBackStack = false, isRefresh = true))
                 }
             }
         }
@@ -618,8 +618,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 TabPosition.CURRENT_TAB -> PageLoadOptions(tabPosition = position)
                 TabPosition.CURRENT_TAB_SQUASH -> PageLoadOptions(tabPosition = position, squashBackStack = true)
                 TabPosition.NEW_TAB_BACKGROUND -> PageLoadOptions(tabPosition = position)
-                TabPosition.NEW_TAB_FOREGROUND -> PageLoadOptions(tabPosition = position, pushbackStack = false)
-                TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position, pushbackStack = true, squashBackStack = true)
+                TabPosition.NEW_TAB_FOREGROUND -> PageLoadOptions(tabPosition = position, pushBackStack = false)
+                TabPosition.EXISTING_TAB -> PageLoadOptions(tabPosition = position, pushBackStack = true, squashBackStack = true)
             }
             pageFragment.loadPage(pageTitle, entry, options)
         }
