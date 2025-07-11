@@ -10,8 +10,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -171,7 +169,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
     private suspend fun loadInExistingTab(request: PageLoadRequest) {
         val selectedTabPosition = selectedTabPosition(request.title)
         if (selectedTabPosition == -1) {
-            //loadPageData(request)
+            loadPageData(request)
             return
         }
         switchToExistingTab(selectedTabPosition)
@@ -237,7 +235,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
     }
 
     fun loadPageData(request: PageLoadRequest) {
-        _pageLoadState.value =  PageLoadUiState.Loading()
+        _pageLoadState.value = PageLoadUiState.Loading()
         viewModelScope.launch {
             val pageSummary = async {
                 val cacheControl = if (request.options.isRefresh) "no-cache" else "default"

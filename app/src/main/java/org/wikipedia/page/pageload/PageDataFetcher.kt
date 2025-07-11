@@ -57,7 +57,7 @@ class PageDataFetcher {
                 myQueryResponse = response
             )
         } else if (WikipediaApp.instance.isOnline && !AccountUtil.isLoggedIn) {
-            val response = AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+            val response = AnonymousNotificationHelper.maybeGetAnonUserInfo(title.wikiSite)
             WatchStatus(false, false, response)
         } else {
             WatchStatus(false, false, MwQueryResponse())

@@ -160,7 +160,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
     private val pageActionItemCallback = PageActionItemCallback()
 
-
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
     private lateinit var bottomBarHideHandler: ViewHideHandler
@@ -257,7 +256,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
-            //reloadFromBackstack()
+            reloadFromBackstack()
         }
         setupObservers()
     }
