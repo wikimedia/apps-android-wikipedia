@@ -1,0 +1,39 @@
+The official Wikipedia Android app is designed to help you find, discover, and explore knowledge on Wikipedia. Settle a bet with a friend by doing a quick search through the app, or dive into featured articles, images, recommended articles, and more using the explore feed. With more than 39 million articles in nearly 300 languages, your favorite free online encyclopedia is now at your fingertips.
+
+Features:
+
+དགོངས་འཆར་འཚོལ་ཞིབ། - 'དགོས་འཆར་འཚོལ་ཞིབ་'གསར་པ་འདིས་མདུན་ངོས་དྲྭ་ཤེལ་སྒང་ལ་ངོ་སྤྲོད་དང་ཝི་ཀི་པི་ཊི་ཡའི་ནང་དོན་རྣམས་དུས་ཐོག་ཏུ་གསར་བསྒྱུར་བྱེད་ནས་མཐོང་རྒྱུ་ཡོད། དེ་ཚོའི་ནང་དར་བཞིན་པའི་རྩོམ་ཤོག་དང། ད་ལྟ་འགྲོ་བཞིན་པའི་འདུ་འཛོམས་ཁག དྲན་སྐུལ་བྱས་ནས་ཀློག་དགོས་པ་སོགས་མང་དག་ཅིག་རྙེད་རྒྱུ་ཡོད།
+
+སྐད་ངག་གིས་འཚོལ་བ། -རང་གིས་འཚོལ་འདོད་ཡོད་པ་རྣམས་མཉེན་ཆས་ཀྱི་རྩེའི་སྒང་ལ་ཡོད་པའི་འཚོལ་ཞིབ་ཚན་བྱང་སྒང་ནས་ལས་སླ་པོའི་ཐོག་ནས་འཚོལ་ཞིབ་ཐུབ། དེ་ཡང་རང་གི་ཡོ་བྱད་སྒང་ནས་སྐད་ངག་གི་རྒྱུད་དེ་འཚོལ་བ་སྒོ་ཕྱེད་དགོས།
+
+ཉེ་འགྲམ- ཁྱེད་རང་གི་ཉེ་འཁོར་ལ་གང་ཡོད་མིན་སྐོར་ལ་སྦྱངས། དེ་ཡང་ས་གནས་བྱེ་བྲག་པ་ས་ཁྲའི་སྒང་ནས་འདེམས་པའི་ཐོག་ཁྱེད་རང་ད་ལྟའི་ས་གནས་དང་དེའི་ཉེ་འགྲམ་གྱི་ས་གནས་སྐོར་ལ་བྲིས་པའི་རྩོམ་རིགས་རྣམས་ལ་གཟིགས།
+
+Language support - Seamlessly switch to reading any language-supported Wikipedia, either by changing the language of the current article, or changing your preferred search language while searching.
+
+སྦྲེལ་མཐུད་སྐྱར་ཞིབ། -རྩོམ་ཡིག་སྒང་ལ་ཐེངས་ཅིག་སྣོན་ནས་འདི་ལ་སྐྱར་ཞིབ་བྱེད། དེ་ཡང་ད་ལྟ་རང་ཉིད་ཀློག་མཚམས་གང་ནས་ཡིན་པའི་གནས་མ་བརླགས་པའི་ཐོག་ནས་བྱེད་དགོས། སྦྲེལ་མཐུད་དྲྭ་ཚིགས་འདི་ལ་སྣོན་ནས་འཇུས་ཏེ་དྲྭ་ཤོག་གསར་པ་ཞིག་གི་སྒང་ལ་ཁ་ཕྱེས་ནས་རྩོམ་ཡིག་ད་ག་ད་ལྟའི་ཀློག་མཚམས་གང་ནང་ཡིན་པ་དེ་ག་མ་བརླགས་པའི་ཐོག་ནས་ཀློག་ཐུབ་པ་དང་གལ་ཏ་ཁྱེད་རང་གྲ་སྒྲིག་ཡིན་ན་དྲྭ་ཤོག་གསར་པ་དེར་བརྗེས།
+
+Table of contents - swipe left on any article to bring up the table of contents, which lets you jump to article sections easily.
+
+Reading lists - Organize the articles you browse into reading lists, which you can access even when you're offline. Create as many lists as you like, give them custom names and descriptions, and populate them with articles from any language wiki.
+
+Image gallery - Tap on an image to view the image full-screen in high resolution, with options to swipe for browsing additional images.
+
+Definitions from Wiktionary - Tap-and-hold to highlight a word, then tap the "Define" button to see a definition of the word from Wiktionary.
+
+Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators).
+
+Send us your feedback about the app! In the menu, press "Settings", then "About the Wikipedia app", then "Send app feedback".
+
+The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
+
+By using this app, you agree to the automatic transmission of crash reports to a third-party service provider. If you would like to disable this feature, please press "Settings," then toggle off "Send crash reports" under the Privacy section. Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Crash report third-party service provider privacy policy: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+About the Wikimedia Foundation
+
+The Wikimedia Foundation is the nonprofit organization that supports Wikipedia and the other Wikimedia projects. The Wikimedia Foundation is a charitable organization funded mainly through donations. For more information, please visit our website: https://wikimediafoundation.org/wiki/Home.

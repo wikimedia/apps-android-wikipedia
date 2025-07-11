@@ -1,0 +1,39 @@
+Apu maalum ya Android ya Wikipedia iliyobuniwa kusaidia kupata, kufichua na kupeleleza maarifa iliyo Wikipedia. Suluhisha dau na rafiki yako kwa kutafuta haraka kwenye apu, ama zamia kwenye makala yaliyoangaziwa, picha, nakala iliyopendekezwa na mengine mengi kwa kutumia bibu ya upelelezi. Kwa zaidi ya makala milioni 39 katika takriban lugha 300, ensaiklopidia yako ya mtandaoni unayoipenda zaidi iko mikononi mwako.
+
+Vipengele:
+
+Chunguza malisho- 'Explore feed' mpya inatoa mapendekezo na maudhui ya Wikipedia yanayoendelea kusahihishwa kila wakati.
+
+Uwezo wa kutafuta kwa sauti - Pata kwa urahisi unachokitafuta kwa upau maarufu wa utafutaji juu ya apu, ikiwa pamoja na utafutaji unaowezeshwa kwa kutamka kwenye kifaa chako.
+
+Karibu -Pata maelezo zaidi kuhusu kile kilicho karibu nawe kwa kuchagua pointi kwenye ramani shirikishi ili kuona makala zinazohusiana na eneo lako la sasa na la karibu.
+
+Msaada wa lugha- Ubadilishaji unaowezesha kusoma katika lugha yoyote inayoungwa mkono na Wikipedia bila kikwazo.
+
+Mwonekano awali wa viungo- Gusa kwenye makala ili kuyahakiki bila kupoteza mahali ulipo katika kile unachosoma kwa wakati huo. Bonyeza na ushikilie kiungo ili kifunguke kwenye kichupo kipya na kukuwezesha uendelee kusoma makala unayosoma bila kupoteza mahali pako na kwenda kwenye kichupo hicho kipya utakapokuwa tayari.
+
+Jedwali la yaliyomo - telezesha kidole kushoto kwenye makala yoyote ili kuleta jedwali la yaliyomo, ambayo hukuruhusu kuruka hadi sehemu za makala kwa urahisi.
+
+Orodha za kusoma - Panga makala unazovinjari katika orodha za kusoma, ambazo unaweza kufikia hata ukiwa nje ya mtandao. Unda orodha nyingi upendavyo, zipe majina na maelezo maalum, na uzijaze na makala kutoka kwa wiki yoyote ya lugha.
+
+Matunzio ya picha- Gusa kwenye picha ili kuiona kwenye skrini kamili na azimio la juu, kuongezea machaguo ya kutelezesha ili kuvinjari picha za ziada.
+
+Ufafanuzi kutoka kwa Wiktionary - Gusa-na-ushikilie ili kuangazia neno, kisha uguse kitufe cha "Define" ili kuona ufafanuzi wa neno kutoka Wiktionary.
+
+Wikipedia Zero - Fikia Wikipedia ya Android bila malipo ya data kwa waendeshaji wa simu wanaoshiriki. (kiungo kwa waendeshaji wanaoshiriki).
+
+Tuma maoni yako kuhusu apu! Kwa menu,bonyeza "Settings", kisha" About the wikipedia app",kisha "Send app feedback".
+
+Msimbo ni 100% chanzo huria. Kama una uzoefu na Java na SDK ya Android, basi tunasubiri kwa hamu michango yako! https://github.com/wikimedia/apps-android-wikipedia
+
+Kwa kutumia programu hii, unakubali usafirishaji wa moja kwa moja wa ripoti za tashwishi kwa mtoa huduma wa tatu. Kama ungependa kulemaza kipengele hii, tafadhali bonyeza "Settinngs" halafu uzime kibanio cha "Send crash reports"chini ya sehemu ya Faragha. Maelezo ya ruhusa zinazohitajika na programu: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Sera ya faragha: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Sera ya faragha ya watoa huduma wengine wa ripoti ya kuacha kufanya kazi:https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Masharti za kutumika: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Kuhusu taasisi ya Wikimedia
+
+Taasisi ya Wikimedia ni shirika lisilo la faida linalo saidia Wikipedia na miradi mingine ya Wikimedia. Taasisi ya Wikimedia ni ya hisani na hufadhiliwa hasa kwa michango. Kwa maelezo zaidi, tafadhali zuru tovuti yetu:https://wikimediafoundation.org/wiki/Home.
