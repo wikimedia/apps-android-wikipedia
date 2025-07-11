@@ -5,11 +5,12 @@ import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.PageBackStackItemSerializer
 import org.wikipedia.page.PageTitle
 import java.util.Date
 
 @Entity
-@Serializable
+@Serializable(with = PageBackStackItemSerializer::class)
 class PageBackStackItem(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val apiTitle: String = "",
