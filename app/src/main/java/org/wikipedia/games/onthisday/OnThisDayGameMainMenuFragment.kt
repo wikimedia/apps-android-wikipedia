@@ -16,7 +16,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.databinding.FragmentOnThisDayGameOnboardingBinding
+import org.wikipedia.databinding.FragmentOnThisDayGameMainMenuBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -25,14 +25,14 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import java.time.LocalDate
 
-class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
-    private var _binding: FragmentOnThisDayGameOnboardingBinding? = null
+class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
+    private var _binding: FragmentOnThisDayGameMainMenuBinding? = null
     private val binding get() = _binding!!
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentOnThisDayGameOnboardingBinding.inflate(inflater, container, false)
+        _binding = FragmentOnThisDayGameMainMenuBinding.inflate(inflater, container, false)
 
         WikiGamesEvent.submit("impression", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         return binding.root
@@ -41,6 +41,12 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        binding.errorView.retryClickListener = View.OnClickListener {
+            viewModel.loadGameState()
+        }
+        binding.errorView.backClickListener = View.OnClickListener {
+            requireActivity().finish()
+        }
         observeGameState()
     }
 
@@ -48,7 +54,7 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
         viewModel.gameState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Resource.Loading -> updateOnLoading()
-                is OnThisDayGameViewModel.GameStarted -> handleGameStarted(state.data)
+                is OnThisDayGameViewModel.GameStarted -> handleGameStarted()
                 is OnThisDayGameViewModel.CurrentQuestion -> handleCurrentQuestion(state.data)
                 is OnThisDayGameViewModel.GameEnded -> handleGameEnded(state.data)
                 is Resource.Error -> updateOnError(state.throwable)
@@ -70,21 +76,21 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
 
     private fun updateOnError(t: Throwable) {
         binding.errorView.isVisible = true
+        binding.progressBar.isVisible = false
         binding.gameMenuContainer.isVisible = false
         binding.errorView.setError(t)
         binding.errorView.setIconColorFilter(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        binding.errorView.setErrorTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
-    private fun handleGameStarted(state: OnThisDayGameViewModel.GameState) {
+    private fun handleGameStarted() {
         showGameMenu()
         with(binding) {
             playGameButton.setOnClickListener {
                 WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
-                requireActivity().supportFragmentManager.popBackStack()
-                getGameActivity()?.apply {
-                    updateGameState(state)
-                    animateQuestionsIn()
-                }
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, OnThisDayGamePlayFragment.newInstance(), null)
+                    .commit()
             }
         }
     }
@@ -99,7 +105,7 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
             playGameButton.text = playGameButtonText
 
             playGameButton.setOnClickListener {
-                startGame(state)
+                startGame()
             }
 
             if (viewModel.isArchiveGame) {
@@ -118,7 +124,7 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
             binding.gameMessageText.text = getString(R.string.on_this_day_game_score_message, score, state.totalQuestions)
             playGameButton.text = getString(R.string.on_this_day_game_review_results_btn_text)
             playGameButton.setOnClickListener {
-                showGameResults(state)
+                showGameResults()
             }
             playArchiveButton.isVisible = true
             playArchiveButton.setOnClickListener {
@@ -127,49 +133,32 @@ class OnThisDayGameOnboardingFragment : OnThisDayGameBaseFragment() {
         }
     }
 
-    private fun startGame(state: OnThisDayGameViewModel.GameState) {
+    private fun startGame() {
         WikiGamesEvent.submit("play_click", "game_play", slideName = "game_start", isArchive = viewModel.isArchiveGame)
         requireActivity().supportFragmentManager.popBackStack()
-        getGameActivity()?.apply {
-            updateInitialScores(state)
-            updateGameState(state)
-            animateQuestionsIn()
-        }
-    }
-
-    private fun showGameResults(state: OnThisDayGameViewModel.GameState) {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameFinalFragment.newInstance(viewModel.invokeSource), null)
+            .replace(R.id.fragmentContainer, OnThisDayGamePlayFragment.newInstance(), null)
             .commit()
-
-        getGameActivity()?.apply {
-            playSound("sound_logo")
-            updateGameState(state)
-            hideViewsNotRequiredWhenGameEnds()
-        }
     }
 
-    private fun getGameActivity(): OnThisDayGameActivity? {
-        return requireActivity() as? OnThisDayGameActivity
+    private fun showGameResults() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, OnThisDayGameResultFragment.newInstance(viewModel.invokeSource), null)
+            .commit()
     }
 
     override fun onArchiveDateSelected(date: LocalDate) {
         viewModel.relaunchForDate(date)
-        getGameActivity()?.let {
-            it.supportFragmentManager.popBackStack()
-            binding.root.post {
-                if (!it.isDestroyed) {
-                    it.animateQuestionsIn()
-                }
-            }
-        }
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, OnThisDayGamePlayFragment.newInstance(), null)
+            .commit()
     }
 
     companion object {
         private const val SHOW_ON_EXPLORE_FEED_COUNT = 2
 
-        fun newInstance(invokeSource: InvokeSource): OnThisDayGameOnboardingFragment {
-            return OnThisDayGameOnboardingFragment().apply {
+        fun newInstance(invokeSource: InvokeSource): OnThisDayGameMainMenuFragment {
+            return OnThisDayGameMainMenuFragment().apply {
                 arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }
         }
