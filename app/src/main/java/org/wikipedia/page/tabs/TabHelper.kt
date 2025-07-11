@@ -21,6 +21,7 @@ object TabHelper {
     init {
         coroutineScope.launch(coroutineExceptionHandler) {
             initTabs()
+            // TODO: need to either request a event for the tab icon or have a proper way to handle it.
         }
     }
 
