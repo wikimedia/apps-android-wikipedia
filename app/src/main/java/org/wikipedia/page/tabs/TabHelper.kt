@@ -13,16 +13,9 @@ import org.wikipedia.util.log.L
 
 object TabHelper {
 
-    val coroutineScope = CoroutineScope(Dispatchers.IO)
+    val coroutineScope = CoroutineScope(Dispatchers.Main)
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
-    }
-
-    init {
-        coroutineScope.launch(coroutineExceptionHandler) {
-            initTabs()
-            // TODO: need to either request a event for the tab icon or have a proper way to handle it.
-        }
     }
 
     val list = mutableListOf<Tab>()
@@ -43,7 +36,7 @@ object TabHelper {
         }
     }
 
-    private suspend fun initTabs() {
+    suspend fun initTabs() {
         migrateTabsToDatabase()
         if (AppDatabase.instance.tabDao().hasTabs()) {
             val tab = AppDatabase.instance.tabDao().getTabs()
@@ -173,12 +166,13 @@ object TabHelper {
                     // Second, find new backstack items if the id is -1, insert them to the database
                     val backStackIds = mutableListOf<Long>()
                     tab.backStack.forEach { item ->
+                        var backStackId = item.id
                         if (item.id == -1L) {
                             val newId = AppDatabase.instance.pageBackStackItemDao()
                                 .insertPageBackStackItem(item)
-                            item.id = newId
+                            backStackId = newId
                         }
-                        backStackIds.add(item.id)
+                        backStackIds.add(backStackId)
                     }
 
                     // Finally, update the tab with the new backStackIds and order
