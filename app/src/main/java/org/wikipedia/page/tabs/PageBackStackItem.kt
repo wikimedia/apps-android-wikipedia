@@ -35,11 +35,11 @@ class PageBackStackItem(
     )
 
     fun getPageTitle(): PageTitle {
-        return PageTitle(namespace, apiTitle, WikiSite.Companion.forLanguageCode(langCode)).apply {
-            this.displayText = displayTitle
-            this.thumbUrl = thumbUrl
-            this.description = description
-            this.extract = extract
+        return PageTitle(namespace, apiTitle, WikiSite.Companion.forLanguageCode(langCode)).also {
+            it.displayText = displayTitle
+            it.thumbUrl = thumbUrl
+            it.description = description
+            it.extract = extract
         }
     }
 
