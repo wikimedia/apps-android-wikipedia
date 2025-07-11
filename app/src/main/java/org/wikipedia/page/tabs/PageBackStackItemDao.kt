@@ -26,4 +26,7 @@ interface PageBackStackItemDao {
 
     @Query("DELETE FROM PageBackStackItem WHERE id IN (:ids)")
     suspend fun deletePageBackStackItemsById(ids: List<Long>)
+
+    @Query("DELETE FROM PageBackStackItem")
+    suspend fun deleteAll()
 }

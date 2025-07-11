@@ -36,6 +36,13 @@ object TabHelper {
         }
     }
 
+    fun getCurrentTab(): Tab {
+        if (list.isEmpty()) {
+            list.add(Tab())
+        }
+        return list.last()
+    }
+
     suspend fun initTabs() {
         migrateTabsToDatabase()
         if (AppDatabase.instance.tabDao().hasTabs()) {
@@ -46,9 +53,6 @@ object TabHelper {
                 it.backStack = backStackItems.toMutableList()
             }
             list.addAll(tab)
-        }
-        if (list.isEmpty()) {
-            list.add(Tab())
         }
     }
 
@@ -69,12 +73,18 @@ object TabHelper {
     fun commitTabState() {
         coroutineScope.launch(coroutineExceptionHandler) {
             if (list.isEmpty()) {
+                L.d("TabHelper list.isEmpty()")
                 AppDatabase.instance.tabDao().deleteAll()
+                AppDatabase.instance.pageBackStackItemDao().deleteAll()
                 initTabs()
             } else {
                 val existingTabs = AppDatabase.instance.tabDao().getTabs()
                 val removedTabsFromList = existingTabs.subtract(list.toSet())
                 val newTabsFromList = list.subtract(existingTabs.toSet())
+
+                L.d("TabHelper existingTabs + ${existingTabs.size}")
+                L.d("TabHelper removedTabsFromList + ${removedTabsFromList.size}")
+                L.d("TabHelper newTabsFromList + ${newTabsFromList.size}")
 
                 // First, delete tabs that are no longer in the list
                 if (removedTabsFromList.isNotEmpty()) {

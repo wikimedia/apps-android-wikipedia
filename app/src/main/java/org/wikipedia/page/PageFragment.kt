@@ -189,7 +189,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = TabHelper.list.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = TabHelper.list.last()
+    val currentTab get() = TabHelper.getCurrentTab()
     val title get() = model.title
     val page get() = model.page
     val isLoading get() = bridge.isLoading
@@ -288,6 +288,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
+        L.d("TabHelper onPause")
         TabHelper.commitTabState()
         val time = if (TabHelper.hasTabs() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
@@ -331,6 +332,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // if the current tab can no longer go back, then close the tab before exiting
         TabHelper.removeTabAt(TabHelper.list.size - 1)
+        L.d("TabHelper existingTabs + removeTabAt")
         return false
     }
 
