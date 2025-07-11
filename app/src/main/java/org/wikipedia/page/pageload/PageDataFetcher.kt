@@ -36,7 +36,8 @@ class PageDataFetcher {
             redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) title.displayText else null
         )
     }
-    private suspend fun fetchPageSummary(title: PageTitle, cacheControl: String): Response<PageSummary> {
+
+    suspend fun fetchPageSummary(title: PageTitle, cacheControl: String): Response<PageSummary> {
         return ServiceFactory.getRest(title.wikiSite).getSummaryResponse(
             title = title.prefixedText,
             cacheControl = cacheControl,
@@ -46,7 +47,7 @@ class PageDataFetcher {
         )
     }
 
-    private suspend fun fetchWatchStatus(title: PageTitle): WatchStatus {
+    suspend fun fetchWatchStatus(title: PageTitle): WatchStatus {
         return if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) {
             val response = ServiceFactory.get(title.wikiSite).getWatchedStatusWithCategories(title.prefixedText)
             val page = response.query?.firstPage()
@@ -63,7 +64,7 @@ class PageDataFetcher {
         }
     }
 
-    private suspend fun fetchCategories(title: PageTitle, watchResponse: MwQueryResponse): List<Category> {
+    suspend fun fetchCategories(title: PageTitle, watchResponse: MwQueryResponse): List<Category> {
         return if (WikipediaApp.instance.isOnline) {
             val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
             (response.query ?: watchResponse.query)?.firstPage()?.categories?.map { category ->
@@ -78,9 +79,9 @@ class PageDataFetcher {
 }
 
 data class WatchStatus(
-    val isWatched: Boolean,
-    val hasWatchlistExpiry: Boolean,
-    val myQueryResponse: MwQueryResponse
+    val isWatched: Boolean = false,
+    val hasWatchlistExpiry: Boolean = false,
+    val myQueryResponse: MwQueryResponse = MwQueryResponse()
 )
 
 sealed class PageResult {

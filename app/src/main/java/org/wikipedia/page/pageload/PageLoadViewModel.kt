@@ -7,31 +7,47 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
+import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
+import retrofit2.Response
 
 class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
 
-    private val _pageLoadState = MutableStateFlow<PageLoadState>(PageLoadState())
-    val pageLoadState: StateFlow<PageLoadState> = _pageLoadState.asStateFlow()
+    private val _pageLoadState = MutableStateFlow<PageLoadUiState>(PageLoadUiState.Loading())
+    val pageLoadState = _pageLoadState.asStateFlow()
+
+    private val _watchResponseState = MutableStateFlow<UiState<WatchStatus>>(UiState.Loading)
+    val watchResponseState = _watchResponseState.asStateFlow()
+
+    private val _categories = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
+    val categories = _categories.asStateFlow()
+
+    private val _animateType = MutableSharedFlow<Animate>(replay = 1)
+    val animateType = _animateType
+
+    private val _currentPageViewModel = MutableStateFlow<PageViewModel>(PageViewModel())
+    val currentPageViewModel = _currentPageViewModel.asStateFlow()
 
     // Internal state
     private var currentTab: Tab = app.tabList.last()
@@ -46,7 +62,14 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             when (determineLoadType(request)) {
                 LoadType.CurrentTab -> loadInCurrentTab(request, webScrollY)
                 LoadType.ExistingTab -> loadInExistingTab(request)
-                LoadType.FromBackStack -> loadPageData(request)
+                LoadType.FromBackStack -> {
+                    if (request.options.pushbackStack) {
+                        // update the topmost entry in the backstack, before we start overwriting things.
+                        updateCurrentBackStackItem(webScrollY)
+                        currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
+                    }
+                    loadPageData(request)
+                }
                 LoadType.NewBackgroundTab -> loadInNewBackgroundTab(request)
                 LoadType.NewForegroundTab -> loadInNewForegroundTab(request, webScrollY)
             }
@@ -69,7 +92,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         item.scrollY = scrollY
-        _pageLoadState.value.currentPageModel?.title?.let {
+        _currentPageViewModel.value.title?.let {
             item.title.description = it.description
             item.title.thumbUrl = it.thumbUrl
         }
@@ -116,25 +139,52 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
+    fun goForward(): Boolean {
+        if (currentTab.canGoForward()) {
+            currentTab.moveForward()
+            loadFromBackStack()
+            return true
+        }
+        return false
+    }
+
+    fun goBack(): Boolean {
+        if (currentTab.canGoBack()) {
+            currentTab.moveBack()
+            if (!backStackEmpty()) {
+                loadFromBackStack()
+                return true
+            }
+        }
+        return false
+    }
+
+    fun updateWatchStatusInModel(watchStatus: WatchStatus) {
+        _currentPageViewModel.update { currentModel ->
+            currentModel.copy(
+                isWatched = watchStatus.isWatched,
+                hasWatchlistExpiry = watchStatus.hasWatchlistExpiry
+            )
+        }
+    }
+
     private suspend fun loadInExistingTab(request: PageLoadRequest) {
         val selectedTabPosition = selectedTabPosition(request.title)
         if (selectedTabPosition == -1) {
-            loadPageData(request)
+            //loadPageData(request)
             return
         }
         switchToExistingTab(selectedTabPosition)
     }
 
-    private suspend fun loadInCurrentTab(request: PageLoadRequest, webScrollY: Int) {
-        val model = _pageLoadState.value.currentPageModel
+    private fun loadInCurrentTab(request: PageLoadRequest, webScrollY: Int) {
+        val model = _currentPageViewModel.value
         if (currentTab.backStack.isNotEmpty() &&
             request.title == currentTab.backStack[currentTab.backStackPosition].title) {
-            if (model?.page == null || request.options.isRefresh) {
+            if (model.page == null || request.options.isRefresh) {
                 loadFromBackStack()
             } else if (!request.title.fragment.isNullOrEmpty()) {
-                _pageLoadState.update {
-                    it.copy(uiState = PageLoadUiState.Success(title = request.title, sectionAnchor = request.title.fragment))
-                }
+                _animateType.tryEmit(Animate(sectionAnchor = request.title.fragment))
             }
             return
         }
@@ -152,25 +202,18 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
     }
 
     private fun loadInNewForegroundTab(request: PageLoadRequest, webScrollY: Int) {
-        createNewTab(request, isForeground = true)
-        if (request.options.pushbackStack) {
-            // update the topmost entry in the backstack, before we start overwriting things.
-            updateCurrentBackStackItem(webScrollY)
-            currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
-        }
+        createOrReuseExistingTab(request, isForeground = true)
         loadFromBackStack()
     }
 
     private fun loadInNewBackgroundTab(request: PageLoadRequest) {
         val isForeground = app.tabCount == 0
         if (isForeground) {
-            createNewTab(request, isForeground = true)
+            createOrReuseExistingTab(request, isForeground = true)
             loadFromBackStack()
         } else {
-            createNewTab(request, isForeground = false)
-            _pageLoadState.update {
-                it.copy(uiState = PageLoadUiState.Success(title = request.title, loadedFromBackground = true))
-            }
+            createOrReuseExistingTab(request, isForeground = false)
+            _animateType.tryEmit(Animate(animateButtons = true))
         }
     }
 
@@ -193,30 +236,33 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
-    private suspend fun loadPageData(request: PageLoadRequest, isNewTabCreated: Boolean = false) {
-        _pageLoadState.update { it.copy(uiState = PageLoadUiState.Loading(request.options.isRefresh)) }
-        val result = pageDataFetcher.fetchPage(
-            title = request.title,
-            entry = request.entry,
-            forceNetwork = request.options.isRefresh
-        )
-        when (result) {
-            is PageResult.Success -> {
-                val pageModel = createPageModel(request, result)
-                if (request.title.namespace() == Namespace.SPECIAL) {
-                    _pageLoadState.update { it.copy(uiState = PageLoadUiState.SpecialPage(request)) }
-                    return
-                }
-                _pageLoadState.update {
-                    it.copy(
-                        uiState = PageLoadUiState.Success(result, request.title, request.options.stagedScrollY),
-                        currentPageModel = pageModel
-                    )
-                }
+    fun loadPageData(request: PageLoadRequest) {
+        _pageLoadState.value =  PageLoadUiState.Loading()
+        viewModelScope.launch {
+            val pageSummary = async {
+                val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
+                pageDataFetcher.fetchPageSummary(request.title, cacheControl)
+            }.await()
+            pageSummary.body()?.let { value ->
+                val pageModel = createPageModel(request, pageSummary)
+                _currentPageViewModel.value = pageModel
+                _pageLoadState.value = PageLoadUiState.Success(
+                    result = value,
+                    title = request.title,
+                    stagedScrollY = request.options.stagedScrollY,
+                    redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) request.title.displayText else null
+                )
             }
-            is PageResult.Error -> {
-                handleError(result.throwable)
-            }
+
+            val watchStatus = async {
+                pageDataFetcher.fetchWatchStatus(request.title)
+            }.await()
+            _watchResponseState.value = UiState.Success(watchStatus)
+
+            val categories = async {
+                pageDataFetcher.fetchCategories(request.title, watchStatus.myQueryResponse)
+            }.await()
+            _categories.value = UiState.Success(categories)
         }
     }
 
@@ -234,13 +280,12 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
-    private fun createNewTab(request: PageLoadRequest, isForeground: Boolean) {
+    private fun createOrReuseExistingTab(request: PageLoadRequest, isForeground: Boolean) {
         val existingTabPosition = selectedTabPosition(request.title)
         if (existingTabPosition >= 0) {
             switchToExistingTab(existingTabPosition)
             return
         }
-
         val shouldCreateNewTab = currentTab.backStack.isNotEmpty()
         if (shouldCreateNewTab) {
             val tab = Tab()
@@ -256,7 +301,6 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                 // Load metadata for background tab
                 loadBackgroundTabMetadata(request.title)
             }
-            _pageLoadState.update { it.copy(isTabCreated = true) }
         } else {
             setTab(currentTab)
             currentTab.backStack.add(PageBackStackItem(request.title, request.entry))
@@ -287,17 +331,19 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                 title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
-    private suspend fun createPageModel(request: PageLoadRequest, result: PageResult.Success): PageViewModel {
+    private suspend fun createPageModel(request: PageLoadRequest, response: Response<PageSummary>): PageViewModel {
         return PageViewModel().apply {
             curEntry = request.entry
             forceNetwork = request.options.isRefresh
             readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(request.title)
-            val response = result.pageSummaryResponse
             val pageSummary = response.body()
             page = pageSummary?.toPage(request.title)
             title = page?.title
-            isWatched = result.isWatched
-            hasWatchlistExpiry = result.hasWatchlistExpiry
+
+            // from other api calls, need to update this later in the model
+//            isWatched = result.isWatched
+//            hasWatchlistExpiry = result.hasWatchlistExpiry
+
             title?.let {
                 if (!response.raw().request.url.fragment.isNullOrEmpty()) {
                     it.fragment = response.raw().request.url.fragment
@@ -315,7 +361,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
 
     private fun handleError(throwable: Throwable) {
         L.e(throwable)
-        _pageLoadState.update { it.copy(uiState = PageLoadUiState.Error(throwable)) }
+        _pageLoadState.value = PageLoadUiState.Error(throwable)
     }
 
     private fun determineLoadType(request: PageLoadRequest): LoadType {
@@ -337,9 +383,8 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
-    data class PageLoadState(
-        val uiState: PageLoadUiState = PageLoadUiState.Loading(),
-        val currentPageModel: PageViewModel? = null,
-        val isTabCreated: Boolean = false
+    data class Animate(
+        val animateButtons: Boolean = false,
+        val sectionAnchor: String? = null
     )
 }

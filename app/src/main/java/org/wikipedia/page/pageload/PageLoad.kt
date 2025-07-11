@@ -1,5 +1,6 @@
 package org.wikipedia.page.pageload
 
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -32,10 +33,10 @@ sealed class PageLoadUiState {
     data class SpecialPage(val request: PageLoadRequest) : PageLoadUiState()
     data class Loading(val isRefresh: Boolean = false) : PageLoadUiState()
     data class Success(
-        val result: PageResult.Success? = null,
+        val result: PageSummary? = null,
         val title: PageTitle,
         val stagedScrollY: Int = 0,
-        val loadedFromBackground: Boolean = false,
-        val sectionAnchor: String? = null) : PageLoadUiState()
+        val sectionAnchor: String? = null,
+        val redirectedFrom: String?) : PageLoadUiState()
     data class Error(val throwable: Throwable) : PageLoadUiState()
 }
