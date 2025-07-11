@@ -153,8 +153,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
-    val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val pageRefreshListener = OnRefreshListener { refreshPage() }
+    private val scrollTriggerListener = WebViewScrollTriggerListener()
+    private val pageRefreshListener = OnRefreshListener {
+        webView.clearCache(true)
+        refreshPage()
+    }
     private val pageActionItemCallback = PageActionItemCallback()
 
 
@@ -163,10 +166,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
     internal var metricsPlatformArticleEventToolbarInteraction = ArticleToolbarInteraction(this)
-    var pageRefreshed = false
-    var errorState = false
+    private var pageRefreshed = false
+    private var errorState = false
     private var scrolledUpForThemeChange = false
-    var references: PageReferences? = null
+    private var references: PageReferences? = null
     private var avPlayer: AvPlayer? = null
     private var avCallback: AvCallback? = null
     private var sections: MutableList<Section>? = null
@@ -185,9 +188,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var editHandler: EditHandler
     var revision = 0L
 
-    val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
-    val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    val foregroundTabPosition get() = app.tabList.size
+    private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
+    private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
+    private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
     val currentTab get() = app.tabList.last()
     val title get() = model.title
