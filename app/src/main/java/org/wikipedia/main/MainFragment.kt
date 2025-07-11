@@ -355,7 +355,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
-            TabHelper.openInNewBackgroundTab(entry)
+            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
             showTabCountsAnimation = true
             requireActivity().invalidateOptionsMenu()
         } else {

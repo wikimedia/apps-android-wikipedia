@@ -13,7 +13,7 @@ import org.wikipedia.util.log.L
 
 object TabHelper {
 
-    val coroutineScope = CoroutineScope(Dispatchers.Main)
+    val coroutineScope = CoroutineScope(Dispatchers.IO)
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
     }
@@ -26,7 +26,6 @@ object TabHelper {
     // TODO: remove on 2026-07-01
     private suspend fun migrateTabsToDatabase() {
         withContext(Dispatchers.IO) {
-            L.d("TabHelper migrateTabsToDatabase() getLastestIdFromTab: ${AppDatabase.instance.tabDao().getLastestIdFromTab()}")
             if (AppDatabase.instance.tabDao().getLastestIdFromTab() != null) {
                 return@withContext
             }
@@ -75,7 +74,6 @@ object TabHelper {
     fun commitTabState() {
         coroutineScope.launch(coroutineExceptionHandler) {
             if (list.isEmpty()) {
-                L.d("TabHelper list.isEmpty()")
                 AppDatabase.instance.tabDao().deleteAll()
                 AppDatabase.instance.pageBackStackItemDao().deleteAll()
                 initTabs()
@@ -83,10 +81,6 @@ object TabHelper {
                 val existingTabs = AppDatabase.instance.tabDao().getTabs()
                 val removedTabsFromList = existingTabs.subtract(list.toSet())
                 val newTabsFromList = list.subtract(existingTabs.toSet())
-
-                L.d("TabHelper existingTabs + ${existingTabs.size}")
-                L.d("TabHelper removedTabsFromList + ${removedTabsFromList.size}")
-                L.d("TabHelper newTabsFromList + ${newTabsFromList.size}")
 
                 // First, delete tabs that are no longer in the list
                 if (removedTabsFromList.isNotEmpty()) {
@@ -107,7 +101,7 @@ object TabHelper {
         }
     }
 
-    fun openInNewBackgroundTab(entry: HistoryEntry) {
+    fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry) {
         coroutineScope.launch(coroutineExceptionHandler) {
             val tab = if (count == 0) list[0] else Tab()
             if (count > 0) {

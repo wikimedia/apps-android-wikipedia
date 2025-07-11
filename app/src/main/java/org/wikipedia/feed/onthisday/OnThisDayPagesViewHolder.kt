@@ -92,7 +92,7 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    TabHelper.openInNewBackgroundTab(entry)
+                    TabHelper.openInNewBackgroundTab(entry = entry)
                     FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
                 }
 

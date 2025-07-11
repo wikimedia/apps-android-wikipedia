@@ -33,6 +33,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.maplibre.android.MapLibre
@@ -741,7 +742,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
-            TabHelper.openInNewBackgroundTab(entry)
+            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
             requireActivity().invalidateOptionsMenu()
             binding.tabsButton.isVisible = TabHelper.count > 0
             binding.tabsButton.updateTabCount(true)

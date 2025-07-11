@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import org.wikipedia.Constants
@@ -109,7 +110,7 @@ class NewsFragment : Fragment() {
     private inner class Callback : ListCardItemView.Callback {
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
-                TabHelper.openInNewBackgroundTab(entry)
+                TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
                 FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab)
             } else {
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
