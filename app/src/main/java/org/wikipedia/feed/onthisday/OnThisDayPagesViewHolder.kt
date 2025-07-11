@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -92,7 +93,7 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    TabHelper.openInNewBackgroundTab(entry = entry)
+                    TabHelper.openInNewBackgroundTab(activity.lifecycleScope, entry)
                     FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
                 }
 
