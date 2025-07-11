@@ -357,24 +357,24 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_31_32 = object : Migration(31, 32) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                db.execSQL("CREATE TABLE IF NOT EXISTS Tab (" +
-                        "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
-                        "  order INTEGER NOT NULL, " +
-                        "  pageBackStackItemIds TEXT NOT NULL, " +
-                        "  backStackPosition INTEGER NOT NULL " +
+                db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
+                        "  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "  `order` INTEGER NOT NULL," +
+                        "  `backStackIds` TEXT NOT NULL," +
+                        "  `backStackPosition` INTEGER NOT NULL" +
                         ")")
-                db.execSQL("CREATE TABLE IF NOT EXISTS PageBackStackItem (" +
-                        "  id INTEGER KEY AUTOINCREMENT NOT NULL, " +
-                        "  apiTitle TEXT NOT NULL, " +
-                        "  displayTitle TEXT NOT NULL, " +
-                        "  langCode TEXT NOT NULL, " +
-                        "  namespace TEXT NOT NULL, " +
-                        "  timestamp INTEGER NOT NULL, " +
-                        "  scrollY INTEGER NOT NULL, " +
-                        "  source INTEGER NOT NULL, " +
-                        "  thumbUrl TEXT, " +
-                        "  description TEXT, " +
-                        "  extract TEXT " +
+                db.execSQL("CREATE TABLE IF NOT EXISTS `PageBackStackItem` (" +
+                        "  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "  `apiTitle` TEXT NOT NULL," +
+                        "  `displayTitle` TEXT NOT NULL," +
+                        "  `langCode` TEXT NOT NULL," +
+                        "  `namespace` TEXT NOT NULL," +
+                        "  `timestamp` INTEGER NOT NULL," +
+                        "  `scrollY` INTEGER NOT NULL," +
+                        "  `source` INTEGER NOT NULL," +
+                        "  `thumbUrl` TEXT," +
+                        "  `description` TEXT," +
+                        "  `extract` TEXT" +
                         ")")
             }
         }

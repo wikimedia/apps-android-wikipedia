@@ -17,16 +17,17 @@ object TabHelper {
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
     }
-    val list = mutableListOf<Tab>()
-
-    val count
-        get() = if (list.size > 1) list.size else if (list.isEmpty()) 0 else if (list[0].backStack.isEmpty()) 0 else list.size
 
     init {
         coroutineScope.launch(coroutineExceptionHandler) {
             initTabs()
         }
     }
+
+    val list = mutableListOf<Tab>()
+
+    val count
+        get() = if (list.size > 1) list.size else if (list.isEmpty()) 0 else if (list[0].backStack.isEmpty()) 0 else list.size
 
     // TODO: remove on 2026-07-01
     private suspend fun migrateTabsToDatabase() {
