@@ -26,10 +26,13 @@ object TabHelper {
     // TODO: remove on 2026-07-01
     private suspend fun migrateTabsToDatabase() {
         withContext(Dispatchers.IO) {
-            if (Prefs.tabs.isEmpty() || AppDatabase.instance.tabDao().hasTabs()) {
+            L.d("TabHelper migrateTabsToDatabase() Prefs tabs size: ${Prefs.tabs.size}")
+            L.d("TabHelper migrateTabsToDatabase() getLastestIdFromTab: ${AppDatabase.instance.tabDao().getLastestIdFromTab()}")
+            if (AppDatabase.instance.tabDao().getLastestIdFromTab() != null) {
                 return@withContext
             }
-            AppDatabase.instance.tabDao().insertTabs(Prefs.tabs)
+
+            insertTabs(Prefs.tabs)
 
             // TODO: enable this on 2026-07-01
             // Prefs.clearTabs()
