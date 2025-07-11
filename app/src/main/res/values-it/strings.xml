@@ -1804,6 +1804,24 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continua a giocare</string>
   <string name="on_this_day_game_sound_on">Attiva l\'audio</string>
   <string name="on_this_day_game_sound_off">Disattiva l\'audio</string>
+  <string name="year_in_review_learn_more">Ulteriori informazioni</string>
+  <string name="year_in_review_heart_icon">Icona del cuore</string>
+  <string name="year_in_review_donate">Dona</string>
+  <string name="year_in_review_entry_dialog_continue">Continua</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Hai letto %d voce quest\'anno</item>
+    <item quantity="other">Hai letto %d voci quest\'anno</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_editcount_headline">Gli editor dell\'app iOS hanno effettuato più di 452.257 modifiche</string>
+  <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
+  <string name="year_in_review_survey_very_satisfied">Molto soddisfatto</string>
+  <string name="year_in_review_survey_satisfied">Soddisfatto</string>
+  <string name="year_in_review_survey_neutral">Neutro</string>
+  <string name="year_in_review_survey_unsatisfied">Insoddisfatto</string>
+  <string name="year_in_review_survey_very_unsatisfied">Molto insoddisfatto</string>
+  <string name="year_in_review_survey_placeholder_text">Qualcosa da aggiungere?</string>
+  <string name="year_in_review_survey_cancel">Annulla</string>
+  <string name="year_in_review_survey_submit">Invia</string>
   <string name="recommended_reading_list_title">Scopri</string>
   <string name="recommended_reading_list_onboarding_card_title">Scopri gli articoli scelti per te</string>
   <string name="recommended_reading_list_onboarding_card_message">La tua lista di lettura settimanale di articoli di Wikipedia, selezionata per te.</string>
@@ -1821,6 +1839,7 @@
     <item quantity="one">%d selezionato</item>
     <item quantity="other">%d selezionati</item>
   </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Seleziona almeno un interesse</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Seleziona casualmente</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Abbiamo selezionato casualmente alcune voci per voi.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Annulla</string>

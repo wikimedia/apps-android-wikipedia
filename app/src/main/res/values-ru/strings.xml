@@ -13,6 +13,7 @@
 * Dirruw'o
 * Dyaydyasasha2015
 * Edible Melon
+* Engineer56
 * Envlh
 * Esukhovnina
 * Facenapalm
@@ -188,6 +189,7 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
@@ -225,7 +227,10 @@
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двухфакторной аутентификации</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Требуется двухфакторная аутентификация! Пожалуйста, вернитесь к основной деятельности и войти в систему с помощью вашего 2FA-токена, а затем повторите попытку.</string>
+  <string name="login_2fa_other_workflow_error_msg">Требуется двухфакторная аутентификация! Войдите в систему с главного экрана и введите код из вашего токена 2FA.</string>
+  <string name="login_email_auth_hint">Код подтверждения электронной почты</string>
+  <string name="login_email_auth_other_workflow_error_msg">Требуется подтверждение по электронной почте! Войдите с главного экрана и введите код подтверждения по электронной почте.</string>
+  <string name="login_background_error_msg">Невозможно повторно войти. Пожалуйста, вернитесь на главный экран и войдите вручную.</string>
   <string name="onboarding_card_login">Войти</string>
   <string name="page_editing_login">Войти</string>
   <string name="reading_lists_sync_login">Войти</string>
@@ -315,16 +320,16 @@
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/ru</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -469,6 +474,7 @@
   <string name="preference_title_collapse_tables">Свернуть таблицы</string>
   <string name="preference_summary_collapse_tables">Автоматически сворачивать табличные блоки, такие как инфобоксы, примечания и комментарии.</string>
   <string name="nav_item_donate">Пожертвовать</string>
+  <string name="nav_item_year_in_review">Обзор года</string>
   <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="location_service_disabled">Службы Геолокации отключены.</string>
   <string name="enable_location_service">Включить</string>
@@ -648,8 +654,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Статьи, сохранённые в списках чтения, теперь могут быть синхронизированы с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учётную запись Википедии и разрешите сохранение списков. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать подробнее&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статьи, сохраненные в списках чтения, теперь можно синхронизировать с вашей учетной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списки чтения теперь можно синхронизировать между устройствами. Войдите в свою учетную запись Wikipedia и разрешите сохранение ваших списков. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
@@ -959,7 +965,7 @@
   <string name="description_edit_help_title">Справка: описания статей</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/ru</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
@@ -967,7 +973,9 @@
   <string name="description_edit_learn_more">Подробнее об описаниях статей</string>
   <string name="description_edit_image_caption_learn_more">Подробнее о подписях к изображениям</string>
   <string name="description_too_short">Этот текст слишком короткий.</string>
+  <string name="description_too_long">Постарайтесь сделать описания краткими, чтобы пользователи могли сразу понять тему статьи.</string>
   <string name="description_ends_with_punctuation">Текст не должен заканчиваться знаками препинания.</string>
+  <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
@@ -1081,6 +1089,7 @@
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали, будут отклонены. Вы уверены, что хотите отклонить все теги?</string>
   <string name="suggested_edits_image_tags_add_tag">Добавить тег</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Неопубликованные теги не будут сохранены.</string>
   <string name="suggested_edits_image_zoom_tooltip">Ущипните, чтобы увеличить это изображение.</string>
   <string name="suggested_edits_encouragement_message">%s, спасибо за ваши правки. Ниже вы можете найти другие способы внести свой вклад в Википедию.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Привет %s&lt;/b&gt;, ниже вы можете найти несколько быстрых и простых способов помочь улучшить Википедию. Вы увидите разницу того что вы делаете как только начнете. Удачного редактирования!</string>
@@ -1159,6 +1168,7 @@
     <item quantity="many">Добавлено тегов: %d</item>
     <item quantity="other">Добавлено тегов: %d</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли вы, что каждый может редактировать Википедию?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предлагаемые правки - это новый способ редактирования Википедии на Android. Это поможет вам внести небольшой, но жизненно важный вклад в Википедию. Наша цель - сделать редактирование проще и доступнее для всех! Войдите или присоединитесь к Википедии, чтобы начать.</string>
@@ -1694,6 +1704,7 @@
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="talk_warn_learn_more_label">Узнать о заполнителях сообщений</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
   <string name="talk_templates_menu_edit_title">Править</string>
   <string name="data_opt_in_accept">Принять</string>
@@ -1766,4 +1777,5 @@
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Выключить их</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да, включить их</string>
   <string name="on_this_day_game_notification_undo">Отменить</string>
+  <string name="year_in_review_survey_cancel">Отмена</string>
 </resources>
