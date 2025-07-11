@@ -112,7 +112,14 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
+            fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+                MaterialAlertDialogBuilder(activity)
+                    .setMessage(caught.message)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }) {
             AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().getDefaultList(), pages, true)
+                }
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -247,30 +254,44 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
-        var index = 0
-        AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
-            if (it.title.contains(listName)) {
-                val trimmedListTitle = it.title.substring(listName.length).trim()
-                index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
-                return
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            var index = 0
+            AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
+                if (it.title.contains(listName)) {
+                    val trimmedListTitle = it.title.substring(listName.length).trim()
+                    index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
+                    return@forEach
+                }
             }
-        }
-        for (i in 0 until numOfLists) {
-            index += 1
-            val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
-            val pages = (0 until numOfArticles).map {
-                ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
+            for (i in 0 until numOfLists) {
+                index += 1
+                val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
+                val pages = (0 until numOfArticles).map {
+                    ReadingListPage(PageTitle("${it + 1}", WikipediaApp.instance.wikiSite))
+                }
+                AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
             }
-            AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
         }
     }
 
     private fun deleteTestReadingList(listName: String, numOfLists: Int) {
-        var remainingNumOfLists = numOfLists
-        AppDatabase.instance.readingListDao().getAllLists().forEach {
-            if (it.title.contains(listName) && remainingNumOfLists > 0) {
-                AppDatabase.instance.readingListDao().deleteList(it)
-                remainingNumOfLists--
+        fragment.lifecycleScope.launch(CoroutineExceptionHandler { _, caught ->
+            MaterialAlertDialogBuilder(activity)
+                .setMessage(caught.message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }) {
+            var remainingNumOfLists = numOfLists
+            AppDatabase.instance.readingListDao().getAllLists().forEach {
+                if (it.title.contains(listName) && remainingNumOfLists > 0) {
+                    AppDatabase.instance.readingListDao().deleteList(it)
+                    remainingNumOfLists--
+                }
             }
         }
     }
