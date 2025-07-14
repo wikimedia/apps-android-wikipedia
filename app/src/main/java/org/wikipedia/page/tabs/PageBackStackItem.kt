@@ -24,6 +24,8 @@ class PageBackStackItem(
     var description: String? = null,
     var extract: String? = null
 ) {
+    // This constructor is used for creating a new PageBackStackItem from a PageTitle and HistoryEntry.
+    // The old val title and val entry were removed to avoid confusion with the new parameters.
     constructor(title: PageTitle, entry: HistoryEntry) : this(
         apiTitle = title.prefixedText,
         displayTitle = title.displayText,

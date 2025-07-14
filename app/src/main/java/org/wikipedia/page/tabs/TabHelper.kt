@@ -46,8 +46,8 @@ object TabHelper {
 
     suspend fun initTabs() {
         migrateTabsToDatabase()
-        if (AppDatabase.instance.tabDao().hasTabs()) {
-            val tab = AppDatabase.instance.tabDao().getTabs()
+        val tab = AppDatabase.instance.tabDao().getTabs()
+        if (tab.isNotEmpty()) {
             tab.forEach {
                 // Use the backStackIds to get the full backStack items from the database
                 val backStackItems = AppDatabase.instance.pageBackStackItemDao().getPageBackStackItems(it.getBackStackIds())

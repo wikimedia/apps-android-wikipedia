@@ -140,6 +140,7 @@ class WikipediaApp : Application() {
 
         setupLeakCanary()
 
+        // Initialize the tabs with runBlocking to ensure that the tabs are ready before showing the TabCountView.
         runBlocking {
             TabHelper.initTabs()
         }

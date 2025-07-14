@@ -6,8 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 @Dao
 interface TabDao {
@@ -40,10 +38,4 @@ interface TabDao {
 
     @Delete
     suspend fun deleteTab(tab: Tab)
-
-    suspend fun hasTabs(): Boolean {
-        return withContext(Dispatchers.IO) {
-            getTabs().isNotEmpty()
-        }
-    }
 }

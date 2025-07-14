@@ -16,6 +16,7 @@ class Tab(
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
 
+    // The value of backStack will be initialized from the database in TabHelper
     @Ignore
     var backStack = mutableListOf<PageBackStackItem>()
 
