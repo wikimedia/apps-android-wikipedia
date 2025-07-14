@@ -29,10 +29,12 @@
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_voice_search">Carian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
+  <string name="search_icon_content_description">Cari</string>
   <string name="filter_hint_filter_my_lists_and_articles">Tapis senarai saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Lagi</string>
   <string name="nav_item_search">Cari</string>
+  <string name="nav_item_contribute">Sumbangkan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="card_offline_error_retry">Cuba lagi</string>
@@ -860,6 +862,7 @@
   <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
   <string name="suggested_edits_report_suggestion">Laporkan</string>
   <string name="suggested_edits_suggestion_report_submitted">Laporan dikirim</string>
+  <string name="suggested_edits_image_recommendations_task_title">Imej rencana</string>
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Tidak</string>
   <string name="image_recommendation_notsure">Tidak pasti</string>
@@ -941,6 +944,7 @@
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
+  <string name="wikitext_mention_user">Sebut pengguna</string>
   <string name="insert_media_settings">Tambah butiran imej</string>
   <string name="insert_media_settings_caption">Kapsyen gambar</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
@@ -1008,6 +1012,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 minggu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 bulan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 bulan</string>
   <string name="watchlist_expiry_dialog_permanent">Kekal</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
   <string name="watchlist_expiry_dialog_one_month">1 bulan</string>
@@ -1039,6 +1044,7 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Suntingan Wikidata</string>
   <string name="watchlist_filter_type_of_change_new_users">Pengguna baru</string>
   <string name="watchlist_search_bar_filter_hint">Penapis senarai pantau</string>
+  <string name="preview_edit_watch_this_page">Pantau laman ini</string>
   <string name="action_item_categories">Kategori</string>
   <string name="category_tab_articles">Rencana</string>
   <string name="category_tab_subcategories">Subkategori</string>
@@ -1050,6 +1056,7 @@
   <string name="shareable_reading_lists_new_indicator">*baru*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Faham</string>
   <string name="reading_list_share_menu_label">Kongsi…</string>
+  <string name="talk_templates_new_message_subject_hint">Perkara</string>
   <string name="talk_templates_new_message_save">Simpan</string>
   <string name="talk_templates_new_message_dialog_title">Simpan perubahan</string>
   <string name="talk_templates_new_message_dialog_save">Simpan</string>
@@ -1078,5 +1085,22 @@
   <string name="survey_dialog_option_very_satisfied">Sangat berpuas hati</string>
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak berpuas hati</string>
   <string name="survey_dialog_cancel">Batalkan</string>
+  <string name="survey_dialog_general_yes">Ya</string>
+  <string name="survey_dialog_general_no">Tidak</string>
   <string name="survey_dialog_input_hint">Maklum balas tambahan</string>
+  <string name="on_this_day_game_point">+1 mata</string>
+  <string name="on_this_day_game_pause_negative">Teruskan bermain</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Permainan Wikipedia</string>
+  <string name="year_in_review_donate">Derma</string>
+  <string name="recommended_reading_list_page_snackbar_day">Hari</string>
+  <string name="recommended_reading_list_page_snackbar_week">Minggu</string>
+  <string name="recommended_reading_list_page_snackbar_month">Bulan</string>
+  <string name="recommended_reading_list_settings_articles">rencana</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">harian</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">mingguan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">bulanan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Setiap hari</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
+  <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
 </resources>
