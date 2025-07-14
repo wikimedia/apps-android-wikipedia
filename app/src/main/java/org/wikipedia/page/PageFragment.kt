@@ -41,6 +41,7 @@ import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import okio.IOException
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -189,9 +190,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var editHandler: EditHandler
     var revision = 0L
 
-    private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
-    private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
     val currentTab get() = app.tabList.last()
     val title get() = model.title
@@ -1366,7 +1364,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             pageLoadViewModel.animateType.collect { type ->
-                println("orange --> animate buttons ${type.animateButtons}")
                 if (type.animateButtons) {
                     requireActivity().invalidateOptionsMenu()
                     (requireActivity() as PageActivity).animateTabsButton()
@@ -1379,24 +1376,32 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         viewLifecycleOwner.lifecycleScope.launch {
             pageLoadViewModel.watchResponseState.collect { state ->
-                println("orange --> watchResponseState")
                 when (state) {
-                    is UiState.Error -> {}
-                    UiState.Loading -> {}
+                    is UiState.Error -> {
+                        if (state.error !is IOException) {
+                            L.w("Ignoring network error while fetching watched status.")
+                            onPageLoadError(state.error)
+                        }
+                    }
                     is UiState.Success -> pageLoadViewModel.updateWatchStatusInModel(state.data)
+                    UiState.Loading -> updateProgressBar(true)
                 }
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             pageLoadViewModel.categories.collect { state ->
-                println("orange --> categories state")
                 when (state) {
-                    is UiState.Error -> {}
-                    UiState.Loading -> {}
+                    is UiState.Error -> {
+                        if (state.error !is IOException) {
+                            L.w("Ignoring network error while fetching categories.")
+                            onPageLoadError(state.error)
+                        }
+                    }
                     is UiState.Success -> {
                         pageLoadViewModel.saveCategories(state.data)
                     }
+                    UiState.Loading -> updateProgressBar(true)
                 }
             }
         }
@@ -1413,7 +1418,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     is PageLoadUiState.LoadingPrep -> handleLoadingState(uiState)
                     is PageLoadUiState.Success -> handleSuccessPageLoadingState(uiState)
                     is PageLoadUiState.SpecialPage -> handleSpecialLoadingPage(uiState)
-                    is PageLoadUiState.Error -> {}
+                    is PageLoadUiState.Error -> onPageLoadError(uiState.throwable)
                 }
             }
         }

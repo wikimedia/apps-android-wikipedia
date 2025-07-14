@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -54,23 +53,20 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
     val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
 
     fun loadPage(request: PageLoadRequest, webScrollY: Int = 0) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            handleError(throwable)
-        }) {
-            when (determineLoadType(request)) {
-                LoadType.CurrentTab -> loadInCurrentTab(request, webScrollY)
-                LoadType.ExistingTab -> loadInExistingTab(request)
-                LoadType.FromBackStack -> {
-                    if (request.options.pushBackStack) {
-                        // update the topmost entry in the backstack, before we start overwriting things.
-                        updateCurrentBackStackItem(webScrollY)
-                        currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
-                    }
-                    loadPageData(request)
+        val loadType = determineLoadType(request)
+        when (loadType) {
+            LoadType.CurrentTab -> loadInCurrentTab(request, webScrollY)
+            LoadType.ExistingTab -> loadInExistingTab(request)
+            LoadType.FromBackStack -> {
+                if (request.options.pushBackStack) {
+                    // update the topmost entry in the backstack, before we start overwriting things.
+                    updateCurrentBackStackItem(webScrollY)
+                    currentTab.pushBackStackItem(PageBackStackItem(request.title, request.entry))
                 }
-                LoadType.NewBackgroundTab -> loadInNewBackgroundTab(request)
-                LoadType.NewForegroundTab -> loadInNewForegroundTab(request, webScrollY)
+                loadPageData(request)
             }
+            LoadType.NewBackgroundTab -> loadInNewBackgroundTab(request)
+            LoadType.NewForegroundTab -> loadInNewForegroundTab(request, webScrollY)
         }
     }
 
@@ -170,7 +166,7 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
         }
     }
 
-    private suspend fun loadInExistingTab(request: PageLoadRequest) {
+    private fun loadInExistingTab(request: PageLoadRequest) {
         val selectedTabPosition = selectedTabPosition(request.title)
         if (selectedTabPosition == -1) {
             loadPageData(request)
@@ -244,11 +240,11 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             _pageLoadUiState.value = PageLoadUiState.SpecialPage(request)
             return
         }
-        viewModelScope.launch {
-            val pageSummary = async {
-                val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
-                pageDataFetcher.fetchPageSummary(request.title, cacheControl)
-            }.await()
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            handleError(throwable)
+        }) {
+            val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
+            val pageSummary = pageDataFetcher.fetchPageSummary(request.title, cacheControl)
             pageSummary.body()?.let { value ->
                 val pageModel = createPageModel(request, pageSummary)
                 _currentPageViewModel.value = pageModel
@@ -259,16 +255,14 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
                     redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) request.title.displayText else null
                 )
             }
-
-            val watchStatus = async {
-                pageDataFetcher.fetchWatchStatus(request.title)
-            }.await()
-            _watchResponseState.value = UiState.Success(watchStatus)
-
-            val categories = async {
-                pageDataFetcher.fetchCategories(request.title, watchStatus.myQueryResponse)
-            }.await()
+        }
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            handleError(throwable)
+        }) {
+            val watchStatus = pageDataFetcher.fetchWatchStatus(request.title)
+            val categories = pageDataFetcher.fetchCategories(request.title, watchStatus.myQueryResponse)
             _categories.value = UiState.Success(categories)
+            _watchResponseState.value = UiState.Success(watchStatus)
         }
     }
 
