@@ -1,7 +1,6 @@
 package org.wikipedia.page.linkpreview
 
 import android.content.DialogInterface
-import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -50,8 +49,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -373,25 +370,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
-        binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-        val colorHex = ResourceUtil.colorToCssString(
-            ResourceUtil.getThemedColor(
-                requireContext(),
-                android.R.attr.textColorPrimary
-            )
-        )
-        val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
         val editVisibility = contents.extract.isNullOrBlank() && contents.ns?.id == Namespace.MAIN.code()
         binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
+
         val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
-        binding.linkPreviewExtractWebview.loadDataWithBaseURL(
-            null,
-            "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
-            "text/html",
-            "UTF-8",
-            null
-        )
+        binding.linkPreviewExtract.text = StringUtil.fromHtml(extract)
+
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
