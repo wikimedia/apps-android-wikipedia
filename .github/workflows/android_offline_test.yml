@@ -1,4 +1,4 @@
-name: Android smoke test
+name: Android offline test
 
 on: [workflow_dispatch]
 
