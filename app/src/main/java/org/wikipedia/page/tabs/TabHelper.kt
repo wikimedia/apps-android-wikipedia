@@ -8,7 +8,6 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 object TabHelper {
@@ -23,20 +22,6 @@ object TabHelper {
     val count
         get() = if (list.size > 1) list.size else if (list.isEmpty()) 0 else if (list[0].backStack.isEmpty()) 0 else list.size
 
-    // TODO: remove on 2026-07-01
-    private suspend fun migrateTabsToDatabase() {
-        withContext(Dispatchers.IO) {
-            if (AppDatabase.instance.tabDao().getLastestIdFromTab() != null) {
-                return@withContext
-            }
-
-            insertTabs(Prefs.tabs)
-
-            // TODO: enable this on 2026-07-01
-            // Prefs.clearTabs()
-        }
-    }
-
     fun getCurrentTab(): Tab {
         if (list.isEmpty()) {
             list.add(Tab())
@@ -45,7 +30,6 @@ object TabHelper {
     }
 
     suspend fun initTabs() {
-        migrateTabsToDatabase()
         val tab = AppDatabase.instance.tabDao().getTabs()
         if (tab.isNotEmpty()) {
             tab.forEach {

@@ -34,6 +34,7 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.readinglist.db.RecommendedPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
@@ -376,6 +377,34 @@ abstract class AppDatabase : RoomDatabase() {
                         "  `description` TEXT," +
                         "  `extract` TEXT" +
                         ")")
+
+                // Migrating from Pres.tabs to database
+                var pageBackStackItemIndex = 0
+                Prefs.tabs.forEachIndexed { index, tab ->
+                    // Insert back stack items to PageBackStackItem and get the IDs
+                    var backStackIds = mutableListOf<Int>()
+                    tab.backStack.forEach { backStackItem ->
+                        db.execSQL("INSERT INTO PageBackStackItem " +
+                                "(apiTitle, displayTitle, langCode, namespace, timestamp, scrollY, source, thumbUrl, description, extract) " +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            arrayOf<Any?>(
+                                backStackItem.apiTitle,
+                                backStackItem.displayTitle,
+                                backStackItem.langCode,
+                                backStackItem.namespace,
+                                backStackItem.timestamp,
+                                backStackItem.scrollY,
+                                backStackItem.source,
+                                backStackItem.thumbUrl,
+                                backStackItem.description,
+                                backStackItem.extract
+                            ))
+                        backStackIds.add(pageBackStackItemIndex++)
+                    }
+                    // Insert the tab into the Tab table
+                    db.execSQL("INSERT INTO Tab (`order`, backStackIds, backStackPosition) VALUES (?, ?, ?)",
+                        arrayOf<Any?>(index, backStackIds.joinToString(","), tab.backStackPosition))
+                }
             }
         }
 

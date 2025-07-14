@@ -21,9 +21,6 @@ interface TabDao {
     @Query("SELECT * FROM Tab WHERE id = :id")
     suspend fun getTabById(id: Long): Tab?
 
-    @Query("SELECT seq + 1 FROM sqlite_sequence WHERE name = 'Tab'")
-    suspend fun getLastestIdFromTab(): Long?
-
     @Query("DELETE FROM Tab")
     suspend fun deleteAll()
 
