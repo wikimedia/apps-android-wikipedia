@@ -101,6 +101,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     fun backStackEmpty(): Boolean {
+        println("")
         return currentTab.backStack.isEmpty()
     }
 
