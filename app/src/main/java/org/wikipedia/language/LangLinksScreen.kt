@@ -1,15 +1,12 @@
 package org.wikipedia.language
 
-import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -25,7 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -49,12 +45,7 @@ fun ComposeLangLinksScreen(
     ) {
     val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
-    val (imeHeight, isKeyboardVisible) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-        // Handle IME (keyboard) insets
-        val windowInsets = WindowInsets.ime
-        val height = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
-        Pair(height, height > 0.dp)
-    } else Pair(0.dp, false)
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -76,9 +67,7 @@ fun ComposeLangLinksScreen(
                 Box(
                     modifier = modifier
                         .fillMaxSize()
-                        .padding(paddingValues)
-                        // Add bottom padding when keyboard is visible
-                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                        .padding(paddingValues),
                     contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator(
@@ -91,9 +80,7 @@ fun ComposeLangLinksScreen(
                 Box(
                     modifier = modifier
                         .fillMaxSize()
-                        .padding(paddingValues)
-                        // Add bottom padding when keyboard is visible
-                        .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                        .padding(paddingValues),
                     contentAlignment = Alignment.Center
                 ) {
                     WikiErrorView(
@@ -110,9 +97,7 @@ fun ComposeLangLinksScreen(
                     Box(
                         modifier = modifier
                             .fillMaxSize()
-                            .padding(paddingValues)
-                            // Add bottom padding when keyboard is visible
-                            .padding(bottom = if (isKeyboardVisible) imeHeight else 0.dp),
+                            .padding(paddingValues),
                         contentAlignment = Alignment.Center
                     ) {
                         SearchEmptyView(
