@@ -1513,20 +1513,20 @@
     <item>Abkhazian</item>
   </string-array>
   <string-array name="preference_language_variants">
-    <item>ban|ban,ban-bali,ban-x-dharma,ban-x-palmleaf,ban-x-pku</item>
-    <item>crh|crh,crh-cyrl,crh-latn</item>
-    <item>gan|gan,gan-hans,gan-hant</item>
-    <item>iu|iu,ike-cans,ike-latn</item>
-    <item>ku|ku,ku-arab,ku-latn</item>
+    <item>ban|ban-bali,ban-x-dharma,ban-x-palmleaf,ban-x-pku</item>
+    <item>crh|crh-cyrl,crh-latn</item>
+    <item>gan|gan-hans,gan-hant</item>
+    <item>iu|ike-cans,ike-latn</item>
+    <item>ku|ku-arab,ku-latn</item>
     <item>mni|mni,mni-beng</item>
-    <item>sh|sh,sh-cyrl,sh-latn</item>
-    <item>shi|shi,shi-latn,shi-tfng</item>
-    <item>sr|sr,sr-ec,sr-el</item>
+    <item>sh|sh-cyrl,sh-latn</item>
+    <item>shi|shi-latn,shi-tfng</item>
+    <item>sr|sr-ec,sr-el</item>
     <item>tg|tg,tg-latn</item>
     <item>tly|tly,tly-cyrl</item>
-    <item>uz|uz,uz-cyrl,uz-latn</item>
-    <item>wuu|wuu,wuu-hans,wuu-hant</item>
+    <item>uz|uz-cyrl,uz-latn</item>
+    <item>wuu|wuu-hans,wuu-hant</item>
     <item>zgh|zgh,zgh-latn</item>
-    <item>zh|zh,zh-cn,zh-hans,zh-hant,zh-hk,zh-mo,zh-my,zh-sg,zh-tw</item>
+    <item>zh|zh-cn,zh-hans,zh-hant,zh-hk,zh-mo,zh-my,zh-sg,zh-tw</item>
   </string-array>
 </resources>
