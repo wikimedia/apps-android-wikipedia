@@ -1,6 +1,5 @@
 package org.wikipedia.page.pageload
 
-import okio.IOException
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
@@ -14,6 +13,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
 import retrofit2.Response
+import java.io.IOException
 
 class PageDataFetcher {
 
