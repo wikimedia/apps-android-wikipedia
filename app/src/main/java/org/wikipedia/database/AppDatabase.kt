@@ -40,7 +40,6 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.db.TalkTemplateDao
-import org.wikipedia.util.log.L
 import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
