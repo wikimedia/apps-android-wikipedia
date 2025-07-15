@@ -1,15 +1,12 @@
 package org.wikipedia.language.addlanguages
 
-import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -25,7 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -58,11 +54,6 @@ fun LanguagesListScreen(
 ) {
     var searchQuery by remember { mutableStateOf("") }
     val context = LocalContext.current
-
-    val imeHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-        // Handle IME (keyboard) insets
-        with(LocalDensity.current) { WindowInsets.ime.getBottom(this).toDp() }
-    } else 0.dp
 
     Scaffold(
         modifier = modifier,
@@ -100,9 +91,7 @@ fun LanguagesListScreen(
                 Box(
                     modifier = modifier
                         .fillMaxSize()
-                        .padding(paddingValues)
-                        // Add bottom padding when keyboard is visible for android 15 and above
-                        .padding(bottom = imeHeight),
+                        .padding(paddingValues),
                     contentAlignment = Alignment.Center
                 ) {
                     WikiErrorView(
@@ -119,9 +108,7 @@ fun LanguagesListScreen(
                     Box(
                         modifier = modifier
                             .fillMaxSize()
-                            .padding(paddingValues)
-                            // Add bottom padding when keyboard is visible for android 15 and above
-                            .padding(bottom = imeHeight),
+                            .padding(paddingValues),
                         contentAlignment = Alignment.Center
                     ) {
                         SearchEmptyView(
