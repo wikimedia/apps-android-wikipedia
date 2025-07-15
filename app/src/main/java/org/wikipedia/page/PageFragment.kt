@@ -1084,10 +1084,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun goForward() {
-        pageLoadViewModel.goForward()
-    }
-
     fun showBottomSheet(dialog: BottomSheetDialogFragment) {
         ExclusiveBottomSheetPresenter.show(childFragmentManager, dialog)
     }
@@ -1353,7 +1349,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun forwardClick() {
-            goForward()
+            pageLoadViewModel.goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
         }
