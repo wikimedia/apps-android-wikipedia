@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,6 +26,7 @@ import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.util.Resource
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import retrofit2.Response
@@ -244,25 +246,41 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             handleError(throwable)
         }) {
             val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
-            val pageSummary = pageDataFetcher.fetchPageSummary(request.title, cacheControl)
-            pageSummary.body()?.let { value ->
-                val pageModel = createPageModel(request, pageSummary)
-                _currentPageViewModel.value = pageModel
-                _pageLoadUiState.value = PageLoadUiState.Success(
-                    result = value,
-                    title = request.title,
-                    stagedScrollY = request.options.stagedScrollY,
-                    redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) request.title.displayText else null
-                )
-            }
+            val pageSummaryDeferred = async { pageDataFetcher.fetchPageSummary(request.title, cacheControl) }
+            val watchStatusDeferred = async { pageDataFetcher.fetchWatchStatus(request.title) }
+
+            val pageSummary = pageSummaryDeferred.await()
+            handlePageSummary(pageSummary, request)
+
+            val watchStatus = watchStatusDeferred.await()
+            handleWatchStatusAndFetchCategories(watchStatus, request.title)
         }
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            handleError(throwable)
-        }) {
-            val watchStatus = pageDataFetcher.fetchWatchStatus(request.title)
-            val categories = pageDataFetcher.fetchCategories(request.title, watchStatus.myQueryResponse)
-            _categories.value = UiState.Success(categories)
-            _watchResponseState.value = UiState.Success(watchStatus)
+    }
+
+    private suspend fun handlePageSummary(pageSummary: Response<PageSummary>, request: PageLoadRequest) {
+        pageSummary.body()?.let { value ->
+            val pageModel = createPageModel(request, pageSummary)
+            _currentPageViewModel.value = pageModel
+            _pageLoadUiState.value = PageLoadUiState.Success(
+                result = value,
+                title = request.title,
+                stagedScrollY = request.options.stagedScrollY,
+                redirectedFrom = if (pageSummary.raw().priorResponse?.isRedirect == true) request.title.displayText else null
+            )
+        }
+    }
+
+    private suspend fun handleWatchStatusAndFetchCategories(watchStatus: Resource<WatchStatus>, title: PageTitle) {
+        when (watchStatus) {
+            is Resource.Success -> {
+                _watchResponseState.value = UiState.Success(watchStatus.data)
+                val categoriesStatus = pageDataFetcher.fetchCategories(title, watchStatus.data.myQueryResponse)
+                when (categoriesStatus) {
+                    is Resource.Success -> { _categories.value = UiState.Success(categoriesStatus.data) }
+                    is Resource.Error -> { _categories.value = UiState.Error(categoriesStatus.throwable) }
+                }
+            }
+            is Resource.Error -> _watchResponseState.value = UiState.Error(watchStatus.throwable)
         }
     }
 
@@ -339,10 +357,6 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             val pageSummary = response.body()
             page = pageSummary?.toPage(request.title)
             title = page?.title
-
-            // from other api calls, need to update this later in the model
-//            isWatched = result.isWatched
-//            hasWatchlistExpiry = result.hasWatchlistExpiry
 
             title?.let {
                 if (!response.raw().request.url.fragment.isNullOrEmpty()) {
