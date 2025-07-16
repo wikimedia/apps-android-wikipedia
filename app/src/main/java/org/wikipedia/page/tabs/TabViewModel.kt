@@ -25,7 +25,7 @@ class TabViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(Resource<List<Tab>>())
     val uiState = _uiState.asStateFlow()
 
-    private val _clickState = MutableStateFlow(Resource<Tab>())
+    private val _clickState = MutableStateFlow(Resource<Boolean>())
     val clickState = _clickState.asStateFlow()
 
     var hasTabs = false
@@ -98,10 +98,13 @@ class TabViewModel : ViewModel() {
             _clickState.value = Resource.Error(throwable)
         }) {
             // Pull all the tabs from the database and insert the new tab at the specified position
-            val tabs = AppDatabase.instance.tabDao().getTabs().toMutableList()
-            val tab = tabs.removeAt(position)
-            tabs.add(tab)
-            _clickState.value = Resource.Success(tab)
+            val tabs = AppDatabase.instance.tabDao().getTabs()
+            // Re-arrange the order of the tabs
+            tabs.forEachIndexed { index, tab ->
+                tab.order = if (index < position) index else if (index == position) tabs.size - 1 else index - 1
+            }
+            AppDatabase.instance.tabDao().updateTabs(tabs)
+            _clickState.value = Resource.Success(true)
         }
     }
 }
