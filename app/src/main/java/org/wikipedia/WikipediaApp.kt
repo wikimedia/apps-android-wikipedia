@@ -251,20 +251,18 @@ class WikipediaApp : Application() {
     }
 
     fun resetAfterLogOut() {
-        MainScope().launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            AccountUtil.removeAccount()
-            Prefs.isPushNotificationTokenSubscribed = false
-            Prefs.pushNotificationTokenOld = ""
-            Prefs.tempAccountWelcomeShown = false
-            Prefs.tempAccountCreateDay = 0L
-            Prefs.tempAccountDialogShown = false
-            SharedPreferenceCookieManager.instance.clearAllCookies()
+        AccountUtil.removeAccount()
+        Prefs.isPushNotificationTokenSubscribed = false
+        Prefs.pushNotificationTokenOld = ""
+        Prefs.tempAccountWelcomeShown = false
+        Prefs.tempAccountCreateDay = 0L
+        Prefs.tempAccountDialogShown = false
+        SharedPreferenceCookieManager.instance.clearAllCookies()
+        MainScope().launch {
             AppDatabase.instance.notificationDao().deleteAll()
-            FlowEventBus.post(LoggedOutEvent())
-            L.d("Logout complete.")
         }
+        FlowEventBus.post(LoggedOutEvent())
+        L.d("Logout complete.")
     }
 
     private fun enableWebViewDebugging() {
