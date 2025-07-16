@@ -19,6 +19,8 @@ class TabViewModel : ViewModel() {
     private val _saveToListState = MutableStateFlow(Resource<List<PageTitle>>())
     val saveToListState = _saveToListState.asStateFlow()
 
+    private val _deleteTabsState = MutableStateFlow(Resource<List<Tab>>())
+    val deleteTabsState = _deleteTabsState.asStateFlow()
     private val _uiState = MutableStateFlow(Resource<List<Tab>>())
     val uiState = _uiState.asStateFlow()
 
@@ -63,11 +65,15 @@ class TabViewModel : ViewModel() {
         }
     }
 
-    fun closeTabs(tabs: List<Tab>) {
+    fun closeTabs(tabs: List<Tab> = emptyList()) {
         viewModelScope.launch(handler) {
-            _uiState.value = Resource.Loading()
-            TabHelper.deleteTabs(tabs)
-            _uiState.value = Resource.Success(emptyList())
+            _deleteTabsState.value = Resource.Loading()
+            var tabsToDelete = tabs
+            if (tabs.isEmpty()) {
+                tabsToDelete = AppDatabase.instance.tabDao().getTabs()
+            }
+            TabHelper.deleteTabs(tabsToDelete)
+            _deleteTabsState.value = Resource.Success(tabsToDelete)
         }
     }
 

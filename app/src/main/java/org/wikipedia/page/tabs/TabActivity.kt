@@ -55,11 +55,34 @@ class TabActivity : BaseActivity() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is Resource.Loading -> onLoading()
-                        is Resource.Success -> onSuccess(it.data)
-                        is Resource.Error -> onError(it.throwable)
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> onSuccess(it.data)
+                            is Resource.Error -> onError(it.throwable)
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.deleteTabsState.collect {
+                        // TODO
+                    }
+                }
+
+                launch {
+                    viewModel.saveToListState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                                    AddToReadingListDialog.newInstance(it.data, InvokeSource.TABS_ACTIVITY))
+                            }
+
+                            is Resource.Error -> {
+                                FeedbackUtil.showError(this@TabActivity, it.throwable)
+                            }
+                        }
                     }
                 }
             }
@@ -104,18 +127,19 @@ class TabActivity : BaseActivity() {
                 true
             }
             R.id.menu_close_all_tabs -> {
-                if (TabHelper.hasTabs()) {
+                if (viewModel.hasTabs) {
                     MaterialAlertDialogBuilder(this).run {
                         setMessage(R.string.close_all_tabs_confirm)
                         setPositiveButton(R.string.close_all_tabs_confirm_yes) { _, _ ->
-                            L.d("All tabs removed.")
-                            val appTabs = TabHelper.list.toMutableList()
-                            TabHelper.list.clear()
-                            binding.tabCountsView.updateTabCount(false)
-                            binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(0, appTabs.size)
-                            setResult(RESULT_LOAD_FROM_BACKSTACK)
-                            showUndoAllSnackbar(appTabs)
-                            cancelled = false
+                            viewModel.closeTabs()
+//                            L.d("All tabs removed.")
+//                            val appTabs = TabHelper.list.toMutableList()
+//                            TabHelper.list.clear()
+//                            binding.tabCountsView.updateTabCount(false)
+//                            binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(0, appTabs.size)
+//                            setResult(RESULT_LOAD_FROM_BACKSTACK)
+//                            showUndoAllSnackbar(appTabs)
+//                            cancelled = false
                         }
                         setNegativeButton(R.string.close_all_tabs_confirm_no, null)
                         .show()
@@ -124,8 +148,8 @@ class TabActivity : BaseActivity() {
                 true
             }
             R.id.menu_save_all_tabs -> {
-                if (TabHelper.hasTabs()) {
-                    saveTabsToList()
+                if (viewModel.hasTabs) {
+                    viewModel.saveToList()
                 }
                 true
             }
@@ -161,12 +185,6 @@ class TabActivity : BaseActivity() {
         binding.errorView.backClickListener = View.OnClickListener {
             finish()
         }
-    }
-
-    private fun saveTabsToList() {
-        val titlesList = TabHelper.list.filter { it.getBackStackPositionTitle() != null }.map { it.getBackStackPositionTitle()!! }
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(titlesList, InvokeSource.TABS_ACTIVITY))
     }
 
     private fun openNewTab() {
