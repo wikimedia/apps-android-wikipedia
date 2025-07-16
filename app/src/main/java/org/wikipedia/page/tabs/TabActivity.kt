@@ -10,9 +10,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -28,6 +32,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -48,7 +53,18 @@ class TabActivity : BaseActivity() {
         binding.tabCountsView.setOnClickListener { onBackPressed() }
         FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
 
-        binding.tabRecyclerView.adapter = TabItemAdapter()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onSuccess(it.data)
+                        is Resource.Error -> onError(it.throwable)
+                    }
+                }
+            }
+        }
+
         val touchCallback = SwipeableTabTouchHelperCallback(this)
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -70,10 +86,6 @@ class TabActivity : BaseActivity() {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-        TabHelper.commitTabState()
-    }
 
     override fun onResume() {
         super.onResume()
@@ -127,6 +139,28 @@ class TabActivity : BaseActivity() {
 
     override fun onUnreadNotification() {
         updateNotificationsButton(true)
+    }
+
+    private fun onLoading() {
+        binding.tabRecyclerView.isVisible = false
+        binding.errorView.isVisible = false
+        binding.progressBar.isVisible = true
+    }
+
+    private fun onSuccess(list: List<Tab>) {
+        binding.progressBar.isVisible = false
+        binding.errorView.isVisible = false
+        binding.tabRecyclerView.adapter = TabItemAdapter(list)
+    }
+
+    private fun onError(throwable: Throwable) {
+        L.e(throwable)
+        binding.progressBar.isVisible = false
+        binding.tabRecyclerView.isVisible = false
+        binding.errorView.isVisible = true
+        binding.errorView.backClickListener = View.OnClickListener {
+            finish()
+        }
     }
 
     private fun saveTabsToList() {
@@ -198,11 +232,11 @@ class TabActivity : BaseActivity() {
         }
     }
 
-    private fun adapterPositionToTabIndex(adapterPosition: Int): Int {
-        return TabHelper.list.size - adapterPosition - 1
+    private fun adapterPositionToTabIndex(list: List<Tab>, adapterPosition: Int): Int {
+        return list.size - adapterPosition - 1
     }
 
-    private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
+    private open inner class TabViewHolder(itemView: View, val list: List<Tab>) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
         open fun bindItem(tab: Tab, position: Int) {
             itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.getBackStackPositionTitle()?.displayText.orEmpty())
             itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.getBackStackPositionTitle()?.description.orEmpty())
@@ -216,7 +250,7 @@ class TabActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             val adapterPosition = bindingAdapterPosition
-            val index = adapterPositionToTabIndex(adapterPosition)
+            val index = adapterPositionToTabIndex(list, adapterPosition)
             if (index < 0 || index >= TabHelper.list.size) {
                 return
             }
@@ -247,7 +281,7 @@ class TabActivity : BaseActivity() {
 
         private fun doCloseTab() {
             val adapterPosition = bindingAdapterPosition
-            val index = adapterPositionToTabIndex(adapterPosition)
+            val index = adapterPositionToTabIndex(list, adapterPosition)
             val appTab = TabHelper.list.removeAt(index)
             binding.tabCountsView.updateTabCount(false)
             bindingAdapter?.notifyItemRemoved(adapterPosition)
@@ -259,17 +293,18 @@ class TabActivity : BaseActivity() {
         }
     }
 
-    private inner class TabItemAdapter : RecyclerView.Adapter<TabViewHolder>() {
+    private inner class TabItemAdapter(val list: List<Tab>) : RecyclerView.Adapter<TabViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabViewHolder {
-            return TabViewHolder(layoutInflater.inflate(R.layout.item_tab_contents, parent, false))
+            val itemView = layoutInflater.inflate(R.layout.item_tab_contents, parent, false)
+            return TabViewHolder(itemView, list)
         }
 
         override fun getItemCount(): Int {
-            return TabHelper.list.size
+            return list.size
         }
 
         override fun onBindViewHolder(holder: TabViewHolder, position: Int) {
-            holder.bindItem(TabHelper.list[adapterPositionToTabIndex(position)], position)
+            holder.bindItem(list[adapterPositionToTabIndex(list, position)], position)
         }
     }
 
