@@ -170,15 +170,6 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(
-            viewId = com.google.android.material.R.id.snackbar_action,
-            "Change"
-        )
-        click.onViewWithId(R.id.watchlistExpiryOneMonth)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) =
         apply {
             onView(withId(R.id.feed_view))
