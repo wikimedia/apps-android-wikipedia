@@ -95,7 +95,7 @@
   <string name="menu_page_recently_viewed">Visitados recentemente</string>
   <string name="menu_page_archive">Arquivar</string>
   <string name="menu_long_press_open_page">Abrir</string>
-  <string name="menu_long_press_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
+  <string name="menu_long_press_open_in_new_tab">Abrir nunha lapela nova</string>
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
   <string name="menu_text_select_define">Definir</string>
   <string name="on_this_day_page_share">Compartir</string>
