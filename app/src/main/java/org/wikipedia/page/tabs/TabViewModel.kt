@@ -21,8 +21,12 @@ class TabViewModel : ViewModel() {
 
     private val _deleteTabsState = MutableStateFlow(Resource<List<Tab>>())
     val deleteTabsState = _deleteTabsState.asStateFlow()
+
     private val _uiState = MutableStateFlow(Resource<List<Tab>>())
     val uiState = _uiState.asStateFlow()
+
+    private val _clickState = MutableStateFlow(Resource<Tab>())
+    val clickState = _clickState.asStateFlow()
 
     var hasTabs = false
 
@@ -49,7 +53,9 @@ class TabViewModel : ViewModel() {
     }
 
     fun saveToList() {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _saveToListState.value = Resource.Error(throwable)
+        }) {
             _saveToListState.value = Resource.Loading()
             if (!hasTabs) {
                 _saveToListState.value = Resource.Success(emptyList())
@@ -66,7 +72,9 @@ class TabViewModel : ViewModel() {
     }
 
     fun closeTabs(tabs: List<Tab> = emptyList()) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _deleteTabsState.value = Resource.Error(throwable)
+        }) {
             _deleteTabsState.value = Resource.Loading()
             var tabsToDelete = tabs
             if (tabs.isEmpty()) {
@@ -82,6 +90,18 @@ class TabViewModel : ViewModel() {
             _uiState.value = Resource.Loading()
             TabHelper.insertTabs(tab)
             fetchTabs()
+        }
+    }
+
+    fun addTabToLastPosition(position: Int) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _clickState.value = Resource.Error(throwable)
+        }) {
+            // Pull all the tabs from the database and insert the new tab at the specified position
+            val tabs = AppDatabase.instance.tabDao().getTabs().toMutableList()
+            val tab = tabs.removeAt(position)
+            tabs.add(tab)
+            _clickState.value = Resource.Success(tab)
         }
     }
 }
