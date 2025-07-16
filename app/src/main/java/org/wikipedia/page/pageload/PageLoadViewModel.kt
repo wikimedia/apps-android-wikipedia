@@ -3,7 +3,6 @@ package org.wikipedia.page.pageload
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,9 +10,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
@@ -243,14 +244,17 @@ class PageLoadViewModel : ViewModel() {
             handleError(throwable)
         }) {
             val cacheControl = if (request.options.isRefresh) "no-cache" else "default"
-            val pageSummaryDeferred = async { pageDataFetcher.fetchPageSummary(request.title, cacheControl) }
-            val watchStatusDeferred = async { pageDataFetcher.fetchWatchStatus(request.title) }
-
-            val pageSummary = pageSummaryDeferred.await()
+            val pageSummary = pageDataFetcher.fetchPageSummary(request.title, cacheControl)
             handlePageSummary(pageSummary, request)
 
-            val watchStatus = watchStatusDeferred.await()
-            handleWatchStatusAndFetchCategories(watchStatus, request.title)
+            val canMakeWatchRequest = WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn
+            if (canMakeWatchRequest) {
+                val watchStatus = pageDataFetcher.fetchWatchStatus(request.title)
+                handleWatchStatus(watchStatus, request.title)
+            } else if (WikipediaApp.instance.isOnline) {
+                val categoriesStatus = pageDataFetcher.fetchCategories(request.title)
+                handleCategoriesStatus(categoriesStatus, request.title)
+            }
         }
     }
 
@@ -267,18 +271,31 @@ class PageLoadViewModel : ViewModel() {
         }
     }
 
-    private suspend fun handleWatchStatusAndFetchCategories(watchStatus: Resource<WatchStatus>, title: PageTitle) {
+    private fun handleWatchStatus(watchStatus: Resource<WatchStatus>, title: PageTitle) {
         when (watchStatus) {
             is Resource.Success -> {
                 _watchResponseState.value = UiState.Success(watchStatus.data)
-                val categoriesStatus = pageDataFetcher.fetchCategories(title, watchStatus.data.myQueryResponse)
-                when (categoriesStatus) {
-                    is Resource.Success -> { _categories.value = UiState.Success(categoriesStatus.data) }
-                    is Resource.Error -> { _categories.value = UiState.Error(categoriesStatus.throwable) }
-                }
+                val categories = unwrapCategories(watchStatus.data.myQueryResponse, title)
+                _categories.value = UiState.Success(categories)
             }
             is Resource.Error -> _watchResponseState.value = UiState.Error(watchStatus.throwable)
         }
+    }
+
+    private fun handleCategoriesStatus(categoriesStatus: Resource<MwQueryResponse>, title: PageTitle) {
+        when (categoriesStatus) {
+            is Resource.Success -> {
+                val categories = unwrapCategories(categoriesStatus.data, title)
+                _categories.value = UiState.Success(categories)
+            }
+            is Resource.Error -> { _categories.value = UiState.Error(categoriesStatus.throwable) }
+        }
+    }
+
+    private fun unwrapCategories(response: MwQueryResponse, title: PageTitle): List<Category> {
+        return response.query?.firstPage()?.categories?.map { category ->
+            Category(title = category.title, lang = title.wikiSite.languageCode)
+        } ?: emptyList()
     }
 
     private fun loadBackgroundTabMetadata(title: PageTitle) {

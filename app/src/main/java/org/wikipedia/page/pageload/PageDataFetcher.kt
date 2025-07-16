@@ -12,6 +12,7 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import retrofit2.Response
 import java.io.IOException
 
@@ -45,20 +46,17 @@ class PageDataFetcher {
             }
             return Resource.Success(watchStatus)
         } catch (e: IOException) {
+            L.w("Ignoring network error while fetching watched status.")
             return Resource.Error(e)
         }
     }
 
-    suspend fun fetchCategories(title: PageTitle, watchResponse: MwQueryResponse): Resource<List<Category>> {
+    suspend fun fetchCategories(title: PageTitle): Resource<MwQueryResponse> {
         try {
-            val categories = if (WikipediaApp.instance.isOnline) {
-                val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
-                (response.query ?: watchResponse.query)?.firstPage()?.categories?.map { category ->
-                    Category(title = category.title, lang = title.wikiSite.languageCode)
-                } ?: emptyList()
-            } else emptyList()
-            return Resource.Success(categories)
+            val response = ServiceFactory.get(title.wikiSite).getCategoriesProps(title.text)
+            return Resource.Success(response)
         } catch (e: IOException) {
+            L.w("Ignoring network error while fetching categories.")
             return Resource.Error(e)
         }
     }
