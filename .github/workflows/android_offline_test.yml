@@ -1,4 +1,4 @@
-name: Android offline test
+name: Android saved article offline test
 
 on: [workflow_dispatch]
 
