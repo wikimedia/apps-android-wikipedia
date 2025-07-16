@@ -1,11 +1,7 @@
 package org.wikipedia.page.pageload
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,7 +27,8 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import retrofit2.Response
 
-class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
+class PageLoadViewModel : ViewModel() {
+    private val app = WikipediaApp.instance
 
     private val _pageLoadUiState = MutableStateFlow<PageLoadUiState>(PageLoadUiState.LoadingPrep())
     val pageLoadUiState = _pageLoadUiState.asStateFlow()
@@ -385,15 +382,6 @@ class PageLoadViewModel(private val app: WikipediaApp) : ViewModel() {
             request.options.tabPosition == PageActivity.TabPosition.NEW_TAB_BACKGROUND -> LoadType.NewBackgroundTab
             request.options.tabPosition == PageActivity.TabPosition.EXISTING_TAB -> LoadType.ExistingTab
             else -> LoadType.CurrentTab
-        }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val app = this[APPLICATION_KEY] as WikipediaApp
-                PageLoadViewModel(app)
-            }
         }
     }
 

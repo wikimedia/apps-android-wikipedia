@@ -27,7 +27,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -195,7 +195,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val page get() = model.page
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
-    private lateinit var pageLoadViewModel: PageLoadViewModel
+    private val pageLoadViewModel: PageLoadViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -243,8 +243,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 model.isReadMoreLoaded = true
             }
         }
-
-        pageLoadViewModel = ViewModelProvider(this, PageLoadViewModel.Factory)[PageLoadViewModel::class.java]
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView, callback())
