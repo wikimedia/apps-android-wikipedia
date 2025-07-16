@@ -199,6 +199,7 @@ class TabActivity : BaseActivity() {
     private fun onSuccess(list: List<Tab>) {
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
+        binding.tabRecyclerView.isVisible = true
         (binding.tabRecyclerView.adapter as TabItemAdapter).setList(list)
         binding.tabRecyclerView.adapter?.notifyItemRangeInserted(0, list.size)
         binding.tabCountsView.updateTabCount(false)

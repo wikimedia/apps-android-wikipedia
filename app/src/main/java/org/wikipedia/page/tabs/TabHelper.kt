@@ -22,6 +22,10 @@ object TabHelper {
 
     var count: Int = 0
 
+    init {
+        updateTabCount()
+    }
+
     fun updateTabCount() {
         MainScope().launch(coroutineExceptionHandler) {
             val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
