@@ -103,7 +103,15 @@ for key, value in data[u"sitematrix"].items():
     if language_code in lang_list_response[u"query"][u"languagevariants"]:
         print ("Language code: " + language_code + " has variants")
         language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code)
-        language_code_variants = language_code
+
+        # Count actual variants (excluding the main language code)
+        variant_count = sum(1 for variant in language_variants.keys() if variant != language_code)
+
+        if variant_count < 2:
+            language_code_variants = language_code + "|" + language_code
+        else:
+            language_code_variants = language_code + "|"
+
         for variant, fallbacks in language_variants.items():
 
             if variant == language_code:
@@ -124,7 +132,7 @@ for key, value in data[u"sitematrix"].items():
                     en_lang_name = name[u"name"]
                     break
 
-            language_code_variants = language_code_variants + "," + variant
+            language_code_variants = language_code_variants + variant if language_code_variants.endswith("|") else language_code_variants + "," + variant
 
             add_lang(variant, variant_bcp47, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
 
