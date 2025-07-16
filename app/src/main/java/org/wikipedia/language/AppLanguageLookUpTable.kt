@@ -30,9 +30,13 @@ class AppLanguageLookUpTable(context: Context) {
 
     private val languageVariants by lazy {
         getStringList(R.array.preference_language_variants)
-            .map { it.split(",") }
+            .map { it.split("|") }
             .filter { it.size > 1 }
-            .associate { it[0] to (if (it.size > 2) it.subList(1, it.size) else it) }
+            .associate {
+                val key = it[0]
+                val variants = it[1].split(",")
+                key to variants
+            }
     }
 
     fun getCanonicalName(code: String?): String? {
