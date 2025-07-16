@@ -3,6 +3,7 @@ package org.wikipedia.page.tabs
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
@@ -19,8 +20,14 @@ object TabHelper {
 
     val list = mutableListOf<Tab>()
 
-    val count
-        get() = if (list.size > 1) list.size else if (list.isEmpty()) 0 else if (list[0].backStack.isEmpty()) 0 else list.size
+    var count: Int = 0
+
+    fun updateTabCount() {
+        MainScope().launch(coroutineExceptionHandler) {
+            val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
+            count = tabs.size
+        }
+    }
 
     fun getCurrentTab(): Tab {
         if (list.isEmpty()) {
@@ -108,7 +115,7 @@ object TabHelper {
         }
     }
 
-    private suspend fun insertTabs(tabs: List<Tab>) {
+    suspend fun insertTabs(tabs: List<Tab>) {
         withContext(Dispatchers.IO) {
             if (tabs.isEmpty()) return@withContext
             // get the last order from the table
@@ -119,10 +126,11 @@ object TabHelper {
                 tab.order = ++lastOrder
             }
             AppDatabase.instance.tabDao().insertTabs(tabs)
+            updateTabCount()
         }
     }
 
-    private suspend fun deleteTabs(tabs: List<Tab>) {
+    suspend fun deleteTabs(tabs: List<Tab>) {
         withContext(Dispatchers.IO) {
             if (tabs.isEmpty()) return@withContext
             val backStackIdsToDelete = tabs.flatMap { it.getBackStackIds() }.distinct()
@@ -135,10 +143,11 @@ object TabHelper {
                 tab.order = index + 1
             }
             AppDatabase.instance.tabDao().updateTabs(remainingTabs)
+            updateTabCount()
         }
     }
 
-    private suspend fun updateTabs(tabs: List<Tab>) {
+     suspend fun updateTabs(tabs: List<Tab>) {
         withContext(Dispatchers.IO) {
             if (tabs.isEmpty()) return@withContext
             tabs.forEachIndexed { index, tab ->
@@ -173,6 +182,7 @@ object TabHelper {
                     insertTabs(listOf(tab))
                 }
             }
+            updateTabCount()
         }
     }
 }

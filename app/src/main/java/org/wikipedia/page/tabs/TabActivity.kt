@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
@@ -35,7 +35,8 @@ import org.wikipedia.views.WikiCardView
 
 class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
-    private val app: WikipediaApp = WikipediaApp.instance
+
+    private val viewModel: TabViewModel by viewModels()
     private var launchedFromPageActivity = false
     private var cancelled = true
 
