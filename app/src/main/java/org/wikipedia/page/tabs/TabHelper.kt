@@ -97,11 +97,7 @@ object TabHelper {
 
     fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry, action: () -> Unit = {}) {
         coroutineScope.launch(coroutineExceptionHandler) {
-            val tab = if (count == 0) list[0] else Tab()
-            if (count > 0) {
-                list.add(0, tab)
-                trimTabCount()
-            }
+            val tab = Tab()
             // Add a new PageBackStackItem to database
             val pageBackStackItem = PageBackStackItem(
                 apiTitle = entry.title.prefixedText,
@@ -119,11 +115,12 @@ object TabHelper {
         }
     }
 
-    suspend fun insertTabs(tabs: List<Tab>) {
+    suspend fun insertTabs(tabs: List<Tab>, toForeground: Boolean = false) {
         withContext(Dispatchers.IO) {
             if (tabs.isEmpty()) return@withContext
+            val allTabs = AppDatabase.instance.tabDao().getTabs()
             // get the last order from the table
-            var lastOrder = AppDatabase.instance.tabDao().getTabs().maxOfOrNull { it.order } ?: 0
+            var lastOrder = if (toForeground) 0 else allTabs.maxOfOrNull { it.order } ?: 0
             tabs.forEach { tab ->
                 val ids = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItems(tab.backStack)
                 tab.setBackStackIds(ids)
@@ -132,7 +129,16 @@ object TabHelper {
                     tab.order = ++lastOrder
                 }
             }
-            AppDatabase.instance.tabDao().insertTabs(tabs)
+            var finalTabs = tabs
+            if (toForeground) {
+                // Re-arrange the existing tabs' order
+                allTabs.forEachIndexed { index, existingTab ->
+                    existingTab.order = ++lastOrder
+                }
+                finalTabs = finalTabs + allTabs
+            }
+
+            AppDatabase.instance.tabDao().insertTabs(finalTabs)
             updateTabCount()
         }
     }

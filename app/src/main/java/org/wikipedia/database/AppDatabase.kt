@@ -383,6 +383,7 @@ abstract class AppDatabase : RoomDatabase() {
                 Prefs.tabs.forEachIndexed { index, tab ->
                     // Insert back stack items to PageBackStackItem and get the IDs
                     var backStackIds = mutableListOf<Int>()
+                    // TODO: make sure the order is correct
                     tab.backStack.forEach { backStackItem ->
                         db.execSQL("INSERT INTO PageBackStackItem " +
                                 "(apiTitle, displayTitle, langCode, namespace, timestamp, scrollY, source, thumbUrl, description, extract) " +

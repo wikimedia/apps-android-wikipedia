@@ -26,6 +26,7 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
     }
 
     fun updateTabCount(animation: Boolean) {
+        // TODO: determine if this should be run on the main thread or not
         runBlocking {
             val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
             binding.tabsCountText.text = tabs.size.toString()
