@@ -355,10 +355,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
-            // TODO: We should handle the coroutine scope better here, maybe consider using a ViewModel or runBlocking
-            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
-            showTabCountsAnimation = true
-            requireActivity().invalidateOptionsMenu()
+            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry) {
+                showTabCountsAnimation = true
+                requireActivity().invalidateOptionsMenu()
+            }
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
         }

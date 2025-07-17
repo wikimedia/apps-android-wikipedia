@@ -95,7 +95,7 @@ object TabHelper {
         }
     }
 
-    fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry) {
+    fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry, action: () -> Unit = {}) {
         coroutineScope.launch(coroutineExceptionHandler) {
             val tab = if (count == 0) list[0] else Tab()
             if (count > 0) {
@@ -114,7 +114,8 @@ object TabHelper {
                 source = entry.source
             )
             tab.backStack.add(pageBackStackItem)
-            commitTabState()
+            insertTabs(listOf(tab))
+            action()
         }
     }
 
