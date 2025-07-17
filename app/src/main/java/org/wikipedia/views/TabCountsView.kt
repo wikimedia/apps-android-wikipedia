@@ -30,7 +30,7 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
     }
 
     fun updateTabCount(animation: Boolean) {
-        (context as AppCompatActivity).lifecycleScope.launch (CoroutineExceptionHandler { _, throwable ->
+        (context as AppCompatActivity).lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.d("Error updating tab count: ${throwable.message}")
         }) {
             val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
@@ -40,6 +40,5 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
                 startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
             }
         }
-
     }
 }
