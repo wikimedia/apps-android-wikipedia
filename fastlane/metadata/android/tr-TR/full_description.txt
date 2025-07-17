@@ -1,40 +1,39 @@
-The official Wikipedia Android app is designed to help you find, discover, and explore knowledge on Wikipedia. Settle a bet with a friend by doing a quick search through the app, or dive into featured articles, images, recommended articles, and more using the explore feed. With more than 39 million articles in nearly 300 languages, your favorite free online encyclopedia is now at your fingertips.
+Resmi Wikipedia Android uygulaması, Wikipedia hakkındaki bilgileri bulmanıza, keşfetmenize ve keşfetmenize yardımcı olmak için tasarlanmıştır. Uygulama aracılığıyla hızlı bir arama yaparak arkadaşınızla bir bahis yapın ya da öne çıkan ve önerilen makaleler, resimler ve daha fazla bilgi edinmek için keşif akışını kullanın. Yaklaşık 300 dilde 39 milyondan fazla makalesi ile en sevdiğiniz özgür çevrim içi ansiklopedi artık parmaklarınızın ucunda.
 
-Features:
+Özellikler:
 
-Explore feed - The new ‘explore feed’ offers recommended and constantly updating Wikipedia content right on the home screen, including trending articles, current events, suggested reading, and more.
+Feed'i keşfet - Yeni "feed'i keşfet", trend olan makaleler, güncel etkinlikler, önerilen okumalar ve daha fazlası dahil olmak üzere, ana ekranda doğrudan ve sürekli olarak Wikipedia içeriğini güncellemeyi önerir.
 
-Voice-integrated search - Easily find what you’re looking for with a prominent search bar at the top of the app, including voice-enabled search on your device.
+Sesle tümleşik arama - Cihazınızdaki sesle etkinleştirilen arama dahil olmak üzere, uygulamanızın en üstünde bulunan önemli bir arama çubuğuyla aradığınızı kolayca bulun.
 
-Nearby - Learn more about what’s around you by selecting points on an interactive map to see articles related to your current and nearby location.
+Yakında - Geçerli ve yakın konumunuzla ilgili makaleleri görmek için etkileşimli bir haritada puan seçerek etrafınızdakiler hakkında daha fazla bilgi edinin.
 
-Language support - Seamlessly switch to reading any language-supported Wikipedia, either by changing the language of the current article, or changing your preferred search language while searching.
+Dil desteği - Güncel makalenin dilini değiştirerek ya da arama yaparken tercih ettiğiniz arama dilini değiştirerek dil destekli Vikipedi'ye sorunsuzca geçiş yapın.
 
-Link previews - Tap on an article to preview it, without losing your place in what you’re currently reading. Press and hold a link to open it in a new tab, allowing you to keep reading the current article without losing your place, and switch to the new tab when you're ready.
+Önizleme bağlantısı - Önizleme yapmak için, okumakta olduğunuz yeri kaybetmeden bir makaleye dokunun. Yeni bir sekmede açmak için bir bağlantıyı basılı tutun, geçerli makaleyi yerinizi kaybetmeden okumaya devam edin ve hazır olduğunuzda yeni sekmeye geçin.
 
-Table of contents - swipe left on any article to bring up the table of contents, which lets you jump to article sections easily.
+İçindekiler - herhangi bir makalenin sol üst kısmına kaydırın. Bu içerik bölümlerini kolayca bulmanızı sağlar.
 
-Reading lists - Organize the articles you browse into reading lists, which you can access even when you're offline. Create as many lists as you like, give them custom names and descriptions, and populate them with articles from any language wiki.
+Okuma listeleri - Göz attığınız makaleleri, çevrimdışı olduğunuzda bile erişebileceğiniz okuma listelerinde düzenleyin. İstediğiniz kadar liste oluşturun, onlara özel adlar ve açıklamalar verin ve bunları herhangi bir dil wiki'sinden makalelerle doldurun.
 
-Image gallery - Tap on an image to view the image full-screen in high resolution, with options to swipe for browsing additional images.
+Resim galerisi - Tam görüntüleri taramak için hızlıca kaydırmak için seçeneklerle, görüntüyü tam ekran yüksek çözünürlükte görüntülemek için bir resme dokunun.
 
-Definitions from Wiktionary - Tap-and-hold to highlight a word, then tap the "Define" button to see a definition of the word from Wiktionary.
+Vikisözlükten tanımlar - Bir kelimeyi vurgulamak için dokunun ve basılı bekleyin, ardından kelimenin Vikisözlük'teki tanımını görmek için "Tanımla" düğmesine dokunun.
 
-Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators). 
+Wikipedia Zero - Katılan mobil operatörlerden Android için Wikipedia'ya veri ücreti olmadan erişin. (katılımcı operatörlere bağlantı).
 
-Send us your feedback about the app! In the menu, press "Settings", then "About the Wikipedia app", then "Send app feedback".
+Uygulama ile ilgili geri dönüşlerinizi bize gönderin! Menüde "Ayarlar", ardından "Wikipedia uygulaması hakkında", ardından "Uygulama geri bildirimi gönder" düğmesine basın.
 
-The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
+Kod %100 açık kaynaklıdır. Java ve Android SDK deneyiminiz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
 
-By using this app, you agree to the automatic transmission of crash reports to a third-party service provider. If you would like to disable this feature, please press "Settings," then toggle off "Send crash reports" under the General section.
-Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Bu uygulamayı kullanarak, kilitlenme raporlarının bir üçüncü taraf hizmet sağlayıcısına otomatik olarak iletilmesini kabul edersiniz. Bu özelliği devre dışı bırakmak isterseniz, lütfen "Ayarlar" a basın, ardından Gizlilik bölümündeki "Kilitlenme raporları gönder" seçeneğini işaretleyin. Uygulamanın ihtiyaç duyduğu izinlerin açıklaması: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
-Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+Gizlilik politikası: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Crash report third-party service provider privacy policy: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+Çökme raporu üçüncü taraf hizmet sağlayıcısı gizlilik politikası: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
-Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+Kullanım Şartları: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
-About the Wikimedia Foundation
+Wikimedia Vakfı hakkında
 
-The Wikimedia Foundation is the nonprofit organization that supports Wikipedia and the other Wikimedia projects. The Wikimedia Foundation is a charitable organization funded mainly through donations. For more information, please visit our website: https://wikimediafoundation.org/wiki/Home.
+Wikimedia Vakfı, Wikipedia ve diğer Wikimedia projelerini destekleyen kar amacı gütmeyen bir kuruluştur. Wikimedia Vakfı, temel olarak bağışlar yoluyla finanse edilen hayır kurumu organizasyonudur. Daha fazla bilgi için lütfen web sitemizi ziyaret edin: https://wikimediafoundation.org/wiki/Home.
