@@ -70,7 +70,7 @@ class TabActivity : BaseActivity() {
                     viewModel.deleteTabsState.collect {
                         when (it) {
                             is Resource.Success -> {
-                                binding.tabCountsView.updateTabCount(false, viewModel.list.size)
+                                binding.tabCountsView.updateTabCount(false)
                                 (binding.tabRecyclerView.adapter as TabItemAdapter).setList(viewModel.list)
                                 val firstIndex = it.data.first.indexOfFirst { tab -> tab.id == it.data.second.firstOrNull()?.id }
                                 binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(firstIndex, it.data.second.size)
@@ -205,7 +205,7 @@ class TabActivity : BaseActivity() {
         (binding.tabRecyclerView.adapter as TabItemAdapter).setList(list)
         // TODO: get a better animation for this
         binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, list.size)
-        binding.tabCountsView.updateTabCount(false, list.size)
+        binding.tabCountsView.updateTabCount(false)
     }
 
     private fun onError(throwable: Throwable) {

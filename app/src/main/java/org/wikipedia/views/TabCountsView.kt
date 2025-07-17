@@ -7,12 +7,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.TextViewCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ViewTabsCountBinding
-import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 
 class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
@@ -24,11 +29,17 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
         isFocusable = true
     }
 
-    fun updateTabCount(animation: Boolean, count: Int = TabHelper.count) {
-        binding.tabsCountText.text = count.toString()
-        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 10, 1, TypedValue.COMPLEX_UNIT_SP)
-        if (animation) {
-            startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+    fun updateTabCount(animation: Boolean) {
+        (context as AppCompatActivity).lifecycleScope.launch (CoroutineExceptionHandler { _, throwable ->
+            L.d("Error updating tab count: ${throwable.message}")
+        }) {
+            val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
+            binding.tabsCountText.text = tabs.size.toString()
+            TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 10, 1, TypedValue.COMPLEX_UNIT_SP)
+            if (animation) {
+                startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+            }
         }
+
     }
 }
