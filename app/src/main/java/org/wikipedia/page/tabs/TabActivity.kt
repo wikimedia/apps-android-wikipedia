@@ -67,6 +67,23 @@ class TabActivity : BaseActivity() {
                 }
 
                 launch {
+                    viewModel.undoTabsState.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                (binding.tabRecyclerView.adapter as TabItemAdapter).setList(it.data.second)
+                                binding.tabRecyclerView.adapter?.notifyItemInserted(it.data.first)
+                                binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, viewModel.list.size)
+                                binding.tabCountsView.updateTabCount(false)
+                            }
+
+                            is Resource.Error -> {
+                                FeedbackUtil.showError(this@TabActivity, it.throwable)
+                            }
+                        }
+                    }
+                }
+
+                launch {
                     viewModel.deleteTabsState.collect {
                         when (it) {
                             is Resource.Success -> {
@@ -76,7 +93,7 @@ class TabActivity : BaseActivity() {
                                 binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(firstIndex, it.data.second.size)
                                 binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, viewModel.list.size)
                                 setResult(RESULT_LOAD_FROM_BACKSTACK)
-                                showUndoSnackbar(it.data.first, it.data.second)
+                                showUndoSnackbar(firstIndex, it.data.first, it.data.second)
                                 cancelled = false
                             }
 
@@ -166,7 +183,7 @@ class TabActivity : BaseActivity() {
                     MaterialAlertDialogBuilder(this).run {
                         setMessage(R.string.close_all_tabs_confirm)
                         setPositiveButton(R.string.close_all_tabs_confirm_yes) { _, _ ->
-                            viewModel.closeTabs(viewModel.list.toList())
+                            viewModel.deleteTabs(viewModel.list.toList())
                         }
                         setNegativeButton(R.string.close_all_tabs_confirm_no, null)
                         .show()
@@ -203,7 +220,6 @@ class TabActivity : BaseActivity() {
         binding.errorView.isVisible = false
         binding.tabRecyclerView.isVisible = true
         (binding.tabRecyclerView.adapter as TabItemAdapter).setList(list)
-        // TODO: get a better animation for this
         binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, list.size)
         binding.tabCountsView.updateTabCount(false)
     }
@@ -228,7 +244,7 @@ class TabActivity : BaseActivity() {
         finish()
     }
 
-    private fun showUndoSnackbar(originalTabs: List<Tab>, deletedTabs: List<Tab>) {
+    private fun showUndoSnackbar(undoPosition: Int, originalTabs: List<Tab>, deletedTabs: List<Tab>) {
         val snackBarMessage = if (deletedTabs.size == 1) {
             getString(R.string.tab_item_closed, deletedTabs.first().getBackStackPositionTitle()?.displayText.orEmpty())
         } else {
@@ -236,7 +252,7 @@ class TabActivity : BaseActivity() {
         }
         FeedbackUtil.makeSnackbar(this, snackBarMessage).run {
             setAction(R.string.reading_list_item_delete_undo) {
-                viewModel.insertTabs(originalTabs)
+                viewModel.undoDeleteTabs(undoPosition, originalTabs)
             }
             show()
         }
@@ -298,7 +314,7 @@ class TabActivity : BaseActivity() {
         }
 
         private fun doCloseTab() {
-            viewModel.closeTabs(listOf(tab))
+            viewModel.deleteTabs(listOf(tab))
         }
     }
 
