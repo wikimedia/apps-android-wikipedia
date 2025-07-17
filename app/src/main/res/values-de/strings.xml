@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* *surak*
 * 1233qwer1234qwer4
 * Bergrübe
 * Brettchenweber
@@ -203,6 +204,7 @@
   <string name="login_2fa_other_workflow_error_msg">Zwei-Faktor-Authentifikation erforderlich! Bitte melde dich über den Hauptbildschirm an und gib den Code deines 2FA-Tokens ein.</string>
   <string name="login_email_auth_hint">E-Mail-Bestätigungscode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-Mail-Verifizierung erforderlich! Bitte melde dich vom Hauptbildschirm aus an und gib deinen E-Mail-Verifizierungscode ein.</string>
+  <string name="login_background_error_msg">Erneute Anmeldung nicht möglich. Bitte gehen Sie zurück zum Hauptbildschirm und melden Sie sich manuell an.</string>
   <string name="onboarding_card_login">Anmelden</string>
   <string name="page_editing_login">Anmelden</string>
   <string name="reading_lists_sync_login">Anmelden</string>
@@ -443,6 +445,7 @@
   <string name="preference_title_collapse_tables">Tabellen einklappen</string>
   <string name="preference_summary_collapse_tables">Tabellen in Artikeln wie Infoboxen, Einzelnachweise und Anmerkungen automatisch einklappen.</string>
   <string name="nav_item_donate">Spenden</string>
+  <string name="nav_item_year_in_review">Jahresrückblick</string>
   <string name="error_voice_search_not_available">Leider ist die Stimmenerkennung nicht verfügbar.</string>
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>
   <string name="enable_location_service">Aktivieren</string>
@@ -1639,6 +1642,7 @@
   <string name="patroller_tasks_overflow_learn">Mehr erfahren</string>
   <string name="patroller_onboarding_one_title">Trage zur Kontrolle und Freigabe von Bearbeitungen auf Wikipedia bei.</string>
   <string name="patroller_onboarding_one_content">Verbessere die Qualität von Wikipedia-Inhalten, indem du aktiv einen Feed der letzten Bearbeitungen überprüfst und anderen Benutzern Beratung, Qualitätskontrolle und Ermutigung bietest.</string>
+  <string name="patroller_onboarding_two_title">Geben Sie Feedback, überwachen Sie Änderungen und ergreifen Sie Maßnahmen auf dem Diff-Bildschirm</string>
   <string name="patroller_onboarding_two_thank_title">Danken</string>
   <string name="patroller_onboarding_two_thank_content">Eine produktive Bearbeitung entdeckt? Danke dem Benutzer für seinen Beitrag.</string>
   <string name="patroller_onboarding_two_watch_title">Beobachten</string>
@@ -1652,13 +1656,16 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Wie können wir die Funktion verbessern?</string>
   <string name="patroller_diff_menu_edit_history_title">Versionsgeschichte des Artikels</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+  <string name="patroller_diff_feedback_tooltip">Tippen Sie auf das Überlaufmenü, um unter „Problem mit der Funktion“ jederzeit Feedback zu senden.</string>
   <string name="patroller_saved_message_title_vandalism">Warnung vor Vandalismus</string>
   <string name="patroller_saved_message_title_editing_tests">Testbearbeitungen</string>
   <string name="patroller_saved_message_title_npov">Neutraler Standpunkt</string>
   <string name="patroller_saved_message_title_auto_trans">Automatische Übersetzung</string>
+  <string name="patroller_saved_message_title_coi_rem">Erinnerung an Interessenkonflikte</string>
   <string name="patroller_saved_message_title_final_warning">Letzte Warnung</string>
   <string name="patroller_saved_message_title_copy_vio">Warnung vor Urheberrechtsverletzungen</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Verfasse eine Bearbeitungszusammenfassung</string>
+  <string name="patroller_saved_message_title_do_not_censor">Nicht zensieren</string>
   <string name="patroller_saved_message_title_art_imp">Verbesserungsvorschlag für den Artikel</string>
   <string name="patroller_saved_message_body_vandalism">Hallo {{{username}}}, ich möchte dich darüber in Kenntnis setzen, dass ich eine oder mehrere deiner [{{{diffLink}}}|letzten Bearbeitungen] rückgängig gemacht habe, weil sie mir nicht konstruktiv erschienen. Falls du denkst, dass du einen Fehler gemacht hast, oder Fragen hast, kannst du mir eine Nachricht auf [[User talk:{{{senderUserName}}}|meiner Diskussionsseite]] hinterlassen. Beachte bitte, dass anhaltender Vandalismus zu Sanktionen führen kann.</string>
   <string name="patroller_saved_message_body_editing_tests">Hallo {{{username}}}, ich freue mich, dass Wikipedia dein Interesse geweckt hat und du lernen möchtest, wie man Artikel bearbeitet. Deine Testbearbeitung hat funktioniert. Behalte bitte trotzdem im Hinterkopf, dass das Ziel dieses Projekts ist, eine verlässliche und vollständige Enzyklopädie aufzubauen, die jeder einsehen kann. Deine Bearbeitung hat den Inhalt eines Artikels verändert und wurde daher zurückgesetzt.\nFalls du lernen möchtest, wie man Wikipedia bearbeitet, könnte die [[Wikipedia:Sandbox|Spielwiese]] etwas für dich sein. Falls sich deine Kommentare auf einen konkreten Artikel bezogen haben, kannst du für Verbesserungsvorschläge die Diskussionsseite nutzen.</string>
@@ -1670,11 +1677,17 @@
   <string name="patroller_saved_message_body_edit_summary">Hallo {{{username}}}, anscheinend hast du Inhalte ohne ersichtlichen Grund aus Wikipedia entfernt, ohne eine Bearbeitungszusammenfassung zu hinterlassen. Bitte hinterlasse immer eine Zusammenfassung deiner Bearbeitung, wenn du Inhalte zu Wikipedia hinzufügst oder entfernst.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hallo {{{username}}}, anscheinend hast du Inhalte entfernt, ohne dich auf der Diskussionsseite mit anderen Benutzern darüber abzustimmen. Bitte beachte, dass Wikipedia nicht zensiert wird und Inhalte nicht entfernt werden sollten, weil sie kontrovers bzw. umstritten sind. Wenn du die Informationen für ungenau hältst, vereinbare bitte auf der Diskussionsseite des Artikels mit anderen Beitragenden einen Konsens.</string>
   <string name="talk_warn_learn_more_label">Mehr Informationen über Nachrichten-Platzhalter</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Verwenden Sie unten eine Beispielnachricht, um Ihre Nachrichten anzupassen, zu senden und zu speichern.</string>
+  <string name="patroller_saved_message_body_art_imp">Hallo {{{username}}}. Dein Artikel ist ein toller Anfang! Um ihn noch besser zu machen, könntest du weitere Verweise auf zuverlässige Quellen hinzufügen. Das hilft, die Informationen zu verifizieren, und verbessert die Qualität des Artikels. Weitere Informationen findest du in den Wikipedia-Richtlinien zu [[Wikipedia:Reliable_sources|zuverlässigen Quellen]].</string>
   <string name="talk_templates_menu_edit_title">Bearbeiten</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>
   <string name="generic_release_notes">Kleinere Fehlerbehebungen und Verbesserungen</string>
+  <string name="email_report_image_recommendations_subject">Problembericht – Funktion „Bildempfehlungen“</string>
+  <string name="email_report_image_recommendations_body">Ich habe ein Problem mit der Funktion „Bildempfehlungen“ festgestellt:\n– [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n– [Lösungsvorschlag beschreiben]</string>
+  <string name="email_report_patroller_tasks_subject">Problembericht – Funktion „Patrouille bearbeiten“</string>
+  <string name="email_report_patroller_tasks_body">Ich habe ein Problem mit der Funktion „Patrouille bearbeiten“ festgestellt:\n- [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n- [Lösungsvorschlag beschreiben]\n\n[Screenshots oder Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
   <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
@@ -1694,6 +1707,7 @@
   <string name="donate_gpay_help_other_ways">Andere Möglichkeiten zu spenden</string>
   <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
   <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
+  <string name="donation_history_deleted_message_snackbar">Spenderhistorie gelöscht</string>
   <string name="places_title">Orte</string>
   <string name="places_permissions_denied">Um deinen Standort auf der Karte anzeigen zu können, ist die Standortberechtigung erforderlich. Bitte versuche es erneut.</string>
   <string name="places_search_hint">Orte suchen</string>
@@ -1701,6 +1715,13 @@
   <string name="places_toggle_buttons_map">Karte</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_empty_list">Dieser Bereich ist leer. Verkleinere &lt;a href=\"#\"&gt;die Karte&lt;/a&gt;.</string>
+  <string name="places_card_title">Orte in der Nähe</string>
+  <string name="places_card_action">Weitere Orte in der Nähe</string>
+  <string name="places_card_enable_location_card_message">Orte ist eine kartenbasierte Möglichkeit, Wikipedia zu erkunden</string>
+  <string name="places_card_enable_location_card_button">Standort aktivieren</string>
+  <string name="places_card_distance_suffix">%s entfernt</string>
+  <string name="places_card_distance_unknown">Unbekannte Entfernung</string>
+  <string name="places_empty_message_snackbar">Es sind keine Artikel in der Nähe vorhanden. Versuchen Sie, die Karte zu verkleinern und zu verschieben.</string>
   <string name="survey_dialog_title">Hilf uns, die Diskussions-Seiten zu verbessern</string>
   <string name="survey_dialog_message">Bist du mit dieser Funktion zufrieden?</string>
   <string name="survey_dialog_option_satisfied">Zufrieden</string>
@@ -1731,6 +1752,7 @@
   <string name="on_this_day_game_point">+1 Punkt</string>
   <string name="on_this_day_game_next">Nächste Frage</string>
   <string name="on_this_day_game_finish">Endergebnisse</string>
+  <string name="on_this_day_game_share_button">Teilen</string>
   <string name="on_this_day_game_pause_title">Spiel pausieren?</string>
   <string name="on_this_day_game_pause_body">Ihr Fortschritt wird für den Tag gespeichert. Sie können das Spiel in Ihrem Entdecken-Feed finden.</string>
   <string name="on_this_day_game_pause_negative">Weiterspielen</string>
@@ -1771,13 +1793,127 @@
   <string name="on_this_day_game_report_email_body">Ich habe ein Problem mit der Funktion „Wikipedia-Spiele“ festgestellt:\n- [Beschreiben Sie das spezifische Problem]\n\nDas Verhalten, das ich gerne sehen würde, ist:\n- [Beschreiben Sie die vorgeschlagene Lösung]</string>
   <string name="on_this_day_game_notification_undo">Widerrufen</string>
   <string name="on_this_day_game_share_link_message">Ich spiele „Was war zuerst da?“, ein tägliches Quiz-Spiel in der Wikipedia-Android-App %s</string>
+  <string name="on_this_day_game_share_screen_title">Ich habe heute %1$d/%2$d bei „Was war zuerst?“ erreicht.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Themen:</string>
+  <string name="on_this_day_game_archive_calendar_title">Wählen Sie nach Datum ein Spiel zum Spielen aus.</string>
+  <string name="on_this_day_game_score_toast_message">Sie haben an diesem Tag %1$d/%2$d erzielt.</string>
   <string name="on_this_day_game_continue_btn_text">Das heutige Spiel fortsetzen</string>
   <string name="on_this_day_game_current_progress_message">Sie sind bei Frage %d .</string>
   <string name="on_this_day_game_archive_btn_text">Spielen Sie das Archiv ab</string>
   <string name="on_this_day_game_review_results_btn_text">Ergebnisse überprüfen</string>
   <string name="on_this_day_game_score_message">Sie haben %1$d/%2$d im heutigen Spiel erzielt.</string>
   <string name="on_this_day_game_continue_playing_btn_text">Weiterspielen</string>
+  <string name="on_this_day_game_sound_on">Ton einschalten</string>
+  <string name="on_this_day_game_sound_off">Ton ausschalten</string>
+  <string name="year_in_review_learn_more">Mehr erfahren</string>
+  <string name="year_in_review_get_started">Erste Schritte</string>
+  <string name="year_in_review_topbar_w_icon">Wikipedia W-Symbol</string>
+  <string name="year_in_review_navigate_left">Navigation links</string>
+  <string name="year_in_review_share_icon">Teilen-Symbol</string>
+  <string name="year_in_review_heart_icon">Herzsymbol</string>
+  <string name="year_in_review_navigate_right">Navigation rechts</string>
+  <string name="year_in_review_donate">Spenden</string>
+  <string name="year_in_review_information_icon">Informationssymbol</string>
+  <string name="year_in_review_get_started_headline">Entdecke dein Wikipedia-Jahr im Rückblick</string>
+  <string name="year_in_review_get_started_bodytext">Erfahre, welche Artikel du in der Wikipedia-App gelesen und welche Änderungen du vorgenommen hast. Dein Leseverlauf bleibt geschützt. Die Leseeinblicke werden anhand der lokal gespeicherten Daten auf deinem Gerät erstellt.</string>
+  <string name="year_in_review_entry_dialog_title">Erkunde Wikipedia im Rückblick</string>
+  <string name="year_in_review_entry_dialog_bodytext">Erfahre, welche Artikel wir gelesen und bearbeitet haben, und teile die Höhepunkte unseres Jahres auf Wikipedia.</string>
+  <string name="year_in_review_entry_dialog_continue">Weiter</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Du hast dieses Jahr %d Artikel gelesen</item>
+    <item quantity="other">Du hast dieses Jahr %d Artikel gelesen</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Dieses Jahr hast du %1$d Artikel gelesen, darunter %2$s , %3$s und %4$s. Wikipedia hatte mehr als 63 Millionen Artikel in über 300 Sprachen. Du hast dich Millionen anderen angeschlossen, um Wissen zu erweitern und vielfältige Themen zu erkunden.</item>
+    <item quantity="other">Dieses Jahr hast du %1$d Artikel gelesen, darunter %2$s , %3$s und %4$s. Wikipedia hatte mehr als 63 Millionen Artikel in über 300 Sprachen. Du hast dich Millionen anderen angeschlossen, um Wissen zu erweitern und vielfältige Themen zu erkunden.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Du hast Wikipedia einmal bearbeitet</item>
+    <item quantity="other">Du hast Wikipedia %d mal bearbeitet</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Du hast Wikipedia einmal bearbeitet. Vielen Dank, dass du einer der freiwilligen Redakteure bist, die bei Wikimedia-Projekten auf der ganzen Welt etwas bewirken.</item>
+    <item quantity="other">Du hast Wikipedia %d mal bearbeitet. Vielen Dank, dass Du einer der freiwilligen Redakteure bist, die bei Wikimedia-Projekten auf der ganzen Welt etwas bewirken.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war in über 300 Sprachen verfügbar</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia hatte dieses Jahr mehr als 63 Millionen Artikel in über 300 aktiven Sprachen. Gemeinsam mit Millionen anderen hast du dein Wissen erweitert und verschiedene Themen erkundet.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Bearbeiter auf der iOS-App haben mehr als 452.257 Bearbeitungen vorgenommen</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">Die Wikipedia-Gemeinschaft freiwilliger Bearbeiter hat dieses Jahr mehr als 452.257 Bearbeitungen in der iOS-App vorgenommen. Herz und Seele von Wikipedia ist unsere globale Gemeinschaft von freiwilligen Mitarbeitern, Spendern und Milliarden von Lesern wie dir – alle vereint, um unbegrenzten Zugang zu zuverlässigen Informationen zu haben.</string>
+  <string name="year_in_review_survey_title">Hilf mit, den Jahresrückblick zu verbessern</string>
+  <string name="year_in_review_survey_subtitle">Bist du mit dieser Funktion zufrieden?</string>
+  <string name="year_in_review_survey_very_satisfied">Sehr zufrieden</string>
+  <string name="year_in_review_survey_satisfied">Zufrieden</string>
+  <string name="year_in_review_survey_neutral">Neutral</string>
+  <string name="year_in_review_survey_unsatisfied">Unzufrieden</string>
+  <string name="year_in_review_survey_very_unsatisfied">Sehr unzufrieden</string>
+  <string name="year_in_review_survey_placeholder_text">Möchtest du noch etwas mitteilen?</string>
+  <string name="year_in_review_survey_cancel">Abbrechen</string>
+  <string name="year_in_review_survey_submit">Übermitteln</string>
+  <string name="year_in_review_screendeck_image_content_description">Bildressource für den Hauptbildschirm des Jahresrückblicks</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Bildressource für den Eingangsdialog des Jahresrückblicks</string>
+  <string name="year_in_review_screenshot_error">Screenshot konnte nicht erstellt werden: %s</string>
+  <string name="year_in_review_share_subject">Bild und Verknüpfung zum Jahresrückblick</string>
+  <string name="year_in_review_globe_icon">Globus-Symbol</string>
+  <string name="recommended_reading_list_title">Entdecken</string>
+  <string name="recommended_reading_list_onboarding_card_title">Entdecke für dich ausgewählte Artikel</string>
+  <string name="recommended_reading_list_onboarding_card_message">Deine wöchentliche Leseliste mit Wikipedia-Artikeln, nur für dich zusammengestellt.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Neu!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Beginnen</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nein danke</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Du kannst deine empfohlene Leseliste später unter „Einstellungen“ einrichten.</string>
+  <string name="recommended_reading_list_interest_source_message">Wie sollen wir deine empfohlene Leseliste erstellen?</string>
+  <string name="recommended_reading_list_interest_source_interests">Ich möchte basierend auf meinen Interessen wählen</string>
+  <string name="recommended_reading_list_interest_source_saved">Wähle anhand meiner gespeicherten Artikel</string>
+  <string name="recommended_reading_list_interest_source_history">Wähle basierend auf meinem Leseverlauf</string>
+  <string name="recommended_reading_list_interest_pick_title">Was interessiert dich?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Einen Artikel suchen</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d ausgewählt</item>
+    <item quantity="other">%d ausgewählt</item>
+  </plurals>
   <string name="recommended_reading_list_interest_select_minimum">Wähle mindestens ein Interesse aus</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Zufällig auswählen</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Wir haben einige Artikel für dich nach dem Zufallsprinzip ausgewählt.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Rückgängig</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Möchtest du deine Auswahl wirklich zufällig treffen?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Dadurch wird deine aktuelle Auswahl gelöscht, und neue Artikel werden nach dem Zufallsprinzip ausgewählt.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Ja, wähle für mich</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Egal</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Erstellt für %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Für dich erstellt</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• ein Artikel</item>
+    <item quantity="other">• %d Artikel</item>
+  </plurals>
   <string name="recommended_reading_list_page_description_daily">Deine tägliche Leseliste. Erfahre mehr über neue, speziell für Dich ausgewählte Themen. Aktualisierung um Mitternacht.</string>
+  <string name="recommended_reading_list_page_description_weekly">Deine wöchentliche Leseliste. Erfahre mehr über neue, für Dich ausgewählte Themen. Sie wird am Anfang jeder Woche aktualisiert.</string>
   <string name="recommended_reading_list_page_description_monthly">Deine monatliche Leseliste. Erfahre mehr über neue, speziell für dich ausgewählte Themen. Aktualisierungen jeweils am ersten Tag des Monats.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Anpassen</string>
+  <string name="recommended_reading_list_page_overflow_about">Über diese Funktion</string>
+  <string name="recommended_reading_list_page_snackbar">\"Entdecken\" wird alle %2$s mit %1$d neuen Artikeln aktualisiert. Deine Empfehlungen werden lokal auf deinem Gerät gespeichert.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Anpassen von \"Entdecken\"</string>
+  <string name="recommended_reading_list_page_snackbar_day">Tag</string>
+  <string name="recommended_reading_list_page_snackbar_week">Woche</string>
+  <string name="recommended_reading_list_page_snackbar_month">Monat</string>
+  <string name="recommended_reading_list_settings_section_header">Empfehlungen</string>
+  <string name="recommended_reading_list_settings_title">\"Entdecken\" einstellen</string>
+  <string name="recommended_reading_list_settings_toggle">Leseliste für \"Entdecken\"</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">„Entdecken“ ist deaktiviert. Wikipedia empfiehlt dir keine Artikel zum Lesen.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">\"Entdecken\" deaktivieren?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Wenn du „Entdecken“ deaktivierst, erhältst du keine %s Leseempfehlungen mehr von Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Deaktivieren</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nein, aktiviert lassen</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">\"Entdecken\" wurde deaktiviert. Du kannst es in den \"Einstellungen\" jederzeit wieder aktivieren.</string>
+  <string name="recommended_reading_list_settings_articles">Artikel</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Aktualisiert %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">täglich</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">wöchentlich</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">monatlich</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Täglich</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Jede Woche</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Wie \"Entdecken\" erstellt wird</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Basierend auf deinen Interessen</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Basierend auf deinen gespeicherten Artikeln</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Basierend auf deinem Leseverlauf</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Anpassen, wie \"Entdecken\" erstellt wurde?</string>
 </resources>

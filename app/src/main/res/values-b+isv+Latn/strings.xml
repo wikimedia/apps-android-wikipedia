@@ -153,6 +153,7 @@
   <string name="login_2fa_other_workflow_error_msg">Potrěbna jest dvufaktorna avtentifikacija! Prosimo, prijavite se iz glavnogo ekrana i vpišite kod svojego 2FA-tokena.</string>
   <string name="login_email_auth_hint">Kod za potvrdženje e-poštoju</string>
   <string name="login_email_auth_other_workflow_error_msg">Potrěbna jest potvrdženje e-poštoju! Prosimo, prijavite se s glavnogo ekrana i vpišite svoj kod za potvrdženje e-poštoju.</string>
+  <string name="login_background_error_msg">Povtorno prijavjenje jest nemožno. Prosimo, vratite se na glavny ekran i prijavite se ručno.</string>
   <string name="onboarding_card_login">Prijaviti se</string>
   <string name="page_editing_login">Prijaviti se</string>
   <string name="reading_lists_sync_login">Prijaviti se</string>
@@ -392,6 +393,7 @@
   <string name="preference_title_collapse_tables">Svinuti tabely</string>
   <string name="preference_summary_collapse_tables">Avtomatično svivaje tabely v člankah, kako napr. infokartky, referencije i primětky.</string>
   <string name="nav_item_donate">Darovati</string>
+  <string name="nav_item_year_in_review">Obzor goda</string>
   <string name="error_voice_search_not_available">Na žalost, razpoznavanje glasa jest nedostupno.</string>
   <string name="location_service_disabled">Služby za městopoloženje sut izključene.</string>
   <string name="enable_location_service">Vključiti</string>
@@ -965,6 +967,7 @@
   <string name="customize_toolbar_shortcut_description_text">Prisposobite sobě dolny panel orudij pětju najpomočnějšimi vam skratami.</string>
   <string name="customize_toolbar_category_toolbar">Panel orudij</string>
   <string name="customize_toolbar_category_menu">Menju</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Prětegnite svoje ljubime prědmety ovamo 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Obnoviti standardne nastavjenja</string>
   <string name="suggested_edits_describe_articles">Dodavanje opisov člankom</string>
   <string name="suggested_edits_caption_images">Dodavanje nadpisov obrazkam</string>

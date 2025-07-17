@@ -74,7 +74,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
+import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -149,7 +149,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private val activeTimer = ActiveTimer()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val pageRefreshListener = OnRefreshListener { refreshPage() }
+    private val pageRefreshListener = OnRefreshListener {
+        webView.clearCache(true)
+        refreshPage()
+    }
     private val pageActionItemCallback = PageActionItemCallback()
 
     private lateinit var bridge: CommunicationBridge
@@ -918,7 +921,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
         maybeShowAnnouncement()
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(),
+        OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
 
         bridge.onMetadataReady()
