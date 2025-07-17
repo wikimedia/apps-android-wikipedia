@@ -3,7 +3,6 @@ package org.wikipedia.page.tabs
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
@@ -23,14 +22,14 @@ object TabHelper {
     var count: Int = 0
 
     init {
-        updateTabCount()
+        coroutineScope.launch {
+            updateTabCount()
+        }
     }
 
-    fun updateTabCount() {
-        MainScope().launch(coroutineExceptionHandler) {
-            val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
-            count = tabs.size
-        }
+    suspend fun updateTabCount() {
+        val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
+        count = tabs.size
     }
 
     fun getCurrentTab(): Tab {
