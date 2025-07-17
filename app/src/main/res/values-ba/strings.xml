@@ -1556,7 +1556,10 @@
   <string name="patroller_tasks_filters_user_intent_bad">Зыянлы булыуы ихтимал</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Зыянлы төҙәтеүҙәрҙе аныҡ таба.</string>
   <string name="patroller_tasks_filters_empty_search_message">Үҙгәртеүҙәрҙе күберәк күреү өсөн %s юйып ҡарағыҙ</string>
-  <string name="patroller_tasks_filters_number_of_filters">{{PLURAL\n|one=%d фильтр|%d фильтрҙар}}</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d фильтр</item>
+    <item quantity="other">%d фильтрҙар</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәҡәләне мөхәррирләү тарихы</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире ҡайтарылды</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Һеҙ ысынлап та кире ҡайтарырға теләйһегеҙме?</string>
