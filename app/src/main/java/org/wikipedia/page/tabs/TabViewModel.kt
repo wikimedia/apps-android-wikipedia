@@ -19,7 +19,7 @@ class TabViewModel : ViewModel() {
     private val _saveToListState = MutableStateFlow(Resource<List<PageTitle>>())
     val saveToListState = _saveToListState.asStateFlow()
 
-    private val _deleteTabsState = MutableStateFlow(Resource<Pair<Int, List<Tab>>>())
+    private val _deleteTabsState = MutableStateFlow(Resource<Pair<List<Tab>, List<Tab>>>())
     val deleteTabsState = _deleteTabsState.asStateFlow()
 
     private val _uiState = MutableStateFlow(Resource<List<Tab>>())
@@ -62,26 +62,21 @@ class TabViewModel : ViewModel() {
         }
     }
 
-    fun closeTabs(tabs: List<Tab>) {
+    fun closeTabs(deletedTabs: List<Tab>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _deleteTabsState.value = Resource.Error(throwable)
         }) {
             _deleteTabsState.value = Resource.Loading()
-            val firstIndexFromList = list.indexOfFirst { it.id == tabs.firstOrNull()?.id }
-            TabHelper.deleteTabs(tabs)
-            list.removeAll(tabs)
-            _deleteTabsState.value = Resource.Success(firstIndexFromList to tabs)
+            val originalList = list.toList()
+            TabHelper.deleteTabs(deletedTabs)
+            list.removeAll(deletedTabs)
+            _deleteTabsState.value = Resource.Success(originalList to deletedTabs)
         }
     }
 
     fun insertTabs(tabs: List<Tab>) {
         viewModelScope.launch(handler) {
             _uiState.value = Resource.Loading()
-            // For simple close, reset the order of tabs to default `0`
-            // TODO: discuss about this
-            if (tabs.size == 1) {
-                tabs.first().order = 0
-            }
             TabHelper.insertTabs(tabs)
             fetchTabs()
         }

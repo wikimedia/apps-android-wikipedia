@@ -72,9 +72,11 @@ class TabActivity : BaseActivity() {
                             is Resource.Success -> {
                                 binding.tabCountsView.updateTabCount(false, viewModel.list.size)
                                 (binding.tabRecyclerView.adapter as TabItemAdapter).setList(viewModel.list)
-                                binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(it.data.first, it.data.second.size)
+                                val firstIndex = it.data.first.indexOfFirst { tab -> tab.id == it.data.second.firstOrNull()?.id }
+                                binding.tabRecyclerView.adapter?.notifyItemRangeRemoved(firstIndex, it.data.second.size)
+                                binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, viewModel.list.size)
                                 setResult(RESULT_LOAD_FROM_BACKSTACK)
-                                showUndoSnackbar(it.data.second)
+                                showUndoSnackbar(it.data.first, it.data.second)
                                 cancelled = false
                             }
 
@@ -201,7 +203,7 @@ class TabActivity : BaseActivity() {
         binding.errorView.isVisible = false
         binding.tabRecyclerView.isVisible = true
         (binding.tabRecyclerView.adapter as TabItemAdapter).setList(list)
-        binding.tabRecyclerView.adapter?.notifyItemInserted(0)
+        // TODO: get a better animation for this
         binding.tabRecyclerView.adapter?.notifyItemRangeChanged(0, list.size)
         binding.tabCountsView.updateTabCount(false, list.size)
     }
@@ -226,15 +228,15 @@ class TabActivity : BaseActivity() {
         finish()
     }
 
-    private fun showUndoSnackbar(appTabs: List<Tab>) {
-        val snackBarMessage = if (appTabs.size == 1) {
-            getString(R.string.tab_item_closed, appTabs.first().getBackStackPositionTitle()?.displayText.orEmpty())
+    private fun showUndoSnackbar(originalTabs: List<Tab>, deletedTabs: List<Tab>) {
+        val snackBarMessage = if (deletedTabs.size == 1) {
+            getString(R.string.tab_item_closed, deletedTabs.first().getBackStackPositionTitle()?.displayText.orEmpty())
         } else {
             getString(R.string.all_tab_items_closed)
         }
         FeedbackUtil.makeSnackbar(this, snackBarMessage).run {
             setAction(R.string.reading_list_item_delete_undo) {
-                viewModel.insertTabs(appTabs)
+                viewModel.insertTabs(originalTabs)
             }
             show()
         }
