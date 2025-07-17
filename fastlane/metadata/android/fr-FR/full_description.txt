@@ -1,0 +1,58 @@
+L’appli Wikipédia officielle pour une expérience ultime sur mobile, gratuite, sans publicité, avec plus de 40 millions d’articles dans plus de 300 langues, où que vous soyez.
+
+== Ce qu’on dit de l’appli ==
+
+« C’est l’application que je préfère, consultable quand je veux, où je veux, même hors connexion grâce aux pages sauvegardées. Bravo aux développeurs ! » – Alireza Shahsar
+
+« Tout et plus encore. Gratuite, objective, sans parti pris. Que demander de plus ? » – Enzo Sinapsi
+
+« C’est une appli essentielle pour un universitaire comme moi. » – Un utilisateur de Google
+
+« Wikipédia est la solution en cas de doute. Obtenez des résultats précis sur Wikipédia » – Debraj Bhattacharya
+
+== Les raisons d’adorer l’appli ==
+
+1. Elle est gratuite et ouverte
+Wikipédia est l’encyclopédie gratuite ouverte à tous, avec des articles sous licence libre et un code d’appli 100 % open source. L’ADN de Wikipédia est sa communauté de volontaires œuvrant à apporter un accès illimité à des informations gratuites, fiables et sans parti pris.
+
+2. Zéro publicité
+Wikipédia sert la connaissance et non la publicité. L’appli a été développée par la Wikimedia Foundation, l’association à but non lucratif qui porte Wikipédia. Notre mission est d’apporter des connaissances ouvertes, sans publicité et sans contrôle des données.
+
+3. Lisez des articles dans votre langue
+Explorez plus de 40 millions d’articles dans plus de 300 langues au sein de la principale source d’informations au monde. Définissez vos langues préférées dans l’appli et basculez facilement d’une langue à l’autre lorsque vous recherchez ou lisez des articles.
+
+4. Utilisez-la hors connexion
+Sauvegardez vos articles Wikipédia favoris dans un éventail de langues et consultez-les dans « Mes listes ». Ces listes de lecture sont synchronisées sur l’ensemble de vos appareils et les articles mis de côté sont disponibles même hors connexion.
+
+5. Le souci du détail et le mode nuit
+Simple comme Wikipédia, l’appli présente une interface agréable et épurée axée sur la consultation d’articles, avec une taille du texte réglable et les modes noir, sombre, sépia ou lumineux pour la meilleure expérience de lecture.
+
+== Élargissez vos horizons avec ces fonctionnalités == 
+
+1. Personnalisez votre onglet Explorer
+L’onglet Explorer affiche des contenus recommandés par Wikipédia comme des évènements actuels ou passés, des articles populaires ou suggérés selon votre historique de lecture, de fascinants clichés sous licence libre et plus encore.
+
+2. Trouvez et recherchez
+Trouvez rapidement ce que vous cherchez au sein même d’un article, dans Wikipédia grâce à la barre de recherche en haut de page de l’appli voire grâce à une commande vocale ou vos émojis favoris.
+
+== Votre avis nous importe ==
+
+1. Pour nous envoyer votre avis via l’appli :
+Dans le menu, sélectionnez « Paramètres », puis « À propos » et « Envoyer un avis sur l’application ».
+
+2. L’utilisation de notre appli implique l’acceptation de la transmission automatique de rapports d’incident à un fournisseur de services tiers. Si vous désirez désactiver cette fonctionnalité, sélectionnez « Paramètres », puis désactivez « Envoyer des rapports d’incident » dans la rubrique dédiée à la confidentialité.
+
+3. Explication des permissions requises par l’appli :
+https://mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions 
+
+4. Politique de confidentialité :
+https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+5. Politique de confidentialité du fournisseur de services tiers pour les rapports d’incident :
+https://privacy.microsoft.com/en-us/privacystatement
+
+6. Conditions générales d’utilisation :
+https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+7. À propos de la Wikimedia Foundation :
+La Wikimedia Foundation est une association caritative à but non lucratif qui soutient et gère Wikipédia ainsi que les projets Wiki. Elle est essentiellement financée par des dons. Pour plus d’informations, rendez-vous sur notre site : https://wikimediafoundation.org/

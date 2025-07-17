@@ -1,37 +1,42 @@
-The official Wikipedia Android app is designed to help you find, discover, and explore knowledge on Wikipedia. Settle a bet with a friend by doing a quick search through the app, or dive into featured articles, images, recommended articles, and more using the explore feed. With more than 39 million articles in nearly 300 languages, your favorite free online encyclopedia is now at your fingertips.
+The best Wikipedia experience on your Mobile device. Ad-free and free of charge, forever. With the official Wikipedia app, you can search and explore 40+ million articles in 300+ languages, no matter where you are.
 
-Features:
+== Why you'll love the this app ==
 
-Explore feed - The new ‘explore feed’ offers recommended and constantly updating Wikipedia content right on the home screen, including trending articles, current events, suggested reading, and more.
+1. It's free and open
+Wikipedia is the encyclopedia that anyone can edit. Articles on Wikipedia are freely licensed and the app code is 100% open source. The heart and soul of Wikipedia is a community of people working to bring you unlimited access to free, reliable and neutral information.
 
-Voice-integrated search - Easily find what you’re looking for with a prominent search bar at the top of the app, including voice-enabled search on your device.
+2. No ads
+Wikipedia is a place to learn, not a place for advertising. This app is made by the Wikimedia Foundation, a nonprofit organization that supports and operates Wikipedia. We provide this service in the pursuit of open knowledge that’s always ad-free and never tracks your data. 
 
-Nearby - Learn more about what’s around you by selecting points on an interactive map to see articles related to your current and nearby location.
+3. Read in your language
+Search 40 million articles in over 300 languages in the world’s largest source of information. Set your preferred languages in the app and easily switch between them when browsing or reading. 
 
-Language support - Seamlessly switch to reading any language-supported Wikipedia, either by changing the language of the current article, or changing your preferred search language while searching.
+4. Use it offline
+Save your favorite articles and read Wikipedia offline with “My lists“. Name lists as you like and collect articles across different languages. Saved articles and reading lists are synced across all your devices and are available even when you do not have internet connectivity.
 
-Link previews - Tap on an article to preview it, without losing your place in what you’re currently reading. Press and hold a link to open it in a new tab, allowing you to keep reading the current article without losing your place, and switch to the new tab when you're ready.
+5. Attention to detail and night mode
+The app embraces Wikipedia’s simplicity and adds delight to it. A beautiful and distraction-free interface lets you focus on the essential: reading articles. With text size adjustment and themes in pure black, dark, sepia or light, you can choose the most pleasant reading experience for you.
 
-Table of contents - swipe left on any article to bring up the table of contents, which lets you jump to article sections easily.
+== Broaden your horizon with these features == 
 
-Reading lists - Organize the articles you browse into reading lists, which you can access even when you're offline. Create as many lists as you like, give them custom names and descriptions, and populate them with articles from any language wiki.
+1. Customize your Explore feed
+"Explore" lets you see recommended Wikipedia content including current events, popular articles, captivating freely-licensed photos, events on this day in history, suggested articles based on your reading history, and more.
 
-Image gallery - Tap on an image to view the image full-screen in high resolution, with options to swipe for browsing additional images.
+2. Find and search 
+Quickly find what you're looking for by searching within articles or with the search bar at the top of the app. You can even search using your favorite emojis or voice-enabled search.
 
-Definitions from Wiktionary - Tap-and-hold to highlight a word, then tap the "Define" button to see a definition of the word from Wiktionary.
+== We'd love your feedback ==
 
-Wikipedia Zero - Access Wikipedia for Android free of data charges for participating mobile operators. (link to participating operators).
+1. To send feedback from the app: 
+In the menu, press "Settings", then, in the "About" section, tap "Send app feedback".
 
-Send us your feedback about the app! In the menu, press "Settings", then "About the Wikipedia app", then "Send app feedback".
+2. If you have experience with Java and the Android SDK, then we look forward to your contributions! More info: https://mediawiki.org/wiki/Wikimedia_Apps/Team/Android/App_hacking 
 
-The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
+3. Explanation of permissions needed by the app: https://mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions 
 
-Explanation of permissions needed by the app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+4. Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy 
 
-Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+5. Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use 
 
-Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use
-
-About the Wikimedia Foundation
-
-The Wikimedia Foundation is the nonprofit organization that supports Wikipedia and the other Wikimedia projects. The Wikimedia Foundation is a charitable organization funded mainly through donations. For more information, please visit our website: https://wikimediafoundation.org/wiki/Home.
+6. About the Wikimedia Foundation:
+The Wikimedia Foundation is a charitable nonprofit organization that supports and operates Wikipedia and the other Wiki projects. It is funded mainly through donations. For more information, please visit our website: https://wikimediafoundation.org/

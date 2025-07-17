@@ -1,1 +1,1 @@
-Visualizador oficial da enciclopédia online gratuita, rico em recursos
+Aplicação oficial Wikipédia para Android.
