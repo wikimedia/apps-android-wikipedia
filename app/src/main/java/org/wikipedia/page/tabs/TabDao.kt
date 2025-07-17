@@ -15,7 +15,7 @@ interface TabDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTab(tab: Tab)
 
-    @Query("SELECT * FROM Tab")
+    @Query("SELECT * FROM Tab ORDER BY `order` DESC")
     suspend fun getTabs(): List<Tab>
 
     @Query("SELECT * FROM Tab WHERE id = :id")

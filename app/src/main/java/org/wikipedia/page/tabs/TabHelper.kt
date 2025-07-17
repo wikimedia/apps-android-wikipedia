@@ -127,7 +127,10 @@ object TabHelper {
             tabs.forEach { tab ->
                 val ids = AppDatabase.instance.pageBackStackItemDao().insertPageBackStackItems(tab.backStack)
                 tab.setBackStackIds(ids)
-                tab.order = ++lastOrder
+                if (tab.order == 0) {
+                    // If the order is not set, assign a new order
+                    tab.order = ++lastOrder
+                }
             }
             AppDatabase.instance.tabDao().insertTabs(tabs)
             updateTabCount()

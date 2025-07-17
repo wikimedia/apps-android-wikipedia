@@ -24,8 +24,8 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
         isFocusable = true
     }
 
-    fun updateTabCount(animation: Boolean) {
-        binding.tabsCountText.text = TabHelper.count.toString()
+    fun updateTabCount(animation: Boolean, count: Int = TabHelper.count) {
+        binding.tabsCountText.text = count.toString()
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 10, 1, TypedValue.COMPLEX_UNIT_SP)
         if (animation) {
             startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))

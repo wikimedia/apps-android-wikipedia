@@ -19,7 +19,7 @@ class TabViewModel : ViewModel() {
     private val _saveToListState = MutableStateFlow(Resource<List<PageTitle>>())
     val saveToListState = _saveToListState.asStateFlow()
 
-    private val _deleteTabsState = MutableStateFlow(Resource<List<Tab>>())
+    private val _deleteTabsState = MutableStateFlow(Resource<Pair<Int, List<Tab>>>())
     val deleteTabsState = _deleteTabsState.asStateFlow()
 
     private val _uiState = MutableStateFlow(Resource<List<Tab>>())
@@ -28,7 +28,7 @@ class TabViewModel : ViewModel() {
     private val _clickState = MutableStateFlow(Resource<Boolean>())
     val clickState = _clickState.asStateFlow()
 
-    var hasTabs = false
+    var list = mutableListOf<Tab>()
 
     init {
         fetchTabs()
@@ -38,16 +38,12 @@ class TabViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             _uiState.value = Resource.Loading()
             val tabs = AppDatabase.instance.tabDao().getTabs()
-            hasTabs = tabs.isNotEmpty()
-            if (!hasTabs) {
-                _uiState.value = Resource.Success(emptyList())
-                return@launch
-            }
             tabs.forEach { tab ->
                 // Use the backStackIds to get the full backStack items from the database
                 val backStackItems = AppDatabase.instance.pageBackStackItemDao().getPageBackStackItems(tab.getBackStackIds())
                 tab.backStack = backStackItems.toMutableList()
             }
+            list = tabs.toMutableList()
             _uiState.value = Resource.Success(tabs)
         }
     }
@@ -57,12 +53,7 @@ class TabViewModel : ViewModel() {
             _saveToListState.value = Resource.Error(throwable)
         }) {
             _saveToListState.value = Resource.Loading()
-            if (!hasTabs) {
-                _saveToListState.value = Resource.Success(emptyList())
-                return@launch
-            }
-            val pageTitles = AppDatabase.instance.tabDao().getTabs()
-                .mapNotNull { it.getBackStackPositionTitle() }
+            val pageTitles = list.mapNotNull { it.getBackStackPositionTitle() }
             if (pageTitles.isNotEmpty()) {
                 _saveToListState.value = Resource.Success(pageTitles)
             } else {
@@ -71,39 +62,47 @@ class TabViewModel : ViewModel() {
         }
     }
 
-    fun closeTabs(tabs: List<Tab> = emptyList()) {
+    fun closeTabs(tabs: List<Tab>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _deleteTabsState.value = Resource.Error(throwable)
         }) {
             _deleteTabsState.value = Resource.Loading()
-            var tabsToDelete = tabs
-            if (tabs.isEmpty()) {
-                tabsToDelete = AppDatabase.instance.tabDao().getTabs()
-            }
-            TabHelper.deleteTabs(tabsToDelete)
-            _deleteTabsState.value = Resource.Success(tabsToDelete)
+            val firstIndexFromList = list.indexOfFirst { it.id == tabs.firstOrNull()?.id }
+            TabHelper.deleteTabs(tabs)
+            list.removeAll(tabs)
+            _deleteTabsState.value = Resource.Success(firstIndexFromList to tabs)
         }
     }
 
-    fun insertTabs(tab: List<Tab>) {
+    fun insertTabs(tabs: List<Tab>) {
         viewModelScope.launch(handler) {
             _uiState.value = Resource.Loading()
-            TabHelper.insertTabs(tab)
+            // For simple close, reset the order of tabs to default `0`
+            // TODO: discuss about this
+            if (tabs.size == 1) {
+                tabs.first().order = 0
+            }
+            TabHelper.insertTabs(tabs)
             fetchTabs()
         }
     }
 
-    fun addTabToLastPosition(position: Int) {
+    fun addTabToLastPosition(tab: Tab) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _clickState.value = Resource.Error(throwable)
         }) {
-            // Pull all the tabs from the database and insert the new tab at the specified position
-            val tabs = AppDatabase.instance.tabDao().getTabs()
-            // Re-arrange the order of the tabs
-            tabs.forEachIndexed { index, tab ->
-                tab.order = if (index < position) index else if (index == position) tabs.size - 1 else index - 1
+            // Remove tab from current position if it exists
+            list.removeAll { it.id == tab.id }
+
+            // Add tab to last position
+            tab.order = list.size
+            list.add(tab)
+
+            // Update order for all tabs
+            list.forEachIndexed { index, it ->
+                it.order = index
             }
-            AppDatabase.instance.tabDao().updateTabs(tabs)
+            AppDatabase.instance.tabDao().updateTabs(list)
             _clickState.value = Resource.Success(true)
         }
     }
