@@ -186,8 +186,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     var revision = 0L
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
-    private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    private val foregroundTabPosition get() = TabHelper.list.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
     val currentTab get() = TabHelper.getCurrentTab()
     val title get() = model.title
@@ -289,7 +287,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         // TabHelper.commitTabState()
-        val time = if (TabHelper.hasTabs() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        val time = if (currentTab.backStack.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -330,8 +328,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return true
         }
         // if the current tab can no longer go back, then close the tab before exiting
-        TabHelper.removeTabAt(TabHelper.list.size - 1)
-        L.d("TabHelper existingTabs + removeTabAt")
+        TabHelper.removeTab(currentTab)
         return false
     }
 
@@ -963,7 +960,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         if (squashBackstack) {
             if (TabHelper.count > 0) {
-                TabHelper.list.last().clearBackstack()
+                // TODO: verify this
+                currentTab.clearBackstack()
             }
         }
         loadPage(title, entry, pushBackStack, 0, isRefresh)

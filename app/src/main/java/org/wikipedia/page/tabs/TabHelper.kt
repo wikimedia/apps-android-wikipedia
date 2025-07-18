@@ -4,8 +4,8 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.log.L
@@ -16,8 +16,6 @@ object TabHelper {
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
     }
-
-    val list = mutableListOf<Tab>()
 
     var count: Int = 0
 
@@ -33,36 +31,28 @@ object TabHelper {
     }
 
     fun getCurrentTab(): Tab {
-        if (list.isEmpty()) {
-            list.add(Tab())
-        }
-        return list.last()
-    }
-
-    suspend fun initTabs() {
-        val tab = AppDatabase.instance.tabDao().getTabs()
-        if (tab.isNotEmpty()) {
-            tab.forEach {
-                // Use the backStackIds to get the full backStack items from the database
-                val backStackItems = AppDatabase.instance.pageBackStackItemDao().getPageBackStackItems(it.getBackStackIds())
-                it.backStack = backStackItems.toMutableList()
+        // TODO: handle this with coroutines if we have viewModel
+        return runBlocking {
+            val foregroundTab = AppDatabase.instance.tabDao().getForegroundTab()
+            if (foregroundTab == null) {
+                return@runBlocking Tab()
             }
-            list.addAll(tab)
+            // Use the backStackIds to get the full backStack items from the database
+            val backStackItems = AppDatabase.instance.pageBackStackItemDao()
+                .getPageBackStackItems(foregroundTab.getBackStackIds())
+            foregroundTab.backStack = backStackItems.toMutableList()
+            foregroundTab
         }
     }
 
-    fun hasTabs(): Boolean {
-        return list.isNotEmpty() && (list.size > 1 || list[0].backStack.isNotEmpty())
-    }
-
-    fun removeTabAt(position: Int): Tab {
-        return list.removeAt(position)
+    fun removeTab(tab: Tab) {
+        coroutineScope.launch(coroutineExceptionHandler) {
+            deleteTabs(listOf(tab))
+        }
     }
 
     fun trimTabCount() {
-        while (list.size > Constants.MAX_TABS) {
-            list.removeAt(0)
-        }
+        // TODO: implement a way to limit the number of tabs
     }
 
     fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry, action: () -> Unit = {}) {
@@ -161,6 +151,22 @@ object TabHelper {
                 AppDatabase.instance.tabDao().updateTab(tab)
                 updateTabCount()
             }
+        }
+    }
+
+    suspend fun moveTabToForeground(tab: Tab): List<Tab> {
+        return withContext(Dispatchers.IO) {
+            val list = AppDatabase.instance.tabDao().getTabs().toMutableList()
+            // Change the tab's order to 1 and update the rest of the tabs
+            tab.order = 1
+            list.remove(tab)
+            list.add(0, tab)
+            list.forEachIndexed { index, t ->
+                t.order = index + 1
+            }
+            AppDatabase.instance.tabDao().updateTabs(list)
+            updateTabCount()
+            return@withContext list
         }
     }
 }

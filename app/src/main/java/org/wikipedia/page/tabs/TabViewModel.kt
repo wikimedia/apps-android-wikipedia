@@ -99,14 +99,7 @@ class TabViewModel : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _clickState.value = Resource.Error(throwable)
         }) {
-            // Change the tab's order to 1 and update the rest of the tabs
-            tab.order = 1
-            list.remove(tab)
-            list.add(0, tab)
-            list.forEachIndexed { index, t ->
-                t.order = index + 1
-            }
-            AppDatabase.instance.tabDao().updateTabs(list)
+            TabHelper.moveTabToForeground(tab)
             _clickState.value = Resource.Success(true)
         }
     }

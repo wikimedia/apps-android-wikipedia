@@ -21,6 +21,9 @@ interface TabDao {
     @Query("SELECT * FROM Tab WHERE id = :id")
     suspend fun getTabById(id: Long): Tab?
 
+    @Query("SELECT * FROM Tab ORDER BY `order` ASC LIMIT 1")
+    suspend fun getForegroundTab(): Tab?
+
     @Query("DELETE FROM Tab")
     suspend fun deleteAll()
 
