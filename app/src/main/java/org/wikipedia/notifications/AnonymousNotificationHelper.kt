@@ -19,7 +19,7 @@ object AnonymousNotificationHelper {
         }
     }
 
-    suspend fun observableForAnonUserInfo(wikiSite: WikiSite): MwQueryResponse {
+    suspend fun maybeGetAnonUserInfo(wikiSite: WikiSite): MwQueryResponse {
         return if (Date().time - Prefs.lastAnonEditTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
             ServiceFactory.get(wikiSite).getUserInfo()
         } else {

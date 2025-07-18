@@ -1,0 +1,42 @@
+Was gibt es Neues?
+Sie können nun mehrere Sprachen zum Lesen in der App einstellen. Wechseln Sie während der Suche einfach zwischen den Sprachen und sehen Sie die Inhalte im Explore-Feed aus allen von Ihnen ausgewählten Sprachen.
+
+Die offizielle Wikipedia Android App soll Ihnen helfen, Informationen auf Wikipedia zu finden, zu entdecken und zu erforschen. Schließen Sie eine Wette mit einem Freund ab, indem Sie eine schnelle Suche nach einem bestimmten Artikel durchführen, oder tauchen Sie mit dem Explore-Feed in die vorgestellten Artikel, Bilder, Empfehlungen und mehr ein. Mit mehr als 40 Millionen Artikeln in fast 300 Sprachen ist Ihre bevorzugte kostenlose
+
+Eigenschaften:
+Feed durchstöbern:: Empfohlener Wikipedia-Inhalt mit aktuellen Ereignissen, bekannten Artikeln, Ereignissen an diesem Tag in der Geschichte, vorgeschlagenen Artikeln basierend auf dem, was Sie bereits gelesen haben, und vielem mehr. Der Feed ist vollständig anpassbar - wählen Sie die Arten von Inhalten, die Sie sehen möchten, oder ordnen Sie die Reihenfolge neu,
+
+Mehrsprachige Hilfe: Sehen Sie sich den Feed-Inhalt in mehreren Sprachen an, wechseln Sie einfach zwischen den Sprachen, während Sie nach Artikeln suchen, und lesen Sie Artikel in einer der fast 300 von Wikipedia unterstützten Sprachen. Sie können festlegen, welche Arten von Explore-Feed-Inhalten Sie in jeder Sprache sehen und welche Sprache zuerst in der Suche angezeigt wird.
+
+Lesen von Listen mit Offline-Zugriff: Speichern und verwalten Sie die gesuchten Artikel in Leserlisten, auf die Sie auch dann zugreifen können, wenn Sie offline sind. Erstellen Sie so viele Listen, wie Sie möchten, geben Sie ihnen benutzerdefinierte Namen und Beschreibungen und füllen Sie sie mit Artikeln aus jedem Sprach-Wiki. Sie können Listen auch gerätespezifisch mit Ihrem
+
+Farbkombinationen: Mit einer Auswahl an hellen, dunklen und schwarzen Motiven sowie einer Anpassung der Textgröße können Sie die App für ein optimales Lesevergnügen anpassen.
+
+Sprachintegrierte Suche: Finden Sie ganz einfach, wonach Sie suchen, mit einer ausgeprägten Suchleiste oben in der App, einschließlich der sprachgesteuerten Suche auf Ihrem Gerät.
+
+In unmittelbarer Nähe: Erfahren Sie mehr über Ihre Umgebung, indem Sie Punkte auf einer interaktiven Karte auswählen, um Artikel zu Ihrem aktuellen Standort anzuzeigen.
+
+Link-Vorschauen und Artikel-Registerkarten: Tippen Sie auf einen Artikel, um ihn in der Vorschau anzuzeigen, ohne Ihren Platz in dem, was Sie gerade lesen, zu verlieren. Oder halten Sie einen Link gedrückt, um ihn in einer neuen Registerkarte zu öffnen, damit Sie den aktuellen Artikel weiterlesen können,
+
+Bildergalerie: Tippen Sie auf ein Bild, um es in hoher Auflösung im Vollbildmodus anzuzeigen, mit Optionen zum Durchsuchen weiterer Bilder.
+
+Definitionen aus Wiktionary: Tippen und halten Sie, um ein Wort zu wählen, und tippen Sie dann auf die Schaltfläche "Definieren", um eine Definition des Wortes aus Wiktionary zu sehen.
+
+Um Ihr Feedback von der App zu senden: 
+Drücken Sie im Menü "Einstellungen", dann "Über die Wikipedia-App", dann "App-Feedback senden".
+
+Der Code ist zu 100% Open Source. Wenn Sie Erfahrung mit Java und dem Android SDK haben, dann freuen wir uns auf Ihre Beiträge!
+
+
+Mit der Nutzung dieser App stimmen Sie der automatischen Übermittlung von Crash-Meldungen an einen Drittanbieter zu. Wenn Sie diese Funktion deaktivieren möchten, klicken Sie auf "Einstellungen" und Datenschutz.deaktivieren Sie dann "Absturzberichte
+
+Erläuterung der von der App benötigten Berechtigungen: 
+
+Datenschutzerklärung: 
+
+Crash-Report der Datenschutzrichtlinie eines Drittanbieters: 
+
+Nutzungsbedingungen: 
+
+Über die Wikimedia-Stiftung:
+Die Wikimedia Foundation ist eine gemeinnützige Organisation, die Wikipedia und die anderen Wikimedia-Projekte unterstützt und betreibt. Die Wikimedia Foundation ist eine gemeinnützige Organisation, : die hauptsächlich durch Spenden finanziert wird. Für weitere Informationen

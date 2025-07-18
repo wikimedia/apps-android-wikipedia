@@ -61,7 +61,7 @@ class AddLanguagesViewModel : ViewModel() {
     }
 
     fun updateSearchTerm(term: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(handler) {
             _uiState.value = UiState.Success(getFilteredLanguageList(term))
         }
     }
