@@ -15,12 +15,14 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.DialogOnThisDayGameArticleBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -29,9 +31,9 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.AllowSnackbarOverBottomSheet
 import org.wikipedia.views.ViewUtil
-import kotlin.getValue
 
 class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), AllowSnackbarOverBottomSheet {
     fun interface Callback {
@@ -48,6 +50,11 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         pageSummary = requireArguments().parcelable<PageSummary>(Constants.ARG_TITLE)!!
     }
 
+    override fun onPause() {
+        super.onPause()
+        dismiss()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -60,7 +67,7 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogOnThisDayGameArticleBinding.inflate(inflater, container, false)
-        WikiGamesEvent.submit("impression", "game_play", slideName = "game_end_article")
+        WikiGamesEvent.submit("impression", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
 
         binding.articleTitle.text = StringUtil.fromHtml(pageSummary.displayTitle)
         binding.articleDescription.text = StringUtil.fromHtml(pageSummary.description)
@@ -77,6 +84,11 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
                 pageSummary.thumbnailUrl,
                 placeholderId = R.mipmap.launcher
             )
+            binding.articleThumbnail.setOnClickListener {
+                val leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty())
+                val filePageTitle = PageTitle("File:$leadImageName", viewModel.wikiSite)
+                startActivity(FilePageActivity.newIntent(requireContext(), filePageTitle))
+            }
         }
 
         val event = viewModel.getEventByPageTitle(pageSummary.apiTitle)
@@ -94,16 +106,16 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
         binding.saveButton.setImageResource(bookmarkResource)
         binding.saveButton.setOnClickListener {
-            WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article")
+            WikiGamesEvent.submit("save_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
             onBookmarkIconClick(binding.saveButton, pageSummary)
         }
         binding.shareButton.setOnClickListener {
-            WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article")
+            WikiGamesEvent.submit("share_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
             ShareUtil.shareText(requireActivity(), pageSummary.getPageTitle(viewModel.wikiSite))
         }
         FeedbackUtil.setButtonTooltip(binding.shareButton, binding.saveButton)
         binding.readArticleButton.setOnClickListener {
-            WikiGamesEvent.submit("read_click", "game_play", slideName = "game_end_article")
+            WikiGamesEvent.submit("read_click", "game_play", slideName = "game_end_article", isArchive = viewModel.isArchiveGame)
             val entry = HistoryEntry(pageSummary.getPageTitle(viewModel.wikiSite), HistoryEntry.SOURCE_ON_THIS_DAY_GAME)
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }

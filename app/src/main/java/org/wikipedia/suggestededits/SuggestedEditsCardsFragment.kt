@@ -154,7 +154,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                             R.string.suggested_edits_image_tags_help_url)
                     }
                     else -> {
-                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                        if ((viewModel.action == ADD_DESCRIPTION && viewModel.langFromCode == "en") || (viewModel.action == TRANSLATE_DESCRIPTION && viewModel.langToCode == "en")) {
+                            FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.short_description_help_url_en)
+                        } else {
+                            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                        }
                     }
                 }
                 val child = topBaseChild()

@@ -35,6 +35,9 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_voice_search">Talesøk</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
+  <string name="search_back_button_content_description">Gå tilbake</string>
+  <string name="search_clear_query_content_description">Tøm spørring</string>
+  <string name="search_icon_content_description">Søk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer listene mine</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mer</string>
@@ -165,7 +168,10 @@
   <string name="login_password_hint">Passord</string>
   <string name="account_creation_password_hint">Passord</string>
   <string name="login_2fa_hint">Totrinnsautentiseringskode</string>
-  <string name="login_2fa_other_workflow_error_msg">Totrinnsautentisering kreves! Gå tilbake til hovedaktiviteten og logg inn med totrinnsautentiseringskoden din før du prøver igjen.</string>
+  <string name="login_2fa_other_workflow_error_msg">Totrinnsautentisering kreves! Logg inn fra hovedskjermen, og legg inn totrinnsautentiseringskoden din.</string>
+  <string name="login_email_auth_hint">E-post verifiseringskode</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-post verifisering kreves! Logg inn fra hovedskjermen, og legg inn epostverifiseringskoden din.</string>
+  <string name="login_background_error_msg">Kan ikke logge inn på nytt. Gå tilbake til hovedskjermen, og logg inn manuelt.</string>
   <string name="onboarding_card_login">Logg inn</string>
   <string name="page_editing_login">Logg inn</string>
   <string name="reading_lists_sync_login">Logg inn</string>
@@ -255,22 +261,21 @@
   <string name="privacy_policy_description">Personvernspolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek brukt</string>
   <string name="about_contributors_heading">Bidragsytere</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamets side&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Teamets side&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversettere</string>
   <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisens</string>
   <string name="about_app_license">Kildekode tilgjengelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
+  <string name="about_logo_content_description">Wikipedia puslespill globuslogo</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nei</string>
@@ -405,6 +410,7 @@
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
   <string name="nav_item_donate">Doner</string>
+  <string name="nav_item_year_in_review">Årsgjennomgang</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>
@@ -589,8 +595,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkelen finnes i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke lenger være tilgjengelig offline via noen av leselistene:</string>
   <string name="reading_lists_sync_reminder_title">Skru på synkronisering av leselister?</string>
-  <string name="reading_lists_sync_reminder_text">Artikler lagret i leselister kan synkroniseres med Wikipedia-kontoen din. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Leselister kan sikkerhetskopieres og synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikler lagret i leselister kan synkroniseres med Wikipedia-kontoen din. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Leselister kan synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Finn ut mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkroniser leselister</string>
   <string name="reading_lists_login_reminder_text">Leselister kan sikkerhetskopieres og synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette.</string>
@@ -889,16 +895,15 @@
   <string name="description_edit_help_title">Info: Artikkelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide for å skrive beskrivelser</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Takk for at du fortsatt er interessert i å legge inn artikkelbeskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
   <string name="description_edit_license_notice">Ved å redigere artikkelbeskrivelsen, aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="description_edit_helper_text_lowercase_warning">begynner vanligvis med en liten bokstav</string>
   <string name="description_edit_voice_input_description">Stemmestyring</string>
   <string name="description_edit_learn_more">Lær mer om artikkelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mer om bildetekster</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
+  <string name="description_too_long">Prøv å holde beskrivelsene korte, slik at brukere enkelt kan forstå hva artikkelen handler om</string>
   <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
   <string name="description_starts_with_article">Ikke legg til «a» eller «the» i begynnelsen av artikkeltitler.</string>
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
@@ -1400,14 +1405,12 @@
   <string name="revision_rollback_success">Redigeringer tilbakestilt.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 uke</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 måned</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 måneder</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 måneder</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og den tilhørende diskusjonssiden har blitt fjernet fra overvåkningslisten din.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 uke</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 måned</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 måneder</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 måneder</string>
   <string name="watchlist_expiry_dialog_title">Velg periode for overvåkningsliste</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 uke</string>
@@ -1620,6 +1623,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Tilbakemelding</string>
   <string name="patroller_diff_feedback_tooltip">Trykk på overflytsmenyen for å sende inn tilbakemeldinger når som helst under «Problem med funksjon».</string>
   <string name="patroller_saved_message_title_vandalism">Advarsel om vandalisme</string>
+  <string name="patroller_saved_message_title_editing_tests">Testredigeringer</string>
   <string name="patroller_saved_message_title_npov">Nøytralt synspunkt</string>
   <string name="patroller_saved_message_title_auto_trans">Maskinoversettelse</string>
   <string name="patroller_saved_message_title_coi_rem">Påminnelse om interessekonflikt</string>
@@ -1629,6 +1633,12 @@
   <string name="patroller_saved_message_title_do_not_censor">Ikke sensurer</string>
   <string name="patroller_saved_message_title_art_imp">Forslag til forbedring av artikkel</string>
   <string name="patroller_saved_message_body_vandalism">Hei, {{{username}}}. Jeg vil bare si fra om at jeg har tilbakestilt én eller flere av de [{{{diffLink}}}|nyeste bidragene dine]] fordi de ikke virker konstruktive. Hvis du mener at jeg har gjort en feil eller har noen spørsmål kan du legge igjen en melding på [[User talk:{{{senderUserName}}}|diskusjonssiden min]]. Vær oppmerksom på at fortsatt hærverk kan føre til innskrenkinger i tilgangen din.</string>
+  <string name="patroller_saved_message_body_editing_tests">Hei {{{username}}}. Jeg er veldig glad for at Wikipedia har fanget oppmerksomheten din, og at du har vist interesse for å lære å redigere. Redigeringstesten din virket, men du må være oppmerksom på at målet med dette prosjektet er å utvikle et pålitelig og komplett leksikon som alle kan benytte. Din redigering påvirket innholdet, så den er fjernet.\nHvis du vil lære hvordan redigere Wikipedia, så er [[Wikipedia:Sandbox|sandkassa]] det beste stedet. Hvis kommentarene dine var til en spesifikk artikkel, så er riktig sted på artikkelens diskusjonsside.</string>
+  <string name="patroller_saved_message_body_npov">Hei {{{username}}}. Noen av bidragene tilfredsstiller ikke kravene til Wikipedia om [[Wikipedia:NPOV|nøytralt perspektivt]]. På grunn av dette er noe av innholdet endret eller fjernet. Det hadde vært fint om du endret avsnittene til en mer nøytral og objektiv tekst, i tråd med hva som forventes i et leksikon.</string>
+  <string name="patroller_saved_message_body_auto_trans">Hei {{{username}}}. Noen av bidragene du har gjort er muligens maskinoversettelse, som er årsaken til at de har blitt endret eller markert med en mal. Hvis ingen forbedringer er gjort med artikkelen, kan de bli slettet.\n\nHvis du til tross for denne informasjonen, fortsatt har spørsmål kan du etterlate en melding på [[User talk:{{{senderUserName}}}|min brukerdiskusjonsside]]. Ikke bli motløs av denne hendelser. Bidragene dine er veldig viktig for Wikipedia.</string>
+  <string name="talk_warn_learn_more_label">Lær om plassholdere for meldinger</string>
+  <string name="talk_warn_saved_messages_usage_instruction">BBruk en eksempelmelding under for å tilpasse, sende og lagre meldingene dine.</string>
+  <string name="patroller_saved_message_body_art_imp">Hei {{{username}}}. Artikkelen din er en god start! For å gjøre den ennå bedre, bør du se på å legge til flere referanser til pålitelige kilder. Dette bidrar til å bekrefte informasjonen og forbedre artikkelens kvalitet. Sjekk ut Wikipedias retningslinjer på [[Wikipedia:Gode_kilder|gode kilder]] for mer informasjon.</string>
   <string name="talk_templates_menu_edit_title">Rediger</string>
   <string name="data_opt_in_accept">Godta</string>
   <string name="data_opt_in_reject">Avvis</string>
@@ -1681,6 +1691,90 @@
   <string name="survey_dialog_option_very_unsatisfied">Veldig misfornøyd</string>
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Send</string>
+  <string name="survey_dialog_next">Neste</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nei</string>
+  <string name="survey_dialog_general_maybe">Kanskje</string>
   <string name="survey_dialog_input_hint">Ytterligere tilbakemeldinger</string>
   <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt. Hjertelig takk!</string>
+  <string name="on_this_day_game_entry_dialog_title">Introduserer</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipediaspill</string>
+  <string name="on_this_day_game_entry_dialog_button">Spill dagens spill</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
+  <string name="on_this_day_game_title">Hva kom først?</string>
+  <string name="on_this_day_game_dialog_button">Spill</string>
+  <string name="on_this_day_game_splash_message">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
+  <string name="on_this_day_game_progress">%1$d av %2$d</string>
+  <string name="on_this_day_game_score">Poengsum: %d</string>
+  <string name="on_this_day_game_submit">Send inn</string>
+  <string name="on_this_day_game_correct">Korrekt!</string>
+  <string name="on_this_day_game_incorrect">Feil!</string>
+  <string name="on_this_day_game_point">+1 poeng</string>
+  <string name="on_this_day_game_next">Neste spørsmål</string>
+  <string name="on_this_day_game_finish">Endelig resultat</string>
+  <string name="on_this_day_game_share_button">Del</string>
+  <string name="on_this_day_game_pause_title">Sette spillet på pause?</string>
+  <string name="on_this_day_game_pause_body">Fremgangen din blir lagret for dagen. Du kan finne spillet i Utforsksiden din</string>
+  <string name="on_this_day_game_pause_negative">Fortsett å spille</string>
+  <string name="on_this_day_game_pause_positive">Skjønner</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipediaspill</string>
+  <string name="on_this_day_game_feed_entry_card_title">Hva kom først?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
+  <string name="on_this_day_game_result">Du fikk %1$d av %2$d poeng.</string>
+  <string name="on_this_day_game_next_in">Neste spill om %s</string>
+  <string name="on_this_day_game_your_stats">Dine stats</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Spill spilt</item>
+    <item quantity="other">Spill spilt</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Gjennomsnittlig poengsum</string>
+  <string name="on_this_day_game_stats_streak">Nåværende rekke</string>
+  <string name="on_this_day_game_result_subtitle">Artikler referert til i dagens spill</string>
+  <string name="on_this_day_game_completed_message">Takk for at du spiller. Et nytt spill av \"Hva kom først?\" er tilgjengelig daglig på Utforsk-siden.</string>
+  <string name="on_this_day_game_menu_notifications">Spillvarsler</string>
+  <string name="on_this_day_game_menu_info">Lær mer</string>
+  <string name="on_this_day_game_menu_feedback">Problem med funksjonen</string>
+  <string name="on_this_day_game_article_read_button">Les artikkel</string>
+  <string name="on_this_day_game_article_related_event_title">Hendelse relatert til artikkelen</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Du fikk riktig på dette spørsmålet</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Du tok feil på dette spørsmålet</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Skru av spillvarsler?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Skru på spillvarsler?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Spillvarsel varsler deg daglig når et nytt spill er tilgjengelig å spille.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nei, behold dem på</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Skru dem av</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ja, skru dem på</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Hold dem av</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spillvarsler er av.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spillvarsler er på.</string>
+  <string name="on_this_day_game_notification_text">Dagens spill \"Hva kom først?\" er klart for å spilles.</string>
+  <string name="on_this_day_game_report_email_subject">Problemrapport - Wikipediaspill</string>
+  <string name="on_this_day_game_notification_undo">Angre</string>
+  <string name="on_this_day_game_share_link_message">Jeg spiller \"Hva kom først?\", et daglig quiz-spill på Wikipedia Android-appen %s</string>
+  <string name="on_this_day_game_share_screen_title">Jeg fikk %1$d av %2$d poeng på \"Hva kom først?\" i dag.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Temaer inkludert:</string>
+  <string name="on_this_day_game_archive_calendar_title">Velg et spill etter dato for å spille.</string>
+  <string name="on_this_day_game_score_toast_message">Du fikk %1$d/%2$d denne dagen.</string>
+  <string name="on_this_day_game_continue_btn_text">Fortsett dagens spill</string>
+  <string name="on_this_day_game_current_progress_message">Du er på spørsmål %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Spill av arkivet</string>
+  <string name="on_this_day_game_review_results_btn_text">Gå igjennom resultatet</string>
+  <string name="on_this_day_game_sound_on">Slå på lyden</string>
+  <string name="on_this_day_game_sound_off">Slå av lyden</string>
+  <string name="year_in_review_survey_cancel">Avbryt</string>
+  <string name="year_in_review_survey_submit">Send</string>
+  <string name="recommended_reading_list_title">Oppdag</string>
+  <string name="recommended_reading_list_onboarding_card_title">Oppdag artikler som er valgt spesielt for deg</string>
+  <string name="recommended_reading_list_onboarding_card_message">Din ukentlige leseliste med Wikipediaartikler, satt sammen spesielt for deg.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nytt</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Kom i gang</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nei takk</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Tilfeldig valg</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Vi har tilfeldig valgt ut noen artikler for deg.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Angre</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Ja, velg for meg</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Glem det</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Laget for %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Laget for deg</string>
+  <string name="recommended_reading_list_page_overflow_about">Om denne funksjonen</string>
 </resources>

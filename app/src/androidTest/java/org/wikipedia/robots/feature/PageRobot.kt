@@ -1,11 +1,14 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -26,7 +29,6 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.containsString
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.AssertJavascriptAction
 
 class PageRobot(private val context: Context) : BaseRobot() {
@@ -83,7 +85,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun verifyLeadImageIsNotVisible() = apply {
-        verify.viewDoesNotExist(R.id.page_header_view)
+        verify.viewWithIdIsNotVisible(R.id.page_header_view)
     }
 
     fun swipePagerLeft() = apply {
@@ -153,11 +155,6 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun clickThirdTopic() = apply {
         list.clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun clickLanguageListedAtFourthPosition() = apply {
-        list.clickRecyclerViewItemAtPosition(R.id.langlinks_recycler, 3)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -294,12 +291,8 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun selectSpanishLanguage() = apply {
         val language = "Spanish"
-        list.scrollToRecyclerView(
-            recyclerViewId = R.id.langlinks_recycler,
-            title = language,
-            textViewId = R.id.non_localized_language_name
-        )
-        click.onViewWithText(language)
+        composeTestRule.onNodeWithText(language)
+            .performClick()
     }
 
     fun scrollToAboutThisArticle() = apply {
@@ -389,5 +382,10 @@ class PageRobot(private val context: Context) : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
         click.onViewWithText("Got it")
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickEditIntroductionMenuItem() = apply {
+        click.onDisplayedViewWithText(viewId = R.id.title, text = "Edit introduction")
+        delay(TestConfig.DELAY_LARGE)
     }
 }

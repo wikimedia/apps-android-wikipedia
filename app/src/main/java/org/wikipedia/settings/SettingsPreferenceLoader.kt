@@ -11,9 +11,14 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
@@ -61,6 +66,18 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 )
                 true
         }
+        val recommendedReadingListCategory = findPreference(R.string.preference_category_recommended_reading_list)
+        recommendedReadingListCategory.isVisible = RecommendedReadingListAbTest().isTestGroupUser()
+        findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            RecommendedReadingListEvent.submit("discover_click", "global_settings")
+            if (Prefs.recommendedReadingListInterests.isEmpty() &&
+                Prefs.recommendedReadingListSource == RecommendedReadingListSource.INTERESTS) {
+                activity.startActivity(RecommendedReadingListOnboardingActivity.newIntent(activity))
+            } else {
+                activity.startActivity(RecommendedReadingListSettingsActivity.newIntent(activity))
+            }
+            true
+        }
 
         if (AccountUtil.isLoggedIn) {
             loadPreferences(R.xml.preferences_account)
@@ -101,6 +118,13 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     fun updateLanguagePrefSummary() {
         // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
         findPreference(R.string.preference_key_language).summary = WikipediaApp.instance.languageState.appLanguageLocalizedNames
+    }
+
+    fun updateRecommendedReadingListSummary() {
+        val summary = if (Prefs.isRecommendedReadingListEnabled) {
+            R.string.recommended_reading_list_settings_toggle_enable_message
+        } else R.string.recommended_reading_list_settings_toggle_disable_message
+        findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = activity.getString(summary)
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

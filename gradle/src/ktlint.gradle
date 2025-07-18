@@ -9,7 +9,7 @@ dependencies {
     // ktlint will pick them up
 }
 
-task ktlint(type: JavaExec, group: "verification") {
+tasks.register('ktlint', JavaExec) {
     description = "Check Kotlin code style."
     classpath = configurations.ktlint
     mainClass.set("com.pinterest.ktlint.Main")
@@ -22,7 +22,7 @@ task ktlint(type: JavaExec, group: "verification") {
 }
 check.dependsOn ktlint
 
-task ktlintFormat(type: JavaExec, group: "formatting") {
+tasks.register('ktlintFormat', JavaExec) {
     description = "Fix Kotlin code style deviations."
     classpath = configurations.ktlint
     mainClass.set("com.pinterest.ktlint.Main")

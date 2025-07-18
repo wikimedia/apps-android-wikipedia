@@ -32,12 +32,12 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.edit.EditSectionViewModel
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.extensions.getStrings
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -175,7 +175,7 @@ class EditSummaryFragment : Fragment() {
         else
             intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
-        val localizedSummaries = L10nUtil.getStringsForArticleLanguage(title, summaryTagStrings)
+        val localizedSummaries = requireContext().getStrings(title, summaryTagStrings)
         summaryTagStrings.forEach {
             addChip(localizedSummaries[it])
         }

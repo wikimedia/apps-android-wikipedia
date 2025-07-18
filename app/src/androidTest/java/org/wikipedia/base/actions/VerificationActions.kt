@@ -5,10 +5,12 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -27,7 +29,7 @@ class VerificationActions {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }
 
-    fun viewDoesNotExist(@IdRes viewId: Int) {
+    fun viewWithIdIsNotVisible(@IdRes viewId: Int) {
         onView(withId(viewId)).check(matches(not(isDisplayed())))
     }
 
@@ -35,8 +37,18 @@ class VerificationActions {
         onView(withText(text)).check(matches(isDisplayed()))
     }
 
-    fun textDoesNotExist(text: String) {
+    fun textIsNotVisible(text: String) {
         onView(withText(text)).check(matches(not(isDisplayed())))
+    }
+
+    fun viewWithIdDoesNotExist(@IdRes viewId: Int) {
+        onView(withId(viewId))
+            .check(doesNotExist())
+    }
+
+    fun viewWithTextDoesNotExist(title: String) {
+        onView(withText(title))
+            .check(doesNotExist())
     }
 
     fun viewWithIdDisplayed(@IdRes viewId: Int) {
@@ -84,11 +96,11 @@ class VerificationActions {
     }
 
     fun messageOfSnackbar(text: String) {
-        onView(
-            allOf(
-                withId(com.google.android.material.R.id.snackbar_text),
-                withText(text)
-            )).check(matches(isDisplayed()))
+        onView(allOf(
+            withId(com.google.android.material.R.id.snackbar_text),
+            withText(text),
+            isCompletelyDisplayed()
+        )).check(matches(isDisplayed()))
     }
 
     fun textViewColor(

@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -13,6 +14,8 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.hasSibling
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -27,7 +30,6 @@ import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.ColorAssertions
 import org.wikipedia.theme.Theme
 
@@ -77,9 +79,18 @@ class ExploreFeedRobot : BaseRobot() {
             onView(
                 allOf(
                     withId(R.id.view_list_card_list),
-                    childAtPosition(withId(R.id.view_list_card_list_container), 0)
-                )
-            ).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                    hasSibling(
+                        allOf(
+                            withId(R.id.view_list_card_header),
+                            hasDescendant(
+                                allOf(
+                                    withId(R.id.view_card_header_title),
+                                    withText("Top read")
+                                )
+                            )
+                        )
+                    )
+                )).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
                 .perform()
             pressBack()
             delay(TestConfig.DELAY_MEDIUM)
@@ -119,7 +130,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
-        verify.viewDoesNotExist(viewId = R.id.articleImage)
+        verify.viewWithIdIsNotVisible(viewId = R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -157,15 +168,6 @@ class ExploreFeedRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.e("ScrollError:", "Suggested edits not visible or espresso cannot find it.")
         }
-    }
-
-    private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(
-            viewId = com.google.android.material.R.id.snackbar_action,
-            "Change"
-        )
-        click.onViewWithId(R.id.watchlistExpiryOneMonth)
-        delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) =
@@ -258,8 +260,11 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        onView(withId(R.id.view_list_card_list))
-            .check { view, _ ->
+        onView(allOf(
+            withId(R.id.view_list_card_list),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )).check { view, _ ->
                 val recyclerView = view as RecyclerView
                 val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
                     ?: throw AssertionError("No viewHolder found at position 0")

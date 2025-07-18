@@ -1,0 +1,212 @@
+package org.wikipedia.language
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import org.wikipedia.R
+import org.wikipedia.compose.components.SearchEmptyView
+import org.wikipedia.compose.components.WikiTopAppBarWithSearch
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.UiState
+
+@Composable
+fun ComposeLangLinksScreen(
+    modifier: Modifier = Modifier,
+    uiState: UiState<List<LangLinksItem>>,
+    onLanguageSelected: (LangLinksItem) -> Unit,
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
+    onBackButtonClick: () -> Unit,
+    onSearchQueryChange: (String) -> Unit,
+    ) {
+    val context = LocalContext.current
+    var searchQuery by remember { mutableStateOf("") }
+
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            WikiTopAppBarWithSearch(
+                appBarTitle = context.getString(R.string.langlinks_activity_title),
+                placeHolderTitle = context.getString(R.string.langlinks_filter_hint),
+                searchQuery = searchQuery,
+                onSearchQueryChange = {
+                    searchQuery = it
+                    onSearchQueryChange(it)
+                },
+                onBackButtonClick = onBackButtonClick
+            )
+        },
+        containerColor = WikipediaTheme.colors.paperColor
+    ) { paddingValues ->
+        when (uiState) {
+            is UiState.Loading -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            }
+
+            is UiState.Error -> {
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        caught = uiState.error,
+                        errorClickEvents = wikiErrorClickEvents
+                    )
+                }
+            }
+            is UiState.Success -> {
+                val langLinksItem = uiState.data
+                if (langLinksItem.isEmpty()) {
+                    Box(
+                        modifier = modifier
+                            .fillMaxSize()
+                            .padding(paddingValues),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        SearchEmptyView(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                        )
+                    }
+                    return@Scaffold
+                }
+
+                LazyColumn(
+                    modifier = modifier
+                        .padding(paddingValues)
+                ) {
+                    items(langLinksItem) { item ->
+                        if (item.headerText.isNotEmpty()) {
+                            ListHeader(
+                                modifier = Modifier
+                                    .height(56.dp)
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp)
+                                    .padding(bottom = 4.dp),
+                                title = item.headerText,
+                            )
+                        } else {
+                            Box(
+                                modifier = Modifier
+                                    .clickable(
+                                        onClick = { onLanguageSelected(item) }
+                                    )
+                            ) {
+                                LangLinksItemView(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    localizedLanguageName = item.localizedName,
+                                    canonicalName = item.canonicalName,
+                                    articleName = item.articleName
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ListHeader(
+    title: String,
+    modifier: Modifier = Modifier,
+    titleStyle: TextStyle = MaterialTheme.typography.titleSmall.copy(
+        color = WikipediaTheme.colors.primaryColor,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 24.sp
+    )
+) {
+    Box(
+        modifier = modifier
+    ) {
+        Text(
+            modifier = Modifier
+                .align(Alignment.CenterStart),
+            text = title,
+            style = titleStyle,
+        )
+    }
+}
+
+@Composable
+fun LangLinksItemView(
+    modifier: Modifier = Modifier,
+    localizedLanguageName: String,
+    canonicalName: String? = null,
+    articleName: String
+) {
+    val listItemTextStyle = MaterialTheme.typography.bodyMedium.copy(
+        color = WikipediaTheme.colors.secondaryColor,
+        lineHeight = 24.sp,
+    )
+
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = localizedLanguageName,
+            style = MaterialTheme.typography.titleMedium.copy(
+                color = WikipediaTheme.colors.primaryColor,
+                fontWeight = FontWeight.Bold,
+            )
+        )
+        if (!canonicalName.isNullOrEmpty()) {
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = canonicalName,
+                style = listItemTextStyle
+            )
+        }
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = articleName,
+            style = listItemTextStyle
+        )
+    }
+}
