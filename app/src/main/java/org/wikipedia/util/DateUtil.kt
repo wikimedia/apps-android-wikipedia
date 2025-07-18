@@ -4,6 +4,7 @@ import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import android.text.format.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.getResources
@@ -18,6 +19,7 @@ import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAccessor
 import java.util.Calendar
 import java.util.Date
@@ -202,5 +204,12 @@ object DateUtil {
     fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
         val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
         return zonedDateTime.year
+    }
+
+    fun formatRelativeTime(instant: Instant): CharSequence {
+        val localDate = LocalDate.ofInstant(instant, ZoneId.systemDefault())
+        val weeks = localDate.until(LocalDate.now(), ChronoUnit.WEEKS)
+        val minResolution = if (weeks in 1..10) DateUtils.WEEK_IN_MILLIS else 0L
+        return DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), minResolution)
     }
 }
