@@ -32,6 +32,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -407,6 +408,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
+        runBlocking {
+            if (pageFragment.currentTab.id != 0L) {
+                TabHelper.updateTab(pageFragment.currentTab)
+            } else {
+                TabHelper.insertTabs(listOf(pageFragment.currentTab))
+            }
+        }
     }
 
     override fun onPageDismissBottomSheet() {

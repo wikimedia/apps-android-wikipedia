@@ -13,10 +13,10 @@ import java.util.Date
 @Serializable(with = PageBackStackItemSerializer::class)
 class PageBackStackItem(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    val apiTitle: String = "",
-    val displayTitle: String = "",
-    val langCode: String = "",
-    val namespace: String = "",
+    var apiTitle: String = "",
+    var displayTitle: String = "",
+    var langCode: String = "",
+    var namespace: String = "",
     val timestamp: Long = Date().time,
     var scrollY: Int = 0,
     var source: Int = HistoryEntry.Companion.SOURCE_INTERNAL_LINK,

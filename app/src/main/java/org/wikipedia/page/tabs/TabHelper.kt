@@ -175,11 +175,11 @@ object TabHelper {
             if (existingTab != null) {
                 // First, find removed backstack items
                 val removedBackStacks =
-                    existingTab.backStack.subtract(tab.backStack).filter { it.id != -1L }
+                    existingTab.getBackStackIds().subtract(tab.getBackStackIds()).filter { it != -1L }
                 if (removedBackStacks.isNotEmpty()) {
                     // Delete removed backstack items from the database
                     AppDatabase.instance.pageBackStackItemDao()
-                        .deletePageBackStackItemsById(removedBackStacks.map { it.id }.toList())
+                        .deletePageBackStackItemsById(removedBackStacks.toList())
                 }
 
                 // Second, find new backstack items if the id is -1, insert them to the database

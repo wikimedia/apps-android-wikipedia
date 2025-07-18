@@ -38,15 +38,16 @@ class Tab(
 
     fun setBackStackPositionTitle(title: PageTitle) {
         getBackStackPositionTitle()?.run {
-            backStack[backStackPosition] = PageBackStackItem(
-                apiTitle = title.prefixedText,
-                displayTitle = title.displayText,
-                langCode = title.wikiSite.languageCode,
-                namespace = title.namespace,
-                thumbUrl = title.thumbUrl,
-                description = title.description,
+            val backStackItem = backStack[backStackPosition]
+            backStack[backStackPosition] = backStackItem.apply {
+                apiTitle = title.prefixedText
+                displayTitle = title.displayText
+                langCode = title.wikiSite.languageCode
+                namespace = title.namespace
+                thumbUrl = title.thumbUrl
+                description = title.description
                 extract = title.extract
-            )
+            }
         }
     }
 
@@ -71,10 +72,6 @@ class Tab(
     }
 
     fun pushBackStackItem(item: PageBackStackItem) {
-        // remove all backstack items past the current position
-        while (backStack.size > backStackPosition + 1) {
-            backStack.removeAt(backStackPosition + 1)
-        }
         backStack.add(item)
         backStackPosition = backStack.size - 1
         setBackStackIds(backStack.map { it.id })

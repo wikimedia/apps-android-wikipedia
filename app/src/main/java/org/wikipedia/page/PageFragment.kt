@@ -184,11 +184,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
+    lateinit var currentTab: Tab
+
     var revision = 0L
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = TabHelper.getCurrentTab()
     val title get() = model.title
     val page get() = model.page
     val isLoading get() = bridge.isLoading
@@ -239,6 +240,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 bridge.execute(JavaScriptActionHandler.appendReadMode(model))
                 model.isReadMoreLoaded = true
             }
+        }
+
+        // TODO: use coroutines if we have viewModel
+        runBlocking {
+            currentTab = TabHelper.getCurrentTab()
         }
 
         editHandler = EditHandler(this, bridge)
@@ -511,11 +517,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // (but only if it's a different tab than the one currently in view!
         // TODO: verify this & make sure to use coroutine
         runBlocking {
-            L.d("setCurrentTabAndReset moveTabToForeground")
             pageFragmentLoadState.setTab(TabHelper.moveTabToForeground(tab).first())
         }
         if (TabHelper.count > 0) {
-            L.d("setCurrentTabAndReset squashBackstack loadFromBackStack")
             // TODO: verify this (whether it is a foreground tab or not)
             currentTab.squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
@@ -533,14 +537,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         runBlocking {
             if (shouldCreateNewTab) {
                 // create a new tab
-                val tab = TabHelper.createNewTab(entry)
+                val tab = Tab()
+                tab.backStack.add(PageBackStackItem(title, entry))
                 // if the requested position is at the top, then make its backstack current
                 if (toForeground) {
                     pageFragmentLoadState.setTab(tab)
                 }
-                // put this tab in the requested position
-                TabHelper.insertTabs(listOf(tab), toForeground)
-                TabHelper.trimTabCount()
+                // TODO: put this to the end of loading page
+//                // put this tab in the requested position
+//                TabHelper.insertTabs(listOf(tab), toForeground)
+//                TabHelper.trimTabCount()
                 // add the requested page to its backstack
                 if (!toForeground) {
                     ServiceFactory.get(title.wikiSite)
@@ -556,17 +562,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 requireActivity().invalidateOptionsMenu()
             } else {
                 // Use the empty tab to add backstack item
-                val tab = currentTab
-                val backStackItem = PageBackStackItem(title, entry)
-                tab.backStack.add(backStackItem)
-                tab.setBackStackIds(
-                    listOf(
-                        AppDatabase.instance.pageBackStackItemDao()
-                            .insertPageBackStackItem(backStackItem)
-                    )
-                )
-                TabHelper.insertTabs(listOf(tab), true)
-                pageFragmentLoadState.setTab(tab)
+                currentTab.backStack.add(PageBackStackItem(title, entry))
+                pageFragmentLoadState.setTab(currentTab)
             }
         }
     }
