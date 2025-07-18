@@ -1,0 +1,43 @@
+¿Qué hay de nuevo?
+Ahora se puede leer en varios idiomas desde la aplicación; se puede cambiar fácilmente entre idiomas durante la búsqueda, y ver el contenido en la Explorer Feed desde todos los idiomas seleccionados.
+_______
+
+La aplicación oficial de Wikipedia para Android está diseñada para ayudarle a encontrar, descubrir y explorar el conocimiento en la Wikipedia. Desafíe a un amigo haciendo una búsqueda rápida de un artículo específico, o sumérjase en los artículos destacados, imágenes, recomendaciones, y más con Explorer Feed. Con más de 40 millones de artículos en casi 300 idiomas, su enciclopedia en línea gratuita favorito es ahora más útil que nunca.
+
+Caracteristicas:
+Explorer Feed: contenidos recomendados de Wikipedia, entre ellos temas de actualidad, artículos de divulgación, efemérides, artículos sugeridos en base a lo que ya ha leído, y más. Este news feed es completamente personalizable - seleccione los tipos de contenidos que desea ver, o cambie el orden en el que aparecen diferentes tipos de contenidos.
+
+Soporte multilingüe: vea contenidos de Explorer feed en varios idiomas, cambie fácilmente entre idiomas en la búsqueda de artículos, y lea artículos en cualquiera de los casi 300 idiomas compatibles con Wikipedia. Seleccione el idioma en que Explorer Feed visualiza un artículo según el tipo de contenido y también en qué idioma se visualiza el primer resultado.
+
+Acceso a listas de lectura sin conexión: permite guardar y organizar los artículos que navega en listas de lectura, que se pueden acceder incluso cuando no haya conexión. Cree tantas listas como desee, con nombres y descripciones personalizadas, para rellenarlas con artículos de cualquier idioma wiki. También puede sincronizar las listas con su cuenta de Wikipedia en distintos dispositivos.
+
+Motivos coloridos: seleccione entre luminoso, oscuro y negro, seleccione el tamaño del texto y personalice la app para una lectura más cómoda.
+
+Reconocimiento de voz integrado en la búsqueda: la prominente barra de búsqueda se encuentra en la parte superior de la aplicación y cuenta con el aparato de reconocimiento de voz de su dispositivo.
+
+Nearby: descubra más información de los lugares que hay a su alrededor seleccionando puntos en un mapa interactivo que muestra artículos relacionados con su ubicación actual.
+
+Vistas previas de enlaces y las pestañas de artículos: pulse sobre un artículo para revelar la vista previa sin perder su lugar o mantenga el dedo sobre un enlace para abrirlo en una pestaña y seguir leyendo hasta que esté listo para ver la nueva pestaña.
+
+Galería de imágenes: pulse sobre una imagen para ver la imagen a pantalla completa, en alta resolución, con opciones de pasar el dedo para navegar por imágenes adicionales.
+
+Definiciones de Wikcionario: Pulse y sostenga una palabra para resaltarla y, a continuación, pulse el botón "Define" para ver la definición de Wiktionary.
+
+Para enviar sus comentarios desde la aplicación:
+Pulse "Settings", luego "About the Wikipedia app", y luego "Enviar comentarios sobre la aplicación".
+
+El software es 100% código abierto. Si usted tiene experiencia con Java y el SDK de Android ¡esperamos sus contribuciones!
+
+
+Mediante el uso de esta aplicación, usted está de acuerdo con la transmisión automática de informes de fallos a un proveedor de servicios de terceros. Si desea desactivar esta función, pulse "Settings" y luego desactivar la opción "Send crash reports" en la sección de privacidad.
+
+Explicación de los permisos requeridos por la aplicación: 
+
+Política de privacidad: 
+
+Política de privacidad del informe de incidentes del proveedor de servicios de terceros: 
+
+Términos de Uso: 
+
+Acerca de la Fundación Wikimedia:
+La Fundación Wikimedia es una organización sin fines de lucro que apoya y opera Wikipedia y otros proyectos de Wikimedia. La Fundación Wikimedia es una organización de caridad financiada principalmente a través de donaciones. Para obtener más información, por favor visite nuestro sitio web:

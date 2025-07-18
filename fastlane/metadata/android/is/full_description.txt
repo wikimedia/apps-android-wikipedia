@@ -1,0 +1,39 @@
+Opinbera Wikipedia-forritið fyrir Android er hannað til að auðvelda þér að finna, uppgötva og kanna þekkingu á Wikipedia. Útkljáðu vafamál við vini þína með fljótlegri uppflettingu í forritinu, eða sökktu þér í greinar sem eru efst á baugi í umræðunni, skoðaðu myndir, efni sem er mælt með og fleira með því að nota 'Uppgötva'streymið. Með meira en 39 milljón greinar á meira en 300 tungumálum, er uppáhalds frjálsa alfræðisafnið þitt aðgengilegt við fingurgómana.
+
+Eiginleikar:
+
+Uppgötvunarstreymi - Nýja 'Uppgötva'-streymið býður upp á Wikipedia-efni beint á upphafsskjáinn, efni sem mælt er með og er stöðugt uppfært, þar á meðal greinar í umræðunni, atburði í gangi, og ýmislegt fleira.
+
+Raddstýrð leit - Það er auðvelt að finna það sem þú leitar að með áberandi leitarslá efst í forritinu, sem virkar þar að auki með raddstýringu snjalltækisins þíns.
+
+Í nágrenninu - Fræðstu meira um það sem er í kringum þig með því að velja punkt á gagnvirku landakorti til að sjá staðsetningar úr greinum sem tengjast stöðum í næsta nágrenni.
+
+Stuðningur við tungumál - Skiptu saumlaust á milli þeirra tungumála sem Wikipedia styður, annað hvort með því að skipta um tungumál á greininni sem þú ert að lesa, eða með því að breyta óskatungumálinu við leit að greinum.
+
+Forskoðun tengla - Ýttu á tengil greinar til að forskoða greinina án þess að týna staðnum þar sem þú varst að lesa. Ýttu og haltu niðri á tengli til þess að opna hann í nýjum flipa, sem gerir þér kleift að halda áfram að lesa þar sem þú varst og skipta svo yfir á nýja flipann þegar þú ert tilbúin(n).
+
+Efnisyfirlit - Strjúktu til vinstri á hvaða grein sem er til að skoða efnisyfirlit hennar, sem auðveldar þér að hoppa yfir í þann hluta hennar sem þú hefur áhuga á.
+
+Leslistar - Raðaðu greinum sem þú flettir upp á í leslista, sem þú getur skoðað jafnvel þegar engin nettenging er til staðar. Útbúðu eins marga lista og þig lystir, gefðu þeim sérsniðin heiti og lýsingar, og fylltu þá með greinum á hvaða tungumáli sem er.
+
+Myndasafn - Bankaðu á mynd til að skoða hana á öllum skjánum í hárri upplausn, með möguleika á að strjúka skjáinn til að skoða fleiri myndir.
+
+Skilgreiningar frá Wiktionary - Ýttu-og-haltu til að áherslulita orð, ýttu síðan á "Skilgreina"-hnappinn til að skoða skilgreiningu á orðinu frá Wiktionary.
+
+Wikipedia Zero - Fáðu aðgang að Wikipedia fyrir Android án gagnakostnaðar frá þeim þjónustuaðilum sem taka þátt. (tengill á viðkomandi farsímafyrirtæki).
+
+Sendu okkur umsögn um forritið! Þú getur ýtt á "Stillingar" í valmyndinni, síðan á "Um Wikipedia-forritið", síðan á "Senda ábendingar um appið".
+
+Kóðinn er 100% opinn. Ef þú ert með reynslu af Java og Android SDK, þá væntum við mikils af framlagi þínu! https://github.com/wikimedia/apps-android-wikipedia
+
+Með því að nota þetta forrit, samþykkir þú sjálfvirka sendingu villuskýrslna til utanaðkomandi þjónustuaðila. Ef þú vilt gera þennan eiginleika óvirkann, ýttu þá á "Stillingar," taktu síðan hakið úr "Senda villuskýrslur" í hlutanum "Gagnaleynd". Útskýringar á heimildunum sem þetta forrit þarfnast eru hér: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Meðferð persónuupplýsinga: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Stefna varðandi meðferð persónuupplýsinga frá utanaðkomandi aðila sem sér um villuskýrslur: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Notkunarskilmálar: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Um Wikimedia Foundation sjálfseignarstofnunina
+
+Wikimedia Foundation er sjálfseignarstofnun sem rekin er án ágóðamarkmiða og styður við Wikipedia ásamt hinum Wikimedia-verkefnunum. Wikimedia Foundation er samtök sjálfboðaliða sem fyrst og fremst eru fjármögnuð með styrktarfé. Til að sjá frekari upplýsingar ættirðu að skoða vefinn okkar: https://wikimediafoundation.org/wiki/Home.

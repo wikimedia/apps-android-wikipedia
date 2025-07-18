@@ -308,7 +308,7 @@
   <string name="preference_title_download_only_over_wifi">Preuzimaj samo preko Wi-Fi-a</string>
   <string name="dialog_title_download_only_over_wifi">Potvrđivanje preuzimanja koristeći mobilne podatke?</string>
   <string name="dialog_text_download_only_over_wifi">U postavkama ste omogućili opciju „Preuzimaj samo preko Wi-Fija”. Želite li dozvoliti preuzimanje s mobilnim podacima samo u ovom slučaju?</string>
-  <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Dopusti</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
   <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
@@ -319,7 +319,7 @@
   <string name="gallery_save_progress">Preuzimanje datoteke…</string>
   <string name="gallery_save_success">Datoteka je sačuvana.</string>
   <string name="gallery_error_video_failed">Nije moguće reproducirati videozapis.</string>
-  <string name="gallery_save_image_write_permission_rationale">Potrebna je dozvola za čuvanje slika na Vaš uređaj.</string>
+  <string name="gallery_save_image_write_permission_rationale">Potrebno je ovlaštenje za čuvanje slika na Vaš uređaj.</string>
   <string name="err_cannot_save_file">Nije moguće sačuvati datoteku</string>
   <string name="expand_refs">Dodirnite da biste proširili</string>
   <string name="cc_logo">Licenca Creative Commons</string>
