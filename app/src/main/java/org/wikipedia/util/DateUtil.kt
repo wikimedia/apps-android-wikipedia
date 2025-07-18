@@ -39,6 +39,10 @@ object DateUtil {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }
 
+    fun iso8601LocalDateParse(timestamp: String): LocalDate {
+        return LocalDate.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
+    }
+
     fun dbDateFormat(date: Date): String {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
     }
@@ -67,7 +71,7 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
 
-    fun getYearOnlyDateString(date: Date): String {
+    fun getYearOnlyDateString(date: LocalDate): String {
         return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 
