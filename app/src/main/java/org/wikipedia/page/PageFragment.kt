@@ -36,6 +36,7 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -286,7 +287,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
-        // TabHelper.commitTabState()
+        runBlocking {
+            TabHelper.updateTab(currentTab)
+        }
         val time = if (currentTab.backStack.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
@@ -502,29 +505,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun setCurrentTabAndReset(position: Int) {
+    private fun setCurrentTabAndReset(tab: Tab) {
         // move the selected tab to the bottom of the list, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
-        if (position < TabHelper.list.size - 1) {
-            val tab = TabHelper.removeTabAt(position)
-            TabHelper.list.add(tab)
-            pageFragmentLoadState.setTab(tab)
+        // TODO: verify this & make sure to use coroutine
+        runBlocking {
+            pageFragmentLoadState.setTab(TabHelper.moveTabToForeground(tab).first())
         }
         if (TabHelper.count > 0) {
-            TabHelper.list.last().squashBackstack()
+            // TODO: verify this (whether it is a foreground tab or not)
+            TabHelper.getCurrentTab().squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
 
-    private fun selectedTabPosition(title: PageTitle): Int {
-        return TabHelper.list.firstOrNull { it.getBackStackPositionTitle() != null &&
-                title == it.getBackStackPositionTitle() }?.let { TabHelper.list.indexOf(it) } ?: -1
-    }
-
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, toForeground: Boolean) {
-        val selectedTabPosition = selectedTabPosition(title)
-        if (selectedTabPosition >= 0) {
-            setCurrentTabAndReset(selectedTabPosition)
+        val selectedTab = TabHelper.findTabByTitle(title)
+        if (selectedTab != null) {
+            setCurrentTabAndReset(selectedTab)
             return
         }
         if (shouldCreateNewTab) {
@@ -940,13 +938,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
-        val selectedTabPosition = selectedTabPosition(title)
+        val selectedTab = TabHelper.findTabByTitle(title)
 
-        if (selectedTabPosition == -1) {
+        if (selectedTab == null) {
             loadPage(title, entry, pushBackStack = true, squashBackstack = false)
             return
         }
-        setCurrentTabAndReset(selectedTabPosition)
+        setCurrentTabAndReset(selectedTab)
     }
 
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {

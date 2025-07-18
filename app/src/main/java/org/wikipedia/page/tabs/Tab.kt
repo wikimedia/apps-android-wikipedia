@@ -55,11 +55,11 @@ class Tab(
     }
 
     fun canGoForward(): Boolean {
-        return backStackPosition < backStack.size - 1
+        return backStackPosition < getBackStackIds().size - 1
     }
 
     fun moveForward() {
-        if (backStackPosition < backStack.size - 1) {
+        if (backStackPosition < getBackStackIds().size - 1) {
             backStackPosition++
         }
     }
@@ -77,17 +77,20 @@ class Tab(
         }
         backStack.add(item)
         backStackPosition = backStack.size - 1
+        setBackStackIds(backStack.map { it.id })
     }
 
     fun clearBackstack() {
         backStack.clear()
         backStackPosition = -1
+        setBackStackIds(emptyList())
     }
 
     fun squashBackstack() {
         backStack.lastOrNull()?.let {
             backStack.clear()
             backStack.add(it)
+            setBackStackIds(listOf(it.id))
             backStackPosition = 0
         }
     }

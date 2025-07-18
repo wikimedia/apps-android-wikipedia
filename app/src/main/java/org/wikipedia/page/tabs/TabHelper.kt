@@ -8,11 +8,13 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.log.L
 
 object TabHelper {
 
-    val MAX_TABS = 100
+    const val MAX_TABS = 100
+
     val coroutineScope = CoroutineScope(Dispatchers.IO)
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -49,6 +51,18 @@ object TabHelper {
     fun removeTab(tab: Tab) {
         coroutineScope.launch(coroutineExceptionHandler) {
             deleteTabs(listOf(tab))
+        }
+    }
+
+    fun findTabByTitle(title: PageTitle): Tab? {
+        // TODO: handle this with coroutines if we have viewModel
+        return runBlocking {
+            val tabs = AppDatabase.instance.tabDao().getTabs()
+            tabs.firstOrNull { tab ->
+                val backStackItems = AppDatabase.instance.pageBackStackItemDao()
+                    .getPageBackStackItems(tab.getBackStackIds())
+                backStackItems.any { it.getPageTitle() == title }
+            }
         }
     }
 
