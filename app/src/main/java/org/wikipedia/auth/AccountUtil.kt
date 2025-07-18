@@ -15,8 +15,7 @@ import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L.d
-import org.wikipedia.util.log.L.logRemoteErrorIfProd
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.util.Collections
 import kotlin.math.max
@@ -31,11 +30,23 @@ object AccountUtil {
                     AccountManager.KEY_ACCOUNT_TYPE to accountType()))
         } else {
             response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
-            d("account creation failure")
+            L.d("account creation failure")
             return
         }
         setPassword(result.password)
         groups = result.groups
+    }
+
+    fun updateAccount(response: AccountAuthenticatorResponse?, result: OAuthProfile) {
+        if (createAccount(result.userName, null)) {
+            response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
+                AccountManager.KEY_ACCOUNT_TYPE to accountType()))
+        } else {
+            response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
+            L.d("account creation failure")
+            return
+        }
+        groups = result.groups.toSet()
     }
 
     val isLoggedIn: Boolean
@@ -92,7 +103,7 @@ object AccountUtil {
         return try {
             accountManager().getAccountsByType(accountType()).firstOrNull()
         } catch (e: SecurityException) {
-            logRemoteErrorIfProd(e)
+            L.e(e)
             null
         }
     }
@@ -129,7 +140,7 @@ object AccountUtil {
         return userName.length > 6 && userName[0] == '~' && userName[5] == '-' && userName.substring(1, 5).isDigitsOnly()
     }
 
-    private fun createAccount(userName: String, password: String): Boolean {
+    private fun createAccount(userName: String, password: String?): Boolean {
         var account = account()
         if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
             removeAccount()
@@ -139,7 +150,7 @@ object AccountUtil {
         return true
     }
 
-    private fun setPassword(password: String) {
+    private fun setPassword(password: String?) {
         val account = account()
         if (account != null) {
             accountManager().setPassword(account, password)

@@ -40,7 +40,7 @@ object CsrfTokenClient {
                             L.d("App believes we're logged in, but got anonymous token. Logging in explicitly...")
                             // Regardless of which WikiSite the token is being requested from, the login call
                             // should be done on the primary WikiSite of the app itself.
-                            val loginResult = LoginClient().loginBlocking(WikipediaApp.instance.wikiSite, AccountUtil.userName, AccountUtil.password!!)
+                            val loginResult = LoginClient().loginBlocking(WikipediaApp.instance.wikiSite, AccountUtil.userName, AccountUtil.password.orEmpty())
                             // If the login sequence results in anything but PASS, then don't bother retrying.
                             // Retrying is intended only for network errors, which would result in an exception, which is caught below.
                             if (!loginResult.pass()) {

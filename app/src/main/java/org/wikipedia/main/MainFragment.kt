@@ -124,7 +124,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            WikipediaApp.instance.oauthClient.handleAuthorizationResponse(result.data!!)
+            WikipediaApp.instance.oauthClient.handleAuthorizationResponse(result.data!!) {
+                if (it == null) {
+                    FeedbackUtil.showMessage(this, R.string.login_success_toast)
+                } else {
+                    FeedbackUtil.showError(requireActivity(), it)
+                }
+            }
         }
     }
 
