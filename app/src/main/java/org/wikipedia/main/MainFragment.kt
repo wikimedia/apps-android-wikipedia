@@ -30,9 +30,6 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import net.openid.appauth.AuthState
-import net.openid.appauth.AuthorizationException
-import net.openid.appauth.AuthorizationResponse
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -426,31 +423,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(card.filename(), card.wikiSite())))
     }
 
-
-
-
-
-
-
-
-
-
-
     override fun onLoginRequested() {
         //startActivityForResult(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_NAV),
         //        Constants.ACTIVITY_REQUEST_LOGIN)
         loginLauncher.launch(WikipediaApp.instance.oauthClient.getLoginIntent())
     }
-
-
-
-
-
-
-
-
-
-
 
     override fun updateToolbarElevation(elevate: Boolean) {
         callback()?.updateToolbarElevation(elevate)

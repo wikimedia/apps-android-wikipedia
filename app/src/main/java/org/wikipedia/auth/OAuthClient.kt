@@ -2,9 +2,7 @@ package org.wikipedia.auth
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.util.Base64
-import com.auth0.android.jwt.JWT
 import net.openid.appauth.AuthState
 import net.openid.appauth.AuthorizationService
 import net.openid.appauth.AuthorizationServiceConfiguration
@@ -21,7 +19,6 @@ import java.security.SecureRandom
 
 class OAuthClient(val context: Context) {
     private var authState = AuthState()
-    private var jwt : JWT? = null
     private val authorizationService : AuthorizationService
     val authServiceConfig : AuthorizationServiceConfiguration
 
@@ -32,13 +29,17 @@ class OAuthClient(val context: Context) {
         get() = authState.accessToken
 
     init {
-        loadState()
+        try {
+            authState = AuthState.jsonDeserialize(Prefs.oauthState)
+        } catch (_: Exception) {
+            authState = AuthState()
+        }
 
         authServiceConfig = AuthorizationServiceConfiguration(
-            "https://meta.wikimedia.org/w/rest.php/oauth2/authorize".toUri(),
-            "https://meta.wikimedia.org/w/rest.php/oauth2/access_token".toUri(),
+            AUTHORIZATION_ENDPOINT.toUri(),
+            TOKEN_ENDPOINT.toUri(),
             null,
-            "https://meta.wikimedia.org/w/rest.php/oauth2/logout".toUri()) //?
+            LOGOUT_ENDPOINT.toUri()) //?
 
         val appAuthConfiguration = AppAuthConfiguration.Builder()
             //.setBrowserMatcher(
@@ -50,14 +51,6 @@ class OAuthClient(val context: Context) {
             .build()
 
         authorizationService = AuthorizationService(context, appAuthConfiguration)
-    }
-
-    fun loadState() {
-        try {
-            authState = AuthState.jsonDeserialize(Prefs.oauthState)
-        } catch (_: Exception) {
-            authState = AuthState()
-        }
     }
 
     fun persistState() {
@@ -76,15 +69,12 @@ class OAuthClient(val context: Context) {
         val hash = digest.digest(codeVerifier.toByteArray())
         val codeChallenge = Base64.encodeToString(hash, encoding)
 
-
         val builder = AuthorizationRequest.Builder(
             authServiceConfig,
-            "50ad79ffa34f64853c96b729e4aa5d8c",
+            CLIENT_ID,
             ResponseTypeValues.CODE,
-            "wikipedia://oauth/callback".toUri())
-            .setCodeVerifier(codeVerifier,
-                codeChallenge,
-                "S256")
+            REDIRECT_URI.toUri())
+            .setCodeVerifier(codeVerifier, codeChallenge, "S256")
 
         // builder.setScopes(...)
 
@@ -110,10 +100,17 @@ class OAuthClient(val context: Context) {
             } else {
                 if (response != null) {
                     authState.update(response, exception)
-                    //jwt = JWT(response.idToken!!)
                 }
             }
             persistState()
         }
+    }
+
+    companion object {
+        const val CLIENT_ID = "50ad79ffa34f64853c96b729e4aa5d8c"
+        const val REDIRECT_URI = "wikipedia://oauth/callback"
+        const val AUTHORIZATION_ENDPOINT = "https://meta.wikimedia.org/w/rest.php/oauth2/authorize"
+        const val TOKEN_ENDPOINT = "https://meta.wikimedia.org/w/rest.php/oauth2/access_token"
+        const val LOGOUT_ENDPOINT = "https://meta.wikimedia.org/w/rest.php/oauth2/logout" //<--TODO
     }
 }

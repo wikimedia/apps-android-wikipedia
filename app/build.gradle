@@ -206,7 +206,6 @@ dependencies {
     implementation libs.retrofit
     implementation libs.commons.lang3
     implementation libs.jsoup
-    implementation libs.jwtdecode
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter

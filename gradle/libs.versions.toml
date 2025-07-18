@@ -23,7 +23,6 @@ installreferrer = "2.2"
 jsoup = "1.21.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-jwtdecode = "2.0.0"
 kotlinCoroutinesVersion = "1.10.2"
 kotlinStdlibJdk8 = "2.2.0"
 kotlinxSerializationJson = "1.9.0"
@@ -92,7 +91,6 @@ hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }
-jwtdecode = { module = "com.auth0.android:jwtdecode", version.ref = "jwtdecode" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk8" }
 kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinStdlibJdk8" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8" }
