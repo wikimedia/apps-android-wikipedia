@@ -15,6 +15,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.auth.OAuthClient
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.database.AppDatabase
@@ -48,6 +49,8 @@ class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
+
+    val oauthClient by lazy { OAuthClient(this) }
 
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)
