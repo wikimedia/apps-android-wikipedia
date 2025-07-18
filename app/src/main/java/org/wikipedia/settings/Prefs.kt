@@ -228,6 +228,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
 
+    var oauthState
+        get() = PrefsIoUtil.getString(R.string.preference_key_oauth_state, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_oauth_state, value)
+
     val isMemoryLeakTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_memory_leak_test, false)
 

@@ -1,6 +1,7 @@
 [versions]
 androidPluginAnnotationV9 = "3.0.2"
 androidSdk = "11.12.1"
+appauth = "0.11.1"
 appcompat = "1.7.1"
 balloon = "1.6.12"
 browser = "1.8.0"
@@ -22,6 +23,7 @@ installreferrer = "2.2"
 jsoup = "1.21.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
+jwtdecode = "2.0.0"
 kotlinCoroutinesVersion = "1.10.2"
 kotlinStdlibJdk8 = "2.2.0"
 kotlinxSerializationJson = "1.9.0"
@@ -42,6 +44,7 @@ recyclerview = "1.4.0"
 retrofitVersion = "2.11.0"
 robolectric = "4.15.1"
 roomVersion = "2.7.2"
+scribejava = "8.3.3"
 swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
@@ -62,6 +65,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
 androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
+appauth = { module = "net.openid:appauth", version.ref = "appauth" }
 balloon = { module = "com.github.skydoves:balloon", version.ref = "balloon" }
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
@@ -88,6 +92,7 @@ hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }
+jwtdecode = { module = "com.auth0.android:jwtdecode", version.ref = "jwtdecode" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk8" }
 kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinStdlibJdk8" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8" }
@@ -112,6 +117,7 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 retrofit2-kotlinx-serialization-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
+scribejava = { module = "com.github.scribejava:scribejava-apis", version.ref = "scribejava" }
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
