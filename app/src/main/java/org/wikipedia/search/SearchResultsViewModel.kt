@@ -144,7 +144,6 @@ class SearchResultsViewModel : ViewModel() {
                     SearchResults()
                 }
             }
-
         }
     }
 }
