@@ -181,11 +181,10 @@ object TabHelper {
         return withContext(Dispatchers.IO) {
             val list = AppDatabase.instance.tabDao().getTabs().toMutableList()
             // Change the tab's order to 1 and update the rest of the tabs
-            tab.order = 1
-            list.remove(tab)
+            list.removeIf { it.id == tab.id }
             list.add(0, tab)
             list.forEachIndexed { index, t ->
-                t.order = index + 1
+                t.order = index
             }
             AppDatabase.instance.tabDao().updateTabs(list)
             updateTabCount()
