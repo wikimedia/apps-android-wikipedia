@@ -24,6 +24,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.util.log.L
 import java.security.MessageDigest
 import java.security.SecureRandom
 
@@ -131,19 +132,23 @@ class OAuthClient(val context: Context) {
                 }
             }
         }
+    }
 
-        /*
+    // TODO: figure out how and when to orchestrate refreshing of tokens.
+    // Currently blocked on https://phabricator.wikimedia.org/T323855
+    //
+    // For example:
+    fun makeCallWithFreshTokens() {
+        val expiryTime = ((authState.accessTokenExpirationTime ?: 0) - System.currentTimeMillis()) / 1000
+        L.d("Current access token expires in $expiryTime s.")
 
-
-        TODO: figure out how and when to orchestrate refreshing of tokens.
-
-
-        fun makeCallWithFreshTokens() {
-            authState.performActionWithFreshTokens(authorizationService) { accessToken, idToken, ex ->
-
+        authState.performActionWithFreshTokens(authorizationService) { accessToken, idToken, ex ->
+            if (ex != null) {
+                L.e(ex)
+            } else if (accessToken != null) {
+                L.d("Received fresh access token.")
             }
         }
-        */
     }
 
     private fun finishLogin(profile: OAuthProfile) {
@@ -162,7 +167,7 @@ class OAuthClient(val context: Context) {
     companion object {
         const val CLIENT_ID = "50ad79ffa34f64853c96b729e4aa5d8c"
         const val REDIRECT_URI = "wikipedia://oauth/callback"
-        const val OAUTH_WIKI = "https://auth.wikimedia.org"
+        const val OAUTH_WIKI = "https://meta.wikimedia.org" //TODO: use current language wiki?
         const val AUTHORIZATION_ENDPOINT = "/w/rest.php/oauth2/authorize"
         const val TOKEN_ENDPOINT = "/w/rest.php/oauth2/access_token"
         const val PROFILE_ENDPOINT = "/w/rest.php/oauth2/resource/profile"
