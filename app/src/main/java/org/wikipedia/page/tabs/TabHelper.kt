@@ -12,6 +12,7 @@ import org.wikipedia.util.log.L
 
 object TabHelper {
 
+    val MAX_TABS = 100
     val coroutineScope = CoroutineScope(Dispatchers.IO)
     val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -51,8 +52,16 @@ object TabHelper {
         }
     }
 
-    fun trimTabCount() {
-        // TODO: implement a way to limit the number of tabs
+    suspend fun trimTabCount() {
+        withContext(Dispatchers.IO) {
+            val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
+            if (tabs.size > MAX_TABS) {
+                // Sort tabs by order and remove the oldest ones
+                val sortedTabs = tabs.sortedBy { it.order }
+                val tabsToDelete = sortedTabs.take(sortedTabs.size - MAX_TABS)
+                deleteTabs(tabsToDelete)
+            }
+        }
     }
 
     fun openInNewBackgroundTab(coroutineScope: CoroutineScope = TabHelper.coroutineScope, entry: HistoryEntry, action: () -> Unit = {}) {

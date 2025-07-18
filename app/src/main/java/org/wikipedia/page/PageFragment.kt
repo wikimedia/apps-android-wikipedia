@@ -521,37 +521,39 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 title == it.getBackStackPositionTitle() }?.let { TabHelper.list.indexOf(it) } ?: -1
     }
 
-    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
+    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, toForeground: Boolean) {
         val selectedTabPosition = selectedTabPosition(title)
         if (selectedTabPosition >= 0) {
             setCurrentTabAndReset(selectedTabPosition)
             return
         }
         if (shouldCreateNewTab) {
-            // create a new tab
-            val tab = Tab()
-            val isForeground = position == foregroundTabPosition
-            // if the requested position is at the top, then make its backstack current
-            if (isForeground) {
-                pageFragmentLoadState.setTab(tab)
-            }
-            // put this tab in the requested position
-            TabHelper.list.add(position, tab)
-            TabHelper.trimTabCount()
-            // add the requested page to its backstack
-            tab.backStack.add(PageBackStackItem(title, entry))
-            if (!isForeground) {
-                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
-                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let { page ->
-                            TabHelper.list.find { it.getBackStackPositionTitle() == title }?.getBackStackPositionTitle()?.apply {
-                                thumbUrl = page.thumbUrl()
-                                description = page.description
-                            }
-                        }
+            viewLifecycleOwner.lifecycleScope.launch {
+                // create a new tab
+                val tab = Tab()
+                // if the requested position is at the top, then make its backstack current
+                if (toForeground) {
+                    pageFragmentLoadState.setTab(tab)
                 }
+                // put this tab in the requested position
+                TabHelper.insertTabs(listOf(tab), toForeground)
+                TabHelper.trimTabCount()
+                // add the requested page to its backstack
+                tab.backStack.add(PageBackStackItem(title, entry))
+                if (!toForeground) {
+                    lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                        ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+                            .query?.firstPage()?.let { page ->
+                                // TODO: verify this
+                                tab.getBackStackPositionTitle()?.apply {
+                                    thumbUrl = page.thumbUrl()
+                                    description = page.description
+                                }
+                            }
+                    }
+                }
+                requireActivity().invalidateOptionsMenu()
             }
-            requireActivity().invalidateOptionsMenu()
         } else {
             pageFragmentLoadState.setTab(currentTab)
             currentTab.backStack.add(PageBackStackItem(title, entry))
@@ -924,16 +926,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
         if (TabHelper.count == 0) {
-            openInNewTab(title, entry, foregroundTabPosition)
+            openInNewTab(title, entry, true)
             pageFragmentLoadState.loadFromBackStack()
         } else {
-            openInNewTab(title, entry, backgroundTabPosition)
+            openInNewTab(title, entry, false)
             (requireActivity() as PageActivity).animateTabsButton()
         }
     }
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition)
+        openInNewTab(title, entry, true)
         pageFragmentLoadState.loadFromBackStack()
     }
 
