@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -30,7 +29,6 @@ import org.wikipedia.language.AcceptLanguageUtil
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
-import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -139,11 +137,6 @@ class WikipediaApp : Application() {
         connectionStateMonitor.enable()
 
         setupLeakCanary()
-
-        // Initialize the tabs with runBlocking to ensure that the tabs are ready before showing the TabCountView.
-        runBlocking {
-            TabHelper.initTabs()
-        }
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)

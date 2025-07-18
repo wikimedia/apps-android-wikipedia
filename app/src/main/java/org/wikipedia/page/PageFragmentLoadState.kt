@@ -24,7 +24,6 @@ import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
@@ -259,7 +258,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             fragment.requireActivity().invalidateOptionsMenu()
 
             // Update our tab list to prevent ZH variants issue.
-            TabHelper.list.getOrNull(TabHelper.count - 1)?.setBackStackPositionTitle(title)
+            currentTab.setBackStackPositionTitle(title)
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             model.curEntry?.let {
