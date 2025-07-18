@@ -95,20 +95,16 @@ class TabViewModel : ViewModel() {
         }
     }
 
-    fun addTabToLastPosition(tab: Tab) {
+    fun moveTabToForeground(tab: Tab) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _clickState.value = Resource.Error(throwable)
         }) {
-            // Remove tab from current position if it exists
-            list.removeAll { it.id == tab.id }
-
-            // Add tab to last position
-            tab.order = list.size
-            list.add(tab)
-
-            // Update order for all tabs
-            list.forEachIndexed { index, it ->
-                it.order = index
+            // Change the tab's order to 1 and update the rest of the tabs
+            tab.order = 1
+            list.remove(tab)
+            list.add(0, tab)
+            list.forEachIndexed { index, t ->
+                t.order = index + 1
             }
             AppDatabase.instance.tabDao().updateTabs(list)
             _clickState.value = Resource.Success(true)

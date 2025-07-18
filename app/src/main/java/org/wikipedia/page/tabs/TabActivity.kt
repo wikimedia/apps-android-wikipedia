@@ -299,7 +299,7 @@ class TabActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             if (v.id == R.id.tabContainer) {
-                viewModel.addTabToLastPosition(tab)
+                viewModel.moveTabToForeground(tab)
             } else if (v.id == R.id.tabCloseButton) {
                 doCloseTab()
             }
