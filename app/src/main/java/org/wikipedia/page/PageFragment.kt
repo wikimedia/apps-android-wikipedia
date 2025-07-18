@@ -199,6 +199,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
         initWebViewListeners()
+        initTab()
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
@@ -240,11 +241,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 bridge.execute(JavaScriptActionHandler.appendReadMode(model))
                 model.isReadMoreLoaded = true
             }
-        }
-
-        // TODO: use coroutines if we have viewModel
-        runBlocking {
-            currentTab = TabHelper.getCurrentTab()
         }
 
         editHandler = EditHandler(this, bridge)
@@ -524,6 +520,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             currentTab.squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
+    }
+
+    fun initTab() {
+        // TODO: use coroutines if we have viewModel
+        runBlocking {
+            currentTab = TabHelper.getCurrentTab()
+        }
+    }
+
+    fun setTab(tab: Tab) {
+        currentTab = tab
+        pageFragmentLoadState.setTab(tab)
     }
 
     private fun openInNewTab(title: PageTitle, entry: HistoryEntry, toForeground: Boolean) {
@@ -930,6 +938,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
+
+        // Update the currentTab from the pageLoadState
+        currentTab = pageFragmentLoadState.getCurrentTab()
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {

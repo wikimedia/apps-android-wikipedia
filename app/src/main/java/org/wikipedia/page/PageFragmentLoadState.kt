@@ -79,6 +79,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
         return isDifferent
     }
 
+    fun getCurrentTab(): Tab {
+        return currentTab
+    }
+
     fun goBack(): Boolean {
         if (currentTab.canGoBack()) {
             currentTab.moveBack()

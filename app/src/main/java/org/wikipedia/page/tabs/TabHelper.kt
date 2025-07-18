@@ -33,12 +33,11 @@ object TabHelper {
         count = tabs.size
     }
 
-    fun getCurrentTab(): Tab {
-        // TODO: handle this with coroutines if we have viewModel
-        return runBlocking {
+    suspend fun getCurrentTab(): Tab {
+        return withContext(Dispatchers.IO) {
             val foregroundTab = AppDatabase.instance.tabDao().getForegroundTab()
             if (foregroundTab == null) {
-                return@runBlocking Tab()
+                return@withContext Tab()
             }
             // Use the backStackIds to get the full backStack items from the database
             val backStackItems = AppDatabase.instance.pageBackStackItemDao()
@@ -173,10 +172,12 @@ object TabHelper {
             // Find the existing tab in the database
             val existingTab = AppDatabase.instance.tabDao().getTabById(tab.id)
             if (existingTab != null) {
+                L.d("onPageLoadComplete existingTab " + existingTab.id)
                 // First, find removed backstack items
                 val removedBackStacks =
-                    existingTab.getBackStackIds().subtract(tab.getBackStackIds()).filter { it != -1L }
+                    existingTab.getBackStackIds().subtract(tab.getBackStackIds()).filter { it != 0L }
                 if (removedBackStacks.isNotEmpty()) {
+                    L.d("onPageLoadComplete removedBackStacks")
                     // Delete removed backstack items from the database
                     AppDatabase.instance.pageBackStackItemDao()
                         .deletePageBackStackItemsById(removedBackStacks.toList())
@@ -186,7 +187,8 @@ object TabHelper {
                 val backStackIds = mutableListOf<Long>()
                 tab.backStack.forEach { item ->
                     var backStackId = item.id
-                    if (item.id == -1L) {
+                    L.d("onPageLoadComplete backStack $backStackId")
+                    if (item.id == 0L) {
                         val newId = AppDatabase.instance.pageBackStackItemDao()
                             .insertPageBackStackItem(item)
                         backStackId = newId
@@ -195,6 +197,7 @@ object TabHelper {
                 }
 
                 // Finally, update the tab with the new backStackIds and order
+                L.d("onPageLoadComplete $backStackIds")
                 tab.setBackStackIds(backStackIds)
                 AppDatabase.instance.tabDao().updateTab(tab)
                 updateTabCount()

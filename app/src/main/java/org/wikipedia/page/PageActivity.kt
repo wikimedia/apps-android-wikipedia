@@ -409,11 +409,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         removeTransitionAnimState()
         maybeShowThemeTooltip()
         runBlocking {
+            L.d("onPageLoadComplete " + pageFragment.currentTab.id)
+            L.d("onPageLoadComplete size " + pageFragment.currentTab.backStack.size)
             if (pageFragment.currentTab.id != 0L) {
                 TabHelper.updateTab(pageFragment.currentTab)
             } else {
                 TabHelper.insertTabs(listOf(pageFragment.currentTab))
             }
+            pageFragment.setTab(TabHelper.getCurrentTab())
         }
     }
 
@@ -639,6 +642,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun loadFilePageFromBackStackIfNeeded() {
+        pageFragment.initTab()
         if (pageFragment.currentTab.backStack.isNotEmpty()) {
             val item = pageFragment.currentTab.backStack[pageFragment.currentTab.backStackPosition]
             loadNonArticlePageIfNeeded(item.getPageTitle())
