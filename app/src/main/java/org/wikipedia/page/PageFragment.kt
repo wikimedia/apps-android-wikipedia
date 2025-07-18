@@ -506,15 +506,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun setCurrentTabAndReset(tab: Tab) {
-        // move the selected tab to the bottom of the list, and navigate to it!
+        L.d("setCurrentTabAndReset" + tab.id + " " + tab.backStack.size)
+        // move the selected tab to the foreground, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
         // TODO: verify this & make sure to use coroutine
         runBlocking {
+            L.d("setCurrentTabAndReset moveTabToForeground")
             pageFragmentLoadState.setTab(TabHelper.moveTabToForeground(tab).first())
         }
         if (TabHelper.count > 0) {
+            L.d("setCurrentTabAndReset squashBackstack loadFromBackStack")
             // TODO: verify this (whether it is a foreground tab or not)
-            TabHelper.getCurrentTab().squashBackstack()
+            currentTab.squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
@@ -525,10 +528,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             setCurrentTabAndReset(selectedTab)
             return
         }
-        if (shouldCreateNewTab) {
-            viewLifecycleOwner.lifecycleScope.launch {
+
+        // TODO: handle this with coroutines if we have viewModel
+        runBlocking {
+            if (shouldCreateNewTab) {
                 // create a new tab
-                val tab = Tab()
+                val tab = TabHelper.createNewTab(entry)
                 // if the requested position is at the top, then make its backstack current
                 if (toForeground) {
                     pageFragmentLoadState.setTab(tab)
@@ -537,24 +542,32 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 TabHelper.insertTabs(listOf(tab), toForeground)
                 TabHelper.trimTabCount()
                 // add the requested page to its backstack
-                tab.backStack.add(PageBackStackItem(title, entry))
                 if (!toForeground) {
-                    lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
-                        ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                            .query?.firstPage()?.let { page ->
-                                // TODO: verify this
-                                tab.getBackStackPositionTitle()?.apply {
-                                    thumbUrl = page.thumbUrl()
-                                    description = page.description
-                                }
+                    ServiceFactory.get(title.wikiSite)
+                        .getInfoByPageIdsOrTitles(null, title.prefixedText)
+                        .query?.firstPage()?.let { page ->
+                            // TODO: verify this
+                            tab.getBackStackPositionTitle()?.apply {
+                                thumbUrl = page.thumbUrl()
+                                description = page.description
                             }
-                    }
+                        }
                 }
                 requireActivity().invalidateOptionsMenu()
+            } else {
+                // Use the empty tab to add backstack item
+                val tab = currentTab
+                val backStackItem = PageBackStackItem(title, entry)
+                tab.backStack.add(backStackItem)
+                tab.setBackStackIds(
+                    listOf(
+                        AppDatabase.instance.pageBackStackItemDao()
+                            .insertPageBackStackItem(backStackItem)
+                    )
+                )
+                TabHelper.insertTabs(listOf(tab), true)
+                pageFragmentLoadState.setTab(tab)
             }
-        } else {
-            pageFragmentLoadState.setTab(currentTab)
-            currentTab.backStack.add(PageBackStackItem(title, entry))
         }
     }
 

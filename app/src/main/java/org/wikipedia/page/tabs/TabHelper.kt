@@ -66,6 +66,31 @@ object TabHelper {
         }
     }
 
+    suspend fun createNewTab(entry: HistoryEntry): Tab {
+        return withContext(Dispatchers.IO) {
+            val tab = Tab()
+            // Add a new PageBackStackItem to database
+            val pageBackStackItem = PageBackStackItem(
+                apiTitle = entry.title.prefixedText,
+                displayTitle = entry.title.displayText,
+                langCode = entry.title.wikiSite.languageCode,
+                namespace = entry.title.namespace,
+                thumbUrl = entry.title.thumbUrl,
+                description = entry.title.description,
+                extract = entry.title.extract,
+                source = entry.source
+            )
+            tab.backStack.add(pageBackStackItem)
+            tab.setBackStackIds(
+                listOf(
+                    AppDatabase.instance.pageBackStackItemDao()
+                        .insertPageBackStackItem(pageBackStackItem)
+                )
+            )
+            tab
+        }
+    }
+
     suspend fun trimTabCount() {
         withContext(Dispatchers.IO) {
             val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
