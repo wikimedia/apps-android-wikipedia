@@ -2,31 +2,18 @@ package org.wikipedia.games.onthisday
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.DayViewDecorator
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
-import java.util.Calendar
-import java.util.Date
+import java.time.LocalDate
 
+@Parcelize
 class DateDecorator(
-    private val startDate: Date,
-    private val endDate: Date,
-    private val scoreData: Map<Long, Int>
+    private val startDate: LocalDate,
+    private val endDate: LocalDate,
+    private val scoreData: Map<LocalDate, Int>
 ) : DayViewDecorator() {
-
-    private val calendar = Calendar.getInstance()
-
-    private fun isDateInRange(year: Int, month: Int, day: Int): Boolean {
-        synchronized(calendar) {
-            calendar.set(year, month, day, 0, 0, 0)
-            calendar.set(Calendar.MILLISECOND, 0)
-
-            return !calendar.before(startDate) && !calendar.after(endDate)
-        }
-    }
-
     override fun getBackgroundColor(
         context: Context,
         year: Int,
@@ -35,14 +22,12 @@ class DateDecorator(
         valid: Boolean,
         selected: Boolean
     ): ColorStateList? {
-        if (!isDateInRange(year, month, day)) {
+        val date = LocalDate.of(year, month + 1, day)
+        if (date !in startDate..endDate) {
             return null
         }
 
-        val dateKey = getDateKey(year, month + 1, day)
-        val score = scoreData[dateKey]
-
-        return when (score) {
+        return when (scoreData[date]) {
             0, 1, 2 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow200))
             3, 4 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.orange200))
             5 -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green600))
@@ -58,36 +43,12 @@ class DateDecorator(
         valid: Boolean,
         selected: Boolean
     ): ColorStateList? {
-        val dateKey = getDateKey(year, month + 1, day)
-        val score = scoreData[dateKey]
+        val date = LocalDate.of(year, month + 1, day)
+        val score = scoreData[date]
 
         return when (score) {
             null -> super.getTextColor(context, year, month, day, valid, selected)
             else -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.gray700))
-        }
-    }
-
-    constructor(parcel: Parcel) : this(
-        Date(),
-        Date(),
-        hashMapOf()
-    )
-
-    override fun describeContents(): Int { return 0 }
-
-    override fun writeToParcel(dest: Parcel, flags: Int) {}
-
-    companion object CREATOR : Parcelable.Creator<DateDecorator> {
-        override fun createFromParcel(parcel: Parcel): DateDecorator {
-            return DateDecorator(parcel)
-        }
-
-        override fun newArray(size: Int): Array<DateDecorator?> {
-            return arrayOfNulls(size)
-        }
-
-        fun getDateKey(year: Int, month: Int, day: Int): Long {
-            return (year * 10000 + month * 100 + day).toLong()
         }
     }
 }
