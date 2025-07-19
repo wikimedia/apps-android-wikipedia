@@ -151,6 +151,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
             animateTabsButton()
         } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
+            pageFragment.initTab()
             pageFragment.reloadFromBackstack(false)
         }
     }
@@ -642,7 +643,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun loadFilePageFromBackStackIfNeeded() {
-        pageFragment.initTab()
         if (pageFragment.currentTab.backStack.isNotEmpty()) {
             val item = pageFragment.currentTab.backStack[pageFragment.currentTab.backStackPosition]
             loadNonArticlePageIfNeeded(item.getPageTitle())

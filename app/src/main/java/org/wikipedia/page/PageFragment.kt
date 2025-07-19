@@ -184,11 +184,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
-    lateinit var currentTab: Tab
+    var currentTab = Tab()
 
     var revision = 0L
 
-    private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
     val title get() = model.title
     val page get() = model.page
@@ -543,36 +542,22 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         // TODO: handle this with coroutines if we have viewModel
         runBlocking {
-            if (shouldCreateNewTab) {
-                // create a new tab
-                val tab = Tab()
-                tab.backStack.add(PageBackStackItem(title, entry))
-                // if the requested position is at the top, then make its backstack current
-                if (toForeground) {
-                    pageFragmentLoadState.setTab(tab)
-                }
-                // TODO: put this to the end of loading page
-//                // put this tab in the requested position
-//                TabHelper.insertTabs(listOf(tab), toForeground)
-//                TabHelper.trimTabCount()
-                // add the requested page to its backstack
-                if (!toForeground) {
-                    ServiceFactory.get(title.wikiSite)
-                        .getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let { page ->
-                            // TODO: verify this
-                            tab.getBackStackPositionTitle()?.apply {
-                                thumbUrl = page.thumbUrl()
-                                description = page.description
-                            }
+            // Add a new PageBackStackItem to currentTab, which is an empty Tab
+            currentTab.backStack.add(PageBackStackItem(title, entry))
+            if (!toForeground) {
+                ServiceFactory.get(title.wikiSite)
+                    .getInfoByPageIdsOrTitles(null, title.prefixedText)
+                    .query?.firstPage()?.let { page ->
+                        // TODO: verify this
+                        currentTab.getBackStackPositionTitle()?.apply {
+                            thumbUrl = page.thumbUrl()
+                            description = page.description
                         }
-                }
-                requireActivity().invalidateOptionsMenu()
-            } else {
-                // Use the empty tab to add backstack item
-                currentTab.backStack.add(PageBackStackItem(title, entry))
-                pageFragmentLoadState.setTab(currentTab)
+                        pageFragmentLoadState.setTab(currentTab)
+                    }
             }
+            requireActivity().invalidateOptionsMenu()
+            pageFragmentLoadState.setTab(currentTab)
         }
     }
 
@@ -890,6 +875,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun reloadFromBackstack(forceReload: Boolean = true) {
+        // TODO: fix this
+        L.d("reloadFromBackstack ${currentTab.getBackStackPositionTitle()?.displayText}}")
         if (pageFragmentLoadState.setTab(currentTab) || forceReload) {
             if (!pageFragmentLoadState.backStackEmpty()) {
                 pageFragmentLoadState.loadFromBackStack()
