@@ -543,6 +543,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // TODO: handle this with coroutines if we have viewModel
         runBlocking {
             // Add a new PageBackStackItem to currentTab, which is an empty Tab
+            currentTab = Tab()
             currentTab.backStack.add(PageBackStackItem(title, entry))
             if (!toForeground) {
                 ServiceFactory.get(title.wikiSite)
