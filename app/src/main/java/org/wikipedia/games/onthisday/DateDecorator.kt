@@ -44,9 +44,7 @@ class DateDecorator(
         selected: Boolean
     ): ColorStateList? {
         val date = LocalDate.of(year, month + 1, day)
-        val score = scoreData[date]
-
-        return when (score) {
+        return when (scoreData[date]) {
             null -> super.getTextColor(context, year, month, day, valid, selected)
             else -> ColorStateList.valueOf(ContextCompat.getColor(context, R.color.gray700))
         }
