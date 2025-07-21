@@ -1783,7 +1783,7 @@
   <string name="on_this_day_game_share_screen_title">Vandaag heb ik %1$d/%2$d\nop “Wat kwam er eerst?”\ngescoord.</string>
   <string name="on_this_day_game_share_screen_subtitle">Aangesneden onderwerpen:</string>
   <string name="on_this_day_game_archive_calendar_title">Kies een spel op speeldatum.</string>
-  <string name="on_this_day_game_score_toast_message" fuzzy="true">Vandaag hebt u %1$d/% 2$d gescoord.</string>
+  <string name="on_this_day_game_score_toast_message" fuzzy="true">Vandaag hebt u %1$d/%2$d gescoord.</string>
   <string name="on_this_day_game_continue_btn_text">Doorgaan met het spel van vandaag</string>
   <string name="on_this_day_game_current_progress_message">U bent bij vraag %d.</string>
   <string name="on_this_day_game_archive_btn_text">Archief afspelen</string>
