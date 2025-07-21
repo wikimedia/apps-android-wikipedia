@@ -47,6 +47,8 @@
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
+  <string name="search_back_button_content_description">Vrátit zpět</string>
+  <string name="search_icon_content_description">Hledat</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_suggested_edits">Editace</string>
   <string name="nav_item_more">Více</string>

@@ -193,6 +193,7 @@
   <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Meld u aan vanuit het hoofdscherm en voer de code van uw 2FA-token in.</string>
   <string name="login_email_auth_hint">E-mailverificatiecode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-mailverificatie vereist! Meld u aan vanuit het hoofdscherm en voer uw e-mailverificatiecode in.</string>
+  <string name="login_background_error_msg">Opnieuw aanmelden lukt niet. Ga terug naar het hoofdscherm en meld u handmatig aan.</string>
   <string name="onboarding_card_login">Aanmelden</string>
   <string name="page_editing_login">Aanmelden</string>
   <string name="reading_lists_sync_login">Aanmelden</string>
@@ -283,15 +284,15 @@
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
@@ -433,6 +434,7 @@
   <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="preference_summary_collapse_tables">Klap automatisch tabellen in artikelen in, zoals infoboxen, referenties en noten.</string>
   <string name="nav_item_donate">Doneren</string>
+  <string name="nav_item_year_in_review">Jaaroverzicht</string>
   <string name="error_voice_search_not_available">Spraakherkenning is helaas niet beschikbaar.</string>
   <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>
   <string name="enable_location_service">Inschakelen</string>
@@ -617,8 +619,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Het artikel komt in meerdere lijsten voor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal niet langer offline beschikbaar zijn voor alle leeslijsten:</string>
   <string name="reading_lists_sync_reminder_title">Leeslijstsynchronisatie inschakelen?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikelen die zijn opgeslagen in leeslijsten, kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leer meer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lees meer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikelen die in leeslijsten zijn opgeslagen kunnen nu met uw Wikipedia-account worden gesynchroniseerd. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Leeslijsten kunnen nu tussen verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Leeslijsten synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Leeslijsten kunnen nu gesynchroniseerd worden met verschillende apparaten. Meld u aan met uw Wikipedia-account en sta toe dat uw lijsten opgeslagen worden.</string>
@@ -1731,11 +1733,13 @@
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
   <string name="on_this_day_game_progress">%1$d van %2$d</string>
   <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_submit">Verzenden</string>
   <string name="on_this_day_game_correct">Juist!</string>
   <string name="on_this_day_game_incorrect">Onjuist!</string>
   <string name="on_this_day_game_point">+1 punt</string>
   <string name="on_this_day_game_next">Volgende vraag</string>
   <string name="on_this_day_game_finish">Eindresultaten</string>
+  <string name="on_this_day_game_share_button">Delen</string>
   <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
   <string name="on_this_day_game_pause_body">Je voortgang wordt voor de dag opgeslagen. Je kunt het spel vinden onder Verkennen.</string>
   <string name="on_this_day_game_pause_negative">Doorspelen</string>
@@ -1776,4 +1780,63 @@
   <string name="on_this_day_game_report_email_body">Ik ben een probleem tegengekomen met de functie Wikipedia-spellen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="on_this_day_game_notification_undo">Ongedaan maken</string>
   <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
+  <string name="on_this_day_game_share_screen_title">Vandaag heb ik %1$d/%2$d\nop “Wat kwam er eerst?”\ngescoord.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Aangesneden onderwerpen:</string>
+  <string name="on_this_day_game_archive_calendar_title">Kies een spel op speeldatum.</string>
+  <string name="on_this_day_game_score_toast_message" fuzzy="true">Vandaag hebt u %1$d/% 2$d gescoord.</string>
+  <string name="on_this_day_game_continue_btn_text">Doorgaan met het spel van vandaag</string>
+  <string name="on_this_day_game_current_progress_message">U bent bij vraag %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Archief afspelen</string>
+  <string name="on_this_day_game_review_results_btn_text">Resultaten bekijken</string>
+  <string name="on_this_day_game_score_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Doorgaan met spelen</string>
+  <string name="on_this_day_game_sound_on">Geluid aanzetten</string>
+  <string name="on_this_day_game_sound_off">Geluid uitzetten</string>
+  <string name="year_in_review_learn_more">Meer lezen</string>
+  <string name="year_in_review_get_started">Aan de slag</string>
+  <string name="year_in_review_topbar_w_icon">Wikipedia W-pictogram</string>
+  <string name="year_in_review_navigate_left">Naar links navigeren</string>
+  <string name="year_in_review_share_icon">Delen-pictogram</string>
+  <string name="year_in_review_heart_icon">Hartpictogram</string>
+  <string name="year_in_review_navigate_right">Naar rechts navigeren</string>
+  <string name="year_in_review_donate">Doneren</string>
+  <string name="year_in_review_information_icon">Informatiepictogram</string>
+  <string name="year_in_review_get_started_headline">Verken uw jaaroverzicht van Wikipedia</string>
+  <string name="year_in_review_get_started_bodytext">Bekijk inzichten over welke artikelen u in de Wikipedia-app leest en welke bewerkingen u hebt gemaakt. Uw leesgeschiedenis blijft beschermd. Leesinzichten worden berekend met behulp van lokaal op uw apparaat opgeslagen gegevens.</string>
+  <string name="year_in_review_entry_dialog_title">Verken uw jaaroverzicht van Wikipedia</string>
+  <string name="year_in_review_entry_dialog_bodytext">Bekijk welke artikelen we hebben gelezen en bewerkt en deel de hoogtepunten van ons jaar op Wikipedia.</string>
+  <string name="year_in_review_entry_dialog_continue">Doorgaan</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">U hebt dit jaar %d artikel gelezen</item>
+    <item quantity="other">U hebt dit jaar %d artikelen gelezen</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Dit jaar hebt u %1$d artikel gelezen, waaronder %2$s, %3$s en %4$s. Wikipedia had meer dan 63 miljoen artikelen beschikbaar in meer dan 300 talen. U hebt zich bij miljoenen aangesloten om uw kennis uit te breiden en diverse onderwerpen te verkennen</item>
+    <item quantity="other">Dit jaar hebt u %1$d artikelen gelezen, waaronder %2$s, %3$s en %4$s. Wikipedia had meer dan 63 miljoen artikelen beschikbaar in meer dan 300 talen. U hebt zich bij miljoenen aangesloten om uw kennis uit te breiden en diverse onderwerpen te verkennen</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">U hebt Wikipedia %d keer bewerkt</item>
+    <item quantity="other">U hebt Wikipedia %d keer bewerkt</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">U hebt Wikipedia %d keer bewerkt. Bedankt dat u een van de vrijwillige redacteuren bent die een verschil maakt in Wikimedia-projecten over de hele wereld.</item>
+    <item quantity="other">U hebt Wikipedia %d keer bewerkt. Bedankt dat u een van de vrijwillige redacteuren bent die een verschil maakt in Wikimedia-projecten over de hele wereld.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was beschikbaar in meer dan 300 talen</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had dit jaar meer dan 63 miljoen artikelen in meer dan 300 actieve talen. U hebt zich aangesloten bij miljoenen anderen om kennis uit te breiden en diverse onderwerpen te verkennen</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Bewerkers op de iOS-app hebben meer dan 452.257 bewerkingen uitgevoerd</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">De gemeenschap van vrijwillige redacteuren van Wikipedia heeft dit jaar tot nu toe meer dan 452.257 bewerkingen gemaakt op de iOS-app. Het hart en de ziel van Wikipedia is onze wereldwijde gemeenschap van vrijwillige bijdragers, donateurs en miljarden lezers zoals u – allemaal verenigd om onbeperkte toegang tot betrouwbare informatie te delen.</string>
+  <string name="year_in_review_survey_title">Help het Jaaroverzicht te verbeteren</string>
+  <string name="year_in_review_survey_subtitle">Bent u tevreden over deze functie?</string>
+  <string name="year_in_review_survey_very_satisfied">Erg tevreden</string>
+  <string name="year_in_review_survey_satisfied">Tevreden</string>
+  <string name="year_in_review_survey_neutral">Neutraal</string>
+  <string name="year_in_review_survey_unsatisfied">Niet tevreden</string>
+  <string name="year_in_review_survey_very_unsatisfied">Zeer ontevreden</string>
+  <string name="year_in_review_survey_placeholder_text">Nog aanvullende gedachten?</string>
+  <string name="year_in_review_survey_cancel">Annuleren</string>
+  <string name="year_in_review_survey_submit">Verzenden</string>
+  <string name="year_in_review_screendeck_image_content_description">Beeldbron voor het paneel op het hoofdscherm van het Jaaroverzicht</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Beeldbron voor het inleidingsdialoogscherm Jaaroverzicht</string>
+  <string name="year_in_review_screenshot_error">Kon geen schermafbeelding genereren: %s</string>
 </resources>
