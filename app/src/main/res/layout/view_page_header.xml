@@ -54,4 +54,15 @@
 
     </FrameLayout>
 
+    <org.wikipedia.views.MessageCardView
+        android:id="@+id/donationReminderCardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        tools:visibility="visible"/>
+
 </merge>

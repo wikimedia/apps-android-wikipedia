@@ -1,12 +1,12 @@
 package org.wikipedia.page.leadimages
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.settings.Prefs
@@ -20,6 +20,8 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
+        fun donationReminderCardPositiveClicked()
+        fun donationReminderCardNegativeClicked()
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -65,7 +67,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context))
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context))
         visibility = VISIBLE
     }
 
@@ -85,7 +87,22 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
             hide()
         } else {
             show()
-            binding.viewPageHeaderImage.loadImage(Uri.parse(url))
+            binding.viewPageHeaderImage.loadImage(url.toUri())
         }
+    }
+
+    fun showDonationReminderCard() {
+        binding.donationReminderCardView.setMessageLabel(context.getString(R.string.recommended_reading_list_onboarding_card_new))
+        binding.donationReminderCardView.setMessageTitle(context.getString(R.string.recommended_reading_list_onboarding_card_title))
+        binding.donationReminderCardView.setMessageText(context.getString(R.string.recommended_reading_list_onboarding_card_message))
+        binding.donationReminderCardView.setImageResource(-1, false)
+        binding.donationReminderCardView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+            callback?.donationReminderCardPositiveClicked()
+        }, false)
+        binding.donationReminderCardView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+            callback?.donationReminderCardNegativeClicked()
+            binding.donationReminderCardView.isVisible = false
+        }, false)
+        binding.donationReminderCardView.isVisible = true
     }
 }

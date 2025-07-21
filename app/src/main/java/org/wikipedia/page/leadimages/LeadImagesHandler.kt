@@ -195,6 +195,14 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     }
                 }
             }
+
+            override fun donationReminderCardPositiveClicked() {
+                TODO("Not yet implemented")
+            }
+
+            override fun donationReminderCardNegativeClicked() {
+                TODO("Not yet implemented")
+            }
         }
     }
 
@@ -216,6 +224,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         } else {
             pageHeaderView.loadImage(null)
         }
+        showDonationReminderCard()
+    }
+
+    fun showDonationReminderCard() {
+        pageHeaderView.showDonationReminderCard()
     }
 
     fun openImageInGallery(language: String?) {
