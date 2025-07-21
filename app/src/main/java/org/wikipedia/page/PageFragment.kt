@@ -669,10 +669,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     val campaignList = CampaignCollection.getActiveCampaigns()
-                    val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
+                    val availableCampaign = campaignList.find { campaign -> campaign.getAssetsForLang(app.appOrSystemLanguageCode) != null }
                     availableCampaign?.let {
-                        if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
+                        val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
+                        if (!Prefs.announcementShownDialogs.contains(campaignId)) {
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
