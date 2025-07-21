@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient
 
+import org.wikimedia.metricsplatform.config.StreamConfigCollection
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -10,7 +11,6 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.dataclient.mwapi.ParamInfoResponse
 import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -214,7 +214,7 @@ interface Service {
     ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service%3Deventgate-analytics-external")
-    suspend fun getStreamConfigs(): MwStreamConfigsResponse
+    suspend fun getStreamConfigs(): StreamConfigCollection
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(

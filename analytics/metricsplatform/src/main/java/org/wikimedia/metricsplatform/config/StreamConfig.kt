@@ -2,6 +2,7 @@ package org.wikimedia.metricsplatform.config
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import org.wikimedia.metricsplatform.config.sampling.SampleConfig
 
 @Serializable
@@ -15,6 +16,7 @@ class StreamConfig {
     @SerialName("destination_event_service")
     val destinationEventServiceKey: String = "eventgate-analytics-external"
 
+    @Transient
     var destinationEventService: DestinationEventService = DestinationEventService.ANALYTICS
 
     @SerialName("schema_title") var schemaTitle: String? = null

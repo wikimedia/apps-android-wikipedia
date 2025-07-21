@@ -15,11 +15,10 @@ import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
 
 class MetricsClient(
-    private val clientData: ClientData,
+    clientData: ClientData,
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
-    queueCapacity: Int = 100,
-    val isDebug: Boolean = false
+    val queueCapacity: Int = 100
 ) {
 
     private val sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
@@ -33,7 +32,7 @@ class MetricsClient(
     /**
      * Evaluates whether events for a given stream are in-sample based on the stream configuration.
      */
-    private val samplingController =SamplingController(clientData, sessionController)
+    private val samplingController = SamplingController(clientData, sessionController)
 
     private val eventQueue: BlockingQueue<EventProcessed> = LinkedBlockingQueue(queueCapacity)
 
@@ -43,8 +42,7 @@ class MetricsClient(
         sourceConfig,
         samplingController,
         eventSender,
-        eventQueue,
-        isDebug
+        eventQueue
     )
 
     /**
@@ -71,51 +69,6 @@ class MetricsClient(
     }
 
     /**
-     * Construct and submits a Metrics Platform Event from the event name and custom data for each
-     * stream specified.
-     *
-     *
-     * The Metrics Platform Event for a stream (S) is constructed by: first initializing the minimum
-     * valid event (E) that can be submitted to S; and, second mixing the context attributes requested
-     * in the configuration for S into E.
-     *
-     *
-     * The Metrics Platform Event is submitted to a stream (S) if: 1) S is in sample; and 2) the event
-     * is filtered due to the filtering rules for S.
-     *
-     *
-     * This particular submitMetricsEvent method accepts unformatted custom data and calls the following
-     * submitMetricsEvent method with the custom data properly formatted.
-     *
-     * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
-     *
-     *
-     * @param streamName stream name
-     * @param schemaId  schema id
-     * @param eventName event name
-     * @param customData custom data
-     */
-    fun submitMetricsEvent(
-        streamName: String,
-        schemaId: String,
-        eventName: String,
-        customData: Map<String, String>?
-    ) {
-        submitMetricsEvent(streamName, schemaId, eventName, null, customData, null)
-    }
-
-    /**
-     * Construct and submits a Metrics Platform Event from the schema id, stream name, event name, page metadata, custom
-     * data, and interaction data for the specified stream.
-     *
-     * @param streamName stream name
-     * @param schemaId  schema id
-     * @param eventName event name
-     * @param clientData client context data
-     * @param customData custom data
-     * @param interactionData common data for an interaction schema
-     */
-    /**
      * Construct and submits a Metrics Platform Event from the schema id, event name, page metadata, and custom data for
      * the stream that is interested in those events.
      *
@@ -129,8 +82,8 @@ class MetricsClient(
         streamName: String,
         schemaId: String,
         eventName: String,
-        clientData: ClientData?,
-        customData: Map<String, Any>?,
+        clientData: ClientData? = null,
+        customData: Map<String, Any>? = null,
         interactionData: InteractionData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
@@ -169,37 +122,6 @@ class MetricsClient(
      * Submit an interaction event to a stream.
      *
      *
-     * An interaction event is meant to represent a basic interaction with some target or some event
-     * occurring, e.g. the user (**performer**) tapping/clicking a UI element, or an app notifying the
-     * server of its current state.
-     *
-     * @param streamName stream name
-     * @param eventName event name
-     * @param clientData client context data
-     * @param interactionData common data for the base interaction schema
-     *
-     * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
-     */
-    fun submitInteraction(
-        streamName: String,
-        eventName: String,
-        clientData: ClientData,
-        interactionData: InteractionData?
-    ) {
-        submitMetricsEvent(
-            streamName,
-            METRICS_PLATFORM_SCHEMA_BASE,
-            eventName,
-            clientData,
-            null,
-            interactionData
-        )
-    }
-
-    /**
-     * Submit an interaction event to a stream.
-     *
-     *
      * See above - takes additional parameters (custom data + custom schema id) to submit an interaction event.
      *
      * @param streamName stream name
@@ -213,11 +135,11 @@ class MetricsClient(
      */
     fun submitInteraction(
         streamName: String,
-        schemaId: String,
         eventName: String,
-        clientData: ClientData,
-        interactionData: InteractionData?,
-        customData: Map<String, Any>?
+        schemaId: String = METRICS_PLATFORM_SCHEMA_BASE,
+        clientData: ClientData? = null,
+        interactionData: InteractionData? = null,
+        customData: Map<String, Any>? = null
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
     }
@@ -323,8 +245,7 @@ class MetricsClient(
      */
     fun onAppPause() {
         sessionController.touchSession()
-
-        //eventProcessor.sendEnqueuedEvents()
+        eventProcessor.sendEnqueuedEvents()
     }
 
     /**
@@ -344,8 +265,7 @@ class MetricsClient(
      */
     fun onAppClose() {
         sessionController.closeSession()
-
-        //eventProcessor.sendEnqueuedEvents()
+        eventProcessor.sendEnqueuedEvents()
     }
 
     /**
@@ -380,6 +300,10 @@ class MetricsClient(
     private fun addToEventQueue(event: EventProcessed?) {
         var eventQueueAppendAttempts = max(eventQueue.size / 50, 10)
 
+        if (eventQueue.size > queueCapacity / 2) {
+            eventProcessor.sendEnqueuedEvents()
+        }
+
         while (!eventQueue.offer(event)) {
             val removedEvent = eventQueue.remove()
             if (removedEvent != null) {
@@ -391,7 +315,7 @@ class MetricsClient(
 
     companion object {
         val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
-        val ZONE_Z = ZoneId.of("Z")
+        val ZONE_Z: ZoneId? = ZoneId.of("Z")
 
         const val METRICS_PLATFORM_LIBRARY_VERSION: String = "2.8"
         const val METRICS_PLATFORM_BASE_VERSION: String = "1.2.2"

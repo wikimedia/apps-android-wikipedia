@@ -1,8 +1,6 @@
 package org.wikimedia.metricsplatform.config
 
-import android.net.Uri
-import com.google.gson.annotations.SerializedName
-import androidx.core.net.toUri
+import org.wikimedia.metricsplatform.BuildConfig
 
 /**
  * Possible event destination endpoints which can be specified in stream configurations.
@@ -10,23 +8,8 @@ import androidx.core.net.toUri
  *
  * https://wikitech.wikimedia.org/wiki/Event_Platform/EventGate#EventGate_clusters
  */
-enum class DestinationEventService(baseUri: String) {
-    @SerializedName("eventgate-analytics-external")
-    ANALYTICS("https://intake-analytics.wikimedia.org"),
-
-    @SerializedName("eventgate-logging-external")
-    ERROR_LOGGING("https://intake-logging.wikimedia.org"),
-
-    @SerializedName("eventgate-logging-local")
-    LOCAL("http://localhost:8192");
-
-    private val baseUri = "$baseUri/v1/events".toUri()
-
-    fun getBaseUri(): Uri {
-        return getBaseUri(false)
-    }
-
-    fun getBaseUri(isDebug: Boolean): Uri {
-        return if (isDebug) this.baseUri else "$baseUri?hasty=true".toUri()
-    }
+enum class DestinationEventService(val id: String, val baseUri: String) {
+    ANALYTICS("eventgate-analytics-external", BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI),
+    LOGGING("eventgate-logging-external", BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI),
+    LOCAL("eventgate-logging-local", "http://localhost:8192");
 }

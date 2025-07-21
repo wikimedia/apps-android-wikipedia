@@ -21,6 +21,17 @@ android {
         jvmTarget = JAVA_VERSION
     }
     compileSdk 35
+
+    defaultConfig {
+        targetSdk 35
+
+        buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {

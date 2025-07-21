@@ -5,10 +5,10 @@ import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
+import org.wikimedia.metricsplatform.config.DestinationEventService
+import org.wikimedia.metricsplatform.config.StreamConfig
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.DestinationEventService
 import org.wikipedia.analytics.eventplatform.EventService
-import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs

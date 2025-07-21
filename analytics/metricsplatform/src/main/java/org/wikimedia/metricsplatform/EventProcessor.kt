@@ -10,33 +10,13 @@ import java.util.concurrent.BlockingQueue
 import java.util.concurrent.atomic.AtomicReference
 
 class EventProcessor(
-    /**
-     * Enriches event data with context data requested in the stream configuration.
-     */
     private val contextController: ContextController,
     private val curationController: CurationController,
-    sourceConfig: AtomicReference<SourceConfig>,
-    samplingController: SamplingController,
-    eventSender: EventSender,
-    eventQueue: BlockingQueue<EventProcessed>,
-    isDebug: Boolean
-) {
-    private val sourceConfig: AtomicReference<SourceConfig>
-    private val samplingController: SamplingController
+    private val sourceConfig: AtomicReference<SourceConfig>,
+    private val samplingController: SamplingController,
+    private val eventSender: EventSender,
     private val eventQueue: BlockingQueue<EventProcessed>
-    private val eventSender: EventSender
-    private val isDebug: Boolean
-
-    /**
-     * EventProcessor constructor.
-     */
-    init {
-        this.sourceConfig = sourceConfig
-        this.samplingController = samplingController
-        this.eventSender = eventSender
-        this.eventQueue = eventQueue
-        this.isDebug = isDebug
-    }
+) {
 
     /**
      * Send all events currently in the output buffer.
@@ -55,10 +35,12 @@ class EventProcessor(
             return
         }
 
-        val pending: ArrayList<EventProcessed> = ArrayList()
-        this.eventQueue.drainTo(pending)
+        val pending = mutableListOf<EventProcessed>()
+        synchronized(eventQueue) {
+            eventQueue.drainTo(pending)
+        }
 
-        val streamConfigsMap = config.streamConfigsMap
+        val streamConfigsMap = config.streamConfigs
 
         pending.filter { event -> streamConfigsMap.containsKey(event.stream) }
             .filter { event ->
@@ -73,7 +55,7 @@ class EventProcessor(
             .filter { event -> eventPassesCurationRules(event, streamConfigsMap) }
             .groupBy { event -> destinationEventService(event, streamConfigsMap) }
             .forEach { (destinationEventService, pendingValidEvents) ->
-                this.sendEventsToDestination(destinationEventService, pendingValidEvents)
+                sendEventsToDestination(destinationEventService, pendingValidEvents)
             }
     }
 
@@ -102,7 +84,8 @@ class EventProcessor(
         pendingValidEvents: List<EventProcessed>
     ) {
         try {
-            eventSender.sendEvents(destinationEventService.getBaseUri(isDebug), pendingValidEvents)
+            //TODO!
+            //eventSender.sendEvents(destinationEventService.getBaseUri(isDebug), pendingValidEvents)
         } catch (e: UnknownHostException) {
             //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
             eventQueue.addAll(pendingValidEvents)
