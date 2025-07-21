@@ -1,0 +1,39 @@
+Tá an aip oifigiúil Wikipedia Android deartha chun cabhrú leat eolas ar Vicipéid a aimsiú, a aimsiú agus a iniúchadh. Socraigh geall le cara trí chuardach tapa a dhéanamh tríd an aip, nó tumadh isteach in ailt le feiceáil, íomhánna, ailt mholta, agus níos mó ag baint úsáide as an bhfotha iniúchadh. Le níos mó ná 39 milliún alt i mbeagnach 300 teanga, tá an chiclipéid ar líne saor in aisce is fearr leat anois ar do mhéar.
+
+Gnéithe:
+
+Déan iniúchadh ar fhotha - Cuireann an 'fotha fiosraithe' nua ábhar Vicipéide molta agus nuashonraithe i gcónaí ar an scáileán baile, lena n-áirítear ailt treochta, imeachtaí reatha, léitheoireacht mholta, agus go leor eile.
+
+Cuardach guth-chomhtháite - Faigh an méid atá á lorg agat go héasca le barra cuardaigh feiceálach ag barr na haipe, lena n-áirítear cuardach guth-chumasaithe ar do ghléas.
+
+In aice láimhe - Foghlaim tuilleadh faoi na rudaí atá timpeall ort trí phointí a roghnú ar léarscáil idirghníomhach chun ailt a bhaineann le do shuíomh reatha agus in aice láimhe a fheiceáil.
+
+Tacaíocht teanga - Athraigh gan uaim chun aon Vicipéid a fhaigheann tacaíocht teanga a léamh, trí theanga an ailt reatha a athrú, nó trí do rogha teanga chuardaigh a athrú agus tú ag cuardach.
+
+Réamhamhairc nasc - Tapáil ar alt chun réamhamharc a dhéanamh air, gan d'áit a chailleadh sa mhéid atá á léamh agat faoi láthair. Brúigh agus coinnigh nasc chun é a oscailt i gcluaisín nua, rud a ligeann duit an t-alt reatha a léamh gan d'áit a chailleadh, agus aistrigh go dtí an cluaisín nua nuair atá tú réidh.
+
+Clár na n-ábhar - svaidhpeáil ar chlé ar aon alt chun clár na n-ábhar a thabhairt suas, rud a ligeann duit léim chuig ailt alt go héasca.
+
+Liostaí léitheoireachta - Eagraigh na hailt a bhrabhsálann tú isteach i liostaí léitheoireachta, ar féidir leat rochtain a fháil orthu fiú nuair a bhíonn tú as líne. Cruthaigh an oiread liostaí agus is mian leat, tabhair ainmneacha agus tuairiscí saincheaptha dóibh, agus cuir ailt ó vicí teanga ar bith orthu.
+
+Gailearaí íomhánna - Tapáil ar íomhá chun an íomhá lánscáileáin a fheiceáil in ardtaifeach, le roghanna chun íomhánna breise a bhrabhsáil.
+
+Sainmhínithe ó Vicífhoclóir - Tapáil-agus-shealbhú chun aird a tharraingt ar fhocal, ansin tapáil an cnaipe "Sainmhínigh" chun sainmhíniú ar an bhfocal ó Vicífhoclóir a fheiceáil.
+
+Wikipedia Zero - Rochtain Vicipéid do Android saor ó tháillí sonraí d'oibreoirí soghluaiste rannpháirteacha. (nasc chuig oibreoirí rannpháirteacha).
+
+Seol d'aiseolas chugainn faoin aip! Sa roghchlár, brúigh "Socruithe", ansin "Maidir leis an aip Wikipedia", ansin "Seol aiseolas ón bhfeidhmchlár".
+
+Is é an cód foinse oscailte 100%. Má tá taithí agat le Java agus an SDK Android, ansin táimid ag tnúth le do chuid ranníocaíochtaí! https://github.com/wikimedia/apps-android-wikipedia
+
+Tríd an aip seo a úsáid, aontaíonn tú le tarchur uathoibríoch tuairiscí tuairteála chuig soláthraí seirbhíse tríú páirtí. Más mian leat an ghné seo a dhíchumasú, brúigh "Socruithe," ansin scoránaigh "Seol tuairiscí tuairteála" faoin rannán Príobháideachas. Míniú ar na ceadanna a theastaíonn ón aip: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Beartas príobháideachais: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Beartas príobháideachais soláthraí seirbhíse tríú páirtí tuarascáil tuairteála: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Téarmaí Úsáide: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Maidir leis an bhFondúireacht Wikimedia
+
+Is é an Fondúireacht Wikimedia an eagraíocht neamhbhrabúis a thacaíonn le Vicipéid agus na tionscadail Wikimedia eile. Is eagraíocht charthanúil í Fondúireacht Wikimedia a mhaoinítear go príomha trí thabhartais. Chun tuilleadh eolais a fháil, tabhair cuairt ar ár láithreán gréasáin: https://wikimediafoundation.org/wiki/Home.
