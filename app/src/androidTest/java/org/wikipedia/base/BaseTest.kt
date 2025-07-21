@@ -1,5 +1,6 @@
 package org.wikipedia.base
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.rule.GrantPermissionRule
 import androidx.test.uiautomator.UiDevice
 import org.junit.After
 import org.junit.Before
@@ -52,6 +54,11 @@ abstract class BaseTest<T : AppCompatActivity>(
     @get:Rule
     var composeTestRule = createComposeRule()
 
+    @get:Rule
+    val permissionRule: GrantPermissionRule = GrantPermissionRule.grant(
+        Manifest.permission.POST_NOTIFICATIONS
+    )
+
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
     protected var context: Context = InstrumentationRegistry.getInstrumentation().targetContext
@@ -89,6 +96,10 @@ abstract class BaseTest<T : AppCompatActivity>(
     protected fun setDeviceOrientation(isLandscape: Boolean) {
         if (isLandscape) device.setOrientationRight() else device.setOrientationNatural()
         Thread.sleep(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun isOnline(): Boolean {
+        return WikipediaApp.instance.isOnline
     }
 
     @After

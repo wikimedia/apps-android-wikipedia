@@ -1575,6 +1575,10 @@
     <item quantity="one">Dir hutt dëst Joer %d Artikel gelies</item>
     <item quantity="other">Dir hutt dëst Joer %d Artikele gelies</item>
   </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Dir hutt %d Ännerung op der Wikipedia gemaach</item>
+    <item quantity="other">Dir hutt %d Ännerungen op der Wikipedia gemaach</item>
+  </plurals>
   <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war a méi wéi 300 Sproochen disponibel</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Editeuren an der iOS-App hu méi wéi 452.257 Ännerunge gemaach</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
