@@ -1804,22 +1804,10 @@
   <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
   <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Headline text for the year in review readcount page. %d represents how many article a user read for the current year</item>
-    <item quantity="other">Headline text for the year in review readcount page. %d represents how many article a user read for the current year</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</item>
-    <item quantity="other">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
-    <item quantity="other">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
-    <item quantity="other">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</item>
-  </plurals>
+  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. %d represents how many articles a user read for the current year.</string>
+  <string name="year_in_review_read_count_bodytext">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</string>
+  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</string>
+  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</string>
   <string name="year_in_review_non_english_collective_readcount_headline">Headline text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
   <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
