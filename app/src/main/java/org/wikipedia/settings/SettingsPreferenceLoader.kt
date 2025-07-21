@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.feed.configure.ConfigureActivity
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
@@ -41,8 +41,10 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivityForResult(ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
-                    Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
+            // @MARK_TEST
+            // activity.startActivityForResult(ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
+               //     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
+            activity.startActivity(DonationReminderActivity.newIntent(activity))
             true
         }
         findPreference(R.string.preference_key_color_theme).let {
