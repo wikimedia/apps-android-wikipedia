@@ -1792,6 +1792,7 @@
   <string name="year_in_review_learn_more">Saiba mais</string>
   <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_donate">Doar</string>
+  <string name="year_in_review_information_icon">Ícone de informação</string>
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
   <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
   <string name="year_in_review_entry_dialog_title">Explore sua Wikipédia: Resumo</string>
@@ -1860,6 +1861,7 @@
   <string name="recommended_reading_list_page_description_monthly">Sua lista de leitura mensal. Aprenda sobre novos tópicos, escolhidos especialmente para você. Atualizações no primeiro dia de cada mês.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalizar</string>
   <string name="recommended_reading_list_page_overflow_about">Sobre este recurso</string>
+  <string name="recommended_reading_list_page_snackbar">O Descobrir será atualizado com %1$d novos artigos a cada %2$s. Suas recomendações são armazenadas localmente no seu dispositivo.</string>
   <string name="recommended_reading_list_page_snackbar_action">Personalizar Descobrir</string>
   <string name="recommended_reading_list_page_snackbar_day">Dia</string>
   <string name="recommended_reading_list_page_snackbar_week">Semana</string>
@@ -1867,6 +1869,7 @@
   <string name="recommended_reading_list_settings_section_header">Recomendações</string>
   <string name="recommended_reading_list_settings_title">Configuração do Descobrir</string>
   <string name="recommended_reading_list_settings_toggle">Lista de leitura de Descobrir</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">O Descobrir está desativado. A Wikipedia não recomendará artigos para você ler.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Desativar o Descobrir?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Se você desativar o Descobrir, deixará de receber %s recomendações de leitura da Wikipédia.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desativar</string>
@@ -1900,5 +1903,8 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Se você desativar as notificações, não receberá mais lembretes quando o Descobrir for atualizado.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desativar</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Não, manter ativado</string>
+  <string name="recommended_reading_list_notification_title">Sua lista de leitura do Descobrir %s está pronta.</string>
   <string name="recommended_reading_list_notification_subtitle">Toque para ver suas recomendações mais recentes.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando o seu Descobrir for atualizado, a Wikipedia enviará uma notificação.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">O Descobrir está ativado. A Wikipédia irá recomendar artigos para você ler.</string>
 </resources>

@@ -50,7 +50,7 @@
   <string name="dialog_title_clear_history">Browsing-Historique läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all d\'Tabs, déi momentan op sinn, zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
-  <string name="dialog_message_clear_history_no">Neen</string>
+  <string name="dialog_message_clear_history_no">Nee</string>
   <string name="share_via">Deelen iwwer</string>
   <string name="image_share_via">Deelen iwwer</string>
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
@@ -245,7 +245,7 @@
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd Dir sécher, datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
   <string name="edit_abandon_confirm_yes">Jo</string>
-  <string name="edit_abandon_confirm_no">Neen</string>
+  <string name="edit_abandon_confirm_no">Nee</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
   <string name="user_logged_in_blocked_from_editing">Äre Benotzerkont gouf fir Ännerungen op dëser Wiki gespaart.</string>
   <string name="user_anon_blocked_from_editing">Är IP-Adress gouf fir Ännerunge gespaart.</string>
@@ -294,7 +294,7 @@
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
   <string name="clear_recent_searches_confirm">Sidd Dir sécher, datt Dir Ären Historique vum Siche läsche wëllt?</string>
   <string name="clear_recent_searches_confirm_yes">Jo</string>
-  <string name="clear_recent_searches_confirm_no">Neen</string>
+  <string name="clear_recent_searches_confirm_no">Nee</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng Browser-App fonnt).</string>
   <string name="table_infobox">Séier Fakten</string>
   <string name="table_other">Méi Informatiounen</string>
@@ -337,7 +337,7 @@
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
   <string name="close_all_tabs_confirm">Sidd Dir sécher, datt Dir all Tabs zoumaache wëllt?</string>
   <string name="close_all_tabs_confirm_yes">Jo</string>
-  <string name="close_all_tabs_confirm_no">Neen</string>
+  <string name="close_all_tabs_confirm_no">Nee</string>
   <string name="button_close_tab">Tab zoumaachen</string>
   <string name="unnamed_tab_closed">Tab zougemaach.</string>
   <string name="tab_item_closed">%s zougemaach.</string>
@@ -468,14 +468,14 @@
     <item quantity="one">%1$d vun 1 Artikel offline verfügbar, %3$.2f MB</item>
     <item quantity="other">%1$d vu(n) %2$d Artikelen offline verfügbar, %3$.2f MB</item>
   </plurals>
-  <string name="reading_list_sort">Zortéieren</string>
-  <string name="reading_list_sort_ellipsis">Zortéieren no...</string>
-  <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
-  <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
-  <string name="reading_list_sort_by_recent">Nom Datum vum derbäisetzen zortéieren (neisten)</string>
-  <string name="reading_list_sort_by_recent_desc">Nom Datum vum derbäisetzen zortéieren (eelsten)</string>
-  <string name="reading_list_sort_by_created">Nom Datum vum Uleeën zortéieren (neisten)</string>
-  <string name="reading_list_sort_by_created_desc">Nom Datum vum Uleeën zortéieren (eelsten)</string>
+  <string name="reading_list_sort">Sortéieren</string>
+  <string name="reading_list_sort_ellipsis">Sortéieren no…</string>
+  <string name="reading_list_sort_by_name">Nom Numm sortéieren</string>
+  <string name="reading_list_sort_by_name_desc">Nom Numm sortéieren (ëmgedréit)</string>
+  <string name="reading_list_sort_by_recent">Nom Datum vum Derbäisetzen sortéieren (neisten)</string>
+  <string name="reading_list_sort_by_recent_desc">Nom Datum vum Derbäisetzen sortéieren (eelsten)</string>
+  <string name="reading_list_sort_by_created">Nom Datum vum Uleeën sortéieren (neisten)</string>
+  <string name="reading_list_sort_by_created_desc">Nom Datum vum Uleeën sortéieren (eelsten)</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_export">Lëscht exportéieren</string>
   <string name="reading_list_menu_select">Auswielen</string>
@@ -532,7 +532,7 @@
   <string name="reading_lists_login_button">Aloggen / bei Wikipedia matmaachen</string>
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
-  <string name="reading_lists_confirm_remote_delete_no">Neen</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Den Artikel gëtt momentan erofgelueden a wäert offline verfügbar sinn, soubal den Download fäerdeg ass.</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
   <string name="reading_list_articles_moved_to_named">%1$d Artikelen op %2$s geréckelt</string>
@@ -562,7 +562,7 @@
   <string name="reading_lists_limit_message">Et ka soss keng Lëscht ugeluecht ginn. Dir hutt d\'Limitt vun 100 Lieslëschten erreecht.</string>
   <string name="reading_lists_menu_create_list">Nei Lëscht uleeën</string>
   <string name="reading_lists_menu_import_list">Lëscht importéieren</string>
-  <string name="reading_lists_menu_sort_by">Zortéieren no</string>
+  <string name="reading_lists_menu_sort_by">Sortéieren no</string>
   <string name="reading_lists_refresh_sync_option">Synchronisatioun aktualiséieren</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Aloggen / Benotzerkont opmaachen</string>
   <plurals name="reading_list_article_offline_message">
@@ -1003,7 +1003,7 @@
   <string name="image_recommendation_task_instruction">Géift Dir dëst Bild an den Artikel derbäisetzen?</string>
   <string name="image_recommendation_tutorial">Uleedung</string>
   <string name="image_recommendation_accept">Jo</string>
-  <string name="image_recommendation_reject">Neen</string>
+  <string name="image_recommendation_reject">Nee</string>
   <string name="image_recommendation_notsure">Net sécher</string>
   <string name="image_recommendation_reject_title">Ofleenungsgrond</string>
   <string name="image_recommendation_reject_subtitle">Den Ofleenungsgrond ass anonym a wäert zukünfteg Bildvirschléi besser maachen.</string>
@@ -1120,7 +1120,7 @@
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
   <string name="insert_media_settings_caption">Bildbeschrëftung</string>
   <string name="insert_media_settings_caption_description">Siichtbar Bildbeschrëftung am Artikel</string>
-  <string name="insert_media_settings_alternative_text">Alternativen Text</string>
+  <string name="insert_media_settings_alternative_text">Alternativtext</string>
   <string name="insert_media_settings_alternative_text_description">Beschreiwung fir visuell behënnert Lieser</string>
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
   <string name="insert_media_advanced_settings_wrap_image">Text ronderëm d\'Bild fléisse loossen</string>
@@ -1196,7 +1196,7 @@
   <string name="talk_share_talk_page">Wikipedia – Diskussiounen op der Diskussiounssäit</string>
   <string name="talk_search_hint">An de Message sichen</string>
   <string name="talk_search_topics_hint">Sujete sichen</string>
-  <string name="talk_overflow_sort_by">Zortéieren no</string>
+  <string name="talk_overflow_sort_by">Sortéieren no</string>
   <string name="talk_overflow_sort_date_published">Datum vun der Publikatioun</string>
   <string name="talk_overflow_sort_date_updated">Datum vun der Aktualiséierung</string>
   <string name="talk_overflow_sort_topic_name">Numm vum Sujet</string>
@@ -1501,7 +1501,7 @@
   <string name="survey_dialog_submit">Schécken</string>
   <string name="survey_dialog_next">Nächst</string>
   <string name="survey_dialog_general_yes">Jo</string>
-  <string name="survey_dialog_general_no">Neen</string>
+  <string name="survey_dialog_general_no">Nee</string>
   <string name="survey_dialog_general_maybe">Villäicht</string>
   <string name="survey_dialog_input_hint">Zousätzleche Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback ofgeschéckt. Merci!</string>
@@ -1550,7 +1550,7 @@
   <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Wann Dir d\'Push-Notifikatiounen desaktivéiert, kritt Dir net méi all Dag eng Erënnerung, wann en neit Spill disponibel ass.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">Spillnotifikatiounen aktivéieren?</string>
   <string name="on_this_day_game_turn_on_notification_dialog_subtitle">D\'Spill-Notifikatiounen informéieren Iech all Dag, wann en neit Spill disponibel ass.</string>
-  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Neen, aktivéiert loossen</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nee, aktivéiert loossen</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Desaktivéieren</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Jo, aktivéieren</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Desaktivéiert loossen</string>
@@ -1632,5 +1632,5 @@
   <string name="recommended_reading_list_settings_notifications_title">Notifikatiounen</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Notifikatiounen desaktivéieren?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desaktivéieren</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Neen, aktivéiert loossen</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nee, aktivéiert loossen</string>
 </resources>

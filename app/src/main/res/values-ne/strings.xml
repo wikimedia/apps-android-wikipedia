@@ -27,6 +27,7 @@
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
   <string name="search_back_button_content_description">पछाडि पर्कनुहोस्</string>
+  <string name="search_clear_query_content_description">लाम खाली गर्नुहोस्</string>
   <string name="search_icon_content_description">खोज्नुहोस्</string>
   <string name="filter_hint_filter_my_lists_and_articles">मेरा सूचीहरू फिल्टर गर्ने</string>
   <string name="nav_item_suggested_edits">सम्पादनहरू</string>
