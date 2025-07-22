@@ -25,7 +25,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
-    var messageCardViewHeight: Int = 780
+    var messageCardViewHeight: Int = 750
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -102,8 +102,5 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.isVisible = false
         }, false)
         binding.donationReminderCardView.isVisible = true
-        binding.donationReminderCardView.viewTreeObserver.addOnGlobalLayoutListener {
-            messageCardViewHeight = binding.donationReminderCardView.height
-        }
     }
 }
