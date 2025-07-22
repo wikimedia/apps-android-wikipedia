@@ -1,6 +1,7 @@
 package org.wikipedia.donate.donationreminder
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +18,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -29,6 +32,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -37,6 +47,7 @@ import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.AppTextButton
@@ -51,8 +62,15 @@ import org.wikipedia.theme.Theme
 @Composable
 fun DonationReminderScreen(
     modifier: Modifier = Modifier,
+    viewModel: DonationReminderViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
 ) {
+    val uiState = viewModel.uiState.collectAsState().value
+
+    LaunchedEffect(Unit) {
+        viewModel.loadData()
+    }
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -68,23 +86,62 @@ fun DonationReminderScreen(
                 .padding(paddingValues)
                 .fillMaxSize()
         ) {
-            MainContent(
+            Column(
                 modifier = Modifier
                     .verticalScroll(rememberScrollState())
                     .weight(1f)
                     .padding(16.dp)
-            )
-            BottomContent(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-            )
+            ) {
+                TopContent()
+                MainContent(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 24.dp),
+                    uiState = uiState,
+                    onDonationsReminderSwitchClick = { viewModel.toggleDonationReminders(it) },
+                    currencyFormatter = { amount ->
+                        viewModel.currencyFormat.format(amount)
+                    },
+                    onReadFrequencySelected = { option ->
+                        when (option) {
+                            is DropDownOption.Regular -> {
+                                viewModel.updateReadFrequencyState(option.value)
+                            }
+
+                            DropDownOption.Custom -> {}
+                        }
+                    },
+                    onDonationAmountSelected = { option ->
+                        when (option) {
+                            is DropDownOption.Regular -> {
+                                viewModel.updateDonationAmountState(option.value)
+                            }
+
+                            DropDownOption.Custom -> {}
+                        }
+                    },
+                    onInfoClick = {}
+                )
+            }
+
+            if (uiState.isDonationReminderEnabled) {
+                BottomContent(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .padding(top = 16.dp),
+                    onConfirmBtnClick = { viewModel.confirmReminder() },
+                    onAboutThisExperimentClick = {}
+                )
+            }
         }
     }
 }
 
 @Composable
-fun MainContent(modifier: Modifier = Modifier) {
+fun TopContent(
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier
     ) {
@@ -114,44 +171,69 @@ fun MainContent(modifier: Modifier = Modifier) {
 
         HorizontalDivider(
             modifier = Modifier
-                .padding(vertical = 24.dp),
+                .padding(top = 24.dp),
             color = WikipediaTheme.colors.borderColor
-        )
-
-        DonationRemindersSwitch(
-            isDonationRemindersEnabled = true,
-            onCheckedChange = {}
-        )
-
-        DonationReminderOption(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 24.dp),
-            headlineText = "When I read",
-            placeHolderText = "25 articles",
-            headlineIcon = R.drawable.newsstand_24dp
-        )
-
-        DonationReminderOption(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 24.dp),
-            headlineText = "Remind me to donate",
-            placeHolderText = "$3",
-            headlineIcon = R.drawable.newsstand_24dp
         )
     }
 }
 
 @Composable
-fun BottomContent(modifier: Modifier = Modifier) {
+fun MainContent(
+    modifier: Modifier = Modifier,
+    uiState: DonationReminderUiState,
+    onDonationsReminderSwitchClick: (Boolean) -> Unit,
+    currencyFormatter: (Int) -> String,
+    onReadFrequencySelected: (DropDownOption) -> Unit,
+    onDonationAmountSelected: (DropDownOption) -> Unit,
+    onInfoClick: () -> Unit
+) {
+    Column(
+        modifier = modifier
+    ) {
+        DonationRemindersSwitch(
+            isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
+            onCheckedChange = onDonationsReminderSwitchClick
+        )
+        if (uiState.isDonationReminderEnabled) {
+            DonationReminderOption(
+                modifier = modifier,
+                headlineText = "When I read",
+                selectedOption = uiState.selectedReadFrequency,
+                dropdownOptions = uiState.readFrequencyList,
+                headlineIcon = R.drawable.newsstand_24dp,
+                onOptionSelected = onReadFrequencySelected,
+                onInfoIconClick = onInfoClick,
+                displayFormatter = { "$it articles" },
+            )
+
+            DonationReminderOption(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 24.dp),
+                headlineText = "Remind me to donate",
+                selectedOption = uiState.selectedDonationAmount,
+                dropdownOptions = uiState.donationAmountList,
+                headlineIcon = R.drawable.credit_card_heart_24,
+                displayFormatter = currencyFormatter,
+                onOptionSelected = onDonationAmountSelected,
+            )
+        }
+    }
+}
+
+@Composable
+fun BottomContent(
+    modifier: Modifier = Modifier,
+    onConfirmBtnClick: () -> Unit,
+    onAboutThisExperimentClick: () -> Unit
+) {
     Column(
         modifier = modifier
     ) {
         AppButton(
             modifier = Modifier
                 .fillMaxWidth(),
-            onClick = {},
+            onClick = onConfirmBtnClick,
             content = {
                 Text(
                     "Confirm Reminder"
@@ -161,7 +243,7 @@ fun BottomContent(modifier: Modifier = Modifier) {
         AppTextButton(
             modifier = Modifier
                 .fillMaxWidth(),
-            onClick = {},
+            onClick = onAboutThisExperimentClick,
             content = {
                 Text(
                     "About this experiment"
@@ -175,9 +257,15 @@ fun BottomContent(modifier: Modifier = Modifier) {
 fun DonationReminderOption(
     modifier: Modifier = Modifier,
     headlineText: String,
-    placeHolderText: String,
     @DrawableRes headlineIcon: Int,
+    dropdownOptions: List<DropDownOption>,
+    selectedOption: Int,
+    displayFormatter: (Int) -> String,
+    onOptionSelected: (DropDownOption) -> Unit,
+    onInfoIconClick: (() -> Unit)? = null,
 ) {
+    var isDropdownExpanded by remember { mutableStateOf(false) }
+
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -194,28 +282,68 @@ fun DonationReminderOption(
                 style = MaterialTheme.typography.bodyLarge
             )
 
-            TextField(
-                modifier = Modifier
-                    .width(210.dp),
-                value = "",
-                onValueChange = {},
-                placeholder = {
-                    Text(
-                        text = placeHolderText,
-                        style = MaterialTheme.typography.bodyLarge
-                    )
-                },
-                colors = TextFieldDefaults.colors(
-                    focusedTextColor = WikipediaTheme.colors.primaryColor,
-                    unfocusedContainerColor = WikipediaTheme.colors.backgroundColor
-                ),
-                trailingIcon = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                TextField(
+                    modifier = Modifier
+                        .width(210.dp)
+                        .clickable { isDropdownExpanded = true },
+                    value = displayFormatter(selectedOption),
+                    enabled = false,
+                    onValueChange = {},
+                    colors = TextFieldDefaults.colors(
+                        disabledContainerColor = WikipediaTheme.colors.backgroundColor,
+                        disabledTextColor = WikipediaTheme.colors.primaryColor
+                    ),
+                    trailingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowDropDown,
+                            contentDescription = null
+                        )
+                    }
+                )
+                if (onInfoIconClick != null) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowDropDown,
+                        modifier = Modifier
+                            .clickable(onClick = onInfoIconClick),
+                        painter = painterResource(R.drawable.ic_info_outline_black_24dp),
                         contentDescription = null
                     )
                 }
-            )
+
+                DropdownMenu(
+                    modifier = Modifier
+                        .width(210.dp),
+                    containerColor = WikipediaTheme.colors.backgroundColor,
+                    expanded = isDropdownExpanded,
+                    onDismissRequest = { isDropdownExpanded = false },
+                    content = {
+                        dropdownOptions.forEach { option ->
+                            val text = when (option) {
+                                DropDownOption.Custom -> "Custom..."
+                                is DropDownOption.Regular -> {
+                                    displayFormatter(option.value)
+                                }
+                            }
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = text,
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    )
+                                },
+                                onClick = {
+                                    onOptionSelected(option)
+                                    isDropdownExpanded = false
+                                }
+                            )
+                        }
+                    }
+                )
+            }
         }
     }
 }
@@ -226,6 +354,7 @@ private fun DonationRemindersSwitch(
     onCheckedChange: ((Boolean) -> Unit),
     modifier: Modifier = Modifier
 ) {
+
     ListItem(
         modifier = modifier
             .clip(RoundedCornerShape(16.dp)),

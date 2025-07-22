@@ -828,4 +828,16 @@ object Prefs {
     var resetRecommendedReadingList
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
+
+    var isDonationRemindersEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_enabled, value)
+
+    var donationRemindersReadFrequency
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_read_frequency, -1)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_read_frequency, value)
+
+    var donationRemindersAmount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_amount, -1)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_amount, value)
 }
