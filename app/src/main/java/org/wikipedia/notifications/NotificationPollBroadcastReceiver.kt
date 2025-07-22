@@ -9,7 +9,10 @@ import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -146,26 +149,30 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 return
             }
 
-            // The notifications that we need to display are those that don't exist in our db yet.
-            val notificationsToDisplay = notifications.filter {
-                AppDatabase.instance.notificationDao().getNotificationById(it.wiki, it.id) == null
-            }
-            AppDatabase.instance.notificationDao().insertNotifications(notificationsToDisplay)
+            MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+                L.w(throwable)
+            }) {
+                // The notifications that we need to display are those that don't exist in our db yet.
+                val notificationsToDisplay = notifications.filter {
+                    AppDatabase.instance.notificationDao().getNotificationById(it.wiki, it.id) == null
+                }
+                AppDatabase.instance.notificationDao().insertNotifications(notificationsToDisplay)
 
-            if (notificationsToDisplay.isNotEmpty()) {
-                Prefs.notificationUnreadCount = notificationsToDisplay.size
-                FlowEventBus.post(UnreadNotificationsEvent())
-            }
+                if (notificationsToDisplay.isNotEmpty()) {
+                    Prefs.notificationUnreadCount = notificationsToDisplay.size
+                    FlowEventBus.post(UnreadNotificationsEvent())
+                }
 
-            if (notificationsToDisplay.size > 2) {
-                // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
-            } else {
-                for (n in notificationsToDisplay) {
+                if (notificationsToDisplay.size > 2) {
                     // Record that there is an incoming notification to track/compare further actions on it.
-                    NotificationPresenter.showNotification(context, n,
-                        dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
-                        dbWikiSiteMap.getValue(n.wiki).languageCode)
+                    NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
+                } else {
+                    for (n in notificationsToDisplay) {
+                        // Record that there is an incoming notification to track/compare further actions on it.
+                        NotificationPresenter.showNotification(context, n,
+                            dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
+                            dbWikiSiteMap.getValue(n.wiki).languageCode)
+                    }
                 }
             }
         }
