@@ -13,8 +13,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.densityScalar
-import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -79,13 +77,13 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.removeHighlightsFromHighlightedElements()"
     }
 
-    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
+    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int, messageCardHeight: Int): String {
         val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = context.getStrings(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
+            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (DimenUtil.leadImageHeightForDevice(context) / DimenUtil.densityScalar + messageCardHeight).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
         var fontFamily = Prefs.fontFamily

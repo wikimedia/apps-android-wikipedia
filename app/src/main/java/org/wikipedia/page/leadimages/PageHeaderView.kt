@@ -16,7 +16,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
-class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChangeListener {
+class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayoutOverWebView(context, attrs), ObservableWebView.OnScrollChangeListener {
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
@@ -25,6 +25,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
+    var messageCardViewHeight: Int = 780
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -34,10 +35,6 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     var callback: Callback? = null
     val imageView get() = binding.viewPageHeaderImage
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
     init {
         binding.viewPageHeaderImageGradientBottom.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(context, R.attr.overlay_color), Gravity.BOTTOM)
         binding.viewPageHeaderImage.setOnClickListener {
@@ -46,6 +43,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
         binding.callToActionContainer.setOnClickListener {
             callback?.onCallToActionClicked()
         }
+        orientation = VERTICAL
     }
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
@@ -67,7 +65,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context))
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
         visibility = VISIBLE
     }
 
@@ -104,5 +102,8 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
             binding.donationReminderCardView.isVisible = false
         }, false)
         binding.donationReminderCardView.isVisible = true
+        binding.donationReminderCardView.viewTreeObserver.addOnGlobalLayoutListener {
+            messageCardViewHeight = binding.donationReminderCardView.height
+        }
     }
 }

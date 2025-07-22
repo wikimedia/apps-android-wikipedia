@@ -78,7 +78,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             } ?: return null
         }
 
-    val topMargin get() = DimenUtil.roundedPxToDp((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat())
+    val topMargin get() = DimenUtil.roundedPxToDp(
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) + 450
+    )
     val callToActionEditLang get() =
         if (callToActionIsTranslation) callToActionTargetSummary?.pageTitle?.wikiSite?.languageCode else callToActionSourceSummary?.pageTitle?.wikiSite?.languageCode
 
@@ -214,6 +216,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         pageHeaderView.refreshCallToActionVisibility()
     }
 
+    fun getMessageCardViewHeight(): Int {
+        return pageHeaderView.messageCardViewHeight
+    }
+
     fun loadLeadImage() {
         val url = leadImageUrl
         initDisplayDimensions()
@@ -224,10 +230,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         } else {
             pageHeaderView.loadImage(null)
         }
-        showDonationReminderCard()
-    }
-
-    fun showDonationReminderCard() {
         pageHeaderView.showDonationReminderCard()
     }
 
