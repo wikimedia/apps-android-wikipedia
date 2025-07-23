@@ -3,6 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven(url = "https://dl.bitdrift.io/sdk/android-maven")
     }
 }
 dependencyResolutionManagement {
@@ -11,6 +12,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         mavenLocal()
+        maven(url = "https://dl.bitdrift.io/sdk/android-maven") {
+            content {
+                includeGroup("io.bitdrift")
+            }
+        }
     }
 }
 

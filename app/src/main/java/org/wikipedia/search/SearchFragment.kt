@@ -40,6 +40,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
+import io.bitdrift.capture.Capture.Logger
 
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
@@ -140,6 +141,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Logger.logScreenView("Search")
     }
 
     private fun handleIntent(intent: Intent) {

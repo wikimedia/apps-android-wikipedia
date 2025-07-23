@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
+    id 'io.bitdrift.capture-plugin' version '0.17.29'
     alias(libs.plugins.compose.compiler)
 }
 
@@ -55,6 +56,21 @@ android {
         def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
         buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
         buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
+
+        android {
+            defaultConfig {
+                def bitdriftApiKey = project.rootProject.file("local.properties")
+                        .withReader {
+                            def props = new Properties()
+                            props.load(it)
+                            return props.getProperty("BITDRIFT_API_KEY", "")
+                        }
+
+                buildConfigField "String", "BITDRIFT_API_KEY", "\"${bitdriftApiKey}\""
+            }
+        }
+
+
     }
 
     testOptions {
@@ -172,6 +188,8 @@ dependencies {
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
+
+    implementation libs.capture.sdk
 
     coreLibraryDesugaring libs.desugar.jdk.libs
 
@@ -305,4 +323,10 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
+}
+
+bitdrift {
+    instrumentation {
+        automaticOkHttpInstrumentation = true
+    }
 }

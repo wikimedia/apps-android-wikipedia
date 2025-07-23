@@ -43,6 +43,7 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
+import io.bitdrift.capture.Capture.Logger
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -103,6 +104,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     override fun onResume() {
         super.onResume()
+        Logger.logScreenView("History")
         viewModel.reloadHistoryItems()
     }
 

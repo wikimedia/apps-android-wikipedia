@@ -42,6 +42,7 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import io.bitdrift.capture.Capture.Logger
 
 class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
@@ -134,6 +135,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     override fun onResume() {
         super.onResume()
+        Logger.logScreenView("Feed")
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
 

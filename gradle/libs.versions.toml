@@ -4,6 +4,7 @@ androidSdk = "11.12.1"
 appcompat = "1.7.1"
 balloon = "1.6.12"
 browser = "1.8.0"
+captureSdk = "0.17.29"
 coilCompose = "3.2.0"
 commonsLang3 = "3.18.0"
 constraintlayout = "2.2.1"
@@ -16,7 +17,7 @@ flexbox = "3.0.0"
 fragmentKtx = "1.8.8"
 googlePayVersion = "19.4.0"
 googleServices = "4.4.3"
-gradle = "8.11.1"
+gradle = "8.8.0"
 hamcrest = "3.0"
 installreferrer = "2.2"
 jsoup = "1.21.1"
@@ -64,6 +65,7 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
 balloon = { module = "com.github.skydoves:balloon", version.ref = "balloon" }
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
+capture-sdk = { module = "io.bitdrift:capture", version.ref = "captureSdk" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coilCompose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }

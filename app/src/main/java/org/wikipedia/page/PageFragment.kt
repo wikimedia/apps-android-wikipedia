@@ -117,6 +117,7 @@ import org.wikipedia.watchlist.WatchlistViewModel
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import io.bitdrift.capture.Capture.Logger
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -294,6 +295,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onResume() {
+        Logger.logScreenView("Article View")
         super.onResume()
         activeTimer.resume()
         val params = CoordinatorLayout.LayoutParams(1, 1)

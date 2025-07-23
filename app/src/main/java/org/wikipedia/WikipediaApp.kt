@@ -15,6 +15,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.BuildConfig
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.database.AppDatabase
@@ -39,8 +40,21 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.CoilImageServiceLoader
 import org.wikipedia.views.imageservice.ImageService
 import java.util.UUID
+import io.bitdrift.capture.Capture.Logger
+import io.bitdrift.capture.providers.session.SessionStrategy
+import okhttp3.HttpUrl.Companion.toHttpUrl
+
+
 
 class WikipediaApp : Application() {
+
+    companion object {
+        lateinit var instance: WikipediaApp
+            private set
+
+        val launchStartTime = System.currentTimeMillis()
+    }
+
     init {
         instance = this
     }
@@ -137,6 +151,14 @@ class WikipediaApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        Logger.start(
+            // update local.properties to include BITDRIFT_API_KEY
+            apiKey = BuildConfig.BITDRIFT_API_KEY,
+            sessionStrategy = SessionStrategy.Fixed(),
+            // apiURL defaults to prod. Delete the following line unless you are a bitdrift employee
+            apiUrl = "https://api.bitdrift.dev".toHttpUrl()
+        )
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
@@ -285,10 +307,5 @@ class WikipediaApp : Application() {
         if (tabList.isEmpty()) {
             tabList.add(Tab())
         }
-    }
-
-    companion object {
-        lateinit var instance: WikipediaApp
-            private set
     }
 }

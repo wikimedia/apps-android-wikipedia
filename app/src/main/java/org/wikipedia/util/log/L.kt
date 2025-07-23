@@ -4,32 +4,64 @@ import android.util.Log
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.ReleaseUtil
+import io.bitdrift.capture.Capture.Logger
 
 /** Logging utility like [Log] but with implied tags.  */
 object L {
     private val LEVEL_V: LogLevel = object : LogLevel() {
         override fun logLevel(tag: String?, msg: String?, t: Throwable?) {
             Log.v(tag, msg, t)
+            Logger.logTrace(
+                fields = mapOf("tag" to tag.orEmpty()),
+                throwable = t
+            ) {
+                msg.orEmpty()
+            }
         }
     }
+
     private val LEVEL_D: LogLevel = object : LogLevel() {
         override fun logLevel(tag: String?, msg: String?, t: Throwable?) {
             Log.d(tag, msg, t)
+            Logger.logDebug(
+                fields = mapOf("tag" to tag.orEmpty()),
+                throwable = t
+            ) {
+                msg.orEmpty()
+            }
         }
     }
     private val LEVEL_I: LogLevel = object : LogLevel() {
         override fun logLevel(tag: String?, msg: String?, t: Throwable?) {
             Log.i(tag, msg, t)
+            Logger.logInfo(
+                fields = mapOf("tag" to tag.orEmpty()),
+                throwable = t
+            ) {
+                msg.orEmpty()
+            }
         }
     }
     private val LEVEL_W: LogLevel = object : LogLevel() {
         override fun logLevel(tag: String?, msg: String?, t: Throwable?) {
             Log.w(tag, msg, t)
+            Logger.logWarning(
+                fields = mapOf("tag" to tag.orEmpty()),
+                throwable = t
+            ) {
+                msg.orEmpty()
+            }
         }
     }
     private val LEVEL_E: LogLevel = object : LogLevel() {
         override fun logLevel(tag: String?, msg: String?, t: Throwable?) {
             Log.e(tag, msg, t)
+            Logger.logError(
+                fields = mapOf("tag" to tag.orEmpty()),
+                throwable = t
+            ) {
+                msg.orEmpty()
+            }
         }
     }
 
