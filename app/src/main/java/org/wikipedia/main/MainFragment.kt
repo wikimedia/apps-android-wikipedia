@@ -37,6 +37,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabABTest
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -172,6 +173,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             requireActivity().invalidateOptionsMenu()
             true
         }
+
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, ActivityTabABTest().isInTestGroup() && !Prefs.activityTabRedDotShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
