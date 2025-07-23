@@ -28,7 +28,6 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.Date
-import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
@@ -380,7 +379,7 @@ object Prefs {
     var remoteNotificationsSeenTime: Instant
         get() {
             val timestamp = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "")!!
-            return Instant.parseOrNull(timestamp) ?: Clock.System.now()
+            return Instant.parseOrNull(timestamp) ?: Instant.DISTANT_PAST
         }
         set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime.toString())
 

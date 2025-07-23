@@ -26,7 +26,7 @@ class PollNotificationWorker(
         return try {
             val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification()
             val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.instant() }
-                ?: Instant.fromEpochMilliseconds(0)
+                ?: Instant.DISTANT_PAST
             if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
                 retrieveNotifications()
