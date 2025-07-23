@@ -65,7 +65,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
-import org.wikipedia.compose.components.AppTextButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
 import org.wikipedia.compose.components.WikiTopAppBar
@@ -266,13 +265,15 @@ fun BottomContent(
                 )
             }
         )
-        AppTextButton(
+
+        TextButton(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = onAboutThisExperimentClick,
             content = {
                 Text(
-                    "About this experiment"
+                    text = "About this experiment",
+                    color = WikipediaTheme.colors.progressiveColor
                 )
             }
         )
@@ -486,7 +487,9 @@ fun CustomInputDialog(
                 ) {
                     TextButton(
                         onClick = {
-                            onDoneClick(value)
+                            if (value.isNotEmpty()) {
+                                onDoneClick(value)
+                            }
                         },
                         content = {
                             Text(
@@ -503,7 +506,7 @@ fun CustomInputDialog(
 
 @Preview
 @Composable
-private fun CustomInputDialogExample() {
+private fun CustomInputDialogPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
