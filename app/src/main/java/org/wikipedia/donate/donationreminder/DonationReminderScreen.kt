@@ -20,23 +20,29 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TooltipBox
+import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,12 +54,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.AppTextButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
 import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -119,8 +127,7 @@ fun DonationReminderScreen(
 
                             DropDownOption.Custom -> {}
                         }
-                    },
-                    onInfoClick = {}
+                    }
                 )
             }
 
@@ -185,7 +192,6 @@ fun MainContent(
     currencyFormatter: (Int) -> String,
     onReadFrequencySelected: (DropDownOption) -> Unit,
     onDonationAmountSelected: (DropDownOption) -> Unit,
-    onInfoClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -201,8 +207,8 @@ fun MainContent(
                 selectedOption = uiState.selectedReadFrequency,
                 dropdownOptions = uiState.readFrequencyList,
                 headlineIcon = R.drawable.newsstand_24dp,
+                showInfo = true,
                 onOptionSelected = onReadFrequencySelected,
-                onInfoIconClick = onInfoClick,
                 displayFormatter = { "$it articles" },
             )
 
@@ -256,32 +262,35 @@ fun BottomContent(
 @Composable
 fun DonationReminderOption(
     modifier: Modifier = Modifier,
+    showInfo: Boolean = false,
     headlineText: String,
     @DrawableRes headlineIcon: Int,
     dropdownOptions: List<DropDownOption>,
     selectedOption: Int,
     displayFormatter: (Int) -> String,
     onOptionSelected: (DropDownOption) -> Unit,
-    onInfoIconClick: (() -> Unit)? = null,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
 
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.Top
     ) {
         Icon(
+            modifier = Modifier
+                .padding(top = 3.dp),
             painter = painterResource(headlineIcon),
             contentDescription = null
         )
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
                 text = headlineText,
                 style = MaterialTheme.typography.bodyLarge
             )
-
+            Spacer(modifier = Modifier.width(16.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -304,12 +313,10 @@ fun DonationReminderOption(
                         )
                     }
                 )
-                if (onInfoIconClick != null) {
-                    Icon(
-                        modifier = Modifier
-                            .clickable(onClick = onInfoIconClick),
-                        painter = painterResource(R.drawable.ic_info_outline_black_24dp),
-                        contentDescription = null
+
+                if (showInfo) {
+                    InfoTooltip(
+                        plainTooltipText = "Article count is stored locally on your device"
                     )
                 }
 
@@ -381,6 +388,42 @@ private fun DonationRemindersSwitch(
                     checkedTrackColor = WikipediaTheme.colors.progressiveColor,
                     checkedThumbColor = WikipediaTheme.colors.paperColor
                 )
+            )
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun InfoTooltip(
+    modifier: Modifier = Modifier,
+    plainTooltipText: String
+) {
+    val tooltipState = rememberTooltipState()
+    val scope = rememberCoroutineScope()
+    TooltipBox(
+        modifier = modifier,
+        positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+        tooltip = {
+            PlainTooltip {
+                Text(
+                    text = plainTooltipText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.paperColor
+                )
+            }
+        },
+        state = tooltipState,
+        content = {
+            Icon(
+                modifier = Modifier
+                    .noRippleClickable(onClick = {
+                        scope.launch {
+                            tooltipState.show()
+                        }
+                    }),
+                painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                contentDescription = null
             )
         }
     )
