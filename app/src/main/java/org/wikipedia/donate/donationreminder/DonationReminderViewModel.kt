@@ -25,54 +25,82 @@ class DonationReminderViewModel : ViewModel() {
             maximumFractionDigits = 0
         }
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
+    val currencySymbol get() = currencyFormat.currency?.getSymbol() ?: "$"
 
     fun loadData() {
-        val readFrequencyList = listOf(25, 50, 75, 100).map { DropDownOption.Regular(it) } + DropDownOption.Custom
         viewModelScope.launch {
-            val donationConfig = DonationConfigHelper.getConfig()
-            val presets = donationConfig?.currencyAmountPresets[currencyCode]
-            presets?.let {
-                val donationAmountList = it.map { amount -> DropDownOption.Regular(amount.toInt()) } + DropDownOption.Custom
-                val selectedDonationAmount = if (Prefs.donationRemindersReadFrequency < 0) it.first().toInt() else Prefs.donationRemindersReadFrequency
-                val selectedReadFrequency = if (Prefs.donationRemindersAmount < 0) it.first().toInt() else Prefs.donationRemindersAmount
-                _uiState.update { currentState -> currentState.copy(
-                    readFrequencyList = readFrequencyList,
-                    donationAmountList = donationAmountList,
-                    selectedDonationAmount = selectedDonationAmount,
-                    selectedReadFrequency = selectedReadFrequency)
-                }
+            val readFrequencyOptions = createReadFrequencyOptions()
+            val donationAmountOptions = createDonationAmountOptions()
+            _uiState.update {
+                it.copy(
+                    readFrequency = readFrequencyOptions,
+                    donationAmount = donationAmountOptions,
+                    isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
+                )
             }
         }
     }
 
     fun confirmReminder() {
-        Prefs.donationRemindersAmount = _uiState.value.selectedDonationAmount
-        Prefs.donationRemindersReadFrequency = _uiState.value.selectedReadFrequency
+        with(_uiState.value) {
+            Prefs.donationRemindersAmount = donationAmount.selectedValue
+            Prefs.donationRemindersReadFrequency = readFrequency.selectedValue
+        }
     }
 
     fun updateDonationAmountState(donationAmount: Int) {
-        _uiState.update { it.copy(selectedDonationAmount = donationAmount) }
+        _uiState.update { it.copy(donationAmount = it.donationAmount.copy(selectedValue = donationAmount)) }
     }
 
     fun updateReadFrequencyState(readFrequency: Int) {
-        _uiState.update { it.copy(selectedReadFrequency = readFrequency) }
+        _uiState.update { it.copy(readFrequency = it.readFrequency.copy(selectedValue = readFrequency)) }
     }
 
     fun toggleDonationReminders(enabled: Boolean) {
         Prefs.isDonationRemindersEnabled = enabled
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
+
+    private fun createReadFrequencyOptions(): SelectableOption {
+        val options = listOf(25, 50, 75, 100)
+        val optionItems = options.map {
+            OptionItem.Preset(it, "$it articles")
+        } + OptionItem.Custom
+
+        val selectedValue = if (Prefs.donationRemindersReadFrequency < 0) options.first()
+        else Prefs.donationRemindersReadFrequency
+
+        return SelectableOption(selectedValue, optionItems) { "$it articles" }
+    }
+
+    private suspend fun createDonationAmountOptions(): SelectableOption {
+        val config = DonationConfigHelper.getConfig()
+        val presets = config?.currencyAmountPresets[currencyCode] ?: listOf(5, 10, 15, 20)
+
+        val options = presets.map {
+            OptionItem.Preset(it.toInt(), currencyFormat.format(it.toInt()))
+        } + OptionItem.Custom
+
+        val selectedValue = if (Prefs.donationRemindersAmount < 0) presets.first().toInt()
+        else Prefs.donationRemindersAmount
+
+        return SelectableOption(selectedValue, options, currencyFormat::format)
+    }
 }
 
 data class DonationReminderUiState(
     val isDonationReminderEnabled: Boolean = Prefs.isDonationRemindersEnabled,
-    val readFrequencyList: List<DropDownOption> = listOf(),
-    val donationAmountList: List<DropDownOption> = listOf(),
-    val selectedReadFrequency: Int = Prefs.donationRemindersReadFrequency,
-    val selectedDonationAmount: Int = Prefs.donationRemindersAmount
+    val readFrequency: SelectableOption = SelectableOption(Prefs.donationRemindersReadFrequency, emptyList()),
+    val donationAmount: SelectableOption = SelectableOption(Prefs.donationRemindersAmount, emptyList()),
 )
 
-sealed class DropDownOption {
-    data class Regular(val value: Int) : DropDownOption()
-    object Custom : DropDownOption()
+sealed class OptionItem(val displayText: String) {
+    data class Preset(val value: Int, val text: String) : OptionItem(text)
+    object Custom : OptionItem("Custom...")
 }
+
+data class SelectableOption(
+    val selectedValue: Int,
+    val options: List<OptionItem>,
+    val displayFormatter: (Int) -> String = { it.toString() }
+)

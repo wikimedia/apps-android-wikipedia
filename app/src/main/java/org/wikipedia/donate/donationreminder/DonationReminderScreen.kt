@@ -1,6 +1,7 @@
 package org.wikipedia.donate.donationreminder
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -26,11 +28,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TooltipBox
@@ -47,12 +51,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -74,6 +82,8 @@ fun DonationReminderScreen(
     onBackButtonClick: () -> Unit,
 ) {
     val uiState = viewModel.uiState.collectAsState().value
+    var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
+    var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         viewModel.loadData()
@@ -100,35 +110,48 @@ fun DonationReminderScreen(
                     .weight(1f)
                     .padding(16.dp)
             ) {
-                TopContent()
-                MainContent(
+                DonationHeader()
+                DonationRemindersSwitch(
                     modifier = Modifier
-                        .fillMaxWidth()
                         .padding(top = 24.dp),
-                    uiState = uiState,
-                    onDonationsReminderSwitchClick = { viewModel.toggleDonationReminders(it) },
-                    currencyFormatter = { amount ->
-                        viewModel.currencyFormat.format(amount)
-                    },
-                    onReadFrequencySelected = { option ->
-                        when (option) {
-                            is DropDownOption.Regular -> {
-                                viewModel.updateReadFrequencyState(option.value)
-                            }
-
-                            DropDownOption.Custom -> {}
-                        }
-                    },
-                    onDonationAmountSelected = { option ->
-                        when (option) {
-                            is DropDownOption.Regular -> {
-                                viewModel.updateDonationAmountState(option.value)
-                            }
-
-                            DropDownOption.Custom -> {}
-                        }
-                    }
+                    isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
+                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
                 )
+                Spacer(modifier = Modifier.height(24.dp))
+                if (uiState.isDonationReminderEnabled) {
+                    OptionSelector(
+                        title = "When I read",
+                        headerIcon = R.drawable.newsstand_24dp,
+                        option = uiState.readFrequency,
+                        showInfo = true,
+                        onOptionSelected = { option ->
+                            when (option) {
+                                is OptionItem.Preset -> {
+                                    viewModel.updateReadFrequencyState(option.value)
+                                }
+                                OptionItem.Custom -> {
+                                    showReadFrequencyCustomDialog = true
+                                }
+                            }
+                        },
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    OptionSelector(
+                        title = "Remind me to donate",
+                        headerIcon = R.drawable.credit_card_heart_24,
+                        option = uiState.donationAmount,
+                        onOptionSelected = { option ->
+                            when (option) {
+                                is OptionItem.Preset -> {
+                                    viewModel.updateDonationAmountState(option.value)
+                                }
+                                OptionItem.Custom -> {
+                                    showDonationAmountCustomDialog = true
+                                }
+                            }
+                        }
+                    )
+                }
             }
 
             if (uiState.isDonationReminderEnabled) {
@@ -142,11 +165,51 @@ fun DonationReminderScreen(
                 )
             }
         }
+
+        if (showReadFrequencyCustomDialog) {
+            CustomInputDialog(
+                title = "When I read",
+                onDismissRequest = {
+                    showReadFrequencyCustomDialog = false
+                },
+                suffix = {
+                    Text(
+                        text = "articles",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onDoneClick = { readFrequency ->
+                    viewModel.updateReadFrequencyState(readFrequency.toInt())
+                    showReadFrequencyCustomDialog = false
+                }
+            )
+        }
+
+        if (showDonationAmountCustomDialog) {
+            CustomInputDialog(
+                title = "Remind me to donate",
+                onDismissRequest = {
+                    showDonationAmountCustomDialog = false
+                },
+                prefix = {
+                    Text(
+                        text = viewModel.currencySymbol,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                },
+                onDoneClick = { amount ->
+                    viewModel.updateDonationAmountState(amount.toInt())
+                    showDonationAmountCustomDialog = false
+                }
+            )
+        }
     }
 }
 
 @Composable
-fun TopContent(
+fun DonationHeader(
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -185,49 +248,6 @@ fun TopContent(
 }
 
 @Composable
-fun MainContent(
-    modifier: Modifier = Modifier,
-    uiState: DonationReminderUiState,
-    onDonationsReminderSwitchClick: (Boolean) -> Unit,
-    currencyFormatter: (Int) -> String,
-    onReadFrequencySelected: (DropDownOption) -> Unit,
-    onDonationAmountSelected: (DropDownOption) -> Unit,
-) {
-    Column(
-        modifier = modifier
-    ) {
-        DonationRemindersSwitch(
-            isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
-            onCheckedChange = onDonationsReminderSwitchClick
-        )
-        if (uiState.isDonationReminderEnabled) {
-            DonationReminderOption(
-                modifier = modifier,
-                headlineText = "When I read",
-                selectedOption = uiState.selectedReadFrequency,
-                dropdownOptions = uiState.readFrequencyList,
-                headlineIcon = R.drawable.newsstand_24dp,
-                showInfo = true,
-                onOptionSelected = onReadFrequencySelected,
-                displayFormatter = { "$it articles" },
-            )
-
-            DonationReminderOption(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 24.dp),
-                headlineText = "Remind me to donate",
-                selectedOption = uiState.selectedDonationAmount,
-                dropdownOptions = uiState.donationAmountList,
-                headlineIcon = R.drawable.credit_card_heart_24,
-                displayFormatter = currencyFormatter,
-                onOptionSelected = onDonationAmountSelected,
-            )
-        }
-    }
-}
-
-@Composable
 fun BottomContent(
     modifier: Modifier = Modifier,
     onConfirmBtnClick: () -> Unit,
@@ -260,34 +280,29 @@ fun BottomContent(
 }
 
 @Composable
-fun DonationReminderOption(
-    modifier: Modifier = Modifier,
+fun OptionSelector(
+    title: String,
+    option: SelectableOption,
+    @DrawableRes headerIcon: Int,
+    onOptionSelected: (OptionItem) -> Unit,
     showInfo: Boolean = false,
-    headlineText: String,
-    @DrawableRes headlineIcon: Int,
-    dropdownOptions: List<DropDownOption>,
-    selectedOption: Int,
-    displayFormatter: (Int) -> String,
-    onOptionSelected: (DropDownOption) -> Unit,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
-
     Row(
-        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.Top
     ) {
         Icon(
             modifier = Modifier
                 .padding(top = 3.dp),
-            painter = painterResource(headlineIcon),
+            painter = painterResource(headerIcon),
             contentDescription = null
         )
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = headlineText,
+                text = title,
                 style = MaterialTheme.typography.bodyLarge
             )
             Spacer(modifier = Modifier.width(16.dp))
@@ -299,7 +314,7 @@ fun DonationReminderOption(
                     modifier = Modifier
                         .width(210.dp)
                         .clickable { isDropdownExpanded = true },
-                    value = displayFormatter(selectedOption),
+                    value = option.displayFormatter(option.selectedValue),
                     enabled = false,
                     onValueChange = {},
                     colors = TextFieldDefaults.colors(
@@ -327,17 +342,11 @@ fun DonationReminderOption(
                     expanded = isDropdownExpanded,
                     onDismissRequest = { isDropdownExpanded = false },
                     content = {
-                        dropdownOptions.forEach { option ->
-                            val text = when (option) {
-                                DropDownOption.Custom -> "Custom..."
-                                is DropDownOption.Regular -> {
-                                    displayFormatter(option.value)
-                                }
-                            }
+                        option.options.forEach { option ->
                             DropdownMenuItem(
                                 text = {
                                     Text(
-                                        text = text,
+                                        text = option.displayText,
                                         style = MaterialTheme.typography.bodyLarge,
                                         color = WikipediaTheme.colors.primaryColor
                                     )
@@ -427,6 +436,96 @@ fun InfoTooltip(
             )
         }
     )
+}
+
+@Composable
+fun CustomInputDialog(
+    modifier: Modifier = Modifier,
+    title: String,
+    onDoneClick: (String) -> Unit,
+    onDismissRequest: () -> Unit,
+    prefix: @Composable (() -> Unit)? = null,
+    suffix: @Composable (() -> Unit)? = null,
+) {
+    var value by remember { mutableStateOf("") }
+    val focusRequester = remember { FocusRequester() }
+
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+    }
+
+    Dialog(
+        onDismissRequest = onDismissRequest,
+        content = {
+            Column(
+                modifier = modifier
+                    .clip(RoundedCornerShape(28.dp))
+                    .background(WikipediaTheme.colors.paperColor)
+                    .padding(24.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+
+                OutlinedTextField(
+                    modifier = Modifier.focusRequester(focusRequester),
+                    value = value,
+                    onValueChange = {
+                        value = it
+                    },
+                    prefix = prefix,
+                    suffix = suffix,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    TextButton(
+                        onClick = {
+                            onDoneClick(value)
+                        },
+                        content = {
+                            Text(
+                                text = "Done",
+                                color = WikipediaTheme.colors.progressiveColor
+                            )
+                        }
+                    )
+                }
+            }
+        }
+    )
+}
+
+@Preview
+@Composable
+private fun CustomInputDialogExample() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        CustomInputDialog(
+            title = "Remind me to donate",
+            onDismissRequest = {},
+            prefix = {
+                Text(
+                    text = "$",
+                    modifier = Modifier.padding(start = 16.dp)
+                )
+            },
+            suffix = {
+                Text(
+                    modifier = Modifier
+                        .padding(horizontal = 12.dp),
+                    text = "articles"
+                )
+            },
+            onDoneClick = {}
+        )
+    }
 }
 
 @Preview
