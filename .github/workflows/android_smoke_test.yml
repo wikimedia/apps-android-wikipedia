@@ -16,13 +16,14 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
 
     - name: Instrumentation Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
-        script: ./gradlew connectedDevDebugAndroidTest --stacktrace
+        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon
 
     - name: Upload results
       if: ${{ always() }}

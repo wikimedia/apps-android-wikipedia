@@ -16,10 +16,10 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsItemBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -42,7 +42,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode())
+        binding.viewArticleContainer.setLayoutDirectionByLang(parent().langFromCode())
 
         binding.viewArticleImage.setOnClickListener {
             if (Prefs.showImageZoomTooltip) {
@@ -154,7 +154,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
-        binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
+        binding.viewArticleSubtitle.text = StringUtil.removeHTMLTags(descriptionText).trim()
         binding.viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit?.displayTitle.orEmpty()))
 
         if (!sourceSummaryForEdit?.user.isNullOrEmpty()) {

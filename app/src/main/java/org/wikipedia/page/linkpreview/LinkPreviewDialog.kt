@@ -1,18 +1,19 @@
 package org.wikipedia.page.linkpreview
 
 import android.content.DialogInterface
-import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -31,10 +32,12 @@ import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.getStrings
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -46,14 +49,11 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistExpiryDialog
+import org.wikipedia.watchlist.WatchlistViewModel
 import java.util.Locale
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
@@ -75,7 +75,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
-    private var revision: Long = 0
     private val viewModel: LinkPreviewViewModel by viewModels()
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
@@ -133,13 +132,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val galleryViewListener = GalleryViewListener { view, thumbUrl, imageName ->
         var options: ActivityOptionsCompat? = null
         view.drawable?.let {
-            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl, false)
+            val hitInfo = JavaScriptActionHandler.ImageHitInfo(0f, 0f, it.intrinsicWidth.toFloat(), it.intrinsicHeight.toFloat(), thumbUrl)
             GalleryActivity.setTransitionInfo(hitInfo)
             view.transitionName = requireActivity().getString(R.string.transition_page_gallery)
             options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, requireActivity().getString(R.string.transition_page_gallery))
         }
         requestGalleryLauncher.launch(GalleryActivity.newIntent(requireContext(), viewModel.pageTitle,
-            imageName, viewModel.pageTitle.wikiSite, revision), options)
+            imageName, viewModel.pageTitle.wikiSite), options)
     }
 
     private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -168,7 +167,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 requestStubArticleEditLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
             }
         }
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -187,7 +186,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             renderGalleryState(it)
                         }
                         is LinkPreviewViewState.Watch -> {
-                            showWatchlistSnackbar(requireActivity() as BaseActivity, viewModel.pageTitle)
+                            WatchlistViewModel.showWatchlistSnackbar(requireActivity() as BaseActivity, requireActivity().supportFragmentManager, viewModel.pageTitle, it.data.first, it.data.second)
                             dismiss()
                         }
                         is LinkPreviewViewState.Completed -> {
@@ -235,8 +234,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         )
         linkPreviewInteraction?.logLinkClick()
 
-        revision = summary.revision
-
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
         if (viewModel.fromPlaces) {
             viewModel.location?.let { startLocation ->
@@ -257,34 +254,31 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onResume() {
         super.onResume()
-        val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
+
+        val containerView = requireDialog().findViewById<ViewGroup>(android.R.id.content)
         if (overlayView == null && containerView != null) {
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
                 if (viewModel.fromPlaces) {
+                    val strings = requireContext().getStrings(viewModel.pageTitle, intArrayOf(R.string.link_preview_dialog_share_button, R.string.link_preview_dialog_save_button, R.string.link_preview_dialog_read_button))
                     it.callback = OverlayViewPlacesCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_share_button)
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_save_button)
-                    )
-                    it.setTertiaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_read_button)
-                    )
+                    it.setPrimaryButtonText(strings[R.string.link_preview_dialog_share_button])
+                    it.setSecondaryButtonText(strings[R.string.link_preview_dialog_save_button])
+                    it.setTertiaryButtonText(strings[R.string.link_preview_dialog_read_button])
                 } else {
+                    val strings = requireContext().getStrings(viewModel.pageTitle, intArrayOf(R.string.button_continue_to_talk_page, R.string.button_continue_to_article, R.string.menu_long_press_open_in_new_tab))
                     it.callback = OverlayViewCallback()
-                    it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
-                        )
-                    )
-                    it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.menu_long_press_open_in_new_tab)
-                    )
+                    it.setPrimaryButtonText(strings[if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article])
+                    it.setSecondaryButtonText(strings[R.string.menu_long_press_open_in_new_tab])
                     it.showTertiaryButton(false)
                 }
                 containerView.addView(it)
+
+                ViewCompat.setOnApplyWindowInsetsListener(it) { view, insets ->
+                    val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                    view.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = systemWindowInsets.bottom }
+                    insets
+                }
             }
         }
     }
@@ -318,21 +312,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    private fun showWatchlistSnackbar(activity: AppCompatActivity, pageTitle: PageTitle) {
-        viewModel.pageTitle.let {
-            if (!viewModel.isWatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (viewModel.isWatched) {
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
-                getString(R.string.watchlist_page_add_to_watchlist_snackbar, it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
-                }
-                snackbar.show()
-            }
-        }
-    }
-
     private fun doAddToList() {
         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
         dialog?.dismiss()
@@ -364,7 +343,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
-        viewModel.loadGallery(revision)
+        viewModel.loadGallery()
         setPreviewContents(contents)
     }
 
@@ -391,25 +370,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
-        binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-        val colorHex = ResourceUtil.colorToCssString(
-            ResourceUtil.getThemedColor(
-                requireContext(),
-                android.R.attr.textColorPrimary
-            )
-        )
-        val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
         val editVisibility = contents.extract.isNullOrBlank() && contents.ns?.id == Namespace.MAIN.code()
         binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
+
         val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
-        binding.linkPreviewExtractWebview.loadDataWithBaseURL(
-            null,
-            "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
-            "text/html",
-            "UTF-8",
-            null
-        )
+        binding.linkPreviewExtract.text = StringUtil.fromHtml(extract)
+
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
@@ -417,7 +384,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         overlayView?.run {
             if (!viewModel.fromPlaces) {
                 setPrimaryButtonText(
-                    L10nUtil.getStringForArticleLanguage(
+                    requireContext().getString(
                         viewModel.pageTitle,
                         if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
                         else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
@@ -425,16 +392,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     )
                 )
             } else if (viewModel.fromPlaces) {
-                setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                    if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
+                setSecondaryButtonText(requireContext().getString(viewModel.pageTitle, if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
             }
         }
     }
 
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
-        articleLinkPreviewInteractionEvent?.logNavigate()
-        linkPreviewInteraction?.logNavigate()
         dialog?.dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }

@@ -61,6 +61,7 @@
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
   <string name="search_hint_voice_search">جستجوی صوتی</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
+  <string name="search_back_button_content_description">بازگشت به عقب</string>
   <string name="filter_hint_filter_my_lists_and_articles">پالایش فهرست‌های من</string>
   <string name="nav_item_suggested_edits">ویرایش‌ها</string>
   <string name="nav_item_more">بیشتر</string>
@@ -185,8 +186,8 @@
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">رمز عبور</string>
   <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
-  <string name="login_2fa_other_workflow_error_msg">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
+  <string name="login_2fa_hint" fuzzy="true">کد اصالت‌سنجی دومرحله‌ای</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>
   <string name="reading_lists_sync_login">ورود</string>
@@ -239,7 +240,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
   <string name="create_account_button">ایجاد حساب</string>
   <string name="create_account_name_unavailable">نام کاربری «%s» در دسترس نیست. لطفاً نام دیگری را انتخاب کنید.</string>
-  <string name="create_account_ip_block_message">متاسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
+  <string name="create_account_ip_block_message">متأسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
@@ -275,18 +276,16 @@
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست_ایجاد_حساب_کاربری</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fa</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fa</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده است.</string>
   <string name="about_app_license_heading">مجوز</string>
@@ -598,8 +597,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های مطالعه موجود نخواهد بود:</string>
   <string name="reading_lists_sync_reminder_title">همگام‌سازی فهرست مطالعه فعال شود؟</string>
-  <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">فعال‌کردن همگام‌سازی</string>
   <string name="reading_list_login_reminder_title">همگام‌سازی فهرست‌های مطالعه</string>
   <string name="reading_lists_login_reminder_text">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید.</string>
@@ -879,15 +878,13 @@
   <string name="description_edit_help_title">راهنما:توضیحات مقاله</string>
   <string name="description_edit_help_about_wikidata">دربارهٔ ویکی‌داده</string>
   <string name="description_edit_help_wikidata_guide">راهنمای ویکی‌داده برای نوشتن توضیحات</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ممنون برای علاقه ادامه‌دارتان در ویرایش توضیحات مقاله! لطفاً برای ویرایش‌های بیشتر، با حساب ویکی‌پدیا خودتان وارد شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار برگشت‌ناپذیر مشارکت‌هایم تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; موافقت می‌کنم.</string>
   <string name="description_edit_helper_text_lowercase_warning">معمولاً با حرف کوچک آغاز می‌شود</string>
   <string name="description_edit_voice_input_description">صدای ورودی</string>
   <string name="description_edit_learn_more">در خصوص توصیف‌های مقاله بیشتر بدانید</string>
   <string name="description_edit_image_caption_learn_more">در خصوص برنگاشت تصاویر بیشتر بدانید</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">متن بیش از حد کوتاه است.</string>
   <string name="description_ends_with_punctuation">متن نباید با نقطه‌گذاری پایان یابد</string>
   <string name="description_starts_with_uppercase">با حروف کوچک شروع کنید؛ مگر آن که واژهٔ اول یک نام خاص باشد.</string>
@@ -984,8 +981,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">افزودن برنگاشت تصویر</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن برنگاشت تصویر (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">افزودن برچسب‌های تصویر</string>
-  <string name="suggested_edits_snackbar_survey_text">تجربهٔ ویرایش شما چطور بود؟ لطفاً برای پاسخ دادن به یک نظرسنجی دربارهٔ ویرایش با استفاده از اپلیکیشین چند دقیقه زمان بگذارید.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">شرکت در آمارگیری</string>
   <string name="suggested_edits_task_action_text_add">افزودن</string>
   <string name="suggested_edits_task_action_text_translate">ترجمه</string>
   <string name="suggested_edits_image_captions">توضیحات تصویر</string>
@@ -1365,14 +1360,12 @@
   <string name="revision_rollback_success">ویرایش‌ها برگردانده شدند.</string>
   <string name="revision_compare_button">مقایسه</string>
   <string name="revision_compare_two_only">تنها دو نسخه را می‌توان انتخاب کرد.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پیگیری‌‌تان افزوده‌شد.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">تغییر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">به صورت دائمی</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">برای ۱ هفته</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">برای ۱ ماه</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">برای ۳ ماه</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">برای ۶ ماه</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و صفحهٔ بحث آن از فهرست پیگیری‌‌تان حذف شد.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">برای ۱ هفته</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">برای ۱ ماه</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">برای ۳ ماه</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">برای ۶ ماه</string>
   <string name="watchlist_expiry_dialog_title">انتخاب دوره زمانی فهرست پیگیری</string>
   <string name="watchlist_expiry_dialog_permanent">دائمی</string>
   <string name="watchlist_expiry_dialog_one_week">۱ هفته</string>
@@ -1575,5 +1568,23 @@
   <string name="survey_dialog_option_unsatisfied">ناراضی</string>
   <string name="survey_dialog_cancel">لغو</string>
   <string name="survey_dialog_submit">ارسال</string>
-  <string name="survey_dialog_submitted_snackbar">بازخورد ارسال شد.</string>
+  <string name="survey_dialog_next">بعدی</string>
+  <string name="survey_dialog_general_yes">بله</string>
+  <string name="survey_dialog_general_no">خیر</string>
+  <string name="survey_dialog_general_maybe">شاید</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">بازخورد ارسال شد.</string>
+  <string name="on_this_day_game_pause_title">بازی متوقف شود؟</string>
+  <string name="on_this_day_game_pause_body">پیشرفت شما برای امروز ذخیره خواهد شد. بازی را می‌توانید در خوراک مشاهدهٔ خود بیابید.</string>
+  <string name="on_this_day_game_pause_negative">ادامه دادن به بازی</string>
+  <string name="on_this_day_game_pause_positive">گرفتم</string>
+  <string name="on_this_day_game_stats_average_score">میانگین امتیاز</string>
+  <string name="on_this_day_game_menu_info">اطلاعات بیشتر</string>
+  <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
+  <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
+  <string name="year_in_review_entry_dialog_continue">ادامه</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">شما امسال %d مقاله را مطالعه کرده‌اید</item>
+    <item quantity="other">شما امسال %d مقاله را مطالعه کرده‌اید</item>
+  </plurals>
+  <string name="year_in_review_survey_submit">ثبت</string>
 </resources>

@@ -11,7 +11,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,19 +22,20 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.adapter.PagingDataAdapterPatched
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
+import org.wikipedia.views.ViewUtil
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
@@ -68,7 +68,7 @@ class SearchResultsFragment : Fragment() {
                 launch {
                     viewModel.searchResultsFlow.collectLatest {
                         binding.searchResultsList.visibility = View.VISIBLE
-                        searchResultsAdapter.submitData(it)
+                        searchResultsAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
@@ -104,7 +104,7 @@ class SearchResultsFragment : Fragment() {
     val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
 
     fun setLayoutDirection(langCode: String) {
-        setConditionalLayoutDirection(binding.searchResultsList, langCode)
+        binding.searchResultsList.setLayoutDirectionByLang(langCode)
     }
 
     fun startSearch(term: String?, force: Boolean) {
@@ -160,7 +160,7 @@ class SearchResultsFragment : Fragment() {
         }
     }
 
-    private inner class SearchResultsAdapter : PagingDataAdapter<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
+    private inner class SearchResultsAdapter : PagingDataAdapterPatched<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
             return SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
         }
@@ -234,7 +234,7 @@ class SearchResultsFragment : Fragment() {
             // highlight search term within the text
             StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, viewModel.searchTerm)
             itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            loadImageWithRoundedCorners(itemBinding.pageListItemImage, pageTitle.thumbUrl)
+            ViewUtil.loadImage(itemBinding.pageListItemImage, pageTitle.thumbUrl)
 
             view.isLongClickable = true
             view.setOnClickListener {

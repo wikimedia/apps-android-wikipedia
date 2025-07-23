@@ -136,8 +136,8 @@
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
   <string name="account_creation_password_hint">Lozinka</string>
-  <string name="login_2fa_hint">Kôd dvofaktorske potvrde identiteta</string>
-  <string name="login_2fa_other_workflow_error_msg">Neophodna je dvofaktorska potvrda identiteta. Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA tokenom, pa pokušajte ponovo.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kôd dvofaktorske potvrde identiteta</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Neophodna je dvofaktorska potvrda identiteta. Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA tokenom, pa pokušajte ponovo.</string>
   <string name="onboarding_card_login">Prijava</string>
   <string name="page_editing_login">Prijava</string>
   <string name="reading_lists_sync_login">Prijava</string>
@@ -223,18 +223,13 @@
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovi korišćenja</string>
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Vikipedija:O_nama</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sr_LATN</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Oznake_slika</string>
   <string name="about_libraries_heading">Korišćene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stranica tima&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
@@ -519,8 +514,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Članak se pojavljuje na više lista</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Stranica „%s” više neće biti dostupna oflajn za sve liste za čitanje:</string>
   <string name="reading_lists_sync_reminder_title">Uključiti sinhronizaciju liste za čitanje?</string>
-  <string name="reading_lists_sync_reminder_text">Članci sačuvani na listama za čitanje sada se mogu sinhronizovati sa vašim nalogom na Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="reading_lists_login_reminder_text_with_link">Liste za čitanje sada se mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Članci sačuvani na listama za čitanje sada se mogu sinhronizovati sa vašim nalogom na Vikipediji. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Liste za čitanje sada se mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinhronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinhronizacija lista za čitanje</string>
   <string name="reading_lists_login_reminder_text">Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se na vaš nalog na Vikipediji i dozvolite čuvanje lista.</string>
@@ -806,7 +801,7 @@
   <string name="description_edit_help_title">Informacije: Opisi članaka</string>
   <string name="description_edit_help_about_wikidata">O Vikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič na Vikipodacima za pisanje opisa</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Hvala vam na neprestanom interesu za uređivanje opisa članaka. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
   <string name="description_edit_license_notice">Promenom opisa članka, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">uobičajeno počinje sa malim slovom</string>
@@ -904,8 +899,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis slike</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodaj oznake za sliku</string>
-  <string name="suggested_edits_snackbar_survey_text">Kakvo je vaše iskustvo u uređivanju? Izdvojite trenutak da biste popunite anketu o uređivanju putem aplikacije.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Popuni anketu</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
   <string name="suggested_edits_image_captions">Natpisi slika</string>
@@ -1289,14 +1282,12 @@
   <string name="revision_rollback_success">Izmene vraćene.</string>
   <string name="revision_compare_button">Uporedi</string>
   <string name="revision_compare_two_only">Mogu se izabrati samo dve izmene.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i prateća stranica za razgovor su uklonjene sa vašeg spiska nadgledanja %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Promeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">nedelju dana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">mesec dana</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 meseca</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 meseci</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s i prateća szr su uklonjeni sa vašeg spiska nadgledanja.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">nedelju dana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">mesec dana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 meseca</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 meseci</string>
   <string name="watchlist_expiry_dialog_title">Odaberite period trajanja nadgledanja</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">nedelju dana</string>
@@ -1507,5 +1498,5 @@
   <string name="survey_dialog_option_neutral">Neutralno</string>
   <string name="survey_dialog_option_unsatisfied">Nezadovoljavajuće</string>
   <string name="survey_dialog_submit">Pošalji</string>
-  <string name="survey_dialog_submitted_snackbar">Povratne informacije poslate.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Povratne informacije poslate.</string>
 </resources>

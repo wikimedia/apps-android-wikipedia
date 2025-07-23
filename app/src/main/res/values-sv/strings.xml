@@ -9,6 +9,7 @@
 * JohanahoJ
 * Jon Harald Søby
 * Jopparn
+* JorgeElias2302
 * Josve05a
 * Lokal Profil
 * Mjälten
@@ -32,6 +33,9 @@
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
+  <string name="search_back_button_content_description">Gå tillbaka</string>
+  <string name="search_clear_query_content_description">Rensa förfrågan</string>
+  <string name="search_icon_content_description">Sök</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Mer</string>
@@ -143,6 +147,10 @@
   <string name="dialog_message_leaving_edit">Dina ändringar har ännu inte publicerats. Är du säker på att du vill lämna denna sida?</string>
   <string name="dialog_message_leaving_edit_leave">Lämna</string>
   <string name="dialog_message_leaving_edit_stay">Stanna</string>
+  <string name="dialog_confirm_delete_donation_history_title">Bekräfta radering</string>
+  <string name="dialog_confirm_delete_donation_history_message">Detta gäller endast donationer som görs från den här enheten.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Radera</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Avbryt</string>
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
@@ -158,7 +166,10 @@
   <string name="login_password_hint">Lösenord</string>
   <string name="account_creation_password_hint">Lösenord</string>
   <string name="login_2fa_hint">Tvåstegsverifieringskod</string>
-  <string name="login_2fa_other_workflow_error_msg">Tvåstegsverifiering krävs! Gå tillbaka till huvudaktiviteten och logga in med din tvåstegsverifieringskod och försök igen.</string>
+  <string name="login_2fa_other_workflow_error_msg">Tvåstegsverifiering krävs! Logga in via huvudmenyn och ange din tvåstegsverifieringskod.</string>
+  <string name="login_email_auth_hint">E-postverifieringskod</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-postverifiering krävs! Logga in från huvudmenyn och ange din e-postverifieringskod.</string>
+  <string name="login_background_error_msg">Det gick inte att logga in igen. Gå tillbaka till huvudskärmen och logga in manuellt.</string>
   <string name="onboarding_card_login">Logga in</string>
   <string name="page_editing_login">Logga in</string>
   <string name="reading_lists_sync_login">Logga in</string>
@@ -248,24 +259,23 @@
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/sv\"&gt;Teamsidan&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
   <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
+  <string name="about_logo_content_description">Wikipedias pusselglob-logotyp</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nej</string>
@@ -427,6 +437,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
+  <string name="preference_title_delete_local_donation_history">Radera lokal donationshistorik</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Matcha systemtemat</string>
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
@@ -583,8 +594,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
   <string name="reading_lists_sync_reminder_title">Aktivera synkronisering av läslistor?</string>
-  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artiklar som har sparats i läslistor kan nu synkroniseras till ditt Wikipedia-konto. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipediakonto och tillåt dina listor att sparas.</string>
@@ -882,16 +893,15 @@
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide på Wikidata om att skriva beskrivningar</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tack för ditt fortsatta intresse för att redigera beskrivningar! För att redigera mera, logga in på ditt Wikipedia-konto.</string>
   <string name="description_edit_license_notice">Genom att ändra titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">börjar vanligtvis med en liten bokstav</string>
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_edit_learn_more">Läs mer om artikelbeskrivningar</string>
   <string name="description_edit_image_caption_learn_more">Läs mer om bildtexter</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/sv#Image_captions</string>
   <string name="description_too_short">Texten är för kort.</string>
+  <string name="description_too_long">Försök hålla beskrivningar korta så användare lätt kan förstå artikelns ämne med endast ett ögonkast</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
@@ -990,8 +1000,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Lägg till bildtaggar</string>
-  <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="suggested_edits_task_action_text_add">Lägg till</string>
   <string name="suggested_edits_task_action_text_translate">Översätt</string>
   <string name="suggested_edits_image_captions">Bildtexter</string>
@@ -1395,14 +1403,12 @@
   <string name="revision_rollback_success">Redigeringar återställdes.</string>
   <string name="revision_compare_button">Jämför</string>
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 vecka</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 månad</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 månader</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 månader</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s och dess diskussionssida har tagits bort från din bevakningslista.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 vecka</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 månad</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 månader</string>
   <string name="watchlist_expiry_dialog_title">Välj period för bevakningslistan</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 vecka</string>
@@ -1664,6 +1670,7 @@
   <string name="donate_gpay_help_other_ways">Andra sätt att ge</string>
   <string name="donate_gpay_help_faq">Vanliga frågor och svar</string>
   <string name="donate_gpay_help_tax">Information om avdragsmöjligheter</string>
+  <string name="donation_history_deleted_message_snackbar">Donationshistoriken raderades</string>
   <string name="places_title">Platser</string>
   <string name="places_permissions_denied">Platsbehörighet krävs för att se din plats på kartan. Var god försök igen.</string>
   <string name="places_search_hint">Sök platser</string>
@@ -1678,59 +1685,6 @@
   <string name="places_card_distance_suffix">%s bort</string>
   <string name="places_card_distance_unknown">Okänt avstånd</string>
   <string name="places_empty_message_snackbar">Det finns inga närliggande artiklar. Testa att zooma ut och flytta kartan.</string>
-  <string name="donor_history_title">Donationshistorik</string>
-  <string name="donor_history_save_button">Spara</string>
-  <string name="donor_history_update_donor_status_default">Uppdatera donationsstatus</string>
-  <string name="donor_history_update_donor_status_donor">Donera</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Inte en donator</string>
-  <string name="donor_history_last_donated">Donerade senast</string>
-  <string name="donor_history_last_donated_hint">Lägg till datum för senaste donationen</string>
-  <string name="donor_history_last_donated_date_picker_title">Valt datum</string>
-  <string name="donor_history_last_donated_date_picker_label">Ange datum</string>
-  <string name="donor_history_last_donated_never">Aldrig</string>
-  <string name="donor_history_recurring_donor">Återkommande donation</string>
-  <string name="donor_history_donate_button">Donera till Wikimedia Foundation</string>
-  <string name="donor_history_about_this_experiment">Om det här experimentet</string>
-  <string name="donor_history_updated_message_snackbar">Donationshistoriken uppdaterad</string>
-  <string name="contributions_dashboard_survey_dialog_title">Hjälp till att förbättra instrumentbrädan för bidrag</string>
-  <string name="contributions_dashboard_survey_dialog_message">Den här uppdateringen av instrumentbrädan är en testfunktion. Skulle du vilja se den här funktionen förbättrad eller borttagen?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Ingen åsikt</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Ge återkoppling</string>
-  <string name="contributions_dashboard_donation_dialog_title">Tack för att du stödjer fri kunskap</string>
-  <string name="contributions_dashboard_donation_dialog_message">Du är en del av de 2%% som väljer att stödja resursen som miljontals använder. För att demonstrera vår tacksamhet har din instrumentbräda uppdaterats för att erkänna sin status som donator. Vill du se uppdateringen?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Nej tack</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Ja, ta mig dit</string>
-  <string name="contributions_dashboard_entry_dialog_title">Utforska allt som har lagts till i bidragsinstrumentbrädan</string>
-  <string name="contributions_dashboard_entry_dialog_message">Bidragsinstrumentbrädan visar nu donationsstatus. Vill du granska denna experimentella funktion?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Nej tack</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Ja, ta mig dit</string>
-  <string name="contributions_dashboard_badge_donor">Donator</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Bli en donator</string>
-  <string name="contributions_dashboard_badge_update">Uppdatera donatorstatus</string>
-  <string name="contributions_dashboard_app_icon_title">Appikon</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Donatorfördelar</string>
-  <string name="contributions_dashboard_logged_out_user">Utloggad användare</string>
-  <string name="contributions_dashboard_tab_last_donated">Donerade senast</string>
-  <string name="contributions_dashboard_tab_update_button">Uppdatera</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Tack för att du donerar.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Du har låst upp en tillfälligt anpassad ikon. Du kan byta till den här ikonen i dina inställningar under \"Appikon\". Vill du uppdatera din ikon nu?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nej tack</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Ja, ta mig till inställningarna</string>
-  <string name="contributions_dashboard_app_icon_updated">Appikonen har uppdaterats</string>
-  <string name="recent_searches_title">Senaste sökningar</string>
-  <string name="recent_searches_related_to_reading">Relaterat till vad du läser</string>
-  <string name="rabbit_holes_experiment">Experiment</string>
-  <string name="rabbit_holes_experiment_about">Om detta experiment</string>
-  <string name="rabbit_holes_survey_dialog_title">Hjälp till att förbättra djupdykningen</string>
-  <string name="rabbit_holes_survey_dialog_body">Är du nöjd med det rekommenderade sökresultatet?</string>
-  <string name="suggested_reading_list_title">Baserat på vad du läser</string>
-  <string name="suggested_reading_list_description">Inspirerat av \"%s\"</string>
-  <string name="suggested_reading_list_later_snackbar">Gå till fliken Sparade på hemskärmen om du vill besöka din läslista senare.</string>
-  <string name="suggested_reading_list_dialog_title">Du har en ny föreslagen läslista.</string>
-  <string name="suggested_reading_list_dialog_body">Detta är en experimentell funktion. Innehållet baseras på din senaste läshistorik. Vill du kolla in den nya läslistan?</string>
-  <string name="suggested_reading_list_dialog_positive">Prova nu</string>
-  <string name="suggested_reading_list_dialog_negative">Kanske senare</string>
-  <string name="suggested_reading_list_back_cancel">Se din föreslagna läslista när som helst i fliken Sparade på startskärmen.</string>
   <string name="survey_dialog_title">Hjälp oss att förbättra denna funktion</string>
   <string name="survey_dialog_message">Är du nöjd med denna funktion?</string>
   <string name="survey_dialog_option_satisfied">Nöjd</string>
@@ -1740,6 +1694,160 @@
   <string name="survey_dialog_option_very_unsatisfied">Mycket missnöjd</string>
   <string name="survey_dialog_cancel">Avbryt</string>
   <string name="survey_dialog_submit">Skicka</string>
+  <string name="survey_dialog_next">Nästa</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nej</string>
+  <string name="survey_dialog_general_maybe">Kanske</string>
   <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
-  <string name="survey_dialog_submitted_snackbar">Återkoppling har skickats.</string>
+  <string name="survey_dialog_submitted_snackbar">Återkopplingen har skickats in. Tack!</string>
+  <string name="on_this_day_game_entry_dialog_title">Introducerar</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spel</string>
+  <string name="on_this_day_game_entry_dialog_button">Spela dagens spel</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spel är tillgängliga i flödet Utforska.</string>
+  <string name="on_this_day_game_title">Vilket kom först?</string>
+  <string name="on_this_day_game_dialog_button">Spela</string>
+  <string name="on_this_day_game_splash_message">Gissa vilken händelse som kom först den här dagen i historien.</string>
+  <string name="on_this_day_game_progress">%1$d av %2$d</string>
+  <string name="on_this_day_game_score">Poäng: %d</string>
+  <string name="on_this_day_game_submit">Skicka in</string>
+  <string name="on_this_day_game_correct">Rätt!</string>
+  <string name="on_this_day_game_incorrect">Fel!</string>
+  <string name="on_this_day_game_point">+1 poäng</string>
+  <string name="on_this_day_game_next">Nästa fråga</string>
+  <string name="on_this_day_game_finish">Slutresultat</string>
+  <string name="on_this_day_game_share_button">Dela</string>
+  <string name="on_this_day_game_pause_title">Pausa spelet?</string>
+  <string name="on_this_day_game_pause_body">Dina framsteg kommer sparas för dagen. Du hittar spelet i ditt Utforska-flöde.</string>
+  <string name="on_this_day_game_pause_negative">Fortsätt spela</string>
+  <string name="on_this_day_game_pause_positive">Jag förstår</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spel</string>
+  <string name="on_this_day_game_feed_entry_card_title">Vilket kom först?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Gissa vilken händelse som kom först den här dagen i historien.</string>
+  <string name="on_this_day_game_result">Du fick %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Nästa spel om %s</string>
+  <string name="on_this_day_game_your_stats">Din statistik</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Spelat spel</item>
+    <item quantity="other">Spelade spel</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Genomsnittligt betyg</string>
+  <string name="on_this_day_game_stats_streak">Nuvarande svit</string>
+  <string name="on_this_day_game_result_subtitle">Artiklar som refereras till i dagens spel</string>
+  <string name="on_this_day_game_completed_message">Tack för att du spelar. Ett nytt spel av \"Vilket kom först?\" är tillgänglig dagligen på flödet Utforska.</string>
+  <string name="on_this_day_game_menu_notifications">Spelaviseringar</string>
+  <string name="on_this_day_game_menu_info">Ta reda på mer</string>
+  <string name="on_this_day_game_menu_feedback">Problem med funktionen</string>
+  <string name="on_this_day_game_article_read_button">Läs artikeln</string>
+  <string name="on_this_day_game_article_related_event_title">Evenemang som rör den här artikeln</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Du svarade rätt på frågan</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Du svarade fel på frågan</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Stäng av spelaviseringar?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Om du stänger av push-meddelanden kommer du inte längre få en påminnelse varje dag när ett nytt spel finns att spela.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Stäng av spelaviseringar?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Spelaviseringar meddelar dig dagligen när ett nytt spel finns tillgängligt.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nej, behåll dem</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Stäng av dem</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ja, stäng av dem</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Behåll dem avstängda</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spelaviseringar av.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spelaviseringar på.</string>
+  <string name="on_this_day_game_notification_text">Dagens omgång av \"Vilket kom först?\" är redo.</string>
+  <string name="on_this_day_game_report_email_subject">Felanmäl - Wikipedia-spel</string>
+  <string name="on_this_day_game_report_email_body">Jag har stött på ett problem med Wikipedias spelfunktion:\n- [Beskriv det specifika problemet]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
+  <string name="on_this_day_game_notification_undo">Ångra</string>
+  <string name="on_this_day_game_share_link_message">Jag spelar \"Vilket kom först?\" en daglig frågesport i Wikipedias Android-app %s</string>
+  <string name="on_this_day_game_share_screen_title">Jag fick %1$d/%2$d poäng på\n\"Vad kom först?\"\nidag.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Ämnen innefattar:</string>
+  <string name="on_this_day_game_archive_calendar_title">Välj ett spel efter datum att spela.</string>
+  <string name="on_this_day_game_score_toast_message">Du fick %1$d/%2$d poäng den här dagen.</string>
+  <string name="on_this_day_game_continue_btn_text">Fortsätt dagens spel</string>
+  <string name="on_this_day_game_current_progress_message">Du är på fråga %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Spela upp arkivet</string>
+  <string name="on_this_day_game_review_results_btn_text">Granska resultatet</string>
+  <string name="on_this_day_game_score_message">Du fick %1$d/%2$d poäng på dagens spel.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Fortsätt spela</string>
+  <string name="on_this_day_game_sound_on">Slå på ljud</string>
+  <string name="on_this_day_game_sound_off">Stäng av ljud</string>
+  <string name="recommended_reading_list_title">Upptäck</string>
+  <string name="recommended_reading_list_onboarding_card_title">Upptäck artiklar utvalda för just dig</string>
+  <string name="recommended_reading_list_onboarding_card_message">Veckans läslista av Wikipediaartiklar, utvalda för dig.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ny!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Sätt igång</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Nej tack</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Om du vill ställa in din rekommenderade läslista senare kan du gå till inställningarna.</string>
+  <string name="recommended_reading_list_interest_source_message">Hur ska vi bygga upp din rekommenderade läslista?</string>
+  <string name="recommended_reading_list_interest_source_interests">Låt mig välja utifrån mina intressen</string>
+  <string name="recommended_reading_list_interest_source_saved">Välj åt mig baserat på mina sparade artiklar</string>
+  <string name="recommended_reading_list_interest_source_history">Välj åt mig baserat på min läshistorik</string>
+  <string name="recommended_reading_list_interest_pick_title">Vad är du intresserad av?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Sök efter en artikel</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d vald</item>
+    <item quantity="other">%d valda</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Välj minst ett intresse</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Slumpa</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Vi har slumpat fram några artiklar åt dig</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Ångra</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Är du säker på att du vill slumpa fram ditt urval?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Detta kommer rensa dina aktuella val och slumpmässigt välja nya artiklar.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Ja, välj åt mig</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Nej förresten</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Gjort för %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Gjort för dig</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d artikel</item>
+    <item quantity="other">• %d artiklar</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Din dagliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar vid midnatt.</string>
+  <string name="recommended_reading_list_page_description_weekly">Din veckovisa läslista. Lär dig mer om nya ämnen, utvalda för dig. Uppdaterar i början av veckan.</string>
+  <string name="recommended_reading_list_page_description_monthly">Din månatliga läslista. Lär dig om nya ämnen, utvalda bara för dig. Uppdateringar den första i varje månad.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Anpassa</string>
+  <string name="recommended_reading_list_page_overflow_about">Om den här funktionen</string>
+  <string name="recommended_reading_list_page_snackbar">Upptäck uppdateras med %1$d nya artiklar varje %2$s. Dina rekommendationer lagras lokalt på din enhet.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Justera Upptäck</string>
+  <string name="recommended_reading_list_page_snackbar_day">Dag</string>
+  <string name="recommended_reading_list_page_snackbar_week">Vecka</string>
+  <string name="recommended_reading_list_page_snackbar_month">Månad</string>
+  <string name="recommended_reading_list_settings_section_header">Rekommendationer</string>
+  <string name="recommended_reading_list_settings_title">Upptäck inställningar</string>
+  <string name="recommended_reading_list_settings_toggle">Upptäck läslistan</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Upptäck är avslaget. Wikipedia kommer inte rekommendera artiklar att läsa till dig.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Stäng av Upptäck?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Om du stänger av Upptäck kommer du inte längre att få %s läsrekommendationer från Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Stäng av det</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nej, behåll det</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Upptäck är inaktiverat. Du kan aktivera det igen närsomhelst i inställningarna.</string>
+  <string name="recommended_reading_list_settings_articles">artiklar</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Uppdaterar %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">dagligen</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">veckovis</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">månatligen</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Varje dag</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Varje vecka</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Varje månad</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Hur Upptäck är uppbyggt</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Baserat på dina intressen</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Baserat på dina sparade artiklar</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Baserat på din läshistorik</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Justera hur Upptäck är uppbyggt?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Om du justerar hur Upptäck genererar rekommendationer, dina aktuella rekommendationer kommer ersättas.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Justera</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Nej förresten</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Dina rekommendationer baseras nu på dina intressen.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Dina rekommendationer baseras nu på dina sparade artiklar.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Dina rekommendationer baseras nu på din läshistorik.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Ångra</string>
+  <string name="recommended_reading_list_settings_interests">Intressen</string>
+  <string name="recommended_reading_list_settings_notifications_title">Aviseringar</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia kommer inte skicka aviseringar till dig när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Aviseringar för Upptäck är avstängda. Du får inga aviseringar när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Stäng av aviseringar?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Om du stänger av aviseringar får du inte längre påminnelser när Upptäck uppdateras.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Stäng av dem</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nej, behåll dem på</string>
+  <string name="recommended_reading_list_notification_title">Din %s Upptäck-läslista är redo.</string>
+  <string name="recommended_reading_list_notification_subtitle">Tryck för att se dina senaste rekommendationer.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">När din Upptäck uppdateras kommer Wikipedia skicka en rekommendation till dig.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Upptäck är påslaget. Wikipedia kommer rekommendera artiklar att läsa till dig.</string>
 </resources>

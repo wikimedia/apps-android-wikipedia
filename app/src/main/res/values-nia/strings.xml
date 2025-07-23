@@ -17,6 +17,7 @@
   <string name="nav_item_suggested_edits">Bulö\'ö</string>
   <string name="nav_item_more">Tohu-tohunia</string>
   <string name="nav_item_search">Alui</string>
+  <string name="nav_item_contribute">Ae manura</string>
   <string name="error_network_error">Lö koneksi internet</string>
   <string name="page_error_retry">Fuli lau</string>
   <string name="card_offline_error_retry">Fuli lau</string>
@@ -52,11 +53,14 @@
   <string name="page_edit_history_filter_by">Tafi\'ö molo\'ö</string>
   <string name="page_edit_history_filter_by_all">Fefu wamulö\'ö (%s)</string>
   <string name="page_edit_history_filter_by_user">Nibulö\'ö zangoguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Nibulö\'ö niha sanörö (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Nibulö\'ö niha sanörö (%s)</string>
   <string name="page_edit_history_filter_by_bot">Nibulö\'ö robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik i\'otarai %1$s irugi %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="other">%1$d nibulö\'ö i\'otarai %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">%1$d nibulö\'ö i\'otarai %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Tandraigö falali &lt;a href=\"#\"&gt;wanafi\'ö&lt;/a&gt; ena\'ö oroma wamulö\'ö tanö bö\'ö</string>
   <string name="menu_page_show_tabs">Oroma\'ö tab</string>
@@ -99,8 +103,9 @@
   <string name="map_view_link_text">Faigi ba peta</string>
   <string name="other_languages_indication_text">Baso ba li tanö bö\'ö</string>
   <string name="language_count_link_text">So ba %d li tanö bö\'ö</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö  lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö lisensi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Famulö\'ö tefaböbö ba alamat IP perangkatmö. Na no &lt;a href=\"https://#login\"&gt;möi\'ö bakha&lt;/a&gt;, so khöu nasa privasi.</string>
+  <string name="edit_save_action_license_logged_in">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö  lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö lisensi &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Tefaböbö wamulö\'ö andre ba alamat IP wakakemö. Na no &lt;a href=\"https://#login\"&gt;möi\'ö bakha&lt;/a&gt;, so khöu onönöta privasi.</string>
+  <string name="edit_anon_warning">Tefaböbö dania nibulö\'o andre ba no. IP wakake khöu. So khöu gonönöta privasi na &lt;a href=\"https://#login\"&gt;möi\'ö bakha&lt;/a&gt;.</string>
   <string name="preference_title_language">Li Wikipedia</string>
   <string name="langlinks_filter_hint">Alui</string>
   <string name="langlinks_empty">Nga\'örö andre lö ba li bö\'ö.</string>
@@ -109,6 +114,7 @@
   <string name="langlinks_your_wikipedia_languages">Limö ba Wikipedia</string>
   <string name="menu_save_changes">Awalisi wamulö\'ö</string>
   <string name="edit_saved_successfully">No mufa\'ohe\'ö nibulö\'ö!</string>
+  <string name="stub_article_edit_saved_successfully">No terbit nibulö\'ömö! Tola manö moguna ginötö irege oroma zi no mubulö\'ö andrö.</string>
   <string name="dialog_message_edit_failed">No fasala wamulö\'ö!</string>
   <string name="dialog_message_edit_failed_retry">Fuli lau</string>
   <string name="dialog_message_edit_failed_cancel">Böi tohugö</string>
@@ -214,12 +220,12 @@
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Goi-goi wangoguna\'ö</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/nia</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/nia</string>
   <string name="android_app_request_an_account_url">https://nia.wikipedia.org/wiki/Wikipedia:Mangandrö_wamazökhi_akun</string>
   <string name="about_libraries_heading">Pustaka ni\'oguna\'ö</string>
   <string name="about_contributors_heading">Kontributor</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Nga\'örö tim&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Nga\'örö tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Sangali</string>
   <string name="about_translators_translatewiki">No la\'ali aplikasi andre ira relawan ba &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>

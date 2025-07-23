@@ -220,14 +220,12 @@
   <string name="privacy_policy_description">ߘߎ߲߬ߘߎ߬ߡߊ߬ ߤߊߞߍ</string>
   <string name="terms_of_use_description">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ</string>
   <string name="about_wikipedia_url">https://nqo.wikipedia.org/wiki/ߥߞߌ-ߔߘߋߞߎ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ߛߓߍߘߊ߮ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ</string>
   <string name="about_contributors_heading">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ ߟߎ߬</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ߘߟߊߡߌߘߊߟߊ߲</string>
   <string name="about_translators_translatewiki">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߓߐߒߖߘߍߘߐ߫ ߘߟߊߡߌߘߟߊ ߟߎ߬ ߟߋ߬ ߓߟߏ߫ ߦߊ߲߬ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ߕߌ߰ߦߊ</string>
@@ -490,8 +488,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">ߦߌߟߡߊ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߦߋ߫ ߟߊ߫ ߛߙߍߘߍ߫ ߦߙߌߞߊ ߟߎ߬ ߘߐ߫</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ߕߍ߫ ߣߊ߬ ߡߍ߲߫ ߠߊ߫ ߞߍߟߌ ߘߐ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߍ߯ ߦߋ߫:</string>
   <string name="reading_lists_sync_reminder_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߟߊߞߎߣߎ߲߫؟</string>
-  <string name="reading_lists_sync_reminder_text">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߟߎ߬ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߛߍߣߍ߲߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߡߎ߬ߕߎ߲߬. \nߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߞߵߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߟߎ߬ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߛߍߣߍ߲߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߡߎ߬ߕߎ߲߬. \nߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߞߵߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_login_reminder_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫</string>
   <string name="reading_lists_login_reminder_text">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߛߌߣߍ߲߬. ߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߞߴߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬.</string>
@@ -751,8 +749,6 @@
   <string name="description_edit_voice_input_description">ߡߍ߲ߞߊ߲߫ ߠߊߘߏ߲</string>
   <string name="description_edit_learn_more">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߞߊ߬ ߓߍ߲߬ ߞߎߡߘߊ ߛߓߍ߫ ߢߊ ߞߊ߲߬</string>
   <string name="description_edit_image_caption_learn_more">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߞߊ߲߬</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">ߛߓߍߟߌ ߛߘߎ߬ߡߊ߲߬ ߞߏߖߎ߰.</string>
   <string name="description_ends_with_punctuation">ߛߓߍߟߌ ߕߍ߫ ߞߎ߲߭ߝߊ߰ ߟߊ߫ ߕߏ߲ߘߋߦߊߟߌ ߡߊ߬.</string>
   <string name="description_starts_with_uppercase">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߞߟߏߘߋ߲߫ ߢߟߋߢߟߋ ߡߊ߬ ߛߐ߲߬ ߝߏ߫ ߞߟߏߘߋ߲߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߞߍ߫ ߞߟߏ߫ ߓߘߍ ߘߌ߫.</string>
@@ -849,8 +845,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߙߊ߬</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߝߙߊ߬</string>
-  <string name="suggested_edits_snackbar_survey_text">ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍߞߌߦߊ ߕߘߍ߬ ߦߋ߫ ߘߌ߬؟ ߥߊ߯ߕߌ ߘߏ߫ ߕߊ߬ ߖߊ߰ߣߌ߲߫ ߞߊ߬ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐߙߑߝ߭ߋ߬) ߘߏ߫ ߟߝߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߊ߲߬.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">ߘߐ߬ߛߏ߰ߙߋߟߌ ߞߍ߫</string>
   <string name="suggested_edits_task_action_text_add">ߟߊ߬ߘߏ߲߬ߠߌ߲</string>
   <string name="suggested_edits_task_action_text_translate">ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
@@ -1188,14 +1182,12 @@
   <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>
   <string name="revision_compare_button">ߞߵߊ߬ ߟߊ߫ ߢߐ߲߮ ߡߊ߬</string>
   <string name="revision_compare_two_only">ߟߢߊ߬ߟߌ߫ ߝߌ߬ߟߊ߬ ߘߐߙߐ߲߫ ߠߋ߬ ߘߌ߫ ߛߋ߫ ߓߊߕߐ߬ߡߐ߲߫ ߠߊ߫.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߓߌ߬ߟߊ߬ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ %2$s ߟߊ߫</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ߊ߬ ߡߊߝߊ߬ߟߋ߲߬</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ߘߊ߲߬ߓߊߟߌ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ߞߎ߲߬ߢߐ߰ ߁ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ߞߊߙߏ߫ ߁ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ߞߊߙߏ߫ ߃ ߞߘߐ߫</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ߞߊߙߏ߫ ߆ ߞߘߐ߫</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ߣߴߊ߬ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߬ ߓߘߊ߫ ߓߊ߲߫ ߢߌ߬ߣߊ߬ߓߐ߫ ߟߴߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">ߞߎ߲߬ߢߐ߰ ߁ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">ߞߊߙߏ߫ ߁ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">ߞߊߙߏ߫ ߃ ߞߘߐ߫</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ߞߊߙߏ߫ ߆ ߞߘߐ߫</string>
   <string name="watchlist_expiry_dialog_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ ߥߎ߬ߛߎ ߓߊߕߐ߬ߡߐ߲߬</string>
   <string name="watchlist_expiry_dialog_permanent">ߓߟߏߕߍ߰ߓߊߟߌ</string>
   <string name="watchlist_expiry_dialog_one_week">ߞߎ߲߬ߢߐ߰ ߁</string>
@@ -1384,23 +1376,6 @@
   <string name="places_card_distance_suffix">ߝߏ߯ %s</string>
   <string name="places_card_distance_unknown">ߝߏ߬ߣߊ߲߬ ߡߊߟߐ߲ߓߊߟߌ</string>
   <string name="places_empty_message_snackbar">ߛߌ߰ߢߐ߲߰ ߞߎߡߘߊ߫ ߛߌ߫ ߕߴߦߋ߲߬. ߞߕߐߙߐ߲ߘߓߐߟߌ ߡߊߝߍߣߍ߲߫ ߞߊ߬ ߓߐ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬.</string>
-  <string name="donor_history_title">ߣߟߌ߬ߟߊ ߟߊ߫ ߘߐ߬ߝߐ</string>
-  <string name="donor_history_save_button">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
-  <string name="donor_history_update_donor_status_default">ߣߟߌ߬ߟߌ߬ߟߊ ߟߌ߬ߤߟߊ ߟߊߞߎߘߦߊ߫</string>
-  <string name="donor_history_update_donor_status_donor">ߣߟߌ߬ߟߊ</string>
-  <string name="donor_history_update_donor_status_not_a_donor">ߣߟߌ߬ߟߊ ߕߍ߫</string>
-  <string name="donor_history_last_donated">ߣߌ߬ߟߌ߫ ߟߊߓߊ߲</string>
-  <string name="donor_history_last_donated_hint">ߣߌ߬ߟߌ߫ ߟߊ߬ߓߊ߲ ߕߎ߬ߡߊ߬ߘߊ ߝߊ߬ߙߊ߫</string>
-  <string name="donor_history_last_donated_date_picker_title">ߕߎ߬ߡߊ߬ߘߊ ߛߎߥߊ߲ߘߌ߫</string>
-  <string name="donor_history_last_donated_date_picker_label">ߕߎ߬ߡߊ߬ߘߊ ߟߊߘߏ߲߬</string>
-  <string name="donor_history_recurring_donor">ߣߌ߬ߟߌߟߊ߫ ߖߐ߲ߖߐ߲</string>
-  <string name="donor_history_donate_button">ߣߌ߬ߟߌ ߞߍ߫ ߥߞߌߡߋߘߌߦߊ ߖߎ߬ߓߌߟߊ ߢߍ߫</string>
-  <string name="donor_history_updated_message_snackbar">ߣߌ߬ߟߌߟߊ ߟߊ߫ ߘߐ߬ߝߐ ߓߘߊ߫ ߟߊߞߎߘߦߊ߫</string>
-  <string name="contributions_dashboard_survey_dialog_title">ߘߍ߬ߡߍ߲߬ߠߌ߲ ߞߍ߫ ߞߊ߬ ߓߟߏߡߊߜߍ߲ߠߊ ߟߎ߬ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߟߊߦߙߌߥߊ߫</string>
-  <string name="contributions_dashboard_donation_dialog_title">ߌ ߣߌ߫ ߗߋ߫ ߟߐ߲ߕߊ߫ ߛߙߊ߬ߓߊߟߌ ߞߐߡߊߓߌ߲ߓߌ߲ ߠߊ߫</string>
-  <string name="contributions_dashboard_donation_dialog_message">ߌ ߦߋ߫ 2%% ߟߎ߫ ߘߏ߫ ߟߋ߬ ߘߌ߫߸ ߡߍ߲ ߠߎ߬ ߣߵߊ߬ ߞߊ߬ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߛߐ߬ߘߐ߲߬ߘߊ߫ ߞߋ߲߬ߥߟߎ ߟߎ߬ ߞߐߡߊߓߌ߲ߓߌ߲߫ ߡߍ߲ ߠߎ߬ ߛߍߥߊߣߍ߲ ߦߴߊ߬ ߟߊ߫. ߊ߲ ߧߴߊ߲ ߠߊ߫ ߞߏߢߌߡߊߟߐ߲ ߦߌ߬ߘߊ߬ ߟߴߌ ߟߊ߫، ߌ ߟߊ߫ ߦߌ߬ߘߊ߬ߥߟߊ ߓߘߊ߫ ߞߵߌ ߟߌ߬ߤߟߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߞߵߊ߬ ߞߍ߫ ߣߌ߬ߟߌߟߊ ߘߌ߫. ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߦߋ߫؟</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">ߊ߬ߦߌ߫߸ ߌ ߣߌ߫ ߗߋ߫</string>
-  <string name="contributions_dashboard_donation_dialog_ok">ߊ߬ߥߐ߫، ߒ ߠߊߛߋ߫ ߦߋ߲߬</string>
   <string name="survey_dialog_option_very_satisfied">ߒ ߠߊߥߛߊ߬ߣߍ߲߫ ߞߏߛߓߍ߫</string>
   <string name="survey_dialog_option_very_unsatisfied">ߒ ߡߊ߫ ߟߊߥߛߊ߬ ߝߋߝߋ߫</string>
   <string name="survey_dialog_cancel">ߊ߬ ߘߐߛߊ߬</string>

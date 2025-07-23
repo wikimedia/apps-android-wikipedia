@@ -27,6 +27,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
@@ -35,7 +37,6 @@ import org.wikipedia.edit.EditTags
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -86,9 +87,6 @@ class DescriptionEditFragment : Fragment() {
         }
         if (!AccountUtil.isLoggedIn) {
             Prefs.incrementTotalAnonDescriptionsEdited()
-        }
-        if (viewModel.invokeSource == InvokeSource.SUGGESTED_EDITS) {
-            SuggestedEditsSurvey.onEditSuccess()
         }
         Prefs.lastDescriptionEditTime = Date().time
         Prefs.isSuggestedEditsReactivationPassStageOne = false
@@ -227,22 +225,18 @@ class DescriptionEditFragment : Fragment() {
                                 }
                             }
                             is Resource.Error -> {
-                                if (viewModel.shouldWriteToLocalWiki()) {
+                                if (viewModel.shouldWriteToLocalWiki() || it.throwable !is MwException) {
                                     editFailed(it.throwable, true)
                                 } else {
-                                    if (it.throwable is MwException) {
-                                        val error = it.throwable.error
-                                        if (error.badLoginState() || error.badToken()) {
-                                            viewModel.postDescription(
-                                                currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
-                                                editComment = getEditComment(),
-                                                editTags = getEditTags(),
-                                                captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
-                                                captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
-                                            )
-                                        } else {
-                                            editFailed(it.throwable, true)
-                                        }
+                                    val error = it.throwable.error
+                                    if (error.badLoginState() || error.badToken()) {
+                                        viewModel.postDescription(
+                                            currentDescription = binding.fragmentDescriptionEditView.description.orEmpty(),
+                                            editComment = getEditComment(),
+                                            editTags = getEditTags(),
+                                            captchaId = if (captchaHandler.isActive) captchaHandler.captchaId() else null,
+                                            captchaWord = if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+                                        )
                                     } else {
                                         editFailed(it.throwable, true)
                                     }
@@ -414,7 +408,12 @@ class DescriptionEditFragment : Fragment() {
 
     private fun editFailed(caught: Throwable, logError: Boolean) {
         binding.fragmentDescriptionEditView.setSaveState(false)
-        FeedbackUtil.showError(requireActivity(), caught)
+        val wikiSite = if (viewModel.shouldWriteToLocalWiki()) {
+            viewModel.pageTitle.wikiSite
+        } else {
+            WikiSite(Service.WIKIDATA_URL)
+        }
+        FeedbackUtil.showError(requireActivity(), caught, wikiSite)
         L.e(caught)
         if (logError) {
             EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)

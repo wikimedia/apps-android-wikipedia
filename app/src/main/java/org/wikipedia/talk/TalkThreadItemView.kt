@@ -23,7 +23,7 @@ import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
-class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class TalkThreadItemView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onExpandClick(item: ThreadItem)
         fun onReplyClick(item: ThreadItem)
@@ -48,13 +48,15 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         binding.overflowButton.setOnClickListener {
-            val builder = MenuBuilder(context)
-            MenuInflater(context).inflate(R.menu.menu_talk_thread_item, builder)
-            builder.setCallback(overflowMenuListener)
-            val helper = MenuPopupHelper(context, builder, binding.overflowButton)
-            helper.setForceShowIcon(true)
-            helper.gravity = Gravity.END
-            helper.show()
+            (context as? Activity)?.let { activity ->
+                val builder = MenuBuilder(activity)
+                activity.menuInflater.inflate(R.menu.menu_talk_thread_item, builder)
+                builder.setCallback(overflowMenuListener)
+                val helper = MenuPopupHelper(activity, builder, binding.overflowButton)
+                helper.setForceShowIcon(true)
+                helper.gravity = Gravity.END
+                helper.show()
+            }
         }
 
         binding.userNameTapTarget.setOnClickListener {

@@ -15,37 +15,42 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import androidx.core.text.buildSpannedString
 import androidx.core.text.color
-import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.ABTest
-import org.wikipedia.analytics.eventplatform.RabbitHolesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
-import org.wikipedia.analytics.metricsplatform.RabbitHolesAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -56,14 +61,17 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.database.RecommendedPage
+import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -75,8 +83,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
-import org.wikipedia.views.SurveyDialog
-import java.util.concurrent.TimeUnit
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -95,9 +101,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private var recentPreviewSavedReadingList: ReadingList? = null
     private var shouldShowImportedSnackbar = false
 
-    private var suggestedReadingList: ReadingList? = null
-    private val suggestedReadingListAdapter = SuggestedReadingListAdapter()
-
     val filePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
             it.data?.data?.let { uri ->
@@ -108,6 +111,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        RecommendedReadingListEvent.submit("impression", "rrl_saved")
         retainInstance = true
     }
 
@@ -115,7 +119,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         _binding = FragmentReadingListsBinding.inflate(inflater, container, false)
         binding.searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = ConcatAdapter(suggestedReadingListAdapter, adapter)
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         setUpScrollListener()
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
@@ -170,10 +174,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
-        if (RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3) {
-            RabbitHolesEvent.submit("impression", "reading_list")
-        }
 
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
@@ -234,7 +234,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         AppDatabase.instance.readingListDao().createList(text, description)
                         updateLists()
                     }
-                    override fun onCancel() { }
                 }).show()
         }
 
@@ -248,7 +247,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun selectListClick() {
             beginMultiSelect()
             adapter.notifyDataSetChanged()
-            suggestedReadingListAdapter.notifyDataSetChanged()
         }
 
         override fun refreshClick() {
@@ -318,10 +316,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                             (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
-            // If the number of lists has changed, just invalidate everything, as a
-            // simple way to get the bottom item margin to apply to the correct item.
-            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
-                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
@@ -330,15 +324,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 lists.removeAt(0)
             }
 
-            lifecycleScope.launch {
-                suggestedReadingList = null
-                if (RabbitHolesAnalyticsHelper.rabbitHolesEnabled &&
-                    RabbitHolesAnalyticsHelper.abcTest.group == ABTest.GROUP_3 && !Prefs.suggestedReadingListsData.isNullOrEmpty()) {
-                    Prefs.suggestedReadingListsData?.let { json ->
-                        suggestedReadingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), json, encoded = false)
-                    }
-                }
+            // If the number of lists has changed, just invalidate everything, as a
+            // simple way to get the bottom item margin to apply to the correct item.
+            val invalidateAll = (importMode || forcedRefresh || displayedLists.size != lists.size ||
+                    (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
+            lifecycleScope.launch {
                 // Asynchronous update of lists affects the multiselect process
                 if (!isTagType(actionMode)) {
                     displayedLists = lists
@@ -349,7 +340,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 } else {
                     result.dispatchUpdatesTo(adapter)
                 }
-                suggestedReadingListAdapter.notifyDataSetChanged()
 
                 recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
                     .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
@@ -361,6 +351,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 maybeShowPreviewSavedReadingListsSnackbar()
                 currentSearchQuery = searchQuery
                 maybeTurnOffImportMode(lists.filterIsInstance<ReadingList>().toMutableList())
+
+                // Recommended Reading List discover card
+                val recommendedArticles = AppDatabase.instance.recommendedPageDao().getNewRecommendedPages()
+                if (RecommendedReadingListHelper.readyToGenerateList() && recommendedArticles.isNotEmpty()) {
+                    setupRecommendedReadingListDiscoverCardView(recommendedArticles)
+                } else {
+                    binding.discoverCardView.isVisible = false
+                }
             }
         }
     }
@@ -383,7 +381,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
             setUpEmptyContainer()
-            setEmptyContainerVisibility(displayedLists.isEmpty() && !binding.onboardingView.isVisible && suggestedReadingListAdapter.itemCount == 0)
+            setEmptyContainerVisibility(displayedLists.isEmpty() && !binding.onboardingView.isVisible)
         } else {
             binding.searchEmptyView.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
             setEmptyContainerVisibility(false)
@@ -415,45 +413,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         sortListsBy(position)
     }
 
-    private inner class SuggestedReadingListAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
-        override fun getItemCount(): Int {
-            return if (suggestedReadingList != null && !selectMode && actionMode == null) 1 else 0
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            return ReadingListItemHolder(ReadingListItemView(requireContext()))
-        }
-
-        override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            if (holder is ReadingListItemHolder && suggestedReadingList != null) {
-                holder.bindItem(suggestedReadingList!!, true)
-            }
-        }
-
-        override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
-            super.onViewAttachedToWindow(holder)
-            if (holder is ReadingListItemHolder) {
-                holder.view.callback = readingListItemCallback
-            }
-        }
-
-        override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
-            if (holder is ReadingListItemHolder) {
-                holder.view.callback = null
-            }
-            super.onViewDetachedFromWindow(holder)
-        }
-    }
-
     private inner class ReadingListItemHolder(itemView: ReadingListItemView) : DefaultViewHolder<View>(itemView) {
-        fun bindItem(readingList: ReadingList, isSuggested: Boolean = false) {
+        fun bindItem(readingList: ReadingList) {
             view.setReadingList(readingList, ReadingListItemView.Description.SUMMARY, selectMode,
-                newImport = readingList.id == recentPreviewSavedReadingList?.id, isSuggested = isSuggested)
+                newImport = readingList.id == recentPreviewSavedReadingList?.id)
             view.setSearchQuery(currentSearchQuery)
-            if (isSuggested) {
-                view.saveClickListener = View.OnClickListener {
-                    startActivity(ReadingListActivity.newIntent(requireActivity(), true, suggestedList = true, suggestedListSave = true))
-                }
+            view.saveClickListener = View.OnClickListener {
+                startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.PREVIEW))
             }
         }
 
@@ -469,7 +435,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             view.setDescription(page.description)
             view.setDescriptionMaxLines(2)
             view.setDescriptionEllipsis()
-            view.setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()))
             view.setImageUrl(page.thumbUrl)
             view.isSelected = page.selected
             view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp, !page.offline || page.saving)
@@ -536,11 +501,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
-                if (readingList == suggestedReadingList) {
-                    startActivity(ReadingListActivity.newIntent(requireActivity(), true, suggestedList = true))
-                } else {
-                    startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
-                }
+                RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
+                startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
 
@@ -664,50 +626,40 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
-    private val selectedListsCount get() = displayedLists.count { it is ReadingList && it.selected }
-
-    private val selectedLists: List<ReadingList>
-        get() {
-            return displayedLists.let {
-                displayedLists.filterIsInstance<ReadingList>()
-                    .filter { it.selected }
-                    .onEach { it.selected = false }
-            }
-        }
+    private val selectedLists
+        get() = displayedLists.filterIsInstance<ReadingList>().filter { it.selected }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
-        private val allSelected get() = selectedListsCount == displayedLists.count { it is ReadingList }
-        private val noneSelected get() = selectedListsCount == 0
+        private val allSelected get() = selectedLists.size == displayedLists.count { it is ReadingList }
+        private val noneSelected get() = selectedLists.isEmpty()
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_reading_lists, menu)
             actionMode = mode
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
-            val deleteIconColor = ResourceUtil.getThemedColorStateList(requireContext(), androidx.appcompat.R.attr.colorError)
             deleteItem.isEnabled = false
-            MenuItemCompat.setIconTintList(deleteItem, deleteIconColor)
-            suggestedReadingListAdapter.notifyDataSetChanged()
             return true
         }
 
         override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            mode.title = if (selectedListsCount == 0) "" else getString(R.string.multi_select_items_selected, selectedListsCount)
+            val listsSelected = selectedLists
+            val onlyDefaultSelected = listsSelected.size == 1 && listsSelected[0].isDefault
+            mode.title = if (listsSelected.isEmpty()) "" else getString(R.string.multi_select_items_selected, listsSelected.size)
             val fullOpacity = 255
             val halfOpacity = 80
-            val alpha = if (selectedListsCount == 0) halfOpacity else fullOpacity
-            val isEnabled = selectedListsCount != 0
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
             val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
             exportItem.title = buildSpannedString {
-                color(ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)) {
+                color(ColorUtils.setAlphaComponent(exportItemTitleColor,
+                    if (listsSelected.isEmpty()) halfOpacity else fullOpacity)) {
                     append(exportItem.title)
                 }
             }
-            deleteItem.icon?.alpha = alpha
-            exportItem.isEnabled = isEnabled
-            deleteItem.isEnabled = isEnabled
+            deleteItem.icon?.alpha = if (listsSelected.isEmpty() || onlyDefaultSelected) halfOpacity else fullOpacity
+            exportItem.isEnabled = listsSelected.isNotEmpty()
+            deleteItem.isEnabled = listsSelected.isNotEmpty() && !onlyDefaultSelected
 
             val selectButton = menu.findItem(R.id.menu_select)
             selectButton.setIcon(when {
@@ -730,7 +682,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     return true
                 }
                 R.id.menu_export_selected -> {
-                    if (selectedListsCount == 0) {
+                    if (selectedLists.isEmpty()) {
                         Toast.makeText(context, getString(R.string.reading_lists_export_select_lists_message),
                             Toast.LENGTH_SHORT).show()
                         return true
@@ -795,7 +747,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             if (isAdded) {
                 (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             }
-            suggestedReadingListAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -848,28 +799,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             shouldShowImportedSnackbar = false
             Prefs.receiveReadingListsData = null
             Prefs.readingListRecentReceivedId = -1L
-            maybeShowRabbitHolesSurvey()
-        }
-    }
-
-    private fun maybeShowRabbitHolesSurvey() {
-        if (Prefs.suggestedContentSurveyShown) {
-            return
-        }
-        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
-            L.e(t)
-        }) {
-            delay(TimeUnit.SECONDS.toMillis(if (ReleaseUtil.isDevRelease) 1L else 10L))
-            if (!Prefs.suggestedContentSurveyShown) {
-                Prefs.suggestedContentSurveyShown = true
-                SurveyDialog.showFeedbackOptionsDialog(
-                    requireActivity(),
-                    titleId = R.string.rabbit_holes_survey_dialog_title,
-                    messageId = R.string.rabbit_holes_survey_dialog_body,
-                    snackbarMessageId = R.string.survey_dialog_submitted_snackbar,
-                    invokeSource = InvokeSource.RABBIT_HOLE_READING_LIST
-                )
-            }
         }
     }
 
@@ -878,8 +807,27 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
+        if (RecommendedReadingListAbTest().isTestGroupUser() && !Prefs.isRecommendedReadingListOnboardingShown) {
+            RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
+            binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
+            binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
+            binding.onboardingView.setMessageText(getString(R.string.recommended_reading_list_onboarding_card_message))
+            binding.onboardingView.setImageResource(-1, false)
+            binding.onboardingView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+                startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                RecommendedReadingListEvent.submit("enter_click", "rrl_saved_prompt")
+            }, true)
+            binding.onboardingView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+                binding.onboardingView.isVisible = false
+                Prefs.isRecommendedReadingListOnboardingShown = true
+                updateEmptyState(null)
+                FeedbackUtil.showMessage(this@ReadingListsFragment, getString(R.string.recommended_reading_list_onboarding_card_negative_snackbar))
+                RecommendedReadingListEvent.submit("nothanks_click", "rrl_saved_prompt")
+            }, false)
+            binding.onboardingView.isVisible = true
+        } else if ((AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) && !Prefs.isReadingListSyncEnabled &&
                 Prefs.isReadingListSyncReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -890,6 +838,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }, false)
             binding.onboardingView.isVisible = true
         } else if ((!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) && Prefs.isReadingListLoginReminderEnabled && !RemoteConfig.config.disableReadingListSync) {
+            binding.onboardingView.setMessageLabel(null)
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -918,11 +867,52 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
     }
 
+    private fun setupRecommendedReadingListDiscoverCardView(recommendedArticles: List<RecommendedPage>) {
+        binding.discoverCardView.isVisible = true
+        binding.discoverCardView.setContent {
+            val images by remember(Prefs.recommendedReadingListArticlesNumber, Prefs.recommendedReadingListSource) { mutableStateOf(recommendedArticles.mapNotNull { it.thumbUrl }) }
+            var isNewListGenerated by remember { mutableStateOf(Prefs.isNewRecommendedReadingListGenerated) }
+            val subtitle = when (AccountUtil.isLoggedIn) {
+                true -> { getString(R.string.recommended_reading_list_page_subtitle_made_for, "<b>" + AccountUtil.userName + "</b>") }
+                false -> { getString(R.string.recommended_reading_list_page_logged_out_subtitle_made_for_you) }
+            }
+
+            LaunchedEffect(Unit) {
+                FlowEventBus.events.collect { event ->
+                    if (event is NewRecommendedReadingListEvent) {
+                        isNewListGenerated = Prefs.isNewRecommendedReadingListGenerated
+                    }
+                }
+            }
+            val description = when (Prefs.recommendedReadingListUpdateFrequency) {
+                RecommendedReadingListUpdateFrequency.DAILY -> R.string.recommended_reading_list_page_description_daily
+                RecommendedReadingListUpdateFrequency.WEEKLY -> R.string.recommended_reading_list_page_description_weekly
+                RecommendedReadingListUpdateFrequency.MONTHLY -> R.string.recommended_reading_list_page_description_monthly
+            }
+            BaseTheme {
+                RecommendedReadingListDiscoverCardView(
+                    modifier = Modifier
+                        .clickable {
+                            FlowEventBus.post(NewRecommendedReadingListEvent())
+                            startActivity(ReadingListActivity.newIntent(requireActivity(), ReadingListMode.RECOMMENDED))
+                        }
+                        .padding(16.dp),
+                    title = getString(R.string.recommended_reading_list_title),
+                    subtitleIcon = R.drawable.ic_wikipedia_w,
+                    subtitle = subtitle,
+                    description = getString(description),
+                    images = images,
+                    isNewListGenerated = isNewListGenerated,
+                    isUserLoggedIn = AccountUtil.isLoggedIn
+                )
+            }
+        }
+    }
+
     companion object {
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_PAGE_ITEM = 1
         private const val SAVE_COUNT_LIMIT = 3
-        const val ARTICLE_ITEM_IMAGE_DIMENSION = 57
 
         fun newInstance(): ReadingListsFragment {
             return ReadingListsFragment()
@@ -934,7 +924,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 swipeRefreshLayout.isRefreshing = false
             } else {
                 Prefs.isReadingListSyncEnabled = true
-                ReadingListSyncAdapter.manualSyncWithRefresh()
+
+                // TODO: Change this back to the less forceful manualSyncWithRefresh() when the
+                // service-side endpoint is fixed.
+                // https://phabricator.wikimedia.org/T351149
+                ReadingListSyncAdapter.manualSyncWithForce()
             }
         }
     }

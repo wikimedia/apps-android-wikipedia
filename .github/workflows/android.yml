@@ -13,16 +13,17 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
     - name: Checkout submodules
       run: git submodule update --init --recursive
     - name: Build, test, and lint
-      run: ./gradlew clean checkstyle ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease
+      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease --no-daemon
     - name: List
       run: ls -alR ./app/build/outputs/apk/
-    - uses: r0adkll/sign-android-release@v1
+    - uses: kevin-david/zipalign-sign-android-release@v2
       name: Sign APK
       id: build_signed
       with:
@@ -32,8 +33,8 @@ jobs:
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
-        # override default build-tools version (29.0.3) -- optional
-        BUILD_TOOLS_VERSION: "34.0.0"
+        # override default build-tools (optional)
+        BUILD_TOOLS_VERSION: "35.0.0"
     - name: Create hash
       run: git rev-parse HEAD > app/build/outputs/apk/alpha/release/rev-hash.txt
     - name: Rename APK to universal
@@ -47,7 +48,7 @@ jobs:
     - name: Sleep for 30 seconds, to allow the tag to be deleted
       run: sleep 30s
       shell: bash
-    - uses: ncipollo/release-action@v1.14.0
+    - uses: ncipollo/release-action@v1.18.0
       name: Create new tag and release and upload artifacts
       with:
         name: latest

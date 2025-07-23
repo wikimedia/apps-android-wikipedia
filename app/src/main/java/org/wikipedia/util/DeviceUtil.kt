@@ -7,13 +7,16 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
+import android.os.Handler
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -21,6 +24,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import kotlin.system.exitProcess
 
 object DeviceUtil {
     private inline val Window.insetsControllerCompat
@@ -72,6 +76,33 @@ object DeviceUtil {
                 it.setOnContextClickListener { obj -> obj.performLongClick() }
             }
         }
+    }
+
+    /**
+     * https://issuetracker.google.com/issues/160946170
+     * There's a platform-specific issue where the app gets launched in "Restricted" mode during a
+     * backup operation; And if the app crashes during that operation, it remains in Restricted
+     * mode in subsequent launches, including subsequent user-requested launches. While in this
+     * mode, the system doesn't actually launch our custom subclassed WikipediaApp object, but
+     * instead uses a vanilla Application object, which will cause issues when other classes try
+     * to access static data from the WikipediaApp object.
+     *
+     * This is a workaround that explicitly terminates the app process if it's running in Restricted
+     * mode, to be used sparingly from places where this crash is most likely to occur.
+     */
+    fun assertAppContext(context: Context, terminateOnFail: Boolean = false): Boolean {
+        if (context.applicationContext !is WikipediaApp) {
+            if (terminateOnFail) {
+                Handler(context.mainLooper).post { exitProcess(0) }
+            }
+            return false
+        }
+        return true
+    }
+
+    fun setEdgeToEdge(activity: AppCompatActivity) {
+        activity.enableEdgeToEdge()
+        WindowCompat.getInsetsController(activity.window, activity.window.decorView).isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
     }
 
     val isOnWiFi: Boolean

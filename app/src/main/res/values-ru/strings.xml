@@ -7,12 +7,14 @@
 * Alexey zakharenkov
 * Amire80
 * Batumski brodyaga
+* Borealex
 * Cat1987
 * Dbrant
 * Diman Russkov
 * Dirruw'o
 * Dyaydyasasha2015
 * Edible Melon
+* Engineer56
 * Envlh
 * Esukhovnina
 * Facenapalm
@@ -88,6 +90,9 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_languages">Поиск языка</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Очистить запрос</string>
+  <string name="search_icon_content_description">Поиск</string>
   <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
@@ -185,6 +190,7 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
@@ -203,6 +209,10 @@
   <string name="dialog_message_leaving_edit">Внесённые изменения не были опубликованы. Вы уверены, что хотите покинуть эту страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Уйти</string>
   <string name="dialog_message_leaving_edit_stay">Остаться</string>
+  <string name="dialog_confirm_delete_donation_history_title">Подтвердите удаление</string>
+  <string name="dialog_confirm_delete_donation_history_message">Это будет применяться только к пожертвованиям, сделанным с этого устройства.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Удалить</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Отмена</string>
   <string name="menu_show_toc">Содержание</string>
   <string name="search_no_results_found">Ничего не найдено</string>
   <string name="search_reading_list_no_results">Не найдено результатов в \"%s\"</string>
@@ -218,7 +228,10 @@
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двухфакторной аутентификации</string>
-  <string name="login_2fa_other_workflow_error_msg">Требуется двухфакторная аутентификация! Пожалуйста, вернитесь к основной деятельности и войти в систему с помощью вашего 2FA-токена, а затем повторите попытку.</string>
+  <string name="login_2fa_other_workflow_error_msg">Требуется двухфакторная аутентификация! Войдите в систему с главного экрана и введите код из вашего токена 2FA.</string>
+  <string name="login_email_auth_hint">Код подтверждения электронной почты</string>
+  <string name="login_email_auth_other_workflow_error_msg">Требуется подтверждение по электронной почте! Войдите с главного экрана и введите код подтверждения по электронной почте.</string>
+  <string name="login_background_error_msg">Невозможно повторно войти. Пожалуйста, вернитесь на главный экран и войдите вручную.</string>
   <string name="onboarding_card_login">Войти</string>
   <string name="page_editing_login">Войти</string>
   <string name="reading_lists_sync_login">Войти</string>
@@ -308,29 +321,28 @@
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/ru</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Теги_изображений</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
   <string name="about_app_license">Исходный код доступен на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
+  <string name="about_logo_content_description">Логотип Википедии в виде глобуса-пазла</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
   <string name="edit_abandon_confirm_no">Нет</string>
   <string name="user_blocked_from_editing_title">Заблокирован</string>
-  <string name="user_logged_in_blocked_from_editing">Ваша учётная запись была заблокирована от редактирования в этом вики-проекте.</string>
+  <string name="user_logged_in_blocked_from_editing">Ваша учётная запись была заблокирована в этом вики-проекте.</string>
   <string name="user_anon_blocked_from_editing">Редактирование с вашего IP-адреса было заблокировано.</string>
   <string name="edit_how_page_improved">Как именно вы улучшили страницу?</string>
   <string name="edit_next">Далее</string>
@@ -464,6 +476,7 @@
   <string name="preference_title_collapse_tables">Свернуть таблицы</string>
   <string name="preference_summary_collapse_tables">Автоматически сворачивать табличные блоки, такие как инфобоксы, примечания и комментарии.</string>
   <string name="nav_item_donate">Пожертвовать</string>
+  <string name="nav_item_year_in_review">Обзор года</string>
   <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="location_service_disabled">Службы Геолокации отключены.</string>
   <string name="enable_location_service">Включить</string>
@@ -493,6 +506,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
+  <string name="preference_title_delete_local_donation_history">Удалить локальную историю пожертвований</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Соответствует системной теме оформления</string>
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
@@ -507,11 +521,25 @@
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
+  <string name="temp_account_anon_ip_dialog_body">После создания правки ваш IP-адрес будет связан с вашими правками.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы сохранять историю будущих правок и получить доступ к другим функциям.</string>
   <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
   <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
   <string name="temp_account_using_title">Вы используете временную учётную запись</string>
   <string name="temp_account_dialog_discard">Отменить изменения и войти в систему</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Временная учётная запись %1$s была создана после публикации вашей правки. Срок её действия истекает через %2$d день.</item>
+    <item quantity="few">Временная учётная запись %1$s была создана после публикации вашей правки. Срок её действия истекает через %2$d дня.</item>
+    <item quantity="many">Временная учётная запись %1$s была создана после публикации вашей правки. Срок её действия истекает через %2$d дней.</item>
+    <item quantity="other">Временная учётная запись %1$s была создана после публикации вашей правки. Срок её действия истекает через %2$d дней.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Срок действия учётной записи истекает через %d день.</item>
+    <item quantity="few">Срок действия учётной записи истекает через %d дня.</item>
+    <item quantity="many">Срок действия учётной записи истекает через %d дней.</item>
+    <item quantity="other">Срок действия учётной записи истекает через %d дней.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Вы не авторизовались.&lt;/b&gt; После внесения правки ваш IP-адрес будет связан с вашими правками.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Вы не вошли в систему.&lt;/b&gt; После внесения изменений для вас будет создана временная учетная запись для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;Вы используете временную учетную запись.&lt;/b&gt; Ваше изменение будет отнесено к %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Подробнее...&lt;/a&gt; .</string>
   <string name="temp_account_login_status">&lt;b&gt;В настоящее время вы используете временную учетную запись.&lt;/b&gt; Изменения, внесенные с помощью временной учетной записи %1$s не будут перенесены в вашу постоянную учетную запись при входе в систему. Войдите в систему или создайте учетную запись, чтобы получить кредит на свое имя пользователя, помимо других преимуществ.</string>
@@ -574,6 +602,12 @@
     <item quantity="many">%1$d статей, %2$.2f MБ</item>
     <item quantity="other">%1$d статей, %2$.2f MБ</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d из 1 статьи доступна офлайн</item>
+    <item quantity="few">%1$d из %2$d статей доступна офлайн</item>
+    <item quantity="many">%1$d из %2$d статей доступна офлайн</item>
+    <item quantity="other">%1$d из %2$d статей доступна офлайн</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">Статей доступно офлайн: %1$d из %2$d, %3$.2f МБ</item>
     <item quantity="few">Статей доступно офлайн: %1$d из %2$d, %3$.2f МБ</item>
@@ -617,6 +651,12 @@
     <item quantity="many">Статей удалено из %s: %d</item>
     <item quantity="other">Статей удалено из %s: %d</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d список удалён</item>
+    <item quantity="few">%d списка удалено</item>
+    <item quantity="many">%d списков удалено</item>
+    <item quantity="other">%d списков удалено</item>
+  </plurals>
   <string name="reading_lists_default_list_delete_message">Список по умолчанию (%s) не может быть удалён</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s удалено, но список по умолчанию (%2$s) невозможно удалить.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Списки удалены. Список по умолчанию (%s) не может быть удалён.</string>
@@ -641,8 +681,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
-  <string name="reading_lists_sync_reminder_text">Статьи, сохранённые в списках чтения, теперь могут быть синхронизированы с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учётную запись Википедии и разрешите сохранение списков. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать подробнее&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статьи, сохраненные в списках чтения, теперь можно синхронизировать с вашей учетной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списки чтения теперь можно синхронизировать между устройствами. Войдите в свою учетную запись Wikipedia и разрешите сохранение ваших списков. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
@@ -712,16 +752,33 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Удалить</string>
   <string name="reading_list_activity_title">Список чтения: %s</string>
   <string name="reading_list_notification_title">Списк(и) для чтения экспортирован(ы).</string>
+  <string name="reading_list_notification_text">%d списков для чтения было экспортировано как \"reading_lists export.json\" в папку загрузок</string>
+  <string name="reading_list_notification_detailed_text">Списки для чтения экспортированы в «reading_lists_export.json».</string>
   <string name="reading_lists_action_menu_export_lists">Экспортировать</string>
   <string name="reading_lists_import_file_picker_title">Выберите файл для импорта</string>
   <string name="reading_lists_import_failure_message">Не удалось импортировать списки чтения</string>
   <string name="reading_lists_export_select_lists_message">Выберите списки для экспорта</string>
   <string name="reading_lists_export_completed_message">Списк(и) для чтения экспортирован(ы).</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Ошибка экспорта списка для чтения</item>
+    <item quantity="few">Ошибка экспорта списков для чтения</item>
+    <item quantity="many">Ошибка экспорта списков для чтения</item>
+    <item quantity="other">Ошибка экспорта списков для чтения</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Список для чтения импортирован</item>
+    <item quantity="few">Списки для чтения импортированы</item>
+    <item quantity="many">Списки для чтения импортированы</item>
+    <item quantity="other">Списки для чтения импортированы</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Общедоступный список для чтения</string>
   <string name="reading_lists_preview_save_button">Сохранить</string>
   <string name="reading_lists_preview_save_dialog_title">Сохранить список</string>
+  <string name="reading_lists_preview_save_dialog_text">Дайте название списку и выберите статьи для сохранения.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заголовок</string>
   <string name="reading_lists_preview_save_dialog_cancel">Отмена</string>
   <string name="reading_lists_preview_save_dialog_save">Сохранить</string>
+  <string name="reading_lists_preview_saved_snackbar">Список чтения сохранён</string>
   <string name="reading_lists_preview_saved_snackbar_action">Посмотреть</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
@@ -917,6 +974,7 @@
   <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
+  <string name="feed_item_type_places">Статьи поблизости на основе текущего местоположения</string>
   <string name="feed_empty_message">Ваша лента пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
@@ -927,8 +985,10 @@
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="feed_language_variants_removal_dialog_title">Выберите вариант регионального языка для более удобного чтения</string>
+  <string name="feed_language_variants_removal_dialog_message">Вы используете неподдерживаемый вариант китайского языка в качестве основного языка Википедии.</string>
   <string name="feed_language_variants_removal_dialog_save">Сохранить</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Пожалуйста, обновите ваши дополнительные языки</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Вы используете неподдерживаемый вариант китайского языка в качестве дополнительного. Перейдите в настройки, чтобы выбрать новый дополнительный язык или подтвердить список языков.</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Перейти в настройки</string>
   <string name="top_read_activity_title">Самое читаемое %s</string>
   <string name="tabs_activity_title">Вкладки</string>
@@ -952,17 +1012,17 @@
   <string name="description_edit_help_title">Справка: описания статей</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
   <string name="description_edit_voice_input_description">Голосовой ввод</string>
   <string name="description_edit_learn_more">Подробнее об описаниях статей</string>
   <string name="description_edit_image_caption_learn_more">Подробнее о подписях к изображениям</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Описания_статей</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ru#Подписи_к_изображениям</string>
   <string name="description_too_short">Этот текст слишком короткий.</string>
+  <string name="description_too_long">Постарайтесь сделать описания краткими, чтобы пользователи могли сразу понять тему статьи.</string>
   <string name="description_ends_with_punctuation">Текст не должен заканчиваться знаками препинания.</string>
+  <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
@@ -1000,6 +1060,7 @@
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
   <string name="suggested_edits_edit_patrol">Редактировать патруль</string>
+  <string name="suggested_edits_edit_patrol_hint">Просмотрите последние правки и определите, являются ли они конструктивными или нет.</string>
   <string name="suggested_edits_edit_patrol_review">Проверить</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
@@ -1060,8 +1121,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
-  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
@@ -1078,6 +1137,7 @@
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали, будут отклонены. Вы уверены, что хотите отклонить все теги?</string>
   <string name="suggested_edits_image_tags_add_tag">Добавить тег</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Неопубликованные теги не будут сохранены.</string>
   <string name="suggested_edits_image_zoom_tooltip">Ущипните, чтобы увеличить это изображение.</string>
   <string name="suggested_edits_encouragement_message">%s, спасибо за ваши правки. Ниже вы можете найти другие способы внести свой вклад в Википедию.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Привет %s&lt;/b&gt;, ниже вы можете найти несколько быстрых и простых способов помочь улучшить Википедию. Вы увидите разницу того что вы делаете как только начнете. Удачного редактирования!</string>
@@ -1110,6 +1170,12 @@
     <item quantity="few">Вклад</item>
     <item quantity="many">Вклад</item>
     <item quantity="other">Вклад</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Правка</item>
+    <item quantity="few">Правки</item>
+    <item quantity="many">Правок</item>
+    <item quantity="other">Правки</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d день</item>
@@ -1150,6 +1216,7 @@
     <item quantity="many">Добавлено тегов: %d</item>
     <item quantity="other">Добавлено тегов: %d</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли вы, что каждый может редактировать Википедию?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предлагаемые правки - это новый способ редактирования Википедии на Android. Это поможет вам внести небольшой, но жизненно важный вклад в Википедию. Наша цель - сделать редактирование проще и доступнее для всех! Войдите или присоединитесь к Википедии, чтобы начать.</string>
@@ -1369,6 +1436,7 @@
   <string name="talk_warn">Предупреждение</string>
   <string name="talk_warn_save_dialog_title">Сохранить изменения?</string>
   <string name="talk_warn_save_dialog_message">Сохранить как новое сообщение</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Сохранить в список как новое сообщение</string>
   <string name="talk_warn_save_dialog_existing_update_message">Обновить существующее сообщение</string>
   <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
@@ -1455,8 +1523,8 @@
   <string name="menu_option_view_user_contributions">Посмотреть вклад</string>
   <string name="revision_diff_compare">Сравнить версии</string>
   <string name="revision_diff_compare_title">Сравнить версии: %s</string>
-  <string name="revision_diff_from">От:</string>
-  <string name="revision_diff_to">Поучат.:</string>
+  <string name="revision_diff_from">От версии:</string>
+  <string name="revision_diff_to">К версии:</string>
   <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_diff_lines_from_to">Строки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Строка добавлена</string>
@@ -1473,14 +1541,12 @@
   <string name="revision_rollback_success">Совершён откат правок.</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="revision_compare_two_only">Можно выбрать только по две версии.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 неделю</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцев</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">Статья %s и его страница обсуждений были удалены из вашего списка наблюдения.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 неделя</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месяцев</string>
   <string name="watchlist_expiry_dialog_title">Выберите период времени, в течение которого следить за страницей</string>
   <string name="watchlist_expiry_dialog_permanent">Постоянно</string>
   <string name="watchlist_expiry_dialog_one_week">1 неделя</string>
@@ -1661,6 +1727,7 @@
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">История редактирования статьи</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Отмена завершена</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Вы уверены, что хотите выполнить откат?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
@@ -1676,6 +1743,7 @@
   <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
   <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
+  <string name="patroller_saved_message_title_editing_tests">Тестирование редактирования</string>
   <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматический перевод</string>
   <string name="patroller_saved_message_title_coi_rem">Напоминание о конфликте интересов</string>
@@ -1685,6 +1753,7 @@
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="talk_warn_learn_more_label">Узнать о заполнителях сообщений</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
   <string name="talk_templates_menu_edit_title">Править</string>
   <string name="data_opt_in_accept">Принять</string>
@@ -1713,33 +1782,6 @@
   <string name="places_card_action">Больше мест поблизости</string>
   <string name="places_card_enable_location_card_button">Включить определение местоположения</string>
   <string name="places_card_distance_unknown">Расстояние неизвестно</string>
-  <string name="donor_history_title">История донора</string>
-  <string name="donor_history_save_button">Сохранить</string>
-  <string name="donor_history_update_donor_status_donor">Донор</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Не донор</string>
-  <string name="donor_history_last_donated">Последнее пожертвование</string>
-  <string name="donor_history_last_donated_date_picker_title">Выберите дату</string>
-  <string name="donor_history_last_donated_date_picker_label">Ввести дату</string>
-  <string name="donor_history_last_donated_never">Никогда</string>
-  <string name="donor_history_recurring_donor">Постоянный донор</string>
-  <string name="donor_history_donate_button">Пожертвовать в Фонд Викимедиа</string>
-  <string name="donor_history_about_this_experiment">Об этом эксперименте</string>
-  <string name="donor_history_updated_message_snackbar">История донора обновлена</string>
-  <string name="contributions_dashboard_survey_dialog_title">Помогите улучшить панель пожертвований</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Нет мнения</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Поделиться отзывом</string>
-  <string name="contributions_dashboard_donation_dialog_title">Спасибо за поддержку бесплатных знаний</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_entry_dialog_title">Изучите новые дополнения к панели вклада</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_badge_donor">Донор</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Стать донором</string>
-  <string name="contributions_dashboard_badge_update">Обновить статус донора</string>
-  <string name="contributions_dashboard_app_icon_title">Значок приложения</string>
-  <string name="contributions_dashboard_tab_update_button">Обновить</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Нет, спасибо</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Да, перейти в настройки</string>
-  <string name="contributions_dashboard_app_icon_updated">Значок приложения обновлён</string>
   <string name="survey_dialog_title">Помогите нам улучшить эту функцию</string>
   <string name="survey_dialog_message">Вы довольны этой функцией?</string>
   <string name="survey_dialog_option_satisfied">Доволен</string>
@@ -1749,6 +1791,89 @@
   <string name="survey_dialog_option_very_unsatisfied">Очень неудовлетворен</string>
   <string name="survey_dialog_cancel">Отмена</string>
   <string name="survey_dialog_submit">Отправить</string>
+  <string name="survey_dialog_next">Далее</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Нет</string>
+  <string name="survey_dialog_general_maybe">Может быть</string>
   <string name="survey_dialog_input_hint">Дополнительная обратная связь</string>
-  <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена. Спасибо!</string>
+  <string name="on_this_day_game_entry_dialog_title">Введение</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Игры Википедии</string>
+  <string name="on_this_day_game_entry_dialog_button">Сыграть в сегодняшнюю игру</string>
+  <string name="on_this_day_game_title">Что произошло раньше?</string>
+  <string name="on_this_day_game_dialog_button">Играть</string>
+  <string name="on_this_day_game_splash_message">Угадайте, какое событие произошло первым в истории в этот день.</string>
+  <string name="on_this_day_game_progress">%1$d из %2$d</string>
+  <string name="on_this_day_game_score">Счёт: %d</string>
+  <string name="on_this_day_game_submit">Ответить</string>
+  <string name="on_this_day_game_correct">Правильно!</string>
+  <string name="on_this_day_game_incorrect">Неверно!</string>
+  <string name="on_this_day_game_point">+1 балл</string>
+  <string name="on_this_day_game_next">Следующий вопрос</string>
+  <string name="on_this_day_game_finish">Финальный результат</string>
+  <string name="on_this_day_game_share_button">Поделиться</string>
+  <string name="on_this_day_game_pause_title">Поставить игру на паузу?</string>
+  <string name="on_this_day_game_pause_negative">Продолжить играть</string>
+  <string name="on_this_day_game_pause_positive">Понятно</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Игры Википедии</string>
+  <string name="on_this_day_game_feed_entry_card_title">Что произошло раньше?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Угадайте, какое событие произошло первым в истории в этот день.</string>
+  <string name="on_this_day_game_next_in">Следующая игра через %s</string>
+  <string name="on_this_day_game_your_stats">Ваша статистика</string>
+  <string name="on_this_day_game_stats_average_score">Средний балл</string>
+  <string name="on_this_day_game_result_subtitle">Статьи, упомянутые в сегодняшней игре</string>
+  <string name="on_this_day_game_completed_message">Спасибо, что играли. Новая игра \"Что было первым?\" доступна ежедневно в ленте</string>
+  <string name="on_this_day_game_menu_notifications">Уведомления об игре</string>
+  <string name="on_this_day_game_menu_info">Узнать больше</string>
+  <string name="on_this_day_game_menu_feedback">Проблема с функцией</string>
+  <string name="on_this_day_game_article_read_button">Прочитать статью</string>
+  <string name="on_this_day_game_article_related_event_title">Событие, связанное с этой статьей</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Вы правильно ответили на этот вопрос</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Вы неправильно ответили на этот вопрос</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Выключить уведомления об игре?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Включить уведомления об игре?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Уведомления ежедневно оповещают вас о выходе новой игры.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Нет, оставь их включенными.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Выключить их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Да, включить их</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Нет, выключите их</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Уведомления об игре отключены.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Уведомления об игре включены.</string>
+  <string name="on_this_day_game_notification_text">Сегодняшняя игра «Что было раньше?» готова к запуску.</string>
+  <string name="on_this_day_game_notification_undo">Отменить</string>
+  <string name="on_this_day_game_archive_calendar_title">Выберите игру по дате.</string>
+  <string name="on_this_day_game_score_toast_message">В этот день вы %1$d/%2$d.</string>
+  <string name="on_this_day_game_continue_btn_text">Продолжить сегодняшнюю игру</string>
+  <string name="on_this_day_game_current_progress_message">Вы отвечаете на вопрос %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Игры в архиве</string>
+  <string name="on_this_day_game_review_results_btn_text">Посмотреть результат</string>
+  <string name="on_this_day_game_sound_on">Включить звук</string>
+  <string name="on_this_day_game_sound_off">Выключить звук</string>
+  <string name="year_in_review_learn_more">Подробнее</string>
+  <string name="year_in_review_get_started">Начать</string>
+  <string name="year_in_review_donate">Пожертвовать</string>
+  <string name="year_in_review_information_icon">Значок информации</string>
+  <string name="year_in_review_entry_dialog_continue">Продолжить</string>
+  <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
+  <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
+  <string name="year_in_review_survey_satisfied">Доволен</string>
+  <string name="year_in_review_survey_neutral">Воздержусь</string>
+  <string name="year_in_review_survey_unsatisfied">Недоволен</string>
+  <string name="year_in_review_survey_very_unsatisfied">Очень недоволен</string>
+  <string name="year_in_review_survey_placeholder_text">Есть ли у вас какие-нибудь дополнительные мысли?</string>
+  <string name="year_in_review_survey_cancel">Отмена</string>
+  <string name="year_in_review_survey_submit">Отправить</string>
+  <string name="recommended_reading_list_onboarding_card_new">Новое!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Начать</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Нет, спасибо</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Чтобы настроить рекомендованный список для чтения позже, перейдите Настройки.</string>
+  <string name="recommended_reading_list_interest_source_message">Как составить список для чтения?</string>
+  <string name="recommended_reading_list_interest_source_interests">Сделать выбор исходя из моих интересов</string>
+  <string name="recommended_reading_list_interest_source_saved">Сделать список на основе сохранённых статей</string>
+  <string name="recommended_reading_list_interest_source_history">Сделать список на основе прочитанных статей</string>
+  <string name="recommended_reading_list_interest_pick_title">Что вас интересует?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Поиск статьи</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Отменить</string>
+  <string name="recommended_reading_list_settings_section_header">Рекомендации</string>
+  <string name="recommended_reading_list_settings_toggle">Список для чтения</string>
 </resources>

@@ -11,7 +11,7 @@ import org.wikipedia.databinding.ItemDiffLineBinding
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.util.ResourceUtil
 
-class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class DiffLineView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     private val binding = ItemDiffLineBinding.inflate(LayoutInflater.from(context), this)
     private lateinit var diffLine: DiffUtil.DiffLine
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* ABPMAB
 * Aranka
 * Ciell
 * Cooltey
@@ -56,6 +57,9 @@
   <string name="search_hint">Zoeken in Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
+  <string name="search_back_button_content_description">Terug</string>
+  <string name="search_clear_query_content_description">Zoekopdracht wissen</string>
+  <string name="search_icon_content_description">Zoeken</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijsten</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
@@ -71,7 +75,7 @@
   <string name="error_back">Terug</string>
   <string name="error_next">Volgende</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="history_item_deleted">%s verwijderd uit geschiedenis</string>
+  <string name="history_item_deleted">%s uit geschiedenis verwijderd</string>
   <string name="history_items_deleted">%d artikelen uit geschiedenis verwijderd</string>
   <string name="history_item_delete_undo">Ongedaan maken</string>
   <string name="notification_archive_undo">Ongedaan maken</string>
@@ -167,6 +171,10 @@
   <string name="dialog_message_leaving_edit">Uw wijzigingen zijn nog niet gepubliceerd. Weet u zeker dat u deze pagina wilt verlaten?</string>
   <string name="dialog_message_leaving_edit_leave">Verlaten</string>
   <string name="dialog_message_leaving_edit_stay">Blijven</string>
+  <string name="dialog_confirm_delete_donation_history_title">Bevestig verwijdering</string>
+  <string name="dialog_confirm_delete_donation_history_message">Dit geldt alleen voor donaties die via dit apparaat worden gedaan.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Verwijderen</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Annuleren</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
   <string name="search_no_results_found">Geen resultaten gevonden</string>
   <string name="search_reading_list_no_results">Geen resultaten in “%s” gevonden</string>
@@ -182,7 +190,10 @@
   <string name="login_password_hint">Wachtwoord</string>
   <string name="account_creation_password_hint">Wachtwoord</string>
   <string name="login_2fa_hint">Code voor tweetraps-authenticatie</string>
-  <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Keer terug naar de inlogpagina, meld u aan met uw 2FA-code en probeer het dan opnieuw.</string>
+  <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Meld u aan vanuit het hoofdscherm en voer de code van uw 2FA-token in.</string>
+  <string name="login_email_auth_hint">E-mailverificatiecode</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-mailverificatie vereist! Meld u aan vanuit het hoofdscherm en voer uw e-mailverificatiecode in.</string>
+  <string name="login_background_error_msg">Opnieuw aanmelden lukt niet. Ga terug naar het hoofdscherm en meld u handmatig aan.</string>
   <string name="onboarding_card_login">Aanmelden</string>
   <string name="page_editing_login">Aanmelden</string>
   <string name="reading_lists_sync_login">Aanmelden</string>
@@ -218,7 +229,7 @@
   <string name="login_join_wikipedia">Account aanmaken bij Wikipedia</string>
   <string name="login_forgot_password">Wachtwoord vergeten?</string>
   <string name="create_account_already_have">Heeft u al een account?</string>
-  <string name="create_account_activity_title">Een account aanmaken</string>
+  <string name="create_account_activity_title">Account aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
@@ -234,7 +245,7 @@
   <string name="email_recommendation_message">Aanbevolen omdat een e-mailadres nodig is voor accountherstel.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Doorgaan zonder e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Een e-mailadres toevoegen</string>
-  <string name="create_account_button">Registreren</string>
+  <string name="create_account_button">Account aanmaken</string>
   <string name="create_account_name_unavailable">De gebruikersnaam \"%s\" is niet beschikbaar. Kies een andere naam.</string>
   <string name="create_account_ip_block_message">Sorry, uw IP-adres is op dit moment geblokkeerd voor het aanmaken van nieuwe accounts.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -272,24 +283,23 @@
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Teampagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
   <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licentie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
+  <string name="about_logo_content_description">Wikipedia-logo met puzzel en wereldbol</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nee</string>
@@ -424,6 +434,7 @@
   <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="preference_summary_collapse_tables">Klap automatisch tabellen in artikelen in, zoals infoboxen, referenties en noten.</string>
   <string name="nav_item_donate">Doneren</string>
+  <string name="nav_item_year_in_review">Jaaroverzicht</string>
   <string name="error_voice_search_not_available">Spraakherkenning is helaas niet beschikbaar.</string>
   <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>
   <string name="enable_location_service">Inschakelen</string>
@@ -451,6 +462,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
   <string name="preference_summary_prefer_offline_content">Mobiel dataverkeer besparen door offline beschikbare artikelen te laden in plaats van steeds de laatste versie op te halen</string>
+  <string name="preference_title_delete_local_donation_history">Lokale donatiegeschiedenis verwijderen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Gelijk aan systeemthema</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
@@ -607,8 +619,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Het artikel komt in meerdere lijsten voor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal niet langer offline beschikbaar zijn voor alle leeslijsten:</string>
   <string name="reading_lists_sync_reminder_title">Leeslijstsynchronisatie inschakelen?</string>
-  <string name="reading_lists_sync_reminder_text">Artikelen die zijn opgeslagen in leeslijsten, kunnen nu worden gesynchroniseerd met uw Wikipedia-account. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leer meer&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lees meer&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikelen die in leeslijsten zijn opgeslagen kunnen nu met uw Wikipedia-account worden gesynchroniseerd. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Leeslijsten kunnen nu tussen verschillende apparaten worden gesynchroniseerd. Meld u aan bij uw Wikipedia-account en laat uw lijsten opslaan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Meer informatie&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Leeslijsten synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Leeslijsten kunnen nu gesynchroniseerd worden met verschillende apparaten. Meld u aan met uw Wikipedia-account en sta toe dat uw lijsten opgeslagen worden.</string>
@@ -906,16 +918,15 @@
   <string name="description_edit_help_title">Info: artikelbeschrijvingen</string>
   <string name="description_edit_help_about_wikidata">Over Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-gids voor het schrijven van beschrijvingen</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Bedankt voor je belangstelling voor het bewerken van artikelbeschrijvingen! Log in op je Wikipedia-account om meer bewerkingen uit te voeren.</string>
   <string name="description_edit_license_notice">Door de beschrijving van het artikel te wijzigen ga ik akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geef ik onherroepelijk mijn bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">begint meestal met een kleine letter</string>
   <string name="description_edit_voice_input_description">Steminvoer</string>
   <string name="description_edit_learn_more">Meer informatie over artikelbeschrijvingen</string>
   <string name="description_edit_image_caption_learn_more">Meer informatie over afbeeldingsbijschriften</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">De tekst is te kort.</string>
+  <string name="description_too_long">Probeer beschrijvingen kort te houden, zodat gebruikers het onderwerp van het artikel in één oogopslag kunnen begrijpen</string>
   <string name="description_ends_with_punctuation">Tekst mag niet eindigen met een interpuctie.</string>
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
@@ -1013,8 +1024,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Afbeeldingslabels toevoegen</string>
-  <string name="suggested_edits_snackbar_survey_text">Hoe was uw ervaring? Neem even de tijd om de enquête over bewerken via de app in te vullen.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
@@ -1418,14 +1427,12 @@
   <string name="revision_rollback_success">Bewerkingen teruggedraaid.</string>
   <string name="revision_compare_button">Vergelijken</string>
   <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en de bijbehorende overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">voor 1 week</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">voor 1 maand</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">voor 3 maanden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">voor 6 maanden</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s en de bijbehorende overlegpagina zijn verwijderd uit uw volglijst.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 week</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 maand</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 maanden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 maanden</string>
   <string name="watchlist_expiry_dialog_title">Selecteer tijdsperiode voor Volglijst</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 week</string>
@@ -1687,6 +1694,7 @@
   <string name="donate_gpay_help_other_ways">Andere manieren om te geven</string>
   <string name="donate_gpay_help_faq">Veelgestelde vragen</string>
   <string name="donate_gpay_help_tax">Informatie over fiscale aftrekbaarheid</string>
+  <string name="donation_history_deleted_message_snackbar">Donateurgeschiedenis verwijderd</string>
   <string name="places_title">Plaatsen</string>
   <string name="places_permissions_denied">Locatietoestemming is vereist om uw locatie op de kaart te zien. Probeer het opnieuw.</string>
   <string name="places_search_hint">Plaatsen zoeken</string>
@@ -1701,43 +1709,6 @@
   <string name="places_card_distance_suffix">%s verderop</string>
   <string name="places_card_distance_unknown">Onbekende afstand</string>
   <string name="places_empty_message_snackbar">Er zijn geen artikelen in de buurt. Probeer uit te zoomen en de kaart te verplaatsen.</string>
-  <string name="donor_history_title">Donateurgeschiedenis</string>
-  <string name="donor_history_save_button">Opslaan</string>
-  <string name="donor_history_update_donor_status_default">Donateurstatus bijwerken</string>
-  <string name="donor_history_update_donor_status_donor">Donateur</string>
-  <string name="donor_history_update_donor_status_not_a_donor">Geen donateur</string>
-  <string name="donor_history_last_donated">Voor het laatst gedoneerd</string>
-  <string name="donor_history_last_donated_hint">Datum van laatste donatie toevoegen</string>
-  <string name="donor_history_last_donated_never">Nooit</string>
-  <string name="donor_history_recurring_donor">Terugkerende donateur</string>
-  <string name="donor_history_donate_button">Doneer aan de Wikimedia Foundation</string>
-  <string name="donor_history_about_this_experiment">Over dit experiment</string>
-  <string name="donor_history_updated_message_snackbar">Donateurgeschiedenis bijgewerkt</string>
-  <string name="contributions_dashboard_survey_dialog_title">Help het bijdragedashboard te verbeteren</string>
-  <string name="contributions_dashboard_survey_dialog_message">Deze update van het dashboard is een testfunctie. Wil je dat deze functie wordt verbeterd of verwijderd?</string>
-  <string name="contributions_dashboard_survey_dialog_cancel">Geen mening</string>
-  <string name="contributions_dashboard_survey_dialog_ok">Feedback delen</string>
-  <string name="contributions_dashboard_donation_dialog_title">Bedankt voor je steun aan gratis kennis</string>
-  <string name="contributions_dashboard_donation_dialog_message">Je maakt deel uit van de 2%% die ervoor heeft gekozen om de bron te steunen waar miljoenen mensen op vertrouwen. Je bijdragendashboard is bijgewerkt om je status als donateur te erkennen. Wil je deze experimentele functie-update zien?</string>
-  <string name="contributions_dashboard_donation_dialog_cancel">Nee, bedankt</string>
-  <string name="contributions_dashboard_donation_dialog_ok">Ja, breng me erheen</string>
-  <string name="contributions_dashboard_entry_dialog_title">Ontdek de nieuwe toevoegingen aan het bijdragedashboard</string>
-  <string name="contributions_dashboard_entry_dialog_message">Het bijdrageedashboard toont nu donateurstatussen. Wil je deze experimentele functie bekijken?</string>
-  <string name="contributions_dashboard_entry_dialog_cancel">Nee, bedankt</string>
-  <string name="contributions_dashboard_entry_dialog_ok">Ja, breng me erheen</string>
-  <string name="contributions_dashboard_badge_donor">Donateur</string>
-  <string name="contributions_dashboard_badge_become_a_donor">Donateur worden</string>
-  <string name="contributions_dashboard_badge_update">Donateurstatus bijwerken</string>
-  <string name="contributions_dashboard_app_icon_title">App-icoon</string>
-  <string name="contributions_dashboard_app_icon_subtitle">Donateurvoordeel</string>
-  <string name="contributions_dashboard_logged_out_user">Uitgelogde gebruiker</string>
-  <string name="contributions_dashboard_tab_last_donated">Voor het laatst gedoneerd</string>
-  <string name="contributions_dashboard_tab_update_button">Bijwerken</string>
-  <string name="contributions_dashboard_donor_icon_dialog_title">Bedankt dat je donateur bent.</string>
-  <string name="contributions_dashboard_donor_icon_dialog_message">Je hebt een tijdelijk aangepast pictogram ontgrendeld. Je kunt overschakelen naar dit pictogram via je instellingen onder App-icoon. Wil je je pictogram nu bijwerken?</string>
-  <string name="contributions_dashboard_donor_icon_dialog_cancel">Nee, Bedankt</string>
-  <string name="contributions_dashboard_donor_icon_dialog_ok">Ja, breng me naar Instellingen</string>
-  <string name="contributions_dashboard_app_icon_updated">App-pictogram bijgewerkt</string>
   <string name="survey_dialog_title">Help ons deze functie te verbeteren</string>
   <string name="survey_dialog_message">Bent u tevreden over deze functie?</string>
   <string name="survey_dialog_option_satisfied">Tevreden</string>
@@ -1747,5 +1718,125 @@
   <string name="survey_dialog_option_very_unsatisfied">Zeer ontevreden</string>
   <string name="survey_dialog_cancel">Annuleren</string>
   <string name="survey_dialog_submit">Opslaan</string>
-  <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend.</string>
+  <string name="survey_dialog_next">Volgende</string>
+  <string name="survey_dialog_general_yes">Ja</string>
+  <string name="survey_dialog_general_no">Nee</string>
+  <string name="survey_dialog_general_maybe">Misschien</string>
+  <string name="survey_dialog_input_hint">Aanvullende terugkoppeling</string>
+  <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
+  <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
+  <string name="on_this_day_game_entry_dialog_button">Het spel van vandaag spelen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
+  <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
+  <string name="on_this_day_game_dialog_button">Spelen</string>
+  <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_progress">%1$d van %2$d</string>
+  <string name="on_this_day_game_score">Score: %d</string>
+  <string name="on_this_day_game_submit">Verzenden</string>
+  <string name="on_this_day_game_correct">Juist!</string>
+  <string name="on_this_day_game_incorrect">Onjuist!</string>
+  <string name="on_this_day_game_point">+1 punt</string>
+  <string name="on_this_day_game_next">Volgende vraag</string>
+  <string name="on_this_day_game_finish">Eindresultaten</string>
+  <string name="on_this_day_game_share_button">Delen</string>
+  <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
+  <string name="on_this_day_game_pause_body">Je voortgang wordt voor de dag opgeslagen. Je kunt het spel vinden onder Verkennen.</string>
+  <string name="on_this_day_game_pause_negative">Doorspelen</string>
+  <string name="on_this_day_game_pause_positive">Begrepen</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
+  <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
+  <string name="on_this_day_game_next_in">Volgend spel in %s</string>
+  <string name="on_this_day_game_your_stats">Uw statistieken</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">spel gespeeld</item>
+    <item quantity="other">spellen gespeeld</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Gemiddelde score</string>
+  <string name="on_this_day_game_stats_streak">Huidige reeks</string>
+  <string name="on_this_day_game_result_subtitle">Artikelen waarnaar in het spel van vandaag wordt verwezen</string>
+  <string name="on_this_day_game_completed_message">Bedankt voor het spelen. Er is iedere dag een nieuw “Wat gebeurde er eerst?”-spel te vinden onder Verkennen.</string>
+  <string name="on_this_day_game_menu_notifications">Spelmeldingen</string>
+  <string name="on_this_day_game_menu_info">Meer lezen</string>
+  <string name="on_this_day_game_menu_feedback">Probleem met functie</string>
+  <string name="on_this_day_game_article_read_button">Artikel lezen</string>
+  <string name="on_this_day_game_article_related_event_title">Gebeurtenis met betrekking tot dit artikel</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">U hebt deze vraag goed beantwoord</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">U hebt deze vraag fout beantwoord</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Spelmeldingen uitschakelen?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Als u push-meldingen uitschakelt, ontvangt u geen dagelijkse herinnering meer wanneer er een nieuw spel is om te spelen.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Spelmeldingen inschakelen?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Met spelmeldingen krijgt u dagelijks een melding wanneer er een nieuw spel is om te spelen.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Nee, laat ze aan</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Zet ze uit</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ja, zet ze aan</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Laat ze uit</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Spelmeldingen uit.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Spelmeldingen aan.</string>
+  <string name="on_this_day_game_notification_text">Het “Wat gebeurde er eerst?”-spel van vandaag is klaar om te spelen.</string>
+  <string name="on_this_day_game_report_email_subject">Probleemmelding – Wikipedia-spellen</string>
+  <string name="on_this_day_game_report_email_body">Ik ben een probleem tegengekomen met de functie Wikipedia-spellen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="on_this_day_game_notification_undo">Ongedaan maken</string>
+  <string name="on_this_day_game_share_link_message">Ik speel “Wat gebeurde er eerst?”, een dagelijks trivia-spel op de Wikipedia Android-app %s</string>
+  <string name="on_this_day_game_share_screen_title">Vandaag heb ik %1$d/%2$d\nop “Wat kwam er eerst?”\ngescoord.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Aangesneden onderwerpen:</string>
+  <string name="on_this_day_game_archive_calendar_title">Kies een spel op speeldatum.</string>
+  <string name="on_this_day_game_score_toast_message" fuzzy="true">Vandaag hebt u %1$d/%2$d gescoord.</string>
+  <string name="on_this_day_game_continue_btn_text">Doorgaan met het spel van vandaag</string>
+  <string name="on_this_day_game_current_progress_message">U bent bij vraag %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Archief afspelen</string>
+  <string name="on_this_day_game_review_results_btn_text">Resultaten bekijken</string>
+  <string name="on_this_day_game_score_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Doorgaan met spelen</string>
+  <string name="on_this_day_game_sound_on">Geluid aanzetten</string>
+  <string name="on_this_day_game_sound_off">Geluid uitzetten</string>
+  <string name="year_in_review_learn_more">Meer lezen</string>
+  <string name="year_in_review_get_started">Aan de slag</string>
+  <string name="year_in_review_topbar_w_icon">Wikipedia W-pictogram</string>
+  <string name="year_in_review_navigate_left">Naar links navigeren</string>
+  <string name="year_in_review_share_icon">Delen-pictogram</string>
+  <string name="year_in_review_heart_icon">Hartpictogram</string>
+  <string name="year_in_review_navigate_right">Naar rechts navigeren</string>
+  <string name="year_in_review_donate">Doneren</string>
+  <string name="year_in_review_information_icon">Informatiepictogram</string>
+  <string name="year_in_review_get_started_headline">Verken uw jaaroverzicht van Wikipedia</string>
+  <string name="year_in_review_get_started_bodytext">Bekijk inzichten over welke artikelen u in de Wikipedia-app leest en welke bewerkingen u hebt gemaakt. Uw leesgeschiedenis blijft beschermd. Leesinzichten worden berekend met behulp van lokaal op uw apparaat opgeslagen gegevens.</string>
+  <string name="year_in_review_entry_dialog_title">Verken uw jaaroverzicht van Wikipedia</string>
+  <string name="year_in_review_entry_dialog_bodytext">Bekijk welke artikelen we hebben gelezen en bewerkt en deel de hoogtepunten van ons jaar op Wikipedia.</string>
+  <string name="year_in_review_entry_dialog_continue">Doorgaan</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">U hebt dit jaar %d artikel gelezen</item>
+    <item quantity="other">U hebt dit jaar %d artikelen gelezen</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Dit jaar hebt u %1$d artikel gelezen, waaronder %2$s, %3$s en %4$s. Wikipedia had meer dan 63 miljoen artikelen beschikbaar in meer dan 300 talen. U hebt zich bij miljoenen aangesloten om uw kennis uit te breiden en diverse onderwerpen te verkennen</item>
+    <item quantity="other">Dit jaar hebt u %1$d artikelen gelezen, waaronder %2$s, %3$s en %4$s. Wikipedia had meer dan 63 miljoen artikelen beschikbaar in meer dan 300 talen. U hebt zich bij miljoenen aangesloten om uw kennis uit te breiden en diverse onderwerpen te verkennen</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">U hebt Wikipedia %d keer bewerkt</item>
+    <item quantity="other">U hebt Wikipedia %d keer bewerkt</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">U hebt Wikipedia %d keer bewerkt. Bedankt dat u een van de vrijwillige redacteuren bent die een verschil maakt in Wikimedia-projecten over de hele wereld.</item>
+    <item quantity="other">U hebt Wikipedia %d keer bewerkt. Bedankt dat u een van de vrijwillige redacteuren bent die een verschil maakt in Wikimedia-projecten over de hele wereld.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was beschikbaar in meer dan 300 talen</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had dit jaar meer dan 63 miljoen artikelen in meer dan 300 actieve talen. U hebt zich aangesloten bij miljoenen anderen om kennis uit te breiden en diverse onderwerpen te verkennen</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Bewerkers op de iOS-app hebben meer dan 452.257 bewerkingen uitgevoerd</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">De gemeenschap van vrijwillige redacteuren van Wikipedia heeft dit jaar tot nu toe meer dan 452.257 bewerkingen gemaakt op de iOS-app. Het hart en de ziel van Wikipedia is onze wereldwijde gemeenschap van vrijwillige bijdragers, donateurs en miljarden lezers zoals u – allemaal verenigd om onbeperkte toegang tot betrouwbare informatie te delen.</string>
+  <string name="year_in_review_survey_title">Help het Jaaroverzicht te verbeteren</string>
+  <string name="year_in_review_survey_subtitle">Bent u tevreden over deze functie?</string>
+  <string name="year_in_review_survey_very_satisfied">Erg tevreden</string>
+  <string name="year_in_review_survey_satisfied">Tevreden</string>
+  <string name="year_in_review_survey_neutral">Neutraal</string>
+  <string name="year_in_review_survey_unsatisfied">Niet tevreden</string>
+  <string name="year_in_review_survey_very_unsatisfied">Zeer ontevreden</string>
+  <string name="year_in_review_survey_placeholder_text">Nog aanvullende gedachten?</string>
+  <string name="year_in_review_survey_cancel">Annuleren</string>
+  <string name="year_in_review_survey_submit">Verzenden</string>
+  <string name="year_in_review_screendeck_image_content_description">Beeldbron voor het paneel op het hoofdscherm van het Jaaroverzicht</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Beeldbron voor het inleidingsdialoogscherm Jaaroverzicht</string>
+  <string name="year_in_review_screenshot_error">Kon geen schermafbeelding genereren: %s</string>
 </resources>

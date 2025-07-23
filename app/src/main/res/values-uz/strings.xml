@@ -144,8 +144,8 @@
   <string name="login_username_hint">Foydalanuvchi ismi</string>
   <string name="login_password_hint">Maxfiy soʻz</string>
   <string name="account_creation_password_hint">Parol</string>
-  <string name="login_2fa_hint">Ikki faktorli autentifikatsiya kodi</string>
-  <string name="login_2fa_other_workflow_error_msg">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
+  <string name="login_2fa_hint" fuzzy="true">Ikki faktorli autentifikatsiya kodi</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ikki faktorli autentifikatsiya talab qilinadi! Iltimos, asosiy faoliyatga qayting va «2FA» belgisi bilan kiring, so‘ngra qayta urinib ko‘ring.</string>
   <string name="onboarding_card_login">Kirish</string>
   <string name="page_editing_login">Kirish</string>
   <string name="reading_lists_sync_login">Kirish</string>
@@ -232,17 +232,15 @@
   <string name="privacy_policy_description">Maxfiylik siyosati</string>
   <string name="terms_of_use_description">Foydalanish shartlari</string>
   <string name="about_wikipedia_url">https://uz.wikipedia.org/wiki/Vikipediya</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
@@ -542,8 +540,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Maqola bir nechta roʻyxatdan iborat</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s endi barcha roʻyxatlar uchun oflayn rejimda mavjud boʻlmaydi:</string>
   <string name="reading_lists_sync_reminder_title">Roʻyxatni sinxronlashtirasizmi?</string>
-  <string name="reading_lists_sync_reminder_text">Maqolalar sizning Vikipediya akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Roʻyxatlardan endi barcha qurilmalaringizda sinxron tarzda foydalanishingiz mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Maqolalar sizning Vikipediya akkauntingiz bilan sinxronlashtirildi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Roʻyxatlardan endi barcha qurilmalaringizda sinxron tarzda foydalanishingiz mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Batafsil maʼlumot&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronlashtirmoq</string>
   <string name="reading_list_login_reminder_title">Sinxronlashgan roʻyxatlar</string>
   <string name="reading_lists_login_reminder_text">Roʻyxatlarini endi qurilmalararo sinxronlashtirish mumkin. Vikipediya hisobingizga kiring va roʻyxatlaringizni saqlashga ruxsat bering.</string>
@@ -834,15 +832,13 @@
   <string name="description_edit_help_title">Maʼlumot: Maqola tavsiflari</string>
   <string name="description_edit_help_about_wikidata">Vikidata haqida</string>
   <string name="description_edit_help_wikidata_guide">Tavsiflarni yozish uchun Wikidata qoʻllanmasi</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Maqola tavsiflarini tahrirlashga boʻlgan qiziqishingiz uchun tashakkur! Qoʻshimcha tahrir qilish uchun, marhamat, Vikipediya hisobingizga kiring.</string>
   <string name="description_edit_license_notice">Maqola tavsifini oʻzgartirib, men &lt;a href=\"%1$s\"&gt; Foydalanish shartlariga&lt;/a&gt; rozilik bildiraman hamda &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; litsenziyasi shartlariga asosan oʻz maqolamni qaytarib olmaslikka roziman.</string>
   <string name="description_edit_helper_text_lowercase_warning">odatda kichik harf bilan boshlanadi</string>
   <string name="description_edit_voice_input_description">Ovoz bilan kiritmoq</string>
   <string name="description_edit_learn_more">Maqola tavsiflari haqida koʻproq bilib oling</string>
   <string name="description_edit_image_caption_learn_more">Tasvir izohi haqida batafsil maʼlumot oling</string>
-  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
@@ -941,8 +937,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Rasmga teg qoʻshmoq</string>
-  <string name="suggested_edits_snackbar_survey_text">Tahrirlash tajribangiz qanaqa? Iltimos, ilova ichidagi tahrirlash haqidagi soʻrovnomani toʻldiring.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ishtirok etmoq</string>
   <string name="suggested_edits_task_action_text_add">Qoʻshmoq</string>
   <string name="suggested_edits_task_action_text_translate">Tarjima qilish</string>
   <string name="suggested_edits_image_captions">Rasm nomi</string>
@@ -1329,14 +1323,12 @@
   <string name="revision_rollback_success">Tahrirlar qaytarildi.</string>
   <string name="revision_compare_button">Solishtirish</string>
   <string name="revision_compare_two_only">Faqat ikkita tahrirni tanlash mumkin.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Oʻzgaritirmoq</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vaqtinchalik</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftaga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 oyga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 oyga</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 oyga</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s 1 va uning munozara sahifasi sizning kuzatuvlaringiz roʻyxatidan oʻchirildi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 haftaga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 oyga</string>
   <string name="watchlist_expiry_dialog_title">Kuzatuv roʻyxati vaqtini tanlang</string>
   <string name="watchlist_expiry_dialog_permanent">Doimiy</string>
   <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
@@ -1571,5 +1563,5 @@
   <string name="survey_dialog_option_very_unsatisfied">Qoniqarsiz</string>
   <string name="survey_dialog_cancel">Bekor qilish</string>
   <string name="survey_dialog_submit">Joʻnatish</string>
-  <string name="survey_dialog_submitted_snackbar">Fikr-mulohaza yuborildi.</string>
+  <string name="survey_dialog_submitted_snackbar" fuzzy="true">Fikr-mulohaza yuborildi.</string>
 </resources>

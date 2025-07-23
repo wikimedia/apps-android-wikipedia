@@ -14,7 +14,6 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.csrf.CsrfTokenClient
@@ -23,12 +22,16 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
+import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
+import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -36,6 +39,10 @@ import java.util.concurrent.TimeUnit
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (!DeviceUtil.assertAppContext(context, true)) {
+            return
+        }
+
         when {
             Intent.ACTION_BOOT_COMPLETED == intent.action -> {
                 // To test the BOOT_COMPLETED intent:
@@ -57,9 +64,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
-            ACTION_CANCEL == intent.action -> {
-                NotificationInteractionEvent.processIntent(intent)
-            }
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
@@ -72,6 +76,16 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
             }
+            ACTION_DAILY_GAME == intent.action -> {
+                OnThisDayGameNotificationManager.showNotification(context)
+            }
+
+            ACTION_RECOMMENDED_READING_LIST == intent.action -> {
+                if (Prefs.recommendedReadingListUpdateFrequency == RecommendedReadingListUpdateFrequency.MONTHLY) {
+                    RecommendedReadingListNotificationManager.scheduleRecommendedReadingListNotification(context)
+                }
+                RecommendedReadingListNotificationManager.showNotification(context, Prefs.recommendedReadingListUpdateFrequency)
+            }
         }
     }
 
@@ -79,12 +93,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val ACTION_DAILY_GAME = "action_daily_game"
+        const val ACTION_RECOMMENDED_READING_LIST = "action_recommended_reading_list"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
-        private const val TYPE_LOCAL = "local"
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
 
@@ -144,12 +159,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
             if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // Record that there is an incoming notification to track/compare further actions on it.
-                    NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
                         dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
                         dbWikiSiteMap.getValue(n.wiki).languageCode)
@@ -168,7 +181,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.isAnyActivityResumed) {
+            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.currentResumedActivity != null) {
                 return
             }
             var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)
@@ -185,8 +198,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         fun showSuggestedEditsLocalNotification(context: Context, @StringRes description: Int) {
-            val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL)
-            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
+            val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0)
+            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
                     R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
