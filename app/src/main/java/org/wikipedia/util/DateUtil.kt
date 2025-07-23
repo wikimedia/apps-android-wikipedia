@@ -16,7 +16,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
-import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.ChronoUnit
@@ -189,21 +188,6 @@ object DateUtil {
             return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
-    }
-
-    fun startOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 1, 1)
-        return localDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun endOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 12, 31)
-        return localDate.atTime(0, 0, 0).atZone(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
-        val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
-        return zonedDateTime.year
     }
 
     fun formatRelativeTime(instant: Instant): CharSequence {
