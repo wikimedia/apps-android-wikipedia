@@ -217,6 +217,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     fun getMessageCardViewHeight(): Int {
+        L.d("getMessageCardViewHeight: ${pageHeaderView.messageCardViewHeight}")
         return pageHeaderView.messageCardViewHeight
     }
 
@@ -230,7 +231,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         } else {
             pageHeaderView.loadImage(null)
         }
-        pageHeaderView.showDonationReminderCard()
     }
 
     fun openImageInGallery(language: String?) {

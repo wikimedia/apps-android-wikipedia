@@ -25,7 +25,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
-    var messageCardViewHeight: Int = 750
+    var messageCardViewHeight: Int = 653
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -43,6 +43,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         binding.callToActionContainer.setOnClickListener {
             callback?.onCallToActionClicked()
         }
+        setDonationReminderCard()
         orientation = VERTICAL
     }
 
@@ -66,6 +67,9 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     fun show() {
         layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+        binding.donationReminderCardView.post {
+            messageCardViewHeight = binding.donationReminderCardView.height
+        }
         visibility = VISIBLE
     }
 
@@ -89,7 +93,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    fun showDonationReminderCard() {
+    fun setDonationReminderCard() {
         binding.donationReminderCardView.setMessageLabel(context.getString(R.string.recommended_reading_list_onboarding_card_new))
         binding.donationReminderCardView.setMessageTitle(context.getString(R.string.recommended_reading_list_onboarding_card_title))
         binding.donationReminderCardView.setMessageText(context.getString(R.string.recommended_reading_list_onboarding_card_message))
