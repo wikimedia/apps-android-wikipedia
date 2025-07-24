@@ -510,7 +510,7 @@
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 articol</item>
     <item quantity="few">%d articole</item>
-    <item quantity="other"/>
+    <item quantity="other">%d articole</item>
   </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 articol, %2$.2f MB</item>
