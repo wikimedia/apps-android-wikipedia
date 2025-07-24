@@ -17,6 +17,9 @@ class DonationReminderActivity : BaseActivity() {
                 DonationReminderScreen(
                     onBackButtonClick = {
                         onBackPressed()
+                    },
+                    onConfirmBtnClick = {
+                        // @TODO: for showing snackbar on pageFragment
                     }
                 )
             }

@@ -41,7 +41,7 @@ class DonationReminderViewModel : ViewModel() {
         }
     }
 
-    fun confirmReminder() {
+    fun saveReminder() {
         with(_uiState.value) {
             Prefs.donationRemindersAmount = donationAmount.selectedValue
             Prefs.donationRemindersReadFrequency = readFrequency.selectedValue

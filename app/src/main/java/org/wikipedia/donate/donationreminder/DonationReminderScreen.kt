@@ -31,6 +31,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -66,11 +68,13 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
+import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.TextWithInlineElement
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
 // @TODO: once PM confirms final copy update the strings
@@ -79,10 +83,13 @@ fun DonationReminderScreen(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
+    onConfirmBtnClick: () -> Unit
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
     val uiState = viewModel.uiState.collectAsState().value
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {
         viewModel.loadData()
@@ -90,6 +97,16 @@ fun DonationReminderScreen(
 
     Scaffold(
         modifier = modifier,
+        snackbarHost = {
+            SnackbarHost(
+                hostState = snackbarHostState,
+                snackbar = {
+                    Snackbar(
+                        message = it.visuals.message
+                    )
+                }
+            )
+        },
         topBar = {
             WikiTopAppBar(
                 title = "Donation reminders",
@@ -128,6 +145,7 @@ fun DonationReminderScreen(
                                 is OptionItem.Preset -> {
                                     viewModel.updateReadFrequencyState(option.value)
                                 }
+
                                 OptionItem.Custom -> {
                                     showReadFrequencyCustomDialog = true
                                 }
@@ -144,6 +162,7 @@ fun DonationReminderScreen(
                                 is OptionItem.Preset -> {
                                     viewModel.updateDonationAmountState(option.value)
                                 }
+
                                 OptionItem.Custom -> {
                                     showDonationAmountCustomDialog = true
                                 }
@@ -159,7 +178,17 @@ fun DonationReminderScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
                         .padding(top = 16.dp),
-                    onConfirmBtnClick = { viewModel.confirmReminder() },
+                    onConfirmBtnClick = {
+                        viewModel.saveReminder()
+                        val donationAmount = viewModel.currencyFormat.format(Prefs.donationRemindersAmount)
+                        val readFrequency = Prefs.donationRemindersReadFrequency
+                        scope.launch {
+                            snackbarHostState.showSnackbar(
+                                message = "Reminder set! We'll remind you to donate $donationAmount when you read $readFrequency articles."
+                            )
+                        }
+                        onConfirmBtnClick()
+                    },
                     onAboutThisExperimentClick = {}
                 )
             }
@@ -538,7 +567,8 @@ private fun DonationReminderScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         DonationReminderScreen(
-            onBackButtonClick = {}
+            onBackButtonClick = {},
+            onConfirmBtnClick = {},
         )
     }
 }
