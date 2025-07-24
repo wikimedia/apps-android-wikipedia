@@ -13,6 +13,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
@@ -25,7 +26,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
-    var messageCardViewHeight: Int = 653
+    var messageCardViewHeight: Int = 0
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -66,11 +67,20 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+        // First, make the donation card visible but keep the container hidden to measure
+        binding.donationReminderCardView.visibility = VISIBLE
+        visibility = INVISIBLE
         binding.donationReminderCardView.post {
-            messageCardViewHeight = binding.donationReminderCardView.height
+            val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
+            val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+
+            binding.donationReminderCardView.measure(widthSpec, heightSpec)
+            // Manually adjust the height of the message card view
+            messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+
+            layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+            visibility = VISIBLE
         }
-        visibility = VISIBLE
     }
 
     fun refreshCallToActionVisibility() {
