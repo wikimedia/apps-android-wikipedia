@@ -23,4 +23,12 @@ object DonationReminderHelper {
             (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+
+    // @TODO: update PH data after PM confirmation
+    val currencyAmountPresets = mapOf(
+        "FR" to listOf(1, 2, 3),
+        "DE" to listOf(1, 2, 3),
+        "PL" to listOf(1, 2, 3),
+        "PH" to listOf(100, 200, 300)
+    )
 }

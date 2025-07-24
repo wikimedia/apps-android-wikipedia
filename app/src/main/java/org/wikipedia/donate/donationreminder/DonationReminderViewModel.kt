@@ -1,14 +1,11 @@
 package org.wikipedia.donate.donationreminder
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
-import org.wikipedia.dataclient.donate.DonationConfigHelper
-import org.wikipedia.donate.GooglePayComponent
+import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import java.text.NumberFormat
@@ -24,20 +21,17 @@ class DonationReminderViewModel : ViewModel() {
             minimumFractionDigits = 0
             maximumFractionDigits = 0
         }
-    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
     val currencySymbol get() = currencyFormat.currency?.getSymbol() ?: "$"
 
     fun loadData() {
-        viewModelScope.launch {
-            val readFrequencyOptions = createReadFrequencyOptions()
-            val donationAmountOptions = createDonationAmountOptions()
-            _uiState.update {
-                it.copy(
-                    readFrequency = readFrequencyOptions,
-                    donationAmount = donationAmountOptions,
-                    isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
-                )
-            }
+        val readFrequencyOptions = createReadFrequencyOptions()
+        val donationAmountOptions = createExperimentalDonationAmount()
+        _uiState.update {
+            it.copy(
+                readFrequency = readFrequencyOptions,
+                donationAmount = donationAmountOptions,
+                isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
+            )
         }
     }
 
@@ -62,7 +56,7 @@ class DonationReminderViewModel : ViewModel() {
     }
 
     private fun createReadFrequencyOptions(): SelectableOption {
-        val options = listOf(25, 50, 75, 100)
+        val options = listOf(2, 10, 15)
         val optionItems = options.map {
             OptionItem.Preset(it, "$it articles")
         } + OptionItem.Custom
@@ -70,21 +64,28 @@ class DonationReminderViewModel : ViewModel() {
         val selectedValue = if (Prefs.donationRemindersReadFrequency < 0) options.first()
         else Prefs.donationRemindersReadFrequency
 
-        return SelectableOption(selectedValue, optionItems) { "$it articles" }
+        return SelectableOption(
+            selectedValue,
+            optionItems,
+            maxNumber = options.last()
+        ) { "$it articles" }
     }
 
-    private suspend fun createDonationAmountOptions(): SelectableOption {
-        val config = DonationConfigHelper.getConfig()
-        val presets = config?.currencyAmountPresets[currencyCode] ?: listOf(5, 10, 15, 20)
-
+    private fun createExperimentalDonationAmount(): SelectableOption {
+        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0)
         val options = presets.map {
-            OptionItem.Preset(it.toInt(), currencyFormat.format(it.toInt()))
+            OptionItem.Preset(it, currencyFormat.format(it))
         } + OptionItem.Custom
 
-        val selectedValue = if (Prefs.donationRemindersAmount < 0) presets.first().toInt()
+        val selectedValue = if (Prefs.donationRemindersAmount < 0) presets.first()
         else Prefs.donationRemindersAmount
 
-        return SelectableOption(selectedValue, options, currencyFormat::format)
+        return SelectableOption(
+            selectedValue,
+            options,
+            maxNumber = presets.last(),
+            displayFormatter = currencyFormat::format
+        )
     }
 }
 
@@ -102,5 +103,6 @@ sealed class OptionItem(val displayText: String) {
 data class SelectableOption(
     val selectedValue: Int,
     val options: List<OptionItem>,
+    val maxNumber: Int = 0,
     val displayFormatter: (Int) -> String = { it.toString() }
 )

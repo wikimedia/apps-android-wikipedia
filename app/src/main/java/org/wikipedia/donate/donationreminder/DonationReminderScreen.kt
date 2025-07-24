@@ -29,6 +29,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -197,6 +198,7 @@ fun DonationReminderScreen(
         if (showReadFrequencyCustomDialog) {
             CustomInputDialog(
                 title = "When I read",
+                maxInputNumber = uiState.readFrequency.maxNumber,
                 onDismissRequest = {
                     showReadFrequencyCustomDialog = false
                 },
@@ -217,6 +219,7 @@ fun DonationReminderScreen(
         if (showDonationAmountCustomDialog) {
             CustomInputDialog(
                 title = "Remind me to donate",
+                maxInputNumber = uiState.donationAmount.maxNumber,
                 onDismissRequest = {
                     showDonationAmountCustomDialog = false
                 },
@@ -326,6 +329,7 @@ fun OptionSelector(
             modifier = Modifier
                 .padding(top = 3.dp),
             painter = painterResource(headerIcon),
+            tint = WikipediaTheme.colors.primaryColor,
             contentDescription = null
         )
         Column(
@@ -333,7 +337,8 @@ fun OptionSelector(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor,
             )
             Spacer(modifier = Modifier.width(16.dp))
             Row(
@@ -354,6 +359,7 @@ fun OptionSelector(
                     trailingIcon = {
                         Icon(
                             imageVector = Icons.Filled.ArrowDropDown,
+                            tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
                     }
@@ -462,6 +468,7 @@ fun InfoTooltip(
                         }
                     }),
                 painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                tint = WikipediaTheme.colors.primaryColor,
                 contentDescription = null
             )
         }
@@ -472,6 +479,7 @@ fun InfoTooltip(
 fun CustomInputDialog(
     modifier: Modifier = Modifier,
     title: String,
+    maxInputNumber: Int,
     onDoneClick: (String) -> Unit,
     onDismissRequest: () -> Unit,
     prefix: @Composable (() -> Unit)? = null,
@@ -479,6 +487,7 @@ fun CustomInputDialog(
 ) {
     var value by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
+    var isError by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
@@ -499,16 +508,34 @@ fun CustomInputDialog(
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.primaryColor
                 )
-
                 OutlinedTextField(
-                    modifier = Modifier.focusRequester(focusRequester),
+                    modifier = Modifier
+                        .focusRequester(focusRequester),
                     value = value,
-                    onValueChange = {
-                        value = it
+                    onValueChange = { newValue ->
+                        // this only allows digits
+                        if (newValue.all { it.isDigit() }) {
+                            val numberValue = newValue.toIntOrNull()
+                            if (numberValue == null || numberValue <= maxInputNumber) {
+                                value = newValue
+                                isError = false
+                            } else
+                                value = maxInputNumber.toString()
+                        }
                     },
+                    isError = isError,
                     prefix = prefix,
                     suffix = suffix,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                    textStyle = MaterialTheme.typography.bodyLarge,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = WikipediaTheme.colors.primaryColor,
+                        focusedBorderColor = MaterialTheme.colorScheme.outline,
+                        unfocusedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                        cursorColor = WikipediaTheme.colors.primaryColor,
+                        errorTextColor = WikipediaTheme.colors.primaryColor,
+                    )
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -516,9 +543,11 @@ fun CustomInputDialog(
                 ) {
                     TextButton(
                         onClick = {
-                            if (value.isNotEmpty()) {
-                                onDoneClick(value)
+                            if (value.isEmpty()) {
+                                isError = true
+                                return@TextButton
                             }
+                            onDoneClick(value)
                         },
                         content = {
                             Text(
@@ -555,6 +584,7 @@ private fun CustomInputDialogPreview() {
                     text = "articles"
                 )
             },
+            maxInputNumber = 0,
             onDoneClick = {}
         )
     }
