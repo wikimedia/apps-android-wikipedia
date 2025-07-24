@@ -13,7 +13,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
