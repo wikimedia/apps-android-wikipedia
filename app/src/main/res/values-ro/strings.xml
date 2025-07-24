@@ -412,7 +412,7 @@
   <string name="preference_summary_customize_explore_feed">Personalizează Explore Feed</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
-  <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
+  <string name="preference_summary_collapse_tables">Ascunde automat tabele în articole, cum ar fi infocasete, referințe și note.</string>
   <string name="nav_item_donate">Donați</string>
   <string name="nav_item_year_in_review">An În Retrospectivă</string>
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
@@ -495,7 +495,7 @@
   <string name="editing_line_numbers_label">Arată numerele rândurilor</string>
   <string name="editing_monospace_font_label">Utilizează font monospațiat</string>
   <string name="editing_typing_suggestions">Arată sugestie de tastare</string>
-  <string name="nav_item_saved">Salvat</string>
+  <string name="nav_item_saved">Salvate</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_move_to">Accesați lista de citire</string>
   <string name="reading_list_create_new">Creează una nouă</string>
@@ -507,6 +507,11 @@
   <string name="reading_list_articles_already_exist_message">Toate bune! %s conține deja toate articolele.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_add_to_list_button">Adaugă la listă</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 articol</item>
+    <item quantity="few">%d articole</item>
+    <item quantity="other"/>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 articol, %2$.2f MB</item>
     <item quantity="few">%1$d articole, %2$.2f MB</item>
@@ -760,8 +765,8 @@
   <string name="notifications_menu_uncheck_all">Debifează toate elementele</string>
   <string name="notifications_wiki_filter_header">Filtru wiki</string>
   <string name="notifications_type_filter_header">Tipul filtrului</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Toate „wiki”</string>
-  <string name="notifications_all_types_text" fuzzy="true">Toate „tipurile”</string>
+  <string name="notifications_all_wikis_text">Toate „wikiurile”</string>
+  <string name="notifications_all_types_text">Toate „tipurile”</string>
   <string name="notifications_menu_user_talk_page">Pagina de discuție a lui %s</string>
   <string name="notifications_offline_disable_message">Funcția nu este disponibilă când sunteți off-line.</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
@@ -1337,6 +1342,11 @@
   <string name="watchlist_filter_latest_revisions_header">Ultimele versiuni</string>
   <string name="watchlist_filter_type_of_change_new_users">Utilizatori noi</string>
   <string name="watchlist_filter_reset_button">Resetează</string>
+  <string name="preview_edit_summarize_edit_title">Descrieți modificarea</string>
+  <string name="preview_edit_summarize_edit_hint">Cum ați îmbunătățit această pagină?</string>
+  <string name="preview_edit_minor_edit">Aceasta este o modificare minoră</string>
+  <string name="preview_edit_watch_this_page">Urmăriți această pagină</string>
+  <string name="preview_edit_learn_more">Aflați mai multe despre descrierea modificărilor</string>
   <string name="action_item_categories">Categorii</string>
   <string name="page_no_categories">Această pagină nu aparține niciunei categorii.</string>
   <string name="category_tab_articles">Articole</string>
@@ -1403,4 +1413,31 @@
   <string name="survey_dialog_general_maybe">Pot fi</string>
   <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
   <string name="on_this_day_game_article_read_button">Citiți articolul</string>
+  <string name="recommended_reading_list_title">Descoperă</string>
+  <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
+  <string name="recommended_reading_list_interest_source_saved">Alege pentru mine pe baza articolelor mele salvate</string>
+  <string name="recommended_reading_list_interest_source_history">Alege pentru mine pe baza istoricului meu de lectură</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Făcută pentru %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Făcută pentru dvs.</string>
+  <string name="recommended_reading_list_page_description_weekly">Lista dvs. săptămânală de lectură. Aflați despre subiecte noi, alese doar pentru dvs. Lista se actualizează la începutul săptămânii.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalizați</string>
+  <string name="recommended_reading_list_page_overflow_about">Despre această funcție</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalizați „Descoperă“</string>
+  <string name="recommended_reading_list_settings_title">Setări Descoperă</string>
+  <string name="recommended_reading_list_settings_toggle">Descoperă lista de lectură</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">„Descoperă“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Se actualizează %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">zilnic</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">săptămânal</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">lunar</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">În fiecare zi</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">În fiecare săptămână</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">În fiecare lună</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Cum este făcut Discover</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notificări</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notificările pentru Discover sunt dezactivate. Nu veți primi o notificare când Discover este actualizat.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Dezactivați notificările?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când Discover este actualizat</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
 </resources>
