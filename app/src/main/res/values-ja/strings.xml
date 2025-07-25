@@ -8,6 +8,7 @@
 * Buntschann
 * Chqaz
 * Dbrant
+* Dragoniez
 * Fumi37s
 * GAMEZONE628
 * Great ones
@@ -487,17 +488,17 @@
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="temp_account_not_logged_in">ログインしていません</string>
   <string name="temp_account_anon_ip_dialog_body">編集を行うと、IPアドレスが編集に紐付けられます。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
-  <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;臨時アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
+  <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;仮アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
   <string name="temp_account_temp_dialog_body">あなたの編集は %1$s に帰属します。管理者はあなたのIPアドレスを見れます。&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; した場合、自分が選択した名前に編集を帰属させるといった利点があります。</string>
   <string name="temp_account_dialog_ok">わかりました</string>
-  <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
+  <string name="temp_account_using_title">あなたは仮アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために臨時アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;臨時アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
-  <string name="temp_account_login_status">&lt;b&gt;現在、臨時アカウントを使用しています。&lt;/b&gt;臨時アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために仮アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;仮アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;現在、仮アカウントを使用しています。&lt;/b&gt;仮アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
   <string name="temp_account_end_session">セッションを終了</string>
-  <string name="temp_account_end_session_confirm">これにより、臨時アカウントからログアウトします。続行しますか？</string>
+  <string name="temp_account_end_session_confirm">これにより、仮アカウントからログアウトします。続行しますか？</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
