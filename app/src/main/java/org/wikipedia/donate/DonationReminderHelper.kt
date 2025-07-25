@@ -8,12 +8,12 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
 
-    // Users with a device location in Germany, France, Poland, or Philippines
+    // TODO: update and check before release.
     private val enabledCountries = listOf(
         "DE", "FR", "PL", "PH"
     )
 
-    // Users with a primary language of German, English, French, or Polish
+    // TODO: update and check before release.
     private val enabledLanguages = listOf(
         "de", "fr", "pl", "en"
     )
