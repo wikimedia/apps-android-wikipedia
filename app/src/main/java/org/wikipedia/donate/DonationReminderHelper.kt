@@ -8,6 +8,9 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
 
+    const val MAX_INITIAL_PROMPTS = 5
+    const val MAX_REMINDER_PROMPTS = 2
+
     // Users with a device location in Germany, France, Poland, or Philippines
     private val enabledCountries = listOf(
         "DE", "FR", "PL", "PH"
