@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
+import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
@@ -25,7 +26,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
-    var messageCardViewHeight: Int = 0
+    private var messageCardViewHeight: Int = 0
+    val donationReminderCardViewHeight get() = if (binding.donationReminderCardView.isVisible) messageCardViewHeight else 0
     var callToActionText: String? = null
         set(value) {
             field = value
@@ -66,7 +68,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + donationReminderCardViewHeight)
         visibility = VISIBLE
     }
 
@@ -92,22 +94,21 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     private fun setDonationReminderCard() {
-        binding.donationReminderCardView.setMessageLabel(context.getString(R.string.recommended_reading_list_onboarding_card_new))
-        binding.donationReminderCardView.setMessageTitle(context.getString(R.string.recommended_reading_list_onboarding_card_title))
-        binding.donationReminderCardView.setMessageText(context.getString(R.string.recommended_reading_list_onboarding_card_message))
+        // TODO: setup the text based on the donation reminder settings
+        // TODO: make sure to set up the different actions for different cards (and update preferences too)
+        binding.donationReminderCardView.setMessageLabel(context.getString(R.string.donation_reminder_initial_prompt_label))
+        binding.donationReminderCardView.setMessageTitle(context.getString(R.string.donation_reminder_initial_prompt_title))
+        binding.donationReminderCardView.setMessageText(context.getString(R.string.donation_reminder_initial_prompt_message))
         binding.donationReminderCardView.setImageResource(-1, false)
-        binding.donationReminderCardView.setPositiveButton(R.string.recommended_reading_list_onboarding_card_positive_button, {
+        binding.donationReminderCardView.setPositiveButton(R.string.donation_reminder_initial_prompt_positive_button, {
             callback?.donationReminderCardPositiveClicked()
         }, false)
-        binding.donationReminderCardView.setNegativeButton(R.string.recommended_reading_list_onboarding_card_negative_button, {
+        binding.donationReminderCardView.setNegativeButton(R.string.donation_reminder_initial_prompt_negative_button, {
             callback?.donationReminderCardNegativeClicked()
             binding.donationReminderCardView.isVisible = false
         }, false)
-        binding.donationReminderCardView.isVisible = true
-    }
 
-    fun maybeShowDonationReminderCard() {
-        binding.donationReminderCardView.visibility = VISIBLE
+        binding.donationReminderCardView.isVisible = true
         visibility = INVISIBLE
         binding.donationReminderCardView.post {
             val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
@@ -116,9 +117,15 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.measure(widthSpec, heightSpec)
             // Manually adjust the height of the message card view
             messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
-
-            layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+            binding.donationReminderCardView.isVisible = false
             visibility = GONE
         }
+    }
+
+    fun maybeShowDonationReminderCard() {
+        if (!DonationReminderHelper.maybeShowInitialDonationReminder(false)) {
+            return
+        }
+        binding.donationReminderCardView.isVisible = true
     }
 }

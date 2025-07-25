@@ -26,29 +26,34 @@ object DonationReminderHelper {
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
-    fun showInitialDonationReminder(): Boolean {
+    fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderInitialPromptLastSeen)
         if (Prefs.donationReminderInitialPromptCount == -1 ||
             Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-            daysOfLastSeen <= 0) {
+            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
             return false
         }
-        Prefs.donationReminderInitialPromptCount += 1
-        Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
+        if (update) {
+            Prefs.donationReminderInitialPromptCount += 1
+            Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
+        }
         return true
     }
 
-    fun showDonationReminder(): Boolean {
+    // TODO: connect the logic with donation reminder settings (e.g. article numbers, donation amount, etc.)
+    fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
         if (Prefs.donationReminderPromptCount == -1 ||
             Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||
-            daysOfLastSeen <= 0) {
+            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
             return false
         }
-        Prefs.donationReminderPromptCount += 1
-        Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
+        if (update) {
+            Prefs.donationReminderPromptCount += 1
+            Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
+        }
         return true
     }
 }

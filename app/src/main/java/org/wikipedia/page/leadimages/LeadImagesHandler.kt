@@ -79,7 +79,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp(
-        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) + getMessageCardViewHeight()
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) + getDonationReminderCardViewHeight()
     )
     val callToActionEditLang get() =
         if (callToActionIsTranslation) callToActionTargetSummary?.pageTitle?.wikiSite?.languageCode else callToActionSourceSummary?.pageTitle?.wikiSite?.languageCode
@@ -216,8 +216,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         pageHeaderView.refreshCallToActionVisibility()
     }
 
-    fun getMessageCardViewHeight(): Int {
-        return pageHeaderView.messageCardViewHeight
+    fun getDonationReminderCardViewHeight(): Int {
+        return pageHeaderView.donationReminderCardViewHeight
     }
 
     fun loadLeadImage() {

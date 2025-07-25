@@ -536,16 +536,16 @@
             style="@style/IntPreference"
             android:key="@string/preference_key_donation_reminder_initial_prompt_count"
             android:title="@string/preference_key_donation_reminder_initial_prompt_count" />
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
             android:key="@string/preference_key_donation_reminder_initial_prompt_last_seen"
             android:title="@string/preference_key_donation_reminder_initial_prompt_last_seen" />
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="@string/preference_key_donation_reminder_prompt_count"
             android:title="@string/preference_key_donation_reminder_prompt_count" />
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
             android:key="@string/preference_key_donation_reminder_prompt_last_seen"
             android:title="@string/preference_key_donation_reminder_prompt_last_seen" />
 
