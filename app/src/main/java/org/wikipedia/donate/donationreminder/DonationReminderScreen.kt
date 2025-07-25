@@ -79,6 +79,9 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import kotlin.compareTo
+import kotlin.text.compareTo
+import kotlin.text.toInt
 
 // @TODO: once PM confirms final copy update the strings
 @Composable
@@ -140,11 +143,10 @@ fun DonationReminderScreen(
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 if (uiState.isDonationReminderEnabled) {
-                    OptionSelector(
-                        title = "When I read",
-                        headerIcon = R.drawable.newsstand_24dp,
+                    ReadFrequencyView(
                         option = uiState.readFrequency,
-                        showInfo = true,
+                        showReadFrequencyCustomDialog = showReadFrequencyCustomDialog,
+                        customDialogErrorMessage = customDialogErrorMessage,
                         onOptionSelected = { option ->
                             when (option) {
                                 is OptionItem.Preset -> {
@@ -156,12 +158,41 @@ fun DonationReminderScreen(
                                 }
                             }
                         },
+                        onDismissRequest = {
+                            showReadFrequencyCustomDialog = false
+                            customDialogErrorMessage = ""
+                        },
+                        onDoneClick = { readFrequency ->
+                            if (customDialogErrorMessage.isEmpty()) {
+                                viewModel.updateReadFrequencyState(readFrequency.toInt())
+                                showReadFrequencyCustomDialog = false
+                            }
+                        },
+                        onValueChange = { value ->
+                            val minimumAmount = uiState.readFrequency.minimumAmount
+                            val maximumAmount = uiState.readFrequency.maximumAmount
+                            val amount = viewModel.getAmountFloat(value)
+                            customDialogErrorMessage = when {
+                                amount <= minimumAmount -> {
+                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount.toInt() + 1)}"
+                                }
+                                amount >= maximumAmount -> {
+                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount.toInt() - 1)} allowed"
+                                }
+                                else -> ""
+                            }
+                        }
                     )
                     Spacer(modifier = Modifier.height(24.dp))
-                    OptionSelector(
-                        title = "Remind me to donate",
-                        headerIcon = R.drawable.credit_card_heart_24,
+                    DonationAmountView(
                         option = uiState.donationAmount,
+                        showDonationAmountCustomDialog = showDonationAmountCustomDialog,
+                        currencySymbol = viewModel.currencySymbol,
+                        customDialogErrorMessage = customDialogErrorMessage,
+                        onDismissRequest = {
+                            showDonationAmountCustomDialog = false
+                            customDialogErrorMessage = ""
+                        },
                         onOptionSelected = { option ->
                             when (option) {
                                 is OptionItem.Preset -> {
@@ -171,6 +202,32 @@ fun DonationReminderScreen(
                                 OptionItem.Custom -> {
                                     showDonationAmountCustomDialog = true
                                 }
+                            }
+                        },
+                        onDoneClick = { amount ->
+                            if (customDialogErrorMessage.isEmpty()) {
+                                viewModel.updateDonationAmountState(amount.toInt())
+                                showDonationAmountCustomDialog = false
+                            }
+                        },
+                        onValueChange = { value ->
+                            val amount = viewModel.getAmountFloat(value)
+                            val minimumAmount = uiState.donationAmount.minimumAmount
+                            val maximumAmount = uiState.donationAmount.maximumAmount
+                            customDialogErrorMessage = when {
+                                amount <= 0 && amount < minimumAmount -> {
+                                    context.getString(
+                                        R.string.donate_gpay_minimum_amount,
+                                        uiState.donationAmount.displayFormatter(minimumAmount)
+                                    )
+                                }
+                                maximumAmount > 0 && amount >= maximumAmount -> {
+                                    context.getString(
+                                        R.string.donate_gpay_maximum_amount,
+                                        uiState.donationAmount.displayFormatter(maximumAmount)
+                                    )
+                                }
+                                else -> ""
                             }
                         }
                     )
@@ -199,88 +256,76 @@ fun DonationReminderScreen(
                 )
             }
         }
+    }
+}
 
-        if (showReadFrequencyCustomDialog) {
-            CustomInputDialog(
-                title = "When I read",
-                errorMessage = customDialogErrorMessage,
-                onDismissRequest = {
-                    showReadFrequencyCustomDialog = false
-                    customDialogErrorMessage = ""
-                },
-                suffix = {
-                    Text(
-                        text = "articles",
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                },
-                onDoneClick = { readFrequency ->
-                    if (customDialogErrorMessage.isEmpty()) {
-                        viewModel.updateReadFrequencyState(readFrequency.toInt())
-                        showReadFrequencyCustomDialog = false
-                    }
-                },
-                onValueChange = { value ->
-                    val minimumAmount = uiState.readFrequency.minimumAmount
-                    val maximumAmount = uiState.readFrequency.maximumAmount
-                    val amount = viewModel.getAmountFloat(value)
-                    customDialogErrorMessage = when {
-                        amount <= minimumAmount -> {
-                            "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount.toInt() + 1)}"
-                        }
-                        amount >= maximumAmount -> {
-                            "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount.toInt() - 1)} allowed"
-                        }
-                        else -> ""
-                    }
-                }
-            )
-        }
+@Composable
+fun DonationAmountView(
+    option: SelectableOption,
+    currencySymbol: String,
+    showDonationAmountCustomDialog: Boolean,
+    customDialogErrorMessage: String,
+    onOptionSelected: (OptionItem) -> Unit,
+    onDismissRequest: () -> Unit,
+    onDoneClick: (String) -> Unit,
+    onValueChange: (String) -> Unit
+) {
+    OptionSelector(
+        title = "Remind me to donate",
+        headerIcon = R.drawable.credit_card_heart_24,
+        option = option,
+        onOptionSelected = onOptionSelected
+    )
+    if (showDonationAmountCustomDialog) {
+        CustomInputDialog(
+            title = "Remind me to donate",
+            errorMessage = customDialogErrorMessage,
+            onDismissRequest = onDismissRequest,
+            prefix = {
+                Text(
+                    text = currencySymbol,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            },
+            onDoneClick = onDoneClick,
+            onValueChange = onValueChange
+        )
+    }
+}
 
-        if (showDonationAmountCustomDialog) {
-            CustomInputDialog(
-                title = "Remind me to donate",
-                errorMessage = customDialogErrorMessage,
-                onDismissRequest = {
-                    showDonationAmountCustomDialog = false
-                    customDialogErrorMessage = ""
-                },
-                prefix = {
-                    Text(
-                        text = viewModel.currencySymbol,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                },
-                onDoneClick = { amount ->
-                    if (customDialogErrorMessage.isEmpty()) {
-                        viewModel.updateDonationAmountState(amount.toInt())
-                        showDonationAmountCustomDialog = false
-                    }
-                },
-                onValueChange = { value ->
-                    val amount = viewModel.getAmountFloat(value)
-                    val minimumAmount = uiState.donationAmount.minimumAmount
-                    val maximumAmount = uiState.donationAmount.maximumAmount
-                    customDialogErrorMessage = when {
-                        amount <= 0 && amount < minimumAmount -> {
-                            context.getString(
-                                R.string.donate_gpay_minimum_amount,
-                                uiState.donationAmount.displayFormatter(minimumAmount)
-                            )
-                        }
-                        maximumAmount > 0 && amount >= maximumAmount -> {
-                            context.getString(
-                                R.string.donate_gpay_maximum_amount,
-                                uiState.donationAmount.displayFormatter(maximumAmount)
-                            )
-                        }
-                        else -> ""
-                    }
-                }
-            )
-        }
+@Composable
+fun ReadFrequencyView(
+    option: SelectableOption,
+    showReadFrequencyCustomDialog: Boolean,
+    customDialogErrorMessage: String,
+    onOptionSelected: (OptionItem) -> Unit,
+    onDismissRequest: () -> Unit,
+    onDoneClick: (String) -> Unit,
+    onValueChange: (String) -> Unit
+) {
+    OptionSelector(
+        title = "When I read",
+        headerIcon = R.drawable.newsstand_24dp,
+        option = option,
+        showInfo = true,
+        onOptionSelected = onOptionSelected
+    )
+    if (showReadFrequencyCustomDialog) {
+        CustomInputDialog(
+            title = "When I read",
+            errorMessage = customDialogErrorMessage,
+            onDismissRequest = onDismissRequest,
+            suffix = {
+                Text(
+                    text = "articles",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            },
+            onDoneClick = onDoneClick,
+            onValueChange = onValueChange
+        )
     }
 }
 
@@ -366,6 +411,10 @@ fun OptionSelector(
     showInfo: Boolean = false,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
+    val displayValue = remember(option.selectedValue, option.displayFormatter) {
+        option.displayFormatter(option.selectedValue)
+    }
+
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.Top
@@ -394,7 +443,7 @@ fun OptionSelector(
                     modifier = Modifier
                         .width(210.dp)
                         .clickable { isDropdownExpanded = true },
-                    value = option.displayFormatter(option.selectedValue),
+                    value = displayValue,
                     enabled = false,
                     onValueChange = {},
                     colors = TextFieldDefaults.colors(
