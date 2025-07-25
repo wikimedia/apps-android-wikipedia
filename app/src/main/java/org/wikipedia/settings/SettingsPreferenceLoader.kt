@@ -13,7 +13,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
+import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
@@ -41,10 +43,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            // @MARK_TEST
-            // activity.startActivityForResult(ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
-               //     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
-            activity.startActivity(DonationReminderActivity.newIntent(activity))
+             activity.startActivityForResult(
+                 ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
+                    Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
             true
         }
         findPreference(R.string.preference_key_color_theme).let {
@@ -86,6 +87,13 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
 
+        val donationCategory = findPreference(R.string.preference_category_donations)
+        donationCategory.isVisible = DonationReminderHelper.isEnabled
+        findPreference(R.string.preference_key_donation_reminders).onPreferenceClickListener =
+            Preference.OnPreferenceClickListener {
+                activity.startActivity(DonationReminderActivity.newIntent(activity))
+                true
+            }
         if (Prefs.donationResults.isNotEmpty()) {
             setupDeleteLocalDonationHistoryPreference()
         }
@@ -127,6 +135,12 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             R.string.recommended_reading_list_settings_toggle_enable_message
         } else R.string.recommended_reading_list_settings_toggle_disable_message
         findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = activity.getString(summary)
+    }
+
+    fun updateDonationRemindersDescription() {
+        val description = activity.getString(R.string.donations_reminders_settings_description,
+            DonationReminderHelper.currencyFormat.format(Prefs.donationRemindersAmount), Prefs.donationRemindersReadFrequency.toString())
+        findPreference(R.string.preference_key_donation_reminders).summary = description
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

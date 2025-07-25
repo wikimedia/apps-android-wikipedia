@@ -1909,4 +1909,7 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
+  <string name="donations_settings_section_header">Text of the section in the settings screen for donation.</string>
+  <string name="donations_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
+  <string name="donations_reminders_settings_description">Description of the donation reminder feature in the settins screen. The first %1$s will be replaced by the donation amount and secong %2$s will be replaced by the reader frequency.</string>
 </resources>

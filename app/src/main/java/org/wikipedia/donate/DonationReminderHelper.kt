@@ -4,9 +4,15 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
+import java.text.NumberFormat
 import java.time.LocalDate
+import java.util.Locale
 
 object DonationReminderHelper {
+
+    val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
+    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
+        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
 
     // Users with a device location in Germany, France, Poland, or Philippines
     private val enabledCountries = listOf(

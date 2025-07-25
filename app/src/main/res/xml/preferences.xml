@@ -38,6 +38,18 @@
             android:title="@string/recommended_reading_list_settings_toggle" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="@string/preference_category_donations"
+        android:title="@string/donations_settings_section_header">
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_donation_reminders"
+            android:title="@string/donations_reminders_settings_title" />
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_delete_local_donation_history"
+            android:defaultValue="0"
+            app:isPreferenceVisible="false"
+            android:title="@string/preference_title_delete_local_donation_history" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:key="@string/preference_category_sync"
         android:title="@string/preferences_heading_syncing">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
@@ -65,10 +77,5 @@
             android:defaultValue="false"
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
-        <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_delete_local_donation_history"
-            android:defaultValue="0"
-            app:isPreferenceVisible="false"
-            android:title="@string/preference_title_delete_local_donation_history" />
     </PreferenceCategory>
 </PreferenceScreen>

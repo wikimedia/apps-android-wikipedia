@@ -12,21 +12,14 @@ import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.log.L
-import java.text.NumberFormat
-import java.util.Locale
-import kotlin.collections.first
-import kotlin.collections.map
-import kotlin.collections.plus
 
 class DonationReminderViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(DonationReminderUiState())
     val uiState: StateFlow<DonationReminderUiState> = _uiState.asStateFlow()
 
-    private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
-    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
-        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
+    val currentCountryCode = DonationReminderHelper.currentCountryCode
+    val currencyFormat = DonationReminderHelper.currencyFormat
     val currencySymbol get() = currencyFormat.currency?.getSymbol() ?: "$"
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
 
