@@ -14,7 +14,6 @@ object DonationReminderHelper {
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
         .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
 
-    // Users with a device location in Germany, France, Poland, or Philippines
     private val enabledCountries = listOf(
         "IT"
     )
@@ -29,11 +28,7 @@ object DonationReminderHelper {
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
-    // @TODO: update PH data after PM confirmation
     val currencyAmountPresets = mapOf(
-        "FR" to listOf(1, 2, 3),
-        "DE" to listOf(1, 2, 3),
-        "PL" to listOf(1, 2, 3),
-        "PH" to listOf(100, 200, 300)
+        "IT" to listOf(1, 2, 3)
     )
 }
