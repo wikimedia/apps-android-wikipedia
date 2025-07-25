@@ -8,14 +8,12 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
 
-    // TODO: update and check before release.
     private val enabledCountries = listOf(
-        "DE", "FR", "PL", "PH"
+        "IT"
     )
 
-    // TODO: update and check before release.
     private val enabledLanguages = listOf(
-        "de", "fr", "pl", "en"
+        "it", "en"
     )
 
     // TODO: update the end date when before release to production for 30-day experiment
