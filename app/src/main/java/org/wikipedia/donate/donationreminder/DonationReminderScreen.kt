@@ -20,6 +20,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -56,6 +57,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
@@ -90,7 +92,9 @@ fun DonationReminderScreen(
     val uiState = viewModel.uiState.collectAsState().value
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
+    var customDialogErrorMessage by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     LaunchedEffect(Unit) {
         viewModel.loadData()
@@ -181,7 +185,8 @@ fun DonationReminderScreen(
                         .padding(top = 16.dp),
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
-                        val donationAmount = viewModel.currencyFormat.format(Prefs.donationRemindersAmount)
+                        val donationAmount =
+                            viewModel.currencyFormat.format(Prefs.donationRemindersAmount)
                         val readFrequency = Prefs.donationRemindersReadFrequency
                         scope.launch {
                             snackbarHostState.showSnackbar(
@@ -198,9 +203,10 @@ fun DonationReminderScreen(
         if (showReadFrequencyCustomDialog) {
             CustomInputDialog(
                 title = "When I read",
-                maxInputNumber = uiState.readFrequency.maxNumber,
+                errorMessage = customDialogErrorMessage,
                 onDismissRequest = {
                     showReadFrequencyCustomDialog = false
+                    customDialogErrorMessage = ""
                 },
                 suffix = {
                     Text(
@@ -210,8 +216,24 @@ fun DonationReminderScreen(
                     )
                 },
                 onDoneClick = { readFrequency ->
-                    viewModel.updateReadFrequencyState(readFrequency.toInt())
-                    showReadFrequencyCustomDialog = false
+                    if (customDialogErrorMessage.isEmpty()) {
+                        viewModel.updateReadFrequencyState(readFrequency.toInt())
+                        showReadFrequencyCustomDialog = false
+                    }
+                },
+                onValueChange = { value ->
+                    val minimumAmount = uiState.readFrequency.minimumAmount
+                    val maximumAmount = uiState.readFrequency.maximumAmount
+                    val amount = viewModel.getAmountFloat(value)
+                    customDialogErrorMessage = when {
+                        amount <= minimumAmount -> {
+                            "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount.toInt() + 1)}"
+                        }
+                        amount >= maximumAmount -> {
+                            "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount.toInt() - 1)} allowed"
+                        }
+                        else -> ""
+                    }
                 }
             )
         }
@@ -219,9 +241,10 @@ fun DonationReminderScreen(
         if (showDonationAmountCustomDialog) {
             CustomInputDialog(
                 title = "Remind me to donate",
-                maxInputNumber = uiState.donationAmount.maxNumber,
+                errorMessage = customDialogErrorMessage,
                 onDismissRequest = {
                     showDonationAmountCustomDialog = false
+                    customDialogErrorMessage = ""
                 },
                 prefix = {
                     Text(
@@ -231,8 +254,30 @@ fun DonationReminderScreen(
                     )
                 },
                 onDoneClick = { amount ->
-                    viewModel.updateDonationAmountState(amount.toInt())
-                    showDonationAmountCustomDialog = false
+                    if (customDialogErrorMessage.isEmpty()) {
+                        viewModel.updateDonationAmountState(amount.toInt())
+                        showDonationAmountCustomDialog = false
+                    }
+                },
+                onValueChange = { value ->
+                    val amount = viewModel.getAmountFloat(value)
+                    val minimumAmount = uiState.donationAmount.minimumAmount
+                    val maximumAmount = uiState.donationAmount.maximumAmount
+                    customDialogErrorMessage = when {
+                        amount <= 0 && amount < minimumAmount -> {
+                            context.getString(
+                                R.string.donate_gpay_minimum_amount,
+                                uiState.donationAmount.displayFormatter(minimumAmount)
+                            )
+                        }
+                        maximumAmount > 0 && amount >= maximumAmount -> {
+                            context.getString(
+                                R.string.donate_gpay_maximum_amount,
+                                uiState.donationAmount.displayFormatter(maximumAmount)
+                            )
+                        }
+                        else -> ""
+                    }
                 }
             )
         }
@@ -479,15 +524,15 @@ fun InfoTooltip(
 fun CustomInputDialog(
     modifier: Modifier = Modifier,
     title: String,
-    maxInputNumber: Int,
+    errorMessage: String = "",
     onDoneClick: (String) -> Unit,
     onDismissRequest: () -> Unit,
     prefix: @Composable (() -> Unit)? = null,
     suffix: @Composable (() -> Unit)? = null,
+    onValueChange: (String) -> Unit,
 ) {
     var value by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
-    var isError by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
@@ -513,17 +558,10 @@ fun CustomInputDialog(
                         .focusRequester(focusRequester),
                     value = value,
                     onValueChange = { newValue ->
-                        // this only allows digits
-                        if (newValue.all { it.isDigit() }) {
-                            val numberValue = newValue.toIntOrNull()
-                            if (numberValue == null || numberValue <= maxInputNumber) {
-                                value = newValue
-                                isError = false
-                            } else
-                                value = maxInputNumber.toString()
-                        }
+                        onValueChange(newValue)
+                        value = newValue
                     },
-                    isError = isError,
+                    isError = errorMessage.isNotEmpty(),
                     prefix = prefix,
                     suffix = suffix,
                     textStyle = MaterialTheme.typography.bodyLarge,
@@ -535,7 +573,24 @@ fun CustomInputDialog(
                         unfocusedBorderColor = MaterialTheme.colorScheme.outline,
                         cursorColor = WikipediaTheme.colors.primaryColor,
                         errorTextColor = WikipediaTheme.colors.primaryColor,
-                    )
+                    ),
+                    supportingText = {
+                        if (errorMessage.isNotEmpty()) {
+                            Text(
+                                text = errorMessage,
+                                color = WikipediaTheme.colors.destructiveColor,
+                            )
+                        }
+                    },
+                    trailingIcon = if (errorMessage.isNotEmpty()) {
+                        {
+                            Icon(
+                                imageVector = Icons.Default.Info,
+                                contentDescription = null,
+                                tint = WikipediaTheme.colors.destructiveColor
+                            )
+                        }
+                    } else null
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -544,7 +599,7 @@ fun CustomInputDialog(
                     TextButton(
                         onClick = {
                             if (value.isEmpty()) {
-                                isError = true
+                                onValueChange("")
                                 return@TextButton
                             }
                             onDoneClick(value)
@@ -570,6 +625,7 @@ private fun CustomInputDialogPreview() {
     ) {
         CustomInputDialog(
             title = "Remind me to donate",
+            onDoneClick = {},
             onDismissRequest = {},
             prefix = {
                 Text(
@@ -584,8 +640,7 @@ private fun CustomInputDialogPreview() {
                     text = "articles"
                 )
             },
-            maxInputNumber = 0,
-            onDoneClick = {}
+            onValueChange = {}
         )
     }
 }

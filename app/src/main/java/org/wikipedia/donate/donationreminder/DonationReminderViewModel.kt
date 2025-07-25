@@ -1,15 +1,24 @@
 package org.wikipedia.donate.donationreminder
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonationReminderHelper
+import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.log.L
 import java.text.NumberFormat
 import java.util.Locale
+import kotlin.collections.first
+import kotlin.collections.map
+import kotlin.collections.plus
 
 class DonationReminderViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(DonationReminderUiState())
@@ -17,21 +26,23 @@ class DonationReminderViewModel : ViewModel() {
 
     private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
     val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
-        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build()).apply {
-            minimumFractionDigits = 0
-            maximumFractionDigits = 0
-        }
+        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
     val currencySymbol get() = currencyFormat.currency?.getSymbol() ?: "$"
+    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
 
     fun loadData() {
-        val readFrequencyOptions = createReadFrequencyOptions()
-        val donationAmountOptions = createExperimentalDonationAmount()
-        _uiState.update {
-            it.copy(
-                readFrequency = readFrequencyOptions,
-                donationAmount = donationAmountOptions,
-                isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
-            )
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            val readFrequencyOptions = createReadFrequencyOptions()
+            val donationAmountOptions = createDonationAmountOptions()
+            _uiState.update {
+                it.copy(
+                    readFrequency = readFrequencyOptions,
+                    donationAmount = donationAmountOptions,
+                    isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
+                )
+            }
         }
     }
 
@@ -67,11 +78,24 @@ class DonationReminderViewModel : ViewModel() {
         return SelectableOption(
             selectedValue,
             optionItems,
-            maxNumber = options.last()
+            minimumAmount = 1f,
+            maximumAmount = 1000f
         ) { "$it articles" }
     }
 
-    private fun createExperimentalDonationAmount(): SelectableOption {
+    private suspend fun createDonationAmountOptions(): SelectableOption {
+        val donationConfig = DonationConfigHelper.getConfig()
+        val minimumAmount = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
+
+        var maximumAmount = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
+        if (maximumAmount == 0f) {
+            val defaultMin = donationConfig?.currencyMinimumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f
+            if (defaultMin > 0f) {
+                maximumAmount = (donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f) / defaultMin *
+                        (donationConfig?.currencyMaximumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f)
+            }
+        }
+
         val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0)
         val options = presets.map {
             OptionItem.Preset(it, currencyFormat.format(it))
@@ -83,9 +107,20 @@ class DonationReminderViewModel : ViewModel() {
         return SelectableOption(
             selectedValue,
             options,
-            maxNumber = presets.last(),
+            minimumAmount = minimumAmount,
+            maximumAmount = maximumAmount,
             displayFormatter = currencyFormat::format
         )
+    }
+
+    fun getAmountFloat(text: String): Float {
+        var result: Float?
+        result = text.toFloatOrNull()
+        if (result == null) {
+            val text2 = if (text.contains(".")) text.replace(".", ",") else text.replace(",", ".")
+            result = text2.toFloatOrNull()
+        }
+        return result ?: 0f
     }
 }
 
@@ -103,6 +138,7 @@ sealed class OptionItem(val displayText: String) {
 data class SelectableOption(
     val selectedValue: Int,
     val options: List<OptionItem>,
-    val maxNumber: Int = 0,
-    val displayFormatter: (Int) -> String = { it.toString() }
+    val maximumAmount: Float = 0f,
+    val minimumAmount: Float = 0f,
+    val displayFormatter: (Any) -> String = { it.toString() }
 )
