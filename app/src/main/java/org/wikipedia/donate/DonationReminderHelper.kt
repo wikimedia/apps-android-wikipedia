@@ -11,12 +11,12 @@ object DonationReminderHelper {
     const val MAX_INITIAL_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
 
-    // Users with a device location in Germany, France, Poland, or Philippines
+    // TODO: update and check before release.
     private val enabledCountries = listOf(
         "DE", "FR", "PL", "PH"
     )
 
-    // Users with a primary language of German, English, French, or Polish
+    // TODO: update and check before release.
     private val enabledLanguages = listOf(
         "de", "fr", "pl", "en"
     )
