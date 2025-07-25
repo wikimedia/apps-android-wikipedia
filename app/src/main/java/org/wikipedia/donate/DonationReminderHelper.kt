@@ -16,12 +16,11 @@ object DonationReminderHelper {
 
     // Users with a device location in Germany, France, Poland, or Philippines
     private val enabledCountries = listOf(
-        "DE", "FR", "PL", "PH"
+        "IT"
     )
 
-    // Users with a primary language of German, English, French, or Polish
     private val enabledLanguages = listOf(
-        "de", "fr", "pl", "en"
+        "it", "en"
     )
 
     // TODO: update the end date when before release to production for 30-day experiment
