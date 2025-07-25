@@ -66,20 +66,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun show() {
-        // First, make the donation card visible but keep the container hidden to measure
-        binding.donationReminderCardView.visibility = VISIBLE
-        visibility = INVISIBLE
-        binding.donationReminderCardView.post {
-            val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
-            val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-
-            binding.donationReminderCardView.measure(widthSpec, heightSpec)
-            // Manually adjust the height of the message card view
-            messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
-
-            layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
-            visibility = VISIBLE
-        }
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+        visibility = VISIBLE
     }
 
     fun refreshCallToActionVisibility() {
@@ -94,6 +82,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun loadImage(url: String?) {
+        maybeShowDonationReminderCard()
         if (url.isNullOrEmpty()) {
             hide()
         } else {
@@ -102,7 +91,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    fun setDonationReminderCard() {
+    private fun setDonationReminderCard() {
         binding.donationReminderCardView.setMessageLabel(context.getString(R.string.recommended_reading_list_onboarding_card_new))
         binding.donationReminderCardView.setMessageTitle(context.getString(R.string.recommended_reading_list_onboarding_card_title))
         binding.donationReminderCardView.setMessageText(context.getString(R.string.recommended_reading_list_onboarding_card_message))
@@ -115,5 +104,21 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.isVisible = false
         }, false)
         binding.donationReminderCardView.isVisible = true
+    }
+
+    fun maybeShowDonationReminderCard() {
+        binding.donationReminderCardView.visibility = VISIBLE
+        visibility = INVISIBLE
+        binding.donationReminderCardView.post {
+            val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
+            val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+
+            binding.donationReminderCardView.measure(widthSpec, heightSpec)
+            // Manually adjust the height of the message card view
+            messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+
+            layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + messageCardViewHeight)
+            visibility = GONE
+        }
     }
 }

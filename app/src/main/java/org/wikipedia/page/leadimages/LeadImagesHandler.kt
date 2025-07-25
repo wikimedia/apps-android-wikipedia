@@ -217,13 +217,13 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     fun getMessageCardViewHeight(): Int {
-        L.d("getMessageCardViewHeight: ${pageHeaderView.messageCardViewHeight}")
         return pageHeaderView.messageCardViewHeight
     }
 
     fun loadLeadImage() {
         val url = leadImageUrl
         initDisplayDimensions()
+        pageHeaderView.maybeShowDonationReminderCard()
         if (page != null && !isMainPage && !url.isNullOrEmpty() && isLeadImageEnabled) {
             pageHeaderView.show()
             pageHeaderView.loadImage(url)

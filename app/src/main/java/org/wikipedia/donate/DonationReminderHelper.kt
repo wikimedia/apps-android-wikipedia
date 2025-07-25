@@ -2,13 +2,14 @@ package org.wikipedia.donate
 
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
 object DonationReminderHelper {
 
-    const val MAX_INITIAL_PROMPTS = 5
+    const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
 
     private val enabledCountries = listOf(
@@ -24,4 +25,30 @@ object DonationReminderHelper {
             (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+
+    fun showInitialDonationReminder(): Boolean {
+        if (!isEnabled) return false
+        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderInitialPromptLastSeen)
+        if (Prefs.donationReminderInitialPromptCount == -1 ||
+            Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
+            daysOfLastSeen <= 0) {
+            return false
+        }
+        Prefs.donationReminderInitialPromptCount += 1
+        Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
+        return true
+    }
+
+    fun showDonationReminder(): Boolean {
+        if (!isEnabled) return false
+        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
+        if (Prefs.donationReminderPromptCount == -1 ||
+            Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||
+            daysOfLastSeen <= 0) {
+            return false
+        }
+        Prefs.donationReminderPromptCount += 1
+        Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
+        return true
+    }
 }
