@@ -23,7 +23,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
     }
 
     fun setMessageTitle(title: String) {
-        val titleWithReservedSpace = "$title    %"  // HACK: Reserve space for the icon
+        val titleWithReservedSpace = "$title    %" // HACK: Reserve space for the icon
         val spannableString = SpannableString(titleWithReservedSpace)
         val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_heart_24)!!
         val iconSize = DimenUtil.dpToPx(24f).toInt()
