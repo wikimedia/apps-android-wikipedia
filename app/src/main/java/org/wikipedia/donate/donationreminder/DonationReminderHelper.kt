@@ -1,4 +1,4 @@
-package org.wikipedia.donate
+package org.wikipedia.donate.donationreminder
 
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -23,7 +23,7 @@ object DonationReminderHelper {
     // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled get() = ReleaseUtil.isDevRelease ||
             (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                    enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
+                    enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {

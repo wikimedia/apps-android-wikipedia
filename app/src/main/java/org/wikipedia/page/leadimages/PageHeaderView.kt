@@ -9,7 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
-import org.wikipedia.donate.DonationReminderHelper
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
@@ -99,14 +99,13 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         binding.donationReminderCardView.setMessageLabel(context.getString(R.string.donation_reminder_initial_prompt_label))
         binding.donationReminderCardView.setMessageTitle(context.getString(R.string.donation_reminder_initial_prompt_title))
         binding.donationReminderCardView.setMessageText(context.getString(R.string.donation_reminder_initial_prompt_message))
-        binding.donationReminderCardView.setImageResource(-1, false)
-        binding.donationReminderCardView.setPositiveButton(R.string.donation_reminder_initial_prompt_positive_button, {
+        binding.donationReminderCardView.setPositiveButton(R.string.donation_reminder_initial_prompt_positive_button) {
             callback?.donationReminderCardPositiveClicked()
-        }, false)
-        binding.donationReminderCardView.setNegativeButton(R.string.donation_reminder_initial_prompt_negative_button, {
+        }
+        binding.donationReminderCardView.setNegativeButton(R.string.donation_reminder_initial_prompt_negative_button) {
             callback?.donationReminderCardNegativeClicked()
             binding.donationReminderCardView.isVisible = false
-        }, false)
+        }
 
         binding.donationReminderCardView.isVisible = true
         visibility = INVISIBLE

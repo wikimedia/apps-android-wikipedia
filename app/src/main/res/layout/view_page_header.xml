@@ -55,7 +55,7 @@
 
     </FrameLayout>
 
-    <org.wikipedia.views.MessageCardView
+    <org.wikipedia.donate.donationreminder.DonationReminderCardView
         android:id="@+id/donationReminderCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
