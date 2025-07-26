@@ -14,6 +14,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
@@ -67,9 +68,21 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         visibility = GONE
     }
 
+    fun hideImage() {
+        binding.headerImageContainer.isVisible = false
+        layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, donationReminderCardViewHeight)
+        // TODO: fix the bottom space when no image is shown
+        visibility = VISIBLE
+    }
+
     fun show() {
         layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + donationReminderCardViewHeight)
         visibility = VISIBLE
+    }
+
+    fun showImage() {
+        binding.headerImageContainer.isVisible = true
+        show()
     }
 
     fun refreshCallToActionVisibility() {
@@ -86,11 +99,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     fun loadImage(url: String?) {
         maybeShowDonationReminderCard()
         if (url.isNullOrEmpty()) {
-            hide()
+            hideImage()
         } else {
-            show()
+            showImage()
             binding.viewPageHeaderImage.loadImage(url.toUri())
         }
+        L.d("PageHeaderView: loadImage: ${layoutParams.height} => $donationReminderCardViewHeight")
     }
 
     private fun setDonationReminderCard() {
