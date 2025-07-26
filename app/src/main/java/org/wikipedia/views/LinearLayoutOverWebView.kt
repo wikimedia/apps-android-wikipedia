@@ -8,17 +8,13 @@ import android.widget.LinearLayout
 import org.wikipedia.util.DimenUtil.densityScalar
 import kotlin.math.abs
 
-open class LinearLayoutOverWebView : LinearLayout {
+open class LinearLayoutOverWebView(context: Context?, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     private lateinit var webView: ObservableWebView
     private var touchSlop = 0
     private var viewPressed = false
     private var amountScrolled = 0
     private var startY = 0f
     private var slopReached = false
-
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     fun setWebView(webView: ObservableWebView) {
         this.webView = webView

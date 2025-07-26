@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/messageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="serif-monospace"
+            android:textSize="11sp"
+            android:textAllCaps="true"
+            android:text="@string/donation_reminder_initial_prompt_label"
+            app:chipBackgroundColor="?attr/addition_color"
+            app:chipStrokeWidth="0dp"
+            app:chipMinTouchTargetSize="0dp"
+            app:chipStartPadding="0dp"
+            app:chipEndPadding="0dp"
+            app:chipCornerRadius="18dp"
+            app:chipMinHeight="22dp"/>
+
+        <TextView
+            android:id="@+id/messageTitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="16sp"
+            android:textColor="?attr/primary_color"
+            android:text="@string/donation_reminder_initial_prompt_title"/>
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="?attr/secondary_color"
+            android:text="@string/donation_reminder_initial_prompt_message"
+            android:layout_marginBottom="4dp"
+            app:lineHeight="18sp"/>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/positiveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text"
+                android:textSize="14sp"
+                android:layout_marginStart="-16dp"
+                tools:text="Lorem ipsum"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/negativeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text"
+                android:textColor="?attr/primary_color"
+                android:textSize="14sp"
+                tools:text="Lorem ipsum"
+                tools:visibility="visible"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
