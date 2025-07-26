@@ -1768,6 +1768,37 @@
     <item quantity="one">Bu il %d məqalə oxumusunuz</item>
     <item quantity="other">Bu il %d məqalə oxumusunuz</item>
   </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Bu il, siz %2$s, %3$s, və %4$s daxil olmaqla tam %1$d məqalə oxumusunuz. Vikipediyada 300-dən çox dildə 63 milyondan çox məqalə olub. Siz biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz.</item>
+    <item quantity="other">Bu il, siz %2$s, %3$s, və %4$s daxil olmaqla tam %1$d məqalə oxumusunuz. Vikipediyada 300-dən çox dildə 63 milyondan çox məqalə olub. Siz biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Vikipediyanı %d dəfə redaktə etmisiniz</item>
+    <item quantity="other">Vikipediyanı %d dəfə redaktə etmisiniz</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Vikipediyanı %d dəfə redaktə etmisiniz. Dünya üzrə Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğunuz üçün təşəkkür edirik.</item>
+    <item quantity="other">Vikipediyanı %d dəfə redaktə etmisiniz. Dünya üzrə Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğunuz üçün təşəkkür edirik.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Vikipediya 300-dən çox dildə mövcuddur</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Bu il Vikipediyada 300-dən çox aktiv dildə 63 milyondan çox məqalə var. Biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">iOS proqramı vasitəsilə 452 257-dən çox redaktə edilib</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">Vikipediyanın könüllü redaktorlar icması bu il iOS proqramında 452 257-dən çox redaktə edib. Vikipediyanın ürəyi və ruhu bizim könüllü redaktorlar, donorlar və sizin kimi milyardlarla oxucudan ibarət qlobal birliyimizdir – hamısı etibarlı məlumatı limitsiz şəkildə paylaşmaq üçün birləşib.</string>
+  <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
+  <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
+  <string name="year_in_review_survey_very_satisfied">Çox məmnunam</string>
+  <string name="year_in_review_survey_satisfied">Məmnunam</string>
+  <string name="year_in_review_survey_neutral">Neytral</string>
+  <string name="year_in_review_survey_unsatisfied">Məmnun deyiləm</string>
+  <string name="year_in_review_survey_very_unsatisfied">Çox narazıyam</string>
+  <string name="year_in_review_survey_placeholder_text">Əlavə fikriniz var?</string>
+  <string name="year_in_review_survey_cancel">İmtina</string>
+  <string name="year_in_review_survey_submit">Göndər</string>
+  <string name="year_in_review_screendeck_image_content_description">İlin İcmalının əsas ekranındakı şəkil resursu</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">İlin İcmalının giriş dialoqu ekranının şəkil resursu</string>
+  <string name="year_in_review_screenshot_error">Skrinşot yaratmaq mümkün olmadı: %s</string>
+  <string name="year_in_review_share_subject">İlin İcmalı Şəkil və Link</string>
+  <string name="year_in_review_globe_icon">Qlobus İkonu</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>

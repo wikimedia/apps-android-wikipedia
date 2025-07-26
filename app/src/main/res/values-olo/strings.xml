@@ -18,6 +18,8 @@
   <string name="search_hint">Eči Wikipedies</string>
   <string name="search_hint_voice_search">Eči iänel</string>
   <string name="search_hint_search_languages">Eči kieli</string>
+  <string name="search_back_button_content_description">Mene järilleh</string>
+  <string name="search_icon_content_description">Eči</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruiče minun luvettelot</string>
   <string name="nav_item_suggested_edits">Kohendukset</string>
   <string name="nav_item_more">Enämbi</string>
@@ -58,6 +60,7 @@
   <string name="page_edit_history_filter_by_all">Kai editoičendat (%s)</string>
   <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botat (%s)</string>
+  <string name="page_edit_history_empty_search_message">Opi vaihtua &lt;a href=\"#\"&gt;fil’troi&lt;/a&gt;, što näit enäm muokkavuksii</string>
   <string name="menu_page_show_tabs">Ozuta välilehtet</string>
   <string name="menu_page_other_languages">Luve toizil kielil</string>
   <string name="menu_page_find_in_page">Eči täl artiklal</string>
@@ -83,6 +86,7 @@
   <string name="menu_page_reading_lists">Luvendulistat</string>
   <string name="menu_page_archive">Arhiivu</string>
   <string name="menu_long_press_open_page">Avua</string>
+  <string name="menu_long_press_open_in_places">Avua Paikois</string>
   <string name="menu_long_press_open_in_new_tab">Avua uvves välilehtes</string>
   <string name="menu_long_press_copy_page">Kopiiruiče linkan adressi</string>
   <string name="menu_text_select_define">Merkičys</string>
@@ -95,7 +99,8 @@
   <string name="edit_history_link_text">Ozuta editoičenduhistourii</string>
   <string name="map_view_link_text">Ozuta kartal</string>
   <string name="other_languages_indication_text">Luve toizel kielel</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
+  <string name="language_count_link_text">Suadavannu %d muul kielel</string>
+  <string name="edit_save_action_license_logged_in">Jullaten hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
   <string name="preference_title_language">Wikipedien kielet</string>
   <string name="langlinks_filter_hint">Eči</string>
   <string name="langlinks_empty">Tädä sivuu ei ole toizil kielil</string>
@@ -104,16 +109,18 @@
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedii-kielet</string>
   <string name="menu_save_changes">Julgua muutokset</string>
   <string name="edit_saved_successfully">Kohendus jullattu!</string>
+  <string name="stub_article_edit_saved_successfully">Muokkavus jullattu! Muutoksil voi ottua aigua tulla nägyvih.</string>
   <string name="dialog_message_edit_failed">Haireh kohendukses!</string>
   <string name="dialog_message_edit_failed_retry">Opi uvvessah</string>
   <string name="dialog_message_edit_failed_cancel">Hylgiä</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Sinun muutoksii ei vie tallendettu. Oletgo varmu, gu tahtot poistuo sivulpäi?</string>
+  <string name="dialog_message_leaving_edit">Sinun muutoksii ei vie jullattu. Oletgo varmu, gu tahtot poistuo sivulpäi?</string>
   <string name="dialog_message_leaving_edit_leave">Lähte iäre</string>
   <string name="dialog_message_leaving_edit_stay">Jiä</string>
   <string name="dialog_confirm_delete_donation_history_delete">Ota iäre</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Hylgiä</string>
   <string name="menu_show_toc">Syväindöluvettelo</string>
   <string name="search_no_results_found">Tuloksii ei löydynyh.</string>
+  <string name="search_reading_list_no_results">Tuloksii ei löydynyh ečol ”%s”</string>
   <string name="edit_section_captcha_message">Kirjuta ual olijat sanat spaman vältämizeh.</string>
   <string name="edit_section_captcha_hint">Kirjuta uvvessah ielmainitut olijat sanat</string>
   <string name="title_captcha">Kirjuta CAPTCHA</string>
