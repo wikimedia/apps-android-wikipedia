@@ -21,7 +21,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
@@ -221,7 +220,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Int {
-        if (!DonationReminderHelper.hasActiveReminder) {
+        if (pageHeaderView.donationReminderCardViewHeight == 0) {
             return 0
         }
         return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) {
@@ -238,7 +237,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     fun loadLeadImage() {
         val url = leadImageUrl
         initDisplayDimensions()
-        pageHeaderView.maybeShowDonationReminderCard()
         if (page != null && !isMainPage && !url.isNullOrEmpty() && isLeadImageEnabled) {
             pageHeaderView.show()
             pageHeaderView.loadImage(url)
