@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:fontFamily="serif-monospace"
+            android:fontFamily="monospace"
             android:textSize="11sp"
             android:textAllCaps="true"
             android:text="@string/donation_reminder_initial_prompt_label"

@@ -51,5 +51,6 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
 
     fun setMessageLabel(message: String?) {
         binding.messageLabel.text = message
+        binding.messageLabel.letterSpacing = 0.1f
     }
 }
