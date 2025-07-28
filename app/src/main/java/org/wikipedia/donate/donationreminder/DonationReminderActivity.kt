@@ -6,8 +6,10 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
 import org.wikipedia.util.DeviceUtil
 
+// @TODO: once PM confirms final copy update the strings
 class DonationReminderActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +20,11 @@ class DonationReminderActivity : BaseActivity() {
                     onBackButtonClick = {
                         onBackPressed()
                     },
-                    onConfirmBtnClick = {
+                    onConfirmBtnClick = { message ->
                         // @TODO: for showing snackbar on pageFragment
+                    },
+                    onAboutThisExperimentClick = {
+                        // @TODO: show external uri after confirmation
                     }
                 )
             }
@@ -27,8 +32,9 @@ class DonationReminderActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(contex: Context): Intent {
+        fun newIntent(contex: Context, isFromSettings: Boolean = false): Intent {
             return Intent(contex, DonationReminderActivity::class.java)
+                .putExtra(EXTRA_FROM_SETTINGS, isFromSettings)
         }
     }
 }

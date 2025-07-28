@@ -79,17 +79,14 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import kotlin.compareTo
-import kotlin.text.compareTo
-import kotlin.text.toInt
 
-// @TODO: once PM confirms final copy update the strings
 @Composable
 fun DonationReminderScreen(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel = viewModel(),
     onBackButtonClick: () -> Unit,
-    onConfirmBtnClick: () -> Unit
+    onConfirmBtnClick: (String) -> Unit,
+    onAboutThisExperimentClick: () -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val uiState = viewModel.uiState.collectAsState().value
@@ -245,14 +242,18 @@ fun DonationReminderScreen(
                         val donationAmount =
                             viewModel.currencyFormat.format(Prefs.donationRemindersAmount)
                         val readFrequency = Prefs.donationRemindersReadFrequency
-                        scope.launch {
-                            snackbarHostState.showSnackbar(
-                                message = "Reminder set! We'll remind you to donate $donationAmount when you read $readFrequency articles."
-                            )
+                        val message = "Reminder set! We'll remind you to donate $donationAmount when you read $readFrequency articles."
+                        if (viewModel.isFromSettings) {
+                            scope.launch {
+                                snackbarHostState.showSnackbar(
+                                    message = message
+                                )
+                            }
+                            return@BottomContent
                         }
-                        onConfirmBtnClick()
+                        onConfirmBtnClick(message)
                     },
-                    onAboutThisExperimentClick = {}
+                    onAboutThisExperimentClick = onAboutThisExperimentClick
                 )
             }
         }
@@ -704,6 +705,7 @@ private fun DonationReminderScreenPreview() {
         DonationReminderScreen(
             onBackButtonClick = {},
             onConfirmBtnClick = {},
+            onAboutThisExperimentClick = {}
         )
     }
 }

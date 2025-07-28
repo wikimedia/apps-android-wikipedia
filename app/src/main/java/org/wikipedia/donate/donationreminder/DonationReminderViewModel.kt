@@ -1,5 +1,6 @@
 package org.wikipedia.donate.donationreminder
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -11,10 +12,13 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.donate.GooglePayComponent
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
-class DonationReminderViewModel : ViewModel() {
+class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val isFromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
+
     private val _uiState = MutableStateFlow(DonationReminderUiState())
     val uiState: StateFlow<DonationReminderUiState> = _uiState.asStateFlow()
 

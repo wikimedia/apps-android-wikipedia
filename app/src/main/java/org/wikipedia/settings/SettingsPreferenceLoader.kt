@@ -91,7 +91,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         donationCategory.isVisible = DonationReminderHelper.isEnabled
         findPreference(R.string.preference_key_donation_reminders).onPreferenceClickListener =
             Preference.OnPreferenceClickListener {
-                activity.startActivity(DonationReminderActivity.newIntent(activity))
+                activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                 true
             }
         if (Prefs.donationResults.isNotEmpty()) {
