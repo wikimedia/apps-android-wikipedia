@@ -1,6 +1,7 @@
 package org.wikipedia.donate.donationreminder
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ImageSpan
@@ -51,6 +52,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
 
     fun setMessageLabel(message: String?) {
         binding.messageLabel.text = message
+        binding.messageLabel.typeface = Typeface.MONOSPACE
         binding.messageLabel.letterSpacing = 0.1f
     }
 }
