@@ -11,6 +11,7 @@ import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonationReminderSurveyState
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
@@ -828,4 +829,34 @@ object Prefs {
     var resetRecommendedReadingList
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
+
+    var donationReminderInitialPromptCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminder_initial_prompt_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminder_initial_prompt_count, value)
+
+    var donationReminderInitialPromptLastSeen
+        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_reminder_initial_prompt_last_seen, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_reminder_initial_prompt_last_seen, value)
+
+    var donationReminderPromptCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminder_prompt_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminder_prompt_count, value)
+
+    var donationReminderPromptLastSeen
+        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_reminder_prompt_last_seen, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_reminder_prompt_last_seen, value)
+
+    var donationReminderSurveySate: DonationReminderSurveyState
+        get() {
+            val ordinal = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_survey_state,
+                DonationReminderSurveyState.INITIAL.ordinal)
+            return DonationReminderSurveyState.entries.toTypedArray().getOrElse(ordinal) { DonationReminderSurveyState.INITIAL }
+        }
+        set(value) {
+            PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_survey_state, value.ordinal)
+        }
+
+    var donationReminderArticleVisit
+        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_article_visit, 1)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_article_visit, value)
 }
