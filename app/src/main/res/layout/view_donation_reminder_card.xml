@@ -11,7 +11,6 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="16dp"
-        android:paddingBottom="4dp"
         android:orientation="vertical">
 
         <com.google.android.material.chip.Chip
