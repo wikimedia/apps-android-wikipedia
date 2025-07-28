@@ -411,7 +411,8 @@ fun OptionSelector(
     showInfo: Boolean = false,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
-    val displayValue = remember(option.selectedValue, option.displayFormatter) {
+
+    val displayValue = remember(option.selectedValue) {
         option.displayFormatter(option.selectedValue)
     }
 
