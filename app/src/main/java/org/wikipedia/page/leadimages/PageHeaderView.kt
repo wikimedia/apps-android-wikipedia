@@ -73,6 +73,10 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         visibility = VISIBLE
     }
 
+    fun hideDonationReminderCard() {
+        binding.donationReminderCardView.isVisible = false
+    }
+
     fun show() {
         layoutParams = CoordinatorLayout.LayoutParams(LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context) + donationReminderCardViewHeight)
         visibility = VISIBLE
@@ -133,7 +137,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun maybeShowDonationReminderCard() {
-        if (!DonationReminderHelper.maybeShowInitialDonationReminder(false)) {
+        if (!DonationReminderHelper.maybeShowInitialDonationReminder(true)) {
             return
         }
         binding.donationReminderCardView.isVisible = true

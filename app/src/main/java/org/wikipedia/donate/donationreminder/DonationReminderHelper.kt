@@ -26,6 +26,8 @@ object DonationReminderHelper {
                     enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
+    val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
+
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderInitialPromptLastSeen)
@@ -44,6 +46,7 @@ object DonationReminderHelper {
     // TODO: connect the logic with donation reminder settings (e.g. article numbers, donation amount, etc.)
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
+        return false // TODO: temporary disable the donation reminder prompt
         val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
         if (Prefs.donationReminderPromptCount == -1 ||
             Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||

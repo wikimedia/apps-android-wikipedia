@@ -55,7 +55,7 @@ class WikiArticleCardView(context: Context, attrs: AttributeSet? = null) : Const
 
     fun prepareForTransition(title: PageTitle) {
         setImageUri(title.thumbUrl?.toUri())
-        if (!(DonationReminderHelper.maybeShowInitialDonationReminder(false) || DonationReminderHelper.maybeShowDonationReminder(false))) {
+        if (!DonationReminderHelper.hasActiveReminder) {
             setTitle(title.displayText)
             setDescription(title.description)
         }
