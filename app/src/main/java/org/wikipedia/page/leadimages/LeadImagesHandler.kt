@@ -2,6 +2,7 @@ package org.wikipedia.page.leadimages
 
 import android.net.Uri
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -57,11 +58,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     // PageProperties' URL.
     private val leadImageUrl: String?
         get() {
-            val url = page?.run { pageProperties.leadImageUrl } ?: return null
-            title?.let {
+            return title?.let {
                 // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
                 // PageProperties' URL.
-                val fullUri = Uri.parse(url)
+                val url = page?.run { pageProperties.leadImageUrl } ?: return@let null
+                val fullUri = url.toUri()
                 var scheme: String? = it.wikiSite.scheme()
                 var authority: String? = it.wikiSite.authority()
                 if (fullUri.scheme != null) {
@@ -75,7 +76,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     .authority(authority)
                     .path(fullUri.path)
                     .toString()
-            } ?: return null
+            }
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp(
