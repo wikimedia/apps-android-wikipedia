@@ -27,6 +27,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
@@ -200,13 +201,21 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            override fun donationReminderCardPositiveClicked() {
+            override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
                 TODO("Not yet implemented")
             }
 
-            override fun donationReminderCardNegativeClicked() {
+            override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 pageHeaderView.hideDonationReminderCard()
+                loadLeadImage()
                 parentFragment.refreshPage()
+                FeedbackUtil.showMessage(parentFragment, R.string.donation_reminder_prompt_dismiss_snackbar)
+                // Set -1 as the count to indicate that the user has dismissed the prompt
+                if (isInitialPrompt) {
+                    Prefs.donationReminderInitialPromptCount = -1
+                } else {
+                    Prefs.donationReminderPromptCount = -1
+                }
             }
         }
     }

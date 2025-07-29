@@ -21,8 +21,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        fun donationReminderCardPositiveClicked()
-        fun donationReminderCardNegativeClicked()
+        fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean)
+        fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean)
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -111,14 +111,15 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     private fun setDonationReminderCard() {
         // TODO: setup the text based on the donation reminder settings
         // TODO: make sure to set up the different actions for different cards (and update preferences too)
+        val isInitialPrompt = true
         binding.donationReminderCardView.setMessageLabel(context.getString(R.string.donation_reminder_initial_prompt_label))
         binding.donationReminderCardView.setMessageTitle(context.getString(R.string.donation_reminder_initial_prompt_title))
         binding.donationReminderCardView.setMessageText(context.getString(R.string.donation_reminder_initial_prompt_message))
         binding.donationReminderCardView.setPositiveButton(R.string.donation_reminder_initial_prompt_positive_button) {
-            callback?.donationReminderCardPositiveClicked()
+            callback?.donationReminderCardPositiveClicked(isInitialPrompt)
         }
         binding.donationReminderCardView.setNegativeButton(R.string.donation_reminder_initial_prompt_negative_button) {
-            callback?.donationReminderCardNegativeClicked()
+            callback?.donationReminderCardNegativeClicked(isInitialPrompt)
             binding.donationReminderCardView.isVisible = false
         }
 
