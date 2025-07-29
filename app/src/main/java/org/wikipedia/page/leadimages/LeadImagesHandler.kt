@@ -202,13 +202,18 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             }
 
             override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
-                TODO("Not yet implemented")
+                hideDonationReminderCard()
+                if (isInitialPrompt) {
+                    // TODO: open the setting page
+                    Prefs.donationReminderInitialPromptCount = -1
+                } else {
+                    // TODO: open the donation bottom sheet.
+                    // Prefs.donationReminderPromptCount = -1 TODO: turn on this
+                }
             }
 
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
-                pageHeaderView.hideDonationReminderCard()
-                loadLeadImage()
-                parentFragment.refreshPage()
+                hideDonationReminderCard()
                 FeedbackUtil.showMessage(parentFragment, R.string.donation_reminder_prompt_dismiss_snackbar)
                 // Set -1 as the count to indicate that the user has dismissed the prompt
                 if (isInitialPrompt) {
@@ -218,6 +223,12 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
         }
+    }
+
+    private fun hideDonationReminderCard() {
+        pageHeaderView.hideDonationReminderCard()
+        loadLeadImage()
+        parentFragment.refreshPage()
     }
 
     fun hide() {

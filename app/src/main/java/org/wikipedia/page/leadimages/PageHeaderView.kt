@@ -125,7 +125,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         } else {
             // TODO: put actual preference here
             val articleText = context.resources.getQuantityString(
-                R.plurals.recommended_reading_list_page_subtitle_articles, 25, 25
+                R.plurals.donation_reminder_prompt_title_articles, 25, 25
             )
             val amountText = "$3"
             context.getString(R.string.donation_reminder_prompt_title, articleText, amountText)
@@ -136,7 +136,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             // TODO: put actual preference here
             val dateText = "July 2, 2025"
             val articleText = context.resources.getQuantityString(
-                R.plurals.recommended_reading_list_page_subtitle_articles, 25, 25
+                R.plurals.donation_reminder_prompt_title_articles, 25, 25
             )
             val amountText = "$3"
             context.getString(R.string.donation_reminder_prompt_message, dateText, amountText, articleText)
@@ -177,8 +177,14 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun maybeShowDonationReminderCard() {
-        if (!DonationReminderHelper.maybeShowInitialDonationReminder(true)) {
+        if (!DonationReminderHelper.hasActiveReminder) {
             return
+        }
+        if (DonationReminderHelper.shouldShowInitialPrompt) {
+            DonationReminderHelper.maybeShowInitialDonationReminder(true)
+        } else {
+            // TODO: change to true after testing
+            DonationReminderHelper.maybeShowDonationReminder(false)
         }
         binding.donationReminderCardView.isVisible = true
     }
