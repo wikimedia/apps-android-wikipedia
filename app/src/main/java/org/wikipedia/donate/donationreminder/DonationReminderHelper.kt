@@ -40,6 +40,10 @@ object DonationReminderHelper {
             Prefs.donationReminderInitialPromptCount += 1
             Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
         }
+        if (Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
+            // Set it to -1 to mark it as done.
+            Prefs.donationReminderInitialPromptCount = -1
+        }
         return true
     }
 
@@ -50,12 +54,16 @@ object DonationReminderHelper {
         val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
         if (Prefs.donationReminderPromptCount == -1 ||
             Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
+            (daysOfLastSeen <= 0 && Prefs.donationReminderPromptCount > 0)) {
             return false
         }
         if (update) {
             Prefs.donationReminderPromptCount += 1
             Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
+        }
+        if (Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS) {
+            // Set it to -1 to mark it as done.
+            Prefs.donationReminderPromptCount = -1
         }
         return true
     }
