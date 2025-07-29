@@ -2007,4 +2007,8 @@
     <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
     <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>
     <string name="recommended_reading_list_settings_toggle_enable_message">Discover is on. Wikipedia will recommend you articles to read.</string>
+
+    <!-- Donation Reminders   -->
+    <string name="donation_reminders_survey_dialog_title">Help improve donation reminders.</string>
+    <string name="donation_reminders_survey_dialog_message">Are you satisfied with this experience?</string>
 </resources>

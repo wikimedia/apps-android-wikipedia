@@ -200,4 +200,5 @@
     <string name="preference_key_donation_reminder_prompt_count">donationReminderPromptCount</string>
     <string name="preference_key_donation_reminder_prompt_last_seen">donationReminderPromptLastSeen</string>
     <string name="preference_key_donation_article_visit">donationReminderArticleVisit</string>
+    <string name="preference_key_donation_article_visit_for_initial_prompt">donationReminderArticleVisitForInitialPrompt</string>
 </resources>

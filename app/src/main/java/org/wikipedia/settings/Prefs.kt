@@ -857,6 +857,10 @@ object Prefs {
         }
 
     var donationReminderArticleVisit
-        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_article_visit, 1)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_article_visit, value)
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_article_visit, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_article_visit, value)
+
+    var donationReminderArticleVisitForInitialPrompt
+        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_article_visit_for_initial_prompt, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_article_visit_for_initial_prompt, value)
 }

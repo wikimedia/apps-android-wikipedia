@@ -1909,4 +1909,7 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
+  <!-- Donation Reminders   -->
+  <string name="donation_reminders_survey_dialog_title">Title label for donation reminders survey dialog</string>
+  <string name="donation_reminders_survey_dialog_message">Message label for donation reminders survey dialog</string>
 </resources>
