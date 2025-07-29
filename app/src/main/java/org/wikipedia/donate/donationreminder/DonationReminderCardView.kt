@@ -7,7 +7,6 @@ import android.text.SpannableString
 import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewDonationReminderCardBinding
@@ -23,7 +22,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
         elevation = 0f
     }
 
-    fun setMessageTitle(title: String) {
+    fun setTitle(title: String) {
         val titleWithReservedSpace = "$title    %" // HACK: Reserve space for the icon
         val spannableString = SpannableString(titleWithReservedSpace)
         val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_heart_24)!!
@@ -36,21 +35,25 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
         binding.messageTitleView.text = spannableString
     }
 
-    fun setMessageText(text: String) {
+    fun setMessage(text: String) {
         binding.messageTextView.text = text
     }
 
-    fun setPositiveButton(@StringRes stringRes: Int, listener: OnClickListener) {
-        binding.positiveButton.text = context.getString(stringRes)
+    fun setPositiveButton(text: String, listener: OnClickListener) {
+        binding.positiveButton.text = text
         binding.positiveButton.setOnClickListener(listener)
     }
 
-    fun setNegativeButton(@StringRes stringRes: Int, listener: OnClickListener) {
-        binding.negativeButton.text = context.getString(stringRes)
+    fun setNegativeButton(text: String, listener: OnClickListener) {
+        binding.negativeButton.text = text
         binding.negativeButton.setOnClickListener(listener)
     }
 
-    fun setMessageLabel(message: String?) {
+    fun setLabel(message: String?) {
+        if (message.isNullOrEmpty()) {
+            binding.messageLabel.visibility = GONE
+            return
+        }
         binding.messageLabel.text = message
         binding.messageLabel.typeface = Typeface.MONOSPACE
         binding.messageLabel.letterSpacing = 0.1f

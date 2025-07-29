@@ -111,14 +111,53 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     private fun setDonationReminderCard() {
         // TODO: setup the text based on the donation reminder settings
         // TODO: make sure to set up the different actions for different cards (and update preferences too)
-        val isInitialPrompt = true
-        binding.donationReminderCardView.setMessageLabel(context.getString(R.string.donation_reminder_initial_prompt_label))
-        binding.donationReminderCardView.setMessageTitle(context.getString(R.string.donation_reminder_initial_prompt_title))
-        binding.donationReminderCardView.setMessageText(context.getString(R.string.donation_reminder_initial_prompt_message))
-        binding.donationReminderCardView.setPositiveButton(R.string.donation_reminder_initial_prompt_positive_button) {
+        if (!DonationReminderHelper.isEnabled) {
+            return
+        }
+        val isInitialPrompt = DonationReminderHelper.shouldShowInitialPrompt
+        val labelText = if (isInitialPrompt) {
+            context.getString(R.string.donation_reminder_initial_prompt_label)
+        } else {
+            null
+        }
+        val titleText = if (isInitialPrompt) {
+            context.getString(R.string.donation_reminder_initial_prompt_title)
+        } else {
+            // TODO: put actual preference here
+            val articleText = context.resources.getQuantityString(
+                R.plurals.recommended_reading_list_page_subtitle_articles, 25, 25
+            )
+            val amountText = "$3"
+            context.getString(R.string.donation_reminder_prompt_title, articleText, amountText)
+        }
+        val messageText = if (isInitialPrompt) {
+            context.getString(R.string.donation_reminder_initial_prompt_message)
+        } else {
+            // TODO: put actual preference here
+            val dateText = "July 2, 2025"
+            val articleText = context.resources.getQuantityString(
+                R.plurals.recommended_reading_list_page_subtitle_articles, 25, 25
+            )
+            val amountText = "$3"
+            context.getString(R.string.donation_reminder_prompt_message, dateText, amountText, articleText)
+        }
+        val positiveButtonText = if (isInitialPrompt) {
+            context.getString(R.string.donation_reminder_initial_prompt_positive_button)
+        } else {
+            context.getString(R.string.donation_reminder_prompt_positive_button)
+        }
+        val negativeButtonText = if (isInitialPrompt) {
+            context.getString(R.string.donation_reminder_initial_prompt_negative_button)
+        } else {
+            context.getString(R.string.donation_reminder_prompt_negative_button)
+        }
+        binding.donationReminderCardView.setLabel(labelText)
+        binding.donationReminderCardView.setTitle(titleText)
+        binding.donationReminderCardView.setMessage(messageText)
+        binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
             callback?.donationReminderCardPositiveClicked(isInitialPrompt)
         }
-        binding.donationReminderCardView.setNegativeButton(R.string.donation_reminder_initial_prompt_negative_button) {
+        binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
             callback?.donationReminderCardNegativeClicked(isInitialPrompt)
             binding.donationReminderCardView.isVisible = false
         }

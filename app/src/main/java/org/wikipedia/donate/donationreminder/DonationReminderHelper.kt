@@ -27,6 +27,7 @@ object DonationReminderHelper {
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
+    val shouldShowInitialPrompt get() = true // TODO: use the real logic from donation reminder settings
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
