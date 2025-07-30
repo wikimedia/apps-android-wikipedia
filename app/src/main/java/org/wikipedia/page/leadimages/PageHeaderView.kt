@@ -158,12 +158,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 callback?.donationReminderCardPositiveClicked(isInitialPrompt)
-                DonationReminderHelper.donationReminderDismissed(config, isInitialPrompt)
+                // DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 callback?.donationReminderCardNegativeClicked(isInitialPrompt)
                 binding.donationReminderCardView.isVisible = false
-                DonationReminderHelper.donationReminderDismissed(config, isInitialPrompt)
+                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
             }
 
             binding.donationReminderCardView.isVisible = true
@@ -185,6 +185,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         if (!DonationReminderHelper.hasActiveReminder) {
             return
         }
-        binding.donationReminderCardView.isVisible = DonationReminderHelper.maybeShowInitialDonationReminder(true) || DonationReminderHelper.maybeShowDonationReminder(true)
+        binding.donationReminderCardView.isVisible = DonationReminderHelper.maybeShowInitialDonationReminder(true) ||
+                DonationReminderHelper.maybeShowDonationReminder(false) // TODO: turn to true later
     }
 }

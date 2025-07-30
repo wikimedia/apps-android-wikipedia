@@ -534,7 +534,9 @@
     <PreferenceCategory android:title="Donation Reminder">
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
-            android:key="@string/preference_key_donation_reminder_config" />
+            android:key="@string/preference_key_donation_reminder_config"
+            android:title="@string/preference_key_donation_reminder_config"
+            android:dialogMessage="Example for showing the donation reminder: {&quot;isEnabled&quot;:true,&quot;initialPromptCount&quot;:1,&quot;initialPromptDismissed&quot;:true,&quot;promptLastSeen&quot;:20298,&quot;setupTimestamp&quot;:1291239123,&quot;articleFrequency&quot;:25,&quot;donateAmount&quot;:5}"/>
 
     </PreferenceCategory>
 </PreferenceScreen>
