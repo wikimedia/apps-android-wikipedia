@@ -26,15 +26,15 @@ object DonationReminderHelper {
 
 @Serializable
 data class DonationReminderConfig(
-    var isEnabled: Boolean = false,
-    var initialPromptCount: Int = 0,
-    var initialPromptDismissed: Boolean = false,
-    var finalPromptCount: Int = 0,
-    var finalPromptDismissed: Boolean = false,
-    var promptLastSeen: Long = 0,
-    var setupTimestamp: Long = 0,
-    var articleVisit: Int = 0,
-    var isSurveyShown: Boolean = false,
-    var articleFrequency: Int = 0,
-    var donateAmount: Int = 0
+    val isEnabled: Boolean = false,
+    val initialPromptCount: Int = 0,
+    val initialPromptDismissed: Boolean = false,
+    val finalPromptCount: Int = 0,
+    val finalPromptDismissed: Boolean = false,
+    val promptLastSeen: Long = 0,
+    val setupTimestamp: Long = 0,
+    val articleVisit: Int = 0,
+    val isSurveyShown: Boolean = false,
+    val articleFrequency: Int = 0,
+    val donateAmount: Int = 0
 )
