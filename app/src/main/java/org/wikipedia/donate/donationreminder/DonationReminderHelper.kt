@@ -12,8 +12,8 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.settings.Prefs
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
@@ -80,7 +80,7 @@ object DonationReminderHelper {
                 promptLastSeen = LocalDate.now().toEpochDay()
             )
         }
-        if ( Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
+        if (Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 finalPromptCount = -1,
                 isReadyToShowSurvey = true
@@ -122,7 +122,6 @@ object DonationReminderHelper {
         }
     }
 
-
     private fun getUserGroup(): String {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
@@ -157,7 +156,6 @@ object DonationReminderHelper {
         dialog = dialogBuilder.show()
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
     }
-
 }
 
 @Serializable
