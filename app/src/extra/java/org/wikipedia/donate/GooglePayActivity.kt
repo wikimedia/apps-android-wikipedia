@@ -302,8 +302,8 @@ class GooglePayActivity : BaseActivity() {
     }
 
     companion object {
-        private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
-        private const val CAMPAIGN_ID_APP_MENU = "appmenu"
+        const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
+        const val CAMPAIGN_ID_APP_MENU = "appmenu"
 
         fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null): Intent {
             return Intent(context, GooglePayActivity::class.java)

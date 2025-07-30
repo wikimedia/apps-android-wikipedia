@@ -134,7 +134,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             val messageText = if (isInitialPrompt) {
                 context.getString(R.string.donation_reminder_initial_prompt_message)
             } else {
-                // TODO: put actual preference here
                 val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
                 val articleText = context.resources.getQuantityString(
                     R.plurals.donation_reminder_prompt_title_articles, config.articleFrequency, config.articleFrequency

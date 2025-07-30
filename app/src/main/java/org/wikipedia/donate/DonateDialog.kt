@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.gms.wallet.AutoResolveHelper
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -18,6 +20,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
+import org.wikipedia.dataclient.donate.CampaignCollection
+import org.wikipedia.donate.GooglePayActivity.Companion.LOAD_PAYMENT_DATA_REQUEST_CODE
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -29,7 +33,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DonateViewModel by viewModels()
-    private val googlePayViewModel: GooglePayViewModel by viewModels()
+
+    private val googlePayViewModel: GooglePayViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
@@ -46,40 +51,66 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
         }
 
-        if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
-            val donateAmount = "$3"
-            val donateButtonText = getString(R.string.donation_reminder_gpay_text, donateAmount)
-            binding.donateGooglePayButton.text = donateButtonText
-            binding.donateGooglePayButton.setOnClickListener {
-                // TODO: start the payment flow with a fixed amount of $3
-            }
-            binding.donateGooglePayDifferentAmountButton.isVisible = true
-            binding.donateGooglePayDifferentAmountButton.setOnClickListener {
-                (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                    GooglePayComponent.getDonateActivityIntent(requireActivity()))
-            }
-        }
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is Resource.Loading -> {
-                            binding.progressBar.isVisible = true
-                            binding.contentsContainer.isVisible = false
-                        }
-                        is Resource.Error -> {
-                            binding.progressBar.isVisible = false
-                            FeedbackUtil.showMessage(this@DonateDialog, it.throwable.localizedMessage.orEmpty())
-                        }
-                        is Resource.Success -> {
-                            // if Google Pay is not available, then bounce right out to external workflow.
-                            if (!it.data) {
-                                onDonateClicked()
-                                return@collect
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.contentsContainer.isVisible = false
                             }
-                            binding.progressBar.isVisible = false
-                            binding.contentsContainer.isVisible = true
+
+                            is Resource.Error -> {
+                                binding.progressBar.isVisible = false
+                                FeedbackUtil.showMessage(
+                                    this@DonateDialog,
+                                    it.throwable.localizedMessage.orEmpty()
+                                )
+                            }
+
+                            is Resource.Success -> {
+                                // if Google Pay is not available, then bounce right out to external workflow.
+                                if (!it.data) {
+                                    onDonateClicked()
+                                    return@collect
+                                }
+                                binding.progressBar.isVisible = false
+                                binding.contentsContainer.isVisible = true
+                            }
+                        }
+                    }
+                }
+                if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
+                    launch {
+                        googlePayViewModel.uiState.collect { resource ->
+                            when (resource) {
+                                is Resource.Loading -> {
+                                    binding.progressBar.isVisible = true
+                                    binding.contentsContainer.isVisible = false
+                                }
+
+                                is Resource.Error -> {
+                                    binding.progressBar.isVisible = false
+                                }
+
+                                is GooglePayViewModel.NoPaymentMethod -> {
+                                    binding.progressBar.isVisible = true
+                                }
+
+                                is Resource.Success -> {
+                                    setupDirectGooglePay()
+                                }
+
+                                is GooglePayViewModel.DonateSuccess -> {
+                                    CampaignCollection.addDonationResult(
+                                        amount = googlePayViewModel.finalAmount,
+                                        currency = googlePayViewModel.currencyCode,
+                                        recurring = false
+                                    )
+                                    dismiss()
+                                }
+                            }
                         }
                     }
                 }
@@ -105,6 +136,25 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private fun invalidateCampaign() {
         arguments?.getString(ARG_CAMPAIGN_ID)?.let {
             Prefs.announcementShownDialogs = setOf(it)
+        }
+    }
+
+    private fun setupDirectGooglePay() {
+        val donateAmount = 3.0f
+        val donateButtonText = getString(R.string.donation_reminder_gpay_text, "$$donateAmount")
+        val paymentsClient = GooglePayComponent.createPaymentsClient(requireActivity())
+        googlePayViewModel.finalAmount = donateAmount
+        binding.donateGooglePayButton.text = donateButtonText
+        binding.donateGooglePayButton.setOnClickListener {
+            AutoResolveHelper.resolveTask(
+                paymentsClient.loadPaymentData(googlePayViewModel.getPaymentDataRequest()),
+                requireActivity(), LOAD_PAYMENT_DATA_REQUEST_CODE
+            )
+        }
+        binding.donateGooglePayDifferentAmountButton.isVisible = true
+        binding.donateGooglePayDifferentAmountButton.setOnClickListener {
+            (requireActivity() as? BaseActivity)?.launchDonateActivity(
+                GooglePayComponent.getDonateActivityIntent(requireActivity()))
         }
     }
 
