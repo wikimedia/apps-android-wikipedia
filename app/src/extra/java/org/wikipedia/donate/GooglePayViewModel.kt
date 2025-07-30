@@ -75,8 +75,7 @@ class GooglePayViewModel : ViewModel() {
             uiState.value = Resource.Loading()
 
             val donationConfigCall = async { DonationConfigHelper.getConfig() }
-            val donationMessagesCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite,
-                DonationConfigHelper.DONATE_WIKI_URL, Service::class.java).getMessages(
+            val donationMessagesCall = async { ServiceFactory[WikipediaApp.instance.wikiSite, DonationConfigHelper.DONATE_WIKI_URL, Service::class.java].getMessages(
                 listOf(MSG_DISCLAIMER_INFORMATION_SHARING, MSG_DISCLAIMER_MONTHLY_CANCEL).joinToString("|"),
                 null, WikipediaApp.instance.appOrSystemLanguageCode) }
 

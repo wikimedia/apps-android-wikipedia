@@ -29,6 +29,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DonateViewModel by viewModels()
+    private val googlePayViewModel: GooglePayViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
@@ -46,7 +47,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
-            val donateButtonText = getString(R.string.donation_reminder_gpay_text, "$3")
+            val donateAmount = "$3"
+            val donateButtonText = getString(R.string.donation_reminder_gpay_text, donateAmount)
             binding.donateGooglePayButton.text = donateButtonText
             binding.donateGooglePayButton.setOnClickListener {
                 // TODO: start the payment flow with a fixed amount of $3
