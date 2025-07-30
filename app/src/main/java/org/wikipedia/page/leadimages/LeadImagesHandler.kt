@@ -205,12 +205,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
             override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
-                if (isInitialPrompt) {
-                    // TODO: open the setting page
-                    Prefs.donationReminderInitialPromptCount = -1
-                } else {
-                    // TODO: open the donation bottom sheet.
-                    // Prefs.donationReminderPromptCount = -1 TODO: turn on this
+                if (!isInitialPrompt) {
                     ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
                 }
             }
@@ -218,12 +213,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
                 FeedbackUtil.showMessage(parentFragment, R.string.donation_reminder_prompt_dismiss_snackbar)
-                // Set -1 as the count to indicate that the user has dismissed the prompt
-                if (isInitialPrompt) {
-                    Prefs.donationReminderInitialPromptCount = -1
-                } else {
-                    Prefs.donationReminderPromptCount = -1
-                }
             }
         }
     }

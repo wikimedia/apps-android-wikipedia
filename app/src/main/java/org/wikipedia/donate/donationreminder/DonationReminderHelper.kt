@@ -30,6 +30,14 @@ object DonationReminderHelper {
 
     val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
 
+    fun donationReminderDismissed(config: DonationReminderConfig, isInitialPrompt: Boolean) {
+        Prefs.donationReminderConfig = if (isInitialPrompt) {
+                config.copy(initialPromptDismissed = true)
+            } else {
+                config.copy(finalPromptDismissed = true)
+            }
+    }
+
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         return Prefs.donationReminderConfig.let { config ->

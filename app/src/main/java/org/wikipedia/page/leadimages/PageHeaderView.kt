@@ -158,10 +158,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 callback?.donationReminderCardPositiveClicked(isInitialPrompt)
+                DonationReminderHelper.donationReminderDismissed(config, isInitialPrompt)
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 callback?.donationReminderCardNegativeClicked(isInitialPrompt)
                 binding.donationReminderCardView.isVisible = false
+                DonationReminderHelper.donationReminderDismissed(config, isInitialPrompt)
             }
 
             binding.donationReminderCardView.isVisible = true
