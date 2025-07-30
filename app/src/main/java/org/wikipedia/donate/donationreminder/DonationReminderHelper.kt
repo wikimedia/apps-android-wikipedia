@@ -1,11 +1,13 @@
 package org.wikipedia.donate.donationreminder
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
+
 
 object DonationReminderHelper {
 
@@ -27,44 +29,57 @@ object DonationReminderHelper {
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
-    val shouldShowInitialPrompt get() = false // TODO: use the real logic from donation reminder settings
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderInitialPromptLastSeen)
-        if (Prefs.donationReminderInitialPromptCount == -1 ||
-            Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
-            return false
+        return Prefs.donationReminderConfig.let { config ->
+            val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
+            if (config.setupTimestamp > 0L || config.initialPromptDismissed ||
+                config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
+                (daysOfLastSeen <= 0 && config.initialPromptCount > 0)) {
+                return@let false
+            }
+            if (update) {
+                Prefs.donationReminderConfig = config.copy(
+                    initialPromptCount = config.initialPromptCount + 1,
+                    promptLastSeen = LocalDate.now().toEpochDay()
+                )
+            }
+            return true
         }
-        if (update) {
-            Prefs.donationReminderInitialPromptCount += 1
-            Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
-        }
-        if (Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            // Set it to -1 to mark it as done.
-            Prefs.donationReminderInitialPromptCount = -1
-        }
-        return true
     }
 
-    // TODO: connect the logic with donation reminder settings (e.g. article numbers, donation amount, etc.)
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
-        if (Prefs.donationReminderPromptCount == -1 ||
-            Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderPromptCount > 0)) {
-            return false
+        return Prefs.donationReminderConfig.let { config ->
+            val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
+            if (config.setupTimestamp == 0L || config.finalPromptDismissed ||
+                config.finalPromptCount >= MAX_REMINDER_PROMPTS ||
+                (daysOfLastSeen <= 0 && config.finalPromptCount > 0)) {
+                return@let false
+            }
+            if (update) {
+                Prefs.donationReminderConfig = config.copy(
+                    finalPromptCount = config.finalPromptCount + 1,
+                    promptLastSeen = LocalDate.now().toEpochDay()
+                )
+            }
+            return true
         }
-        if (update) {
-            Prefs.donationReminderPromptCount += 1
-            Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
-        }
-        if (Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS) {
-            // Set it to -1 to mark it as done.
-            Prefs.donationReminderPromptCount = -1
-        }
-        return true
     }
 }
+
+@Serializable
+data class DonationReminderConfig(
+    val isEnabled: Boolean = false,
+    val initialPromptCount: Int = 0,
+    val initialPromptDismissed: Boolean = false,
+    val finalPromptCount: Int = 0,
+    val finalPromptDismissed: Boolean = false,
+    val promptLastSeen: Long = 0,
+    val setupTimestamp: Long = 0,
+    val articleVisit: Int = 0,
+    val isSurveyShown: Boolean = false,
+    val articleFrequency: Int = 0,
+    val donateAmount: Int = 0
+)
