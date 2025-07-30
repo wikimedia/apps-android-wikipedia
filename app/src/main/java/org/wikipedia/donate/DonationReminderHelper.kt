@@ -39,7 +39,7 @@ object DonationReminderHelper {
     )
 
     fun getDonationReminderSubmittedFormDate(): String {
-        val timeStamp = Prefs.donationReminderSubmittedFormTimeStamp
+        val timeStamp = Prefs.donationReminderConfig.setupTimestamp
         val localDateTime = LocalDateTime.ofInstant(
             Instant.ofEpochMilli(timeStamp),
             ZoneId.systemDefault()

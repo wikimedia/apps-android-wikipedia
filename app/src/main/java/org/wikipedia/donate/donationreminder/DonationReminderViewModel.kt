@@ -37,7 +37,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 it.copy(
                     readFrequency = readFrequencyOptions,
                     donationAmount = donationAmountOptions,
-                    isDonationReminderEnabled = Prefs.isDonationRemindersEnabled
+                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled
                 )
             }
         }
@@ -45,9 +45,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun saveReminder() {
         with(_uiState.value) {
-            Prefs.donationRemindersAmount = donationAmount.selectedValue
-            Prefs.donationRemindersReadFrequency = readFrequency.selectedValue
-            Prefs.donationReminderSubmittedFormTimeStamp = System.currentTimeMillis()
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                donateAmount = donationAmount.selectedValue,
+                articleFrequency = readFrequency.selectedValue,
+                setupTimestamp = System.currentTimeMillis()
+            )
         }
     }
 
@@ -60,7 +62,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun toggleDonationReminders(enabled: Boolean) {
-        Prefs.isDonationRemindersEnabled = enabled
+        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
 
@@ -70,8 +72,8 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             OptionItem.Preset(it, "$it articles")
         } + OptionItem.Custom
 
-        val selectedValue = if (Prefs.donationRemindersReadFrequency < 0) options.first()
-        else Prefs.donationRemindersReadFrequency
+        val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()
+        else Prefs.donationReminderConfig.articleFrequency
 
         return SelectableOption(
             selectedValue,
@@ -99,8 +101,8 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             OptionItem.Preset(it, currencyFormat.format(it))
         } + OptionItem.Custom
 
-        val selectedValue = if (Prefs.donationRemindersAmount < 0) presets.first()
-        else Prefs.donationRemindersAmount
+        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0) presets.first()
+        else Prefs.donationReminderConfig.donateAmount
 
         return SelectableOption(
             selectedValue,
@@ -123,9 +125,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 }
 
 data class DonationReminderUiState(
-    val isDonationReminderEnabled: Boolean = Prefs.isDonationRemindersEnabled,
-    val readFrequency: SelectableOption = SelectableOption(Prefs.donationRemindersReadFrequency, emptyList()),
-    val donationAmount: SelectableOption = SelectableOption(Prefs.donationRemindersAmount, emptyList()),
+    val isDonationReminderEnabled: Boolean = Prefs.donationReminderConfig.isEnabled,
+    val readFrequency: SelectableOption = SelectableOption(Prefs.donationReminderConfig.articleFrequency, emptyList()),
+    val donationAmount: SelectableOption = SelectableOption(Prefs.donationReminderConfig.donateAmount, emptyList()),
 )
 
 sealed class OptionItem(val displayText: String) {

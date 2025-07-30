@@ -244,8 +244,8 @@ fun DonationReminderScreen(
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
                         val donationAmount =
-                            viewModel.currencyFormat.format(Prefs.donationRemindersAmount)
-                        val readFrequency = Prefs.donationRemindersReadFrequency
+                            viewModel.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                        val readFrequency = Prefs.donationReminderConfig.articleFrequency
                         val message = "Reminder set! We'll remind you to donate $donationAmount when you read $readFrequency articles."
                         if (viewModel.isFromSettings) {
                             scope.launch {
