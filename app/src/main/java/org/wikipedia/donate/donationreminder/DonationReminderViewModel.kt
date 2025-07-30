@@ -24,7 +24,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     val currentCountryCode = DonationReminderHelper.currentCountryCode
     val currencyFormat = DonationReminderHelper.currencyFormat
-    val currencySymbol get() = currencyFormat.currency?.getSymbol() ?: "$"
+    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
 
     fun loadData() {
@@ -47,6 +47,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         with(_uiState.value) {
             Prefs.donationRemindersAmount = donationAmount.selectedValue
             Prefs.donationRemindersReadFrequency = readFrequency.selectedValue
+            Prefs.donationReminderSubmittedFormTimeStamp = System.currentTimeMillis()
         }
     }
 

@@ -90,6 +90,7 @@ fun DonationReminderScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val uiState = viewModel.uiState.collectAsState().value
+    val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
     var customDialogErrorMessage by remember { mutableStateOf("") }
@@ -134,8 +135,11 @@ fun DonationReminderScreen(
                 DonationHeader()
                 DonationRemindersSwitch(
                     modifier = Modifier
+                        .noRippleClickable {
+                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                        }
                         .padding(top = 24.dp),
-                    isDonationRemindersEnabled = uiState.isDonationReminderEnabled,
+                    isDonationRemindersEnabled = isDonationReminderEnabled,
                     onCheckedChange = { viewModel.toggleDonationReminders(it) }
                 )
                 Spacer(modifier = Modifier.height(24.dp))

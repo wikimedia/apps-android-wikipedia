@@ -840,4 +840,8 @@ object Prefs {
     var donationRemindersAmount
         get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_amount, -1)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_amount, value)
+
+    var donationReminderSubmittedFormTimeStamp
+        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_reminders_submitted_form_timestamp, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_reminders_submitted_form_timestamp, value)
 }
