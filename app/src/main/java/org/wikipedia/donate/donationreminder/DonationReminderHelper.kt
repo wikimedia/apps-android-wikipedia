@@ -1,4 +1,4 @@
-package org.wikipedia.donate
+package org.wikipedia.donate.donationreminder
 
 import android.app.Activity
 import android.view.View
@@ -19,9 +19,8 @@ import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
 object DonationReminderHelper {
-    const val MAX_INITIAL_REMINDER_PROMPTS = 5
+    const val MAX_INITIAL_REMINDER_PROMPTS = 2
     const val MAX_REMINDER_PROMPTS = 2
-    var articleVist = 0
 
     private val enabledCountries = listOf(
         "IT"
@@ -39,74 +38,87 @@ object DonationReminderHelper {
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderInitialPromptLastSeen)
+        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderConfig.promptLastSeen)
         // donationReminderInitialPromptCount --> prompt impressions
-        if (Prefs.donationReminderInitialPromptCount == -1 ||
-            Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
+        if (Prefs.donationReminderConfig.initialPromptCount == -1 ||
+            Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
+            (daysOfLastSeen <= 0 && Prefs.donationReminderConfig.initialPromptCount > 0)) {
             return false
         }
         if (update) {
-            Prefs.donationReminderInitialPromptCount += 1
-            Prefs.donationReminderInitialPromptLastSeen = LocalDate.now().toEpochDay()
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                initialPromptCount = Prefs.donationReminderConfig.initialPromptCount + 1,
+                promptLastSeen = LocalDate.now().toEpochDay()
+            )
+        }
+        if (Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                initialPromptCount = -1,
+                isReadyToShowSurvey = true
+            )
         }
         return true
     }
 
     // TODO: connect the logic with donation reminder settings (e.g. article numbers, donation amount, etc.)
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
+        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+            donateAmount = 10,
+            articleFrequency = 20
+        )
         if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderPromptLastSeen)
+        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderConfig.promptLastSeen)
         // donationReminderPromptCount --> reminder impressions
-        if (Prefs.donationReminderPromptCount == -1 ||
-            Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderInitialPromptCount > 0)) {
+        if (Prefs.donationReminderConfig.finalPromptCount == -1 ||
+            Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS ||
+            (daysOfLastSeen <= 0 && Prefs.donationReminderConfig.finalPromptCount > 0)) {
             return false
         }
         if (update) {
-            Prefs.donationReminderPromptCount += 1
-            Prefs.donationReminderPromptLastSeen = LocalDate.now().toEpochDay()
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                finalPromptCount = Prefs.donationReminderConfig.finalPromptCount + 1,
+                promptLastSeen = LocalDate.now().toEpochDay()
+            )
+        }
+        if ( Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                finalPromptCount = -1,
+                isReadyToShowSurvey = true
+            )
         }
         return true
     }
 
     fun maybeShowSurveyDialog(activity: Activity) {
         if (!isEnabled) return
-        if (Prefs.donationRemindersSurveyDialogShown) return
-        val hasSetupReminder = Prefs.donationRemindersAmount != -1 && Prefs.donationRemindersReadFrequency != -1
+        if (Prefs.donationReminderConfig.isSurveyShown) return
+
+        // when user sets up the reminder
+        val hasSetupReminder = Prefs.donationReminderConfig.donateAmount > 0 && Prefs.donationReminderConfig.articleFrequency > 0
         if (hasSetupReminder) {
             val userGroup = getUserGroup()
             when (userGroup) {
                 "A" -> {
                     // Group A: Show survey on next article visit after setting up reminder
-                    if (articleVist == 2) {
-                        articleVist = 0
+                    if (Prefs.donationReminderConfig.isReadyToShowSurvey) {
                         showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                     }
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions two times
-                    if (Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS && (Prefs.donationReminderPromptLastSeen != LocalDate.now().toEpochDay() || articleVist == 2)) {
-                        articleVist = 0
+                    if (Prefs.donationReminderConfig.finalPromptCount == -1 && Prefs.donationReminderConfig.isReadyToShowSurvey) {
                         showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                     }
                 }
             }
-        } else {
-            // User has not set up donation reminder
-            // Show survey on next article visit after seeing 5 initial prompt impressions
-            if (Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS && (Prefs.donationReminderInitialPromptLastSeen != LocalDate.now().toEpochDay() || articleVist == 2)) {
-                articleVist = 0
-                showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
-            }
+            return
         }
-        return
-    }
 
-    fun updateArticleVisitForSurveyDialog() {
-        if (Prefs.donationRemindersSurveyDialogShown) return
-        if (Prefs.donationReminderPromptCount >= MAX_REMINDER_PROMPTS || Prefs.donationReminderInitialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            articleVist += 1
+        // User has not taken any action on the initial prompt
+        // Show survey on next article visit if this continues for continuous 5 times
+        if (Prefs.donationReminderConfig.initialPromptCount == -1 && Prefs.donationReminderConfig.isReadyToShowSurvey) {
+            showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
+            return
         }
     }
 
@@ -143,7 +155,7 @@ object DonationReminderHelper {
             .setCancelable(false)
             .setView(binding.root)
         dialog = dialogBuilder.show()
-        Prefs.donationRemindersSurveyDialogShown = true
+        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
     }
 
 }
@@ -157,7 +169,7 @@ data class DonationReminderConfig(
     val finalPromptDismissed: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
-    val articleVisit: Int = 0,
+    val isReadyToShowSurvey: Boolean = false,
     val isSurveyShown: Boolean = false,
     val articleFrequency: Int = 0,
     val donateAmount: Int = 0
