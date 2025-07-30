@@ -11,6 +11,7 @@ import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonationReminderConfig
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
@@ -828,4 +829,10 @@ object Prefs {
     var resetRecommendedReadingList
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
+
+    var donationReminderConfig
+        get() = JsonUtil.decodeFromString<DonationReminderConfig>(
+            PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
+        ) ?: DonationReminderConfig()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
 }

@@ -194,4 +194,5 @@
     <string name="preference_key_recommended_reading_list_notification_simulator">recommendedReadingListNotificationSimulator</string>
     <string name="preference_key_recommended_reading_list_new_list_generated">recommendedReadingListNewListGenerated</string>
     <string name="preference_key_recommended_reading_list_reset">recommendedReadingListReset</string>
+    <string name="preference_key_donation_reminder_config">donationReminderConfig</string>
 </resources>
