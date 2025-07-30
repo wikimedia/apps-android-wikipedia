@@ -1,4 +1,4 @@
-package org.wikipedia.donate
+package org.wikipedia.donate.donationreminder
 
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp

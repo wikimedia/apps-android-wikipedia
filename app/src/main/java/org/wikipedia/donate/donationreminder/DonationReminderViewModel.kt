@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.donate.DonationConfigHelper
-import org.wikipedia.donate.DonationReminderHelper
 import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.settings.Prefs
