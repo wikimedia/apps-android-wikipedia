@@ -45,6 +45,19 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
         }
 
+        if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
+            val donateButtonText = getString(R.string.donation_reminder_gpay_text, "$3")
+            binding.donateGooglePayButton.text = donateButtonText
+            binding.donateGooglePayButton.setOnClickListener {
+                // TODO: start the payment flow with a fixed amount of $3
+            }
+            binding.donateGooglePayDifferentAmountButton.isVisible = true
+            binding.donateGooglePayDifferentAmountButton.setOnClickListener {
+                (requireActivity() as? BaseActivity)?.launchDonateActivity(
+                    GooglePayComponent.getDonateActivityIntent(requireActivity()))
+            }
+        }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
@@ -96,12 +109,14 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     companion object {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
+        const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null): DonateDialog {
+        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false): DonateDialog {
             return DonateDialog().apply {
                 arguments = bundleOf(
                     ARG_CAMPAIGN_ID to campaignId,
-                    ARG_DONATE_URL to donateUrl
+                    ARG_DONATE_URL to donateUrl,
+                    ARG_FROM_DONATION_REMINDER to fromDonationReminder
                 )
             }
         }

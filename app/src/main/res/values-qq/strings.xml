@@ -1925,4 +1925,5 @@
   <string name="donation_reminder_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
   <string name="donation_reminder_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
   <string name="donation_reminder_gpay_text">Button text for the donation bottom sheet. %s will be replaced by the amount of the donation that the user set.</string>
+  <string name="donation_reminder_gpay_different_amount_text">Button text for the donation bottom sheet that open the Google Pay donation page.</string>
 </resources>

@@ -62,6 +62,23 @@
                 android:text="@string/donate_gpay_dialog_pay_button" />
 
             <TextView
+                android:id="@+id/donateGooglePayDifferentAmountButton"
+                style="@android:style/TextAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_heart_24"
+                app:drawableTint="?attr/secondary_color"
+                android:drawablePadding="24dp"
+                android:paddingHorizontal="16dp"
+                android:textColor="?attr/primary_color"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/donation_reminder_gpay_different_amount_text"
+                android:visibility="gone"/>
+
+            <TextView
                 android:id="@+id/donateOtherButton"
                 style="@android:style/TextAppearance"
                 android:layout_width="match_parent"
@@ -70,7 +87,7 @@
                 android:minHeight="48dp"
                 android:gravity="center_vertical"
                 app:drawableStartCompat="@drawable/ic_open_in_new_black_24px"
-                app:drawableTint="?attr/primary_color"
+                app:drawableTint="?attr/secondary_color"
                 android:drawablePadding="24dp"
                 android:paddingHorizontal="16dp"
                 android:textColor="?attr/primary_color"

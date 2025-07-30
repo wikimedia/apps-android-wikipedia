@@ -21,7 +21,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.donate.DonateDialog
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -209,6 +211,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 } else {
                     // TODO: open the donation bottom sheet.
                     // Prefs.donationReminderPromptCount = -1 TODO: turn on this
+                    ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
                 }
             }
 

@@ -2025,4 +2025,5 @@
     <string name="donation_reminder_prompt_negative_button">Not now</string>
     <string name="donation_reminder_prompt_success_snackbar">Thank you! Your generosity to Wikipedia means so much to us.</string>
     <string name="donation_reminder_gpay_text">Donate %s with Google Pay</string>
+    <string name="donation_reminder_gpay_different_amount_text">Donate a different amount with Google Pay</string>
 </resources>
