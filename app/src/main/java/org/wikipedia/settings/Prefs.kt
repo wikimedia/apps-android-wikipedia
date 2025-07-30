@@ -11,6 +11,7 @@ import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.DonationReminderConfig
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
@@ -829,19 +830,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
-    var isDonationRemindersEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_donation_reminders_enabled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_donation_reminders_enabled, value)
-
-    var donationRemindersReadFrequency
-        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_read_frequency, -1)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_read_frequency, value)
-
-    var donationRemindersAmount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_donation_reminders_amount, -1)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_donation_reminders_amount, value)
-
-    var donationReminderSubmittedFormTimeStamp
-        get() = PrefsIoUtil.getLong(R.string.preference_key_donation_reminders_submitted_form_timestamp, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_donation_reminders_submitted_form_timestamp, value)
+    var donationReminderConfig
+        get() = JsonUtil.decodeFromString<DonationReminderConfig>(
+            PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
+        ) ?: DonationReminderConfig()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
 }
