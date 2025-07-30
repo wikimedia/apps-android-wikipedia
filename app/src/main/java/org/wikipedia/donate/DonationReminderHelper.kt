@@ -3,7 +3,6 @@ package org.wikipedia.donate
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
@@ -17,8 +16,6 @@ object DonationReminderHelper {
     private val enabledLanguages = listOf(
         "it", "en"
     )
-
-    val donationReminderConfig get() = Prefs.donationReminderConfig
 
     // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled get() = ReleaseUtil.isDevRelease ||
