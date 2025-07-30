@@ -26,12 +26,11 @@ class Campaign(
     }
 
     fun getIdForLang(lang: String): String {
-        val list = assets[lang].orEmpty()
-        if (list.size <= 1) {
+        val assetsForLang = getAssetsForLang(lang)
+        if (assetsForLang == null || assetsForLang.id.isEmpty()) {
             return id
         }
-        val testGroup = abTestGroup(list)
-        return id + "_" + testGroup
+        return id + "_" + assetsForLang.id
     }
 
     fun getAssetsForLang(lang: String): Assets? {
@@ -63,6 +62,7 @@ class Campaign(
 
     @Serializable
     class Assets(
+        val id: String = "",
         val weight: Float = 1f,
         val text: String? = "",
         val footer: String? = "",
