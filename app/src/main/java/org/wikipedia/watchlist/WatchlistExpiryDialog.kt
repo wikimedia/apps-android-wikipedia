@@ -63,9 +63,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                BaseTheme(
-                    currentTheme = Theme.LIGHT
-                ) {
+                BaseTheme {
                     WatchlistExpiryDialogView(
                         modifier = Modifier
                             .background(WikipediaTheme.colors.paperColor),
