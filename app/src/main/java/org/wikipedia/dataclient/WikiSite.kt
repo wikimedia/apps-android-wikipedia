@@ -2,6 +2,7 @@ package org.wikipedia.dataclient
 
 import android.net.Uri
 import android.os.Parcelable
+import androidx.core.net.toUri
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -134,7 +135,7 @@ data class WikiSite(
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {
-            return authority.endsWith(Uri.parse(DEFAULT_BASE_URL).authority!!)
+            return authority.endsWith(DEFAULT_BASE_URL!!.toUri().authority!!)
         }
 
         fun setDefaultBaseUrl(url: String) {
@@ -142,7 +143,7 @@ data class WikiSite(
         }
 
         fun forLanguageCode(languageCode: String): WikiSite {
-            val uri = ensureScheme(Uri.parse(DEFAULT_BASE_URL))
+            val uri = ensureScheme(DEFAULT_BASE_URL!!.toUri())
             return WikiSite(
                 (if (languageCode.isEmpty()) "" else languageCodeToSubdomain(languageCode) + ".") + uri.authority,
                 languageCode
@@ -153,6 +154,7 @@ data class WikiSite(
             return when (languageCode) {
                 AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE -> AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE // T114042
                 AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE -> AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE // T111853
+                AppLanguageLookUpTable.CHINESE_LEGACY_YUE_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
                 else -> languageCode
             }
         }

@@ -194,11 +194,5 @@
     <string name="preference_key_recommended_reading_list_notification_simulator">recommendedReadingListNotificationSimulator</string>
     <string name="preference_key_recommended_reading_list_new_list_generated">recommendedReadingListNewListGenerated</string>
     <string name="preference_key_recommended_reading_list_reset">recommendedReadingListReset</string>
-    <string name="preference_key_donation_reminder_initial_prompt_count">donationReminderInitialPromptCount</string>
-    <string name="preference_key_donation_reminder_initial_prompt_last_seen">donationReminderInitialPromptLastSeen</string>
-    <string name="preference_key_donation_reminder_prompt_count">donationReminderPromptCount</string>
-    <string name="preference_key_donation_reminder_prompt_last_seen">donationReminderPromptLastSeen</string>
-    <string name="preference_key_donation_reminders_read_frequency">donationRemindersReadFrequency</string>
-    <string name="preference_key_donation_reminders_amount">donationRemindersAmount</string>
-    <string name="preference_key_donation_reminders_survey_dialog_shown">donationRemindersSurveyDialogShown</string>
+    <string name="preference_key_donation_reminder_config">donationReminderConfig</string>
 </resources>

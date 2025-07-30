@@ -7,12 +7,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
+import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
@@ -31,11 +32,10 @@ object DonationReminderHelper {
     )
 
     // TODO: update the end date when before release to production for 30-day experiment
-    val isEnabled
-        get() = ReleaseUtil.isDevRelease ||
-                (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                        enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
-                        LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+    val isEnabled get() = ReleaseUtil.isDevRelease ||
+            (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                    enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
+                    LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
@@ -70,7 +70,7 @@ object DonationReminderHelper {
         return true
     }
 
-      fun maybeShowSurveyDialog(activity: Activity) {
+    fun maybeShowSurveyDialog(activity: Activity) {
         if (!isEnabled) return
         if (Prefs.donationRemindersSurveyDialogShown) return
         val hasSetupReminder = Prefs.donationRemindersAmount != -1 && Prefs.donationRemindersReadFrequency != -1
@@ -110,6 +110,7 @@ object DonationReminderHelper {
         }
     }
 
+
     private fun getUserGroup(): String {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
@@ -144,4 +145,20 @@ object DonationReminderHelper {
         dialog = dialogBuilder.show()
         Prefs.donationRemindersSurveyDialogShown = true
     }
+
 }
+
+@Serializable
+data class DonationReminderConfig(
+    val isEnabled: Boolean = false,
+    val initialPromptCount: Int = 0,
+    val initialPromptDismissed: Boolean = false,
+    val finalPromptCount: Int = 0,
+    val finalPromptDismissed: Boolean = false,
+    val promptLastSeen: Long = 0,
+    val setupTimestamp: Long = 0,
+    val articleVisit: Int = 0,
+    val isSurveyShown: Boolean = false,
+    val articleFrequency: Int = 0,
+    val donateAmount: Int = 0
+)
