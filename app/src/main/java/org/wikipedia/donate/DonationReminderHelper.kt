@@ -1,5 +1,6 @@
 package org.wikipedia.donate
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.util.GeoUtil
@@ -22,3 +23,18 @@ object DonationReminderHelper {
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 }
+
+@Serializable
+data class DonationReminderConfig(
+    val isEnabled: Boolean = false,
+    val initialPromptCount: Int = 0,
+    val initialPromptDismissed: Boolean = false,
+    val finalPromptCount: Int = 0,
+    val finalPromptDismissed: Boolean = false,
+    val promptLastSeen: Long = 0,
+    val setupTimestamp: Long = 0,
+    val articleVisit: Int = 0,
+    val isSurveyShown: Boolean = false,
+    val articleFrequency: Int = 0,
+    val donateAmount: Int = 0
+)
