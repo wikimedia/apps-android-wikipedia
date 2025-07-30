@@ -8,7 +8,6 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
-
 object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
