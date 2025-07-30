@@ -11,7 +11,7 @@ import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.donate.DonationReminderConfig
+import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
