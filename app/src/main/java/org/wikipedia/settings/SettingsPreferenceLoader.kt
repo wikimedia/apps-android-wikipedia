@@ -15,7 +15,6 @@ import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -66,8 +65,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 )
                 true
         }
-        val recommendedReadingListCategory = findPreference(R.string.preference_category_recommended_reading_list)
-        recommendedReadingListCategory.isVisible = RecommendedReadingListAbTest().isTestGroupUser()
         findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             RecommendedReadingListEvent.submit("discover_click", "global_settings")
             if (Prefs.recommendedReadingListInterests.isEmpty() &&
