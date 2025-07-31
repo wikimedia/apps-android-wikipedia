@@ -1430,7 +1430,7 @@
   <string name="recommended_reading_list_settings_toggle">Descoperă lista de lectură</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">„Descoperă“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Dezactivați „Descoperă“?</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message" fuzzy="true">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură de la Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message" fuzzy="true">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură %s de la Wikipedia.</string>
   <string name="recommended_reading_list_settings_articles">articole</string>
   <string name="recommended_reading_list_settings_updates_frequency">Se actualizează %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">zilnic</string>
