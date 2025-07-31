@@ -6,12 +6,14 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 
 object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
+    const val VALID_ARTICLE_SPENT = 1
 
     private val enabledCountries = listOf(
         "IT"
@@ -28,6 +30,15 @@ object DonationReminderHelper {
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
+
+    fun increaseArticleVisitCount(timeSpentSec: Int) {
+        if (timeSpentSec >= VALID_ARTICLE_SPENT) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                articleVisit = Prefs.donationReminderConfig.articleVisit + 1
+            )
+            L.d("Prefs.donationReminderConfig ${Prefs.donationReminderConfig.articleVisit}")
+        }
+    }
 
     fun donationReminderDismissed(isInitialPrompt: Boolean) {
         Prefs.donationReminderConfig = if (isInitialPrompt) {

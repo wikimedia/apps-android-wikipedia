@@ -72,6 +72,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
@@ -589,6 +590,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                 AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
+
+            // Update the article visit for Donation Reminder
+            DonationReminderHelper.increaseArticleVisitCount(timeSpentSec)
         }
     }
 
