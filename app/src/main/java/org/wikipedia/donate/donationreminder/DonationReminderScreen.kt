@@ -47,6 +47,7 @@ import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -284,6 +285,7 @@ fun DonationAmountView(
     if (showDonationAmountCustomDialog) {
         CustomInputDialog(
             title = "Remind me to donate",
+            decimalEnabled = true,
             errorMessage = customDialogErrorMessage,
             onDismissRequest = onDismissRequest,
             prefix = {
@@ -418,6 +420,9 @@ fun OptionSelector(
     showInfo: Boolean = false,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
+    val displayValue by remember(option.selectedValue, option.displayFormatter) {
+        derivedStateOf { option.displayFormatter(option.selectedValue) }
+    }
 
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -447,7 +452,7 @@ fun OptionSelector(
                     modifier = Modifier
                         .width(210.dp)
                         .clickable { isDropdownExpanded = true },
-                    value = option.displayFormatter(option.selectedValue),
+                    value = displayValue,
                     enabled = false,
                     onValueChange = {},
                     colors = TextFieldDefaults.colors(
@@ -577,6 +582,7 @@ fun InfoTooltip(
 fun CustomInputDialog(
     modifier: Modifier = Modifier,
     title: String,
+    decimalEnabled: Boolean = false,
     errorMessage: String = "",
     onDoneClick: (String) -> Unit,
     onDismissRequest: () -> Unit,
@@ -618,7 +624,7 @@ fun CustomInputDialog(
                     prefix = prefix,
                     suffix = suffix,
                     textStyle = MaterialTheme.typography.bodyLarge,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    keyboardOptions = KeyboardOptions(keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedTextColor = WikipediaTheme.colors.primaryColor,
                         focusedBorderColor = MaterialTheme.colorScheme.outline,
