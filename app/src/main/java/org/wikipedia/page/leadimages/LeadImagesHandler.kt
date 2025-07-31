@@ -212,7 +212,12 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
-                FeedbackUtil.showMessage(parentFragment, R.string.donation_reminder_prompt_dismiss_snackbar)
+                if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == 2) {
+                    FeedbackUtil.showMessage(
+                        parentFragment,
+                        R.string.donation_reminder_prompt_dismiss_snackbar
+                    )
+                }
             }
         }
     }

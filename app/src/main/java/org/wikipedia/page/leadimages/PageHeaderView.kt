@@ -162,7 +162,18 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 callback?.donationReminderCardNegativeClicked(isInitialPrompt)
                 binding.donationReminderCardView.isVisible = false
-                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
+
+                if (!isInitialPrompt) {
+                    if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
+                        // Give the user one more chance to see the donation reminder
+                        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                            finalPromptHold = true
+                        )
+                    }
+                    DonationReminderHelper.donationReminderDismissed(false)
+                } else {
+                    DonationReminderHelper.donationReminderDismissed(true)
+                }
             }
 
             binding.donationReminderCardView.isVisible = true
@@ -173,7 +184,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
                 binding.donationReminderCardView.measure(widthSpec, heightSpec)
                 // Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(90f).toInt()
                 binding.donationReminderCardView.isVisible = false
                 visibility = GONE
             }

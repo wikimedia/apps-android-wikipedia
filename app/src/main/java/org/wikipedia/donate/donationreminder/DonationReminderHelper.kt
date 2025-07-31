@@ -58,9 +58,13 @@ object DonationReminderHelper {
 
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
+        // TODO: need to take care of the following
+        // 1. article visit count vs frequency
+        // 2. need to reset the config for the next cycle?
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp == 0L || config.finalPromptDismissed ||
+                (config.finalPromptCount == MAX_REMINDER_PROMPTS && !config.finalPromptHold) || // final prompt is not held
                 config.finalPromptCount >= MAX_REMINDER_PROMPTS ||
                 (daysOfLastSeen <= 0 && config.finalPromptCount > 0)) {
                 return@let false
@@ -82,6 +86,7 @@ data class DonationReminderConfig(
     val initialPromptCount: Int = 0,
     val initialPromptDismissed: Boolean = false,
     val finalPromptCount: Int = 0,
+    val finalPromptHold: Boolean = false,
     val finalPromptDismissed: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
