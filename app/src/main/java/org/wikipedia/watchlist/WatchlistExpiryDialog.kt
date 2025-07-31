@@ -193,6 +193,7 @@ fun WatchlistExpiryDialogView(
                             modifier = Modifier
                                 .size(24.dp),
                             painter = painterResource(R.drawable.ic_check_black_24dp),
+                            tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
                     }
