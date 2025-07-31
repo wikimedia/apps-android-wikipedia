@@ -351,9 +351,11 @@ fun DonationHeader(
             ),
             content = {
                 Icon(
+                    modifier = Modifier
+                        .size(20.dp)
+                        .padding(start = 4.dp),
                     imageVector = Icons.Filled.Favorite,
                     contentDescription = null,
-                    modifier = Modifier.size(20.dp),
                     tint = WikipediaTheme.colors.destructiveColor
                 )
             }
@@ -417,10 +419,6 @@ fun OptionSelector(
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
 
-    val displayValue = remember(option.selectedValue) {
-        option.displayFormatter(option.selectedValue)
-    }
-
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.Top
@@ -449,7 +447,7 @@ fun OptionSelector(
                     modifier = Modifier
                         .width(210.dp)
                         .clickable { isDropdownExpanded = true },
-                    value = displayValue,
+                    value = option.displayFormatter(option.selectedValue),
                     enabled = false,
                     onValueChange = {},
                     colors = TextFieldDefaults.colors(
