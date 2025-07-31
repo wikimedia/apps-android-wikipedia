@@ -22,6 +22,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.donate.GooglePayActivity.Companion.LOAD_PAYMENT_DATA_REQUEST_CODE
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -140,8 +141,9 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun setupDirectGooglePayButton() {
-        val donateAmount = 3.0f
-        val donateButtonText = getString(R.string.donation_reminder_gpay_text, "$$donateAmount")
+        val donateAmount = Prefs.donationReminderConfig.donateAmount
+        val donateAmountText = "${DonationReminderHelper.currencySymbol}${donateAmount}"
+        val donateButtonText = getString(R.string.donation_reminder_gpay_text, donateAmountText)
         val paymentsClient = GooglePayComponent.createPaymentsClient(requireActivity())
         googlePayViewModel.finalAmount = donateAmount
         binding.donateGooglePayButton.text = donateButtonText

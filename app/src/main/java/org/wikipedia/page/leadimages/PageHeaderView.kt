@@ -127,8 +127,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 val articleText = context.resources.getQuantityString(
                     R.plurals.donation_reminder_prompt_title_articles, config.articleFrequency, config.articleFrequency
                 )
-                // TODO: check the currency
-                val amountText = "$3"
+                val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
                 context.getString(R.string.donation_reminder_prompt_title, articleText, amountText)
             }
             val messageText = if (isInitialPrompt) {
@@ -138,8 +137,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 val articleText = context.resources.getQuantityString(
                     R.plurals.donation_reminder_prompt_title_articles, config.articleFrequency, config.articleFrequency
                 )
-                // TODO: check the currency
-                val amountText = "$3"
+                val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
                 context.getString(R.string.donation_reminder_prompt_message, dateText, amountText, articleText)
             }
             val positiveButtonText = if (isInitialPrompt) {

@@ -815,9 +815,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     data?.let { dataIntent ->
                         PaymentData.getFromIntent(dataIntent)?.let { paymentData ->
                             googlePayViewModel.submit(paymentData,
-                                payTheFee = false,
+                                payTheFee = false, // TODO: confirm with PM
                                 recurring = false,
-                                optInEmail = true, // TODO: confirm with PM
+                                optInEmail = !googlePayViewModel.emailOptInRequired, // TODO: confirm with PM
                                 campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
                         }
                     }

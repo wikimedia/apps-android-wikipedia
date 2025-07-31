@@ -6,14 +6,19 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.log.L
+import java.text.NumberFormat
 import java.time.LocalDate
+import java.util.Locale
 
 object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     const val VALID_ARTICLE_SPENT = 15
+
+    val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
+    val currencyFormat: NumberFormat get() = NumberFormat.getCurrencyInstance(Locale.Builder().setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
+    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
 
     private val enabledCountries = listOf(
         "IT"
@@ -36,7 +41,6 @@ object DonationReminderHelper {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 articleVisit = Prefs.donationReminderConfig.articleVisit + 1
             )
-            L.d("Prefs.donationReminderConfig ${Prefs.donationReminderConfig.articleVisit}")
         }
     }
 
@@ -104,5 +108,5 @@ data class DonationReminderConfig(
     val articleVisit: Int = 0,
     val isSurveyShown: Boolean = false,
     val articleFrequency: Int = 0,
-    val donateAmount: Int = 0
+    val donateAmount: Float = 0f
 )

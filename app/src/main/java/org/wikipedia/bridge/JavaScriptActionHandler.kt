@@ -84,7 +84,6 @@ object JavaScriptActionHandler {
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         var leadImageHeight = if (isPreview) 0 else
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (DimenUtil.leadImageHeightForDevice(context) / DimenUtil.densityScalar).roundToInt() - topActionBarHeight)
-        // TODO: visit this to see if this is still needed
         leadImageHeight = leadImageHeight + messageCardHeight
         val topMargin = topActionBarHeight + 16
 
