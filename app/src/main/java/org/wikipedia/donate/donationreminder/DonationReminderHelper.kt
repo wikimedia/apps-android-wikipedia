@@ -13,7 +13,7 @@ object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
-    const val VALID_ARTICLE_SPENT = 1
+    const val VALID_ARTICLE_SPENT = 15
 
     private val enabledCountries = listOf(
         "IT"
