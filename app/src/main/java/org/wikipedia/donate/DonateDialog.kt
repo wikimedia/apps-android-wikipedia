@@ -99,7 +99,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                                 }
 
                                 is Resource.Success -> {
-                                    setupDirectGooglePay()
+                                    setupDirectGooglePayButton()
                                 }
 
                                 is GooglePayViewModel.DonateSuccess -> {
@@ -139,7 +139,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    private fun setupDirectGooglePay() {
+    private fun setupDirectGooglePayButton() {
         val donateAmount = 3.0f
         val donateButtonText = getString(R.string.donation_reminder_gpay_text, "$$donateAmount")
         val paymentsClient = GooglePayComponent.createPaymentsClient(requireActivity())
@@ -156,6 +156,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity()))
         }
+        binding.gPayHeaderContainer.isVisible = false
     }
 
     companion object {
