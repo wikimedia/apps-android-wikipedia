@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.core.net.toUri
+import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.UriUtil
 
 // @TODO: once PM confirms final copy update the strings
 class DonationReminderActivity : BaseActivity() {
@@ -24,7 +27,7 @@ class DonationReminderActivity : BaseActivity() {
                         // @TODO: for showing snackbar on pageFragment
                     },
                     onAboutThisExperimentClick = {
-                        // @TODO: show external uri after confirmation
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
                     }
                 )
             }
