@@ -18,25 +18,20 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.dataclient.donate.DonationConfigHelper
+import org.wikipedia.donate.DonateUtil.currencyCode
+import org.wikipedia.donate.DonateUtil.currencyFormat
+import org.wikipedia.donate.DonateUtil.currentCountryCode
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
-import java.text.NumberFormat
 import java.time.Instant
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class GooglePayViewModel : ViewModel() {
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     private var donationConfig: DonationConfig? = null
-    private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
 
-    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
-        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
-    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
-    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
     val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
 
     val transactionFee get() = donationConfig?.currencyTransactionFees?.get(currencyCode)

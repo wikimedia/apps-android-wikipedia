@@ -78,6 +78,9 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.DonateUtil.currencyFormat
+import org.wikipedia.donate.DonateUtil.currencySymbol
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
@@ -173,7 +176,7 @@ fun DonationReminderScreen(
                         onValueChange = { value ->
                             val minimumAmount = uiState.readFrequency.minimumAmount
                             val maximumAmount = uiState.readFrequency.maximumAmount
-                            val amount = viewModel.getAmountFloat(value)
+                            val amount = DonateUtil.getAmountFloat(value)
                             customDialogErrorMessage = when {
                                 amount <= minimumAmount -> {
                                     "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1)}"
@@ -189,7 +192,7 @@ fun DonationReminderScreen(
                     DonationAmountView(
                         option = uiState.donationAmount,
                         showDonationAmountCustomDialog = showDonationAmountCustomDialog,
-                        currencySymbol = DonationReminderHelper.currencySymbol,
+                        currencySymbol = currencySymbol,
                         customDialogErrorMessage = customDialogErrorMessage,
                         onDismissRequest = {
                             showDonationAmountCustomDialog = false
@@ -213,7 +216,7 @@ fun DonationReminderScreen(
                             }
                         },
                         onValueChange = { value ->
-                            val amount = viewModel.getAmountFloat(value)
+                            val amount = DonateUtil.getAmountFloat(value)
                             val minimumAmount = uiState.donationAmount.minimumAmount
                             val maximumAmount = uiState.donationAmount.maximumAmount
                             customDialogErrorMessage = when {
@@ -245,7 +248,7 @@ fun DonationReminderScreen(
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
                         val donationAmount =
-                            DonationReminderHelper.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                            currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
                         val readFrequency = Prefs.donationReminderConfig.articleFrequency
                         val message = "Reminder set! We'll remind you to donate $donationAmount when you read ${readFrequency.toInt()} articles."
                         if (viewModel.isFromSettings) {

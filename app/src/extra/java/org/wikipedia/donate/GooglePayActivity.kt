@@ -30,6 +30,10 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
+import org.wikipedia.donate.DonateUtil.currencyCode
+import org.wikipedia.donate.DonateUtil.currencyFormat
+import org.wikipedia.donate.DonateUtil.currencySymbol
+import org.wikipedia.donate.DonateUtil.getAmountFloat
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -56,7 +60,7 @@ class GooglePayActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
-        binding.donateAmountInput.prefixText = viewModel.currencySymbol
+        binding.donateAmountInput.prefixText = currencySymbol
 
         paymentsClient = GooglePayComponent.createPaymentsClient(this)
 
@@ -85,7 +89,7 @@ class GooglePayActivity : BaseActivity() {
                                 DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
                                 CampaignCollection.addDonationResult(
                                     amount = viewModel.finalAmount,
-                                    currency = viewModel.currencyCode,
+                                    currency = currencyCode,
                                     recurring = binding.checkBoxRecurring.isChecked
                                 )
                                 setResult(RESULT_OK)
@@ -171,11 +175,13 @@ class GooglePayActivity : BaseActivity() {
         updateTransactionFee()
 
         if (amount <= 0f || amount < min) {
-            binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount, viewModel.currencyFormat.format(min))
+            binding.donateAmountInput.error = getString(R.string.donate_gpay_minimum_amount,
+                currencyFormat.format(min))
             DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: min_amount")
             return false
         } else if (max > 0f && amount > max) {
-            binding.donateAmountInput.error = getString(R.string.donate_gpay_maximum_amount, viewModel.currencyFormat.format(max))
+            binding.donateAmountInput.error = getString(R.string.donate_gpay_maximum_amount,
+                currencyFormat.format(max))
             DonorExperienceEvent.submit("submission_error", "gpay", "error_reason: max_amount")
             return false
         } else {
@@ -217,12 +223,12 @@ class GooglePayActivity : BaseActivity() {
             .build())
 
         val viewIds = mutableListOf<Int>()
-        val presets = donationConfig.currencyAmountPresets[viewModel.currencyCode]
+        val presets = donationConfig.currencyAmountPresets[currencyCode]
         presets?.forEach { amount ->
             val viewId = View.generateViewId()
             viewIds.add(viewId)
             val button = MaterialButton(this)
-            button.text = viewModel.currencyFormat.format(amount)
+            button.text = currencyFormat.format(amount)
             button.id = viewId
             button.tag = amount
             binding.amountPresetsContainer.addView(button)
@@ -252,17 +258,7 @@ class GooglePayActivity : BaseActivity() {
 
     private fun updateTransactionFee() {
         binding.checkBoxTransactionFee.text = getString(R.string.donate_gpay_check_transaction_fee,
-            viewModel.currencyFormat.format(transactionFee))
-    }
-
-    private fun getAmountFloat(text: String): Float {
-        var result: Float?
-        result = text.toFloatOrNull()
-        if (result == null) {
-            val text2 = if (text.contains(".")) text.replace(".", ",") else text.replace(",", ".")
-            result = text2.toFloatOrNull()
-        }
-        return result ?: 0f
+            currencyFormat.format(transactionFee))
     }
 
     private fun setAmountText(amount: Float) {
