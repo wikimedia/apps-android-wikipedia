@@ -1926,6 +1926,7 @@
   <string name="donations_reminders_settings_about_experiment_btn_label">About experiment button label for the donation reminders settings screen.</string>
   <string name="donations_reminders_settings_article_frequency_input_suffix_label">Suffix label for the textField input in the donation reminders settings screen.</string>
   <string name="donations_reminders_snacbkbar_confirmation_label">Snackbar confirmation label which appears after user sets up donation reminders. %1$s will be replaced by the amount of donation and %2$d will be replaced by the number of articles.</string>
+  <string name="donation_reminder_prompt_title">Title for the donation reminder prompt. %1$d will be replaced by the number of articles and %2$s will be replaced by the amount of donation.</string>
   <string name="donation_reminder_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$d will be replaced by the number of articles, and %3$s will be replaced by the amount of donation.</string>
   <string name="donation_reminder_prompt_positive_button">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
   <string name="donation_reminder_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
@@ -1937,7 +1938,6 @@
   <string name="donations_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
   <string name="donations_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
   <string name="donation_reminder_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
-  <string name="donation_reminder_prompt_title">Title for the donation reminder prompt. %1$d will be replaced by the number of articles and %2$s will be replaced by the amount of donation.</string>
   <plurals name="donation_reminder_prompt_title_articles">
     <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
     <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
