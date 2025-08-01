@@ -180,6 +180,7 @@
   <string name="login_2fa_other_workflow_error_msg">2단계 인증이 필요합니다! 주 화면에서 로그인하고 2FA 토큰의 코드를 입력하십시오.</string>
   <string name="login_email_auth_hint">이메일 인증 코드</string>
   <string name="login_email_auth_other_workflow_error_msg">이메일 인증이 필요합니다! 주 화면에서 로그인한 다음 이메일 인증 코드를 입력해 주십시오.</string>
+  <string name="login_background_error_msg">다시 로그인할 수 없습니다. 메인 화면으로 돌아가서 직접 로그인해 주세요.</string>
   <string name="onboarding_card_login">로그인</string>
   <string name="page_editing_login">로그인</string>
   <string name="reading_lists_sync_login">로그인</string>
@@ -1696,6 +1697,7 @@
     <item quantity="other">플레이한 게임</item>
   </plurals>
   <string name="on_this_day_game_stats_average_score">평균 점수</string>
+  <string name="on_this_day_game_stats_streak">현재 연속 기록</string>
   <string name="on_this_day_game_result_subtitle">오늘의 게임에서 참조된 문서</string>
   <string name="on_this_day_game_menu_notifications">게임 알림</string>
   <string name="on_this_day_game_menu_info">더 알아보기</string>
@@ -1717,8 +1719,29 @@
   <string name="on_this_day_game_report_email_body">위키백과 게임 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="on_this_day_game_notification_undo">실행 취소</string>
   <string name="on_this_day_game_share_screen_subtitle">포함된 주제:</string>
+  <string name="on_this_day_game_continue_btn_text">오늘의 게임 계속하기</string>
+  <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
+  <string name="year_in_review_learn_more">더 알아보기</string>
+  <string name="year_in_review_get_started">시작하기</string>
+  <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
+  <string name="year_in_review_share_icon">공유 아이콘</string>
+  <string name="year_in_review_heart_icon">하트 아이콘</string>
+  <string name="year_in_review_donate">기부</string>
+  <string name="year_in_review_information_icon">정보 아이콘</string>
+  <string name="year_in_review_entry_dialog_continue">계속</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">iOS 앱의 편집자는 452,257번 이상 편집을 했습니다</string>
+  <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
+  <string name="year_in_review_survey_very_satisfied">매우 만족</string>
+  <string name="year_in_review_survey_satisfied">만족</string>
+  <string name="year_in_review_survey_neutral">중립</string>
+  <string name="year_in_review_survey_unsatisfied">불만족</string>
+  <string name="year_in_review_survey_very_unsatisfied">매우 불만족</string>
+  <string name="year_in_review_survey_placeholder_text">추가 의견이 있으신가요?</string>
+  <string name="year_in_review_survey_cancel">취소</string>
+  <string name="year_in_review_survey_submit">제출</string>
+  <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
   <string name="recommended_reading_list_interest_pick_search_hint">문서 검색</string>
@@ -1731,8 +1754,18 @@
   </plurals>
   <string name="recommended_reading_list_page_overflow_customize">사용자 지정</string>
   <string name="recommended_reading_list_page_overflow_about">이 기능 정보</string>
+  <string name="recommended_reading_list_page_snackbar_day">일</string>
+  <string name="recommended_reading_list_page_snackbar_week">주</string>
+  <string name="recommended_reading_list_page_snackbar_month">월</string>
+  <string name="recommended_reading_list_settings_section_header">권장</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">끔</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
+  <string name="recommended_reading_list_settings_articles">문서</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">매일</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">매주</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">매월</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">매일</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">매주</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">실행 취소</string>
   <string name="recommended_reading_list_settings_interests">관심 분야</string>
   <string name="recommended_reading_list_settings_notifications_title">알림</string>
