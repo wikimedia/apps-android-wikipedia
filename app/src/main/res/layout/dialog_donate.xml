@@ -88,7 +88,7 @@
                 android:paddingVertical="12dp"
                 android:textColor="?attr/primary_color"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/donation_reminder_gpay_different_amount_text"
+                android:text="@string/donation_reminders_gpay_different_amount_text"
                 android:visibility="gone"/>
 
             <View

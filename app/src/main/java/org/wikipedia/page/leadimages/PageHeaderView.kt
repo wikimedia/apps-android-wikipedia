@@ -117,38 +117,38 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         Prefs.donationReminderConfig.let { config ->
             val isInitialPrompt = DonationReminderHelper.maybeShowInitialDonationReminder(false)
             val labelText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminder_initial_prompt_label)
+                context.getString(R.string.donation_reminders_initial_prompt_label)
             } else {
                 null
             }
             val titleText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminder_initial_prompt_title)
+                context.getString(R.string.donation_reminders_initial_prompt_title)
             } else {
                 val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminder_prompt_title_articles, config.articleFrequency, config.articleFrequency
+                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
                 )
                 val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
-                context.getString(R.string.donation_reminder_prompt_title, articleText, amountText)
+                context.getString(R.string.donation_reminders_prompt_title, articleText, amountText)
             }
             val messageText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminder_initial_prompt_message)
+                context.getString(R.string.donation_reminders_initial_prompt_message)
             } else {
                 val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
                 val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminder_prompt_title_articles, config.articleFrequency, config.articleFrequency
+                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
                 )
                 val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
-                context.getString(R.string.donation_reminder_prompt_message, dateText, amountText, articleText)
+                context.getString(R.string.donation_reminders_prompt_message, dateText, amountText, articleText)
             }
             val positiveButtonText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminder_initial_prompt_positive_button)
+                context.getString(R.string.donation_reminders_initial_prompt_positive_button)
             } else {
-                context.getString(R.string.donation_reminder_prompt_positive_button)
+                context.getString(R.string.donation_reminders_prompt_positive_button)
             }
             val negativeButtonText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminder_initial_prompt_negative_button)
+                context.getString(R.string.donation_reminders_initial_prompt_negative_button)
             } else {
-                context.getString(R.string.donation_reminder_prompt_negative_button)
+                context.getString(R.string.donation_reminders_prompt_negative_button)
             }
             binding.donationReminderCardView.setLabel(labelText)
             binding.donationReminderCardView.setTitle(titleText)

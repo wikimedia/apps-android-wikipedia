@@ -20,7 +20,7 @@
             android:layout_marginBottom="4dp"
             android:textSize="11sp"
             android:textAllCaps="true"
-            android:text="@string/donation_reminder_initial_prompt_label"
+            android:text="@string/donation_reminders_initial_prompt_label"
             app:chipBackgroundColor="?attr/addition_color"
             app:chipStrokeWidth="0dp"
             app:chipMinTouchTargetSize="0dp"
@@ -37,7 +37,7 @@
             android:fontFamily="sans-serif-medium"
             android:textSize="16sp"
             android:textColor="?attr/primary_color"
-            android:text="@string/donation_reminder_initial_prompt_title"/>
+            android:text="@string/donation_reminders_initial_prompt_title"/>
 
         <TextView
             android:id="@+id/messageTextView"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:textColor="?attr/secondary_color"
-            android:text="@string/donation_reminder_initial_prompt_message"
+            android:text="@string/donation_reminders_initial_prompt_message"
             android:layout_marginBottom="4dp"
             app:lineHeight="18sp"/>
 

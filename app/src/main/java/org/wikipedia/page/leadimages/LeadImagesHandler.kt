@@ -215,7 +215,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == 2) {
                     FeedbackUtil.showMessage(
                         parentFragment,
-                        R.string.donation_reminder_prompt_dismiss_snackbar
+                        R.string.donation_reminders_prompt_dismiss_snackbar
                     )
                 }
             }

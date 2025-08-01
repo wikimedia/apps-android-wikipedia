@@ -143,7 +143,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private fun setupDirectGooglePayButton() {
         val donateAmount = Prefs.donationReminderConfig.donateAmount
         val donateAmountText = "${DonationReminderHelper.currencySymbol}$donateAmount"
-        val donateButtonText = getString(R.string.donation_reminder_gpay_text, donateAmountText)
+        val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         val paymentsClient = GooglePayComponent.createPaymentsClient(requireActivity())
         googlePayViewModel.finalAmount = donateAmount
         binding.donateGooglePayButton.text = donateButtonText
