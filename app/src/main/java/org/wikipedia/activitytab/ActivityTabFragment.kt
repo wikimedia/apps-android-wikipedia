@@ -98,7 +98,8 @@ class ActivityTabFragment : Fragment() {
                     ) {
                         Text(
                             text = "TODO!",
-                            modifier = Modifier.align(Alignment.Center)
+                            modifier = Modifier.align(Alignment.Center),
+                            color = WikipediaTheme.colors.primaryColor
                         )
                     }
                 }

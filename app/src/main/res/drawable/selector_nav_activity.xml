@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- TODO: replace with proper icon when designs are available -->
-    <item android:drawable="@drawable/volume_up_24dp" android:state_checked="true"/>
-    <item android:drawable="@drawable/volume_off_24dp" android:state_checked="false"/>
+    <item android:drawable="@drawable/outline_activity_24" android:state_checked="true"/>
+    <item android:drawable="@drawable/outline_activity_24" android:state_checked="false"/>
 </selector>
