@@ -3,6 +3,7 @@ package org.wikipedia.donate.donationreminder
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
@@ -16,6 +17,8 @@ import java.util.Locale
 
 object DonationReminderHelper {
 
+    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
+    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
     val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
     val currencyFormat: NumberFormat get() = NumberFormat.getCurrencyInstance(Locale.Builder()
         .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
@@ -38,7 +41,7 @@ object DonationReminderHelper {
         "IT" to listOf(1f, 2f, 3f)
     )
 
-    val defaultReadFrequencyOptions = listOf(12f, 10f, 15f)
+    val defaultReadFrequencyOptions = listOf(5f, 10f, 15f)
 
     fun getDonationReminderSubmittedFormDate(): String {
         val timeStamp = Prefs.donationReminderConfig.setupTimestamp

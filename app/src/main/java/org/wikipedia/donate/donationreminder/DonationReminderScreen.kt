@@ -189,7 +189,7 @@ fun DonationReminderScreen(
                     DonationAmountView(
                         option = uiState.donationAmount,
                         showDonationAmountCustomDialog = showDonationAmountCustomDialog,
-                        currencySymbol = viewModel.currencySymbol,
+                        currencySymbol = DonationReminderHelper.currencySymbol,
                         customDialogErrorMessage = customDialogErrorMessage,
                         onDismissRequest = {
                             showDonationAmountCustomDialog = false
@@ -245,7 +245,7 @@ fun DonationReminderScreen(
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
                         val donationAmount =
-                            viewModel.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                            DonationReminderHelper.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
                         val readFrequency = Prefs.donationReminderConfig.articleFrequency
                         val message = "Reminder set! We'll remind you to donate $donationAmount when you read ${readFrequency.toInt()} articles."
                         if (viewModel.isFromSettings) {

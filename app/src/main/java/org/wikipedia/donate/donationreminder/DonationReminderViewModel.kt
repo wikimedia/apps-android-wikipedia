@@ -21,10 +21,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     private val _uiState = MutableStateFlow(DonationReminderUiState())
     val uiState: StateFlow<DonationReminderUiState> = _uiState.asStateFlow()
 
-    val currentCountryCode = DonationReminderHelper.currentCountryCode
-    val currencyFormat = DonationReminderHelper.currencyFormat
-    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
-    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
+    private val formatRegex = Regex("\\.00$")
 
     fun loadData() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -86,6 +83,8 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     private suspend fun createDonationAmountOptions(): SelectableOption {
         val donationConfig = DonationConfigHelper.getConfig()
+        val currencyCode = DonationReminderHelper.currencyCode
+        val currentCountryCode = DonationReminderHelper.currentCountryCode
         val minimumAmount = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
 
         var maximumAmount = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
@@ -99,7 +98,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
         val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0f)
         val options = presets.map {
-            OptionItem.Preset(it, currencyFormat.format(it).replace(Regex("\\.00$"), ""))
+            OptionItem.Preset(it, DonationReminderHelper.currencyFormat.format(it).replace(formatRegex, ""))
         } + OptionItem.Custom
 
         val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
@@ -111,7 +110,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             minimumAmount = minimumAmount,
             maximumAmount = maximumAmount,
             displayFormatter = {
-                currencyFormat.format(it).replace(Regex("\\.00$"), "")
+                DonationReminderHelper.currencyFormat.format(it).replace(formatRegex, "")
             }
         )
     }
