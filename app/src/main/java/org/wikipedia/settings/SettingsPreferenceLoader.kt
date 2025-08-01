@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.donate.DonateUtil.currencyFormat
+import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.feed.configure.ConfigureActivity
@@ -137,7 +137,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateDonationRemindersDescription() {
         val description = if (Prefs.donationReminderConfig.isEnabled) activity.getString(R.string.donations_reminders_settings_description_on,
-            currencyFormat.format(Prefs.donationReminderConfig.donateAmount), Prefs.donationReminderConfig.articleFrequency.toInt()) else
+            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), Prefs.donationReminderConfig.articleFrequency.toInt()) else
                 activity.getString(R.string.donations_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description
     }

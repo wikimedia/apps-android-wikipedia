@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.donate.DonationConfigHelper
-import org.wikipedia.donate.DonateUtil.currencyCode
-import org.wikipedia.donate.DonateUtil.currencyFormat
-import org.wikipedia.donate.DonateUtil.currentCountryCode
+import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.settings.Prefs
@@ -86,8 +84,8 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     private suspend fun createDonationAmountOptions(): SelectableOption {
         val donationConfig = DonationConfigHelper.getConfig()
-        val currencyCode = currencyCode
-        val currentCountryCode = currentCountryCode
+        val currencyCode = DonateUtil.currencyCode
+        val currentCountryCode = DonateUtil.currentCountryCode
         val minimumAmount = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
 
         var maximumAmount = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
@@ -101,7 +99,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
         val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0f)
         val options = presets.map {
-            OptionItem.Preset(it, currencyFormat.format(it).replace(formatRegex, ""))
+            OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         } + OptionItem.Custom
 
         val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
@@ -113,7 +111,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             minimumAmount = minimumAmount,
             maximumAmount = maximumAmount,
             displayFormatter = {
-                currencyFormat.format(it).replace(formatRegex, "")
+                DonateUtil.currencyFormat.format(it).replace(formatRegex, "")
             }
         )
     }

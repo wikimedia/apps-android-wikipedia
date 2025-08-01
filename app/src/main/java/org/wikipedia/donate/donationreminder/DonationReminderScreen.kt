@@ -79,8 +79,6 @@ import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.donate.DonateUtil
-import org.wikipedia.donate.DonateUtil.currencyFormat
-import org.wikipedia.donate.DonateUtil.currencySymbol
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
@@ -192,7 +190,7 @@ fun DonationReminderScreen(
                     DonationAmountView(
                         option = uiState.donationAmount,
                         showDonationAmountCustomDialog = showDonationAmountCustomDialog,
-                        currencySymbol = currencySymbol,
+                        currencySymbol = DonateUtil.currencySymbol,
                         customDialogErrorMessage = customDialogErrorMessage,
                         onDismissRequest = {
                             showDonationAmountCustomDialog = false
@@ -248,7 +246,7 @@ fun DonationReminderScreen(
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
                         val donationAmount =
-                            currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
                         val readFrequency = Prefs.donationReminderConfig.articleFrequency
                         val message = "Reminder set! We'll remind you to donate $donationAmount when you read ${readFrequency.toInt()} articles."
                         if (viewModel.isFromSettings) {
