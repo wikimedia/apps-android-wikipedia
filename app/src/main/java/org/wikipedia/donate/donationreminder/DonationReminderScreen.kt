@@ -176,10 +176,10 @@ fun DonationReminderScreen(
                             val amount = viewModel.getAmountFloat(value)
                             customDialogErrorMessage = when {
                                 amount <= minimumAmount -> {
-                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1).toInt()}"
+                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1)}"
                                 }
                                 amount >= maximumAmount -> {
-                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1).toInt()} allowed"
+                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1)} allowed"
                                 }
                                 else -> ""
                             }
