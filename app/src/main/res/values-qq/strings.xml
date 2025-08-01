@@ -1928,7 +1928,7 @@
   <string name="donations_reminders_settings_article_frequency_input_suffix_label">Suffix label for the textField input in the donation reminders settings screen.</string>
   <string name="donations_reminders_snacbkbar_confirmation_label">Snackbar confirmation label which appears after user sets up donation reminders. %1$s will be replaced by the amount of donation and %2$d will be replaced by the number of articles.</string>
   <string name="donation_reminder_prompt_title">Title for the donation reminder prompt. %1$d will be replaced by the number of articles and %2$s will be replaced by the amount of donation.</string>
-  <string name="donation_reminder_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$d will be replaced by the number of articles, and %3$s will be replaced by the amount of donation.</string>
+  <string name="donation_reminder_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$d will be replaced by the text of the number of articles, and %3$s will be replaced by the amount of donation.</string>
   <string name="donation_reminder_prompt_positive_button">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
   <string name="donation_reminder_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
   <string name="donation_reminder_gpay_text">Button text for the donation bottom sheet. %s will be replaced by the amount of the donation that the user set.</string>
