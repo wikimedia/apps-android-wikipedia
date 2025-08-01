@@ -72,6 +72,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
@@ -920,6 +921,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
+        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
+        DonationReminderHelper.maybeShowDonationReminder(true)
+
         maybeShowAnnouncement()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
