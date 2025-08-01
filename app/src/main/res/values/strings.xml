@@ -2025,8 +2025,8 @@
     <string name="donation_reminders_settings_about_experiment_btn_label">About this experiment</string>
     <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$d articles while this experiment runs.</string>
-    <string name="donation_reminders_prompt_title">You\'ve read %1$d since you pledged %2$s</string>
-    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$d articles. If Wikipedia has provided you with  %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
+    <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
+    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s articles. If Wikipedia has provided you with  %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
     <string name="donation_reminders_prompt_positive_button">Donate now</string>
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
