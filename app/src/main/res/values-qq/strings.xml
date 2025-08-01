@@ -1909,4 +1909,38 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
+  <!-- Donation Reminders   -->
+  <string name="donation_reminder_initial_prompt_label">Label text for the donation reminder initial prompt.</string>
+  <string name="donation_reminder_initial_prompt_title">Title for the donation reminder initial prompt.</string>
+  <string name="donation_reminder_initial_prompt_message">Message for the donation reminder initial prompt.</string>
+  <string name="donation_reminder_initial_prompt_positive_button">Positive button for the donation reminder initial prompt that takes the users to the donation reminder setting screen.</string>
+  <string name="donation_reminder_initial_prompt_negative_button">Negative button for the donation reminder initial prompt to close the prompt.</string>
+  <string name="donation_reminder_prompt_dismiss_snackbar">Snackbar message that indicates the donation reminder is available in the Settings screen.</string>
+  <string name="donations_settings_section_header">Text of the section in the settings screen for donation.</string>
+  <string name="donations_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
+  <string name="donations_reminders_settings_thank_you_message">Thank you text message in the donation reminders settings screen.</string>
+  <string name="donations_reminders_settings_donation_info">Donation information text in the donation reminders settings screen.</string>
+  <string name="donations_reminders_settings_article_frequency_label">Label for the section where users configure how many articles they read before seeing donation reminders.</string>
+  <string name="donations_reminders_settings_amount_label">Label for the section where users configure donation amount in donation reminders settings screen.</string>
+  <string name="donations_reminders_settings_confirm_btn_label">Confrim Button label for the donation reminders settings screen.</string>
+  <string name="donations_reminders_settings_about_experiment_btn_label">About experiment button label for the donation reminders settings screen.</string>
+  <string name="donations_reminders_settings_article_frequency_input_suffix_label">Suffix label for the textField input in the donation reminders settings screen.</string>
+  <string name="donations_reminders_snacbkbar_confirmation_label">Snackbar confirmation label which appears after user sets up donation reminders. %1$s will be replaced by the amount of donation and %2$d will be replaced by the number of articles.</string>
+  <string name="donation_reminder_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$d will be replaced by the number of articles, and %3$s will be replaced by the amount of donation.</string>
+  <string name="donation_reminder_prompt_positive_button">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
+  <string name="donation_reminder_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
+  <string name="donation_reminder_gpay_text">Button text for the donation bottom sheet. %s will be replaced by the amount of the donation that the user set.</string>
+  <string name="donation_reminder_gpay_different_amount_text">Button text for the donation bottom sheet that open the Google Pay donation page.</string>
+  <string name="donation_reminders_survey_dialog_title">Title label for donation reminders survey dialog.</string>
+  <string name="donation_reminders_survey_dialog_message">Message label for donation reminders survey dialog.</string>
+  <string name="donations_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and second  %2$d will be replaced by the number of articles.</string>
+  <string name="donations_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
+  <string name="donations_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
+  <string name="donation_reminder_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
+  <string name="donation_reminder_prompt_title">Title for the donation reminder prompt. %1$d will be replaced by the number of articles and %2$s will be replaced by the amount of donation.</string>
+  <plurals name="donation_reminder_prompt_title_articles">
+    <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
+    <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
+  </plurals>
+
 </resources>
