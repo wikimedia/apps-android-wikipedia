@@ -52,11 +52,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
-    fun updateDonationAmountState(donationAmount: Int) {
+    fun updateDonationAmountState(donationAmount: Float) {
         _uiState.update { it.copy(donationAmount = it.donationAmount.copy(selectedValue = donationAmount)) }
     }
 
-    fun updateReadFrequencyState(readFrequency: Int) {
+    fun updateReadFrequencyState(readFrequency: Float) {
         _uiState.update { it.copy(readFrequency = it.readFrequency.copy(selectedValue = readFrequency)) }
     }
 
@@ -66,9 +66,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     private fun createReadFrequencyOptions(): SelectableOption {
-        val options = listOf(2, 10, 15)
+        val options = DonationReminderHelper.defaultReadFrequencyOptions
         val optionItems = options.map {
-            OptionItem.Preset(it, "$it articles")
+            OptionItem.Preset(it, "${it.toInt()} articles")
         } + OptionItem.Custom
 
         val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()
@@ -79,7 +79,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             optionItems,
             minimumAmount = 1f,
             maximumAmount = 1000f
-        ) { "$it articles" }
+        ) {
+            "${it.toInt()} articles"
+        }
     }
 
     private suspend fun createDonationAmountOptions(): SelectableOption {
@@ -95,12 +97,12 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
-        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0)
+        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0f)
         val options = presets.map {
-            OptionItem.Preset(it, currencyFormat.format(it))
+            OptionItem.Preset(it, currencyFormat.format(it).replace(Regex("\\.00$"), ""))
         } + OptionItem.Custom
 
-        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0) presets.first()
+        val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
         else Prefs.donationReminderConfig.donateAmount
 
         return SelectableOption(
@@ -108,7 +110,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             options,
             minimumAmount = minimumAmount,
             maximumAmount = maximumAmount,
-            displayFormatter = currencyFormat::format
+            displayFormatter = {
+                currencyFormat.format(it).replace(Regex("\\.00$"), "")
+            }
         )
     }
 
@@ -130,14 +134,14 @@ data class DonationReminderUiState(
 )
 
 sealed class OptionItem(val displayText: String) {
-    data class Preset(val value: Int, val text: String) : OptionItem(text)
+    data class Preset(val value: Float, val text: String) : OptionItem(text)
     object Custom : OptionItem("Custom...")
 }
 
 data class SelectableOption(
-    val selectedValue: Int,
+    val selectedValue: Float,
     val options: List<OptionItem>,
     val maximumAmount: Float = 0f,
     val minimumAmount: Float = 0f,
-    val displayFormatter: (Any) -> String = { it.toString() }
+    val displayFormatter: (Float) -> String = { it.toString() }
 )

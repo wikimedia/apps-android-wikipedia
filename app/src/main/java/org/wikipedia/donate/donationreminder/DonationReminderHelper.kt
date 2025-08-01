@@ -35,8 +35,10 @@ object DonationReminderHelper {
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     val currencyAmountPresets = mapOf(
-        "IT" to listOf(1, 2, 3)
+        "IT" to listOf(1f, 2f, 3f)
     )
+
+    val defaultReadFrequencyOptions = listOf(12f, 10f, 15f)
 
     fun getDonationReminderSubmittedFormDate(): String {
         val timeStamp = Prefs.donationReminderConfig.setupTimestamp
@@ -60,6 +62,6 @@ data class DonationReminderConfig(
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
     val isSurveyShown: Boolean = false,
-    val articleFrequency: Int = 0,
-    val donateAmount: Int = 0
+    val articleFrequency: Float = 0f,
+    val donateAmount: Float = 0f
 )

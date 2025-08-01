@@ -166,7 +166,7 @@ fun DonationReminderScreen(
                         },
                         onDoneClick = { readFrequency ->
                             if (customDialogErrorMessage.isEmpty()) {
-                                viewModel.updateReadFrequencyState(readFrequency.toInt())
+                                viewModel.updateReadFrequencyState(readFrequency.toFloat())
                                 showReadFrequencyCustomDialog = false
                             }
                         },
@@ -176,10 +176,10 @@ fun DonationReminderScreen(
                             val amount = viewModel.getAmountFloat(value)
                             customDialogErrorMessage = when {
                                 amount <= minimumAmount -> {
-                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount.toInt() + 1)}"
+                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1).toInt()}"
                                 }
                                 amount >= maximumAmount -> {
-                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount.toInt() - 1)} allowed"
+                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1).toInt()} allowed"
                                 }
                                 else -> ""
                             }
@@ -208,7 +208,7 @@ fun DonationReminderScreen(
                         },
                         onDoneClick = { amount ->
                             if (customDialogErrorMessage.isEmpty()) {
-                                viewModel.updateDonationAmountState(amount.toInt())
+                                viewModel.updateDonationAmountState(amount.toFloat())
                                 showDonationAmountCustomDialog = false
                             }
                         },
@@ -247,7 +247,7 @@ fun DonationReminderScreen(
                         val donationAmount =
                             viewModel.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
                         val readFrequency = Prefs.donationReminderConfig.articleFrequency
-                        val message = "Reminder set! We'll remind you to donate $donationAmount when you read $readFrequency articles."
+                        val message = "Reminder set! We'll remind you to donate $donationAmount when you read ${readFrequency.toInt()} articles."
                         if (viewModel.isFromSettings) {
                             scope.launch {
                                 snackbarHostState.showSnackbar(

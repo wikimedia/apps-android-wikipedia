@@ -139,7 +139,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateDonationRemindersDescription() {
         val description = if (Prefs.donationReminderConfig.isEnabled) activity.getString(R.string.donations_reminders_settings_description_on,
-            DonationReminderHelper.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), Prefs.donationReminderConfig.articleFrequency.toString()) else
+            DonationReminderHelper.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), Prefs.donationReminderConfig.articleFrequency.toInt()) else
                 activity.getString(R.string.donations_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description
     }

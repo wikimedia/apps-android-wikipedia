@@ -1911,6 +1911,6 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
   <string name="donations_settings_section_header">Text of the section in the settings screen for donation.</string>
   <string name="donations_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
-  <string name="donations_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and secong %2$s will be replaced by the reader frequency.</string>
+  <string name="donations_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and secong  %2$d will be replaced by the reader frequency.</string>
   <string name="donations_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
 </resources>
