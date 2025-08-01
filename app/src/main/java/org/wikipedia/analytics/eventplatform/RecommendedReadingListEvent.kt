@@ -4,7 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 
 object RecommendedReadingListEvent {
 
@@ -20,7 +19,6 @@ object RecommendedReadingListEvent {
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
     ) {
         val actionData = ActionData(
-            rrlGroup = RecommendedReadingListAbTest().getGroupName(),
             optionsShown = optionsShown,
             countSelected = countSelected,
             countSaved = countSaved,
@@ -43,7 +41,6 @@ object RecommendedReadingListEvent {
 
     @Serializable
     class ActionData(
-        @SerialName("rrl_group") val rrlGroup: String? = null,
         @SerialName("options_shown") val optionsShown: String? = null,
         @SerialName("count_selected") val countSelected: Int? = null,
         @SerialName("count_saved") val countSaved: Int? = null,

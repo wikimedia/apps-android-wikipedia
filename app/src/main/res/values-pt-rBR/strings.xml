@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * !Silent
+* ACheJu
 * AVrana
 * Alvarenga
 * Anaclaudiaml
@@ -1663,8 +1664,18 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Deixe um resumo da edição</string>
   <string name="patroller_saved_message_title_do_not_censor">Não censure</string>
   <string name="patroller_saved_message_title_art_imp">Sugestão para melhorar o artigo</string>
+  <string name="patroller_saved_message_body_vandalism">Olá, {{{username}}}, gostaria de informar que reverti uma ou mais das suas [{{{diffLink}}}|contribuições recentes] porque elas não parecem construtivas. Se você acha que cometi um erro ou tem dúvidas, pode deixar uma mensagem na [[Discussão do usuário:{{{senderUserName}}}|minha página de discussão]]. Observe que o vandalismo contínuo pode levar a restrições.</string>
+  <string name="patroller_saved_message_body_editing_tests">Olá {{{username}}}, fico feliz que a Wikipédia tenha chamado sua atenção e que você tenha se interessado em aprender a editar nela. O teste de edição que você fez funcionou; no entanto, lembre-se de que o objetivo deste projeto é desenvolver uma enciclopédia confiável e completa que todos(as) possam consultar. Sua edição afetou o conteúdo, por isso foi removida.\nSe você quiser aprender a editar a Wikipédia, o [[Wikipedia:Sandbox|sandbox]] está à sua disposição. Se seus comentários foram específicos para um artigo, o local correto é a página de discussão desse artigo.</string>
+  <string name="patroller_saved_message_body_npov">Olá {{{username}}}, algumas das suas contribuições não atendem à neutralidade exigida para cumprir a política de [[Wikipedia:NPOV|ponto de vista neutro]] da Wikipédia. Por esse motivo, parte do conteúdo foi modificada ou removida. Por favor, modifique os parágrafos ou seções que demonstram um ponto de vista parcial, substituindo-os por um texto mais neutro e objetivo, alinhado com o que se espera de uma enciclopédia.</string>
+  <string name="patroller_saved_message_body_auto_trans">Olá {{{username}}}, algumas de suas contribuições são possivelmente traduções automáticas, por isso foram modificadas ou marcadas com o modelo. Se nenhuma melhoria for feita no artigo, ele poderá ser excluído.\n\nSe, apesar de todas essas informações, você ainda tiver alguma dúvida, sinta-se à vontade para deixar uma mensagem em [[Discussão do usuário:{{{senderUserName}}}|minha página de discussão]]. Não desanime com este pequeno incidente. Suas contribuições são muito importantes para a Wikipédia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Olá {{{username}}}, agradeço sua colaboração na Wikipédia; no entanto, percebi que você está em um [[Wikipedia:Conflict_of_interest|conflito de interesses]]. Um conflito de interesses é a incompatibilidade entre os objetivos de neutralidade e confiabilidade da Wikipédia e os objetivos específicos de determinados(as) editores(as), indivíduos, entidades ou empresas de qualquer tipo.\n\nTodas as contribuições no espaço principal estão sujeitas às políticas de critérios de conteúdo desta Wikipédia ([[Wikipedia:What_Wikipedia_is_not|o que a Wikipédia não é]]), qualidade enciclopédica ([[Wikipedia:Verifiability|verificabilidade]] e [[Wikipedia:No_original_research|nenhuma pesquisa original]]), método editorial ([[Wikipedia:Neutral_point_of_view|ponto de vista neutro]]) e legitimidade do conteúdo ([[Wikipedia:Copyrights|direitos autorais]]). Espera-se que todos(as) os(as) editores(as) cumpram estas políticas ao criar e avaliar conteúdo, e respeitem e assumam boa-fé nas ações de outros(as) editores(as) para garantir que estas políticas sejam seguidas.\n\nSe você editar sob conflito de interesses, deverá aplicar a política correspondente com cuidado especial; caso contrário, sua conta de usuário(a) poderá ser considerada de uso privado e bloqueada. Sinta-se à vontade para entrar em contato comigo na minha página de discussão se tiver alguma dúvida.</string>
+  <string name="patroller_saved_message_body_final_warning">Como você fez várias edições destrutivas, este será seu último aviso. Se você vandalizar a Wikipédia novamente, será banido(a) da edição.</string>
+  <string name="patroller_saved_message_body_copy_vio">Sua edição recente parece incluir material protegido por direitos autorais sem permissão. Certifique-se de que todo o conteúdo esteja de acordo com as políticas de [[Wikipedia:Copyrights|direitos autorais]] desta Wikipédia para evitar a remoção.</string>
+  <string name="patroller_saved_message_body_edit_summary">Olá, {{{username}}}, parece que você removeu conteúdo da Wikipédia sem deixar um resumo da edição. Por favor, deixe um resumo da edição sempre que adicionar ou remover conteúdo da Wikipédia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Olá, {{{username}}}, parece que você removeu conteúdo sem discutir na página de discussão do artigo. Observe que a Wikipédia não é censurada e o conteúdo não deve ser removido por ser controverso. Se você acredita que as informações são imprecisas, chegue a um consenso na página de discussão do artigo.</string>
   <string name="talk_warn_learn_more_label">Saiba mais sobre os espaços reservados para mensagens</string>
   <string name="talk_warn_saved_messages_usage_instruction">Use uma mensagem exemplo abaixo para personalizar, enviar e salvar suas mensagens.</string>
+  <string name="patroller_saved_message_body_art_imp">Olá, {{{username}}}. Seu artigo é um ótimo começo! Para torná-lo ainda melhor, considere adicionar mais referências de fontes confiáveis. Isso ajuda a verificar as informações e melhora a qualidade do artigo. Confira as diretrizes da Wikipédia sobre [[Wikipedia:Reliable_sources|fontes confiáveis]] para mais detalhes.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
   <string name="data_opt_in_accept">Aceitar</string>
   <string name="data_opt_in_reject">Recusar</string>
@@ -1705,6 +1716,7 @@
   <string name="places_card_action">Mais locais próximos</string>
   <string name="places_card_enable_location_card_message">O Lugares é uma forma baseada em mapas de explorar a Wikipédia.</string>
   <string name="places_card_enable_location_card_button">Ativar localização</string>
+  <string name="places_card_distance_suffix">%s de distância</string>
   <string name="places_card_distance_unknown">Distância desconhecida</string>
   <string name="places_empty_message_snackbar">Não há artigos próximos. Tente diminuir o zoom e mover o mapa.</string>
   <string name="survey_dialog_title">Ajude-nos a melhorar este recurso</string>
@@ -1775,6 +1787,7 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Notificações do jogo ativadas.</string>
   <string name="on_this_day_game_notification_text">O jogo de hoje, \"O que veio primeiro?\", está pronto para começar.</string>
   <string name="on_this_day_game_report_email_subject">Relatório de problemas - Wikipédia jogos</string>
+  <string name="on_this_day_game_report_email_body">Encontrei um problema com o recurso de jogos da Wikipédia:\n- [Descreva o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descreva a solução proposta]</string>
   <string name="on_this_day_game_notification_undo">Desfazer</string>
   <string name="on_this_day_game_share_link_message">Estou jogando \"O que veio primeiro?\", um jogo diário de perguntas e respostas no aplicativo Wikipedia para Android %s</string>
   <string name="on_this_day_game_share_screen_title">Hoje, obtive uma pontuação de %1$d/%2$d em \n\"O que veio primeiro?\".</string>
@@ -1791,6 +1804,11 @@
   <string name="on_this_day_game_sound_off">Desativar som</string>
   <string name="year_in_review_learn_more">Saiba mais</string>
   <string name="year_in_review_get_started">Começar</string>
+  <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
+  <string name="year_in_review_navigate_left">Navegar para a esquerda</string>
+  <string name="year_in_review_share_icon">Ícone de compartilhar</string>
+  <string name="year_in_review_heart_icon">Ícone de Coração</string>
+  <string name="year_in_review_navigate_right">Navegar para a direita</string>
   <string name="year_in_review_donate">Doar</string>
   <string name="year_in_review_information_icon">Ícone de informação</string>
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
@@ -1802,9 +1820,17 @@
     <item quantity="one">Você leu %d artigo este ano</item>
     <item quantity="other">Você leu %d artigos este ano</item>
   </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Este ano, você leu %1$d artigos, incluindo %2$s, %3$s e %4$s. A Wikipédia tinha mais de 63 milhões de artigos disponíveis em mais de 300 idiomas. Você se juntou a milhões na expansão do conhecimento e na exploração de tópicos diversos.</item>
+    <item quantity="other">Este ano, você leu %1$d artigos, incluindo %2$s, %3$s e %4$s. A Wikipédia tinha mais de 63 milhões de artigos disponíveis em mais de 300 idiomas. Você se juntou a milhões na expansão do conhecimento e na exploração de tópicos diversos.</item>
+  </plurals>
   <plurals name="year_in_review_edit_count_headline">
     <item quantity="one">Você editou a Wikipédia %d vez</item>
     <item quantity="other">Você editou a Wikipédia %d vezes</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Você editou a Wikipédia %d vez(es). Obrigado(a) por ser um(a) dos(as) editores(as) voluntários(as) que fazem a diferença nos projetos Wikimedia ao redor do mundo.</item>
+    <item quantity="other">Você editou a Wikipédia %d vez(es). Obrigado(a) por ser um(a) dos(as) editores(as) voluntários(as) que fazem a diferença nos projetos Wikimedia ao redor do mundo.</item>
   </plurals>
   <string name="year_in_review_non_english_collective_readcount_headline">A Wikipédia estava disponível em mais de 300 idiomas.</string>
   <string name="year_in_review_non_english_collective_readcount_bodytext">A Wikipédia tinha mais de 63 milhões de artigos em mais de 300 idiomas ativos este ano. Você se juntou a milhões de pessoas na expansão do conhecimento e na exploração de diversos tópicos.</string>
