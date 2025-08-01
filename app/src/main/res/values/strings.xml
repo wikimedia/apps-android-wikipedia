@@ -2024,20 +2024,20 @@
     <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>
     <string name="donation_reminders_settings_about_experiment_btn_label">About this experiment</string>
     <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
-    <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$d articles while this experiment runs.</string>
+    <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
     <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
-    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s articles. If Wikipedia has provided you with  %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
+    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
     <string name="donation_reminders_prompt_positive_button">Donate now</string>
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
     <string name="donation_reminders_gpay_different_amount_text">Donate a different amount with Google Pay</string>
     <string name="donation_reminders_survey_dialog_title">Help improve donation reminders.</string>
     <string name="donation_reminders_survey_dialog_message">Are you satisfied with this experience?</string>
-    <string name="donation_reminders_settings_description_on">Donation reminders are on. Wikipedia will remind you to donate %1$s every %2$d articles you read while this experiment runs.</string>
+    <string name="donation_reminders_settings_description_on">Donation reminders are on. Wikipedia will remind you to donate %1$s every %2$s you read while this experiment runs.</string>
     <string name="donation_reminders_settings_description_off">Donation reminders are off.</string>
     <string name="donation_reminders_settings_tooltip_info_label">Article count is stored locally on your device</string>
     <string name="donation_reminders_prompt_success_snackbar">Thank you! Your generosity to Wikipedia means so much to us.</string>
-    <plurals name="donation_reminders_prompt_title_articles">
+    <plurals name="donation_reminders_text_articles">
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
     </plurals>
