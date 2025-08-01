@@ -27,6 +27,12 @@ class ReadingListFragmentViewModel : ViewModel() {
     private val _updateListFlow = MutableSharedFlow<Resource<ReadingList>>()
     val updateListFlow = _updateListFlow.asSharedFlow()
 
+    private val _saveReadingListFlow = MutableSharedFlow<Resource<ReadingList>>()
+    val saveReadingListFlow = _saveReadingListFlow.asSharedFlow()
+
+    private val _deleteSelectedPagesFlow = MutableSharedFlow<Resource<List<ReadingListPage>>>()
+    val deleteSelectedPagesFlow = _deleteSelectedPagesFlow.asSharedFlow()
+
     private val _recommendedListFlow = MutableStateFlow(Resource<ReadingList>())
     val recommendedListFlow = _recommendedListFlow.asStateFlow()
 
@@ -55,6 +61,32 @@ class ReadingListFragmentViewModel : ViewModel() {
             if (!json.isNullOrEmpty()) {
                 val list = ReadingListsReceiveHelper.receiveReadingLists(emptyTitle, emptyDescription, json, encoded)
                 _updateListFlow.emit(Resource.Success(list))
+            }
+        }
+    }
+
+    fun saveReadingList(readingList: ReadingList) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _saveReadingListFlow.emit(Resource.Error(throwable))
+            }
+        }) {
+            readingList.id = AppDatabase.instance.readingListDao().insertReadingList(readingList)
+            AppDatabase.instance.readingListPageDao().addPagesToList(readingList, readingList.pages, true)
+            Prefs.readingListRecentReceivedId = readingList.id
+            _saveReadingListFlow.emit(Resource.Success(readingList))
+        }
+    }
+
+    fun deleteSelectedPages(readingList: ReadingList, pages: List<ReadingListPage>) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _deleteSelectedPagesFlow.emit(Resource.Error(throwable))
+            }
+        }) {
+            if (pages.isNotEmpty()) {
+                AppDatabase.instance.readingListPageDao().markPagesForDeletion(readingList, pages)
+                _deleteSelectedPagesFlow.emit(Resource.Success(pages))
             }
         }
     }

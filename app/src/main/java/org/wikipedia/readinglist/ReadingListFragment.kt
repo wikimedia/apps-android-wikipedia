@@ -44,7 +44,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.concurrency.FlowEventBus
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.events.PageDownloadEvent
@@ -176,6 +175,43 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 L.e(resource.throwable)
                                 FeedbackUtil.showError(requireActivity(), resource.throwable)
                                 requireActivity().finish()
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.saveReadingListFlow.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                if (isRecommendedList) {
+                                    RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = resource.data.pages.size)
+                                }
+
+                                requireActivity().startActivity(MainActivity.newIntent(requireContext())
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
+                                requireActivity().finish()
+                            }
+                            is Resource.Error -> {
+                                L.e(resource.throwable)
+                                FeedbackUtil.showError(requireActivity(), resource.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.deleteSelectedPagesFlow.collect { resource ->
+                        when (resource) {
+                            is Resource.Success -> {
+                                readingList?.let {
+                                    val pages = resource.data
+                                    it.pages.removeAll(pages)
+                                    ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity() as AppCompatActivity, it, pages) { updateReadingListData() }
+                                    update()
+                                }
+                            }
+                            is Resource.Error -> {
+                                L.e(resource.throwable)
+                                FeedbackUtil.showError(requireActivity(), resource.throwable)
                             }
                         }
                     }
@@ -315,7 +351,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             R.id.menu_reading_list_save_all_offline -> {
                 readingList?.let {
-                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), it.pages) {
+                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity() as AppCompatActivity, it.pages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -324,7 +360,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             }
             R.id.menu_reading_list_remove_all_offline -> {
                 readingList?.let {
-                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), it.pages) {
+                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity() as AppCompatActivity, it.pages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -518,7 +554,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     }
 
     private fun rename() {
-        ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
+        ReadingListBehaviorsUtil.renameReadingList(requireActivity() as AppCompatActivity, readingList) {
             update()
         }
     }
@@ -579,24 +615,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
             previewSaveDialog = MaterialAlertDialogBuilder(requireContext())
                 .setPositiveButton(R.string.reading_lists_preview_save_dialog_save) { _, _ ->
+                    lifecycleScope
                     it.pages.clear()
                     it.pages.addAll(savedPages)
                     it.listTitle = readingListTitle
                     if (readingListMode == ReadingListMode.RECOMMENDED) {
                         it.description = null
                     }
-                    // Save reading list to database
-                    it.id = AppDatabase.instance.readingListDao().insertReadingList(it)
-                    AppDatabase.instance.readingListPageDao().addPagesToList(it, it.pages, true)
-                    Prefs.readingListRecentReceivedId = it.id
-
-                    if (isRecommendedList) {
-                        RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = it.pages.size)
-                    }
-
-                    requireActivity().startActivity(MainActivity.newIntent(requireContext())
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
-                    requireActivity().finish()
+                    viewModel.saveReadingList(it)
                 }
                 .setNegativeButton(R.string.reading_lists_preview_save_dialog_cancel, null)
                 .create()
@@ -625,13 +651,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun deleteSelectedPages() {
         readingList?.let {
-            val pages = selectedPages
-            if (pages.isNotEmpty()) {
-                AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
-                it.pages.removeAll(pages)
-                ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
-                update()
-            }
+            viewModel.deleteSelectedPages(it, selectedPages)
         }
     }
 
@@ -657,7 +677,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun delete() {
         readingList?.let {
-            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, true) {
+            ReadingListBehaviorsUtil.deleteReadingList(requireActivity() as AppCompatActivity, it, true) {
                 startActivity(MainActivity.newIntent(requireActivity()).putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, it.title))
                 requireActivity().finish()
             }
@@ -922,14 +942,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) {
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity() as AppCompatActivity, readingList.pages) {
                 adapter.notifyDataSetChanged()
                 update()
             }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) {
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity() as AppCompatActivity, readingList.pages) {
                 adapter.notifyDataSetChanged()
                 update()
             }
@@ -980,22 +1000,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
         }
 
         override fun onRename(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) { update(readingList) }
+            ReadingListBehaviorsUtil.renameReadingList(requireActivity() as AppCompatActivity, readingList) { update(readingList) }
         }
 
         override fun onDelete(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), readingList, true) {
-                ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), readingList) { setSearchQuery() }
+            ReadingListBehaviorsUtil.deleteReadingList(requireActivity() as AppCompatActivity, readingList, true) {
+                ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity() as AppCompatActivity, readingList) { setSearchQuery() }
                 setSearchQuery()
             }
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { setSearchQuery() }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity() as AppCompatActivity, readingList.pages) { setSearchQuery() }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity() as AppCompatActivity, readingList.pages) { setSearchQuery() }
         }
 
         override fun onShare(readingList: ReadingList) {
@@ -1040,7 +1060,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 if (it.saving) {
                     Toast.makeText(context, R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
                 } else {
-                    ReadingListBehaviorsUtil.toggleOffline(requireActivity(), item) {
+                    ReadingListBehaviorsUtil.toggleOffline(requireActivity() as AppCompatActivity, item) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -1105,7 +1125,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     return true
                 }
                 R.id.menu_remove_from_offline -> {
-                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), selectedPages) {
+                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity() as AppCompatActivity, selectedPages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -1113,7 +1133,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     return true
                 }
                 R.id.menu_save_for_offline -> {
-                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), selectedPages) {
+                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity() as AppCompatActivity, selectedPages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
