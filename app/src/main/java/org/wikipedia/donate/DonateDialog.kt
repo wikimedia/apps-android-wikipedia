@@ -111,7 +111,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity()))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
