@@ -17,7 +17,6 @@ import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
@@ -29,8 +28,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
-import com.google.android.gms.wallet.AutoResolveHelper
-import com.google.android.gms.wallet.PaymentData
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -53,10 +50,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.donate.DonateDialog
-import org.wikipedia.donate.GooglePayActivity.Companion.CAMPAIGN_ID_APP_MENU
-import org.wikipedia.donate.GooglePayActivity.Companion.LOAD_PAYMENT_DATA_REQUEST_CODE
-import org.wikipedia.donate.GooglePayViewModel
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -111,8 +104,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
-    private val googlePayViewModel: GooglePayViewModel by viewModels()
-
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.edit_saved_successfully))
@@ -802,36 +793,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             pageFragment.model.title?.let {
                 outContent.setWebUri(Uri.parse(it.uri))
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == LOAD_PAYMENT_DATA_REQUEST_CODE) {
-            when (resultCode) {
-                RESULT_OK -> {
-                    data?.let { dataIntent ->
-                        PaymentData.getFromIntent(dataIntent)?.let { paymentData ->
-                            googlePayViewModel.submit(paymentData,
-                                payTheFee = false, // TODO: confirm with PM
-                                recurring = false,
-                                optInEmail = !googlePayViewModel.emailOptInRequired, // TODO: confirm with PM
-                                campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
-                        }
-                    }
-                }
-                RESULT_CANCELED -> {
-                    // The user cancelled the payment attempt
-                }
-                AutoResolveHelper.RESULT_ERROR -> {
-                    AutoResolveHelper.getStatusFromIntent(data)?.let {
-                        it.statusMessage?.let { message ->
-                            FeedbackUtil.showMessage(this, message)
-                        }
-                    }
-                }
             }
         }
     }
