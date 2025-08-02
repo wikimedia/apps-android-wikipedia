@@ -1,5 +1,6 @@
 package org.wikipedia.donate
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.wallet.PaymentData
@@ -28,7 +29,8 @@ import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-class GooglePayViewModel : ViewModel() {
+class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    val filledAmount = savedStateHandle.get<Float>(GooglePayActivity.FILLED_AMOUNT) ?: 0f
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     private var donationConfig: DonationConfig? = null
     private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
@@ -75,8 +77,7 @@ class GooglePayViewModel : ViewModel() {
             uiState.value = Resource.Loading()
 
             val donationConfigCall = async { DonationConfigHelper.getConfig() }
-            val donationMessagesCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite,
-                DonationConfigHelper.DONATE_WIKI_URL, Service::class.java).getMessages(
+            val donationMessagesCall = async { ServiceFactory[WikipediaApp.instance.wikiSite, DonationConfigHelper.DONATE_WIKI_URL, Service::class.java].getMessages(
                 listOf(MSG_DISCLAIMER_INFORMATION_SHARING, MSG_DISCLAIMER_MONTHLY_CANCEL).joinToString("|"),
                 null, WikipediaApp.instance.appOrSystemLanguageCode) }
 
