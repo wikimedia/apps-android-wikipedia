@@ -1886,4 +1886,36 @@
   <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Откриј е вклучен. Википедија ќе ви препорачува статии за читање.</string>
+  <string name="donation_reminders_initial_prompt_label">Пробно</string>
+  <string name="donation_reminders_initial_prompt_title">Поддржувајте ја Википедија додека читате</string>
+  <string name="donation_reminders_initial_prompt_message">Поставате потсетник за дарување според бројот на статии што ги читате за да помогнете Википедија да остане без реклами, актуелна и достапна за сите.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Започнете</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Не сега</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Потсетниците за дарување може да се менуваат во Нагодувањата во било кое време.</string>
+  <string name="donation_settings_section_header">Дарувања</string>
+  <string name="donation_reminders_settings_title">Потсетници за дарување</string>
+  <string name="donation_reminders_settings_thank_you_message">Придружете им се на 2%% од читателите кои даруваат колку што можат за Википедија да остане без реклами, актуелна и достапна за сите. Поставете потсетник за дарување сега.</string>
+  <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и нејзините братски проекти.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Кога читам</string>
+  <string name="donation_reminders_settings_amount_label">Потсети ме да дарувам</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Потврди го потсетникот</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">За овој опит</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">статии</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
+  <string name="donation_reminders_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
+  <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
+  <string name="donation_reminders_prompt_positive_button">Дарувајте сега</string>
+  <string name="donation_reminders_prompt_negative_button">Не сега</string>
+  <string name="donation_reminders_gpay_text">Дерувајте %s со Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Дарувајте друг износ со Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Помогнете ни да ги подобриме потсетниците за дарување.</string>
+  <string name="donation_reminders_survey_dialog_message">Дали сте задоволни со ова?</string>
+  <string name="donation_reminders_settings_description_on">Потсетниците за дарување се вклучени. Википедија ќе ве потсетува да дарувате %1$s на секои %2$s што ќе ги прочитате додека трае опитот.</string>
+  <string name="donation_reminders_settings_description_off">Потсетниците за дарување се исклучени.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Бројот на статии се складира месно на вашиот уред</string>
+  <string name="donation_reminders_prompt_success_snackbar">Ви благодариме! Вашата великодушност кон Википедија многу ни значи.</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d статија</item>
+    <item quantity="other">%d статии</item>
+  </plurals>
 </resources>
