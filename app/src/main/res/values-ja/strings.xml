@@ -55,6 +55,7 @@
 * Whym
 * Wicklo
 * WwLMvmT
+* YeBoy371
 * Yusuke1109
 * そらたこ
 * もなー(偽物)
@@ -211,6 +212,7 @@
   <string name="login_2fa_other_workflow_error_msg">二要素認証が必要です! メイン画面からログインして2FAトークンからコードを入力してください。</string>
   <string name="login_email_auth_hint">メール認証コード</string>
   <string name="login_email_auth_other_workflow_error_msg">メール認証が必要です！メイン画面からログインし、メール認証コードを入力してください。</string>
+  <string name="login_background_error_msg">再ログインできません。メイン画面に戻って手動でログインしてください。</string>
   <string name="onboarding_card_login">ログイン</string>
   <string name="page_editing_login">ログイン</string>
   <string name="reading_lists_sync_login">ログイン</string>
@@ -1687,9 +1689,30 @@
   <string name="survey_dialog_general_no">いいえ</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">ウィキペディアゲーム</string>
+  <string name="on_this_day_game_dialog_button">再生</string>
+  <string name="on_this_day_game_share_button">共有</string>
   <string name="on_this_day_game_pause_positive">わかりました</string>
   <string name="on_this_day_game_menu_info">詳細</string>
   <string name="on_this_day_game_menu_feedback">機能の問題</string>
   <string name="on_this_day_game_article_read_button">記事を読む</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
+  <string name="year_in_review_donate">寄付</string>
+  <string name="year_in_review_information_icon">情報アイコン</string>
+  <string name="year_in_review_survey_cancel">キャンセル</string>
+  <string name="year_in_review_survey_submit">送信</string>
+  <string name="recommended_reading_list_page_overflow_about">この機能について</string>
+  <string name="recommended_reading_list_page_snackbar_day">日</string>
+  <string name="recommended_reading_list_page_snackbar_week">週</string>
+  <string name="recommended_reading_list_page_snackbar_month">月</string>
+  <string name="recommended_reading_list_settings_articles">記事</string>
+  <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">毎日</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">毎週</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">毎日</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">毎週</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">毎月</string>
+  <string name="donation_settings_section_header">寄付</string>
+  <string name="donation_reminders_settings_title">寄付のリマインダー</string>
 </resources>
