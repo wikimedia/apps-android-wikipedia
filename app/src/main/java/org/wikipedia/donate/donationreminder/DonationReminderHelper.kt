@@ -6,20 +6,19 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
-import java.text.NumberFormat
+import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Locale
+
 
 object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     const val VALID_ARTICLE_SPENT = 15
-
-    val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
-    val currencyFormat: NumberFormat get() = NumberFormat.getCurrencyInstance(Locale.Builder().setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
-    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
-
     private val enabledCountries = listOf(
         "IT"
     )
@@ -28,13 +27,23 @@ object DonationReminderHelper {
         "it", "en"
     )
 
-    // TODO: update the end date when before release to production for 30-day experiment
-    val isEnabled get() = ReleaseUtil.isDevRelease ||
-            (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                    enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
-                    LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+    val currencyAmountPresets = mapOf(
+        "IT" to listOf(1f, 2f, 3f)
+    )
 
-    val hasActiveReminder get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
+    val defaultReadFrequencyOptions = listOf(5, 10, 15)
+
+    // TODO: update the end date when before release to production for 30-day experiment
+    val isEnabled
+        get() = ReleaseUtil.isDevRelease ||
+                (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                        enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
+                        LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+
+    val hasActiveReminder
+        get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(
+            false
+        )
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
         if (timeSpentSec >= VALID_ARTICLE_SPENT) {
@@ -46,10 +55,10 @@ object DonationReminderHelper {
 
     fun donationReminderDismissed(isInitialPrompt: Boolean) {
         Prefs.donationReminderConfig = if (isInitialPrompt) {
-                Prefs.donationReminderConfig.copy(initialPromptDismissed = true)
-            } else {
-                Prefs.donationReminderConfig.copy(finalPromptDismissed = true)
-            }
+            Prefs.donationReminderConfig.copy(initialPromptDismissed = true)
+        } else {
+            Prefs.donationReminderConfig.copy(finalPromptDismissed = true)
+        }
     }
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
@@ -58,7 +67,8 @@ object DonationReminderHelper {
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp > 0L || config.initialPromptDismissed ||
                 config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-                (daysOfLastSeen <= 0 && config.initialPromptCount > 0)) {
+                (daysOfLastSeen <= 0 && config.initialPromptCount > 0)
+            ) {
                 return@let false
             }
             if (update) {
@@ -81,7 +91,8 @@ object DonationReminderHelper {
             if (config.setupTimestamp == 0L || config.finalPromptDismissed ||
                 (config.finalPromptCount == MAX_REMINDER_PROMPTS && !config.finalPromptHold) || // final prompt is not held
                 config.finalPromptCount >= MAX_REMINDER_PROMPTS ||
-                (daysOfLastSeen <= 0 && config.finalPromptCount > 0)) {
+                (daysOfLastSeen <= 0 && config.finalPromptCount > 0)
+            ) {
                 return@let false
             }
             if (update) {

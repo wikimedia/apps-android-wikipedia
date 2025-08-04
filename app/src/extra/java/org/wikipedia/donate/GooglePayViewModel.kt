@@ -20,12 +20,9 @@ import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
-import java.text.NumberFormat
 import java.time.Instant
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
@@ -33,32 +30,27 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val filledAmount = savedStateHandle.get<Float>(GooglePayActivity.FILLED_AMOUNT) ?: 0f
     val uiState = MutableStateFlow(Resource<DonationConfig>())
     private var donationConfig: DonationConfig? = null
-    private val currentCountryCode get() = GeoUtil.geoIPCountry.orEmpty()
 
-    val currencyFormat: NumberFormat = NumberFormat.getCurrencyInstance(Locale.Builder()
-        .setLocale(Locale.getDefault()).setRegion(currentCountryCode).build())
-    val currencyCode get() = currencyFormat.currency?.currencyCode ?: GooglePayComponent.CURRENCY_FALLBACK
-    val currencySymbol get() = currencyFormat.currency?.symbol ?: "$"
-    val decimalFormat = GooglePayComponent.getDecimalFormat(currencyCode)
+    val decimalFormat = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode)
 
-    val transactionFee get() = donationConfig?.currencyTransactionFees?.get(currencyCode)
+    val transactionFee get() = donationConfig?.currencyTransactionFees?.get(DonateUtil.currencyCode)
         ?: donationConfig?.currencyTransactionFees?.get("default") ?: 0f
 
-    val minimumAmount get() = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
+    val minimumAmount get() = donationConfig?.currencyMinimumDonation?.get(DonateUtil.currencyCode) ?: 0f
 
     val maximumAmount: Float get() {
-        var max = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
+        var max = donationConfig?.currencyMaximumDonation?.get(DonateUtil.currencyCode) ?: 0f
         if (max == 0f) {
             val defaultMin = donationConfig?.currencyMinimumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f
             if (defaultMin > 0f) {
-                max = (donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f) / defaultMin *
+                max = (donationConfig?.currencyMinimumDonation?.get(DonateUtil.currencyCode) ?: 0f) / defaultMin *
                         (donationConfig?.currencyMaximumDonation?.get(GooglePayComponent.CURRENCY_FALLBACK) ?: 0f)
             }
         }
         return max
     }
 
-    val emailOptInRequired get() = donationConfig?.countryCodeEmailOptInRequired.orEmpty().contains(currentCountryCode)
+    val emailOptInRequired get() = donationConfig?.countryCodeEmailOptInRequired.orEmpty().contains(DonateUtil.currentCountryCode)
 
     var disclaimerInformationSharing: String? = null
     var disclaimerMonthlyCancel: String? = null
@@ -66,7 +58,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var finalAmount = 0f
 
     init {
-        currencyFormat.minimumFractionDigits = 0
+        DonateUtil.currencyFormat.minimumFractionDigits = 0
         load()
     }
 
@@ -95,7 +87,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
                 val paymentMethodsCall = async {
                     ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                        .getPaymentMethods(currentCountryCode)
+                        .getPaymentMethods(DonateUtil.currentCountryCode)
                 }
                 paymentMethodsCall.await().response?.let { response ->
                     Prefs.paymentMethodsLastQueryTime = now
@@ -108,8 +100,8 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             if (Prefs.paymentMethodsMerchantId.isEmpty() ||
                 Prefs.paymentMethodsGatewayId.isEmpty() ||
-                !donationConfig!!.countryCodeGooglePayEnabled.contains(currentCountryCode) ||
-                !donationConfig!!.currencyAmountPresets.containsKey(currencyCode)) {
+                !donationConfig!!.countryCodeGooglePayEnabled.contains(DonateUtil.currentCountryCode) ||
+                !donationConfig!!.currencyAmountPresets.containsKey(DonateUtil.currencyCode)) {
                 uiState.value = NoPaymentMethod()
             } else {
                 uiState.value = Resource.Success(donationConfig!!)
@@ -119,7 +111,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun getPaymentDataRequest(): PaymentDataRequest {
         return PaymentDataRequest.fromJson(GooglePayComponent.getPaymentDataRequestJson(finalAmount,
-            currencyCode,
+            DonateUtil.currencyCode,
             Prefs.paymentMethodsMerchantId,
             Prefs.paymentMethodsGatewayId
         ).toString())
@@ -150,7 +142,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             // The backend expects the final amount in the canonical decimal format, instead of
             // any localized format, e.g. comma as decimal separator.
-            val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(currencyCode, true)
+            val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode, true)
 
             val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
                 .submitPayment(
@@ -158,9 +150,9 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     BuildConfig.VERSION_NAME,
                     CampaignCollection.getFormattedCampaignId(campaignId),
                     billingObj.optString("locality", ""),
-                    currentCountryCode,
-                    currencyCode,
-                    billingObj.optString("countryCode", currentCountryCode),
+                    DonateUtil.currentCountryCode,
+                    DonateUtil.currencyCode,
+                    billingObj.optString("countryCode", DonateUtil.currentCountryCode),
                     paymentDataObj.optString("email", ""),
                     billingObj.optString("name", ""),
                     WikipediaApp.instance.appOrSystemLanguageCode,
