@@ -1894,7 +1894,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Потсетниците за дарување може да се менуваат во Нагодувањата во било кое време.</string>
   <string name="donation_settings_section_header">Дарувања</string>
   <string name="donation_reminders_settings_title">Потсетници за дарување</string>
-  <string name="donation_reminders_settings_thank_you_message">Придружете им се на 2%&amp;nbsp;% од читателите кои даруваат колку што можат за Википедија да остане без реклами, актуелна и достапна за сите. Поставете потсетник за дарување сега.</string>
+  <string name="donation_reminders_settings_thank_you_message">Придружете им се на 2%% од читателите кои даруваат колку што можат за Википедија да остане без реклами, актуелна и достапна за сите. Поставете потсетник за дарување сега.</string>
   <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и нејзините братски проекти.</string>
   <string name="donation_reminders_settings_article_frequency_label">Кога читам</string>
   <string name="donation_reminders_settings_amount_label">Потсети ме да дарувам</string>

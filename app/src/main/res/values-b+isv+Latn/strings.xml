@@ -1126,7 +1126,7 @@
     <item quantity="one">Vy jeste dodali %d tag</item>
     <item quantity="few">Vy jeste dodali %d tagy</item>
     <item quantity="many">Vy jeste dodali %d tagov</item>
-    <item quantity="other">Vy jeste dodali tagov</item>
+    <item quantity="other">Vy jeste dodali %d tagov</item>
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
   <string name="suggested_edits_encourage_account_creation_title">Znajete li vy, že vsekto može praviti Vikipediju?</string>
