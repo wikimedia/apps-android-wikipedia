@@ -224,6 +224,7 @@
   <string name="login_2fa_other_workflow_error_msg">需要双重认证！请在主界面登录后，输入2FA令牌中的代码。</string>
   <string name="login_email_auth_hint">电子邮件验证码</string>
   <string name="login_email_auth_other_workflow_error_msg">需要验证电子邮件！请在主界面登录后，输入电子邮件验证码。</string>
+  <string name="login_background_error_msg">无法重新登录。请返回主页面并手动登录。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>
   <string name="reading_lists_sync_login">登录</string>
@@ -314,15 +315,15 @@
   <string name="terms_of_use_description">使用条款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;团队页面&lt;/a&gt;</string>
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
@@ -1745,6 +1746,42 @@
   <string name="survey_dialog_general_maybe">或许</string>
   <string name="survey_dialog_input_hint">其他反馈</string>
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
+  <string name="on_this_day_game_entry_dialog_title">介绍</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">维基百科游戏</string>
+  <string name="on_this_day_game_entry_dialog_button">游玩今天的游戏</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在探索摘要中取得。</string>
+  <string name="on_this_day_game_title">猜先後</string>
+  <string name="on_this_day_game_dialog_button">播放</string>
+  <string name="on_this_day_game_splash_message">猜猜歷史上的這一天最先發生的事件是什麼。</string>
+  <string name="on_this_day_game_progress">%1$d（共%2$d題）</string>
+  <string name="on_this_day_game_score">得分：%d</string>
+  <string name="on_this_day_game_submit">提交</string>
+  <string name="on_this_day_game_correct">正确！</string>
+  <string name="on_this_day_game_incorrect">錯誤！</string>
+  <string name="on_this_day_game_point">+1分</string>
+  <string name="on_this_day_game_next">下一個問題</string>
+  <string name="on_this_day_game_finish">最終結果</string>
+  <string name="on_this_day_game_share_button">分享</string>
+  <string name="on_this_day_game_pause_title">暫停遊戲？</string>
+  <string name="on_this_day_game_pause_body">您的進度會在當天內保存。您可以在探索摘要中找到該遊戲。</string>
+  <string name="on_this_day_game_pause_negative">繼續遊玩</string>
+  <string name="on_this_day_game_pause_positive">明白了</string>
+  <string name="on_this_day_game_feed_entry_card_heading">维基百科游戏</string>
+  <string name="on_this_day_game_feed_entry_card_title">猜先後</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜歷史上的這一天最先發生的事件是什麼。</string>
+  <string name="on_this_day_game_result">您的得分%1$d/%2$d。</string>
+  <string name="on_this_day_game_next_in">下一個遊戲會在%s開始</string>
+  <string name="on_this_day_game_your_stats">您的狀態</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">玩過的遊戲</item>
+    <item quantity="other">玩過的遊戲</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">平均分</string>
+  <string name="on_this_day_game_stats_streak">目前連勝</string>
+  <string name="on_this_day_game_result_subtitle">今天遊戲中引用到的條目</string>
+  <string name="on_this_day_game_completed_message">感謝您的遊玩。新的「猜先後」遊戲每日會在探索摘要中提供。</string>
+  <string name="on_this_day_game_menu_notifications">遊戲通知</string>
+  <string name="on_this_day_game_menu_info">了解更多</string>
   <string name="year_in_review_get_started">入门</string>
   <string name="year_in_review_navigate_left">向左导航</string>
   <string name="year_in_review_heart_icon">心形图标</string>
