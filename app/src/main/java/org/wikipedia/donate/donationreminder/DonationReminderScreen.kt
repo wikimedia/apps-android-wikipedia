@@ -341,8 +341,10 @@ fun DonationHeader(
     Column(
         modifier = modifier
     ) {
+        val rawString = stringResource(R.string.donation_reminders_settings_thank_you_message)
+        val formattedString = rawString.replace("%%", "%")
         TextWithInlineElement(
-            text = stringResource(R.string.donation_reminders_settings_thank_you_message),
+            text = formattedString,
             position = InlinePosition.END,
             placeholder = Placeholder(
                 width = 20.sp,
