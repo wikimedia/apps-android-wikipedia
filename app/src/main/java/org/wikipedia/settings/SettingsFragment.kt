@@ -62,6 +62,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
             preferenceLoader.updateSyncReadingListsPrefSummary()
             preferenceLoader.updateLanguagePrefSummary()
             preferenceLoader.updateRecommendedReadingListSummary()
+            preferenceLoader.updateDonationRemindersDescription()
         }
         requireActivity().invalidateOptionsMenu()
     }

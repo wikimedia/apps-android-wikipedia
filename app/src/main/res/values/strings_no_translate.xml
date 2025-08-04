@@ -27,6 +27,7 @@
     <string name="year_in_review_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dwmfapp%26utm_medium%3Dlink%26utm_campaign%3Dyir_2025&amp;pli=1</string>
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used</string>
     <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
+    <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
