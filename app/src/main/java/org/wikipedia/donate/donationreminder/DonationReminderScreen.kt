@@ -620,6 +620,7 @@ fun CustomInputDialog(
                     modifier = Modifier
                         .focusRequester(focusRequester),
                     value = value,
+                    singleLine = true,
                     onValueChange = { newValue ->
                         onValueChange(newValue)
                         value = newValue
