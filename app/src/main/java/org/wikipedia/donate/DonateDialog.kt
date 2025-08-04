@@ -18,7 +18,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
-import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -106,7 +105,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun setupDirectGooglePayButton() {
         val donateAmount = Prefs.donationReminderConfig.donateAmount
-        val donateAmountText = "${DonationReminderHelper.currencySymbol}$donateAmount"
+        val donateAmountText =
+            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {

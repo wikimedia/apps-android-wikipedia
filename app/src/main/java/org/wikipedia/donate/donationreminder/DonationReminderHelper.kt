@@ -6,12 +6,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
-import java.time.Instant
 import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 
 object DonationReminderHelper {
