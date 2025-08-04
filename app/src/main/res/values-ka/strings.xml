@@ -220,7 +220,7 @@
   <string name="about_translators_translatewiki">ეს აპლიკაცია თარგმნილია მოხალისე მთარგმნელთა მიერ აქ: &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ლიცენზია</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ფონდ ვიკიმედიის&lt;/a&gt; პროდუქტი</string>
-  <string name="about_activity_title">შესახებ</string>
+  <string name="about_activity_title">პროექტის შესახებ</string>
   <string name="edit_abandon_confirm">გვერდი შეიცვალა. მართლა გნებავთ თქვენი ცვლილებების შენახვის გარეშე გასვლა?</string>
   <string name="edit_abandon_confirm_yes">დიახ</string>
   <string name="edit_abandon_confirm_no">არა</string>

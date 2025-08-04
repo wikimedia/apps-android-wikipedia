@@ -21,6 +21,7 @@
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
+* Như Gây Mê
 * Nvdtn19
 * Phjtieudoc
 * Phungminh141
@@ -44,6 +45,9 @@
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
+  <string name="search_back_button_content_description">Quay lại</string>
+  <string name="search_clear_query_content_description">Xóa sạch truy vấn</string>
+  <string name="search_icon_content_description">Tìm kiếm</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
   <string name="nav_item_suggested_edits">Sửa đổi</string>
   <string name="nav_item_more">Mở rộng.</string>

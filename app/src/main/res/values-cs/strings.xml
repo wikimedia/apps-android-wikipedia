@@ -35,6 +35,7 @@
 * Vojtěch Dostál
 * Walter Klosse
 * Want
+* WikipedistaOndra
 -->
 <resources>
   <string name="app_name_prod">Wikipedie</string>
@@ -48,6 +49,7 @@
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_back_button_content_description">Vrátit zpět</string>
+  <string name="search_clear_query_content_description">Vymazat dotaz</string>
   <string name="search_icon_content_description">Hledat</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_suggested_edits">Editace</string>
@@ -156,6 +158,7 @@
   <string name="langlinks_your_wikipedia_languages">Vaše jazyky Wikipedie</string>
   <string name="menu_save_changes">Zveřejnit změny</string>
   <string name="edit_saved_successfully">Editace zveřejněna!</string>
+  <string name="stub_article_edit_saved_successfully">Editace zveřejněna! Zobrazení změn může chvíli trvat.</string>
   <string name="dialog_message_edit_failed">Editace se nezdařila!</string>
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
@@ -180,8 +183,9 @@
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
-  <string name="login_2fa_hint" fuzzy="true">Dvoufázový ověřovací kód</string>
+  <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
+  <string name="login_email_auth_hint">Ověřovací kód z e-mailu</string>
   <string name="onboarding_card_login">Přihlásit se</string>
   <string name="page_editing_login">Přihlásit se</string>
   <string name="reading_lists_sync_login">Přihlásit se</string>
@@ -271,15 +275,15 @@
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_čtení_a_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
+  <string name="offline_reading_and_data_url">https://mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/cs</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://mediawiki.org/wiki/Wikimedia_Apps/Team/Android/cs\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -463,13 +467,18 @@
   <string name="error_blocked_start">Začátek blokování: %s</string>
   <string name="error_blocked_expiry">Konec blokování: %s</string>
   <string name="error_blocked_id">ID blokování: %s</string>
+  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Přizpůsobte si panel nástrojů</string>
+  <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
+  <string name="temp_account_dialog_ok">Rozumím</string>
   <string name="temp_account_using_title">Využíváte dočasný účet</string>
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nejste přihlášen k účtu.&lt;/b&gt; Jakmile provedete editaci, vaše IP adresa bude propojena s vašimi editacemi.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Nejste přihlášený.&lt;/b&gt; Jakmile provedete editaci, bude pro Vás vytvořen dočasný účet pro ochranu Vašeho soukromí. &lt;a href=\"%1$s\"&gt;Dozvědět se více&lt;/a&gt;</string>
   <string name="temp_account_end_session">Ukončit relaci</string>
+  <string name="temp_account_end_session_confirm">Toto Vás odhlásí z Vašeho dočasného účtu. Chcete pokračovat?</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>
@@ -667,7 +676,9 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušit</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Smazat</string>
+  <string name="reading_list_activity_title">Seznam k přečtení: %s</string>
   <string name="reading_list_notification_title">Seznam(y) k přečtení exportován</string>
+  <string name="reading_list_notification_detailed_text">Seznam k přečtení byl exportován do \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Exportovat</string>
   <string name="reading_lists_import_file_picker_title">Vyberte soubor pro importování</string>
   <string name="reading_lists_import_failure_message">Import seznamů k přečtení selhal</string>
@@ -763,6 +774,7 @@
   <string name="notifications_mark_unread">Označit jako nepřečtené</string>
   <string name="notifications_mark_all_as_read">Označit vše jako přečtené</string>
   <string name="notifications_direct_reply_action">Odpovědět</string>
+  <string name="notifications_direct_reply_progress">Odesílání odpovědi pro %s</string>
   <string name="notifications_direct_reply_success">Odpověď zveřejněna.</string>
   <string name="notifications_direct_reply_error">Odpověď nelze odeslat automaticky.</string>
   <string name="notifications_mark_all_as_read_message">%d označeno jako přečtené</string>

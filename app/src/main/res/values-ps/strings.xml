@@ -438,6 +438,7 @@
   <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
+  <string name="reading_list_article_offline">افلاين د لاسرسي وړ دی</string>
   <string name="reading_list_select_item">ټاکل</string>
   <string name="reading_lists_login_button">ننوتل/ويکيپېډيا سره يو ځای کېدل</string>
   <string name="reading_lists_ignore_button">اوس نه</string>
