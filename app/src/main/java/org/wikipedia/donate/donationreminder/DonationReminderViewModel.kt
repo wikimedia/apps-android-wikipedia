@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.GooglePayComponent
@@ -64,9 +66,10 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     private fun createReadFrequencyOptions(): SelectableOption {
+        val context = WikipediaApp.instance
         val options = DonationReminderHelper.defaultReadFrequencyOptions
         val optionItems = options.map {
-            OptionItem.Preset(it, "${it.toInt()} articles")
+            OptionItem.Preset(it, context.resources.getQuantityString(R.plurals.donation_reminders_text_articles, it.toInt(), it.toInt()))
         } + OptionItem.Custom
 
         val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()

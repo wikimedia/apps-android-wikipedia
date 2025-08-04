@@ -60,6 +60,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.input.KeyboardType
@@ -247,8 +248,8 @@ fun DonationReminderScreen(
                         viewModel.saveReminder()
                         val donationAmount =
                             DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                        val readFrequency = Prefs.donationReminderConfig.articleFrequency
-                        val message = "Reminder set! We'll remind you to donate $donationAmount when you read ${readFrequency.toInt()} articles."
+                        val readFrequency = Prefs.donationReminderConfig.articleFrequency.toInt()
+                        val message = context.getString(R.string.donation_reminders_snacbkbar_confirmation_label, donationAmount, readFrequency.toString())
                         if (viewModel.isFromSettings) {
                             scope.launch {
                                 snackbarHostState.showSnackbar(
@@ -278,14 +279,14 @@ fun DonationAmountView(
     onValueChange: (String) -> Unit
 ) {
     OptionSelector(
-        title = "Remind me to donate",
+        title = stringResource(R.string.donation_reminders_settings_amount_label),
         headerIcon = R.drawable.credit_card_heart_24,
         option = option,
         onOptionSelected = onOptionSelected
     )
     if (showDonationAmountCustomDialog) {
         CustomInputDialog(
-            title = "Remind me to donate",
+            title = stringResource(R.string.donation_reminders_settings_amount_label),
             decimalEnabled = true,
             errorMessage = customDialogErrorMessage,
             onDismissRequest = onDismissRequest,
@@ -313,7 +314,7 @@ fun ReadFrequencyView(
     onValueChange: (String) -> Unit
 ) {
     OptionSelector(
-        title = "When I read",
+        title = stringResource(R.string.donation_reminders_settings_article_frequency_label),
         headerIcon = R.drawable.newsstand_24dp,
         option = option,
         showInfo = true,
@@ -321,12 +322,12 @@ fun ReadFrequencyView(
     )
     if (showReadFrequencyCustomDialog) {
         CustomInputDialog(
-            title = "When I read",
+            title = stringResource(R.string.donation_reminders_settings_article_frequency_label),
             errorMessage = customDialogErrorMessage,
             onDismissRequest = onDismissRequest,
             suffix = {
                 Text(
-                    text = "articles",
+                    text = stringResource(R.string.donation_reminders_settings_article_frequency_input_suffix_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
@@ -345,7 +346,7 @@ fun DonationHeader(
         modifier = modifier
     ) {
         TextWithInlineElement(
-            text = "Thank you for joining the 2% of readers who give what they can to keep this valuable resource ad-free, up-to-date, and available for all.",
+            text = stringResource(R.string.donation_reminders_settings_thank_you_message),
             position = InlinePosition.END,
             placeholder = Placeholder(
                 width = 20.sp,
@@ -365,7 +366,7 @@ fun DonationHeader(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.",
+            text = stringResource(R.string.donation_reminders_settings_donation_info),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.placeholderColor
         )
@@ -393,7 +394,7 @@ fun BottomContent(
             onClick = onConfirmBtnClick,
             content = {
                 Text(
-                    "Confirm Reminder"
+                    stringResource(R.string.donation_reminders_settings_confirm_btn_label)
                 )
             }
         )
@@ -404,7 +405,7 @@ fun BottomContent(
             onClick = onAboutThisExperimentClick,
             content = {
                 Text(
-                    text = "About this experiment",
+                    text = stringResource(R.string.donation_reminders_settings_about_experiment_btn_label),
                     color = WikipediaTheme.colors.progressiveColor
                 )
             }
@@ -471,7 +472,7 @@ fun OptionSelector(
 
                 if (showInfo) {
                     InfoTooltip(
-                        plainTooltipText = "Article count is stored locally on your device"
+                        plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
                     )
                 }
 
@@ -519,7 +520,7 @@ private fun DonationRemindersSwitch(
         ),
         headlineContent = {
             Text(
-                text = "Donation reminders",
+                text = stringResource(R.string.donation_reminders_settings_title),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )

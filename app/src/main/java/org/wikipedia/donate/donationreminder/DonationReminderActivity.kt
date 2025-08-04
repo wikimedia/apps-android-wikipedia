@@ -12,7 +12,6 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingAct
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
 
-// @TODO: once PM confirms final copy update the strings
 class DonationReminderActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
