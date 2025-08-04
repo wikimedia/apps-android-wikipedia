@@ -1561,4 +1561,8 @@
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
+  <string name="donation_reminders_initial_prompt_positive_button">शुरू करें</string>
+  <string name="donation_reminders_initial_prompt_negative_button">अभी नहीं</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
+  <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
 </resources>
