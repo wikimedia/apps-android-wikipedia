@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
+import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -127,8 +128,9 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 val articleText = context.resources.getQuantityString(
                     R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
                 )
-                val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
-                context.getString(R.string.donation_reminders_prompt_title, articleText, amountText)
+                val donationAmount =
+                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                context.getString(R.string.donation_reminders_prompt_title, articleText, donationAmount)
             }
             val messageText = if (isInitialPrompt) {
                 context.getString(R.string.donation_reminders_initial_prompt_message)
@@ -137,8 +139,9 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 val articleText = context.resources.getQuantityString(
                     R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
                 )
-                val amountText = "${DonationReminderHelper.currencySymbol}${config.donateAmount}"
-                context.getString(R.string.donation_reminders_prompt_message, dateText, amountText, articleText)
+                val donationAmount =
+                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+                context.getString(R.string.donation_reminders_prompt_message, dateText, donationAmount, articleText)
             }
             val positiveButtonText = if (isInitialPrompt) {
                 context.getString(R.string.donation_reminders_initial_prompt_positive_button)
