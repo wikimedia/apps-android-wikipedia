@@ -467,7 +467,7 @@
   <string name="error_blocked_start">Začátek blokování: %s</string>
   <string name="error_blocked_expiry">Konec blokování: %s</string>
   <string name="error_blocked_id">ID blokování: %s</string>
-  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
+  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%%3ASpr%%C3%%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Přizpůsobte si panel nástrojů</string>
   <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
