@@ -217,9 +217,12 @@ class GooglePayActivity : BaseActivity() {
             .build())
 
         val viewIds = mutableListOf<Int>()
-        val presets = donationConfig.currencyAmountPresets[viewModel.currencyCode]
+        val presets = donationConfig.currencyAmountPresets[viewModel.currencyCode]?.toMutableSet()
+        if (viewModel.filledAmount > 0f) {
+            presets?.add(viewModel.filledAmount)
+        }
         var filledAmountButton: MaterialButton? = null
-        presets?.forEach { amount ->
+        presets?.sorted()?.forEach { amount ->
             val viewId = View.generateViewId()
             viewIds.add(viewId)
             val button = MaterialButton(this)
