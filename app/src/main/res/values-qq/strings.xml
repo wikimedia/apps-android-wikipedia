@@ -1909,7 +1909,6 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
-  <!-- Donation Reminders   -->
   <string name="donation_reminders_initial_prompt_label">Label text for the donation reminder initial prompt.</string>
   <string name="donation_reminders_initial_prompt_title">Title for the donation reminder initial prompt.</string>
   <string name="donation_reminders_initial_prompt_message">Message for the donation reminder initial prompt.</string>
@@ -1942,5 +1941,4 @@
     <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
     <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
   </plurals>
-
 </resources>
