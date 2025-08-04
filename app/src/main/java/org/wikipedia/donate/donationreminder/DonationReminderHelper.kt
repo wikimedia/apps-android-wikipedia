@@ -32,7 +32,7 @@ object DonationReminderHelper {
         "IT" to listOf(1f, 2f, 3f)
     )
 
-    val defaultReadFrequencyOptions = listOf(5f, 10f, 15f)
+    val defaultReadFrequencyOptions = listOf(5, 10, 15)
 
     fun getDonationReminderSubmittedFormDate(): String {
         val timeStamp = Prefs.donationReminderConfig.setupTimestamp
@@ -56,6 +56,6 @@ data class DonationReminderConfig(
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
     val isSurveyShown: Boolean = false,
-    val articleFrequency: Float = 0f,
+    val articleFrequency: Int = 0,
     val donateAmount: Float = 0f
 )

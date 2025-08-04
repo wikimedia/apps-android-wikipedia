@@ -80,7 +80,6 @@ import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.donate.DonateUtil
-import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -157,7 +156,7 @@ fun DonationReminderScreen(
                                     viewModel.updateReadFrequencyState(option.value)
                                 }
 
-                                OptionItem.Custom -> {
+                                is OptionItem.Custom -> {
                                     showReadFrequencyCustomDialog = true
                                 }
                             }
@@ -168,7 +167,7 @@ fun DonationReminderScreen(
                         },
                         onDoneClick = { readFrequency ->
                             if (customDialogErrorMessage.isEmpty()) {
-                                viewModel.updateReadFrequencyState(readFrequency.toFloat())
+                                viewModel.updateReadFrequencyState(readFrequency.toInt())
                                 showReadFrequencyCustomDialog = false
                             }
                         },
@@ -203,7 +202,7 @@ fun DonationReminderScreen(
                                     viewModel.updateDonationAmountState(option.value)
                                 }
 
-                                OptionItem.Custom -> {
+                                is OptionItem.Custom -> {
                                     showDonationAmountCustomDialog = true
                                 }
                             }
@@ -246,10 +245,7 @@ fun DonationReminderScreen(
                         .padding(top = 16.dp),
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
-                        val donationAmount =
-                            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                        val readFrequency = Prefs.donationReminderConfig.articleFrequency.toInt()
-                        val message = context.getString(R.string.donation_reminders_snacbkbar_confirmation_label, donationAmount, readFrequency.toString())
+                        val message = viewModel.getThankYouMessage()
                         if (viewModel.isFromSettings) {
                             scope.launch {
                                 snackbarHostState.showSnackbar(
@@ -269,11 +265,11 @@ fun DonationReminderScreen(
 
 @Composable
 fun DonationAmountView(
-    option: SelectableOption,
+    option: SelectableOption<Float>,
     currencySymbol: String,
     showDonationAmountCustomDialog: Boolean,
     customDialogErrorMessage: String,
-    onOptionSelected: (OptionItem) -> Unit,
+    onOptionSelected: (OptionItem<Float>) -> Unit,
     onDismissRequest: () -> Unit,
     onDoneClick: (String) -> Unit,
     onValueChange: (String) -> Unit
@@ -305,10 +301,10 @@ fun DonationAmountView(
 
 @Composable
 fun ReadFrequencyView(
-    option: SelectableOption,
+    option: SelectableOption<Int>,
     showReadFrequencyCustomDialog: Boolean,
     customDialogErrorMessage: String,
-    onOptionSelected: (OptionItem) -> Unit,
+    onOptionSelected: (OptionItem<Int>) -> Unit,
     onDismissRequest: () -> Unit,
     onDoneClick: (String) -> Unit,
     onValueChange: (String) -> Unit
@@ -414,11 +410,11 @@ fun BottomContent(
 }
 
 @Composable
-fun OptionSelector(
+fun <T : Number>OptionSelector(
     title: String,
-    option: SelectableOption,
+    option: SelectableOption<T>,
     @DrawableRes headerIcon: Int,
-    onOptionSelected: (OptionItem) -> Unit,
+    onOptionSelected: (OptionItem<T>) -> Unit,
     showInfo: Boolean = false,
 ) {
     var isDropdownExpanded by remember { mutableStateOf(false) }
@@ -472,6 +468,7 @@ fun OptionSelector(
 
                 if (showInfo) {
                     InfoTooltip(
+                        modifier = Modifier,
                         plainTooltipText = stringResource(R.string.donation_reminders_settings_tooltip_info_label)
                     )
                 }
@@ -555,13 +552,16 @@ fun InfoTooltip(
         modifier = modifier,
         positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
         tooltip = {
-            PlainTooltip {
-                Text(
-                    text = plainTooltipText,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.paperColor
-                )
-            }
+            PlainTooltip(
+                containerColor = WikipediaTheme.colors.primaryColor,
+                content = {
+                    Text(
+                        text = plainTooltipText,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.paperColor
+                    )
+                }
+            )
         },
         state = tooltipState,
         content = {

@@ -2017,7 +2017,7 @@
     <string name="donation_reminders_prompt_dismiss_snackbar">Donation reminders can be modified anytime in Settings.</string>
     <string name="donation_settings_section_header">Donations</string>
     <string name="donation_reminders_settings_title">Donation reminders</string>
-    <string name="donation_reminders_settings_thank_you_message">Join the 2%% of readers who give what they can to keep Wikipedia ad-free, up-to-date, and available for all. Set up your donation reminder now.</string>
+    <string name="donation_reminders_settings_thank_you_message">Join the 2% of readers who give what they can to keep Wikipedia ad-free, up-to-date, and available for all. Set up your donation reminder now.</string>
     <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
     <string name="donation_reminders_settings_article_frequency_label">When I read</string>
     <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
