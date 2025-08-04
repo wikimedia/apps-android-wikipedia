@@ -1279,7 +1279,7 @@
   <string name="image_recommendation_tooltip_1">Просмотрите эту статью, чтобы понять ее тему</string>
   <string name="image_recommendation_tooltip_3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
   <string name="image_recommendation_tooltip_next">Далее</string>
-  <string name="suggested_edits_report_feature">Проблема с функцией</string>
+  <string name="suggested_edits_report_feature">Сообщить о проблеме</string>
   <string name="edit_summary_added_image">Добавлено изображение</string>
   <string name="edit_summary_added_caption">Добавлена подпись</string>
   <string name="edit_summary_added_image_and_caption">Добавить изображение и подпись</string>

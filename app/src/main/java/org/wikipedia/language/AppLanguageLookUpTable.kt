@@ -108,6 +108,8 @@ class AppLanguageLookUpTable(context: Context) {
         const val CHINESE_MY_LANGUAGE_CODE = "zh-my"
         const val CHINESE_SG_LANGUAGE_CODE = "zh-sg"
         const val CHINESE_TW_LANGUAGE_CODE = "zh-tw"
+
+        const val CHINESE_LEGACY_YUE_LANGUAGE_CODE = "yue"
         const val CHINESE_YUE_LANGUAGE_CODE = "zh-yue"
         const val CHINESE_LANGUAGE_CODE = "zh"
         const val NORWEGIAN_LEGACY_LANGUAGE_CODE = "no"
