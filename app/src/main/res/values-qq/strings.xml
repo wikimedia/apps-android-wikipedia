@@ -1941,3 +1941,4 @@
     <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
     <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
   </plurals>
+</resources>
