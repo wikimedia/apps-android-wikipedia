@@ -38,8 +38,7 @@ object DonationReminderHelper {
                         enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
                         LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled &&
-            (Prefs.donationReminderConfig.initialPromptActive || Prefs.donationReminderConfig.finalPromptActive)
+    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive || (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
 
     var shouldShowSettingSnackbar = false
 
