@@ -31,6 +31,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     fun loadData() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
+            _uiState.update { it.copy(isLoading = false, error = throwable) }
         }) {
             val readFrequencyOptions = createReadFrequencyOptions()
             val donationAmountOptions = createDonationAmountOptions()
@@ -38,7 +39,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 it.copy(
                     readFrequency = readFrequencyOptions,
                     donationAmount = donationAmountOptions,
-                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled
+                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled,
+                    isLoading = false,
+                    error = null
                 )
             }
         }
@@ -138,7 +141,9 @@ data class DonationReminderUiState(
         options = emptyList(),
         maximumAmount = 0f,
         minimumAmount = 0f
-    )
+    ),
+    val isLoading: Boolean = true,
+    val error: Throwable? = null
 )
 
 sealed class OptionItem<T : Number>(val displayText: String) {
