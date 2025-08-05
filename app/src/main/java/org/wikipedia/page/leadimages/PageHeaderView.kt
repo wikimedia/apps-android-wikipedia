@@ -197,6 +197,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         binding.donationReminderCardView.isVisible = DonationReminderHelper.maybeShowInitialDonationReminder(true) ||
-                DonationReminderHelper.maybeShowDonationReminder(false) // TODO: turn to true later
+                DonationReminderHelper.maybeShowDonationReminder(true)
     }
 }

@@ -8,7 +8,6 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
-
 object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
@@ -78,10 +77,15 @@ object DonationReminderHelper {
 
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
-        // TODO: need to take care of the following
-        // 1. article visit count vs frequency
-        // 2. need to reset the config for the next cycle?
         return Prefs.donationReminderConfig.let { config ->
+            if (config.articleVisit % config.articleFrequency == 0 && config.articleVisit > 0) {
+                // When reaching the article frequency, reset the configuration
+                Prefs.donationReminderConfig = config.copy(
+                    finalPromptHold = false,
+                    finalPromptDismissed = false,
+                    finalPromptCount = 0
+                )
+            }
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp == 0L || config.finalPromptDismissed ||
                 (config.finalPromptCount == MAX_REMINDER_PROMPTS && !config.finalPromptHold) || // final prompt is not held
@@ -90,6 +94,7 @@ object DonationReminderHelper {
             ) {
                 return@let false
             }
+
             if (update) {
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptCount = config.finalPromptCount + 1,
