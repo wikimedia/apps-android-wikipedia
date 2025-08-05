@@ -308,6 +308,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
+        DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

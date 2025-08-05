@@ -158,23 +158,16 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 callback?.donationReminderCardPositiveClicked(isInitialPrompt)
-                // DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
+                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 callback?.donationReminderCardNegativeClicked(isInitialPrompt)
                 binding.donationReminderCardView.isVisible = false
-
-                if (!isInitialPrompt) {
-                    if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                        // Give the user one more chance to see the donation reminder
-                        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                            finalPromptHold = true
-                        )
-                    }
-                    DonationReminderHelper.donationReminderDismissed(false)
-                } else {
-                    DonationReminderHelper.donationReminderDismissed(true)
+                if (!isInitialPrompt && Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
+                    // Give the user one more chance to see the donation reminder
+                    return@setNegativeButton
                 }
+                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
             }
 
             binding.donationReminderCardView.isVisible = true

@@ -245,7 +245,7 @@ fun DonationReminderScreen(
                         .padding(top = 16.dp),
                     onConfirmBtnClick = {
                         viewModel.saveReminder()
-                        val message = viewModel.getThankYouMessage()
+                        val message = DonationReminderHelper.thankYouMessageForSettings()
                         if (viewModel.isFromSettings) {
                             scope.launch {
                                 snackbarHostState.showSnackbar(

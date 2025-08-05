@@ -22,6 +22,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -206,7 +207,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
             override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
-                if (!isInitialPrompt) {
+                if (isInitialPrompt) {
+                    activity.startActivity(DonationReminderActivity.newIntent(activity))
+                } else {
                     ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
                 }
             }
