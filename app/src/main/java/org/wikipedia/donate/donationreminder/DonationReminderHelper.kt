@@ -16,7 +16,7 @@ object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
-    private val validReadCount = if (ReleaseUtil.isDevRelease) 1 else 15
+    private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
         "IT"
     )
@@ -39,9 +39,7 @@ object DonationReminderHelper {
                         LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
     val hasActiveReminder
-        get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(
-            false
-        )
+        get() = maybeShowInitialDonationReminder(false) || maybeShowDonationReminder(false)
 
     var shouldShowSettingSnackbar = false
 
@@ -64,31 +62,35 @@ object DonationReminderHelper {
     }
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
-        if (timeSpentSec >= validReadCount && !Prefs.donationReminderConfig.finalPromptLive) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                articleVisit = Prefs.donationReminderConfig.articleVisit + 1
+        val config = Prefs.donationReminderConfig
+        if (timeSpentSec >= validReadCountOnSeconds && !config.finalPromptActive) {
+            Prefs.donationReminderConfig = config.copy(
+                articleVisit = config.articleVisit + 1
             )
             resetDonationReminder()
+        }
+        if (config.finalPromptActive && config.finalPromptCount == MAX_REMINDER_PROMPTS) {
+            // When user reaches the maximum reminder prompts, then turn off the final prompt
+            Prefs.donationReminderConfig = config.copy(
+                finalPromptActive = false
+            )
         }
     }
 
     fun donationReminderDismissed(isInitialPrompt: Boolean) {
+        val config = Prefs.donationReminderConfig
         Prefs.donationReminderConfig = if (isInitialPrompt) {
-            Prefs.donationReminderConfig.copy(initialPromptDismissed = true)
+            config.copy(initialPromptActive = false)
         } else {
-            Prefs.donationReminderConfig.copy(
-                finalPromptDismissed = true,
-                finalPromptLive = false
-            )
+            config.copy(finalPromptActive = false)
         }
     }
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
-        // TODO: need to check the "ignore" vs "dismissed"
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
-            if (config.setupTimestamp > 0L || config.initialPromptDismissed ||
+            if (config.setupTimestamp > 0L || !config.initialPromptActive ||
                 config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
                 (daysOfLastSeen <= 0 && config.initialPromptCount > 0)
             ) {
@@ -108,7 +110,7 @@ object DonationReminderHelper {
         if (!isEnabled) return false
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
-            if (config.setupTimestamp == 0L || !config.finalPromptLive || config.finalPromptDismissed ||
+            if (!config.isEnabled || config.setupTimestamp == 0L || !config.finalPromptActive ||
                 config.finalPromptCount > (MAX_REMINDER_PROMPTS + 1) ||
                 (daysOfLastSeen <= 0 && config.finalPromptCount > 0)
             ) {
@@ -116,8 +118,9 @@ object DonationReminderHelper {
             }
 
             if (update) {
+                val finalPromptCount = config.finalPromptCount + 1
                 Prefs.donationReminderConfig = config.copy(
-                    finalPromptCount = config.finalPromptCount + 1,
+                    finalPromptCount = finalPromptCount,
                     promptLastSeen = LocalDate.now().toEpochDay()
                 )
             }
@@ -127,11 +130,12 @@ object DonationReminderHelper {
 
     private fun resetDonationReminder() {
         Prefs.donationReminderConfig.let { config ->
-            if (config.articleVisit % config.articleFrequency == 0 && config.articleVisit > 0) {
+            if (config.articleVisit > 0 && config.articleFrequency > 0 &&
+                config.articleVisit % config.articleFrequency == 0 &&
+                !config.initialPromptActive) {
                 // When reaching the article frequency, reset the configuration
                 Prefs.donationReminderConfig = config.copy(
-                    finalPromptLive = true,
-                    finalPromptDismissed = false,
+                    finalPromptActive = true,
                     finalPromptCount = 0
                 )
             }
@@ -143,10 +147,9 @@ object DonationReminderHelper {
 data class DonationReminderConfig(
     val isEnabled: Boolean = false,
     val initialPromptCount: Int = 0,
-    val initialPromptDismissed: Boolean = false,
+    val initialPromptActive: Boolean = true,
     val finalPromptCount: Int = 0,
-    val finalPromptLive: Boolean = false,
-    val finalPromptDismissed: Boolean = false,
+    val finalPromptActive: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
