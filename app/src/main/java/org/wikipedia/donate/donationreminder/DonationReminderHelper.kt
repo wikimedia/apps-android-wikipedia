@@ -16,7 +16,7 @@ object DonationReminderHelper {
 
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
-    const val VALID_ARTICLE_SPENT = 15
+    private val validReadCount = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
         "IT"
     )
@@ -64,7 +64,7 @@ object DonationReminderHelper {
     }
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
-        if (timeSpentSec >= VALID_ARTICLE_SPENT) {
+        if (timeSpentSec >= validReadCount && !Prefs.donationReminderConfig.finalPromptLive) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 articleVisit = Prefs.donationReminderConfig.articleVisit + 1
             )
@@ -85,6 +85,7 @@ object DonationReminderHelper {
 
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
+        // TODO: need to check the "ignore" vs "dismissed"
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp > 0L || config.initialPromptDismissed ||
@@ -108,7 +109,7 @@ object DonationReminderHelper {
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp == 0L || !config.finalPromptLive || config.finalPromptDismissed ||
-                config.finalPromptCount >= MAX_REMINDER_PROMPTS ||
+                config.finalPromptCount > (MAX_REMINDER_PROMPTS + 1) ||
                 (daysOfLastSeen <= 0 && config.finalPromptCount > 0)
             ) {
                 return@let false
