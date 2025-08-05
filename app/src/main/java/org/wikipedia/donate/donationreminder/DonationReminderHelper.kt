@@ -38,7 +38,8 @@ object DonationReminderHelper {
                         enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
                         LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive || (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
+    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
+            (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
 
     var shouldShowSettingSnackbar = false
 
@@ -62,7 +63,7 @@ object DonationReminderHelper {
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
         val config = Prefs.donationReminderConfig
-        if (timeSpentSec >= validReadCountOnSeconds && !config.finalPromptActive) {
+        if (timeSpentSec >= validReadCountOnSeconds && !config.finalPromptActive && config.setupTimestamp != 0L) {
             Prefs.donationReminderConfig = config.copy(
                 articleVisit = config.articleVisit + 1
             )
@@ -91,7 +92,7 @@ object DonationReminderHelper {
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp > 0L || !config.initialPromptActive ||
                 config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-                (daysOfLastSeen <= 0 && config.initialPromptCount > 0)
+                daysOfLastSeen <= 0
             ) {
                 return@let false
             }
@@ -111,7 +112,7 @@ object DonationReminderHelper {
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (!config.isEnabled || config.setupTimestamp == 0L || !config.finalPromptActive ||
                 config.finalPromptCount > (MAX_REMINDER_PROMPTS + 1) ||
-                (daysOfLastSeen <= 0 && config.finalPromptCount > 0)
+                daysOfLastSeen <= 0
             ) {
                 return@let false
             }
