@@ -44,6 +44,7 @@ object DonationReminderHelper {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 articleVisit = Prefs.donationReminderConfig.articleVisit + 1
             )
+            resetDonationReminder()
         }
     }
 
@@ -78,14 +79,6 @@ object DonationReminderHelper {
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         return Prefs.donationReminderConfig.let { config ->
-            if (config.articleVisit % config.articleFrequency == 0 && config.articleVisit > 0) {
-                // When reaching the article frequency, reset the configuration
-                Prefs.donationReminderConfig = config.copy(
-                    finalPromptHold = false,
-                    finalPromptDismissed = false,
-                    finalPromptCount = 0
-                )
-            }
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (config.setupTimestamp == 0L || config.finalPromptDismissed ||
                 (config.finalPromptCount == MAX_REMINDER_PROMPTS && !config.finalPromptHold) || // final prompt is not held
@@ -102,6 +95,19 @@ object DonationReminderHelper {
                 )
             }
             return true
+        }
+    }
+
+    private fun resetDonationReminder() {
+        Prefs.donationReminderConfig.let { config ->
+            if (config.articleVisit % config.articleFrequency == 0 && config.articleVisit > 0) {
+                // When reaching the article frequency, reset the configuration
+                Prefs.donationReminderConfig = config.copy(
+                    finalPromptHold = false,
+                    finalPromptDismissed = false,
+                    finalPromptCount = 0
+                )
+            }
         }
     }
 }

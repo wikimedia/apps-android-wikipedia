@@ -22,6 +22,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageFragment
@@ -212,7 +213,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
-                if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == 2) {
+                if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
                     FeedbackUtil.showMessage(
                         parentFragment,
                         R.string.donation_reminders_prompt_dismiss_snackbar
