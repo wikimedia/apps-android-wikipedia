@@ -124,7 +124,7 @@ fun DonationReminderScreen(
         modifier = modifier,
         topBar = {
             WikiTopAppBar(
-                title = "Donation reminders",
+                title = stringResource(R.string.donation_reminders_settings_title),
                 onNavigationClick = onBackButtonClick
             )
         },
@@ -240,10 +240,16 @@ fun DonationReminderContent(
                         val amount = DonateUtil.getAmountFloat(value)
                         customDialogErrorMessage = when {
                             amount <= minimumAmount -> {
-                                "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1)}"
+                                context.getString(
+                                    R.string.donation_reminders_settings_warning_min_amount,
+                                    uiState.readFrequency.displayFormatter(minimumAmount + 1)
+                                )
                             }
                             amount >= maximumAmount -> {
-                                "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1)} allowed"
+                                context.getString(
+                                    R.string.donation_reminders_settings_warning_max_amount,
+                                    uiState.readFrequency.displayFormatter(maximumAmount - 1)
+                                )
                             }
                             else -> ""
                         }
