@@ -66,7 +66,14 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun toggleDonationReminders(enabled: Boolean) {
-        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
+        val config = Prefs.donationReminderConfig
+        Prefs.donationReminderConfig = config.copy(isEnabled = enabled)
+        if (enabled) {
+            Prefs.donationReminderConfig = config.copy(
+                initialPromptActive = false,
+                finalPromptActive = false
+            )
+        }
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
 

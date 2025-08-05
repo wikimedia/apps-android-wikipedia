@@ -67,7 +67,7 @@ object DonationReminderHelper {
             Prefs.donationReminderConfig = config.copy(
                 articleVisit = config.articleVisit + 1
             )
-            resetDonationReminder()
+            activateDonationReminder()
         }
         if (config.finalPromptActive && config.finalPromptCount == MAX_REMINDER_PROMPTS) {
             // When user reaches the maximum reminder prompts, then turn off the final prompt
@@ -128,12 +128,12 @@ object DonationReminderHelper {
         }
     }
 
-    private fun resetDonationReminder() {
+    private fun activateDonationReminder() {
         Prefs.donationReminderConfig.let { config ->
             if (config.articleVisit > 0 && config.articleFrequency > 0 &&
                 config.articleVisit % config.articleFrequency == 0 &&
                 !config.initialPromptActive) {
-                // When reaching the article frequency, reset the configuration
+                // When reaching the article frequency, activate the reminder and reset the count and visits
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptActive = true,
                     finalPromptCount = 0,
