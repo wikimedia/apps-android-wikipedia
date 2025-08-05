@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -26,6 +27,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -33,8 +35,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -45,6 +45,7 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
@@ -68,14 +69,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
-import org.wikipedia.compose.components.Snackbar
 import org.wikipedia.compose.components.TextWithInlineElement
 import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -85,19 +89,32 @@ import org.wikipedia.theme.Theme
 @Composable
 fun DonationReminderScreen(
     modifier: Modifier = Modifier,
-    viewModel: DonationReminderViewModel = viewModel(),
+    viewModel: DonationReminderViewModel,
+    wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
     onConfirmBtnClick: (String) -> Unit,
     onAboutThisExperimentClick: () -> Unit
 ) {
-    val snackbarHostState = remember { SnackbarHostState() }
     val uiState = viewModel.uiState.collectAsState().value
-    val isDonationReminderEnabled = uiState.isDonationReminderEnabled
-    var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
-    var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
-    var customDialogErrorMessage by remember { mutableStateOf("") }
-    val scope = rememberCoroutineScope()
-    val context = LocalContext.current
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            when (event) {
+                Lifecycle.Event.ON_PAUSE -> {
+                    if (viewModel.isFromSettings) {
+                        viewModel.saveReminder()
+                    }
+                }
+                else -> {}
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
 
     LaunchedEffect(Unit) {
         viewModel.loadData()
@@ -105,16 +122,6 @@ fun DonationReminderScreen(
 
     Scaffold(
         modifier = modifier,
-        snackbarHost = {
-            SnackbarHost(
-                hostState = snackbarHostState,
-                snackbar = {
-                    Snackbar(
-                        message = it.visuals.message
-                    )
-                }
-            )
-        },
         topBar = {
             WikiTopAppBar(
                 title = "Donation reminders",
@@ -123,142 +130,190 @@ fun DonationReminderScreen(
         },
         containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
-        Column(
+        if (uiState.isLoading) {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            ) {
+                LinearProgressIndicator(
+                    modifier = Modifier.fillMaxWidth(),
+                    color = WikipediaTheme.colors.progressiveColor,
+                    trackColor = WikipediaTheme.colors.borderColor
+                )
+            }
+            return@Scaffold
+        }
+
+        if (uiState.error != null) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues),
+                contentAlignment = Alignment.Center
+            ) {
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    caught = uiState.error,
+                    errorClickEvents = wikiErrorClickEvents
+                )
+            }
+            return@Scaffold
+        }
+
+        DonationReminderContent(
             modifier = Modifier
                 .padding(paddingValues)
-                .fillMaxSize()
+                .fillMaxSize(),
+            viewModel = viewModel,
+            uiState = uiState,
+            onConfirmBtnClick = onConfirmBtnClick,
+            onAboutThisExperimentClick = onAboutThisExperimentClick
+        )
+    }
+}
+
+@Composable
+fun DonationReminderContent(
+    modifier: Modifier = Modifier,
+    viewModel: DonationReminderViewModel,
+    uiState: DonationReminderUiState,
+    onConfirmBtnClick: (String) -> Unit,
+    onAboutThisExperimentClick: () -> Unit
+) {
+    val isDonationReminderEnabled = uiState.isDonationReminderEnabled
+    var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
+    var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
+    var customDialogErrorMessage by remember { mutableStateOf("") }
+    val context = LocalContext.current
+
+    Column(
+        modifier = modifier
+    ) {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .weight(1f)
+                .padding(16.dp)
         ) {
-            Column(
+            DonationHeader()
+            DonationRemindersSwitch(
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
-                    .weight(1f)
-                    .padding(16.dp)
-            ) {
-                DonationHeader()
-                DonationRemindersSwitch(
-                    modifier = Modifier
-                        .noRippleClickable {
-                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                    .noRippleClickable {
+                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                    }
+                    .padding(top = 24.dp),
+                isDonationRemindersEnabled = isDonationReminderEnabled,
+                onCheckedChange = { viewModel.toggleDonationReminders(it) }
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            if (uiState.isDonationReminderEnabled) {
+                ReadFrequencyView(
+                    option = uiState.readFrequency,
+                    showReadFrequencyCustomDialog = showReadFrequencyCustomDialog,
+                    customDialogErrorMessage = customDialogErrorMessage,
+                    onOptionSelected = { option ->
+                        when (option) {
+                            is OptionItem.Preset -> {
+                                viewModel.updateReadFrequencyState(option.value)
+                            }
+
+                            is OptionItem.Custom -> {
+                                showReadFrequencyCustomDialog = true
+                            }
                         }
-                        .padding(top = 24.dp),
-                    isDonationRemindersEnabled = isDonationReminderEnabled,
-                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
+                    },
+                    onDismissRequest = {
+                        showReadFrequencyCustomDialog = false
+                        customDialogErrorMessage = ""
+                    },
+                    onDoneClick = { readFrequency ->
+                        if (customDialogErrorMessage.isEmpty()) {
+                            viewModel.updateReadFrequencyState(readFrequency.toInt())
+                            showReadFrequencyCustomDialog = false
+                        }
+                    },
+                    onValueChange = { value ->
+                        val minimumAmount = uiState.readFrequency.minimumAmount
+                        val maximumAmount = uiState.readFrequency.maximumAmount
+                        val amount = DonateUtil.getAmountFloat(value)
+                        customDialogErrorMessage = when {
+                            amount <= minimumAmount -> {
+                                "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1)}"
+                            }
+                            amount >= maximumAmount -> {
+                                "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1)} allowed"
+                            }
+                            else -> ""
+                        }
+                    }
                 )
                 Spacer(modifier = Modifier.height(24.dp))
-                if (uiState.isDonationReminderEnabled) {
-                    ReadFrequencyView(
-                        option = uiState.readFrequency,
-                        showReadFrequencyCustomDialog = showReadFrequencyCustomDialog,
-                        customDialogErrorMessage = customDialogErrorMessage,
-                        onOptionSelected = { option ->
-                            when (option) {
-                                is OptionItem.Preset -> {
-                                    viewModel.updateReadFrequencyState(option.value)
-                                }
+                DonationAmountView(
+                    option = uiState.donationAmount,
+                    showDonationAmountCustomDialog = showDonationAmountCustomDialog,
+                    currencySymbol = DonateUtil.currencySymbol,
+                    customDialogErrorMessage = customDialogErrorMessage,
+                    onDismissRequest = {
+                        showDonationAmountCustomDialog = false
+                        customDialogErrorMessage = ""
+                    },
+                    onOptionSelected = { option ->
+                        when (option) {
+                            is OptionItem.Preset -> {
+                                viewModel.updateDonationAmountState(option.value)
+                            }
 
-                                is OptionItem.Custom -> {
-                                    showReadFrequencyCustomDialog = true
-                                }
-                            }
-                        },
-                        onDismissRequest = {
-                            showReadFrequencyCustomDialog = false
-                            customDialogErrorMessage = ""
-                        },
-                        onDoneClick = { readFrequency ->
-                            if (customDialogErrorMessage.isEmpty()) {
-                                viewModel.updateReadFrequencyState(readFrequency.toInt())
-                                showReadFrequencyCustomDialog = false
-                            }
-                        },
-                        onValueChange = { value ->
-                            val minimumAmount = uiState.readFrequency.minimumAmount
-                            val maximumAmount = uiState.readFrequency.maximumAmount
-                            val amount = DonateUtil.getAmountFloat(value)
-                            customDialogErrorMessage = when {
-                                amount <= minimumAmount -> {
-                                    "Please enter at least ${uiState.readFrequency.displayFormatter(minimumAmount + 1)}"
-                                }
-                                amount >= maximumAmount -> {
-                                    "Maximum ${uiState.readFrequency.displayFormatter(maximumAmount - 1)} allowed"
-                                }
-                                else -> ""
+                            is OptionItem.Custom -> {
+                                showDonationAmountCustomDialog = true
                             }
                         }
-                    )
-                    Spacer(modifier = Modifier.height(24.dp))
-                    DonationAmountView(
-                        option = uiState.donationAmount,
-                        showDonationAmountCustomDialog = showDonationAmountCustomDialog,
-                        currencySymbol = DonateUtil.currencySymbol,
-                        customDialogErrorMessage = customDialogErrorMessage,
-                        onDismissRequest = {
+                    },
+                    onDoneClick = { amount ->
+                        if (customDialogErrorMessage.isEmpty()) {
+                            viewModel.updateDonationAmountState(amount.toFloat())
                             showDonationAmountCustomDialog = false
-                            customDialogErrorMessage = ""
-                        },
-                        onOptionSelected = { option ->
-                            when (option) {
-                                is OptionItem.Preset -> {
-                                    viewModel.updateDonationAmountState(option.value)
-                                }
-
-                                is OptionItem.Custom -> {
-                                    showDonationAmountCustomDialog = true
-                                }
-                            }
-                        },
-                        onDoneClick = { amount ->
-                            if (customDialogErrorMessage.isEmpty()) {
-                                viewModel.updateDonationAmountState(amount.toFloat())
-                                showDonationAmountCustomDialog = false
-                            }
-                        },
-                        onValueChange = { value ->
-                            val amount = DonateUtil.getAmountFloat(value)
-                            val minimumAmount = uiState.donationAmount.minimumAmount
-                            val maximumAmount = uiState.donationAmount.maximumAmount
-                            customDialogErrorMessage = when {
-                                amount <= 0 && amount < minimumAmount -> {
-                                    context.getString(
-                                        R.string.donate_gpay_minimum_amount,
-                                        uiState.donationAmount.displayFormatter(minimumAmount)
-                                    )
-                                }
-                                maximumAmount > 0 && amount >= maximumAmount -> {
-                                    context.getString(
-                                        R.string.donate_gpay_maximum_amount,
-                                        uiState.donationAmount.displayFormatter(maximumAmount)
-                                    )
-                                }
-                                else -> ""
-                            }
                         }
-                    )
-                }
-            }
-
-            if (uiState.isDonationReminderEnabled) {
-                BottomContent(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .padding(top = 16.dp),
-                    onConfirmBtnClick = {
-                        viewModel.saveReminder()
-                        val message = viewModel.getThankYouMessage()
-                        if (viewModel.isFromSettings) {
-                            scope.launch {
-                                snackbarHostState.showSnackbar(
-                                    message = message
+                    },
+                    onValueChange = { value ->
+                        val amount = DonateUtil.getAmountFloat(value)
+                        val minimumAmount = uiState.donationAmount.minimumAmount
+                        val maximumAmount = uiState.donationAmount.maximumAmount
+                        customDialogErrorMessage = when {
+                            amount <= 0 && amount < minimumAmount -> {
+                                context.getString(
+                                    R.string.donate_gpay_minimum_amount,
+                                    uiState.donationAmount.displayFormatter(minimumAmount)
                                 )
                             }
-                            return@BottomContent
+                            maximumAmount > 0 && amount >= maximumAmount -> {
+                                context.getString(
+                                    R.string.donate_gpay_maximum_amount,
+                                    uiState.donationAmount.displayFormatter(maximumAmount)
+                                )
+                            }
+                            else -> ""
                         }
-                        onConfirmBtnClick(message)
-                    },
-                    onAboutThisExperimentClick = onAboutThisExperimentClick
+                    }
                 )
             }
+        }
+
+        if (uiState.isDonationReminderEnabled) {
+            BottomContent(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 16.dp),
+                isFromSettings = viewModel.isFromSettings,
+                onConfirmBtnClick = {
+                    viewModel.saveReminder()
+                    val message = viewModel.getThankYouMessage()
+                    onConfirmBtnClick(message)
+                },
+                onAboutThisExperimentClick = onAboutThisExperimentClick
+            )
         }
     }
 }
@@ -381,21 +436,24 @@ fun DonationHeader(
 fun BottomContent(
     modifier: Modifier = Modifier,
     onConfirmBtnClick: () -> Unit,
+    isFromSettings: Boolean,
     onAboutThisExperimentClick: () -> Unit
 ) {
     Column(
         modifier = modifier
     ) {
-        AppButton(
-            modifier = Modifier
-                .fillMaxWidth(),
-            onClick = onConfirmBtnClick,
-            content = {
-                Text(
-                    stringResource(R.string.donation_reminders_settings_confirm_btn_label)
-                )
-            }
-        )
+        if (!isFromSettings) {
+            AppButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                onClick = onConfirmBtnClick,
+                content = {
+                    Text(
+                        stringResource(R.string.donation_reminders_settings_confirm_btn_label)
+                    )
+                }
+            )
+        }
 
         TextButton(
             modifier = Modifier
@@ -705,20 +763,6 @@ private fun CustomInputDialogPreview() {
                 )
             },
             onValueChange = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun DonationReminderScreenPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        DonationReminderScreen(
-            onBackButtonClick = {},
-            onConfirmBtnClick = {},
-            onAboutThisExperimentClick = {}
         )
     }
 }
