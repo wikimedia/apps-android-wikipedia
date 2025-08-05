@@ -12,16 +12,18 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.settings.Prefs
+import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
+import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 object DonationReminderHelper {
-    const val MAX_INITIAL_REMINDER_PROMPTS = 2
-    const val MAX_REMINDER_PROMPTS = 2
-
     private val enabledCountries = listOf(
         "IT"
     )
@@ -36,57 +38,20 @@ object DonationReminderHelper {
                     enabledLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
                     LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
 
-    fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
-        if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderConfig.promptLastSeen)
-        // donationReminderInitialPromptCount --> prompt impressions
-        if (Prefs.donationReminderConfig.initialPromptCount == -1 ||
-            Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderConfig.initialPromptCount > 0)) {
-            return false
-        }
-        if (update) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                initialPromptCount = Prefs.donationReminderConfig.initialPromptCount + 1,
-                promptLastSeen = LocalDate.now().toEpochDay()
-            )
-        }
-        if (Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                initialPromptCount = -1,
-                isReadyToShowSurvey = true
-            )
-        }
-        return true
-    }
+    val currencyAmountPresets = mapOf(
+        "IT" to listOf(1f, 2f, 3f)
+    )
 
-    // TODO: connect the logic with donation reminder settings (e.g. article numbers, donation amount, etc.)
-    fun maybeShowDonationReminder(update: Boolean = false): Boolean {
-        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-            donateAmount = 10,
-            articleFrequency = 20
+    val defaultReadFrequencyOptions = listOf(5, 10, 15)
+
+    fun getDonationReminderSubmittedFormDate(): String {
+        val timeStamp = Prefs.donationReminderConfig.setupTimestamp
+        val localDateTime = LocalDateTime.ofInstant(
+            Instant.ofEpochMilli(timeStamp),
+            ZoneId.systemDefault()
         )
-        if (!isEnabled) return false
-        val daysOfLastSeen = (LocalDate.now().toEpochDay() - Prefs.donationReminderConfig.promptLastSeen)
-        // donationReminderPromptCount --> reminder impressions
-        if (Prefs.donationReminderConfig.finalPromptCount == -1 ||
-            Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS ||
-            (daysOfLastSeen <= 0 && Prefs.donationReminderConfig.finalPromptCount > 0)) {
-            return false
-        }
-        if (update) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                finalPromptCount = Prefs.donationReminderConfig.finalPromptCount + 1,
-                promptLastSeen = LocalDate.now().toEpochDay()
-            )
-        }
-        if (Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                finalPromptCount = -1,
-                isReadyToShowSurvey = true
-            )
-        }
-        return true
+        val formatter = DateTimeFormatter.ofPattern("MMMM d", Locale.getDefault())
+        return localDateTime.format(formatter)
     }
 
     fun maybeShowSurveyDialog(activity: Activity) {
@@ -167,8 +132,8 @@ data class DonationReminderConfig(
     val finalPromptDismissed: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
-    val isReadyToShowSurvey: Boolean = false,
+    val articleVisit: Int = 0,
     val isSurveyShown: Boolean = false,
     val articleFrequency: Int = 0,
-    val donateAmount: Int = 0
+    val donateAmount: Float = 0f
 )

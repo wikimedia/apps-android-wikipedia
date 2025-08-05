@@ -195,4 +195,6 @@
     <string name="preference_key_recommended_reading_list_new_list_generated">recommendedReadingListNewListGenerated</string>
     <string name="preference_key_recommended_reading_list_reset">recommendedReadingListReset</string>
     <string name="preference_key_donation_reminder_config">donationReminderConfig</string>
+    <string name="preference_key_donation_reminders">Donation reminders</string>
+    <string name="preference_category_donations">Donations</string>
 </resources>
