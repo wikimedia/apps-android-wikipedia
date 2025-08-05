@@ -31,19 +31,18 @@
 
         <TextView
             android:id="@+id/messageTitleView"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="16sp"
             android:textColor="?attr/primary_color"
             android:text="@string/donation_reminders_initial_prompt_title"/>
 
         <TextView
             android:id="@+id/messageTextView"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:textColor="?attr/secondary_color"
             android:text="@string/donation_reminders_initial_prompt_message"
             android:layout_marginBottom="4dp"

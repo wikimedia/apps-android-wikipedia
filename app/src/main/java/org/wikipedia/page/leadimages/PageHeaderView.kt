@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import kotlinx.parcelize.Experimental
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
@@ -24,7 +25,9 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
+        @Experimental
         fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean)
+        @Experimental
         fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean)
     }
 
@@ -111,6 +114,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
+    @OptIn(Experimental::class)
     private fun setDonationReminderCard() {
         if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
             return
