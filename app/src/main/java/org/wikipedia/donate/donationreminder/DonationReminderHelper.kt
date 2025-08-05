@@ -12,8 +12,8 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.settings.Prefs
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import java.time.Instant
@@ -54,6 +54,7 @@ object DonationReminderHelper {
         return localDateTime.format(formatter)
     }
 
+    // @TODO: update the logic to show dialog after the in-article prompt PR is merged
     fun maybeShowSurveyDialog(activity: Activity) {
         if (!isEnabled) return
         if (Prefs.donationReminderConfig.isSurveyShown) return
@@ -65,13 +66,11 @@ object DonationReminderHelper {
             when (userGroup) {
                 "A" -> {
                     // Group A: Show survey on next article visit after setting up reminder
-                    if (Prefs.donationReminderConfig.isReadyToShowSurvey) {
-                        showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
-                    }
+                    showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions two times
-                    if (Prefs.donationReminderConfig.finalPromptCount == -1 && Prefs.donationReminderConfig.isReadyToShowSurvey) {
+                    if (Prefs.donationReminderConfig.finalPromptCount == -1) {
                         showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                     }
                 }
@@ -81,7 +80,7 @@ object DonationReminderHelper {
 
         // User has not taken any action on the initial prompt
         // Show survey on next article visit if this continues for continuous 5 times
-        if (Prefs.donationReminderConfig.initialPromptCount == -1 && Prefs.donationReminderConfig.isReadyToShowSurvey) {
+        if (Prefs.donationReminderConfig.initialPromptCount == -1) {
             showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
             return
         }
