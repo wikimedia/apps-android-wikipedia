@@ -57,17 +57,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
-    fun getThankYouMessage(): String {
-        val context = WikipediaApp.instance
-        val donationAmount =
-            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-        val readFrequency = Prefs.donationReminderConfig.articleFrequency
-        val articleNumber = context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
-            readFrequency, readFrequency)
-        val message = context.getString(R.string.donation_reminders_snacbkbar_confirmation_label, donationAmount, articleNumber)
-        return message
-    }
-
     fun updateDonationAmountState(donationAmount: Float) {
         _uiState.update { it.copy(donationAmount = it.donationAmount.copy(selectedValue = donationAmount)) }
     }
@@ -78,6 +67,12 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun toggleDonationReminders(enabled: Boolean) {
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
+        if (enabled) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                initialPromptActive = false,
+                finalPromptActive = false
+            )
+        }
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
 

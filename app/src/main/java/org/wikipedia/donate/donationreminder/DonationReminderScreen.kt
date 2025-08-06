@@ -318,7 +318,7 @@ fun DonationReminderContent(
                 onConfirmBtnClick = {
                     viewModel.toggleDonationReminders(true)
                     viewModel.saveReminder()
-                    val message = viewModel.getThankYouMessage()
+                    val message = DonationReminderHelper.thankYouMessageForSettings()
                     onConfirmBtnClick(message)
                 },
                 onAboutThisExperimentClick = onAboutThisExperimentClick

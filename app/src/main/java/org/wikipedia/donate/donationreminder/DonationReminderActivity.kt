@@ -28,7 +28,8 @@ class DonationReminderActivity : BaseActivity() {
                         onBackPressed()
                     },
                     onConfirmBtnClick = { message ->
-                        // @TODO: for showing snackbar on pageFragment
+                        DonationReminderHelper.shouldShowSettingSnackbar = true
+                        finish()
                     },
                     onAboutThisExperimentClick = {
                         UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
@@ -47,8 +48,8 @@ class DonationReminderActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(contex: Context, isFromSettings: Boolean = false): Intent {
-            return Intent(contex, DonationReminderActivity::class.java)
+        fun newIntent(context: Context, isFromSettings: Boolean = false): Intent {
+            return Intent(context, DonationReminderActivity::class.java)
                 .putExtra(EXTRA_FROM_SETTINGS, isFromSettings)
         }
     }

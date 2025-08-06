@@ -7,9 +7,11 @@
     tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
+        android:id="@+id/headerImageContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animateLayoutChanges="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="-32dp">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_page_header_image"
@@ -53,5 +55,13 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <org.wikipedia.donate.donationreminder.DonationReminderCardView
+        android:id="@+id/donationReminderCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginHorizontal="16dp"
+        tools:visibility="visible"/>
 
 </merge>
