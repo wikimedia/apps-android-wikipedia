@@ -62,13 +62,14 @@ object DonationReminderHelper {
     }
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
-        val config = Prefs.donationReminderConfig
+        var config = Prefs.donationReminderConfig
         if (timeSpentSec >= validReadCountOnSeconds && !config.finalPromptActive && config.setupTimestamp != 0L) {
             Prefs.donationReminderConfig = config.copy(
                 articleVisit = config.articleVisit + 1
             )
             activateDonationReminder()
         }
+        config = Prefs.donationReminderConfig
         if (config.finalPromptActive && config.finalPromptCount == MAX_REMINDER_PROMPTS) {
             // When user reaches the maximum reminder prompts, then turn off the final prompt
             Prefs.donationReminderConfig = config.copy(
@@ -111,7 +112,7 @@ object DonationReminderHelper {
         return Prefs.donationReminderConfig.let { config ->
             val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
             if (!config.isEnabled || config.setupTimestamp == 0L || !config.finalPromptActive ||
-                config.finalPromptCount > (MAX_REMINDER_PROMPTS + 1) ||
+                config.finalPromptCount > MAX_REMINDER_PROMPTS ||
                 daysOfLastSeen <= 0
             ) {
                 return@let false

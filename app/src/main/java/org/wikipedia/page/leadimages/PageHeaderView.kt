@@ -169,6 +169,10 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 binding.donationReminderCardView.isVisible = false
                 if (!isInitialPrompt && Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
                     // Give the user one more chance to see the donation reminder
+                    Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                        finalPromptCount = 1,
+                        finalPromptActive = true
+                    )
                     return@setNegativeButton
                 }
                 DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
