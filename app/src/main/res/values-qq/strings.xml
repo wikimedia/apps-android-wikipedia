@@ -1924,6 +1924,8 @@
   <string name="donation_reminders_settings_confirm_btn_label">Confrim Button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">About experiment button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">Suffix label for the textField input in the donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_warning_min_amount">Error message that indicates a minimum amount is allowed. %s will be replaced by the formatted amount.</string>
+  <string name="donation_reminders_settings_warning_max_amount">Error message that indicates a maximum amount is allowed. %s will be replaced by the formatted amount.</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Snackbar confirmation label which appears after user sets up donation reminders. %1$s will be replaced by the amount of donation and %2$s will be replaced by the text of the number of articles.</string>
   <string name="donation_reminders_prompt_title">Title for the donation reminder prompt. %1$s will be replaced by the text of number of articles and %2$s will be replaced by the amount of donation.</string>
   <string name="donation_reminders_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$s will be replaced by the text of the number of articles, and %3$s will be replaced by the amount of donation.</string>
