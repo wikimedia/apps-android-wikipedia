@@ -198,17 +198,19 @@ fun DonationReminderContent(
                 .padding(16.dp)
         ) {
             DonationHeader()
-            DonationRemindersSwitch(
-                modifier = Modifier
-                    .noRippleClickable {
-                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
-                    }
-                    .padding(top = 24.dp),
-                isDonationRemindersEnabled = isDonationReminderEnabled,
-                onCheckedChange = { viewModel.toggleDonationReminders(it) }
-            )
+            if (viewModel.isFromSettings) {
+                DonationRemindersSwitch(
+                    modifier = Modifier
+                        .noRippleClickable {
+                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                        }
+                        .padding(top = 24.dp),
+                    isDonationRemindersEnabled = isDonationReminderEnabled,
+                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
+                )
+            }
             Spacer(modifier = Modifier.height(24.dp))
-            if (uiState.isDonationReminderEnabled) {
+            if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 ReadFrequencyView(
                     option = uiState.readFrequency,
                     showReadFrequencyCustomDialog = showReadFrequencyCustomDialog,
@@ -306,7 +308,7 @@ fun DonationReminderContent(
             }
         }
 
-        if (uiState.isDonationReminderEnabled) {
+        if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
             BottomContent(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -314,6 +316,7 @@ fun DonationReminderContent(
                     .padding(top = 16.dp),
                 isFromSettings = viewModel.isFromSettings,
                 onConfirmBtnClick = {
+                    viewModel.toggleDonationReminders(true)
                     viewModel.saveReminder()
                     val message = viewModel.getThankYouMessage()
                     onConfirmBtnClick(message)
