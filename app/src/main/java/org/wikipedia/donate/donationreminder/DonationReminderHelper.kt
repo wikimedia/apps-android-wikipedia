@@ -152,13 +152,14 @@ object DonationReminderHelper {
         }
     }
 
-    // @TODO: update the logic to show dialog after the in-article prompt PR is merged
     fun maybeShowSurveyDialog(activity: Activity) {
         if (!isEnabled) return
-        if (Prefs.donationReminderConfig.isSurveyShown) return
+
+        val config = Prefs.donationReminderConfig
+        if (config.isSurveyShown) return
 
         // when user sets up the reminder
-        val hasSetupReminder = Prefs.donationReminderConfig.donateAmount > 0 && Prefs.donationReminderConfig.articleFrequency > 0
+        val hasSetupReminder = config.donateAmount > 0 && config.articleFrequency > 0
         if (hasSetupReminder) {
             val userGroup = getUserGroup()
             when (userGroup) {
@@ -168,7 +169,7 @@ object DonationReminderHelper {
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions two times
-                    if (Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
+                    if (config.finalPromptCount >= MAX_REMINDER_PROMPTS) {
                         showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                     }
                 }
@@ -178,7 +179,7 @@ object DonationReminderHelper {
 
         // User has not taken any action on the initial prompt
         // Show survey on next article visit if this continues for continuous 5 times
-        if (Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
+        if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
             showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
             return
         }
