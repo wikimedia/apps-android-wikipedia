@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
@@ -234,6 +235,20 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 RecommendedReadingListNotificationManager.showNotification(context = activity, source)
                 true
             }
+        }
+        findPreference(R.string.preference_key_donation_reminders_dev_reset).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.donationReminderConfig = DonationReminderConfig()
+            Toast.makeText(activity, "donationReminderConfig has been reset", Toast.LENGTH_SHORT).show()
+            fragment.requireActivity().finish()
+            true
+        }
+        findPreference(R.string.preference_key_donation_reminders_dev_reset_seen_date).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                promptLastSeen = 0
+            )
+            Toast.makeText(activity, "promptLastSeen has been reset", Toast.LENGTH_SHORT).show()
+            fragment.requireActivity().finish()
+            true
         }
     }
 
