@@ -907,7 +907,7 @@
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvausta, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_voice_input_description">Äänisyöte</string>
-  <string name="description_edit_learn_more">Lue lisää artikkelien kuvauksista</string>
+  <string name="description_edit_learn_more">Lisätietoja artikkelien kuvauksista</string>
   <string name="description_edit_image_caption_learn_more">Lue lisää kuvateksteistä</string>
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_too_long">Yritä pitää kuvaus lyhyenä, jotta käyttäjät ymmärtäisivät artikkelin aiheen yhdellä silmäyksellä</string>
