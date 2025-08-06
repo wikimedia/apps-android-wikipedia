@@ -274,10 +274,10 @@
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
@@ -909,7 +909,7 @@
   <string name="description_edit_help_title">資訊：條目描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/zh</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">感謝您對編輯條目描述有長期興趣！要繼續編輯，請登入維基百科。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
@@ -1915,4 +1915,36 @@
   <string name="recommended_reading_list_notification_subtitle">輕觸來查看您的最新推薦。</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">當您的 Discover 更新時，維基百科會對您發送通知。</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">已開啟 Discover 功能。維基百科會為您推薦值得閱讀的條目。</string>
+  <string name="donation_reminders_initial_prompt_label">實驗功能</string>
+  <string name="donation_reminders_initial_prompt_title">閱讀時支持維基百科</string>
+  <string name="donation_reminders_initial_prompt_message">根據您閱讀的條目數量設定捐款提醒，來幫助維基百科遠離廣告、持續更新、且可讓所有人都能使用。</string>
+  <string name="donation_reminders_initial_prompt_positive_button">入門</string>
+  <string name="donation_reminders_initial_prompt_negative_button">現在不要</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">您可以在設定中隨時修改捐款提醒。</string>
+  <string name="donation_settings_section_header">捐款</string>
+  <string name="donation_reminders_settings_title">捐款提醒</string>
+  <string name="donation_reminders_settings_thank_you_message">加入那 2%% 盡一份心力的讀者行列，來幫助維基百科遠離廣告、持續更新，且可讓所有人都能使用。立即設定您的捐款提醒。</string>
+  <string name="donation_reminders_settings_donation_info">捐款會轉到維基媒體基金會及其附屬機構，他們是維基百科與相關姊妹網站驕傲的主辦者。</string>
+  <string name="donation_reminders_settings_article_frequency_label">當我閱讀</string>
+  <string name="donation_reminders_settings_amount_label">提醒我捐款</string>
+  <string name="donation_reminders_settings_confirm_btn_label">確認提醒</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">關於此實驗功能</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">條目</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">感謝您！在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
+  <string name="donation_reminders_prompt_title">自從您承諾捐款 %2$s，您已閱讀了 %1$s 篇條目</string>
+  <string name="donation_reminders_prompt_message">在 %1$s，您向我們提出當您閱讀了 %2$s 篇條目後，提醒您進行捐款。如果維基百科能以您的 %3$s 來提供知識，請加入 2%% 的讀者行列，來在今日完成您的捐贈承諾。</string>
+  <string name="donation_reminders_prompt_positive_button">立即捐款</string>
+  <string name="donation_reminders_prompt_negative_button">現在不要</string>
+  <string name="donation_reminders_gpay_text">使用 Google Pay 捐款 %s</string>
+  <string name="donation_reminders_gpay_different_amount_text">使用 Google Pay 捐款不同金額</string>
+  <string name="donation_reminders_survey_dialog_title">協助改善捐款提醒。</string>
+  <string name="donation_reminders_survey_dialog_message">您對這次體驗滿意嗎？</string>
+  <string name="donation_reminders_settings_description_on">已開啟捐款提醒。在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
+  <string name="donation_reminders_settings_description_off">捐款提醒已關閉。</string>
+  <string name="donation_reminders_settings_tooltip_info_label">條目次數儲存在您的本地端裝置</string>
+  <string name="donation_reminders_prompt_success_snackbar">謝謝您！您對維基百科的慷慨捐款對我們意義重大。</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d 篇條目</item>
+    <item quantity="other">%d 篇條目</item>
+  </plurals>
 </resources>

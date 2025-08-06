@@ -1694,4 +1694,7 @@
   <string name="recommended_reading_list_settings_notifications_title">Обавештења</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Искључи их</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
 </resources>

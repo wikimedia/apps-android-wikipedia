@@ -1900,4 +1900,21 @@
   <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
   <string name="recommended_reading_list_notification_subtitle">Tocca per vedere le tue ultime raccomandazioni.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando il tuo Discover sarà aggiornato, Wikipedia ti invierà una notifica.</string>
+  <string name="donation_reminders_initial_prompt_label">Sperimentale</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Inizia</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Non ora</string>
+  <string name="donation_settings_section_header">Donazioni</string>
+  <string name="donation_reminders_settings_article_frequency_label">Quando leggo</string>
+  <string name="donation_reminders_settings_amount_label">Ricordami di donare</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Conferma promemoria</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">voci</string>
+  <string name="donation_reminders_prompt_positive_button">Dona ora</string>
+  <string name="donation_reminders_prompt_negative_button">Non ora</string>
+  <string name="donation_reminders_gpay_text">Dona %s con Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Dona un importo diverso con Google Pay</string>
+  <string name="donation_reminders_survey_dialog_message">Sei soddisfatto di questa esperienza?</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d voce</item>
+    <item quantity="other">%d voci</item>
+  </plurals>
 </resources>

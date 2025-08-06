@@ -1586,7 +1586,7 @@
   <string name="patroller_tasks_overflow_learn">Leger plus</string>
   <string name="patroller_onboarding_one_title">Contribuer al supervision e approbation de modificationes sur Wikipedia.</string>
   <string name="patroller_onboarding_one_content">Meliorar le qualitate del contento de Wikipedia per le revision active de un fluxo de modificationes recente e provider direction, controlo de qualitate, e incoragiamento a altere redactores.</string>
-  <string name="patroller_onboarding_two_title">Offerer retroaction, surveliar modificationes, e prender actiones sur le schermo de differentias (diff screen).</string>
+  <string name="patroller_onboarding_two_title">Offerer opiniones, surveliar modificationes, e prender actiones sur le schermo de differentias (diff screen).</string>
   <string name="patroller_onboarding_two_thank_title">Regratiar</string>
   <string name="patroller_onboarding_two_thank_content">Vide tu un modification productive? Regratia le autor de illo pro su contribution.</string>
   <string name="patroller_onboarding_two_watch_title">Observar</string>
@@ -1679,8 +1679,8 @@
   <string name="survey_dialog_general_yes">Si</string>
   <string name="survey_dialog_general_no">No</string>
   <string name="survey_dialog_general_maybe">Forsan</string>
-  <string name="survey_dialog_input_hint">Retroaction additional</string>
-  <string name="survey_dialog_submitted_snackbar">Retroaction inviate. Gratias!</string>
+  <string name="survey_dialog_input_hint">Commentarios additional</string>
+  <string name="survey_dialog_submitted_snackbar">Commentario inviate. Gratias!</string>
   <string name="on_this_day_game_entry_dialog_title">Presentation</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jocos de Wikipedia</string>
   <string name="on_this_day_game_entry_dialog_button">Jocar al joco de hodie</string>

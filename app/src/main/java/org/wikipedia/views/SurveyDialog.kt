@@ -50,6 +50,8 @@ object SurveyDialog {
             binding.optionSatisfied.setOnClickListener(clickListener)
             binding.optionNeutral.setOnClickListener(clickListener)
             binding.optionUnsatisfied.setOnClickListener(clickListener)
+            binding.cancelButton.setOnClickListener { dialog?.dismiss() }
+            binding.submitButton.setOnClickListener(clickListener)
 
             PatrollerExperienceEvent.logAction("impression", "feedback_form")
         }

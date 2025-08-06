@@ -511,7 +511,7 @@
   <string name="default_reading_list_name">Karaksa</string>
   <string name="reading_lists_menu_create_list">Kardi lis anyar</string>
   <string name="reading_lists_menu_import_list">Impor lis</string>
-  <string name="reading_lists_menu_sort_by">Bacak mawit</string>
+  <string name="reading_lists_menu_sort_by">Urut manut</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Manjing log / kardi akun</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -804,9 +804,9 @@
   <string name="insert_media_title">Sisipang média</string>
   <string name="insert_media_search_description">Pilih berkas saking Wikimédia Commons</string>
   <string name="insert_media_search_hint">Rereh média</string>
-  <string name="insert_media_settings" fuzzy="true">Setélan média</string>
+  <string name="insert_media_settings">Weweh rerincian gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar kaunggah</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Sesirah</string>
+  <string name="insert_media_settings_caption">Sesirah gambar</string>
   <string name="insert_media_advanced_settings">Setélan lantur</string>
   <string name="insert_media_advanced_settings_image_position">Genah gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Tengen</string>
@@ -856,7 +856,7 @@
   <string name="talk_snackbar_undo">Ulihang</string>
   <string name="talk_last_modified">&lt;b&gt;Untat kauah %1$s&lt;/b&gt; olih %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kawitin</string>
-  <string name="talk_overflow_sort_by">Bacak mawit</string>
+  <string name="talk_overflow_sort_by">Urut manut</string>
   <string name="talk_overflow_sort_date_published">Tanggal kawedar</string>
   <string name="talk_overflow_sort_date_updated">Tanggal kaanyarin</string>
   <string name="talk_overflow_sort_topic_name">Adan topik</string>

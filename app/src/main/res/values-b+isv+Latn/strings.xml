@@ -969,6 +969,8 @@
   <string name="customize_toolbar_category_menu">Menju</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Prětegnite svoje ljubime prědmety ovamo 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Obnoviti standardne nastavjenja</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Za prěměščenje elementa pridržite ikonu prěteganja</string>
+  <string name="customize_toolbar_item_default_tooltip">Natisknite i prětegnite element za izměnjenje jego položenje</string>
   <string name="suggested_edits_describe_articles">Dodavanje opisov člankom</string>
   <string name="suggested_edits_caption_images">Dodavanje nadpisov obrazkam</string>
   <string name="suggested_edits_tag_images">Dodavanje tagov obrazkom</string>
@@ -991,6 +993,7 @@
   <string name="suggested_edits_task_add_description_title">Dodavanje opisov k člankam</string>
   <string name="suggested_edits_task_add_description_description">Dodavanje informacije člankam bez opisov</string>
   <string name="suggested_edits_task_image_caption_title">Dodavanje nadpisov obrazkam</string>
+  <string name="suggested_edits_task_image_caption_description">Dodati odsutne kratke nadpisy obrazkam</string>
   <string name="suggested_edits_task_translate_caption_title">Prěvodženje nadpisov obrazkov</string>
   <string name="suggested_edits_task_translate_caption_description">Prěvodženje nadpisov obrazkov na druge jezyky</string>
   <string name="suggested_edits_task_multilingual_title">Veče zadanij za mnogojezyčnyh redaktorov</string>
@@ -1050,4 +1053,130 @@
   <string name="suggested_edits_image_tags_select_text">K obrazkam budut dodane samo izbrane vami značky. Značky, ktore vy ne izberite, budut označene kako odkydnute. Jeste li uvěrjeni, že hočete označiti vse značky kako odkydnute?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodati značku</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">Nepublikovane značky ne budut zapisane</string>
+  <string name="suggested_edits_image_zoom_tooltip">Raztegnite za uveličenje tutogo obrazka.</string>
+  <string name="suggested_edits_encouragement_message">%s, hvala za vaše pravky. Niže vy možete najdti daljše sposoby za učestničstvo v Vikipediji.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Zdravo, %s&lt;/b&gt;, niže vy možete najdti někoje bystre i legke sposoby, ktorymi pomožete pri ulěpšenju Vikipedije. Stači, že načnite, a razliku uvidite směsta. Želajemo vam prijemnogo pravjenja!</string>
+  <string name="suggested_edits_image_captions_task_detail">Opišite obrazok, da byste pomogli čitateljam razuměti jego značenje i kontekst.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Kratko opišite članok, da by čitatelji srazuměli prědmet s prvogo pogleda.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Totalna kolikost vaših pravok dotud.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Koliko dnjev pod red vy jeste vnosili vklad. Ako vy od někakogo časa ne jeste dělali nijednu pravku, pokazyvaje se data vašej poslědnjej pravky.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Cělkovita kolikost izobraženij stranic, ktore vy jeste pravili v tečenju poslědnjih 30 dnjev.</string>
+  <string name="suggested_edits_ip_blocked_message">Izgledaje, kako že vašemu IP-adresu (ili obsegu IP-adresov) pravjenje Vikipedije nyně jest zablokovano.</string>
+  <string name="suggested_edits_gate_message">Izvinite, %s, da byste mogli koristati tutu funkciju, trěba, že sdělajete minimalno tri pravjenja v jednom članku.</string>
+  <string name="suggested_edits_editing_tips_link_text">Sověty i prěporuky za pravjenje</string>
+  <string name="suggested_edits_help_page_link_text">Stranica pomoči odnosno prědlagajemyh pravok</string>
+  <string name="suggested_edits_edit_streak_label_text">Serija pravok</string>
+  <string name="suggested_edits_views_label_text">Izobraženja</string>
+  <string name="suggested_edits_quality_label_text">Kakost pravok</string>
+  <string name="suggested_edits_quality_perfect_text">Sovršena</string>
+  <string name="suggested_edits_quality_excellent_text">Odlična</string>
+  <string name="suggested_edits_quality_very_good_text">Mnogo dobra</string>
+  <string name="suggested_edits_quality_good_text">Dobra</string>
+  <string name="suggested_edits_quality_okay_text">V poredku</string>
+  <string name="suggested_edits_quality_sufficient_text">Dostatočna</string>
+  <string name="suggested_edits_quality_poor_text">Slaba</string>
+  <string name="suggested_edits_quality_bad_text">Loša</string>
+  <string name="suggested_edits_label">Prědlagajeme pravky</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Vklad</item>
+    <item quantity="few">Vklad</item>
+    <item quantity="many">Vklad</item>
+    <item quantity="other">Vklad</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Pravka</item>
+    <item quantity="few">Pravky</item>
+    <item quantity="many">Pravok</item>
+    <item quantity="other">Pravok</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d denj</item>
+    <item quantity="few">%d dnja</item>
+    <item quantity="many">%d dnjev</item>
+    <item quantity="other">%d dnjev</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Čto sut Prědlagajeme pravky?</string>
+  <string name="suggested_edits_what_is_text">Prědlagajeme pravky davajut možnost za neveliky ale sučstveny vklad v Vikipediju.</string>
+  <string name="suggested_edits_learn_more">Daljše informacije</string>
+  <string name="suggested_edits_paused_title">Zadržana</string>
+  <string name="suggested_edits_disabled_title">Izključena</string>
+  <string name="suggested_edits_ip_blocked_title">IP-adres zablokovany</string>
+  <string name="suggested_edits_last_edited">Poslědnja pravka</string>
+  <string name="suggested_edits_last_edited_never">Nikogda</string>
+  <string name="suggested_edits_task_new">Nove</string>
+  <string name="suggested_edits_cc0_notice">Publikujuči svoje izměny, vy suglašajete se s &lt;a href=\"%1$s\"&gt;uslovjami koristanja&lt;/a&gt; i bezpovratnym izpuščenjem svojego vklada pod licencijeju &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Prědlagajeme pravky</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Hvala vam za pravky v Vikipediji! Začto ne prodolžiti s města, kde jeste skončili?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Imajete li minutku za daljše ulěpšanje Vikipedije? Gledite tute prědloženja za pravjenje.</string>
+  <string name="suggested_edits_contributions_screen_title">Vklad koristnika %s</string>
+  <string name="suggested_edits_contribution_language_label">Jezyk</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / čas</string>
+  <string name="suggested_edits_contribution_type_label">Tip vklada</string>
+  <string name="suggested_edits_contribution_image_label">Obrazok</string>
+  <string name="suggested_edits_contribution_article_label">Članok</string>
+  <string name="suggested_edits_contribution_views">%s izobraženij</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Izobražena jednokratno v tečenju poslědnjih 30 dnjev.</item>
+    <item quantity="few">Izobražena %s-kratno v tečenju poslědnjih 30 dnjev.</item>
+    <item quantity="many">Izobražena %s-kratno v tečenju poslědnjih 30 dnjev.</item>
+    <item quantity="other">Izobražena %s-kratno v tečenju poslědnjih 30 dnjev.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Izobražena %s-kratno v tečenju poslědnjih 30 dnjev.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Vy jeste dodali %d tag</item>
+    <item quantity="few">Vy jeste dodali %d tagy</item>
+    <item quantity="many">Vy jeste dodali %d tagov</item>
+    <item quantity="other">Vy jeste dodali %d tagov</item>
+  </plurals>
+  <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
+  <string name="suggested_edits_encourage_account_creation_title">Znajete li vy, že vsekto može praviti Vikipediju?</string>
+  <string name="suggested_card_more_edits">Veče prědlagajemyh pravok</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Prědlagajeme opisy</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Čto vy htěli by soobčiti?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nedostatočno informacij</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne vidžu prědlagajeme opisy</string>
+  <string name="suggested_edits_inappropriate_suggestion">Neuměstno prědloženje</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Ne razuměju zadanje</string>
+  <string name="suggested_edits_report_suggestion">Soobčiti</string>
+  <string name="suggested_edits_suggestion_report_submitted">Soobčenje odpravjeno</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s tag</item>
+    <item quantity="few">%1$s tagy</item>
+    <item quantity="many">%1$s tagov</item>
+    <item quantity="other">%1$s tagov</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s znak</item>
+    <item quantity="few">%1$s znaky</item>
+    <item quantity="many">%1$s znakov</item>
+    <item quantity="other">%1$s znakov</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Vy jeste odstranili %d znak</item>
+    <item quantity="few">Vy jeste odstranili %d znaky</item>
+    <item quantity="many">Vy jeste odstranili %d znakov</item>
+    <item quantity="other">Vy jeste odstranili %d znakov</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Vy jeste dodali %d znak</item>
+    <item quantity="few">Vy jeste dodali %d znaky</item>
+    <item quantity="many">Vy jeste dodali %d znakov</item>
+    <item quantity="other">Vy jeste dodali %d znakov</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Obrazky za članky</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Dodati prědlagajeme obrazky v članky na Vikipediji za lěpše razuměnje.</string>
+  <string name="image_recommendation_task_instruction">Hočetli li vy dodati tutoj obrazok v članok?</string>
+  <string name="image_recommendation_tutorial">Provodnik</string>
+  <string name="image_recommendation_accept">Da</string>
+  <string name="image_recommendation_reject">Ne</string>
+  <string name="image_recommendation_notsure">Sumněvaju se</string>
+  <string name="image_recommendation_reject_title">Pričina odkydnenja</string>
+  <string name="image_recommendation_reject_subtitle">Pričina odkydnenja jest anonimna i ulěpši buduče prědloženja obrazkov.</string>
+  <string name="image_recommendation_reject_not_relevant">Obrazok ne jest relevantny</string>
+  <string name="image_recommendation_reject_no_info">Nedostatočno informacij za prijetje rěšenja</string>
+  <string name="image_recommendation_reject_offensive">Obrazok jest urazlivy</string>
+  <string name="image_recommendation_reject_low_quality">Obrazok imaje nizku kakost</string>
+  <string name="image_recommendation_reject_dont_know">Ja ne znaju tutoj prědmet</string>
+  <string name="image_recommendation_reject_other">Ine</string>
+  <string name="image_recommendation_reject_submit">Odpraviti</string>
 </resources>
