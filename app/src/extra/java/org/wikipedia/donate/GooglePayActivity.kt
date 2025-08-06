@@ -219,15 +219,23 @@ class GooglePayActivity : BaseActivity() {
             .build())
 
         val viewIds = mutableListOf<Int>()
-        val presets = donationConfig.currencyAmountPresets[DonateUtil.currencyCode]
-        presets?.forEach { amount ->
+        val presets = donationConfig.currencyAmountPresets[DonateUtil.currencyCode]?.toMutableSet()
+        if (viewModel.filledAmount > 0f) {
+            presets?.add(viewModel.filledAmount)
+        }
+        var filledAmountButton: MaterialButton? = null
+        presets?.sorted()?.forEach { amount ->
             val viewId = View.generateViewId()
             viewIds.add(viewId)
             val button = MaterialButton(this)
             button.text = DonateUtil.currencyFormat.format(amount)
             button.id = viewId
             button.tag = amount
+            if (amount == viewModel.filledAmount) {
+                filledAmountButton = button
+            }
             binding.amountPresetsContainer.addView(button)
+
             button.setOnClickListener {
                 setButtonHighlighted(it)
                 setAmountText(it.tag as Float)
@@ -235,7 +243,14 @@ class GooglePayActivity : BaseActivity() {
             }
         }
         binding.amountPresetsFlow.referencedIds = viewIds.toIntArray()
-        setButtonHighlighted()
+        setFilledAmountToText()
+        setButtonHighlighted(filledAmountButton)
+    }
+
+    private fun setFilledAmountToText() {
+        if (viewModel.filledAmount > 0f) {
+            setAmountText(viewModel.filledAmount)
+        }
     }
 
     private fun setButtonHighlighted(button: View? = null) {
@@ -296,11 +311,13 @@ class GooglePayActivity : BaseActivity() {
     companion object {
         private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
         private const val CAMPAIGN_ID_APP_MENU = "appmenu"
+        const val FILLED_AMOUNT = "filledAmount"
 
-        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null): Intent {
+        fun newIntent(context: Context, campaignId: String? = null, donateUrl: String? = null, filledAmount: Float = 0f): Intent {
             return Intent(context, GooglePayActivity::class.java)
                 .putExtra(DonateDialog.ARG_CAMPAIGN_ID, campaignId)
                 .putExtra(DonateDialog.ARG_DONATE_URL, donateUrl)
+                .putExtra(FILLED_AMOUNT, filledAmount)
         }
     }
 }

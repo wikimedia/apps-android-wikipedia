@@ -19,8 +19,8 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    private val MAX_ARTILCE_FREQUENCY_LIMIT = 1000
-    private val MIN_ARTILCE_FREQUENCY_LIMIT = 1
+    private val maxArticleFrequencyLimit = 1000
+    private val minArticleFrequencyLimit = 1
     val isFromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
 
     private val _uiState = MutableStateFlow(DonationReminderUiState())
@@ -31,6 +31,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     fun loadData() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
+            _uiState.update { it.copy(isLoading = false, error = throwable) }
         }) {
             val readFrequencyOptions = createReadFrequencyOptions()
             val donationAmountOptions = createDonationAmountOptions()
@@ -38,7 +39,9 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 it.copy(
                     readFrequency = readFrequencyOptions,
                     donationAmount = donationAmountOptions,
-                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled
+                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled,
+                    isLoading = false,
+                    error = null
                 )
             }
         }
@@ -54,17 +57,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
-    fun getThankYouMessage(): String {
-        val context = WikipediaApp.instance
-        val donationAmount =
-            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-        val readFrequency = Prefs.donationReminderConfig.articleFrequency
-        val articleNumber = context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
-            readFrequency, readFrequency)
-        val message = context.getString(R.string.donation_reminders_snacbkbar_confirmation_label, donationAmount, articleNumber)
-        return message
-    }
-
     fun updateDonationAmountState(donationAmount: Float) {
         _uiState.update { it.copy(donationAmount = it.donationAmount.copy(selectedValue = donationAmount)) }
     }
@@ -75,6 +67,12 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun toggleDonationReminders(enabled: Boolean) {
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
+        if (enabled) {
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
+                initialPromptActive = false,
+                finalPromptActive = false
+            )
+        }
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
 
@@ -92,8 +90,8 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         return SelectableOption(
             selectedValue,
             optionItems,
-            minimumAmount = MIN_ARTILCE_FREQUENCY_LIMIT,
-            maximumAmount = MAX_ARTILCE_FREQUENCY_LIMIT,
+            minimumAmount = minArticleFrequencyLimit,
+            maximumAmount = maxArticleFrequencyLimit,
             displayFormatter = {
                 context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
                     it, it)
@@ -149,7 +147,9 @@ data class DonationReminderUiState(
         options = emptyList(),
         maximumAmount = 0f,
         minimumAmount = 0f
-    )
+    ),
+    val isLoading: Boolean = true,
+    val error: Throwable? = null
 )
 
 sealed class OptionItem<T : Number>(val displayText: String) {

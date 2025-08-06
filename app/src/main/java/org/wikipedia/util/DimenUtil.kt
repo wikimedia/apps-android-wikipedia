@@ -115,7 +115,11 @@ object DimenUtil {
     }
 
     fun leadImageHeightForDevice(context: Context): Int {
-        return if (isLandscape(context)) (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt() else (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+        return (if (isLandscape(context)) {
+            (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt()
+        } else {
+            (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+        })
     }
 
     private fun articleHeaderViewScreenHeightRatio(): Float {
