@@ -22,7 +22,7 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
 
-    const val MAX_INITIAL_REMINDER_PROMPTS = 5
+    const val MAX_INITIAL_REMINDER_PROMPTS = 2
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
@@ -168,7 +168,7 @@ object DonationReminderHelper {
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions two times
-                    if (Prefs.donationReminderConfig.finalPromptCount == -1) {
+                    if (Prefs.donationReminderConfig.finalPromptCount >= MAX_REMINDER_PROMPTS) {
                         showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
                     }
                 }
@@ -178,7 +178,7 @@ object DonationReminderHelper {
 
         // User has not taken any action on the initial prompt
         // Show survey on next article visit if this continues for continuous 5 times
-        if (Prefs.donationReminderConfig.initialPromptCount == -1) {
+        if (Prefs.donationReminderConfig.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
             showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
             return
         }
