@@ -16,11 +16,15 @@
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_voice_search">Pretraga glasom</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
+  <string name="search_back_button_content_description">Nazad</string>
+  <string name="search_clear_query_content_description">Obriši upit</string>
+  <string name="search_icon_content_description">Pretraga</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje liste</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
   <string name="nav_item_more">Više</string>
   <string name="nav_item_search">Traži</string>
-  <string name="error_network_error">Ne mogu se povezati sa svemrežjem.</string>
+  <string name="nav_item_contribute">Doprinesite</string>
+  <string name="error_network_error">Nije moguće povezati se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
   <string name="storage_access_error_retry">Pokušaj ponovo</string>
@@ -55,7 +59,7 @@
   <string name="page_edit_history_filter_by">Filtriraj po</string>
   <string name="page_edit_history_filter_by_all">Sve izmjene (%s)</string>
   <string name="page_edit_history_filter_by_user">Korisničke izmjene (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Anonimne izmjene (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Izmjene neprijavljenih (%s)</string>
   <string name="page_edit_history_filter_by_bot">Izmjene botova (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrika od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -96,6 +100,7 @@
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_page_archive">Arhiva</string>
   <string name="menu_long_press_open_page">Otvori</string>
+  <string name="menu_long_press_open_in_places">Otvori u Mjestima</string>
   <string name="menu_long_press_open_in_new_tab">Otvori novu karticu</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu veze</string>
   <string name="menu_text_select_define">U rječnik</string>
@@ -120,12 +125,15 @@
   <string name="langlinks_your_wikipedia_languages">Vaši jezici Wikipedije</string>
   <string name="menu_save_changes">Objavi promjene</string>
   <string name="edit_saved_successfully">Izmjena je objavljena!</string>
+  <string name="stub_article_edit_saved_successfully">Izmjena je objavljena. Trebat će neko vrijeme da postane vidljiva.</string>
   <string name="dialog_message_edit_failed">Uređivanje nije uspelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
   <string name="dialog_message_edit_failed_cancel">Otkaži</string>
   <string name="dialog_message_leaving_edit">Vaše promjene još uvijek nisu objavljene. Želite li zaista da napustite ovu stranicu?</string>
   <string name="dialog_message_leaving_edit_leave">Napusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Izbriši</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Otkaži</string>
   <string name="menu_show_toc">Sadržaj</string>
   <string name="search_no_results_found">Nisam ništa našao</string>
   <string name="search_reading_list_no_results">Nisam pronašao ništa za \"%s\"</string>
@@ -253,6 +261,7 @@
   <string name="edit_undo">Vrati</string>
   <string name="edit_redo">Ponovi</string>
   <string name="edit_rollback">Vraćanje</string>
+  <string name="edit_warn">Upozori</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bajt</item>
     <item quantity="few">%s bajta</item>
@@ -353,10 +362,25 @@
   <string name="button_add_to_reading_list">Dodaj na listu za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
   <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na listu za čitanje i bit će preuzet čim se ponovo povežete.</string>
+  <string name="error_message_generic">Došlo je do greške</string>
+  <string name="view_link_preview_error_button_dismiss">Odbaci</string>
+  <string name="link_preview_dialog_read_button">Prikaži</string>
+  <string name="link_preview_dialog_save_button">Sačuvaj</string>
+  <string name="link_preview_dialog_saved_button">Sačuvano</string>
+  <string name="link_preview_dialog_share_button">Podijeli</string>
+  <string name="view_wiki_error_message_offline">Nije moguće povezati se na internet</string>
+  <string name="reference_title">Referenca %s</string>
+  <string name="reference_list_title">Reference</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="reading_lists_preview_save_button">Sačuvaj</string>
   <string name="reading_lists_preview_save_dialog_cancel">Otkaži</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Otkaži</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">U redu</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Otkaži</string>
+  <string name="feed_accessibility_card_text">Došli ste do kraja dotoka.</string>
+  <string name="feed_accessibility_card_load_more_button">Učitaj još</string>
   <string name="wikitext_underline">Podvučeno</string>
   <string name="wikitext_strikethrough">Precrtano</string>
   <string name="wikitext_sup">Eksponent</string>
@@ -365,7 +389,7 @@
   <string name="wikitext_formatting">Formatiranje</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Promijeni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajno</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 sedmica</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 sedmica</string>
   <string name="watchlist_expiry_dialog_permanent">Trajno</string>
   <string name="watchlist_expiry_dialog_one_week">1 sedmica</string>
   <string name="watchlist_filter_all">Sve</string>

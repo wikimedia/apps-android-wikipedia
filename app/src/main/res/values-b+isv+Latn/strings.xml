@@ -1061,6 +1061,9 @@
   <string name="suggested_edits_contributions_stat_tooltip">Totalna kolikost vaših pravok dotud.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Koliko dnjev pod red vy jeste vnosili vklad. Ako vy od někakogo časa ne jeste dělali nijednu pravku, pokazyvaje se data vašej poslědnjej pravky.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Cělkovita kolikost izobraženij stranic, ktore vy jeste pravili v tečenju poslědnjih 30 dnjev.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Osnovano na tom, kolikokratno vaše pravky byli odčinjene drugym redaktorom. Kolikost odčinjenyh pravok: %d.</string>
+  <string name="suggested_edits_paused_message">Prědlagajeme pravky sut zadržane do %1$s. Izvinite %2$s, ale někoje iz vaših poslědnjih pravok byli odčinjene.</string>
+  <string name="suggested_edits_disabled_message">Prědlagajeme pravky sut izključene. Izvinite %s, ale prěmnogo iz vaših poslědnjih pravok bylo odčinjenyh.</string>
   <string name="suggested_edits_ip_blocked_message">Izgledaje, kako že vašemu IP-adresu (ili obsegu IP-adresov) pravjenje Vikipedije nyně jest zablokovano.</string>
   <string name="suggested_edits_gate_message">Izvinite, %s, da byste mogli koristati tutu funkciju, trěba, že sdělajete minimalno tri pravjenja v jednom članku.</string>
   <string name="suggested_edits_editing_tips_link_text">Sověty i prěporuky za pravjenje</string>
@@ -1130,6 +1133,10 @@
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
   <string name="suggested_edits_encourage_account_creation_title">Znajete li vy, že vsekto može praviti Vikipediju?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Prědlagajeme pravky sut novy sposob pravjenja Vikipedije na Androidu. One pomogut vami vnesti neveliky ale sučstveny vklad v Vikipediju.\nNaš cělj jest, že pravjenje bude legče i pristupnějše za vsih! Prijavite ili priključite se v Vikipediju i začnite.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Prijavite se / prisjedinite se do Vikipedije</string>
+  <string name="suggested_edits_contribution_type_image_tag">Značek obrazka</string>
+  <string name="suggested_edits_contribution_current_revision_text">Vaša pravka jest nyně vidima na Vikipediji</string>
   <string name="suggested_card_more_edits">Veče prědlagajemyh pravok</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Prědlagajeme opisy</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Čto vy htěli by soobčiti?</string>
@@ -1179,4 +1186,7 @@
   <string name="image_recommendation_reject_dont_know">Ja ne znaju tutoj prědmet</string>
   <string name="image_recommendation_reject_other">Ine</string>
   <string name="image_recommendation_reject_submit">Odpraviti</string>
+  <string name="image_recommendation_tooltip_main">Dodajte odsutne obrazky v članky v razdělu «Prědlagajeme pravky»</string>
+  <string name="image_recommendation_onboarding_1">Obrazky pomagajut ljudam srazuměti, ale v mnogyh člankah jih nemaje.</string>
+  <string name="image_recommendation_onboarding_2">Vy sami rěšite, trěba li uměstiti prědloženy obrazok v članok Vikipedije.</string>
 </resources>
