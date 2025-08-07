@@ -2026,7 +2026,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Нагадування про пожертви можна змінити будь-коли в налаштуваннях.</string>
   <string name="donation_settings_section_header">Пожертви</string>
   <string name="donation_reminders_settings_title">Нагадування про пожертви</string>
-  <string name="donation_reminders_settings_thank_you_message">Приєднуйтесь до 2% читачів, які жертвують скільки можуть, щоб Вікіпедія була безкоштовною, актуальною та доступною для всіх. Налаштуйте нагадування про пожертву зараз.</string>
+  <string name="donation_reminders_settings_thank_you_message">Приєднуйтесь до 2%% читачів, які жертвують скільки можуть, щоб Вікіпедія була безкоштовною, актуальною та доступною для всіх. Налаштуйте нагадування про пожертву зараз.</string>
   <string name="donation_reminders_settings_donation_info">Пожертви надходять до Фонду Вікімедіа та його афілійованих організацій, які мають честь уможливлювати існування Вікіпедії та її дочірніх сайтів.</string>
   <string name="donation_reminders_settings_article_frequency_label">Коли я читаю</string>
   <string name="donation_reminders_settings_amount_label">Нагадати мені зробити пожертву</string>
