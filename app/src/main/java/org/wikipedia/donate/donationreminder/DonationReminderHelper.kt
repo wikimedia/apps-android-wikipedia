@@ -1,14 +1,10 @@
 package org.wikipedia.donate.donationreminder
 
 import android.app.Activity
-import android.view.View
 import android.widget.ScrollView
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.serialization.Serializable
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -165,12 +161,12 @@ object DonationReminderHelper {
             when (userGroup) {
                 "A" -> {
                     // Group A: Show survey on next article visit after setting up reminder
-                    showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
+                    showFeedbackOptionsDialog(activity)
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions two times
                     if (config.finalPromptCount >= MAX_REMINDER_PROMPTS) {
-                        showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
+                        showFeedbackOptionsDialog(activity)
                     }
                 }
             }
@@ -180,7 +176,7 @@ object DonationReminderHelper {
         // User has not taken any action on the initial prompt
         // Show survey on next article visit if this continues for continuous 5 times
         if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            showFeedbackOptionsDialog(activity, Constants.InvokeSource.PAGE_ACTIVITY)
+            showFeedbackOptionsDialog(activity)
             return
         }
     }
@@ -189,35 +185,44 @@ object DonationReminderHelper {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
 
-    private fun showFeedbackOptionsDialog(activity: Activity, invokeSource: Constants.InvokeSource) {
-        var dialog: AlertDialog? = null
+    private fun showFeedbackOptionsDialog(activity: Activity) {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
         binding.messageText.text = activity.getString(R.string.donation_reminders_survey_dialog_message)
         binding.feedbackInputContainer.isVisible = true
+
+        val dialog = AlertDialog.Builder(activity)
+            .setView(binding.root)
+            .setCancelable(false)
+            .create()
+
+        binding.cancelButton.setOnClickListener { dialog.dismiss() }
+        binding.submitButton.setOnClickListener {
+            val selectedOption = getSelectedOption(binding)
+            val feedbackText = binding.feedbackInput.text.toString()
+            // send analysis
+            dialog.dismiss()
+        }
+
         binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
+            if (hasFocus && !activity.isDestroyed) {
                 binding.dialogContainer.postDelayed({
                     binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
                 }, 200)
             }
         }
-
-        val clickListener = View.OnClickListener {
-            val feedbackOption = (it as TextView).text.toString()
-            dialog?.dismiss()
-        }
-        binding.optionSatisfied.setOnClickListener(clickListener)
-        binding.optionNeutral.setOnClickListener(clickListener)
-        binding.optionUnsatisfied.setOnClickListener(clickListener)
-        binding.cancelButton.setOnClickListener { dialog?.dismiss() }
-        binding.submitButton.setOnClickListener(clickListener)
-
-        val dialogBuilder = MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_AdjustResize)
-            .setCancelable(false)
-            .setView(binding.root)
-        dialog = dialogBuilder.show()
+        dialog.show()
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
+    }
+
+    private fun getSelectedOption(binding: DialogFeedbackOptionsBinding): Int? {
+        val selectedId = binding.feedbackRadioGroup.checkedRadioButtonId
+        return when (selectedId) {
+            R.id.optionSatisfied -> 1
+            R.id.optionNeutral -> 2
+            R.id.optionUnsatisfied -> 3
+            else -> null
+        }
     }
 }
 
