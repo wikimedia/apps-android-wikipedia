@@ -1,7 +1,9 @@
 package org.wikipedia.games.db
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 
 @Entity
 data class DailyGameHistory(
@@ -14,4 +16,7 @@ data class DailyGameHistory(
     var score: Int,
     var playType: Int,
     var gameData: String?
-)
+) {
+    @Ignore
+    val date: LocalDate = LocalDate.of(year, month, day)
+}
