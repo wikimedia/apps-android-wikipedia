@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -64,6 +65,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -74,6 +76,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
@@ -232,6 +235,10 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { readFrequency ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = "reminder_config",
+                                action = "freq_change_click"
+                            )
                             viewModel.updateReadFrequencyState(readFrequency.toInt())
                             showReadFrequencyCustomDialog = false
                         }
@@ -280,6 +287,10 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = "reminder_config",
+                                action = "amount_change_click"
+                            )
                             viewModel.updateDonationAmountState(amount.toFloat())
                             showDonationAmountCustomDialog = false
                         }
@@ -316,6 +327,12 @@ fun DonationReminderContent(
                     .padding(top = 16.dp),
                 isFromSettings = viewModel.isFromSettings,
                 onConfirmBtnClick = {
+                    // @TODO: MARK_INSTRUMENTATION add remaining action data
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_config",
+                        action = "reminder_confirm_click",
+                        defaultMilestone = viewModel.hasDefaultValues()
+                    )
                     viewModel.toggleDonationReminders(true)
                     viewModel.saveReminder()
                     val message = DonationReminderHelper.thankYouMessageForSettings()
@@ -696,7 +713,19 @@ fun CustomInputDialog(
                     prefix = prefix,
                     suffix = suffix,
                     textStyle = MaterialTheme.typography.bodyLarge,
-                    keyboardOptions = KeyboardOptions(keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword,
+                        imeAction = ImeAction.Send
+                    ),
+                    keyboardActions = KeyboardActions(
+                        onSend = {
+                            if (value.isEmpty()) {
+                                onValueChange("")
+                                return@KeyboardActions
+                            }
+                            onDoneClick(value)
+                        }
+                    ),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedTextColor = WikipediaTheme.colors.primaryColor,
                         focusedBorderColor = MaterialTheme.colorScheme.outline,

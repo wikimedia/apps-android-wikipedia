@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.GooglePayComponent
@@ -47,7 +48,20 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
+    fun hasDefaultValues(): Boolean {
+        return Prefs.donationReminderConfig.donateAmount == 0f && Prefs.donationReminderConfig.articleFrequency == 0
+    }
+
     fun saveReminder() {
+        // @TODO: MARK_INSTRUMENTATION the logic can move from here and also update articleFrequency, donateAmount after confirming with data
+        val config = Prefs.donationReminderConfig
+        DonorExperienceEvent.logDonationReminderAction(
+            activeInterface = "global_setting",
+            action = "reminder_confirm_click",
+            defaultMilestone = hasDefaultValues(),
+            articleFrequency = config.articleFrequency,
+            donateAmount = config.donateAmount
+        )
         with(_uiState.value) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 donateAmount = donationAmount.selectedValue,
@@ -71,6 +85,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 initialPromptActive = false,
                 finalPromptActive = false
+            )
+        } else {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "global_setting",
+                action = "reminder_set_off"
             )
         }
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }

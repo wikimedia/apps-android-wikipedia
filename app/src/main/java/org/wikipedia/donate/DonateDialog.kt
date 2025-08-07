@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -34,6 +35,9 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
 
         binding.donateOtherButton.setOnClickListener {
+            if (DonationReminderHelper.isEnabled) {
+                DonorExperienceEvent.logAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = "app_reminder_Android")
+            }
             DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             onDonateClicked()
         }
@@ -110,11 +114,22 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
+            // @TODO: MARK_INSTRUMENTATION, update action after confirming with data
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "gpay_click",
+                campaignId = "app_reminder_Android"
+            )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "other_gpay_click",
+                campaignId = "app_reminder_Android"
+            )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity()))
         }
