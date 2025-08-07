@@ -2,11 +2,13 @@ package org.wikipedia.page.leadimages
 
 import android.net.Uri
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.parcelize.Experimental
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -20,12 +22,17 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
@@ -57,11 +64,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     // PageProperties' URL.
     private val leadImageUrl: String?
         get() {
-            val url = page?.run { pageProperties.leadImageUrl } ?: return null
-            title?.let {
+            return title?.let {
                 // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
                 // PageProperties' URL.
-                val fullUri = Uri.parse(url)
+                val url = page?.run { pageProperties.leadImageUrl } ?: return@let null
+                val fullUri = url.toUri()
                 var scheme: String? = it.wikiSite.scheme()
                 var authority: String? = it.wikiSite.authority()
                 if (fullUri.scheme != null) {
@@ -75,10 +82,13 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     .authority(authority)
                     .path(fullUri.path)
                     .toString()
-            } ?: return null
+            }
         }
 
-    val topMargin get() = DimenUtil.roundedPxToDp((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat())
+    val topMargin get() = DimenUtil.roundedPxToDp(
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
+                getDonationReminderCardViewHeight(true)
+    )
     val callToActionEditLang get() =
         if (callToActionIsTranslation) callToActionTargetSummary?.pageTitle?.wikiSite?.languageCode else callToActionSourceSummary?.pageTitle?.wikiSite?.languageCode
 
@@ -195,7 +205,34 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     }
                 }
             }
+
+            @Experimental
+            override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
+                hideDonationReminderCard()
+                if (isInitialPrompt) {
+                    activity.startActivity(DonationReminderActivity.newIntent(activity))
+                } else {
+                    ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
+                }
+            }
+
+            @Experimental
+            override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
+                hideDonationReminderCard()
+                if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
+                    FeedbackUtil.showMessage(
+                        parentFragment,
+                        R.string.donation_reminders_prompt_dismiss_snackbar
+                    )
+                }
+            }
         }
+    }
+
+    private fun hideDonationReminderCard() {
+        pageHeaderView.hideDonationReminderCard()
+        loadLeadImage()
+        parentFragment.refreshPage()
     }
 
     fun hide() {
@@ -204,6 +241,21 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
     fun refreshCallToActionVisibility() {
         pageHeaderView.refreshCallToActionVisibility()
+    }
+
+    fun getDonationReminderCardViewHeight(adjustBottomMargin: Boolean = false): Int {
+        if (pageHeaderView.donationReminderCardViewHeight == 0) {
+            return 0
+        }
+        return pageHeaderView.donationReminderCardViewHeight - if (adjustBottomMargin) {
+            if (DimenUtil.isLandscape(activity) || !isLeadImageEnabled) {
+                DimenUtil.roundedDpToPx(64f)
+            } else {
+                DimenUtil.roundedDpToPx(24f)
+            }
+        } else {
+            0
+        }
     }
 
     fun loadLeadImage() {

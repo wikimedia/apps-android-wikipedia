@@ -47,26 +47,36 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is Resource.Loading -> {
-                            binding.progressBar.isVisible = true
-                            binding.contentsContainer.isVisible = false
-                        }
-                        is Resource.Error -> {
-                            binding.progressBar.isVisible = false
-                            FeedbackUtil.showMessage(this@DonateDialog, it.throwable.localizedMessage.orEmpty())
-                        }
-                        is Resource.Success -> {
-                            // if Google Pay is not available, then bounce right out to external workflow.
-                            if (!it.data) {
-                                onDonateClicked()
-                                return@collect
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.contentsContainer.isVisible = false
                             }
-                            binding.progressBar.isVisible = false
-                            binding.contentsContainer.isVisible = true
+
+                            is Resource.Error -> {
+                                binding.progressBar.isVisible = false
+                                FeedbackUtil.showMessage(
+                                    this@DonateDialog,
+                                    it.throwable.localizedMessage.orEmpty()
+                                )
+                            }
+
+                            is Resource.Success -> {
+                                // if Google Pay is not available, then bounce right out to external workflow.
+                                if (!it.data) {
+                                    onDonateClicked()
+                                    return@collect
+                                }
+                                binding.progressBar.isVisible = false
+                                binding.contentsContainer.isVisible = true
+                            }
                         }
                     }
+                }
+                if (arguments?.getBoolean(ARG_FROM_DONATION_REMINDER) == true) {
+                    setupDirectGooglePayButton()
                 }
             }
         }
@@ -93,15 +103,35 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
+    private fun setupDirectGooglePayButton() {
+        val donateAmount = Prefs.donationReminderConfig.donateAmount
+        val donateAmountText =
+            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+        val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
+        binding.donateGooglePayButton.text = donateButtonText
+        binding.donateGooglePayButton.setOnClickListener {
+            (requireActivity() as? BaseActivity)?.launchDonateActivity(
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
+        }
+        binding.donateGooglePayDifferentAmountButton.isVisible = true
+        binding.donateGooglePayDifferentAmountButton.setOnClickListener {
+            (requireActivity() as? BaseActivity)?.launchDonateActivity(
+                GooglePayComponent.getDonateActivityIntent(requireActivity()))
+        }
+        binding.gPayHeaderContainer.isVisible = false
+    }
+
     companion object {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
+        const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null): DonateDialog {
+        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false): DonateDialog {
             return DonateDialog().apply {
                 arguments = bundleOf(
                     ARG_CAMPAIGN_ID to campaignId,
-                    ARG_DONATE_URL to donateUrl
+                    ARG_DONATE_URL to donateUrl,
+                    ARG_FROM_DONATION_REMINDER to fromDonationReminder
                 )
             }
         }
