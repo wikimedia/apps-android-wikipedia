@@ -164,8 +164,8 @@ object DonationReminderHelper {
                     showFeedbackOptionsDialog(activity)
                 }
                 "B" -> {
-                    // Group B: Show survey on the next article visit after seeing reminder impressions two times
-                    if (config.finalPromptCount >= MAX_REMINDER_PROMPTS) {
+                    // Group B: Show survey on the next article visit after seeing reminder impressions
+                    if (config.finalPromptCount >= 1) {
                         showFeedbackOptionsDialog(activity)
                     }
                 }
