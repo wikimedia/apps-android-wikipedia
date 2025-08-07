@@ -255,6 +255,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
+
+        // adding this here, so that this call would always be before any donation reminder config updates
+        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -926,6 +929,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
         maybeShowAnnouncement()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)

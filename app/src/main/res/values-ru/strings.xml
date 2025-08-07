@@ -521,7 +521,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Настройте свою панель инструментов</string>
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
-  <string name="temp_account_anon_ip_dialog_body">После создания правки ваш IP-адрес будет связан с вашими правками.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы сохранять историю будущих правок и получить доступ к другим функциям.</string>
+  <string name="temp_account_anon_ip_dialog_body">После сохранения правки ваш IP-адрес будет виден всем в истории изменений страницы.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы сохранять историю будущих правок и получить доступ к другим функциям.</string>
   <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
   <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
@@ -1765,6 +1765,7 @@
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
   <string name="donate_gpay_dialog_title">Пожертвовать через Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Сделайте пожертвование через Google Pay или выберите другой способ оплаты.</string>
   <string name="donate_gpay_dialog_pay_button">Пожертвовать через Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Другой способ оплаты</string>
   <string name="donate_gpay_activity_title">Выберите сумму</string>
@@ -1800,6 +1801,7 @@
   <string name="on_this_day_game_entry_dialog_title">Введение</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Игры Википедии</string>
   <string name="on_this_day_game_entry_dialog_button">Сыграть в сегодняшнюю игру</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Игры Википедии доступны в ленте</string>
   <string name="on_this_day_game_title">Что произошло раньше?</string>
   <string name="on_this_day_game_dialog_button">Играть</string>
   <string name="on_this_day_game_splash_message">Угадайте, какое событие произошло первым в истории в этот день.</string>
@@ -1813,6 +1815,7 @@
   <string name="on_this_day_game_finish">Финальный результат</string>
   <string name="on_this_day_game_share_button">Поделиться</string>
   <string name="on_this_day_game_pause_title">Поставить игру на паузу?</string>
+  <string name="on_this_day_game_pause_body">Ваши результаты будут сохранёны на сегодня. В дальнейшем вы можете вернуться к игре через свою ленту.</string>
   <string name="on_this_day_game_pause_negative">Продолжить играть</string>
   <string name="on_this_day_game_pause_positive">Понятно</string>
   <string name="on_this_day_game_feed_entry_card_heading">Игры Википедии</string>
@@ -1821,6 +1824,7 @@
   <string name="on_this_day_game_next_in">Следующая игра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
   <string name="on_this_day_game_stats_average_score">Средний балл</string>
+  <string name="on_this_day_game_stats_streak">Текущая серия</string>
   <string name="on_this_day_game_result_subtitle">Статьи, упомянутые в сегодняшней игре</string>
   <string name="on_this_day_game_completed_message">Спасибо, что играли. Новая игра \"Что было первым?\" доступна ежедневно в ленте</string>
   <string name="on_this_day_game_menu_notifications">Уведомления об игре</string>
@@ -1874,6 +1878,12 @@
   <string name="recommended_reading_list_interest_pick_title">Что вас интересует?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Поиск статьи</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Отменить</string>
+  <string name="recommended_reading_list_page_snackbar_day">День</string>
+  <string name="recommended_reading_list_page_snackbar_week">Неделя</string>
+  <string name="recommended_reading_list_page_snackbar_month">Месяц</string>
   <string name="recommended_reading_list_settings_section_header">Рекомендации</string>
   <string name="recommended_reading_list_settings_toggle">Список для чтения</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Начать</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Не сейчас</string>
+  <string name="donation_reminders_prompt_negative_button">Не сейчас</string>
 </resources>
