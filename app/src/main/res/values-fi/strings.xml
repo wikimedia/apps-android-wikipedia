@@ -294,7 +294,7 @@
   <string name="edit_abandon_confirm_no">Ei</string>
   <string name="user_blocked_from_editing_title">Estetty</string>
   <string name="user_logged_in_blocked_from_editing">Käyttäjätunnuksesi on estetty tässä wikissä.</string>
-  <string name="user_anon_blocked_from_editing">IP-osoitteesi on estetty.</string>
+  <string name="user_anon_blocked_from_editing">IP-osoitteellesi on asetettu muokkausesto.</string>
   <string name="edit_how_page_improved">Miten paransit sivua?</string>
   <string name="edit_next">Seuraava</string>
   <string name="edit_done">Julkaise</string>
@@ -423,6 +423,7 @@
   <string name="preference_title_collapse_tables">Supista taulukot</string>
   <string name="preference_summary_collapse_tables">Supista taulukot automaattisesti artikkeleissa, kuten tietolaatikot, viitteet ja huomautukset.</string>
   <string name="nav_item_donate">Lahjoita</string>
+  <string name="nav_item_year_in_review">Vuosikatsaus</string>
   <string name="error_voice_search_not_available">Pahoittelut, puheentunnistus ei ole käytettävissä.</string>
   <string name="location_service_disabled">Sijaintipalvelut eivät ole käytössä.</string>
   <string name="enable_location_service">Ota käyttöön</string>
@@ -1776,6 +1777,7 @@
   <string name="year_in_review_donate">Lahjoita</string>
   <string name="year_in_review_information_icon">Tietoa-kuvake</string>
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
+  <string name="year_in_review_entry_dialog_continue">Jatka</string>
   <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
   <string name="recommended_reading_list_title">Löydä artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_title">Löydä juuri sinulle valittuja artikkeleita</string>
