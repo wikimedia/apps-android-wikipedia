@@ -5,6 +5,7 @@
 * Dbrant
 * Violetova
 * Vlad5250
+* Wrai
 * Монтехристо
 -->
 <resources>
@@ -1901,6 +1902,8 @@
   <string name="donation_reminders_settings_confirm_btn_label">Потврди го потсетникот</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">За овој опит</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">статии</string>
+  <string name="donation_reminders_settings_warning_min_amount">Внесете барем %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Дозволено е највеќе %s</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
   <string name="donation_reminders_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
   <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
