@@ -58,11 +58,11 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
             val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
             val startDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode] ?: return@launch
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
-            showArchiveCalendar(startDate, onDateSelected = ::handleDateSelection)
+            showArchiveCalendar(startDate)
         }
     }
 
-    private fun showArchiveCalendar(startDate: LocalDate, onDateSelected: (Long) -> Unit) {
+    private fun showArchiveCalendar(startDate: LocalDate) {
         val startInstant = startDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
         val startTimeInMillis = startInstant.toEpochMilli()
         val endInstant = Instant.now()
@@ -90,7 +90,7 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
             .setSelection(endTimeInMillis)
             .build()
             .apply {
-                addOnPositiveButtonClickListener(onDateSelected)
+                addOnPositiveButtonClickListener(::handleDateSelection)
             }
 
         datePicker.show(childFragmentManager, "datePicker")
