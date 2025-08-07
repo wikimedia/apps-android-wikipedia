@@ -205,9 +205,11 @@ object DonationReminderHelper {
         }
 
         binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus && !activity.isDestroyed) {
+            if (hasFocus) {
                 binding.dialogContainer.postDelayed({
-                    binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    if (!activity.isDestroyed) {
+                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
                 }, 200)
             }
         }
