@@ -221,6 +221,11 @@ fun DonationReminderContent(
                     onOptionSelected = { option ->
                         when (option) {
                             is OptionItem.Preset -> {
+                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = activeInterface,
+                                    action = "freq_change_click"
+                                )
                                 viewModel.updateReadFrequencyState(option.value)
                             }
 
@@ -235,8 +240,9 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { readFrequency ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
                             DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = "reminder_config",
+                                activeInterface = activeInterface,
                                 action = "freq_change_click"
                             )
                             viewModel.updateReadFrequencyState(readFrequency.toInt())
@@ -277,6 +283,11 @@ fun DonationReminderContent(
                     onOptionSelected = { option ->
                         when (option) {
                             is OptionItem.Preset -> {
+                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = activeInterface,
+                                    action = "amount_change_click"
+                                )
                                 viewModel.updateDonationAmountState(option.value)
                             }
 
@@ -287,8 +298,9 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
                             DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = "reminder_config",
+                                activeInterface = activeInterface,
                                 action = "amount_change_click"
                             )
                             viewModel.updateDonationAmountState(amount.toFloat())
@@ -327,12 +339,6 @@ fun DonationReminderContent(
                     .padding(top = 16.dp),
                 isFromSettings = viewModel.isFromSettings,
                 onConfirmBtnClick = {
-                    // @TODO: MARK_INSTRUMENTATION add remaining action data
-                    DonorExperienceEvent.logDonationReminderAction(
-                        activeInterface = "reminder_config",
-                        action = "reminder_confirm_click",
-                        defaultMilestone = viewModel.hasDefaultValues()
-                    )
                     viewModel.toggleDonationReminders(true)
                     viewModel.saveReminder()
                     val message = DonationReminderHelper.thankYouMessageForSettings()

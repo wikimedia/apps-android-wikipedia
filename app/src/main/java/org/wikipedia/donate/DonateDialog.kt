@@ -36,7 +36,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.donateOtherButton.setOnClickListener {
             if (DonationReminderHelper.isEnabled) {
-                DonorExperienceEvent.logAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = "app_reminder_Android")
+                DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = "app_reminder_Android")
             }
             DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             onDonateClicked()

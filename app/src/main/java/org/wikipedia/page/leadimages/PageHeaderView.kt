@@ -206,6 +206,13 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 action = "impression"
             )
         }
+
+        if (canShowFinalDonationReminder) {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "impression"
+            )
+        }
         binding.donationReminderCardView.isVisible = canShowInitialDonationReminder || canShowFinalDonationReminder
     }
 }
