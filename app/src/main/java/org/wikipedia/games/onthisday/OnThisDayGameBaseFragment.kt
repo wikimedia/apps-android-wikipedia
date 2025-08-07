@@ -56,7 +56,7 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
     protected fun prepareAndOpenArchiveCalendar(viewModel: OnThisDayGameViewModel) {
         lifecycleScope.launch {
             val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val startDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode]!!
+            val startDate = startDateBasedOnLanguage[viewModel.wikiSite.languageCode] ?: return@launch
             scoreData = viewModel.getDataForArchiveCalendar(language = viewModel.wikiSite.languageCode)
             showArchiveCalendar(startDate, onDateSelected = ::handleDateSelection)
         }
