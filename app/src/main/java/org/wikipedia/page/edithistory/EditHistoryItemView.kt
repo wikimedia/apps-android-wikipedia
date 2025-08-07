@@ -17,6 +17,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import kotlin.time.ExperimentalTime
 
 class EditHistoryItemView(context: Context) : FrameLayout(context) {
     interface Listener {
@@ -70,7 +71,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             StringUtil.setHighlightedAndBoldenedText(binding.editHistoryTitle, historyTitle, currentQuery)
         }
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, itemRevision.user, currentQuery)
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, DateUtil.iso8601DateParse(itemRevision.timeStamp))
+        @OptIn(ExperimentalTime::class)
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, itemRevision.timestamp)
     }
 
     fun setSelectedState(selectedState: Int) {

@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
@@ -16,6 +15,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import kotlin.time.ExperimentalTime
 
 class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     val binding = ItemSuggestedEditsRecentEditsBinding.inflate(LayoutInflater.from(context), this, true)
@@ -38,7 +38,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         }
     }
 
-    @Suppress("KotlinConstantConditions")
+    @OptIn(ExperimentalTime::class)
     fun setItem(item: MwQueryResult.RecentChange, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false
@@ -59,7 +59,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.tagsText.setTypeface(Typeface.SANS_SERIF, if (isTagsEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.tagsText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isTagsEmpty) R.attr.secondary_color else R.attr.primary_color))
-        StringUtil.setHighlightedAndBoldenedText(binding.timeText, DateUtil.getTimeString(context, item.parsedDateTime), currentQuery)
+        StringUtil.setHighlightedAndBoldenedText(binding.timeText, DateUtil.getTimeString(context, item.timestamp), currentQuery)
         binding.userNameText.text = item.user
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.user, currentQuery)
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
