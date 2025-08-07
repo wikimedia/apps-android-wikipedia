@@ -17,9 +17,11 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
-import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import java.time.temporal.ChronoUnit
-import java.util.Date
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
@@ -39,7 +41,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var totalPageviews = 0L
     var totalContributions = 0
     var homeContributions = 0
-    var latestEditDate = Date()
+    var latestEditDate = LocalDate.now()
     var latestEditStreak = 0
     var revertSeverity = 0
 
@@ -86,10 +88,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             homeSiteResponse.query?.userInfo?.let {
                 // T371442: In the case of Igbo Wikipedia, allow patrolling if the user has 500 or more edits, and 30 days of tenure.
                 // For all other wikis, allow patrolling if the user has rollback rights or is an admin.
-                if (WikipediaApp.instance.wikiSite.languageCode == "ig") {
-                    allowToPatrolEdits = it.editCount >= 500 && it.registrationDate.toInstant().plus(30, ChronoUnit.DAYS).isBefore(Instant.now())
+                allowToPatrolEdits = if (WikipediaApp.instance.wikiSite.languageCode == "ig") {
+                    it.editCount >= 500 && it.registrationDate.plusDays(30) < LocalDate.now()
                 } else {
-                    allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
+                    it.rights.contains("rollback") || it.groups().contains("sysop")
                 }
 
                 if (it.isBlocked) {
@@ -112,15 +114,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += commonsResponse.query?.userInfo!!.editCount
             totalContributions += homeContributions
 
-            latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
-
-            if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
-            }
-
-            if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
-            }
+            latestEditDate = maxOf(
+                wikidataResponse.query?.userInfo!!.latestContribDate,
+                commonsResponse.query?.userInfo!!.latestContribDate,
+                homeSiteResponse.query?.userInfo!!.latestContribDate
+            )
 
             val totalContributionsList = homeSiteResponse.query!!.userContributions +
                     wikidataResponse.query!!.userContributions +
@@ -141,11 +139,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
         }
     }
 
+    @OptIn(ExperimentalTime::class)
     private fun getEditStreak(contributions: List<UserContribution>): Int {
         if (contributions.isEmpty()) {
             return 0
         }
-        val dates = contributions.map { it.parsedDateTime.toLocalDate() }
+        val zoneId = ZoneId.systemDefault()
+        val dates = contributions
+            .map { LocalDate.ofInstant(it.timestamp.toJavaInstant(), zoneId) }
             .toSortedSet(Comparator.reverseOrder())
         return dates.asSequence()
             .zipWithNext { date1, date2 -> date2.until(date1, ChronoUnit.DAYS) }

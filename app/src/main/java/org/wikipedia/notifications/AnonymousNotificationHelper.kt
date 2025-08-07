@@ -6,21 +6,24 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
-import java.util.Date
-import java.util.concurrent.TimeUnit
+import kotlin.time.Clock
+import kotlin.time.Duration.Companion.days
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
+@OptIn(ExperimentalTime::class)
 object AnonymousNotificationHelper {
-    private const val NOTIFICATION_DURATION_DAYS = 7L
+    private val NOTIFICATION_DURATION_DAYS = 7.days
 
     fun onEditSubmitted() {
         if (!AccountUtil.isLoggedIn) {
-            Prefs.lastAnonEditTime = Date().time
+            Prefs.lastAnonEditTime = System.currentTimeMillis()
         }
     }
 
     suspend fun maybeGetAnonUserInfo(wikiSite: WikiSite): MwQueryResponse {
-        return if (Date().time - Prefs.lastAnonEditTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
+        val lastAnon = Instant.fromEpochMilliseconds(Prefs.lastAnonEditTime)
+        return if (Clock.System.now() - lastAnon < NOTIFICATION_DURATION_DAYS) {
             ServiceFactory.get(wikiSite).getUserInfo()
         } else {
             MwQueryResponse()
@@ -41,10 +44,11 @@ object AnonymousNotificationHelper {
     }
 
     fun anonTalkPageHasRecentMessage(response: MwQueryResponse, title: PageTitle): Boolean {
-        response.query?.firstPage()?.revisions?.firstOrNull()?.timeStamp?.let {
-            if (Date().time - DateUtil.iso8601DateParse(it).time < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
+        response.query?.firstPage()?.revisions?.firstOrNull()?.timestamp?.let {
+            val now = Clock.System.now()
+            if (now - it < NOTIFICATION_DURATION_DAYS) {
                 Prefs.hasAnonymousNotification = true
-                Prefs.lastAnonNotificationTime = Date().time
+                Prefs.lastAnonNotificationTime = now.toEpochMilliseconds()
                 Prefs.lastAnonNotificationLang = title.wikiSite.languageCode
                 return true
             }
@@ -53,6 +57,7 @@ object AnonymousNotificationHelper {
     }
 
     fun isWithinAnonNotificationTime(): Boolean {
-        return Date().time - Prefs.lastAnonNotificationTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)
+        val lastAnon = Instant.fromEpochMilliseconds(Prefs.lastAnonNotificationTime)
+        return Clock.System.now() - lastAnon < NOTIFICATION_DURATION_DAYS
     }
 }

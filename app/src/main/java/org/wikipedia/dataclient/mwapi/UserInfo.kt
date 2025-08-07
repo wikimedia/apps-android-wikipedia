@@ -4,17 +4,20 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
-import org.wikipedia.util.DateUtil
 import java.time.LocalDate
-import java.util.Date
+import java.time.ZoneId
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
+import kotlin.time.toJavaInstant
 
 @Serializable
+@OptIn(ExperimentalTime::class)
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    @SerialName("latestcontrib") private val latestContrib: String? = null
-    @SerialName("registrationdate") private val regDate: String? = null
-    @SerialName("registration") private val registration: String? = null
+    @SerialName("latestcontrib") private val latestContrib: Instant = Instant.DISTANT_PAST
+    @SerialName("registrationdate") private val regInstant: Instant? = null
+    private val registration: Instant? = null
     @SerialName("editcount") val editCount = -1
     val name: String = ""
     val anon: Boolean = false
@@ -31,23 +34,13 @@ class UserInfo : BlockInfo() {
         return groups?.toSet() ?: emptySet()
     }
 
-    val latestContribDate: Date
-        get() {
-            var date = Date(0)
-            if (!latestContrib.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(latestContrib)
-            }
-            return date
-        }
+    val latestContribDate: LocalDate by lazy {
+        LocalDate.ofInstant(latestContrib.toJavaInstant(), ZoneId.systemDefault())
+    }
 
     val registrationDate: LocalDate by lazy {
-        if (!regDate.isNullOrEmpty()) {
-            DateUtil.iso8601LocalDateParse(regDate)
-        } else if (!registration.isNullOrEmpty()) {
-            DateUtil.iso8601LocalDateParse(registration)
-        } else {
-            LocalDate.EPOCH
-        }
+        val instant = regInstant ?: registration ?: Instant.DISTANT_PAST
+        LocalDate.ofInstant(instant.toJavaInstant(), ZoneId.systemDefault())
     }
 
     @Serializable

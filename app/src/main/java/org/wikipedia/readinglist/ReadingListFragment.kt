@@ -77,7 +77,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.Date
+import java.time.LocalDateTime
 import java.util.Locale
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {
@@ -434,7 +434,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             ReadingListMode.PREVIEW -> {
                 if (readingList == null) {
                     val emptyTitle = requireContext().getString(R.string.reading_lists_preview_header_title)
-                    val emptyDescription = DateUtil.getTimeAndDateString(requireContext(), Date())
+                    val emptyDescription = DateUtil.getTimeAndDateString(requireContext(),
+                        LocalDateTime.now())
                     viewModel.updateList(emptyTitle, emptyDescription, encoded = true)
                 } else {
                     update()

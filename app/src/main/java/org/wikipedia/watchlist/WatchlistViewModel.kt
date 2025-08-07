@@ -25,8 +25,12 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.io.IOException
-import java.util.Calendar
+import java.time.LocalDate
+import java.time.ZoneId
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
+@OptIn(ExperimentalTime::class)
 class WatchlistViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -47,20 +51,17 @@ class WatchlistViewModel : ViewModel() {
     }
 
     fun updateList(searchBarPlaceholder: Boolean = true) {
-
         finalList = mutableListOf()
 
         if (searchBarPlaceholder) {
             finalList.add("") // placeholder for search bar
         }
 
-        val calendar = Calendar.getInstance()
-        var curDay = -1
-
+        var curDate = LocalDate.EPOCH
+        val zoneId = ZoneId.systemDefault()
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
 
         watchlistItems.forEach { item ->
-
             if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
                 return@forEach
             }
@@ -73,10 +74,10 @@ class WatchlistViewModel : ViewModel() {
                 return@forEach
             }
 
-            calendar.time = item.date
-            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                finalList.add(item.date)
+            val date = LocalDate.ofInstant(item.timestamp.toJavaInstant(), zoneId)
+            if (curDate != date) {
+                curDate = date
+                finalList.add(date)
             }
 
             finalList.add(item)
@@ -98,7 +99,7 @@ class WatchlistViewModel : ViewModel() {
                         }
                 }
             }.awaitAll()
-            watchlistItems.sortByDescending { it.date }
+            watchlistItems.sortByDescending { it.timestamp }
             updateList(searchBarPlaceholder)
         }
     }

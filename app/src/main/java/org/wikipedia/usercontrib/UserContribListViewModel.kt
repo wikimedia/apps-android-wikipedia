@@ -4,7 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.insertSeparators
+import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -20,6 +27,9 @@ import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
 import java.time.LocalDate
+import java.time.ZoneId
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
 class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val userContribStatsData = MutableLiveData<Resource<UserContribStats>>()
@@ -41,9 +51,11 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     private val cachedContribs = mutableListOf<UserContribution>()
     private var cachedContinueKey: String? = null
 
+    @OptIn(ExperimentalTime::class)
     val userContribFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
         UserContribPagingSource()
     }).flow.map { pagingData ->
+        val zoneId = ZoneId.systemDefault()
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
                 it.comment.contains(currentQuery, true) ||
@@ -52,8 +64,8 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }.map {
             UserContribItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
-            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            val dateBefore = before?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
+            val dateAfter = after?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
             if (dateAfter != null && dateAfter != dateBefore) {
                 UserContribSeparator(DateUtil.getShortDateString(dateAfter))
             } else {

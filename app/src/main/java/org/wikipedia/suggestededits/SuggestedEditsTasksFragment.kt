@@ -49,6 +49,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 
@@ -233,7 +234,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (viewModel.latestEditStreak < 2) {
             contributionContainer.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_last_edited))
-            contributionContainer.editStreakStatsView.setDescription(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            contributionContainer.editStreakStatsView.setDescription(
+                if (viewModel.latestEditDate > LocalDate.MIN) DateUtil.getMDYDateString(viewModel.latestEditDate)
+                else resources.getString(R.string.suggested_edits_last_edited_never)
+            )
         } else {
             contributionContainer.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
             contributionContainer.editStreakStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,

@@ -17,6 +17,9 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
+import java.time.ZoneId
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -28,11 +31,13 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         setPadding(padding, 0, padding, 0)
     }
 
+    @OptIn(ExperimentalTime::class)
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats?) {
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
                 "<a href=\"#\">${pageTitle.displayText}</a>"))
-        editHistoryStats?.revision?.localDateTime?.let { dateTime ->
-            val createdYear = DateUtil.getYearOnlyDateString(dateTime.toLocalDate())
+        editHistoryStats?.revision?.timestamp?.let { timestamp ->
+            val date = LocalDate.ofInstant(timestamp.toJavaInstant(), ZoneId.systemDefault())
+            val createdYear = DateUtil.getYearOnlyDateString(date)
             val localDate = LocalDate.now()
             val today = DateUtil.getShortDateString(localDate)
             val lastYear = DateUtil.getShortDateString(localDate.minusYears(1))
