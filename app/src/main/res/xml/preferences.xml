@@ -42,7 +42,7 @@
         android:title="@string/preference_category_donations">
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_donation_reminders"
-            android:title="@string/preference_key_donation_reminders" />
+            android:title="@string/donation_reminders_settings_title" />
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_delete_local_donation_history"
             android:defaultValue="0"
