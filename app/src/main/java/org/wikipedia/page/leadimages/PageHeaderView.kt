@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import kotlinx.parcelize.Experimental
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
@@ -197,7 +198,21 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         if (!DonationReminderHelper.hasActiveReminder) {
             return
         }
-        binding.donationReminderCardView.isVisible = DonationReminderHelper.maybeShowInitialDonationReminder(true) ||
-                DonationReminderHelper.maybeShowDonationReminder(true)
+        val canShowInitialDonationReminder = DonationReminderHelper.maybeShowInitialDonationReminder(true)
+        val canShowFinalDonationReminder = DonationReminderHelper.maybeShowDonationReminder(true)
+        if (canShowInitialDonationReminder) {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_start",
+                action = "impression"
+            )
+        }
+
+        if (canShowFinalDonationReminder) {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "impression"
+            )
+        }
+        binding.donationReminderCardView.isVisible = canShowInitialDonationReminder || canShowFinalDonationReminder
     }
 }

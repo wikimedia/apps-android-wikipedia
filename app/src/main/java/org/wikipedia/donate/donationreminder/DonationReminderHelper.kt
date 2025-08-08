@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.donate.DonateUtil
@@ -196,11 +197,22 @@ object DonationReminderHelper {
             .setCancelable(false)
             .create()
 
-        binding.cancelButton.setOnClickListener { dialog.dismiss() }
+        binding.cancelButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_feedback",
+                action = "feedback_close_click"
+            )
+            dialog.dismiss()
+        }
         binding.submitButton.setOnClickListener {
             val selectedOption = getSelectedOption(binding)
             val feedbackText = binding.feedbackInput.text.toString()
-            // send analysis
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_feedback",
+                action = "feedback_submit_click",
+                feedbackSelect = selectedOption,
+                feedbackText = feedbackText
+            )
             dialog.dismiss()
         }
 
@@ -213,6 +225,7 @@ object DonationReminderHelper {
                 }, 200)
             }
         }
+        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression")
         dialog.show()
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
     }
