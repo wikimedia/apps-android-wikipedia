@@ -1921,7 +1921,7 @@
   <string name="donation_reminders_settings_donation_info">Donation information text in the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_article_frequency_label">Label for the section where users configure how many articles they read before seeing donation reminders.</string>
   <string name="donation_reminders_settings_amount_label">Label for the section where users configure donation amount in donation reminders settings screen.</string>
-  <string name="donation_reminders_settings_confirm_btn_label">Confrim Button label for the donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Confirmation button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">About experiment button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">Suffix label for the textField input in the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_warning_min_amount">Error message that indicates a minimum amount is allowed. %s will be replaced by the formatted amount.</string>
