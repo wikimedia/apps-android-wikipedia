@@ -156,12 +156,11 @@
         <activity
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".suggestededits.SuggestedEditsTasksActivity"
             android:theme="@style/AppTheme.ActionBar"
-            android:label="@string/nav_item_suggested_edits"
-            android:windowSoftInputMode="adjustPan" />
+            android:label="@string/nav_item_suggested_edits" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:windowSoftInputMode="adjustResize|stateVisible"
