@@ -186,6 +186,7 @@ object DonationReminderHelper {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
 
+    // @TODO: MARK_INSTRUMENTATION: update if PM decides to use different activeInterface for difference scenarios
     private fun showFeedbackOptionsDialog(activity: Activity) {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
