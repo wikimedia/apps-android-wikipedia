@@ -82,7 +82,9 @@ class GooglePayActivity : BaseActivity() {
                                 onContentsReceived(resource.data)
                             }
                             is GooglePayViewModel.DonateSuccess -> {
-                                DonorExperienceEvent.logAction("impression", "gpay_processed", campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty())
+                                DonorExperienceEvent.logAction("impression", "gpay_processed",
+                                    campaignId = intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU }
+                                )
                                 CampaignCollection.addDonationResult(
                                     amount = viewModel.finalAmount,
                                     currency = viewModel.currencyCode,
