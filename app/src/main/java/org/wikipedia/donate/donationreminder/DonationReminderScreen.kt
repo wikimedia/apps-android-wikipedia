@@ -99,15 +99,19 @@ fun DonationReminderScreen(
     onAboutThisExperimentClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
+    var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings) {
+                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl) {
                         viewModel.saveReminder()
                     }
+                }
+                Lifecycle.Event.ON_RESUME -> {
+                    isNavigatingToExternalUrl = false
                 }
                 else -> {}
             }
@@ -172,7 +176,10 @@ fun DonationReminderScreen(
             viewModel = viewModel,
             uiState = uiState,
             onConfirmBtnClick = onConfirmBtnClick,
-            onAboutThisExperimentClick = onAboutThisExperimentClick
+            onAboutThisExperimentClick = {
+                isNavigatingToExternalUrl = true
+                onAboutThisExperimentClick()
+            }
         )
     }
 }

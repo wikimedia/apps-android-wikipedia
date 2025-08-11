@@ -39,7 +39,7 @@ open class DonorExperienceEvent {
         ) {
             val actionData = DonationRemindersActionData(
                 defaultMilestone = defaultMilestone,
-                campaignId = campaignId,
+                campaignId = campaignId?.let { CampaignCollection.getFormattedCampaignId(campaignId) },
                 articleFrequency = articleFrequency,
                 donateAmount = donateAmount,
                 settingSelect = settingSelect,
@@ -60,7 +60,6 @@ open class DonorExperienceEvent {
             actionData: String,
             wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
         ) {
-            println("orange --> $activeInterface $action $actionData")
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,

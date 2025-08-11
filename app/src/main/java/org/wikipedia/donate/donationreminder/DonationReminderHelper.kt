@@ -18,7 +18,7 @@ import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
 object DonationReminderHelper {
-
+    const val CAMPAIGN_ID = "appmenu_reminder"
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15

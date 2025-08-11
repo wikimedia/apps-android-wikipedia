@@ -30,6 +30,7 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivityDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.donate.DonationConfig
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -290,7 +291,11 @@ class GooglePayActivity : BaseActivity() {
                                 binding.checkBoxTransactionFee.isChecked,
                                 binding.checkBoxRecurring.isChecked,
                                 if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
-                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
+                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty {
+                                    if (DonationReminderHelper.isEnabled) {
+                                        DonationReminderHelper.CAMPAIGN_ID
+                                    } else CAMPAIGN_ID_APP_MENU
+                                })
                         }
                     }
                 }

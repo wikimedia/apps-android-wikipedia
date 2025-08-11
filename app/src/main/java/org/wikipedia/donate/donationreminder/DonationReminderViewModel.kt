@@ -55,8 +55,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun saveReminder() {
         with(_uiState.value) {
-            // @TODO: MARK_INSTRUMENTATION the logic can move from here and also update actionData after confirming with data,
-            // setting_select is not implemented here
             val activeInterface = if (isFromSettings) "global_setting" else "reminder_config"
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = activeInterface,

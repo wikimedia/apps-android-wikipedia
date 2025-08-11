@@ -36,7 +36,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.donateOtherButton.setOnClickListener {
             if (DonationReminderHelper.isEnabled) {
-                DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = "app_reminder_Android")
+                DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = DonationReminderHelper.CAMPAIGN_ID)
             }
             DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             onDonateClicked()
@@ -114,11 +114,10 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
-            // @TODO: MARK_INSTRUMENTATION, update action after confirming with data
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "gpay_click",
-                campaignId = "app_reminder_Android"
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
@@ -128,7 +127,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "other_gpay_click",
-                campaignId = "app_reminder_Android"
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity()))
