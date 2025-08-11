@@ -17,8 +17,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -39,6 +41,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         uiState = viewModel.uiState.collectAsState().value,
+                        categoriesUiState = viewModel.categoriesUiState.collectAsState().value,
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             retryClickListener = {
                                 viewModel.load()
@@ -50,9 +53,16 @@ class ActivityTabFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.load()
+        viewModel.loadCategories()
+    }
+
     @Composable
     fun ActivityTabScreen(
         uiState: UiState<Unit>,
+        categoriesUiState: UiState<List<Category>>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Scaffold(
@@ -61,6 +71,12 @@ class ActivityTabFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
+            TopCategoriesView(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                uiState = categoriesUiState
+            )
             when (uiState) {
                 is UiState.Loading -> {
                     Box(

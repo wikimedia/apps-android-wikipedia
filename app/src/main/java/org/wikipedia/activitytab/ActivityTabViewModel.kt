@@ -25,10 +25,12 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var donationResults: List<DonationResult> = emptyList()
 
-    var topCategories: List<Category> = emptyList()
+    private val _categoriesUiState = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
+    val categoriesUiState: StateFlow<UiState<List<Category>>> = _categoriesUiState.asStateFlow()
 
     init {
         load()
+        loadCategories()
     }
 
     fun load() {
@@ -46,10 +48,17 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // TODO: do something with donation results
             donationResults = Prefs.donationResults
 
-            // TODO: do something with top categories
-            topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
-
             _uiState.value = UiState.Success(Unit)
+        }
+    }
+
+    fun loadCategories() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _categoriesUiState.value = UiState.Error(throwable)
+        }) {
+            val currentDate = LocalDate.now()
+            val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
+            _categoriesUiState.value = UiState.Success(topCategories.take(3))
         }
     }
 }
