@@ -35,9 +35,6 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
 
         binding.donateOtherButton.setOnClickListener {
-            if (DonationReminderHelper.isEnabled) {
-                DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_milestone", action = "other_method_click", campaignId = DonationReminderHelper.CAMPAIGN_ID)
-            }
             DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
             onDonateClicked()
         }
@@ -120,7 +117,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 campaignId = DonationReminderHelper.CAMPAIGN_ID
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.CAMPAIGN_ID))
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
@@ -130,7 +127,14 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 campaignId = DonationReminderHelper.CAMPAIGN_ID
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity()))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.CAMPAIGN_ID))
+        }
+        binding.donateOtherButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "other_method_click",
+                campaignId = DonationReminderHelper.CAMPAIGN_ID)
+            onDonateClicked()
         }
         binding.gPayHeaderContainer.isVisible = false
     }
