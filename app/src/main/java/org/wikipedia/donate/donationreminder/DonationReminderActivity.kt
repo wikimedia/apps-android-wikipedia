@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
@@ -33,6 +34,11 @@ class DonationReminderActivity : BaseActivity() {
                     },
                     onAboutThisExperimentClick = {
                         UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
+                        val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = activeInterface,
+                            action = "reminder_about_click"
+                        )
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
@@ -44,6 +50,16 @@ class DonationReminderActivity : BaseActivity() {
                     )
                 )
             }
+        }
+        sendAnalysis()
+    }
+
+    private fun sendAnalysis() {
+        if (!viewModel.isFromSettings) {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_config",
+                action = "impression"
+            )
         }
     }
 

@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -110,13 +111,31 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         val donateButtonText = getString(R.string.donation_reminders_gpay_text, donateAmountText)
         binding.donateGooglePayButton.text = donateButtonText
         binding.donateGooglePayButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "gpay_click",
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
+            )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.CAMPAIGN_ID))
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "other_gpay_click",
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
+            )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity()))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.CAMPAIGN_ID))
+        }
+        binding.donateOtherButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_milestone",
+                action = "other_method_click",
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
+            )
+            onDonateClicked()
         }
         binding.gPayHeaderContainer.isVisible = false
     }

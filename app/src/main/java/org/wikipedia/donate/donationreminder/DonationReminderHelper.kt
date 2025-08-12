@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.donate.DonateUtil
@@ -17,7 +18,7 @@ import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 
 object DonationReminderHelper {
-
+    const val CAMPAIGN_ID = "appmenu_reminder"
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
@@ -185,6 +186,7 @@ object DonationReminderHelper {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
 
+    // @TODO: MARK_INSTRUMENTATION: update if PM decides to use different activeInterface for difference scenarios
     private fun showFeedbackOptionsDialog(activity: Activity) {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
@@ -196,11 +198,22 @@ object DonationReminderHelper {
             .setCancelable(false)
             .create()
 
-        binding.cancelButton.setOnClickListener { dialog.dismiss() }
+        binding.cancelButton.setOnClickListener {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_feedback",
+                action = "feedback_close_click"
+            )
+            dialog.dismiss()
+        }
         binding.submitButton.setOnClickListener {
             val selectedOption = getSelectedOption(binding)
             val feedbackText = binding.feedbackInput.text.toString()
-            // send analysis
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "reminder_feedback",
+                action = "feedback_submit_click",
+                feedbackSelect = selectedOption,
+                feedbackText = feedbackText
+            )
             dialog.dismiss()
         }
 
@@ -213,6 +226,7 @@ object DonationReminderHelper {
                 }, 200)
             }
         }
+        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression")
         dialog.show()
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
     }

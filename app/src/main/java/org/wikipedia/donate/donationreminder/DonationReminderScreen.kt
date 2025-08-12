@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -64,6 +65,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -74,6 +76,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
@@ -96,15 +99,19 @@ fun DonationReminderScreen(
     onAboutThisExperimentClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
+    var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings) {
+                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl) {
                         viewModel.saveReminder()
                     }
+                }
+                Lifecycle.Event.ON_RESUME -> {
+                    isNavigatingToExternalUrl = false
                 }
                 else -> {}
             }
@@ -169,7 +176,10 @@ fun DonationReminderScreen(
             viewModel = viewModel,
             uiState = uiState,
             onConfirmBtnClick = onConfirmBtnClick,
-            onAboutThisExperimentClick = onAboutThisExperimentClick
+            onAboutThisExperimentClick = {
+                isNavigatingToExternalUrl = true
+                onAboutThisExperimentClick()
+            }
         )
     }
 }
@@ -218,6 +228,11 @@ fun DonationReminderContent(
                     onOptionSelected = { option ->
                         when (option) {
                             is OptionItem.Preset -> {
+                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = activeInterface,
+                                    action = "freq_change_click"
+                                )
                                 viewModel.updateReadFrequencyState(option.value)
                             }
 
@@ -232,6 +247,11 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { readFrequency ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = activeInterface,
+                                action = "freq_change_click"
+                            )
                             viewModel.updateReadFrequencyState(readFrequency.toInt())
                             showReadFrequencyCustomDialog = false
                         }
@@ -270,6 +290,11 @@ fun DonationReminderContent(
                     onOptionSelected = { option ->
                         when (option) {
                             is OptionItem.Preset -> {
+                                val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    activeInterface = activeInterface,
+                                    action = "amount_change_click"
+                                )
                                 viewModel.updateDonationAmountState(option.value)
                             }
 
@@ -280,6 +305,11 @@ fun DonationReminderContent(
                     },
                     onDoneClick = { amount ->
                         if (customDialogErrorMessage.isEmpty()) {
+                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = activeInterface,
+                                action = "amount_change_click"
+                            )
                             viewModel.updateDonationAmountState(amount.toFloat())
                             showDonationAmountCustomDialog = false
                         }
@@ -696,7 +726,19 @@ fun CustomInputDialog(
                     prefix = prefix,
                     suffix = suffix,
                     textStyle = MaterialTheme.typography.bodyLarge,
-                    keyboardOptions = KeyboardOptions(keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = if (decimalEnabled) KeyboardType.Number else KeyboardType.NumberPassword,
+                        imeAction = ImeAction.Send
+                    ),
+                    keyboardActions = KeyboardActions(
+                        onSend = {
+                            if (value.isEmpty()) {
+                                onValueChange("")
+                                return@KeyboardActions
+                            }
+                            onDoneClick(value)
+                        }
+                    ),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedTextColor = WikipediaTheme.colors.primaryColor,
                         focusedBorderColor = MaterialTheme.colorScheme.outline,

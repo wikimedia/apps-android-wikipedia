@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.GooglePayComponent
@@ -47,8 +48,21 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
     }
 
+    fun hasDefaultValues(): Boolean {
+        val currentValue = _uiState.value
+        return currentValue.donationAmount.selectedValue == currentValue.donationAmount.defaultValue && currentValue.readFrequency.selectedValue == currentValue.readFrequency.defaultValue
+    }
+
     fun saveReminder() {
         with(_uiState.value) {
+            val activeInterface = if (isFromSettings) "global_setting" else "reminder_config"
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = activeInterface,
+                action = "reminder_confirm_click",
+                defaultMilestone = hasDefaultValues(),
+                articleFrequency = readFrequency.selectedValue,
+                donateAmount = donationAmount.selectedValue
+            )
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                 donateAmount = donationAmount.selectedValue,
                 articleFrequency = readFrequency.selectedValue,
@@ -72,6 +86,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 initialPromptActive = false,
                 finalPromptActive = false
             )
+        } else {
+            DonorExperienceEvent.logDonationReminderAction(
+                activeInterface = "global_setting",
+                action = "reminder_set_off"
+            )
         }
         _uiState.update { it.copy(isDonationReminderEnabled = enabled) }
     }
@@ -92,6 +111,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             optionItems,
             minimumAmount = minArticleFrequencyLimit,
             maximumAmount = maxArticleFrequencyLimit,
+            defaultValue = options.first(),
             displayFormatter = {
                 context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
                     it, it)
@@ -127,6 +147,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             options,
             minimumAmount = minimumAmount,
             maximumAmount = maximumAmount,
+            defaultValue = presets.first(),
             displayFormatter = {
                 DonateUtil.currencyFormat.format(it).replace(formatRegex, "")
             }
@@ -140,13 +161,15 @@ data class DonationReminderUiState(
         selectedValue = Prefs.donationReminderConfig.articleFrequency,
         options = emptyList(),
         maximumAmount = 1000,
-        minimumAmount = 1
+        minimumAmount = 1,
+        defaultValue = 0
     ),
     val donationAmount: SelectableOption<Float> = SelectableOption(
         selectedValue = Prefs.donationReminderConfig.donateAmount,
         options = emptyList(),
         maximumAmount = 0f,
-        minimumAmount = 0f
+        minimumAmount = 0f,
+        defaultValue = 0f
     ),
     val isLoading: Boolean = true,
     val error: Throwable? = null
@@ -162,5 +185,6 @@ data class SelectableOption<T : Number>(
     val options: List<OptionItem<T>>,
     val maximumAmount: T,
     val minimumAmount: T,
+    val defaultValue: T,
     val displayFormatter: (T) -> String = { it.toString() }
 )

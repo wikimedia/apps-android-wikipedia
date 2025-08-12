@@ -14,6 +14,7 @@ import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.ImageTagsProvider
@@ -210,8 +211,17 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
                 if (isInitialPrompt) {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_start",
+                        action = "start_click"
+                    )
                     activity.startActivity(DonationReminderActivity.newIntent(activity))
                 } else {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_milestone",
+                        action = "donate_start_click",
+                        campaignId = DonationReminderHelper.CAMPAIGN_ID
+                    )
                     ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
                 }
             }
@@ -219,6 +229,17 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             @Experimental
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
+                if (isInitialPrompt) {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_start",
+                        action = "nothanks_click"
+                    )
+                } else {
+                    DonorExperienceEvent.logDonationReminderAction(
+                        activeInterface = "reminder_milestone",
+                        action = "notnow_click"
+                    )
+                }
                 if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
                     FeedbackUtil.showMessage(
                         parentFragment,
