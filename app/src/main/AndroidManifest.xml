@@ -160,7 +160,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsTasksActivity"
             android:theme="@style/AppTheme.ActionBar"
-            android:label="@string/nav_item_suggested_edits" />
+            android:label="@string/suggested_edits_activity_title" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:windowSoftInputMode="adjustResize|stateVisible"

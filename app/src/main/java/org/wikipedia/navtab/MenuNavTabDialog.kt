@@ -94,8 +94,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
-        binding.mainDrawerEditsContainer.setOnClickListener {
-            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditsContainer)
+        binding.mainDrawerEditContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)
             startActivity(SuggestedEditsTasksActivity.newIntent(requireContext()))
             dismiss()
         }
@@ -148,7 +148,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE
         }
-        binding.mainDrawerEditsContainer.isVisible = ActivityTabABTest().isInTestGroup()
+        binding.mainDrawerEditContainer.isVisible = ActivityTabABTest().isInTestGroup()
     }
 
     private fun callback(): Callback? {
