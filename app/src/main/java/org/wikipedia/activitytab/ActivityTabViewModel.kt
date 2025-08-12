@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
-import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDate
 
@@ -25,8 +25,8 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var donationResults: List<DonationResult> = emptyList()
 
-    private val _categoriesUiState = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
-    val categoriesUiState: StateFlow<UiState<List<Category>>> = _categoriesUiState.asStateFlow()
+    private val _categoriesUiState = MutableStateFlow<UiState<List<String>>>(UiState.Loading)
+    val categoriesUiState: StateFlow<UiState<List<String>>> = _categoriesUiState.asStateFlow()
 
     init {
         load()
@@ -56,9 +56,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _categoriesUiState.value = UiState.Error(throwable)
         }) {
+            _categoriesUiState.value = UiState.Loading
             val currentDate = LocalDate.now()
             val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
-            _categoriesUiState.value = UiState.Success(topCategories.take(3))
+            _categoriesUiState.value = UiState.Success(topCategories.take(3).map { StringUtil.removeNamespace(it.title) })
         }
     }
 }

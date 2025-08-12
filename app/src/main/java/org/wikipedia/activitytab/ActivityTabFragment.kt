@@ -5,26 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
-import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 
@@ -62,7 +57,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         uiState: UiState<Unit>,
-        categoriesUiState: UiState<List<Category>>,
+        categoriesUiState: UiState<List<String>>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Scaffold(
@@ -74,52 +69,18 @@ class ActivityTabFragment : Fragment() {
             TopCategoriesView(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(paddingValues)
                     .padding(horizontal = 16.dp),
-                uiState = categoriesUiState
+                uiState = categoriesUiState,
+                onDiscoverBtnCLick = {
+                    startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                },
+                wikiErrorClickEvents = WikiErrorClickEvents(
+                    retryClickListener = {
+                        viewModel.loadCategories()
+                    }
+                )
             )
-            when (uiState) {
-                is UiState.Loading -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(paddingValues),
-                    ) {
-                        LinearProgressIndicator(
-                            modifier = Modifier.fillMaxWidth(),
-                            color = WikipediaTheme.colors.progressiveColor,
-                            trackColor = WikipediaTheme.colors.borderColor
-                        )
-                    }
-                }
-                is UiState.Error -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        WikiErrorView(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            caught = uiState.error,
-                            errorClickEvents = wikiErrorClickEvents
-                        )
-                    }
-                }
-                is UiState.Success -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues)
-                    ) {
-                        Text(
-                            text = "TODO!",
-                            modifier = Modifier.align(Alignment.Center),
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                }
-            }
         }
     }
 
