@@ -3,6 +3,7 @@ package org.wikipedia.page
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
+import androidx.core.net.toUri
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
@@ -50,7 +51,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         if (eventLoggingParamIndex > 0) {
             href = href.substring(0, eventLoggingParamIndex)
         }
-        var uri = Uri.parse(href)
+        var uri = href.toUri()
         uri.fragment?.run {
             if (contains("cite")) {
                 onPageLinkClicked(this, linkText)
@@ -87,6 +88,8 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
                 } else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
                 if (newTitle.isFilePage) {
                     onMediaLinkClicked(newTitle)
+                } else if (newTitle.isSpecial) {
+                    onExternalLinkClicked(uri)
                 } else {
                     onInternalLinkClicked(newTitle)
                 }

@@ -436,8 +436,10 @@
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
   <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
+  <string name="reading_lists_item_deleted">%s له لړليکونو لرې‌شوې</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
+  <string name="saved_list_empty_title">لا تر اوسه پورې خوندي مخونه نشته</string>
   <string name="reading_list_article_offline">افلاين د لاسرسي وړ دی</string>
   <string name="reading_list_select_item">ټاکل</string>
   <string name="reading_lists_login_button">ننوتل/ويکيپېډيا سره يو ځای کېدل</string>
@@ -522,9 +524,16 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">ويکيپېډيا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">د ويکيپېډيا څخه خبرتياوې</string>
   <string name="notifications_channel_group_other_title">بل</string>
+  <string name="notifications_select_all_filters">ټول چاڼگر غوره‌کول</string>
   <string name="notifications_tab_filter_all">ټول</string>
+  <string name="notifications_tab_filter_mentions">يادگېرنې</string>
+  <string name="notifications_search_bar_filter_hint">خبرتيا چاڼگر</string>
+  <string name="notifications_menu_mark_as_read">لوستي په توگه نښه‌کول</string>
+  <string name="notifications_menu_mark_as_unread">نالوستي په توگه نښه‌کول</string>
   <string name="notifications_swipe_action_read">لوستل</string>
   <string name="notifications_swipe_action_unread">نالوستل</string>
+  <string name="notifications_menu_check_all">د ټولو توکو سم‌کتنه</string>
+  <string name="notifications_menu_uncheck_all">د ټولو توکو ناسم‌کتنه</string>
   <string name="notifications_wiki_filter_header">ويکي چاڼگر</string>
   <string name="notifications_type_filter_header">چاڼگر ډول</string>
   <string name="notifications_all_wikis_text">ټولې ویکي‌گانې</string>
@@ -813,4 +822,9 @@
   <string name="on_this_day_game_menu_info">نور مالومات</string>
   <string name="on_this_day_game_notification_undo">ناکړل</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">ستاسو لپاره جوړ شوی</string>
+  <string name="donation_settings_section_header">بسپنې</string>
+  <string name="donation_reminders_settings_amount_label">د بسپنې ورکولو يادونه راته وکړه</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">ليکنې</string>
+  <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
+  <string name="donation_reminders_prompt_negative_button">اوس نه</string>
 </resources>

@@ -1896,6 +1896,8 @@
   <string name="donation_reminders_settings_confirm_btn_label">Xatırlatmanı təsdiqlə</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">Bu təcrübə haqqında</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">məqalə</string>
+  <string name="donation_reminders_settings_warning_min_amount">Ən azı %s daxil edin</string>
+  <string name="donation_reminders_settings_warning_max_amount">Maksimum %s icazə verilir</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
   <string name="donation_reminders_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
   <string name="donation_reminders_prompt_message">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
