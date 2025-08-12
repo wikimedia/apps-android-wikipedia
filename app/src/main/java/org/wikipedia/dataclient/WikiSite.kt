@@ -2,6 +2,7 @@ package org.wikipedia.dataclient
 
 import android.net.Uri
 import android.os.Parcelable
+import androidx.core.net.toUri
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -9,7 +10,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.UriSerializer
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.language.LanguageUtil
 import org.wikipedia.util.UriUtil
 
 /**
@@ -57,9 +57,17 @@ data class WikiSite(
         authority = authority.replace(".m.", ".")
         languageCode = UriUtil.getLanguageVariantFromUri(tempUri).ifEmpty { authorityToLanguageCode(authority) }
 
-        // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
-        if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
-            languageCode = LanguageUtil.firstSelectedChineseVariant
+        // For language variant wikis, automatically switch to the preferred variant if possible.
+        val parentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode)
+        if (parentLanguageCode != null) {
+            // Get language variants from the parent language code
+            val languageVariants = WikipediaApp.instance.languageState.getLanguageVariants(parentLanguageCode)
+            // Try to find the first selected variant that matches the URL's parent language code
+
+            // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
+            languageCode = WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull {
+                languageVariants?.contains(it) == true
+            } ?: languageCode
         }
 
         if (languageCode == Constants.WIKI_CODE_COMMONS) {
@@ -127,7 +135,7 @@ data class WikiSite(
         private var DEFAULT_BASE_URL: String? = null
 
         fun supportedAuthority(authority: String): Boolean {
-            return authority.endsWith(Uri.parse(DEFAULT_BASE_URL).authority!!)
+            return authority.endsWith(DEFAULT_BASE_URL!!.toUri().authority!!)
         }
 
         fun setDefaultBaseUrl(url: String) {
@@ -135,7 +143,7 @@ data class WikiSite(
         }
 
         fun forLanguageCode(languageCode: String): WikiSite {
-            val uri = ensureScheme(Uri.parse(DEFAULT_BASE_URL))
+            val uri = ensureScheme(DEFAULT_BASE_URL!!.toUri())
             return WikiSite(
                 (if (languageCode.isEmpty()) "" else languageCodeToSubdomain(languageCode) + ".") + uri.authority,
                 languageCode
@@ -146,6 +154,7 @@ data class WikiSite(
             return when (languageCode) {
                 AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE -> AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE // T114042
                 AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE -> AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE // T111853
+                AppLanguageLookUpTable.CHINESE_LEGACY_YUE_LANGUAGE_CODE -> AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
                 else -> languageCode
             }
         }

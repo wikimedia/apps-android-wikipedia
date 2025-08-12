@@ -23,7 +23,7 @@ class AboutSettingsTest : BaseTest<SettingsActivity>(
             .clickOnSystemDialogWithText("Allow")
         settingsRobot
             .clickAboutWikipediaAppOptionItem()
-            .activateDeveloperMode()
+            .activateDeveloperMode(context)
             .pressBack()
             .clickDeveloperMode()
             .assertWeAreInDeveloperSettings()

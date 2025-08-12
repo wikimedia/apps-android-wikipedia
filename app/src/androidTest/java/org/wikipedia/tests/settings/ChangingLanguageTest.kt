@@ -48,11 +48,10 @@ class ChangingLanguageTest : BaseTest<MainActivity>(
             .disableDarkMode(context)
         languageListRobot
             .addNewLanguage()
-            .openSearchLanguage()
-        searchRobot
-            .typeTextInView(JAPANESE)
+            .openSearchLanguage(context)
+            .typeInSearchView(JAPANESE)
         languageListRobot
-            .assertJapaneseLanguageTextColor(theme = Theme.LIGHT)
+            .assertJapaneseLanguageTextColor(context, Theme.LIGHT)
             .scrollToLanguageAndClick(JAPANESE)
             .pressBack()
             .pressBack()

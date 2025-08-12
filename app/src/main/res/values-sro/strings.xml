@@ -131,8 +131,8 @@
   <string name="login_username_hint">Nòmini umperadori</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
-  <string name="login_2fa_hint">Còdixi de cumbàlida a dus fatoris</string>
-  <string name="login_2fa_other_workflow_error_msg">Est mandatòria sa cumbàlida a dus fatoris! Po prexeri, torra a s\'atividadi de princìpiu e intra cun su token tuu po sa 2FA, e apustis torra a proai.</string>
+  <string name="login_2fa_hint" fuzzy="true">Còdixi de cumbàlida a dus fatoris</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Est mandatòria sa cumbàlida a dus fatoris! Po prexeri, torra a s\'atividadi de princìpiu e intra cun su token tuu po sa 2FA, e apustis torra a proai.</string>
   <string name="onboarding_card_login">Intra</string>
   <string name="page_editing_login">Intra</string>
   <string name="reading_lists_sync_login">Intra</string>
@@ -215,13 +215,11 @@
   <string name="about_description">Novas de s\'aplicatzioni de Wikipedia</string>
   <string name="privacy_policy_description">Normas po s\'arriservadesa</string>
   <string name="terms_of_use_description">Conditzionis de imperu</string>
-  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_activity_title">Informus</string>
   <string name="edit_abandon_confirm_yes">Eja</string>
   <string name="edit_abandon_confirm_no">No</string>

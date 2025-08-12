@@ -3,6 +3,7 @@ package org.wikipedia.history
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Ignore
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
@@ -18,18 +19,20 @@ import java.util.Date
 @Serializable
 @Parcelize
 @TypeParceler<Date, DateParceler>()
-@Entity
+@Entity(
+    indices = [Index(value = ["lang", "namespace", "apiTitle"])]
+)
 class HistoryEntry(
     // TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
     var authority: String = "",
     var lang: String = "",
     var apiTitle: String = "",
     var displayTitle: String = "",
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
     var namespace: String = "",
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
-    var prevId: Int = -1,
+    var prevId: Long = -1,
 ) : Parcelable {
     constructor(title: PageTitle, source: Int, timestamp: Date = Date()) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
@@ -98,5 +101,6 @@ class HistoryEntry(
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
         const val SOURCE_FEED_PLACES = 42
         const val SOURCE_ON_THIS_DAY_GAME = 43
+        const val SOURCE_RECOMMENDED_READING_LIST = 44
     }
 }

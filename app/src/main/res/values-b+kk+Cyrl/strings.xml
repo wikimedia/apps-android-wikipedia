@@ -126,8 +126,8 @@
   <string name="login_username_hint">Қатысушы аты</string>
   <string name="login_password_hint">Құпиясөз</string>
   <string name="account_creation_password_hint">Құпиясөз</string>
-  <string name="login_2fa_hint">Екі факторлы аутентификация коды</string>
-  <string name="login_2fa_other_workflow_error_msg">Екі факторлы аутентификация қажет! Негізгі іс-әрекетке қайтып, 2FA токеніңізбен кіріп қайталаңыз.</string>
+  <string name="login_2fa_hint" fuzzy="true">Екі факторлы аутентификация коды</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Екі факторлы аутентификация қажет! Негізгі іс-әрекетке қайтып, 2FA токеніңізбен кіріп қайталаңыз.</string>
   <string name="onboarding_card_login">Кіру</string>
   <string name="page_editing_login">Кіру</string>
   <string name="reading_lists_sync_login">Кіру</string>

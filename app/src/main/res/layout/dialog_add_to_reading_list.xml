@@ -52,8 +52,8 @@
                 android:paddingBottom="16dp">
 
                 <ImageView
-                    android:layout_width="@dimen/readingListItemSize"
-                    android:layout_height="@dimen/readingListItemSize"
+                    android:layout_width="@dimen/defaultThumbnailSize"
+                    android:layout_height="@dimen/defaultThumbnailSize"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/button_shape_add_reading_list"

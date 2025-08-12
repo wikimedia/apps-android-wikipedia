@@ -419,19 +419,7 @@ class UserContribListActivity : BaseActivity() {
             super.onUrlClick(url, title, linkText)
         }
 
-        override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
-        }
-
-        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // TODO
-        }
-
         override lateinit var wikiSite: WikiSite
-
-        override fun onPageLinkClicked(anchor: String, linkText: String) {
-            // TODO
-        }
 
         override fun onInternalLinkClicked(title: PageTitle) {
             UserTalkPopupHelper.show(this@UserContribListActivity, title, false, lastX, lastY,

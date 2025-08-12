@@ -17,6 +17,17 @@ class TranslationTests {
         // Step 1: collect counts of parameters in en/strings.xml
         val baseMap = findMatchedParamsInXML(baseFile, POSSIBLE_PARAMS, true)
 
+        // Check for multiple single (non-sequential) parameters
+        baseMap.forEach { (key, list) ->
+            val singleIntParam = POSSIBLE_PARAMS.indexOf("%d")
+            val singleStrParam = POSSIBLE_PARAMS.indexOf("%s")
+            if ((list[singleIntParam] + list[singleStrParam] > 1) && !key.contains('[')) {
+                mismatches.append("Too many single parameters in ")
+                    .append(STRINGS_XML_NAME).append(": ")
+                    .append(key).append(" \n")
+            }
+        }
+
         // Step 2: finding parameters in other languages
         for (dir in allFiles) {
             val lang =

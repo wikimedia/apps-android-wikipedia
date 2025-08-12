@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
@@ -24,7 +25,10 @@ import org.wikipedia.views.NonEmptyValidator
 
 class ResetPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
+
     private lateinit var firstStepToken: String
+    private var uiPromptResult: LoginResult? = null
+
     private lateinit var userName: String
     private var loginClient: LoginClient? = null
     private val loginCallback = LoginCallback()
@@ -47,6 +51,7 @@ class ResetPasswordActivity : BaseActivity() {
         binding.loginButton.setOnClickListener { validateThenLogin() }
         userName = intent.getStringExtra(LOGIN_USER_NAME).orEmpty()
         firstStepToken = intent.getStringExtra(LOGIN_TOKEN).orEmpty()
+        resetAuthState()
     }
 
     override fun onBackPressed() {
@@ -62,6 +67,12 @@ class ResetPasswordActivity : BaseActivity() {
     private fun clearErrors() {
         binding.resetPasswordInput.isErrorEnabled = false
         binding.resetPasswordRepeat.isErrorEnabled = false
+    }
+
+    private fun resetAuthState() {
+        binding.login2faText.isVisible = false
+        binding.login2faText.editText?.setText("")
+        uiPromptResult = null
     }
 
     private fun validateThenLogin() {
@@ -94,13 +105,20 @@ class ResetPasswordActivity : BaseActivity() {
     private fun doLogin() {
         val password = getText(binding.resetPasswordInput)
         val retypedPassword = getText(binding.resetPasswordRepeat)
-        val twoFactorCode = binding.login2faText.text.toString()
+        val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
         if (loginClient == null) {
             loginClient = LoginClient()
         }
-        loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password,
-                retypedPassword, twoFactorCode, firstStepToken, loginCallback)
+        if (uiPromptResult == null) {
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
+                token = firstStepToken, cb = loginCallback)
+        } else {
+            loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
+                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                token = firstStepToken, isContinuation = true, cb = loginCallback)
+        }
     }
 
     private inner class LoginCallback : LoginClient.LoginCallback {
@@ -119,11 +137,15 @@ class ResetPasswordActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String?) {
+        override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token.orEmpty()
+            uiPromptResult = result
+            binding.login2faText.hint = getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
             binding.login2faText.visibility = View.VISIBLE
+            binding.login2faText.editText?.setText("")
             binding.login2faText.requestFocus()
+            DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
         }
 
@@ -133,6 +155,8 @@ class ResetPasswordActivity : BaseActivity() {
 
         override fun error(caught: Throwable) {
             showProgressBar(false)
+            resetAuthState()
+            DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
             if (caught is LoginFailedException) {
                 FeedbackUtil.showError(this@ResetPasswordActivity, caught)
             } else {

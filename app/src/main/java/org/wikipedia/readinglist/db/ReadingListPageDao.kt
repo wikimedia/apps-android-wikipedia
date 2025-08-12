@@ -35,6 +35,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage")
     fun getAllPages(): List<ReadingListPage>
 
+    @Query("SELECT COUNT(*) FROM ReadingListPage")
+    suspend fun getPagesCount(): Int
+
     @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     fun getPageById(id: Long): ReadingListPage?
 
@@ -55,6 +58,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
+
+    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>

@@ -12,7 +12,7 @@
     <item
         android:id="@+id/menu_delete_selected"
         android:icon="@drawable/ic_delete_white_24dp"
-        app:iconTint="?attr/primary_color"
+        app:iconTint="?attr/destructive_color"
         android:title="@string/delete_selected_items"
         app:showAsAction="always" />
 

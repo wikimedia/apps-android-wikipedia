@@ -1,12 +1,12 @@
 package org.wikipedia.feed.suggestededits
 
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.L10nUtil
 
 class SuggestedEditsCard(val cardTypes: List<DescriptionEditActivity.Action>,
                          wiki: WikiSite,
@@ -17,7 +17,7 @@ class SuggestedEditsCard(val cardTypes: List<DescriptionEditActivity.Action>,
     }
 
     override fun title(): String {
-        return WikipediaApp.instance.getString(R.string.suggested_edits_feed_card_title)
+        return L10nUtil.getString(wikiSite().languageCode, R.string.suggested_edits_feed_card_title)
     }
 
     override fun subtitle(): String {
@@ -25,6 +25,6 @@ class SuggestedEditsCard(val cardTypes: List<DescriptionEditActivity.Action>,
     }
 
     fun footerActionText(): String {
-        return WikipediaApp.instance.getString(R.string.suggested_card_more_edits)
+        return L10nUtil.getString(wikiSite().languageCode, R.string.suggested_card_more_edits)
     }
 }

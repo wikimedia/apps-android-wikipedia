@@ -7,6 +7,7 @@ import org.wikipedia.compose.ComposeColors
 
 @Immutable
 data class WikipediaColor(
+    val isDarkTheme: Boolean = false,
     val primaryColor: Color,
     val paperColor: Color,
     val backgroundColor: Color,
@@ -63,6 +64,7 @@ val LightColors = WikipediaColor(
 )
 
 val DarkColors = WikipediaColor(
+    isDarkTheme = true,
     primaryColor = ComposeColors.Gray200,
     paperColor = ComposeColors.Gray700,
     backgroundColor = ComposeColors.Gray675,
@@ -81,6 +83,7 @@ val DarkColors = WikipediaColor(
 )
 
 val BlackColors = WikipediaColor(
+    isDarkTheme = true,
     primaryColor = ComposeColors.Gray200,
     paperColor = ComposeColors.Black,
     backgroundColor = ComposeColors.Gray700,

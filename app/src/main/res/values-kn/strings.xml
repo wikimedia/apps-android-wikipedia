@@ -149,8 +149,8 @@
   <string name="login_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="account_creation_password_hint">ಪ್ರವೇಶಪದ</string>
-  <string name="login_2fa_hint">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ ಸಂಕೇತ</string>
-  <string name="login_2fa_other_workflow_error_msg">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ! ದಯವಿಟ್ಟು ಮುಖ್ಯ ಚಟುವಟಿಕೆಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ನಿಮ್ಮ 2ಎಫ್ಎ ಟೋಕನ್‌ನೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ, ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="login_2fa_hint" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ ಸಂಕೇತ</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ! ದಯವಿಟ್ಟು ಮುಖ್ಯ ಚಟುವಟಿಕೆಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ನಿಮ್ಮ 2ಎಫ್ಎ ಟೋಕನ್‌ನೊಂದಿಗೆ ಲಾಗಿನ್ ಆಗಿ, ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
   <string name="onboarding_card_login">ಲಾಗ್ ಇನ್</string>
   <string name="page_editing_login">ಲಾಗ್ ಇನ್</string>
   <string name="reading_lists_sync_login">ಲಾಗ್ ಇನ್</string>
@@ -227,11 +227,9 @@
   <string name="privacy_policy_description">ಗೌಪ್ಯತಾ ನೀತಿ</string>
   <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
   <string name="about_wikipedia_url">https://kn.wikipedia.org/wiki/ವಿಕಿಪೀಡಿಯ:ನಮ್ಮ_ಬಗ್ಗೆ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ಕೊಡುಗೆದಾರರು</string>
   <string name="about_translators_heading">ಅನುವಾದಕರು</string>
   <string name="about_app_license_heading">ಪರವಾನಗಿ</string>
@@ -241,7 +239,7 @@
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
   <string name="edit_how_page_improved">ನೀವು ಪುಟವನ್ನು ಹೇಗೆ ಉತ್ತಮಪಡಿಸಿದ್ದೀರಿ?</string>
   <string name="edit_next">ಮುಂದೆ</string>
-  <string name="edit_done">ಪ್ರಕಟಿಸು</string>
+  <string name="edit_done">ಪ್ರಕಟಿಸಿ</string>
   <string name="edit_preview">ಮುನ್ನೋಟ</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s ಬೈಟ್</item>
@@ -403,7 +401,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ರದ್ದು ಮಾಡು</string>
   <string name="tabs_activity_title">ಟ್ಯಾಬ್‌ಗಳು</string>
   <string name="description_edit_article_description_label">ಲೇಖನ</string>
-  <string name="description_edit_save">ಪ್ರಕಟಿಸು</string>
+  <string name="description_edit_save">ಪ್ರಕಟಿಸಿ</string>
   <string name="description_edit_read">ಓದು</string>
   <string name="description_edit_cancel_hint">ರದ್ದುಮಾಡಿ</string>
   <string name="description_too_short">ಪಠ್ಯ ತುಂಬಾ ಚಿಕ್ಕದಾಗಿದೆ.</string>

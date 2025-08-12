@@ -1,8 +1,8 @@
 package org.wikipedia.robots.screen
 
+import BaseRobot
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class NotificationScreenRobot : BaseRobot() {
 

@@ -91,9 +91,6 @@ class SearchIntentTest {
 
         TestUtil.delay(1)
 
-        onView(withId(R.id.languages_list_recycler))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
-
         TestUtil.delay(1)
 
         Espresso.pressBack()

@@ -80,7 +80,7 @@
   <string name="nav_item_login">កត់ឈ្មោះចូលវិគីភីឌា</string>
   <string name="login_username_hint">អត្តនាម</string>
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
-  <string name="login_2fa_hint">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
+  <string name="login_2fa_hint" fuzzy="true">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
   <string name="menu_login">កត់ឈ្មោះចូល</string>
   <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>

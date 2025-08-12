@@ -5,7 +5,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
+import org.wikipedia.util.L10nUtil
 import java.io.Serializable
 
 // TODO: create default reading list upon initial DB creation.
@@ -34,11 +34,11 @@ class ReadingList(
     var selected = false
 
     var title
-        get() = listTitle.ifEmpty { WikipediaApp.instance.getString(R.string.default_reading_list_name) }
+        get() = listTitle.ifEmpty { L10nUtil.getString(R.string.default_reading_list_name) }
         set(value) { listTitle = value }
 
     val isDefault
-        get() = title == WikipediaApp.instance.getString(R.string.default_reading_list_name)
+        get() = title == L10nUtil.getString(R.string.default_reading_list_name)
 
     val numPagesOffline
         get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
@@ -54,7 +54,7 @@ class ReadingList(
         return (other is ReadingList &&
                 id == other.id &&
                 pages.size == other.pages.size &&
-                numPagesOffline == numPagesOffline &&
+                numPagesOffline == other.numPagesOffline &&
                 title == other.title &&
                 description == other.description)
     }

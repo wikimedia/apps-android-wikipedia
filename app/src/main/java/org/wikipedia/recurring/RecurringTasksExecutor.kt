@@ -21,6 +21,8 @@ class RecurringTasksExecutor() {
             if (ReleaseUtil.isAlphaRelease) {
                 AlphaUpdateChecker(app).runIfNecessary()
             }
+            CategoriesTableCleanupTask().runIfNecessary()
+            RecommendedReadingListTask().runIfNecessary()
         }
     }
 }

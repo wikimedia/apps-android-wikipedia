@@ -1,5 +1,6 @@
 package org.wikipedia.robots.navigation
 
+import BaseRobot
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -10,7 +11,6 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 
 class BottomNavRobot : BaseRobot() {
     fun navigateToExploreFeed() = apply {

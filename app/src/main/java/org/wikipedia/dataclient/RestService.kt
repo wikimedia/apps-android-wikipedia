@@ -89,7 +89,8 @@ interface RestService {
     suspend fun getFeedFeatured(
         @Path("year") year: String?,
         @Path("month") month: String?,
-        @Path("day") day: String?
+        @Path("day") day: String?,
+        @Query("lang") lang: String?
     ): AggregatedFeedContent
 
     @GET("feed/availability")

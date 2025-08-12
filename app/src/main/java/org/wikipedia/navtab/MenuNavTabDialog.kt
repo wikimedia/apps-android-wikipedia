@@ -16,6 +16,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
@@ -28,6 +29,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun watchlistClick()
         fun contribsClick()
         fun donateClick(campaignId: String? = null)
+        fun yearInReviewClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -35,6 +37,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
+
+        binding.mainDrawerYearInReviewContainer.isVisible = Prefs.isYearInReviewEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -80,6 +84,11 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             callback()?.donateClick()
+            dismiss()
+        }
+
+        binding.mainDrawerYearInReviewContainer.setOnClickListener {
+            callback()?.yearInReviewClick()
             dismiss()
         }
 

@@ -17,6 +17,12 @@
         app:showAsAction="ifRoom">
         <menu>
             <item
+                android:id="@+id/menu_volume"
+                android:title="@string/on_this_day_game_sound_on"
+                android:icon="@drawable/volume_up_24dp"
+                app:iconTint="?attr/secondary_color"
+                app:showAsAction="always" />
+            <item
                 android:id="@+id/menu_learn_more"
                 android:title="@string/on_this_day_game_menu_info"
                 android:icon="@drawable/baseline_info_24"

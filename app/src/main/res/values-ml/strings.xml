@@ -123,8 +123,8 @@
   <string name="login_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="login_password_hint">രഹസ്യവാക്ക്</string>
   <string name="account_creation_password_hint">രഹസ്യവാക്ക്</string>
-  <string name="login_2fa_hint">ദ്വി-ഘടക സാധൂകരണ കോഡ്</string>
-  <string name="login_2fa_other_workflow_error_msg">രണ്ട്-ഘടക പ്രാമാണീകരണം ആവശ്യമാണ്! ദയവായി പ്രധാന പ്രവർത്തനത്തിലേക്ക് മടങ്ങി നിങ്ങളുടെ 2FA ടോക്കൺ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
+  <string name="login_2fa_hint" fuzzy="true">ദ്വി-ഘടക സാധൂകരണ കോഡ്</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">രണ്ട്-ഘടക പ്രാമാണീകരണം ആവശ്യമാണ്! ദയവായി പ്രധാന പ്രവർത്തനത്തിലേക്ക് മടങ്ങി നിങ്ങളുടെ 2FA ടോക്കൺ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക, തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
   <string name="onboarding_card_login">പ്രവേശിക്കുക</string>
   <string name="page_editing_login">പ്രവേശിക്കുക</string>
   <string name="reading_lists_sync_login">പ്രവേശിക്കുക</string>

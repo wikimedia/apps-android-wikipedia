@@ -41,7 +41,7 @@ class CustomizeExploreFeedTest : BaseTest<MainActivity>(
             .pressBack()
             .pressBack()
         exploreFeedRobot
-            .verifyFeedViewSize(2)
+            .verifyFeedViewSize(1)
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()

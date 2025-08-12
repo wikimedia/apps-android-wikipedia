@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.app.Activity
 import android.app.Instrumentation
 import android.content.Context
@@ -18,7 +19,6 @@ import androidx.test.uiautomator.UiSelector
 import org.hamcrest.CoreMatchers.allOf
 import org.wikipedia.R
 import org.wikipedia.base.TestConfig
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.base.utils.GifMatchers
 import org.wikipedia.base.utils.waitForAsyncLoading
 
@@ -59,7 +59,7 @@ class MediaRobot : BaseRobot() {
             return@apply
         }
 
-        verify.viewDoesNotExist(R.id.toolbar_container)
+        verify.viewWithIdIsNotVisible(R.id.toolbar_container)
         delay(TestConfig.DELAY_MEDIUM)
     }
 

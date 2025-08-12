@@ -16,7 +16,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.util.StringUtil
-import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
 class LogoutPreference : Preference {
@@ -40,7 +39,7 @@ class LogoutPreference : Preference {
 
         holder.itemView.findViewById<TextView>(R.id.accountExpiry).apply {
             isVisible = AccountUtil.isTemporaryAccount
-            val expiryDays = TimeUnit.MILLISECONDS.toDays(AccountUtil.getUserNameExpiryFromCookie() - System.currentTimeMillis()).toInt()
+            val expiryDays = AccountUtil.tempAccountDaysLeft()
             text = context.resources.getQuantityString(R.plurals.temp_account_expiry, expiryDays, expiryDays)
         }
 

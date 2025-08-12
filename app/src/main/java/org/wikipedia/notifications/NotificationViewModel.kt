@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
@@ -170,9 +169,6 @@ class NotificationViewModel : ViewModel() {
                 }
             }
             notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(notification)
-            if (!markUnread) {
-                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
-            }
         }
 
         viewModelScope.launch(handler) {

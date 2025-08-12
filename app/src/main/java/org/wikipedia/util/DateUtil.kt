@@ -6,6 +6,8 @@ import android.os.Build
 import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.extensions.getResources
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -13,6 +15,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
@@ -70,6 +73,10 @@ object DateUtil {
 
     fun getYMDDateString(date: Date): String {
         return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
+    }
+
+    fun getMMMMdYYYY(date: Date): String {
+        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), true).format(date)
     }
 
     private fun getExtraShortDateString(date: Date): String {
@@ -161,13 +168,13 @@ object DateUtil {
     }
 
     fun yearToStringWithEra(year: Int): String {
-        val cal: Calendar = GregorianCalendar(year, 1, 1)
+        val cal: Calendar = GregorianCalendar(if (year < 0) year + 1 else year, 1, 1)
         return getDateStringWithSkeletonPattern(cal.time, if (year < 0) "y GG" else "y")
     }
 
-    fun getYearDifferenceString(year: Int, languageCode: String): String {
+    fun getYearDifferenceString(context: Context, year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
-        val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.instance.resources
+        val targetResource = context.getResources(languageCode)
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val firstMatchLocaleInstance = RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales.getFirstMatch(arrayOf(languageCode)))
             when (diffInYears) {
@@ -177,8 +184,23 @@ object DateUtil {
                 else -> firstMatchLocaleInstance.format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
             }
         } else {
-            return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
+            return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
+    }
+
+    fun startOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
+        val localDate = LocalDate.of(year, 1, 1)
+        return localDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
+    }
+
+    fun endOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
+        val localDate = LocalDate.of(year, 12, 31)
+        return localDate.atTime(0, 0, 0).atZone(zoneId).toInstant().toEpochMilli()
+    }
+
+    fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
+        val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
+        return zonedDateTime.year
     }
 }

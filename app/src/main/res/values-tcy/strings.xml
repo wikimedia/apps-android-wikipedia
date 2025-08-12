@@ -24,6 +24,7 @@
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
   <string name="search_hint_voice_search">ದನಿ ಇನ್‌ಪುಟ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
+  <string name="search_back_button_content_description">ಪಿರ ಪೋಲೆ</string>
   <string name="filter_hint_filter_my_lists_and_articles">ಎನ್ನ ಪಟ್ಟಿಲೆನ್ ಅರ್ತ್‌ದ್ ತೋಜಾಲ</string>
   <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_more">ನನಾತ್</string>
@@ -146,8 +147,8 @@
   <string name="login_username_hint">ಬಳಕೆದಾರೆರೆಪುದರ್</string>
   <string name="login_password_hint">ಪ್ರವೇಶ ಪದೊ</string>
   <string name="account_creation_password_hint">ಸಂಕೇತಪದ</string>
-  <string name="login_2fa_hint">ರಡ್ಡ್ ಫ್ಯಾಕ್ಟರ್ ದೃಢೀಕರಣ ಕೋಡ್</string>
-  <string name="login_2fa_other_workflow_error_msg">ರಡ್ಡ್ ಅಂಶೊತ ದೃಢೀಕರಣ ಅಗತ್ಯ ಉಂಡು! ದಯಮಾಲ್ತ್ ಮುಖ್ಯೊ ಚಟುವಟಿಕೆನ್ ತಿರ್ಗಾತ್ ತುಯೊರೊ, ನಿಗ್‌ಲ್ ಲಾಗ್ ಇನ್ ಮಾಲ್ಪುಲೆ 2FA ಟೋಕನ್, ಬುಕ್ಕೊ ಪುನಃ ಪ್ರಯತ್ನ ಮಾಲ್ಪುಲೆ.</string>
+  <string name="login_2fa_hint" fuzzy="true">ರಡ್ಡ್ ಫ್ಯಾಕ್ಟರ್ ದೃಢೀಕರಣ ಕೋಡ್</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ರಡ್ಡ್ ಅಂಶೊತ ದೃಢೀಕರಣ ಅಗತ್ಯ ಉಂಡು! ದಯಮಾಲ್ತ್ ಮುಖ್ಯೊ ಚಟುವಟಿಕೆನ್ ತಿರ್ಗಾತ್ ತುಯೊರೊ, ನಿಗ್‌ಲ್ ಲಾಗ್ ಇನ್ ಮಾಲ್ಪುಲೆ 2FA ಟೋಕನ್, ಬುಕ್ಕೊ ಪುನಃ ಪ್ರಯತ್ನ ಮಾಲ್ಪುಲೆ.</string>
   <string name="onboarding_card_login">ಉಳಗಮನ</string>
   <string name="page_editing_login">ಉಳಗಮನ</string>
   <string name="reading_lists_sync_login">ಉಳಗಮನ</string>
@@ -229,8 +230,8 @@
   <string name="privacy_policy_description">ಖಾಸಗಿ ಕಾರ್ಯೊನೀತಿ</string>
   <string name="terms_of_use_description">ಗಳಸುನಾ ನಿಬಂದೊಲು</string>
   <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">ಗ್ರಂಥಾಲಯಟ್ ಬಲಕೆ ಅಪುಂಡು</string>
   <string name="about_contributors_heading">ಕಾನಿಕೆ ಕೊರ್ನಾರ್</string>
@@ -418,5 +419,4 @@
   <string name="preview_edit_summarize_edit_hint">ಈರ್ ಇ ಪುಟೊನ್ ವಾ ನಮೂಡೆಡ್ ಎಡ್ಡೆ ಮಲ್ತರ್?</string>
   <string name="patroller_saved_message_title_art_imp">ಲೇಕನ ಸುದಾರಣೆ ಸಲಹೆ</string>
   <string name="talk_templates_menu_edit_title">ಸಂಪೊಲಿಪುಲೆ</string>
-  <string name="back_button_content_description">ಪಿರ ಪೋಲೆ</string>
 </resources>

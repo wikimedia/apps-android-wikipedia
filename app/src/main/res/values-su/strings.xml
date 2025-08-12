@@ -135,8 +135,8 @@
   <string name="login_username_hint">Sandiasma</string>
   <string name="login_password_hint">Kecap sandi</string>
   <string name="account_creation_password_hint">Kecap sandi</string>
-  <string name="login_2fa_hint">Kodeu auténtikasi dua faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Oténtikasi dua faktor diperlukeun! Mangga balik deui kana aktivitas utama sarta asup log deui ku token 2FA anjeun, tuluy cobaan deui.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kodeu auténtikasi dua faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Oténtikasi dua faktor diperlukeun! Mangga balik deui kana aktivitas utama sarta asup log deui ku token 2FA anjeun, tuluy cobaan deui.</string>
   <string name="onboarding_card_login">Asup log</string>
   <string name="page_editing_login">Asup log</string>
   <string name="reading_lists_sync_login">Asup log</string>
@@ -222,8 +222,8 @@
   <string name="privacy_policy_description">Kawijakan privasi</string>
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
   <string name="about_wikipedia_url">https://su.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_libraries_heading">Pabukon nu dipaké</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panarjamah</string>

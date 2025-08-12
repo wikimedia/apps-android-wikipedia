@@ -90,16 +90,6 @@ object LanguageUtil {
         }
     }
 
-    val firstSelectedChineseVariant: String
-        get() {
-            val firstSelectedChineseLangCode =
-                WikipediaApp.instance.languageState.appLanguageCodes.firstOrNull {
-                    isChineseVariant(it)
-                }
-            return firstSelectedChineseLangCode.orEmpty()
-                .ifEmpty { AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE }
-        }
-
     fun isChineseVariant(langCode: String): Boolean {
         return langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) &&
                 langCode != AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE

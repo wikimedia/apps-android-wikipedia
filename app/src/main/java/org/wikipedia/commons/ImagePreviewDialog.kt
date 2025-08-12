@@ -15,10 +15,10 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogImagePreviewBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
@@ -30,7 +30,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
-        setConditionalLayoutDirection(binding.root, viewModel.pageSummaryForEdit.lang)
+        binding.root.setLayoutDirectionByLang(viewModel.pageSummaryForEdit.lang)
         return binding.root
     }
 

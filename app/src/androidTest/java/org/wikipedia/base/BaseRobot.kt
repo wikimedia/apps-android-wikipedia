@@ -1,7 +1,9 @@
+import androidx.compose.ui.test.junit4.ComposeTestRule
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import org.wikipedia.TestUtil.waitOnId
+import org.wikipedia.base.ComposeTestManager
 import org.wikipedia.base.actions.ClickActions
 import org.wikipedia.base.actions.InputActions
 import org.wikipedia.base.actions.ListActions
@@ -21,6 +23,9 @@ abstract class BaseRobot {
     protected val system = SystemActions()
     protected val verify = VerificationActions()
     protected val web = WebActions()
+
+    protected val composeTestRule: ComposeTestRule
+        get() = ComposeTestManager.getComposeTestRule()
 
     protected fun delay(seconds: Long) {
         onView(isRoot()).perform(waitOnId(TimeUnit.SECONDS.toMillis(seconds)))

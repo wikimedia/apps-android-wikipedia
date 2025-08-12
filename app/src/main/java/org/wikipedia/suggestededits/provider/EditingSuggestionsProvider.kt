@@ -299,8 +299,8 @@ object EditingSuggestionsProvider {
         return page
     }
 
-    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage {
-        var page: MwQueryPage
+    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage? {
+        var page: MwQueryPage?
         withContext(Dispatchers.IO) {
             mutex.acquire()
             try {
@@ -337,7 +337,7 @@ object EditingSuggestionsProvider {
                     }
                 } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.isEmpty())
 
-                page = articlesWithImageRecommendationsCache.removeFirst()
+                page = articlesWithImageRecommendationsCache.removeFirstOrNull()
             } finally {
                 mutex.release()
             }

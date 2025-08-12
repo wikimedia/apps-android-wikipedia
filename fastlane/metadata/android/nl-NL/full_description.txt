@@ -1,0 +1,11 @@
+Officiële Wikipedia-app voor Android. Wikipedia is de vrije encylopedie met meer dan 31 miljoen artikelen in 280 talen, en de meest uitgebreide en meest gebruikte bron gemaakt door de mens. De app is vanaf de grond opnieuw opgebouwd en is beter dan ooit te voren.
+
+Functies:
+   - Snelheid: onze nieuwe native app zorgt voor een snellere app dan ooit te voren, waarmee u nog sneller kunt verkennen en bewerken.
+   - Bewerken: U kan Wikipedia bewerken! Met of zonder account, we zijn blij met al uw bijdragen!
+   - Recente pagina\'s: we bieden een overzicht van recent gelezen pagina\'s aan, waardoor u zoveel mogelijk kunt doorklikken zonder de weg kwijt te raken.
+   - Delen: gebruik uw bestaande apps voor sociale media om de menselijke kennis te delen.
+   - Meertalig: de app biedt makkelijke toegang tot Wikipedia in elke taal.
+   - Wikipedia Zero: Wikipedia bezoeken zonder kosten bij geselecteerde mobiele provides.
+
+De broncode is volledig opensource. Heeft u ervaring met Java en de Android-SDK, fork ons dan! https://github.com/wikimedia/apps-android-wikipedia

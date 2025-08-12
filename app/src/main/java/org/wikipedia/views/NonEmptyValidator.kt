@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.widget.Button
+import androidx.core.view.isGone
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputLayout
 
@@ -19,7 +20,7 @@ class NonEmptyValidator(private val actionButton: Button, private vararg val tex
     }
 
     private fun revalidate(force: Boolean = false) {
-        val isValid = textInputs.all { it.editText!!.text.isNotEmpty() }
+        val isValid = textInputs.all { it.isGone || it.editText!!.text.isNotEmpty() }
         if (isValid != lastIsValidValue || force) {
             lastIsValidValue = isValid
             actionButton.isEnabled = lastIsValidValue

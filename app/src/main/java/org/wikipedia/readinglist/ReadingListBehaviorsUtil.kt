@@ -169,8 +169,6 @@ object ReadingListBehaviorsUtil {
                     AppDatabase.instance.readingListDao().updateList(readingList, true)
                     callback.onCompleted()
                 }
-
-                override fun onCancel() { }
             }).show()
     }
 

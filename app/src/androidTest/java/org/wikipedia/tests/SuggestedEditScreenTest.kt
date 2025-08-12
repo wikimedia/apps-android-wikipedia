@@ -49,13 +49,20 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
             .verifyViewsIsVisible()
             .verifyLastEditedIsVisible()
             .verifyEditQualityIsVisible()
+        suggestedEditsScreenRobot
+            .verifyArticleDescriptionDoesNotExist(context)
+            .increaseContribution()
             .enterContributionScreen()
+        systemRobot
+            .clickOnSystemDialogWithText("No thanks")
             .pressBack()
+        suggestedEditsScreenRobot
             .clickArticleDescriptions()
             .pressBack()
-            .clickImageCaptions()
-            .pressBack()
             .clickImageTags()
+            .pressBack()
+            .disableImageCaptionOnboarding()
+            .clickImageCaptions()
             .pressBack()
             .clickSuggestedEdits()
         navRobot

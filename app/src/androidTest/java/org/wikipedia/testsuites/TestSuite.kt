@@ -11,6 +11,7 @@ import org.wikipedia.tests.SuggestedEditScreenTest
 @RunWith(Suite::class)
 @SuiteClasses(
     OnboardingTest::class,
+    OfflineTestSuite::class,
     SuggestedEditScreenTest::class,
     SettingsTestSuite::class,
     ExploreFeedTestSuite::class,

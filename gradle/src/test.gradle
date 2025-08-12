@@ -1,7 +1,8 @@
 // add task for executing both jvm junit and android instrumentation tests (per variant)
 def testAllTask(String testAllName, String jvmJUnitName, String androidInstrumentationName) {
     // run jvm junit tests and android instrumentation tests
-    task (testAllName, dependsOn: [jvmJUnitName, androidInstrumentationName]) {
+    tasks.register(testAllName) {
+        dependsOn jvmJUnitName, androidInstrumentationName
         // jvm junit tests execute quickest and should be attempted prior to android instrumentation
         // tests
         shouldRunAfter jvmJUnitName

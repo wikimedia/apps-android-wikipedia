@@ -19,6 +19,7 @@
   <string name="search_hint">Golèk ing Wikipédia</string>
   <string name="search_hint_voice_search">Golèk sarana swara</string>
   <string name="search_hint_search_languages">Golèk basa</string>
+  <string name="search_back_button_content_description">Balik</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Besutan kang kaprayogakaké</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
   <string name="page_error_retry">Jajal manèh</string>
@@ -95,8 +96,8 @@
   <string name="login_username_hint">Jeneng naraguna</string>
   <string name="login_password_hint">Tembung sandi</string>
   <string name="account_creation_password_hint">Tembung sandi</string>
-  <string name="login_2fa_hint">Kodhe Otèntifikasi Rong-Faktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Butuh otèntifikasi rong-faktor! Balia menyang kagiyatan pokok lan mlebu log mawa token 2FA-mu, banjur jajal manèh.</string>
+  <string name="login_2fa_hint" fuzzy="true">Kodhe Otèntifikasi Rong-Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Butuh otèntifikasi rong-faktor! Balia menyang kagiyatan pokok lan mlebu log mawa token 2FA-mu, banjur jajal manèh.</string>
   <string name="onboarding_card_login">Mlebu log</string>
   <string name="page_editing_login">Mlebu log</string>
   <string name="reading_lists_sync_login">Mlebu log</string>
@@ -177,10 +178,9 @@
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
   <string name="about_wikipedia_url">https://jv.wikipedia.org/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Kapustakan sing dienggo</string>
   <string name="about_contributors_heading">Panyumbang</string>
   <string name="about_translators_heading">Pamertal</string>
@@ -356,8 +356,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel katon ing manéka pratélan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
   <string name="reading_lists_sync_reminder_title">Urubaké sinkronisasi pratélan wacan?</string>
-  <string name="reading_lists_sync_reminder_text">Artikel kang kasimpen ing pratélan wacan saiki bisa kasinkronaké menyang akun Wikipédia panjenengan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Pratélan wacan saiki wis bisa kasinkronake ing manéka piranti. Mlebua ing akun Wikipédiané panjenengan lan idinaké pratélané panjenengan kasimpen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel kang kasimpen ing pratélan wacan saiki bisa kasinkronaké menyang akun Wikipédia panjenengan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Pratélan wacan saiki wis bisa kasinkronake ing manéka piranti. Mlebua ing akun Wikipédiané panjenengan lan idinaké pratélané panjenengan kasimpen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Urubaké sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronisasi pratélan wacan</string>
   <string name="reading_lists_login_reminder_text">Pratélan wacan saiki wis bisa kasinkronake ing manéka piranti. Mlebua ing akun Wikipédiané panjenengan lan idinaké pratélané panjenengan kasimpen.</string>
@@ -529,7 +529,7 @@
   <string name="description_edit_help_title" fuzzy="true">Pitulung: wedharaning sesirah</string>
   <string name="description_edit_help_about_wikidata">Bab Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Pandom Wikidata kanggo nulis andharan</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice" fuzzy="true">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved" fuzzy="true">Wedharané wis terbit!</string>

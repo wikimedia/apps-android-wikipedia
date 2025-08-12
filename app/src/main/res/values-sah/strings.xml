@@ -21,6 +21,8 @@
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
+  <string name="search_clear_query_content_description">Көрдөбүлү ыраастаа</string>
+  <string name="search_icon_content_description">Бул</string>
   <string name="filter_hint_filter_my_lists_and_articles">Мин испииһэктэрбин сиидэлээ</string>
   <string name="nav_item_suggested_edits">Уларытыылар</string>
   <string name="nav_item_more">Эбии</string>
@@ -57,9 +59,18 @@
   <string name="page_edit_history_activity_title">Уларытыы устуоруйата: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Уларытыы туһунан кураанах</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Көннөрүүлэри көрдөөһүн эбэтэр сиидэлээһин</string>
+  <string name="page_edit_history_filter_by">Манан сиидэлээ</string>
+  <string name="page_edit_history_filter_by_all">Бары уларытыылар (%s)</string>
+  <string name="page_edit_history_filter_by_user">Кыттааччылар уларытыылара (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Аноним уларытыылар (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Боттар уларытыылара (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Миэтирикэлэр, мантан %1$s манна %2$s диэри</string>
+  <string name="page_edit_history_empty_search_message">&lt;a href=\"#\"&gt;Сиидэлэри&lt;/a&gt; уларытан көр, оччоҕо элбэх уларытыы тахсыа</string>
   <string name="menu_page_show_tabs">Кыбытыктары көрдөр</string>
   <string name="menu_page_other_languages">Атын тылынан</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Бу сирэйгэ булуу</string>
+  <string name="menu_page_find_in_page">Ыстатыйаҕа булуу</string>
+  <string name="menu_page_add_to_watchlist">Кэтэбил испииһэгэр киллэр</string>
   <string name="menu_page_watch">Кэтээ</string>
   <string name="menu_page_unwatch">Кэтээмэ</string>
   <string name="menu_page_view_talk">Ырытар сири көрүү</string>
@@ -130,8 +141,8 @@
   <string name="login_username_hint">Бэлиэ-аат</string>
   <string name="login_password_hint">Аһарык</string>
   <string name="account_creation_password_hint">Аһарык</string>
-  <string name="login_2fa_hint">Икки суол тургутуулаах куод</string>
-  <string name="login_2fa_other_workflow_error_msg">Икки хаттыгастаах аутентификация ирдэнэр! Бука диэн, сүрүн бырайыаккар төннөн, 2FA токены туһанан тиһиккэ киир, онтон хатылаан көр.</string>
+  <string name="login_2fa_hint" fuzzy="true">Икки суол тургутуулаах куод</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Икки хаттыгастаах аутентификация ирдэнэр! Бука диэн, сүрүн бырайыаккар төннөн, 2FA токены туһанан тиһиккэ киир, онтон хатылаан көр.</string>
   <string name="onboarding_card_login">Киир</string>
   <string name="page_editing_login">Киир</string>
   <string name="reading_lists_sync_login">Киирии</string>
@@ -219,11 +230,10 @@
   <string name="privacy_policy_description">Бүк охсунуу</string>
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
   <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>
   <string name="about_translators_heading">Тылбаасчыттар</string>
@@ -452,8 +462,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
-  <string name="reading_lists_sync_reminder_text">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_lists_login_reminder_text">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ.</string>
@@ -630,7 +640,7 @@
   <string name="description_edit_help_title">Көмө: ыстатыйалар тустарынан суруйуу</string>
   <string name="description_edit_help_about_wikidata">Биики-Билии туһунан</string>
   <string name="description_edit_help_wikidata_guide">Биики-Билиигэ ойуулааһыны оҥоруу туһунан ыйыы-кэрдии</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ойуулааһыны уларытыыга болҕомтоҥ иһин махтанабыт! Салгыы уларытарга Бикипиэдьийэҕэ бэлиэ-ааккынан киириэхтээххин.</string>
   <string name="description_edit_license_notice">Бигэргэттэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="description_edit_helper_text_lowercase_warning">үксүн кыраа буукубаттан суруллар</string>

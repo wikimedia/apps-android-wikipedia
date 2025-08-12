@@ -8,6 +8,7 @@
 * Buntschann
 * Chqaz
 * Dbrant
+* Dragoniez
 * Fumi37s
 * GAMEZONE628
 * Great ones
@@ -54,6 +55,7 @@
 * Whym
 * Wicklo
 * WwLMvmT
+* YeBoy371
 * Yusuke1109
 * そらたこ
 * もなー(偽物)
@@ -75,6 +77,9 @@
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_languages">言語を検索</string>
+  <string name="search_back_button_content_description">戻る</string>
+  <string name="search_clear_query_content_description">クエリを消去</string>
+  <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
@@ -203,8 +208,11 @@
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="account_creation_password_hint">パスワード</string>
-  <string name="login_2fa_hint">二段階認証コード</string>
-  <string name="login_2fa_other_workflow_error_msg">2段階認証が必要です! メイン画面に戻り2段階認証のトークンを使ってログインしてから、再実行してください。</string>
+  <string name="login_2fa_hint">二要素認証コード</string>
+  <string name="login_2fa_other_workflow_error_msg">二要素認証が必要です! メイン画面からログインして2FAトークンからコードを入力してください。</string>
+  <string name="login_email_auth_hint">メール認証コード</string>
+  <string name="login_email_auth_other_workflow_error_msg">メール認証が必要です！メイン画面からログインし、メール認証コードを入力してください。</string>
+  <string name="login_background_error_msg">再ログインできません。メイン画面に戻って手動でログインしてください。</string>
   <string name="onboarding_card_login">ログイン</string>
   <string name="page_editing_login">ログイン</string>
   <string name="reading_lists_sync_login">ログイン</string>
@@ -294,18 +302,16 @@
   <string name="privacy_policy_description">プライバシーポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
   <string name="about_wikipedia_url">https://ja.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_tags</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
@@ -374,6 +380,7 @@
   <string name="widget_name_featured_page">ウィキペディアの秀逸な記事</string>
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
+  <string name="widget_description_search">ウィキペディアを検索する最速の方法</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
@@ -484,17 +491,17 @@
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="temp_account_not_logged_in">ログインしていません</string>
   <string name="temp_account_anon_ip_dialog_body">編集を行うと、IPアドレスが編集に紐付けられます。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
-  <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;臨時アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
+  <string name="temp_account_anon_dialog_body">編集を行うと、プライバシー保護のために&lt;b&gt;仮アカウント&lt;/b&gt;が作成されます。 &lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;今後の編集のクレジット表記やその他の機能へのアクセスのために &lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; してください。</string>
   <string name="temp_account_temp_dialog_body">あなたの編集は %1$s に帰属します。管理者はあなたのIPアドレスを見れます。&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt; または &lt;a href=\"https://#createaccount\"&gt;アカウントを作成&lt;/a&gt; した場合、自分が選択した名前に編集を帰属させるといった利点があります。</string>
   <string name="temp_account_dialog_ok">わかりました</string>
-  <string name="temp_account_using_title">あなたは臨時アカウントを使用しています</string>
+  <string name="temp_account_using_title">あなたは仮アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために臨時アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;臨時アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
-  <string name="temp_account_login_status">&lt;b&gt;現在、臨時アカウントを使用しています。&lt;/b&gt;臨時アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために仮アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;仮アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;現在、仮アカウントを使用しています。&lt;/b&gt;仮アカウント %1$s で行った編集はログインしたときに永続アカウントに引き継がれません。ログインまたはアカウントを作成すると利用者名のクレジットを得るなどの利点があります。</string>
   <string name="temp_account_end_session">セッションを終了</string>
-  <string name="temp_account_end_session_confirm">これにより、臨時アカウントからログアウトします。続行しますか？</string>
+  <string name="temp_account_end_session_confirm">これにより、仮アカウントからログアウトします。続行しますか？</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -532,7 +539,7 @@
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
   <string name="reading_list_create_new">新規作成</string>
-  <string name="reading_list_title_exists">\'\'%s\'\'という名前のあとで読むリストはすでにあります。</string>
+  <string name="reading_list_title_exists">\'\'%s\'\' という名前のあとで読むリストは既にあります。</string>
   <string name="reading_list_article_added_to_named">%1$sを%2$sに加えました。</string>
   <string name="reading_list_article_added_to_default_list">%s を保存しました。リストに追加しますか?</string>
   <string name="reading_list_article_moved_to_named">%1$sを%2$sに保存しました</string>
@@ -613,8 +620,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">すべての閲覧リストに対して、%sはオフラインで利用できなくなります：</string>
   <string name="reading_lists_sync_reminder_title">あとで読むリストの同期を停止しますか?</string>
-  <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
   <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
@@ -910,8 +917,6 @@
   <string name="description_edit_voice_input_description">音声入力</string>
   <string name="description_edit_learn_more">記事の説明に関してもっと知る</string>
   <string name="description_edit_image_caption_learn_more">画像のキャプションに関してもっと知る</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/ja#Image_captions</string>
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_too_long">利用者が記事の主題をひと目で理解できるように説明は短くするようにしてください</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
@@ -1214,7 +1219,7 @@
     <item quantity="one">選択した言語を削除しますか?</item>
     <item quantity="other">選択した言語を削除しますか?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">探索フィードとクイック検索フィルタで、残りの言語のウィキペディアのコンテンツのみが見えるようになります。</string>
+  <string name="wikipedia_languages_remove_dialog_content">探索フィードとクイック検索フィルターで、残りの言語のウィキペディアのコンテンツのみが見えるようになります。</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">すべての言語を削除することはできません</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">検索して内容を読むためにはウィキペディアの言語が少なくとも1つは必要です。</string>
   <string name="more_language_options">もっと見る</string>
@@ -1409,10 +1414,10 @@
   <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">恒久的に</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1週間</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1か月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3か月</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1週間</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3か月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6か月</string>
   <string name="watchlist_expiry_dialog_title">ウォッチリストの期間を選択してください</string>
   <string name="watchlist_expiry_dialog_permanent">恒久的</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
@@ -1642,7 +1647,7 @@
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
   <string name="donation_campaign_maybe_later_snackbar">明日、再度お知らせいたします。</string>
-  <string name="donation_campaign_donated_snackbar">ご寄付をしてくださり、ありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
+  <string name="donation_campaign_donated_snackbar">ご支援いただきましてありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">規定のブラウザで開く</string>
   <string name="donate_gpay_dialog_title">Google Payで寄付しますか?</string>
@@ -1685,8 +1690,56 @@
   <string name="survey_dialog_general_no">いいえ</string>
   <string name="survey_dialog_input_hint">追加のフィードバック</string>
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">ウィキペディアゲーム</string>
+  <string name="on_this_day_game_dialog_button">再生</string>
+  <string name="on_this_day_game_submit">送信</string>
+  <string name="on_this_day_game_share_button">共有</string>
+  <string name="on_this_day_game_pause_positive">わかりました</string>
   <string name="on_this_day_game_menu_info">詳細</string>
   <string name="on_this_day_game_menu_feedback">機能の問題</string>
   <string name="on_this_day_game_article_read_button">記事を読む</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">いいえ、そのままにします</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">オフにする</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
+  <string name="year_in_review_donate">寄付</string>
+  <string name="year_in_review_information_icon">情報アイコン</string>
+  <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
+  <string name="year_in_review_survey_very_satisfied">非常に満足</string>
+  <string name="year_in_review_survey_satisfied">満足</string>
+  <string name="year_in_review_survey_neutral">どちらともいえない</string>
+  <string name="year_in_review_survey_unsatisfied">不満</string>
+  <string name="year_in_review_survey_very_unsatisfied">非常に不満</string>
+  <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
+  <string name="year_in_review_survey_cancel">キャンセル</string>
+  <string name="year_in_review_survey_submit">送信</string>
+  <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
+  <string name="recommended_reading_list_page_overflow_about">この機能について</string>
+  <string name="recommended_reading_list_page_snackbar_day">日</string>
+  <string name="recommended_reading_list_page_snackbar_week">週</string>
+  <string name="recommended_reading_list_page_snackbar_month">月</string>
+  <string name="recommended_reading_list_settings_articles">記事</string>
+  <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">毎日</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">毎週</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">毎日</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">毎週</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_notifications_title">通知</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">通知をオフにしますか?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、そのままにします</string>
+  <string name="donation_reminders_initial_prompt_positive_button">始める</string>
+  <string name="donation_reminders_initial_prompt_negative_button">今はしない</string>
+  <string name="donation_settings_section_header">寄付</string>
+  <string name="donation_reminders_settings_title">寄付のリマインダー</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
+  <string name="donation_reminders_prompt_negative_button">今はしない</string>
+  <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>
+  <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
+  <string name="donation_reminders_survey_dialog_title">寄付リマインダーの改善にご協力ください。</string>
+  <string name="donation_reminders_settings_description_off">寄付リマインダーはオフです。</string>
 </resources>

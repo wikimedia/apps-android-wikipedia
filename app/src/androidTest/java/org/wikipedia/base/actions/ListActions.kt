@@ -24,6 +24,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -52,7 +53,12 @@ class ListActions {
             )
     }
 
-    fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
+    fun clickOnItemInList(textViewId: Int) {
+        onView(withId(textViewId))
+            .perform(click())
+    }
+
+        fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
         onView(withId(listId))
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -114,7 +120,8 @@ class ListActions {
         recyclerViewId: Int = R.id.feed_view,
         title: String,
         textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
+        verticalOffset: Int = 200,
+        action: (() -> Unit)? = null
     ) = apply {
         var currentOccurrence = 0
         onView(withId(recyclerViewId))
@@ -155,6 +162,7 @@ class ListActions {
                     })
                 }
             }
+        action?.invoke()
     }
 
     fun verifyRecyclerViewItemCount(@IdRes viewId: Int, expectedCount: Int) {
@@ -175,6 +183,25 @@ class ListActions {
                                 not(isDisplayed())
                             )
                         )
+                )
+            )
+    }
+
+    fun verifyItemDoesNotExistWithText(
+        recyclerViewId: Int,
+        text: String
+    ) {
+        onView(withId(recyclerViewId))
+            .check(
+                matches(
+                    not(
+                        hasDescendant(
+                            allOf(
+                                withText(text),
+                                isDisplayed()
+                            )
+                        )
+                    )
                 )
             )
     }

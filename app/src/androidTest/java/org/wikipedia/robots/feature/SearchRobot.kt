@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -8,6 +9,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -17,7 +19,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
-import org.wikipedia.base.base.BaseRobot
 import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {
@@ -25,6 +26,15 @@ class SearchRobot : BaseRobot() {
         // Click the Search box
         click.onViewWithText("Search Wikipedia")
         delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun test() = apply {
+        // Click on the first tab (position 0)
+        onView(allOf(
+            withId(R.id.language_label),
+            withText("TEST"),
+            isDescendantOfA(withId(R.id.horizontal_scroll_languages))
+        )).perform(click())
     }
 
     fun clickSearchFromPageView() = apply {
@@ -45,7 +55,7 @@ class SearchRobot : BaseRobot() {
 
     fun typeTextInView(searchTerm: String) = apply {
         // Type in our search term
-        input.typeTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
+        input.replaceTextInView(androidx.appcompat.R.id.search_src_text, searchTerm)
 
         // Give the API plenty of time to return results
         delay(TestConfig.DELAY_LARGE)

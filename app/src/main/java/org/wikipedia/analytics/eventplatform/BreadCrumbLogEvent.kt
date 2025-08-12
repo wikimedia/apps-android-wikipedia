@@ -50,6 +50,10 @@ class BreadCrumbLogEvent(
                 context.resources.getResourceEntryName(item.itemId) + ".click"))
         }
 
+        fun logClick(context: Context, composableName: String) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$composableName.click"))
+        }
+
         fun logLongClick(context: Context, view: View) {
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))

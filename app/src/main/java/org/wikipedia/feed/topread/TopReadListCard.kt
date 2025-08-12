@@ -15,7 +15,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_top_read_card_title)
+        return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_title)
     }
 
     override fun subtitle(): String {
@@ -27,7 +27,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     fun footerActionText(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_top_read_card_action)
+        return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_action)
     }
 
     override fun dismissHashCode(): Int {

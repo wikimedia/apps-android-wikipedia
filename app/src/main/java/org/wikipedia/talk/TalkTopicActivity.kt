@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
@@ -38,7 +39,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
@@ -98,8 +98,8 @@ class TalkTopicActivity : BaseActivity() {
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
-        L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
+        binding.talkRecyclerView.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
+        binding.talkErrorView.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
             it.movementMethod = linkMovementMethod

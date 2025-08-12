@@ -27,6 +27,7 @@
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
     <string name="preference_key_talk_offline_cleanup_task_name">talkOfflineCleanupTask</string>
     <string name="preference_key_login_groups">groups</string>
+    <string name="preference_key_login_force_email_auth">loginForceEmailAuth</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
     <string name="preference_key_tabs">tabs</string>
@@ -117,7 +118,6 @@
     <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
-    <string name="preference_key_send_event_platform_test_event">sendEventPlatformTestEvent</string>
     <string name="preference_key_event_platform_stored_stream_configs">eventPlatformStoredStreamConfigs</string>
     <string name="preference_key_crash_report_local_class_name">crashReportLocalClassName</string>
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
@@ -131,6 +131,7 @@
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_temp_account_welcome_shown">tempAccountWelcomeShown</string>
     <string name="preference_key_temp_account_dialog_shown">tempAccountDialogShown</string>
+    <string name="preference_key_temp_account_create_day">tempAccountCreateDay</string>
     <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>
@@ -169,12 +170,28 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state">otdGameState</string>
     <string name="preference_key_otd_game_history">otdGameHistory</string>
-    <string name="preference_key_otd_game_last_visit_date">otdGameLastVisitDate</string>
     <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state">otdNotificationState</string>
-    <string name="preference_key_otd_game_survey_shown">otdGameSurveyShown</string>
+    <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
+    <string name="preference_key_playground_category">categoryPlayground</string>
+    <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
+    <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
+    <string name="preference_key_year_in_review_is_enabled">isYearInReviewEnabled</string>
+    <string name="preference_key_yir_survey_shown">yirSurveyShown</string>
+    <string name="preference_category_recommended_reading_list">recommendedReadingListSettings</string>
+    <string name="preference_key_recommended_reading_list_enabled">recommendedReadingListEnabled</string>
+    <string name="preference_key_recommended_reading_list_articles_number">recommendedReadingListArticlesNumber</string>
+    <string name="preference_key_recommended_reading_list_update_frequency">recommendedReadingListUpdateFrequency</string>
+    <string name="preference_key_recommended_reading_list_interests">recommendedReadingListInterests</string>
+    <string name="preference_key_recommended_reading_list_source">recommendedReadingListSource</string>
+    <string name="preference_key_recommended_reading_list_notification_enabled">recommendedReadingListNotificationEnabled</string>
+    <string name="preference_key_recommended_reading_list_titles_with_offset">recommendedReadingListTitlesWithOffset</string>
+    <string name="preference_key_recommended_reading_list_onboarding_shown">recommendedReadingListOnboardingShown</string>
+    <string name="preference_key_recommended_reading_list_notification_simulator">recommendedReadingListNotificationSimulator</string>
+    <string name="preference_key_recommended_reading_list_new_list_generated">recommendedReadingListNewListGenerated</string>
+    <string name="preference_key_recommended_reading_list_reset">recommendedReadingListReset</string>
 </resources>

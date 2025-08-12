@@ -15,8 +15,9 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
     - name: Build, test, and lint
-      run: ./gradlew clean checkstyle ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease
+      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease --no-daemon

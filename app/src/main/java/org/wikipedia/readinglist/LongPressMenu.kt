@@ -33,12 +33,12 @@ class LongPressMenu(
     private val callback: Callback? = null
 ) {
     interface Callback {
-        fun onOpenLink(entry: HistoryEntry) { /* ignore by default */ }
-        fun onOpenInNewTab(entry: HistoryEntry) { /* ignore by default */ }
-        fun onOpenInPlaces(entry: HistoryEntry, location: Location) { /* ignore by default */ }
+        fun onOpenLink(entry: HistoryEntry) {}
+        fun onOpenInNewTab(entry: HistoryEntry) {}
+        fun onOpenInPlaces(entry: HistoryEntry, location: Location) {}
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
-        fun onRemoveRequest() { /* ignore by default */ }
+        fun onRemoveRequest() {}
     }
 
     private var listsContainingPage: List<ReadingList>? = null

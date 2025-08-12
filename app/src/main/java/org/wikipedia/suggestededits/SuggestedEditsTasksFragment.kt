@@ -23,7 +23,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -288,7 +287,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         binding.messageCard.setIPBlocked(viewModel.blockMessageWikipedia)
         binding.messageCard.isVisible = true
-        UserContributionEvent.logIpBlock()
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
@@ -311,14 +309,12 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             binding.messageCard.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.messageCard.isVisible = true
-            UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
             binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(localDateTime), AccountUtil.userName))
             binding.messageCard.isVisible = true
-            UserContributionEvent.logPaused()
             return true
         }
 
@@ -378,9 +374,18 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(vandalismPatrolTask)
         }
 
-        if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
-            !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
-            displayedTasks.add(addDescriptionsTask)
+        val usesLocalDescriptions = DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode)
+        val sufficientContributionsForArticleDescription = viewModel.totalContributions > (if (usesLocalDescriptions) 50 else 3)
+        if (usesLocalDescriptions && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
+            !usesLocalDescriptions && viewModel.blockMessageWikidata.isNullOrEmpty()) {
+            if (sufficientContributionsForArticleDescription) {
+                displayedTasks.add(addDescriptionsTask)
+
+                // Disable translating descriptions if the user has <50 edits, and they have English as a secondary language.
+                if (viewModel.totalContributions < 50 && WikipediaApp.instance.languageState.appLanguageCodes.contains("en")) {
+                    addDescriptionsTask.secondaryAction = null
+                }
+            }
         }
 
         // If app language is `de`, the local edits need to be > 50 edits. See https://phabricator.wikimedia.org/T351275

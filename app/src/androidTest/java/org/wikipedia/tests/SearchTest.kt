@@ -34,6 +34,7 @@ class SearchTest : BaseTest<MainActivity>(
     @Test
     fun startSearchTest() {
         systemRobot
+            .disableDarkMode(context)
             .clickOnSystemDialogWithText("Allow")
         homeScreenRobot
             .clickSearchContainer()
