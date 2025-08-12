@@ -133,7 +133,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "other_method_click",
-                campaignId = DonationReminderHelper.CAMPAIGN_ID)
+                campaignId = DonationReminderHelper.CAMPAIGN_ID
+            )
             onDonateClicked()
         }
         binding.gPayHeaderContainer.isVisible = false
