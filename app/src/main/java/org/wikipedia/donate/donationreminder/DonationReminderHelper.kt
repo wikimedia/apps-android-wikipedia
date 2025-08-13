@@ -19,7 +19,7 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val CAMPAIGN_ID = "appmenu_reminder"
-    const val MAX_INITIAL_REMINDER_PROMPTS = 2
+    const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
@@ -227,7 +227,7 @@ object DonationReminderHelper {
                 }, 200)
             }
         }
-        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression")
+        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression", userGroup = userGroup)
         dialog.show()
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
     }
