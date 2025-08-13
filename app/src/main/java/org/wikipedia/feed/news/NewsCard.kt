@@ -3,10 +3,9 @@ package org.wikipedia.feed.news
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
-import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
-import java.util.concurrent.TimeUnit
 
 class NewsCard(private val news: List<NewsItem>,
                private val age: Int,
@@ -21,11 +20,7 @@ class NewsCard(private val news: List<NewsItem>,
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date().baseCalendar.time.time).toInt() + wikiSite().hashCode()
-    }
-
-    fun date(): UtcDate {
-        return UtcDate(age)
+        return DateUtil.getRequestDateForAge(age).toEpochDay().toInt() + wikiSite().hashCode()
     }
 
     fun news(): List<NewsItem> {
