@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
@@ -22,9 +21,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState<Unit>>(UiState.Loading)
     val uiState: StateFlow<UiState<Unit>> = _uiState.asStateFlow()
 
-    var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
-    var donationResults: List<DonationResult> = emptyList()
+    private val _donationUiState = MutableStateFlow<UiState<String?>>(UiState.Loading)
+    val donationUiState: StateFlow<UiState<String?>> = _donationUiState.asStateFlow()
 
+    var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var topCategories: List<Category> = emptyList()
 
     init {
@@ -43,13 +43,20 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // TODO: do something with game statistics
             gameStatistics = OnThisDayGameViewModel.getGameStatistics(languageCode)
 
-            // TODO: do something with donation results
-            donationResults = Prefs.donationResults
-
             // TODO: do something with top categories
             topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
 
             _uiState.value = UiState.Success(Unit)
+        }
+    }
+
+    fun loadDonationResults() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _donationUiState.value = UiState.Error(throwable)
+        }) {
+            _donationUiState.value = UiState.Loading
+            val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime
+            _donationUiState.value = UiState.Success(lastDonationTime)
         }
     }
 }

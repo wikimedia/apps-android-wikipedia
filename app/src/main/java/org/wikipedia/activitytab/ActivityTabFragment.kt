@@ -39,6 +39,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         uiState = viewModel.uiState.collectAsState().value,
+                        donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             retryClickListener = {
                                 viewModel.load()
@@ -53,6 +54,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         uiState: UiState<Unit>,
+        donationUiState: UiState<String?>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Scaffold(
@@ -103,6 +105,19 @@ class ActivityTabFragment : Fragment() {
                         )
                     }
                 }
+            }
+            if (donationUiState is UiState.Success) {
+                // TODO: default is off. Make sure to handle
+                DonationView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(paddingValues),
+                    uiState = donationUiState,
+                    wikiErrorClickEvents = wikiErrorClickEvents,
+                    onClick = {
+                        // TODO: implement this
+                    }
+                )
             }
         }
     }
