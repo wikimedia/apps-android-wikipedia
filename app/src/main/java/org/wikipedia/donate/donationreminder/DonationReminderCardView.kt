@@ -2,6 +2,7 @@ package org.wikipedia.donate.donationreminder
 
 import android.content.Context
 import android.graphics.Typeface
+import android.os.Build
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ImageSpan
@@ -19,6 +20,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
     val binding = ViewDonationReminderCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
+        setDefaultBorder()
         elevation = 0f
     }
 
@@ -26,7 +28,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
         val titleWithReservedSpace = "$title  %" // HACK: Reserve space for the icon
         val spannableString = SpannableString(titleWithReservedSpace)
         val iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_heart_24)!!
-        val iconSize = DimenUtil.dpToPx(24f).toInt()
+        val iconSize = DimenUtil.dpToPx(20f).toInt()
         iconDrawable.apply {
             setTint(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
             setBounds(0, 0, iconSize, iconSize)
@@ -54,8 +56,13 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
             binding.messageLabel.visibility = GONE
             return
         }
+        val typeface = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            Typeface.create(Typeface.MONOSPACE, 500, false)
+        } else {
+            Typeface.create(Typeface.MONOSPACE, Typeface.BOLD)
+        }
         binding.messageLabel.text = message
-        binding.messageLabel.typeface = Typeface.MONOSPACE
+        binding.messageLabel.typeface = typeface
         binding.messageLabel.letterSpacing = 0.1f
     }
 }

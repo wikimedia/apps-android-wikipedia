@@ -45,8 +45,7 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/secondary_color"
             android:text="@string/donation_reminders_initial_prompt_message"
-            android:layout_marginBottom="4dp"
-            app:lineHeight="18sp"/>
+            android:layout_marginBottom="4dp" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/buttonsContainer"

@@ -117,9 +117,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     @OptIn(Experimental::class)
     private fun setDonationReminderCard() {
-        if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
-            return
-        }
         Prefs.donationReminderConfig.let { config ->
             val isInitialPrompt = DonationReminderHelper.maybeShowInitialDonationReminder(false)
             val labelText = if (isInitialPrompt) {
@@ -186,8 +183,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
 
                 binding.donationReminderCardView.measure(widthSpec, heightSpec)
-                // Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(90f).toInt()
+                // HACK: Manually adjust the height of the message card view
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(72f).toInt()
                 binding.donationReminderCardView.isVisible = false
                 visibility = GONE
             }
