@@ -16,11 +16,17 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.concurrent.TimeUnit
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _uiState = MutableStateFlow<UiState<Unit>>(UiState.Loading)
     val uiState: StateFlow<UiState<Unit>> = _uiState.asStateFlow()
+
+    private val _timeSpentState = MutableStateFlow<UiState<Long>>(UiState.Loading)
+    val timeSpentState: StateFlow<UiState<Long>> = _timeSpentState.asStateFlow()
 
     var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var donationResults: List<DonationResult> = emptyList()
@@ -39,6 +45,11 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
             val currentDate = LocalDate.now()
             val languageCode = WikipediaApp.instance.wikiSite.languageCode
+
+            val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            val sevenDaysAgo = now - TimeUnit.DAYS.toMillis(7)
+            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(sevenDaysAgo)
+            _timeSpentState.value = UiState.Success(totalTimeSpent)
 
             // TODO: do something with game statistics
             gameStatistics = OnThisDayGameViewModel.getGameStatistics(languageCode)
