@@ -35,8 +35,10 @@
     <color name="green600">#00AF89</color>
     <color name="green700">#14866D</color>
 
+    <color name="red100">#FEE7E6</color>
     <color name="red500">#FF4242</color>
     <color name="red700">#B32424</color>
+    <color name="red800">#421211</color>
 
     <color name="yellow500">#FFCC33</color>
     <color name="yellow500_40">#66FFCC33</color>
