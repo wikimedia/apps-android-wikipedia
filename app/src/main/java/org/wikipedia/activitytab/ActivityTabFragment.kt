@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -121,7 +122,7 @@ class ActivityTabFragment : Fragment() {
                             )
                     ) {
                         Text(
-                            text = stringResource(R.string.activity_tab_user_reading, "Dmitry Brant"),
+                            text = stringResource(R.string.activity_tab_user_reading, AccountUtil.userName),
                             modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Medium,
