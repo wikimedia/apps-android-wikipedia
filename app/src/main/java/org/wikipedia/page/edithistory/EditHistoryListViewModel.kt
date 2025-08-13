@@ -30,8 +30,14 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
+@OptIn(ExperimentalTime::class)
 class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
@@ -55,6 +61,7 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
     }).flow.map { pagingData ->
         val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
+        val zoneId = ZoneId.systemDefault()
 
         pagingData.insertSeparators { before, after ->
             if (before != null && after != null) {
@@ -78,8 +85,8 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = before?.item?.localDateTime?.toLocalDate()
-            val dateAfter = after?.item?.localDateTime?.toLocalDate()
+            val dateBefore = before?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
+            val dateAfter = after?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
             if (dateAfter != null && dateAfter != dateBefore) {
                 EditHistorySeparator(DateUtil.getShortDateString(dateAfter))
             } else {
@@ -118,7 +125,7 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             pageId = page?.pageId ?: -1
 
             editHistoryStatsData.postValue(Resource.Success(EditHistoryStats(
-                page?.revisions?.first() ?: MwQueryPage.Revision(),
+                page?.revisions?.first() ?: MwQueryPage.Revision(timestamp = Clock.System.now()),
                 articleMetricsResponse.await()?.firstItem?.results ?: emptyList(),
                 editCountsResponse.await(),
                 editCountsUserResponse.await(),

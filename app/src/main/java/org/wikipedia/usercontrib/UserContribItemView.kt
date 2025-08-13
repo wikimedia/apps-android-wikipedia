@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import kotlin.time.ExperimentalTime
 
 class UserContribItemView(context: Context) : FrameLayout(context) {
     interface Listener {
@@ -50,6 +51,7 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
             StringUtil.setHighlightedAndBoldenedText(binding.editSummary, editSummary, currentQuery)
         }
         binding.currentIndicator.isVisible = contrib.top
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, contrib.parsedDateTime)
+        @OptIn(ExperimentalTime::class)
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, contrib.timestamp)
     }
 }
