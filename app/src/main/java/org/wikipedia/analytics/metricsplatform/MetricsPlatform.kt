@@ -1,16 +1,17 @@
 package org.wikipedia.analytics.metricsplatform
 
 import android.os.Build
-import org.wikimedia.metrics_platform.MetricsClient
-import org.wikimedia.metrics_platform.context.AgentData
-import org.wikimedia.metrics_platform.context.ClientData
-import org.wikimedia.metrics_platform.context.MediawikiData
+import org.wikimedia.metricsplatform.EventSenderDefault
+import org.wikimedia.metricsplatform.MetricsClient
+import org.wikimedia.metricsplatform.context.AgentData
+import org.wikimedia.metricsplatform.context.ClientData
+import org.wikimedia.metricsplatform.context.MediawikiData
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
-import java.time.Duration
 
 object MetricsPlatform {
     val agentData = AgentData(
@@ -40,11 +41,12 @@ object MetricsPlatform {
         domain
     )
 
-    val client: MetricsClient = MetricsClient.builder(clientData)
-        .httpClient(OkHttpConnectionFactory.client)
-        .eventQueueCapacity(Prefs.analyticsQueueSize)
-        .streamConfigFetchInterval(Duration.ofHours(12))
-        .sendEventsInterval(Duration.ofSeconds(30))
-        .isDebug(ReleaseUtil.isDevRelease)
-        .build()
+    val client: MetricsClient = MetricsClient(
+        clientData,
+        EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client),
+        null,
+
+        queueCapacity = Prefs.analyticsQueueSize,
+        isDebug = ReleaseUtil.isDevRelease
+    )
 }
