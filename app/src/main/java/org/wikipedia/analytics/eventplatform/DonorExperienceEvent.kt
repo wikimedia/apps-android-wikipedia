@@ -35,7 +35,8 @@ open class DonorExperienceEvent {
             donateAmount: Float? = null,
             settingSelect: Boolean? = null,
             feedbackSelect: Int? = null,
-            feedbackText: String? = null
+            feedbackText: String? = null,
+            userGroup: String? = null
         ) {
             val actionData = DonationRemindersActionData(
                 defaultMilestone = defaultMilestone,
@@ -44,7 +45,8 @@ open class DonorExperienceEvent {
                 donateAmount = donateAmount,
                 settingSelect = settingSelect,
                 feedbackSelect = feedbackSelect,
-                feedbackText = feedbackText
+                feedbackText = feedbackText,
+                userGroup = userGroup
             )
             submit(
                 action,
@@ -81,6 +83,7 @@ open class DonorExperienceEvent {
         @SerialName("donate_amount") val donateAmount: Float? = null,
         @SerialName("setting_select") val settingSelect: Boolean? = null,
         @SerialName("feedback_select") val feedbackSelect: Int? = null,
-        @SerialName("feedback_text") val feedbackText: String? = null
+        @SerialName("feedback_text") val feedbackText: String? = null,
+        @SerialName("user_group") val userGroup: String? = null
     )
 }

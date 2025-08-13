@@ -19,7 +19,7 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val CAMPAIGN_ID = "appmenu_reminder"
-    const val MAX_INITIAL_REMINDER_PROMPTS = 5
+    const val MAX_INITIAL_REMINDER_PROMPTS = 2
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
@@ -162,12 +162,12 @@ object DonationReminderHelper {
             when (userGroup) {
                 "A" -> {
                     // Group A: Show survey on next article visit after setting up reminder
-                    showFeedbackOptionsDialog(activity)
+                    showFeedbackOptionsDialog(activity, "reminder_setup_next_article")
                 }
                 "B" -> {
                     // Group B: Show survey on the next article visit after seeing reminder impressions
                     if (config.finalPromptCount >= 1) {
-                        showFeedbackOptionsDialog(activity)
+                        showFeedbackOptionsDialog(activity, "reminder_impression_next_article")
                     }
                 }
             }
@@ -177,7 +177,7 @@ object DonationReminderHelper {
         // User has not taken any action on the initial prompt
         // Show survey on next article visit if this continues for continuous 5 times
         if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            showFeedbackOptionsDialog(activity)
+            showFeedbackOptionsDialog(activity, "impression_next_article")
             return
         }
     }
@@ -186,8 +186,7 @@ object DonationReminderHelper {
         return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
     }
 
-    // @TODO: MARK_INSTRUMENTATION: update if PM decides to use different activeInterface for difference scenarios
-    private fun showFeedbackOptionsDialog(activity: Activity) {
+    private fun showFeedbackOptionsDialog(activity: Activity, userGroup: String) {
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
         binding.messageText.text = activity.getString(R.string.donation_reminders_survey_dialog_message)
@@ -201,7 +200,8 @@ object DonationReminderHelper {
         binding.cancelButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_feedback",
-                action = "feedback_close_click"
+                action = "feedback_close_click",
+                userGroup = userGroup
             )
             dialog.dismiss()
         }
@@ -212,7 +212,8 @@ object DonationReminderHelper {
                 activeInterface = "reminder_feedback",
                 action = "feedback_submit_click",
                 feedbackSelect = selectedOption,
-                feedbackText = feedbackText
+                feedbackText = feedbackText,
+                userGroup = userGroup
             )
             dialog.dismiss()
         }
