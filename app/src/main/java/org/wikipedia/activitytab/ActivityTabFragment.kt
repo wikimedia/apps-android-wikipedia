@@ -16,14 +16,20 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.categories.CategoryActivity
+import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 
 class ActivityTabFragment : Fragment() {
+
+    interface Callback {
+        fun onNavigateToReadingLists()
+    }
 
     private val viewModel: ActivityTabViewModel by viewModels()
 
@@ -57,7 +63,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         uiState: UiState<Unit>,
-        categoriesUiState: UiState<List<String>>,
+        categoriesUiState: UiState<List<Category>>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Scaffold(
@@ -73,8 +79,13 @@ class ActivityTabFragment : Fragment() {
                     .padding(horizontal = 16.dp),
                 uiState = categoriesUiState,
                 onDiscoverBtnCLick = {
-                    startActivity(RecommendedReadingListOnboardingActivity.newIntent(requireContext()))
+                    callback()?.onNavigateToReadingLists()
                 },
+                onClick = {
+                    val pageTitle = viewModel.createPageTitleForCategory(it)
+                     startActivity(CategoryActivity.newIntent(requireActivity(), pageTitle))
+                },
+                onFormatString = { viewModel.formateString(it) },
                 wikiErrorClickEvents = WikiErrorClickEvents(
                     retryClickListener = {
                         viewModel.loadCategories()
@@ -92,5 +103,9 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun callback(): Callback? {
+        return getCallback(this, Callback::class.java)
     }
 }
