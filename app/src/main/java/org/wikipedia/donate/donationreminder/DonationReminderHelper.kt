@@ -61,7 +61,7 @@ object DonationReminderHelper {
 
     fun maybeShowSettingSnackbar(activity: Activity) {
         if (shouldShowSettingSnackbar) {
-            FeedbackUtil.showMessage(activity, thankYouMessageForSettings())
+            FeedbackUtil.makeNavigationAwareSnackbar(activity, thankYouMessageForSettings()).show()
             shouldShowSettingSnackbar = false
         }
     }

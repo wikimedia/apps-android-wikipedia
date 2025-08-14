@@ -53,6 +53,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         return currentValue.donationAmount.selectedValue == currentValue.donationAmount.defaultValue && currentValue.readFrequency.selectedValue == currentValue.readFrequency.defaultValue
     }
 
+    fun hasValueChanged(): Boolean {
+        val currentValue = _uiState.value
+        return !hasDefaultValues() && (currentValue.donationAmount.selectedValue != Prefs.donationReminderConfig.donateAmount || currentValue.readFrequency.selectedValue != Prefs.donationReminderConfig.articleFrequency)
+    }
+
     fun saveReminder() {
         with(_uiState.value) {
             val activeInterface = if (isFromSettings) "global_setting" else "reminder_config"

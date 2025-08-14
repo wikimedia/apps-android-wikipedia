@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
+import android.provider.Settings
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -145,6 +147,23 @@ object FeedbackUtil {
 
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         return makeSnackbar(findBestView(activity), text, duration, wikiSite)
+    }
+
+    fun makeNavigationAwareSnackbar(activity: Activity, text: CharSequence, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        val snackbar = makeSnackbar(findBestView(activity), text, LENGTH_DEFAULT, wikiSite)
+        val view = snackbar.view
+        val params = view.layoutParams as ViewGroup.MarginLayoutParams
+        val navigationType = Settings.Secure.getInt(activity.contentResolver, "navigation_mode", 0)
+        // 0: 3 dot navigation, 2: gesture navigation
+        val bottomMargin = if (navigationType == 0) 48f else 24f
+        params.setMargins(
+            params.leftMargin,
+            params.topMargin,
+            params.rightMargin,
+            params.bottomMargin + DimenUtil.roundedDpToPx(bottomMargin)
+        )
+        view.layoutParams = params
+        return snackbar
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
