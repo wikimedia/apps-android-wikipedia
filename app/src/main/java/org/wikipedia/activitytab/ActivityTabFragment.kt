@@ -56,6 +56,7 @@ import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.TinyBarChart
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -289,13 +290,12 @@ class ActivityTabFragment : Fragment() {
                         color = WikipediaTheme.colors.primaryColor
                     )
                     Spacer(modifier = Modifier.weight(1f))
-                    Box(
-                        modifier = Modifier.padding(end = 16.dp)
-                            .size(width = 80.dp, height = 48.dp)
-                            .background(
-                                color = WikipediaTheme.colors.additionColor,
-                                shape = RoundedCornerShape(2.dp)
-                            )
+
+                    TinyBarChart(
+                        values = readingHistory.articlesReadByWeek,
+                        modifier = Modifier.padding(end = 16.dp).size(72.dp, if (readingHistory.articlesReadThisMonth == 0) 32.dp else 48.dp),
+                        minColor = ComposeColors.Gray300,
+                        maxColor = ComposeColors.Green600
                     )
                 }
             }
@@ -432,7 +432,7 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
-            if (readingHistory.articlesReadThisMonth == 0L && readingHistory.articlesSavedThisMonth == 0L) {
+            if (readingHistory.articlesReadThisMonth == 0 && readingHistory.articlesSavedThisMonth == 0) {
                 Text(
                     text = stringResource(R.string.activity_tab_discover_encourage),
                     modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),

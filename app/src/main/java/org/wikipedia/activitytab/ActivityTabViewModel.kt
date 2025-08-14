@@ -40,14 +40,15 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _readingHistoryState.value = UiState.Loading
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
-            val sevenDaysAgo = now - weekInMillis
-            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(sevenDaysAgo)
+            var weekAgo = now - weekInMillis
+            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
 
             val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
             val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getTotalEntriesSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            for (i in 1..4) {
-                val weekAgo = now - weekInMillis
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getTotalEntriesSince(weekAgo) ?: 0)
+            for (i in 1..3) {
+                weekAgo -= weekInMillis
                 val articlesRead = AppDatabase.instance.historyEntryDao().getHistoryCount(weekAgo, weekAgo + weekInMillis)
                 articlesReadByWeek.add(articlesRead)
             }
@@ -72,10 +73,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     class ReadingHistory(
         val timeSpentThisWeek: Long,
-        val articlesReadThisMonth: Long,
+        val articlesReadThisMonth: Int,
         val lastArticleReadTime: LocalDateTime?,
         val articlesReadByWeek: List<Int>,
-        val articlesSavedThisMonth: Long,
+        val articlesSavedThisMonth: Int,
         val lastArticleSavedTime: LocalDateTime?,
         val articlesSaved: List<PageTitle>
     )
