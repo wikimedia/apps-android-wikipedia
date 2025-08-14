@@ -1416,7 +1416,7 @@
   <string name="survey_dialog_general_maybe">Pot fi</string>
   <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
   <string name="on_this_day_game_article_read_button">Citiți articolul</string>
-  <string name="recommended_reading_list_title">Descoperă</string>
+  <string name="recommended_reading_list_title">Discover</string>
   <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
   <string name="recommended_reading_list_interest_source_saved">Alege pentru mine pe baza articolelor mele salvate</string>
   <string name="recommended_reading_list_interest_source_history">Alege pentru mine pe baza istoricului meu de lectură</string>
@@ -1425,11 +1425,11 @@
   <string name="recommended_reading_list_page_description_weekly">Lista dvs. săptămânală de lectură. Aflați despre subiecte noi, alese doar pentru dvs. Lista se actualizează la începutul săptămânii.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personalizați</string>
   <string name="recommended_reading_list_page_overflow_about">Despre această funcție</string>
-  <string name="recommended_reading_list_page_snackbar_action">Personalizați „Descoperă“</string>
-  <string name="recommended_reading_list_settings_title">Setări Descoperă</string>
-  <string name="recommended_reading_list_settings_toggle">Descoperă lista de lectură</string>
-  <string name="recommended_reading_list_settings_toggle_disable_message">„Descoperă“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_title">Dezactivați „Descoperă“?</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalizați „Discover“</string>
+  <string name="recommended_reading_list_settings_title">Setări Discover</string>
+  <string name="recommended_reading_list_settings_toggle">Lista de lectură „Discover”</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">„Discover“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Dezactivați „Discover“?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message" fuzzy="true">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură %s de la Wikipedia.</string>
   <string name="recommended_reading_list_settings_articles">articole</string>
   <string name="recommended_reading_list_settings_updates_frequency">Se actualizează %s</string>
@@ -1446,7 +1446,7 @@
   <string name="recommended_reading_list_settings_notifications_title">Notificări</string>
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notificările pentru Discover sunt dezactivate. Nu veți primi o notificare când Discover este actualizat.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Dezactivați notificările?</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când Discover este actualizat</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când „Discover” este actualizat.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
 </resources>

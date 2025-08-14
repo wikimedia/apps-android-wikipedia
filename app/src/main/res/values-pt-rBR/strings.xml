@@ -1933,4 +1933,30 @@
   <string name="recommended_reading_list_notification_subtitle">Toque para ver suas recomendações mais recentes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando o seu Descobrir for atualizado, a Wikipedia enviará uma notificação.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">O Descobrir está ativado. A Wikipédia irá recomendar artigos para você ler.</string>
+  <string name="donation_reminders_initial_prompt_label">Experimento</string>
+  <string name="donation_reminders_initial_prompt_title">Apoie a Wikipédia enquanto lê</string>
+  <string name="donation_reminders_initial_prompt_message">Configure um lembrete de doação com base no número de artigos que você lê para ajudar a manter a Wikipédia livre de anúncios, atualizada e disponível para todos.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Começar</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Agora não</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Os lembretes de doação podem ser modificados a qualquer momento em Configurações.</string>
+  <string name="donation_settings_section_header">Doações</string>
+  <string name="donation_reminders_settings_title">Lembretes de doações</string>
+  <string name="donation_reminders_settings_donation_info">As doações vão para a Fundação Wikimedia e suas afiliadas, orgulhosas anfitriãs da Wikipédia e seus sites irmãos.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Quando eu li</string>
+  <string name="donation_reminders_settings_amount_label">Lembre-me de fazer uma doação</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Confirmar lembrete</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Sobre esse experimento</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">artigos</string>
+  <string name="donation_reminders_prompt_positive_button">Doar agora</string>
+  <string name="donation_reminders_prompt_negative_button">Agora não</string>
+  <string name="donation_reminders_gpay_text">Doar %s com Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Doe um valor diferente com o Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Ajude a melhorar os lembretes de doações.</string>
+  <string name="donation_reminders_survey_dialog_message">Você está satisfeito com essa experiência?</string>
+  <string name="donation_reminders_settings_tooltip_info_label">A contagem de artigos é armazenada localmente no seu dispositivo.</string>
+  <string name="donation_reminders_prompt_success_snackbar">Obrigado! Sua generosidade com a Wikipédia significa muito para nós.</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d artigo</item>
+    <item quantity="other">%d artigos</item>
+  </plurals>
 </resources>
