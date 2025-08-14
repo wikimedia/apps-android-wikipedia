@@ -16,6 +16,8 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -150,17 +152,34 @@ object FeedbackUtil {
     }
 
     fun makeNavigationAwareSnackbar(activity: Activity, text: CharSequence, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        val snackbar = makeSnackbar(findBestView(activity), text, LENGTH_DEFAULT, wikiSite)
+        val rootView = activity.findViewById<View>(android.R.id.content)
+        val snackbar = makeSnackbar(rootView, text, LENGTH_DEFAULT, wikiSite)
         val view = snackbar.view
         val params = view.layoutParams as ViewGroup.MarginLayoutParams
         val navigationType = Settings.Secure.getInt(activity.contentResolver, "navigation_mode", 0)
-        // 0: 3 dot navigation, 2: gesture navigation
-        val bottomMargin = if (navigationType == 0) 48f else 24f
+        val windowInsets = ViewCompat.getRootWindowInsets(rootView)
+
+        val bottomMargin = if (windowInsets != null) {
+            when (navigationType) {
+                0, 1 -> {
+                    // 0: 3-button navigation and 1: 2-button navigation
+                    val navBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+                    navBarInsets.bottom
+                }
+                2 -> {
+                    // Gesture navigation
+                    val gestureInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
+                    gestureInsets.bottom
+                }
+                else -> 0
+            }
+        } else 0
+
         params.setMargins(
             params.leftMargin,
             params.topMargin,
             params.rightMargin,
-            params.bottomMargin + DimenUtil.roundedDpToPx(bottomMargin)
+            params.bottomMargin + bottomMargin
         )
         view.layoutParams = params
         return snackbar

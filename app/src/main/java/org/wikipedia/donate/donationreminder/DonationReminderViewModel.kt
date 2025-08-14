@@ -55,7 +55,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun hasValueChanged(): Boolean {
         val currentValue = _uiState.value
-        return !hasDefaultValues() && (currentValue.donationAmount.selectedValue != Prefs.donationReminderConfig.donateAmount || currentValue.readFrequency.selectedValue != Prefs.donationReminderConfig.articleFrequency)
+        return Prefs.donationReminderConfig.isEnabled && (currentValue.donationAmount.selectedValue != Prefs.donationReminderConfig.donateAmount || currentValue.readFrequency.selectedValue != Prefs.donationReminderConfig.articleFrequency)
     }
 
     fun saveReminder() {
