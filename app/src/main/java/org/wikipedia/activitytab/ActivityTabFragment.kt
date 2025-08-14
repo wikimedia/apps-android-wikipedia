@@ -25,6 +25,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
@@ -39,6 +40,8 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
+import org.wikipedia.theme.Theme
+import org.wikipedia.util.Resource
 import org.wikipedia.util.UiState
 
 class ActivityTabFragment : Fragment() {
@@ -53,6 +56,7 @@ class ActivityTabFragment : Fragment() {
             setContent {
                 BaseTheme {
                     ActivityTabScreen(
+                        userName = AccountUtil.userName,
                         uiState = viewModel.uiState.collectAsState().value,
                         timeSpentState = viewModel.timeSpentState.collectAsState().value,
                         wikiErrorClickEvents = WikiErrorClickEvents(
@@ -68,6 +72,7 @@ class ActivityTabFragment : Fragment() {
 
     @Composable
     fun ActivityTabScreen(
+        userName: String,
         uiState: UiState<Unit>,
         timeSpentState: UiState<Long>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
@@ -122,7 +127,7 @@ class ActivityTabFragment : Fragment() {
                             )
                     ) {
                         Text(
-                            text = stringResource(R.string.activity_tab_user_reading, AccountUtil.userName),
+                            text = stringResource(R.string.activity_tab_user_reading, userName),
                             modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Medium,
@@ -167,7 +172,7 @@ class ActivityTabFragment : Fragment() {
                                 color = WikipediaTheme.colors.primaryColor
                             )
                             Text(
-                                text = "Time spent reading this week",
+                                text = stringResource(R.string.activity_tab_weekly_time_spent),
                                 modifier = Modifier.padding(top = 8.dp, bottom = 16.dp).align(Alignment.CenterHorizontally),
                                 fontWeight = FontWeight.W500,
                                 textAlign = TextAlign.Center,
@@ -177,6 +182,18 @@ class ActivityTabFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreviewSourceSelectionScreen() {
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                userName = "User",
+                uiState = UiState.Success(Unit),
+                timeSpentState = UiState.Success(123456L)
+            )
         }
     }
 
