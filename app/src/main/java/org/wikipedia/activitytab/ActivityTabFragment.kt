@@ -115,8 +115,7 @@ class ActivityTabFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            LazyColumn(
-            ) {
+            LazyColumn {
                 item {
                     Column(
                         modifier = Modifier
