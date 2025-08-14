@@ -2038,7 +2038,6 @@
     <string name="donation_reminders_settings_description_on">Donation reminders are on. Wikipedia will remind you to donate %1$s every %2$s you read while this experiment runs.</string>
     <string name="donation_reminders_settings_description_off">Donation reminders are off.</string>
     <string name="donation_reminders_settings_tooltip_info_label">Article count is stored locally on your device</string>
-    <string name="donation_reminders_prompt_success_snackbar">Thank you! Your generosity to Wikipedia means so much to us.</string>
     <plurals name="donation_reminders_text_articles">
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
