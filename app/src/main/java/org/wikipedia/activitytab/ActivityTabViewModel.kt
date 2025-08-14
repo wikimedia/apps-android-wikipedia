@@ -8,26 +8,21 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.WikipediaApp
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
-import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.LocalDate
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
+
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-
-    private val _uiState = MutableStateFlow<UiState<Unit>>(UiState.Loading)
-    val uiState: StateFlow<UiState<Unit>> = _uiState.asStateFlow()
-
     private val _timeSpentState = MutableStateFlow<UiState<Long>>(UiState.Loading)
     val timeSpentState: StateFlow<UiState<Long>> = _timeSpentState.asStateFlow()
 
@@ -38,31 +33,19 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val categoriesUiState: StateFlow<UiState<List<Category>>> = _categoriesUiState.asStateFlow()
 
     init {
-        load()
         loadCategories()
+        loadTimeSpent()
     }
 
-    fun load() {
+    fun loadTimeSpent() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.value = UiState.Error(throwable)
+            _timeSpentState.value = UiState.Error(throwable)
         }) {
-            _uiState.value = UiState.Loading
-
-            val currentDate = LocalDate.now()
-            val languageCode = WikipediaApp.instance.wikiSite.languageCode
-
+            _timeSpentState.value = UiState.Loading
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val sevenDaysAgo = now - TimeUnit.DAYS.toMillis(7)
             val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(sevenDaysAgo)
             _timeSpentState.value = UiState.Success(totalTimeSpent)
-
-            // TODO: do something with game statistics
-            gameStatistics = OnThisDayGameViewModel.getGameStatistics(languageCode)
-
-            // TODO: do something with donation results
-            donationResults = Prefs.donationResults
-
-            _uiState.value = UiState.Success(Unit)
         }
     }
 
