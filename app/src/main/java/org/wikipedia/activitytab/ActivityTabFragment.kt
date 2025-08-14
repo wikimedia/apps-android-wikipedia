@@ -507,6 +507,7 @@ class ActivityTabFragment : Fragment() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
+                donationUiState = UiState.Success("2023-10-01T12:00:00"),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -532,6 +533,7 @@ class ActivityTabFragment : Fragment() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
+                donationUiState = UiState.Success("2023-10-01T12:00:00"),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
