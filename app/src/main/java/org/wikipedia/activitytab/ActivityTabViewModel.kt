@@ -16,11 +16,10 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
-import java.time.LocalDateTime
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
-
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _timeSpentState = MutableStateFlow<UiState<Long>>(UiState.Loading)

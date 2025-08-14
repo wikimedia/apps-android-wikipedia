@@ -69,7 +69,6 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadTimeSpent()
         viewModel.loadCategories()
     }
 
@@ -122,12 +121,7 @@ class ActivityTabFragment : Fragment() {
                         val pageTitle = viewModel.createPageTitleForCategory(it)
                         startActivity(CategoryActivity.newIntent(requireActivity(), pageTitle))
                     },
-                    onFormatString = { viewModel.formateString(it) },
-                    wikiErrorClickEvents = WikiErrorClickEvents(
-                        retryClickListener = {
-                            viewModel.loadCategories()
-                        }
-                    )
+                    onFormatString = { viewModel.formateString(it) }
                 )
 
                 // impact module
