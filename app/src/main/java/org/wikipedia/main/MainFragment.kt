@@ -613,8 +613,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         return getCallback(this, Callback::class.java)
     }
 
-    override fun onNavigateToReadingLists() {
-        goToTab(NavTab.READING_LISTS)
+    override fun onNavigateTo(navTab: NavTab) {
+        goToTab(navTab)
     }
 
     companion object {

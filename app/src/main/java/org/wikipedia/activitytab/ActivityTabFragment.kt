@@ -65,6 +65,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -78,7 +79,7 @@ import java.util.Locale
 class ActivityTabFragment : Fragment() {
 
     interface Callback {
-        fun onNavigateToReadingLists()
+        fun onNavigateTo(navTab: NavTab)
     }
 
     private val viewModel: ActivityTabViewModel by viewModels()
@@ -92,7 +93,10 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
-                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value
+                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
+                        onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
+                        onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                        onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) }
                     )
                 }
             }
@@ -107,7 +111,10 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         userName: String,
-        readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>
+        readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
+        onArticlesReadClick: () -> Unit = {},
+        onArticlesSavedClick: () -> Unit = {},
+        onExploreClick: () -> Unit = {},
     ) {
         Scaffold(
             modifier = Modifier
@@ -134,6 +141,9 @@ class ActivityTabFragment : Fragment() {
                             modifier = Modifier.align(Alignment.CenterHorizontally),
                             userName = userName,
                             readingHistoryState = readingHistoryState,
+                            onArticlesReadClick = onArticlesReadClick,
+                            onArticlesSavedClick = onArticlesSavedClick,
+                            onExploreClick = onExploreClick,
                             wikiErrorClickEvents = WikiErrorClickEvents(
                                 retryClickListener = {
                                     viewModel.loadReadingHistory()
@@ -166,6 +176,9 @@ class ActivityTabFragment : Fragment() {
         modifier: Modifier,
         userName: String,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
+        onArticlesReadClick: () -> Unit = {},
+        onArticlesSavedClick: () -> Unit = {},
+        onExploreClick: () -> Unit = {},
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Text(
@@ -234,7 +247,7 @@ class ActivityTabFragment : Fragment() {
             Card(
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
                     .clickable {
-                        // TODO
+                        onArticlesReadClick()
                     },
                 elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 colors = CardDefaults.cardColors(
@@ -315,7 +328,7 @@ class ActivityTabFragment : Fragment() {
             Card(
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp)
                     .clickable {
-                        // TODO
+                        onArticlesSavedClick()
                     },
                 elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 colors = CardDefaults.cardColors(
@@ -473,7 +486,7 @@ class ActivityTabFragment : Fragment() {
                         contentColor = WikipediaTheme.colors.paperColor,
                     ),
                     onClick = {
-                        // TODO
+                        onExploreClick()
                     },
                 ) {
                     Icon(
