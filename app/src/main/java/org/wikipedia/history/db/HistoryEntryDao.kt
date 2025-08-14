@@ -42,8 +42,8 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp > :timestamp")
     suspend fun getTotalEntriesSince(timestamp: Long): Long?
 
-    @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :timestampStart AND :timestampEnd")
-    suspend fun getTotalEntriesBetween(timestampStart: Long, timestampEnd: Long): Long?
+    @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
+    suspend fun getMostRecentEntry(): HistoryEntry?
 
     @Transaction
     suspend fun insert(entries: List<HistoryEntry>) {

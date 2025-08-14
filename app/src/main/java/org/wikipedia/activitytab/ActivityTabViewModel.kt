@@ -15,6 +15,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.UiState
+import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
@@ -47,20 +48,24 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val articlesReadByWeek = mutableListOf<Int>()
             for (i in 1..4) {
                 val weekAgo = now - weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getTotalEntriesBetween(weekAgo, weekAgo + weekInMillis)
-                articlesReadByWeek.add(articlesRead?.toInt() ?: 0)
+                val articlesRead = AppDatabase.instance.historyEntryDao().getHistoryCount(weekAgo, weekAgo + weekInMillis)
+                articlesReadByWeek.add(articlesRead)
             }
+            val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
             val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalPagesSince(thirtyDaysAgo) ?: 0
             val articlesSaved = AppDatabase.instance.readingListPageDao().getPagesSince(thirtyDaysAgo, 4)
                 .map { ReadingListPage.toPageTitle(it) }
+            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentSavedPage()?.mtime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
             _readingHistoryState.value = UiState.Success(ReadingHistory(
-                totalTimeSpent,
-                articlesReadThisMonth,
-                articlesReadByWeek,
-                articlesSavedThisMonth,
-                articlesSaved)
+                timeSpentThisWeek = totalTimeSpent,
+                articlesReadThisMonth = articlesReadThisMonth,
+                lastArticleReadTime = mostRecentReadTime,
+                articlesReadByWeek = articlesReadByWeek,
+                articlesSavedThisMonth = articlesSavedThisMonth,
+                lastArticleSavedTime = mostRecentSaveTime,
+                articlesSaved = articlesSaved)
             )
         }
     }
@@ -68,8 +73,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     class ReadingHistory(
         val timeSpentThisWeek: Long,
         val articlesReadThisMonth: Long,
+        val lastArticleReadTime: LocalDateTime?,
         val articlesReadByWeek: List<Int>,
         val articlesSavedThisMonth: Long,
+        val lastArticleSavedTime: LocalDateTime?,
         val articlesSaved: List<PageTitle>
     )
 }

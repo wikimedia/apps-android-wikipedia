@@ -1,14 +1,17 @@
 package org.wikipedia.activitytab
 
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,6 +19,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -60,6 +65,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class ActivityTabFragment : Fragment() {
@@ -80,6 +88,11 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadReadingHistory()
     }
 
     @Composable
@@ -117,8 +130,6 @@ class ActivityTabFragment : Fragment() {
                     )
                 )
 
-                // Monthly insights
-
                 // Categories module
             }
 
@@ -132,7 +143,7 @@ class ActivityTabFragment : Fragment() {
 
             // --- new column ---
 
-            // history module
+            // timeline module
         }
     }
 
@@ -173,6 +184,8 @@ class ActivityTabFragment : Fragment() {
         }
         if (readingHistoryState is UiState.Success) {
             val readingHistory = readingHistoryState.data
+            val todayDate = LocalDate.now()
+
             Text(
                 text = stringResource(
                     R.string.activity_tab_weekly_time_spent_hm,
@@ -206,7 +219,10 @@ class ActivityTabFragment : Fragment() {
             )
 
             Card(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+                    .clickable {
+                        // TODO
+                    },
                 elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = WikipediaTheme.colors.paperColor
@@ -245,16 +261,23 @@ class ActivityTabFragment : Fragment() {
                     Icon(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                        tint = WikipediaTheme.colors.primaryColor,
+                        tint = WikipediaTheme.colors.secondaryColor,
                         contentDescription = null
                     )
                 }
-                Text(
-                    text = "9:34 AM",
-                    modifier = Modifier.padding(start = 16.dp, top = 2.dp),
-                    fontSize = 12.sp,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
+                if (readingHistory.lastArticleReadTime != null) {
+                    Text(
+                        text = if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
+                            readingHistory.lastArticleReadTime
+                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
+                        else
+                            readingHistory.lastArticleReadTime
+                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
+                        modifier = Modifier.padding(start = 16.dp, top = 2.dp),
+                        fontSize = 12.sp,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 Row(
                     modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
                 ) {
@@ -278,7 +301,10 @@ class ActivityTabFragment : Fragment() {
             }
 
             Card(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp)
+                    .clickable {
+                        // TODO
+                    },
                 elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = WikipediaTheme.colors.paperColor
@@ -317,16 +343,23 @@ class ActivityTabFragment : Fragment() {
                     Icon(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                        tint = WikipediaTheme.colors.primaryColor,
+                        tint = WikipediaTheme.colors.secondaryColor,
                         contentDescription = null
                     )
                 }
-                Text(
-                    text = "9:34 AM",
-                    modifier = Modifier.padding(start = 16.dp, top = 2.dp),
-                    fontSize = 12.sp,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
+                if (readingHistory.lastArticleSavedTime != null) {
+                    Text(
+                        text = if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
+                            readingHistory.lastArticleSavedTime
+                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
+                        else
+                            readingHistory.lastArticleSavedTime
+                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
+                        modifier = Modifier.padding(start = 16.dp, top = 2.dp),
+                        fontSize = 12.sp,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 Row(
                     modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
                 ) {
@@ -398,7 +431,38 @@ class ActivityTabFragment : Fragment() {
                     }
                 }
             }
-            // empty state
+
+            if (readingHistory.articlesReadThisMonth == 0L && readingHistory.articlesSavedThisMonth == 0L) {
+                Text(
+                    text = stringResource(R.string.activity_tab_discover_encourage),
+                    modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Button(
+                    modifier = modifier.padding(top = 8.dp, bottom = 16.dp),
+                    contentPadding = PaddingValues(horizontal = 18.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.progressiveColor,
+                        contentColor = WikipediaTheme.colors.paperColor,
+                    ),
+                    onClick = {
+                        // TODO
+                    },
+                ) {
+                    Icon(
+                        modifier = Modifier.size(20.dp),
+                        painter = painterResource(R.drawable.ic_globe),
+                        tint = WikipediaTheme.colors.paperColor,
+                        contentDescription = null
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 6.dp),
+                        text = stringResource(R.string.activity_tab_explore_wikipedia)
+                    )
+                }
+            }
         }
     }
 
@@ -412,8 +476,10 @@ class ActivityTabFragment : Fragment() {
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
+                    lastArticleReadTime = LocalDateTime.now(),
                     articlesReadByWeek = listOf(0, 12, 34, 56),
                     articlesSavedThisMonth = 23,
+                    lastArticleSavedTime = LocalDateTime.of(2025, 6, 1, 12, 30),
                     articlesSaved = listOf(
                         PageTitle(text = "Psychology of art", wiki = site, thumbUrl = "foo.jpg", description = "Study of mental functions and behaviors", displayText = null),
                         PageTitle(text = "Industrial design", wiki = site, thumbUrl = null, description = "Process of design applied to physical products", displayText = null),
@@ -435,8 +501,10 @@ class ActivityTabFragment : Fragment() {
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
+                    lastArticleReadTime = null,
                     articlesReadByWeek = listOf(0, 0, 0, 0),
                     articlesSavedThisMonth = 0,
+                    lastArticleSavedTime = null,
                     articlesSaved = emptyList()
                 ))
             )
