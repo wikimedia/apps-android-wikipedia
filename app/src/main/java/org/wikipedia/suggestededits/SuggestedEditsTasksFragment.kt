@@ -167,11 +167,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                 launch {
                     FlowEventBus.events.collectLatest { event ->
                         if (event is LoggedOutEvent) {
-                            if (inActivityAbTestGroup) {
-                                refreshContents()
-                            } else if ((requireActivity() as MainActivity).isCurrentFragmentSelected(this@SuggestedEditsTasksFragment)) {
-                                refreshContents()
-                            }
+                            refreshContents()
                         }
                     }
                 }
@@ -353,6 +349,9 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
+        if (inActivityAbTestGroup) {
+            return
+        }
         binding.suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
         binding.suggestedEditsScrollView.postDelayed(sequentialTooltipRunnable, 500)
