@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -54,8 +55,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.categories.CategoryActivity
+import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.compose.components.TinyBarChart
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -72,6 +77,10 @@ import java.util.Locale
 
 class ActivityTabFragment : Fragment() {
 
+    interface Callback {
+        fun onNavigateToReadingLists()
+    }
+
     private val viewModel: ActivityTabViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -83,7 +92,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
-                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
+                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value
                     )
                 }
             }
@@ -106,44 +115,48 @@ class ActivityTabFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(paddingValues)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                WikipediaTheme.colors.paperColor,
-                                WikipediaTheme.colors.additionColor
+            LazyColumn {
+                item {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(paddingValues)
+                            .background(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        WikipediaTheme.colors.paperColor,
+                                        WikipediaTheme.colors.additionColor
+                                    )
+                                )
+                            )
+                    ) {
+                        ReadingHistoryModule(
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            userName = userName,
+                            readingHistoryState = readingHistoryState,
+                            wikiErrorClickEvents = WikiErrorClickEvents(
+                                retryClickListener = {
+                                    viewModel.loadReadingHistory()
+                                }
                             )
                         )
-                    )
-            ) {
-                ReadingHistoryModule(
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    userName = userName,
-                    readingHistoryState = readingHistoryState,
-                    wikiErrorClickEvents = WikiErrorClickEvents(
-                        retryClickListener = {
-                            viewModel.loadReadingHistory()
-                        }
-                    )
-                )
 
-                // Categories module
+                        // Categories module
+                    }
+                }
+
+                // --- new column ---
+
+                // impact module
+
+                // game module
+
+                // donation module
+
+                // --- new column ---
+
+                // timeline module
             }
-
-            // --- new column ---
-
-            // impact module
-
-            // game module
-
-            // donation module
-
-            // --- new column ---
-
-            // timeline module
         }
     }
 
@@ -289,13 +302,12 @@ class ActivityTabFragment : Fragment() {
                         color = WikipediaTheme.colors.primaryColor
                     )
                     Spacer(modifier = Modifier.weight(1f))
-                    Box(
-                        modifier = Modifier.padding(end = 16.dp)
-                            .size(width = 80.dp, height = 48.dp)
-                            .background(
-                                color = WikipediaTheme.colors.additionColor,
-                                shape = RoundedCornerShape(2.dp)
-                            )
+
+                    TinyBarChart(
+                        values = readingHistory.articlesReadByWeek,
+                        modifier = Modifier.padding(end = 16.dp).size(72.dp, if (readingHistory.articlesReadThisMonth == 0) 32.dp else 48.dp),
+                        minColor = ComposeColors.Gray300,
+                        maxColor = ComposeColors.Green600
                     )
                 }
             }
@@ -432,7 +444,20 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
-            if (readingHistory.articlesReadThisMonth == 0L && readingHistory.articlesSavedThisMonth == 0L) {
+            if (readingHistory.topCategories.isNotEmpty()) {
+                TopCategoriesView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                    categories = readingHistory.topCategories,
+                    onClick = {
+                        val pageTitle = viewModel.createPageTitleForCategory(it)
+                        startActivity(CategoryActivity.newIntent(requireActivity(), pageTitle))
+                    }
+                )
+            }
+
+            if (readingHistory.articlesReadThisMonth == 0 && readingHistory.articlesSavedThisMonth == 0) {
                 Text(
                     text = stringResource(R.string.activity_tab_discover_encourage),
                     modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
@@ -486,6 +511,10 @@ class ActivityTabFragment : Fragment() {
                         PageTitle(text = "Dufourspitze", wiki = site, thumbUrl = "foo.jpg", description = "Highest mountain in Switzerland", displayText = null),
                         PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
                         PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null)
+                    ),
+                    topCategories = listOf(
+                        Category(2025, 1, "Category:Ancient history", "en", 1),
+                        Category(2025, 1, "Category:World literature", "en", 1),
                     )
                 ))
             )
@@ -505,7 +534,8 @@ class ActivityTabFragment : Fragment() {
                     articlesReadByWeek = listOf(0, 0, 0, 0),
                     articlesSavedThisMonth = 0,
                     lastArticleSavedTime = null,
-                    articlesSaved = emptyList()
+                    articlesSaved = emptyList(),
+                    topCategories = emptyList()
                 ))
             )
         }
@@ -519,5 +549,9 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun callback(): Callback? {
+        return getCallback(this, Callback::class.java)
     }
 }

@@ -40,7 +40,7 @@ interface HistoryEntryDao {
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 
     @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp > :timestamp")
-    suspend fun getTotalEntriesSince(timestamp: Long): Long?
+    suspend fun getTotalEntriesSince(timestamp: Long): Int?
 
     @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
     suspend fun getMostRecentEntry(): HistoryEntry?
