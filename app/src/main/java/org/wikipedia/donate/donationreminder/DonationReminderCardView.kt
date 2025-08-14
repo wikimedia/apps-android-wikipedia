@@ -20,7 +20,7 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
     val binding = ViewDonationReminderCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-        setDefaultBorder()
+        strokeWidth = DimenUtil.roundedDpToPx(1f)
         elevation = 0f
     }
 
