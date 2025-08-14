@@ -51,6 +51,7 @@
 * Velg
 * Vito Genovese
 * Watermelon juice
+* İmmortalance
 -->
 <resources>
   <string name="app_name_prod">Vikipedi</string>
@@ -289,21 +290,22 @@
   <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Ekip sayfası&lt;/a&gt;</string>
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
   <string name="about_app_license">Kaynak koduna &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
+  <string name="about_logo_content_description">Wikipedia puzzle globe logosu</string>
   <string name="edit_abandon_confirm">Sayfa değiştirildi. Değişikliklerinizi kaydetmeden çıkmak istediğinizden emin misiniz?</string>
   <string name="edit_abandon_confirm_yes">Evet</string>
   <string name="edit_abandon_confirm_no">Hayır</string>
@@ -438,6 +440,7 @@
   <string name="preference_title_collapse_tables">Tabloları daralt</string>
   <string name="preference_summary_collapse_tables">Bilgi kutuları, kaynakça ve notlar gibi maddelerdeki tabloları otomatik olarak daralt.</string>
   <string name="nav_item_donate">Bağış yap</string>
+  <string name="nav_item_year_in_review">İnceleme Yılı</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
@@ -449,7 +452,7 @@
     <item quantity="other">%d seçildi</item>
   </plurals>
   <string name="multi_select_items_selected">%d seçildi</string>
-  <string name="error_message_generic">Bir hata oluştu</string>
+  <string name="error_message_generic">Bir hata meydana geldi</string>
   <string name="view_link_preview_error_button_dismiss">Reddet</string>
   <string name="link_preview_dialog_read_button">Oku</string>
   <string name="link_preview_dialog_save_button">Sakla</string>
@@ -615,8 +618,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
   <string name="reading_lists_sync_reminder_title">Okuma listesi senkronizasyonunu etkinleştirilsin mi?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini eşitle</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
@@ -1295,6 +1298,8 @@
   <string name="templates_param_optional_hint">%s (İsteğe bağlı)</string>
   <string name="templates_param_suggested_hint">%s (Önerilen)</string>
   <string name="templates_learn_more_link">Daha fazla bilgi edin</string>
+  <string name="templates_description_incomplete">Şablonlar kullanıcılar tarafından oluşturulur ve tam tanımlar eksik olabilir.</string>
+  <string name="templates_description_empty">\" %s \" şablonunun henüz bir açıklaması yok.</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
@@ -1332,6 +1337,7 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="talk_subject_duplicate">Konu adı zaten mevcut. Farklı bir ad deneyin.</string>
   <string name="talk_response_submitted">Yanıt gönderildi.</string>
   <string name="talk_snackbar_undo">Geri al</string>
   <string name="talk_last_modified">&lt;b&gt;Son düzenleme %1$s tarihinde&lt;/b&gt; %2$s tarafından yapıldı</string>
@@ -1419,10 +1425,10 @@
   <string name="revision_compare_two_only">Yalnızca iki sürüm seçilebilir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 haftalık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 aylık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 aylık</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 hafta</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aylık</string>
   <string name="watchlist_expiry_dialog_title">İzleme listesi dönemini seçin</string>
   <string name="watchlist_expiry_dialog_permanent">Kalıcı</string>
   <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
@@ -1636,9 +1642,11 @@
   <string name="patroller_saved_message_title_vandalism">Vandalizm uyarısı</string>
   <string name="patroller_saved_message_title_npov">Tarafsız bakış açısı</string>
   <string name="patroller_saved_message_title_auto_trans">Otomatik çeviri</string>
+  <string name="patroller_saved_message_title_coi_rem">Çıkar çatışması hatırlatıcısı</string>
   <string name="patroller_saved_message_title_final_warning">Son uyarı</string>
   <string name="patroller_saved_message_title_copy_vio">Telif hakkı ihlali uyarısı</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Düzenleme özeti bırakın</string>
+  <string name="patroller_saved_message_title_do_not_censor">Sansürlemeyin</string>
   <string name="patroller_saved_message_title_art_imp">Madde iyileştirme önerisi</string>
   <string name="talk_templates_menu_edit_title">Düzenle</string>
   <string name="data_opt_in_accept">Kabul et</string>
