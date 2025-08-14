@@ -178,7 +178,7 @@
   <string name="create_account_activity_title">ခၞံကၠောန် အကံက်</string>
   <string name="dialog_create_account_checking_progress">ပဒတန်</string>
   <string name="create_account_email_hint">အဳမေလ် (ဒးစုတ်ဟေင်)</string>
-  <string name="create_account_password_repeat_hint">ကလေင်စုတ် မလိက်ပၞုက်</string>
+  <string name="create_account_password_repeat_hint">ကလေင်ကၠောန် မလိက်ပၞုက်</string>
   <string name="create_account_password_is_username">မလိက်ပၞုက်ဂှ် တုပ်ကဵု ယၟုညးလွပ် ဟွံဂွံ</string>
   <string name="create_account_passwords_mismatch_error">မလိက်ပၞုက် ဟွံကိတ်</string>
   <string name="create_account_email_error">အဳမေလ် ဟွံလုပ်အဝေါင်</string>
