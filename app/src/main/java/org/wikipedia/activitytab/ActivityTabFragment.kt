@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,12 +36,10 @@ import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
-import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.Resource
 import org.wikipedia.util.UiState
 
 class ActivityTabFragment : Fragment() {
@@ -57,13 +55,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
-                        uiState = viewModel.uiState.collectAsState().value,
                         timeSpentState = viewModel.timeSpentState.collectAsState().value,
-                        wikiErrorClickEvents = WikiErrorClickEvents(
-                            retryClickListener = {
-                                viewModel.load()
-                            }
-                        )
                     )
                 }
             }
@@ -73,9 +65,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         userName: String,
-        uiState: UiState<Unit>,
-        timeSpentState: UiState<Long>,
-        wikiErrorClickEvents: WikiErrorClickEvents? = null
+        timeSpentState: UiState<Long>
     ) {
         Scaffold(
             modifier = Modifier
@@ -83,116 +73,126 @@ class ActivityTabFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            when (uiState) {
-                is UiState.Loading -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(paddingValues),
-                    ) {
-                        LinearProgressIndicator(
-                            modifier = Modifier.fillMaxWidth(),
-                            color = WikipediaTheme.colors.progressiveColor,
-                            trackColor = WikipediaTheme.colors.borderColor
-                        )
-                    }
-                }
-                is UiState.Error -> {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        WikiErrorView(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            caught = uiState.error,
-                            errorClickEvents = wikiErrorClickEvents
-                        )
-                    }
-                }
-                is UiState.Success -> {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(paddingValues)
-                            .background(
-                                brush = Brush.verticalGradient(
-                                    colors = listOf(
-                                        WikipediaTheme.colors.paperColor,
-                                        WikipediaTheme.colors.additionColor
-                                    )
-                                )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(paddingValues)
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                WikipediaTheme.colors.paperColor,
+                                WikipediaTheme.colors.additionColor
                             )
-                    ) {
-                        Text(
-                            text = stringResource(R.string.activity_tab_user_reading, userName),
-                            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
-                            fontSize = 22.sp,
-                            fontWeight = FontWeight.Medium,
-                            textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor
                         )
-                        Box(
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                                .background(
-                                    color = WikipediaTheme.colors.additionColor,
-                                    shape = RoundedCornerShape(8.dp)
-                                )
-                                .align(Alignment.CenterHorizontally),
-                        ) {
-                            Text(
-                                text = stringResource(R.string.activity_tab_on_wikipedia_android).uppercase(),
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                                fontSize = 11.sp,
-                                fontFamily = FontFamily.Monospace,
-                                letterSpacing = TextUnit(0.8f, TextUnitType.Sp),
-                                textAlign = TextAlign.Center,
-                                color = WikipediaTheme.colors.primaryColor
-                            )
+                    )
+            ) {
+                Text(
+                    text = stringResource(R.string.activity_tab_user_reading, userName),
+                    modifier = Modifier.padding(top = 16.dp)
+                        .align(Alignment.CenterHorizontally),
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                // All module will have their own state management
+                // TimeSpentModule
+                TimeSpentModule(
+                    timeSpentState = timeSpentState,
+                    wikiErrorClickEvents = WikiErrorClickEvents(
+                        retryClickListener = {
+                            viewModel.loadTimeSpent()
                         }
-                        if (timeSpentState is UiState.Success) {
-                            Text(
-                                text = stringResource(R.string.activity_tab_weekly_time_spent_hm, (timeSpentState.data / 3600), (timeSpentState.data % 60)),
-                                modifier = Modifier.padding(top = 12.dp).align(Alignment.CenterHorizontally),
-                                fontSize = 32.sp,
-                                fontWeight = FontWeight.W500,
-                                textAlign = TextAlign.Center,
-                                style = TextStyle(
-                                    brush = Brush.linearGradient(
-                                        colors = listOf(
-                                            ComposeColors.Red700,
-                                            ComposeColors.Orange500,
-                                            ComposeColors.Yellow500,
-                                            ComposeColors.Blue300
-                                        )
-                                    )
-                                ),
-                                color = WikipediaTheme.colors.primaryColor
-                            )
-                            Text(
-                                text = stringResource(R.string.activity_tab_weekly_time_spent),
-                                modifier = Modifier.padding(top = 8.dp, bottom = 16.dp).align(Alignment.CenterHorizontally),
-                                fontWeight = FontWeight.W500,
-                                textAlign = TextAlign.Center,
-                                color = WikipediaTheme.colors.primaryColor
-                            )
-                        }
-                    }
-                }
+                    )
+                )
+                // Monthly insights
+
+                // Categories module
+
+                // impact module
+
+                // Game module
+
+                // other module
             }
         }
     }
 
-    @Preview(showBackground = true)
     @Composable
-    fun DefaultPreviewSourceSelectionScreen() {
+    fun ActivityTabScreenPreview() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
-                uiState = UiState.Success(Unit),
                 timeSpentState = UiState.Success(123456L)
+            )
+        }
+    }
+
+    // @TODO: error view and handling
+    @Composable
+    fun ColumnScope.TimeSpentModule(
+        modifier: Modifier = Modifier,
+        timeSpentState: UiState<Long>,
+        wikiErrorClickEvents: WikiErrorClickEvents? = null
+    ) {
+        Text(
+            text = stringResource(R.string.activity_tab_user_reading, AccountUtil.userName),
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .align(Alignment.CenterHorizontally),
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Medium,
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Box(
+            modifier = Modifier
+                .padding(horizontal = 8.dp, vertical = 4.dp)
+                .background(
+                    color = WikipediaTheme.colors.additionColor,
+                    shape = RoundedCornerShape(8.dp)
+                )
+                .align(Alignment.CenterHorizontally),
+        ) {
+            Text(
+                text = stringResource(R.string.activity_tab_on_wikipedia_android).uppercase(),
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                fontSize = 11.sp,
+                fontFamily = FontFamily.Monospace,
+                letterSpacing = TextUnit(0.8f, TextUnitType.Sp),
+                textAlign = TextAlign.Center,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
+        if (timeSpentState is UiState.Success) {
+            Text(
+                text = stringResource(R.string.activity_tab_weekly_time_spent_hm, (timeSpentState.data / 3600), (timeSpentState.data % 60)),
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 32.sp,
+                fontWeight = FontWeight.W500,
+                textAlign = TextAlign.Center,
+                style = TextStyle(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            ComposeColors.Red700,
+                            ComposeColors.Orange500,
+                            ComposeColors.Yellow500,
+                            ComposeColors.Blue300
+                        )
+                    )
+                ),
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Text(
+                text = "Time spent reading this week",
+                modifier = Modifier
+                    .padding(top = 8.dp, bottom = 16.dp)
+                    .align(Alignment.CenterHorizontally),
+                fontWeight = FontWeight.W500,
+                textAlign = TextAlign.Center,
+                color = WikipediaTheme.colors.primaryColor
             )
         }
     }
