@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -86,18 +85,9 @@ class ActivityTabFragment : Fragment() {
                         )
                     )
             ) {
-                Text(
-                    text = stringResource(R.string.activity_tab_user_reading, userName),
-                    modifier = Modifier.padding(top = 16.dp)
-                        .align(Alignment.CenterHorizontally),
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Medium,
-                    textAlign = TextAlign.Center,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                // All module will have their own state management
-                // TimeSpentModule
                 TimeSpentModule(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    userName = userName,
                     timeSpentState = timeSpentState,
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         retryClickListener = {
@@ -105,6 +95,7 @@ class ActivityTabFragment : Fragment() {
                         }
                     )
                 )
+
                 // Monthly insights
 
                 // Categories module
@@ -118,6 +109,7 @@ class ActivityTabFragment : Fragment() {
         }
     }
 
+    @Preview
     @Composable
     fun ActivityTabScreenPreview() {
         BaseTheme(currentTheme = Theme.LIGHT) {
@@ -130,29 +122,28 @@ class ActivityTabFragment : Fragment() {
 
     // @TODO: error view and handling
     @Composable
-    fun ColumnScope.TimeSpentModule(
-        modifier: Modifier = Modifier,
+    fun TimeSpentModule(
+        modifier: Modifier,
+        userName: String,
         timeSpentState: UiState<Long>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Text(
-            text = stringResource(R.string.activity_tab_user_reading, AccountUtil.userName),
-            modifier = Modifier
-                .padding(top = 16.dp)
-                .align(Alignment.CenterHorizontally),
+            text = stringResource(R.string.activity_tab_user_reading, userName),
+            modifier = modifier
+                .padding(top = 16.dp),
             fontSize = 22.sp,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
             color = WikipediaTheme.colors.primaryColor
         )
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .padding(horizontal = 8.dp, vertical = 4.dp)
                 .background(
                     color = WikipediaTheme.colors.additionColor,
                     shape = RoundedCornerShape(8.dp)
                 )
-                .align(Alignment.CenterHorizontally),
         ) {
             Text(
                 text = stringResource(R.string.activity_tab_on_wikipedia_android).uppercase(),
@@ -167,9 +158,8 @@ class ActivityTabFragment : Fragment() {
         if (timeSpentState is UiState.Success) {
             Text(
                 text = stringResource(R.string.activity_tab_weekly_time_spent_hm, (timeSpentState.data / 3600), (timeSpentState.data % 60)),
-                modifier = Modifier
-                    .padding(top = 12.dp)
-                    .align(Alignment.CenterHorizontally),
+                modifier = modifier
+                    .padding(top = 12.dp),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.W500,
                 textAlign = TextAlign.Center,
@@ -187,9 +177,8 @@ class ActivityTabFragment : Fragment() {
             )
             Text(
                 text = "Time spent reading this week",
-                modifier = Modifier
-                    .padding(top = 8.dp, bottom = 16.dp)
-                    .align(Alignment.CenterHorizontally),
+                modifier = modifier
+                    .padding(top = 8.dp, bottom = 16.dp),
                 fontWeight = FontWeight.W500,
                 textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.primaryColor
