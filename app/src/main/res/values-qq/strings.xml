@@ -1175,6 +1175,8 @@
   <string name="activity_tab_on_wikipedia_android">Subtitle of the reading activity statistics, specific to the Wikipedia Android app.</string>
   <string name="activity_tab_weekly_time_spent_hm">Time spent reading this week, expressed in hours and minutes. The %1$d symbol is replaced with hours, and %2$d is replaced with minutes.</string>
   <string name="activity_tab_weekly_time_spent">Label underneath the weekly time spent in the app.</string>
+  <string name="activity_tab_monthly_articles_read">Label on a card that lists the number of articles read this month.</string>
+  <string name="activity_tab_monthly_articles_saved">Label on a card that lists the number of articles saved this month to a reading list.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

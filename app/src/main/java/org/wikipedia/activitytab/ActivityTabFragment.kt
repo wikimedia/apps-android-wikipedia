@@ -4,21 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -29,17 +44,23 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
+import org.wikipedia.views.imageservice.ImageService
+import java.util.Locale
 
 class ActivityTabFragment : Fragment() {
 
@@ -54,7 +75,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
-                        timeSpentState = viewModel.timeSpentState.collectAsState().value,
+                        readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                     )
                 }
             }
@@ -64,7 +85,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         userName: String,
-        timeSpentState: UiState<Long>
+        readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>
     ) {
         Scaffold(
             modifier = Modifier
@@ -85,13 +106,13 @@ class ActivityTabFragment : Fragment() {
                         )
                     )
             ) {
-                TimeSpentModule(
+                ReadingHistoryModule(
                     modifier = Modifier.align(Alignment.CenterHorizontally),
                     userName = userName,
-                    timeSpentState = timeSpentState,
+                    readingHistoryState = readingHistoryState,
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         retryClickListener = {
-                            viewModel.loadTimeSpent()
+                            viewModel.loadReadingHistory()
                         }
                     )
                 )
@@ -99,33 +120,28 @@ class ActivityTabFragment : Fragment() {
                 // Monthly insights
 
                 // Categories module
-
-                // impact module
-
-                // Game module
-
-                // other module
             }
-        }
-    }
 
-    @Preview
-    @Composable
-    fun ActivityTabScreenPreview() {
-        BaseTheme(currentTheme = Theme.LIGHT) {
-            ActivityTabScreen(
-                userName = "User",
-                timeSpentState = UiState.Success(123456L)
-            )
+            // --- new column ---
+
+            // impact module
+
+            // game module
+
+            // donation module
+
+            // --- new column ---
+
+            // history module
         }
     }
 
     // @TODO: error view and handling
     @Composable
-    fun TimeSpentModule(
+    fun ReadingHistoryModule(
         modifier: Modifier,
         userName: String,
-        timeSpentState: UiState<Long>,
+        readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         wikiErrorClickEvents: WikiErrorClickEvents? = null
     ) {
         Text(
@@ -155,9 +171,14 @@ class ActivityTabFragment : Fragment() {
                 color = WikipediaTheme.colors.primaryColor
             )
         }
-        if (timeSpentState is UiState.Success) {
+        if (readingHistoryState is UiState.Success) {
+            val readingHistory = readingHistoryState.data
             Text(
-                text = stringResource(R.string.activity_tab_weekly_time_spent_hm, (timeSpentState.data / 3600), (timeSpentState.data % 60)),
+                text = stringResource(
+                    R.string.activity_tab_weekly_time_spent_hm,
+                    (readingHistory.timeSpentThisWeek / 3600),
+                    (readingHistory.timeSpentThisWeek % 60)
+                ),
                 modifier = modifier
                     .padding(top = 12.dp),
                 fontSize = 32.sp,
@@ -176,12 +197,248 @@ class ActivityTabFragment : Fragment() {
                 color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                text = "Time spent reading this week",
+                text = stringResource(R.string.activity_tab_weekly_time_spent),
                 modifier = modifier
                     .padding(top = 8.dp, bottom = 16.dp),
                 fontWeight = FontWeight.W500,
                 textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.primaryColor
+            )
+
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = WikipediaTheme.colors.paperColor
+                ),
+                border = BorderStroke(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.borderColor
+                ),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Row(
+                    modifier = modifier.fillMaxWidth()
+                        .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                ) {
+                    Column(
+                        modifier = modifier.weight(1f)
+                    ) {
+                        Row(
+                            modifier = modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                modifier = Modifier.size(16.dp),
+                                painter = painterResource(R.drawable.ic_newsstand_24),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = null
+                            )
+                            Text(
+                                text = stringResource(R.string.activity_tab_monthly_articles_read),
+                                modifier = Modifier.padding(start = 8.dp),
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 12.sp,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        }
+                    }
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                }
+                Text(
+                    text = "9:34 AM",
+                    modifier = Modifier.padding(start = 16.dp, top = 2.dp),
+                    fontSize = 12.sp,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+                Row(
+                    modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
+                ) {
+                    Text(
+                        text = readingHistory.articlesReadThisMonth.toString(),
+                        modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 22.sp,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Box(
+                        modifier = Modifier.padding(end = 16.dp)
+                            .size(width = 80.dp, height = 48.dp)
+                            .background(
+                                color = WikipediaTheme.colors.additionColor,
+                                shape = RoundedCornerShape(2.dp)
+                            )
+                    )
+                }
+            }
+
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = WikipediaTheme.colors.paperColor
+                ),
+                border = BorderStroke(
+                    width = 1.dp,
+                    color = WikipediaTheme.colors.borderColor
+                ),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Row(
+                    modifier = modifier.fillMaxWidth()
+                        .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                ) {
+                    Column(
+                        modifier = modifier.weight(1f)
+                    ) {
+                        Row(
+                            modifier = modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                modifier = Modifier.size(16.dp),
+                                painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = null
+                            )
+                            Text(
+                                text = stringResource(R.string.activity_tab_monthly_articles_saved),
+                                modifier = Modifier.padding(start = 8.dp),
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 12.sp,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        }
+                    }
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                }
+                Text(
+                    text = "9:34 AM",
+                    modifier = Modifier.padding(start = 16.dp, top = 2.dp),
+                    fontSize = 12.sp,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+                Row(
+                    modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
+                ) {
+                    Text(
+                        text = readingHistory.articlesSavedThisMonth.toString(),
+                        modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 22.sp,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    Row(
+                        modifier = Modifier.padding(end = 16.dp)
+                    ) {
+                        val itemsToShow = if (readingHistory.articlesSaved.size <= 4) readingHistory.articlesSaved.size else 3
+                        val showOverflowItem = readingHistory.articlesSaved.size > 4
+
+                        for (i in 0 until itemsToShow) {
+                            val url = readingHistory.articlesSaved[i].thumbUrl
+                            if (url == null) {
+                                Box(
+                                    modifier = Modifier.padding(start = 4.dp).size(38.dp)
+                                        .background(
+                                            color = Color.White,
+                                            shape = RoundedCornerShape(19.dp)
+                                        ).border(
+                                            0.5.dp,
+                                            WikipediaTheme.colors.borderColor,
+                                            RoundedCornerShape(19.dp))
+                                ) {
+                                    Icon(
+                                        modifier = Modifier.size(24.dp).align(Alignment.Center),
+                                        painter = painterResource(R.drawable.ic_wikipedia_b),
+                                        tint = WikipediaTheme.colors.primaryColor,
+                                        contentDescription = null
+                                    )
+                                }
+                            } else {
+                                val request = ImageService.getRequest(LocalContext.current, url = url)
+                                AsyncImage(
+                                    model = request,
+                                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                                    contentScale = ContentScale.Crop,
+                                    contentDescription = null,
+                                    modifier = Modifier.padding(start = 4.dp).size(38.dp)
+                                        .clip(RoundedCornerShape(19.dp))
+                                )
+                            }
+                        }
+
+                        if (showOverflowItem) {
+                            Box(
+                                modifier = Modifier.padding(start = 4.dp).size(38.dp)
+                                    .background(
+                                        color = WikipediaTheme.colors.placeholderColor,
+                                        shape = RoundedCornerShape(19.dp)
+                                    )
+                            ) {
+                                Text(
+                                    text = String.format(Locale.getDefault(), "+%d", readingHistory.articlesSavedThisMonth - 3),
+                                    modifier = Modifier.align(Alignment.Center),
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 11.sp,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            // empty state
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityTabScreenPreview() {
+        val site = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                userName = "User",
+                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                    timeSpentThisWeek = 12345,
+                    articlesReadThisMonth = 123,
+                    articlesReadByWeek = listOf(0, 12, 34, 56),
+                    articlesSavedThisMonth = 23,
+                    articlesSaved = listOf(
+                        PageTitle(text = "Psychology of art", wiki = site, thumbUrl = "foo.jpg", description = "Study of mental functions and behaviors", displayText = null),
+                        PageTitle(text = "Industrial design", wiki = site, thumbUrl = null, description = "Process of design applied to physical products", displayText = null),
+                        PageTitle(text = "Dufourspitze", wiki = site, thumbUrl = "foo.jpg", description = "Highest mountain in Switzerland", displayText = null),
+                        PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
+                        PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null)
+                    )
+                ))
+            )
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityTabScreenEmptyPreview() {
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                userName = "User",
+                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                    timeSpentThisWeek = 0,
+                    articlesReadThisMonth = 0,
+                    articlesReadByWeek = listOf(0, 0, 0, 0),
+                    articlesSavedThisMonth = 0,
+                    articlesSaved = emptyList()
+                ))
             )
         }
     }

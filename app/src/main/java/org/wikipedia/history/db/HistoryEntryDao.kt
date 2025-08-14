@@ -39,6 +39,12 @@ interface HistoryEntryDao {
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 
+    @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp > :timestamp")
+    suspend fun getTotalEntriesSince(timestamp: Long): Long?
+
+    @Query("SELECT COUNT(*) FROM HistoryEntry WHERE timestamp BETWEEN :timestampStart AND :timestampEnd")
+    suspend fun getTotalEntriesBetween(timestampStart: Long, timestampEnd: Long): Long?
+
     @Transaction
     suspend fun insert(entries: List<HistoryEntry>) {
         entries.forEach {
