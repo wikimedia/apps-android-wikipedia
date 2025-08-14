@@ -8,80 +8,85 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.WikipediaApp
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.UiState
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-
-    private val _uiState = MutableStateFlow<UiState<Unit>>(UiState.Loading)
-    val uiState: StateFlow<UiState<Unit>> = _uiState.asStateFlow()
-
-    private val _timeSpentState = MutableStateFlow<UiState<Long>>(UiState.Loading)
-    val timeSpentState: StateFlow<UiState<Long>> = _timeSpentState.asStateFlow()
+    private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
+    val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
     var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var donationResults: List<DonationResult> = emptyList()
 
-    private val _categoriesUiState = MutableStateFlow<UiState<List<Category>>>(UiState.Loading)
-    val categoriesUiState: StateFlow<UiState<List<Category>>> = _categoriesUiState.asStateFlow()
-
     init {
-        load()
-        loadCategories()
+        loadReadingHistory()
     }
 
-    fun load() {
+    fun loadReadingHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.value = UiState.Error(throwable)
+            _readingHistoryState.value = UiState.Error(throwable)
         }) {
-            _uiState.value = UiState.Loading
-
-            val currentDate = LocalDate.now()
-            val languageCode = WikipediaApp.instance.wikiSite.languageCode
-
+            _readingHistoryState.value = UiState.Loading
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            val sevenDaysAgo = now - TimeUnit.DAYS.toMillis(7)
-            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(sevenDaysAgo)
-            _timeSpentState.value = UiState.Success(totalTimeSpent)
+            val weekInMillis = TimeUnit.DAYS.toMillis(7)
+            var weekAgo = now - weekInMillis
+            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
 
-            // TODO: do something with game statistics
-            gameStatistics = OnThisDayGameViewModel.getGameStatistics(languageCode)
+            val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
+            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getTotalEntriesSince(thirtyDaysAgo) ?: 0
+            val articlesReadByWeek = mutableListOf<Int>()
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getTotalEntriesSince(weekAgo) ?: 0)
+            for (i in 1..3) {
+                weekAgo -= weekInMillis
+                val articlesRead = AppDatabase.instance.historyEntryDao().getHistoryCount(weekAgo, weekAgo + weekInMillis)
+                articlesReadByWeek.add(articlesRead)
+            }
+            val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            // TODO: do something with donation results
-            donationResults = Prefs.donationResults
+            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalPagesSince(thirtyDaysAgo) ?: 0
+            val articlesSaved = AppDatabase.instance.readingListPageDao().getPagesSince(thirtyDaysAgo, 4)
+                .map { ReadingListPage.toPageTitle(it) }
+            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentSavedPage()?.mtime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            _uiState.value = UiState.Success(Unit)
-        }
-    }
-
-    fun loadCategories() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _categoriesUiState.value = UiState.Error(throwable)
-        }) {
-            _categoriesUiState.value = UiState.Loading
             val currentDate = LocalDate.now()
             val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
-            _categoriesUiState.value = UiState.Success(topCategories.take(3))
-        }
-    }
 
-    fun formateString(title: String): String {
-        return StringUtil.removeNamespace(title)
+            _readingHistoryState.value = UiState.Success(ReadingHistory(
+                timeSpentThisWeek = totalTimeSpent,
+                articlesReadThisMonth = articlesReadThisMonth,
+                lastArticleReadTime = mostRecentReadTime,
+                articlesReadByWeek = articlesReadByWeek,
+                articlesSavedThisMonth = articlesSavedThisMonth,
+                lastArticleSavedTime = mostRecentSaveTime,
+                articlesSaved = articlesSaved,
+                topCategories.take(3))
+            )
+        }
     }
 
     fun createPageTitleForCategory(category: Category): PageTitle {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
+
+    class ReadingHistory(
+        val timeSpentThisWeek: Long,
+        val articlesReadThisMonth: Int,
+        val lastArticleReadTime: LocalDateTime?,
+        val articlesReadByWeek: List<Int>,
+        val articlesSavedThisMonth: Int,
+        val lastArticleSavedTime: LocalDateTime?,
+        val articlesSaved: List<PageTitle>,
+        val topCategories: List<Category>
+    )
 }

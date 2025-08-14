@@ -1194,6 +1194,10 @@
     <string name="activity_tab_on_wikipedia_android">On Wikipedia Android</string>
     <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
     <string name="activity_tab_weekly_time_spent">Time spent reading this week</string>
+    <string name="activity_tab_monthly_articles_read">Articles read this month</string>
+    <string name="activity_tab_monthly_articles_saved">Articles saved this month</string>
+    <string name="activity_tab_explore_wikipedia">Explore Wikipedia</string>
+    <string name="activity_tab_discover_encourage">Discover something new to read</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

@@ -86,6 +86,15 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     fun getAllPagesToBeSynced(): List<ReadingListPage>
 
+    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE mtime > :timestamp")
+    suspend fun getTotalPagesSince(timestamp: Long): Int?
+
+    @Query("SELECT * FROM ReadingListPage WHERE mtime > :timestamp ORDER BY mtime DESC LIMIT :limit")
+    suspend fun getPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
+
+    @Query("SELECT * FROM ReadingListPage ORDER BY mtime DESC LIMIT 1")
+    suspend fun getMostRecentSavedPage(): ReadingListPage?
+
     fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
     fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
