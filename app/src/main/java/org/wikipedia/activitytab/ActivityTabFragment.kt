@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -57,6 +58,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
+import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.TinyBarChart
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -113,44 +115,49 @@ class ActivityTabFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(paddingValues)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                WikipediaTheme.colors.paperColor,
-                                WikipediaTheme.colors.additionColor
+            LazyColumn(
+            ) {
+                item {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(paddingValues)
+                            .background(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        WikipediaTheme.colors.paperColor,
+                                        WikipediaTheme.colors.additionColor
+                                    )
+                                )
+                            )
+                    ) {
+                        ReadingHistoryModule(
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            userName = userName,
+                            readingHistoryState = readingHistoryState,
+                            wikiErrorClickEvents = WikiErrorClickEvents(
+                                retryClickListener = {
+                                    viewModel.loadReadingHistory()
+                                }
                             )
                         )
-                    )
-            ) {
-                ReadingHistoryModule(
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    userName = userName,
-                    readingHistoryState = readingHistoryState,
-                    wikiErrorClickEvents = WikiErrorClickEvents(
-                        retryClickListener = {
-                            viewModel.loadReadingHistory()
-                        }
-                    )
-                )
 
-                // Categories module
+                        // Categories module
+                    }
+                }
+
+                // --- new column ---
+
+                // impact module
+
+                // game module
+
+                // donation module
+
+                // --- new column ---
+
+                // timeline module
             }
-
-            // --- new column ---
-
-            // impact module
-
-            // game module
-
-            // donation module
-
-            // --- new column ---
-
-            // timeline module
         }
     }
 
@@ -434,19 +441,21 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
                         }
-
-                        TopCategoriesView(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
-                            categories = readingHistory.topCategories,
-                            onClick = {
-                                val pageTitle = viewModel.createPageTitleForCategory(it)
-                                startActivity(CategoryActivity.newIntent(requireActivity(), pageTitle))
-                            }
-                        )
                     }
                 }
+            }
+
+            if (readingHistory.topCategories.isNotEmpty()) {
+                TopCategoriesView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                    categories = readingHistory.topCategories,
+                    onClick = {
+                        val pageTitle = viewModel.createPageTitleForCategory(it)
+                        startActivity(CategoryActivity.newIntent(requireActivity(), pageTitle))
+                    }
+                )
             }
 
             if (readingHistory.articlesReadThisMonth == 0 && readingHistory.articlesSavedThisMonth == 0) {
@@ -505,6 +514,8 @@ class ActivityTabFragment : Fragment() {
                         PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null)
                     ),
                     topCategories = listOf(
+                        Category(2025, 1, "Category:Ancient history", "en", 1),
+                        Category(2025, 1, "Category:World literature", "en", 1),
                     )
                 ))
             )
