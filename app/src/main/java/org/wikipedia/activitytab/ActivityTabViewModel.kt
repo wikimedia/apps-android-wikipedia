@@ -10,12 +10,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.UiState
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
@@ -26,8 +28,6 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
     var donationResults: List<DonationResult> = emptyList()
-
-    var topCategories: List<Category> = emptyList()
 
     init {
         loadReadingHistory()
@@ -59,6 +59,9 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 .map { ReadingListPage.toPageTitle(it) }
             val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentSavedPage()?.mtime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
+            val currentDate = LocalDate.now()
+            val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
+
             _readingHistoryState.value = UiState.Success(ReadingHistory(
                 timeSpentThisWeek = totalTimeSpent,
                 articlesReadThisMonth = articlesReadThisMonth,
@@ -66,9 +69,14 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 articlesReadByWeek = articlesReadByWeek,
                 articlesSavedThisMonth = articlesSavedThisMonth,
                 lastArticleSavedTime = mostRecentSaveTime,
-                articlesSaved = articlesSaved)
+                articlesSaved = articlesSaved,
+                topCategories.take(3))
             )
         }
+    }
+
+    fun createPageTitleForCategory(category: Category): PageTitle {
+        return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
 
     class ReadingHistory(
@@ -78,6 +86,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val articlesReadByWeek: List<Int>,
         val articlesSavedThisMonth: Int,
         val lastArticleSavedTime: LocalDateTime?,
-        val articlesSaved: List<PageTitle>
+        val articlesSaved: List<PageTitle>,
+        val topCategories: List<Category>
     )
 }
