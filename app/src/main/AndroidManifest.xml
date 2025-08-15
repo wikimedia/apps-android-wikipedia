@@ -376,6 +376,9 @@
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".activitytab.ActivityTabCustomizationActivity" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
