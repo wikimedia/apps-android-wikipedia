@@ -198,5 +198,5 @@
     <string name="preference_key_donation_reminders">donationReminder</string>
     <string name="preference_key_donation_reminders_dev_reset">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date">donationReminderDevResetSeenDate</string>
-    <string name="preference_category_donations">Donations</string>
+    <string name="preference_category_donations">donations</string>
 </resources>
