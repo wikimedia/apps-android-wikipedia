@@ -166,22 +166,19 @@ object FeedbackUtil {
         val marginForNavbar = if (windowInsets != null) {
             when (navigationType) {
                 0, 1 -> {
-                    val navBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
-                    navBarInsets.bottom
+                    windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
                 }
-                2 -> {
-                    val gestureInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
-                    gestureInsets.bottom
+                else -> {
+                    windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
                 }
-                else -> 0
             }
-        } else 0
+        } else null
 
         params.setMargins(
             params.leftMargin,
             params.topMargin,
             params.rightMargin,
-            params.bottomMargin + marginForNavbar
+            params.bottomMargin + (marginForNavbar?.bottom ?: 0)
         )
         view.layoutParams = params
         return snackbar
