@@ -837,5 +837,5 @@ object Prefs {
     var activityTabModules: ActivityTabModules
         get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
             ?: ActivityTabModules()
-        set(modules) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_source, JsonUtil.encodeToString(modules))
+        set(modules) = PrefsIoUtil.setString(R.string.preference_key_activity_tab_modules, JsonUtil.encodeToString(modules))
 }

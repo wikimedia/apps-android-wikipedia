@@ -86,7 +86,6 @@ class ActivityTabFragment : Fragment() {
             onMenuItemClick = { menuItem ->
                 when (menuItem.itemId) {
                     R.id.menu_customize_activity_tab -> {
-                        println("orange: menu_customize_activity_tab")
                         startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
                         true
                     }

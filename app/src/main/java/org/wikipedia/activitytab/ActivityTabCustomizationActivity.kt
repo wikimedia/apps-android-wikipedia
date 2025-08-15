@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
@@ -22,17 +24,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.serialization.Serializable
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 
 class ActivityTabCustomizationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 CustomizationScreen(
@@ -59,7 +64,8 @@ fun CustomizationScreen(
     var currentModules by remember { mutableStateOf(Prefs.activityTabModules) }
 
     Scaffold(
-        modifier = modifier,
+        modifier = modifier
+            .safeDrawingPadding(),
         topBar = {
             WikiTopAppBar(
                 title = "Customize",
@@ -68,17 +74,16 @@ fun CustomizationScreen(
         },
         containerColor = WikipediaTheme.colors.backgroundColor,
         content = { paddingValues ->
-            Column(
+            LazyColumn(
                 modifier = Modifier
                     .padding(paddingValues)
                     .padding(vertical = 24.dp)
             ) {
-                ModuleType.entries.forEach { moduleType ->
+                items(ModuleType.entries) { moduleType ->
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
                         title = moduleType.displayName,
                         onCheckedChange = { isChecked ->
-                            println("orange #$isChecked")
                             currentModules = currentModules.setModuleEnabled(moduleType, isChecked)
                             Prefs.activityTabModules = currentModules
                         }
@@ -145,8 +150,9 @@ fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean
     ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
 }
 
+@Serializable
 data class ActivityTabModules(
-    val isReadingHistoryEnabled: Boolean = false,
+    val isReadingHistoryEnabled: Boolean = true,
     val isImpactEnabled: Boolean = true,
     val isGamesEnabled: Boolean = true,
     val isDonationsEnabled: Boolean = false,
