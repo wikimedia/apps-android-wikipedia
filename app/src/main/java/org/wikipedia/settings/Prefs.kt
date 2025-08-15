@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.ActivityTabModules
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -832,4 +833,9 @@ object Prefs {
     var activityTabRedDotShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
+
+    var activityTabModules: ActivityTabModules
+        get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
+            ?: ActivityTabModules()
+        set(modules) = PrefsIoUtil.setString(R.string.preference_key_recommended_reading_list_source, JsonUtil.encodeToString(modules))
 }

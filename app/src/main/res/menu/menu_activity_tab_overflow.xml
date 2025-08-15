@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_customize_activity_tab"
+        android:title="Customize"
+        android:icon="@drawable/ic_settings_black_24dp"
+        app:iconTint="?attr/secondary_color" />
+    <item
+        android:id="@+id/menu_learn_more"
+        android:title="Learn more"
+        android:icon="@drawable/baseline_info_24"
+        app:iconTint="?attr/secondary_color" />
+    <item
+        android:id="@+id/menu_report_feature"
+        android:title="Problem with feature"
+        android:icon="@drawable/ic_report_flag"
+        app:iconTint="?attr/secondary_color" />
+</menu>

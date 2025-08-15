@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
@@ -39,6 +40,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -73,6 +75,33 @@ class ActivityTabFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadReadingHistory()
+        requireActivity().invalidateOptionsMenu()
+    }
+
+    fun showOverflowMenu() {
+        val toolbar = (requireActivity() as MainActivity).getToolbar()
+        val anchorView = toolbar.findViewById<View>(R.id.menu_overflow_button)
+        ActivityTabOverflowMenu(requireActivity(), anchorView).show(
+            menuRes = R.menu.menu_activity_tab_overflow,
+            onMenuItemClick = { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.menu_customize_activity_tab -> {
+                        println("orange: menu_customize_activity_tab")
+                        startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                        true
+                    }
+                    R.id.menu_learn_more -> {
+                        println("orange: learn more")
+                        true
+                    }
+                    R.id.menu_report_feature -> {
+                        println("orange: problem with feature")
+                        true
+                    }
+                    else -> false
+                }
+            }
+        )
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
