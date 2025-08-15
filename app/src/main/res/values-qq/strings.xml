@@ -1950,6 +1950,8 @@
   <string name="donation_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and second %2$s will be replaced by the text of the number of articles.</string>
   <string name="donation_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
-  <string name="donation_reminders_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
-  <string name="donation_reminders_text_articles">Indicates the number of articles set by the user. %d is replaced by the count.</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
+    <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
+  </plurals>
 </resources>

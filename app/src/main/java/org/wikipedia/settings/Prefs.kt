@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
+import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -832,4 +833,10 @@ object Prefs {
     var activityTabRedDotShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
+
+    var donationReminderConfig
+        get() = JsonUtil.decodeFromString<DonationReminderConfig>(
+            PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
+        ) ?: DonationReminderConfig()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
 }
