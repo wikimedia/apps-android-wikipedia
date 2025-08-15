@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import android.text.format.DateUtils
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,6 +19,7 @@ import org.wikipedia.util.UiState
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -32,6 +34,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     init {
         loadReadingHistory()
+        loadDonationResults()
     }
 
     fun loadReadingHistory() {
@@ -75,7 +78,15 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _donationUiState.value = UiState.Error(throwable)
         }) {
             _donationUiState.value = UiState.Loading
-            val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime
+            val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                val timestampInLong = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).epochSecond
+                val relativeTime = DateUtils.getRelativeTimeSpanString(
+                    timestampInLong * 1000, // Convert seconds to milliseconds
+                    System.currentTimeMillis(),
+                    0L
+                )
+                return@let relativeTime.toString()
+            }
             _donationUiState.value = UiState.Success(lastDonationTime)
         }
     }
@@ -89,4 +100,8 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val lastArticleSavedTime: LocalDateTime?,
         val articlesSaved: List<PageTitle>
     )
+
+    companion object {
+        const val CAMPAIGN_ID = "appmenu_activity"
+    }
 }

@@ -54,6 +54,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -110,74 +111,81 @@ class ActivityTabFragment : Fragment() {
         ) { paddingValues ->
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .padding(paddingValues)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                WikipediaTheme.colors.paperColor,
-                                WikipediaTheme.colors.additionColor
+                    .background(WikipediaTheme.colors.paperColor)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(paddingValues)
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    WikipediaTheme.colors.paperColor,
+                                    WikipediaTheme.colors.additionColor
+                                )
                             )
                         )
-                    )
-            ) {
-                ReadingHistoryModule(
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    userName = userName,
-                    readingHistoryState = readingHistoryState,
-                    wikiErrorClickEvents = WikiErrorClickEvents(
-                        retryClickListener = {
-                            viewModel.loadReadingHistory()
-                        }
-                    )
-                )
-
-                // Categories module
-            }
-
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(paddingValues)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                WikipediaTheme.colors.paperColor,
-                                WikipediaTheme.colors.additionColor
-                            )
-                        )
-                    )
-            ) {
-                if (donationUiState is UiState.Success) {
-                    // TODO: default is off. Make sure to handle
-                    DonationView(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(paddingValues),
-                        uiState = donationUiState,
+                ) {
+                    ReadingHistoryModule(
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        userName = userName,
+                        readingHistoryState = readingHistoryState,
                         wikiErrorClickEvents = WikiErrorClickEvents(
                             retryClickListener = {
-                                viewModel.loadDonationResults()
+                                viewModel.loadReadingHistory()
                             }
-                        ),
-                        onClick = {
-                            // TODO: implement this
-                        }
+                        )
                     )
+
+                    // Categories module
                 }
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(paddingValues)
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    WikipediaTheme.colors.paperColor,
+                                    WikipediaTheme.colors.additionColor
+                                )
+                            )
+                        )
+                ) {
+                    if (donationUiState is UiState.Success) {
+                        // TODO: default is off. Handle this when building the configuration screen.
+                        DonationModule(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 16.dp, horizontal = 16.dp),
+                            uiState = donationUiState,
+                            wikiErrorClickEvents = WikiErrorClickEvents(
+                                retryClickListener = {
+                                    viewModel.loadDonationResults()
+                                }
+                            ),
+                            onClick = {
+                                (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = ActivityTabViewModel.CAMPAIGN_ID)
+                            }
+                        )
+                    }
+                }
+
+                // --- new column ---
+
+                // impact module
+
+                // game module
+
+                // donation module
+
+                // --- new column ---
+
+                // timeline module
             }
-
-            // --- new column ---
-
-            // impact module
-
-            // game module
-
-            // donation module
-
-            // --- new column ---
-
-            // timeline module
         }
     }
 

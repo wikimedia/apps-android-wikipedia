@@ -1,6 +1,5 @@
 package org.wikipedia.activitytab
 
-import android.text.format.DateUtils
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -18,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,11 +29,9 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
-import java.time.LocalDateTime
-import java.time.ZoneOffset
 
 @Composable
-fun DonationView(
+fun DonationModule(
     modifier: Modifier = Modifier,
     uiState: UiState<String?>,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
@@ -81,17 +79,7 @@ fun DonationView(
             }
 
             is UiState.Success -> {
-                val timestamp = uiState.data
-                // use the relative time from the last donation
-                val lastDonationTime = timestamp?.let {
-                    val timestampInLong = LocalDateTime.parse(timestamp).toInstant(ZoneOffset.UTC).epochSecond
-                    val relativeTime = DateUtils.getRelativeTimeSpanString(
-                        timestampInLong * 1000, // Convert seconds to milliseconds
-                        System.currentTimeMillis(),
-                        0L
-                    )
-                    return@let relativeTime.toString()
-                } ?: "Unknown"
+                val lastDonationTime = uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
                 Column(
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
@@ -107,14 +95,14 @@ fun DonationView(
                         )
                         Text(
                             modifier = Modifier.padding(start = 16.dp),
-                            text = "Last donation",
+                            text = stringResource(R.string.activity_tab_donation_last_donation),
                             style = MaterialTheme.typography.labelMedium,
                             color = WikipediaTheme.colors.primaryColor,
                             fontWeight = FontWeight.SemiBold
                         )
                         Text(
-                            modifier = Modifier.padding(end = 16.dp),
-                            text = " in app",
+                            modifier = Modifier.padding(start = 4.dp, end = 16.dp),
+                            text = stringResource(R.string.activity_tab_donation_in_app),
                             style = MaterialTheme.typography.bodySmall,
                             color = WikipediaTheme.colors.primaryColor
                         )
@@ -139,11 +127,11 @@ private fun DonationViewPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        DonationView(
+        DonationModule(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
-            uiState = UiState.Success("2023-10-01T12:00:00Z"),
+            uiState = UiState.Success("5 days ago"),
             onClick = {}
         )
     }
