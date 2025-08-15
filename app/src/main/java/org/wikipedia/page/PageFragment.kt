@@ -24,6 +24,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -421,6 +422,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.onPcsReady()
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
                             DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
+
+                        // In the case of certain types of namespaces, especially pages with a lot of interactivity
+                        // that we can't control, we need to bounce them out explicitly to an external
+                        // browser, even after the page is fully loaded into our WebView. This is because
+                        // we can determine the namespace only after the loading sequence is in progress.
+                        if (model.page?.pageProperties?.namespace == Namespace.EVENT) {
+                            model.title?.let {
+                                UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
+                                binding.root.post {
+                                    if (isAdded) {
+                                        requireActivity().onBackPressed()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
