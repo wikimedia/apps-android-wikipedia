@@ -977,6 +977,7 @@
     <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
+    <string name="suggested_edits_activity_title">Edit</string>
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>

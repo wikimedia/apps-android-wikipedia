@@ -964,6 +964,7 @@
   <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Default tooltip text for customize toolbar drag handle</string>
   <string name="customize_toolbar_item_default_tooltip">Default tooltip text for customize toolbar item</string>
+  <string name="suggested_edits_activity_title">Title of the suggested edits screen.</string>
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
