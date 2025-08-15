@@ -47,7 +47,7 @@ class YearInReviewViewModel() : ViewModel() {
             _uiScreenListState.value = Resource.Loading()
 
             val readCountJob = async {
-                personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getHistoryCount(startTimeInMillis, endTimeInMillis)
+                personalizedStatistics.readCount = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(startTimeInMillis, endTimeInMillis)
                 if (personalizedStatistics.readCount >= MINIMUM_READ_COUNT) {
                     personalizedStatistics.readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
                         .map { StringUtil.fromHtml(it).toString() }

@@ -30,11 +30,6 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _donationUiState = MutableStateFlow<UiState<String?>>(UiState.Loading)
     val donationUiState: StateFlow<UiState<String?>> = _donationUiState.asStateFlow()
 
-    init {
-        loadReadingHistory()
-        loadDonationResults()
-    }
-
     fun loadReadingHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _readingHistoryState.value = UiState.Error(throwable)
@@ -46,12 +41,12 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
 
             val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
-            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getTotalEntriesSince(thirtyDaysAgo) ?: 0
+            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getTotalEntriesSince(weekAgo) ?: 0)
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(weekAgo) ?: 0)
             for (i in 1..3) {
                 weekAgo -= weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getHistoryCount(weekAgo, weekAgo + weekInMillis)
+                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(weekAgo, weekAgo + weekInMillis)
                 articlesReadByWeek.add(articlesRead)
             }
             val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
