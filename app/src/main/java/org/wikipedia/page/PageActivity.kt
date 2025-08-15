@@ -313,7 +313,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         return when (item.itemId) {
             android.R.id.home -> {
                 if (app.haveMainActivity) {
-                    onBackPressed()
+                    onBackPressedDispatcher.onBackPressed()
                 } else {
                     pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }

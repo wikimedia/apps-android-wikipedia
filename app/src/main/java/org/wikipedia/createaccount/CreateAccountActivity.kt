@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -34,6 +35,7 @@ import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
 import java.util.regex.Pattern
+import androidx.core.net.toUri
 
 class CreateAccountActivity : BaseActivity() {
     enum class ValidateResult {
@@ -68,6 +70,16 @@ class CreateAccountActivity : BaseActivity() {
             binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (captchaHandler.isActive) {
+                captchaHandler.cancelCaptcha()
+                showProgressBar(false)
+                return@addCallback
+            }
+            DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
+            finish()
         }
 
         // Set default result to failed, so we can override if it did not
@@ -154,7 +166,7 @@ class CreateAccountActivity : BaseActivity() {
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            visitInExternalBrowser(this, Uri.parse(PageTitle("Special:PasswordReset", wiki).uri))
+            visitInExternalBrowser(this, PageTitle("Special:PasswordReset", wiki).uri.toUri())
         }
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
@@ -190,16 +202,6 @@ class CreateAccountActivity : BaseActivity() {
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
         viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
-    }
-
-    override fun onBackPressed() {
-        if (captchaHandler.isActive) {
-            captchaHandler.cancelCaptcha()
-            showProgressBar(false)
-            return
-        }
-        DeviceUtil.hideSoftKeyboard(this)
-        super.onBackPressed()
     }
 
     public override fun onStop() {
