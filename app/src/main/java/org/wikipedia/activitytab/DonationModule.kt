@@ -25,8 +25,6 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
-import org.wikipedia.compose.components.error.WikiErrorClickEvents
-import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -36,7 +34,6 @@ import org.wikipedia.util.UiState
 fun DonationModule(
     modifier: Modifier = Modifier,
     uiState: UiState<String?>,
-    wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(
@@ -48,67 +45,48 @@ fun DonationModule(
             color = WikipediaTheme.colors.borderColor
         )
     ) {
-        when (uiState) {
-            is UiState.Error -> {
-                Box(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(200.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    WikiErrorView(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        caught = uiState.error,
-                        errorClickEvents = wikiErrorClickEvents
-                    )
-                }
+        if (uiState == UiState.Loading) {
+            Box(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(24.dp),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
             }
-
-            UiState.Loading -> {
-                Box(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
+        } else if (uiState is UiState.Success) {
+            val lastDonationTime =
+                uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .padding(24.dp),
-                        color = WikipediaTheme.colors.progressiveColor
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.outline_credit_card_heart_24),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                    HtmlText(
+                        text = stringResource(R.string.activity_tab_donation_last_donation),
+                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
                     )
                 }
-            }
-
-            is UiState.Success -> {
-                val lastDonationTime = uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
-                Column(
-                    modifier = Modifier.padding(16.dp)
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(16.dp),
-                            painter = painterResource(R.drawable.outline_credit_card_heart_24),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        HtmlText(
-                            text = stringResource(R.string.activity_tab_donation_last_donation),
-                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
-                            color = WikipediaTheme.colors.primaryColor,
-                            lineHeight = MaterialTheme.typography.labelMedium.lineHeight
-                        )
-                    }
-                    Text(
-                        modifier = Modifier.padding(top = 16.dp),
-                        text = lastDonationTime,
-                        style = MaterialTheme.typography.titleLarge,
-                        color = WikipediaTheme.colors.progressiveColor,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                Text(
+                    modifier = Modifier.padding(top = 16.dp),
+                    text = lastDonationTime,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = WikipediaTheme.colors.progressiveColor,
+                    fontWeight = FontWeight.Medium
+                )
             }
         }
     }

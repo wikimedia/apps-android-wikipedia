@@ -1177,6 +1177,7 @@
   <string name="activity_tab_weekly_time_spent">Label underneath the weekly time spent in the app.</string>
   <string name="activity_tab_monthly_articles_read">Label on a card that lists the number of articles read this month.</string>
   <string name="activity_tab_monthly_articles_saved">Label on a card that lists the number of articles saved this month to a reading list.</string>
+  <string name="activity_tab_monthly_top_categories">Label on a card that lists the top categories of articles that were read this month.</string>
   <string name="activity_tab_explore_wikipedia">Button label to go to the Explore screen.</string>
   <string name="activity_tab_discover_encourage">Label encouraging the user to discover new articles.</string>
   <string name="activity_tab_donation_unknown">Label on card that shows the last donation time.</string>

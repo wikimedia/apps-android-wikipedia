@@ -5,7 +5,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -41,7 +40,6 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _readingHistoryState.value = UiState.Error(throwable)
         }) {
             _readingHistoryState.value = UiState.Loading
-            delay(3000)
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
             var weekAgo = now - weekInMillis
@@ -80,21 +78,16 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     fun loadDonationResults() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _donationUiState.value = UiState.Error(throwable)
-        }) {
-            _donationUiState.value = UiState.Loading
-            val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime?.let {
-                val timestampInLong = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).epochSecond
-                val relativeTime = DateUtils.getRelativeTimeSpanString(
-                    timestampInLong * 1000, // Convert seconds to milliseconds
-                    System.currentTimeMillis(),
-                    0L
-                )
-                return@let relativeTime.toString()
-            }
-            _donationUiState.value = UiState.Success(lastDonationTime)
+        val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime?.let {
+            val timestampInLong = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).epochSecond
+            val relativeTime = DateUtils.getRelativeTimeSpanString(
+                timestampInLong * 1000, // Convert seconds to milliseconds
+                System.currentTimeMillis(),
+                0L
+            )
+            return@let relativeTime.toString()
         }
+        _donationUiState.value = UiState.Success(lastDonationTime)
     }
 
     fun createPageTitleForCategory(category: Category): PageTitle {
