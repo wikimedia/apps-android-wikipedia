@@ -73,6 +73,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
@@ -178,6 +179,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
+    override val messageCardHeight get() = leadImagesHandler.getDonationReminderCardViewHeight()
 
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
@@ -254,6 +256,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
+
+        // adding this here, so that this call would always be before any donation reminder config updates
+        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -307,6 +312,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
+        DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -604,6 +610,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                 AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
+
+            // Update the article visit for Donation Reminder
+            DonationReminderHelper.increaseArticleVisitCount(timeSpentSec)
         }
     }
 
@@ -936,6 +945,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
         maybeShowAnnouncement()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
