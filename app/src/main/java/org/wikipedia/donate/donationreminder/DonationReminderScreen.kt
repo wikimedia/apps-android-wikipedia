@@ -67,6 +67,7 @@ import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -106,8 +107,10 @@ fun DonationReminderScreen(
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
-                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl) {
+                    if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
                         viewModel.saveReminder()
+                        val message = DonationReminderHelper.thankYouMessageForSettings()
+                        onConfirmBtnClick(message)
                     }
                 }
                 Lifecycle.Event.ON_RESUME -> {
@@ -319,7 +322,7 @@ fun DonationReminderContent(
                         val minimumAmount = uiState.donationAmount.minimumAmount
                         val maximumAmount = uiState.donationAmount.maximumAmount
                         customDialogErrorMessage = when {
-                            amount <= 0 && amount < minimumAmount -> {
+                            amount < minimumAmount -> {
                                 context.getString(
                                     R.string.donate_gpay_minimum_amount,
                                     uiState.donationAmount.displayFormatter(minimumAmount)
@@ -339,21 +342,39 @@ fun DonationReminderContent(
         }
 
         if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
-            BottomContent(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .padding(top = 16.dp),
-                isFromSettings = viewModel.isFromSettings,
-                onConfirmBtnClick = {
-                    viewModel.toggleDonationReminders(true)
-                    viewModel.saveReminder()
-                    val message = DonationReminderHelper.thankYouMessageForSettings()
-                    onConfirmBtnClick(message)
-                },
-                onAboutThisExperimentClick = onAboutThisExperimentClick
-            )
+            if (!viewModel.isFromSettings) {
+                AppButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .padding(top = 16.dp),
+                    onClick = {
+                        viewModel.toggleDonationReminders(true)
+                        viewModel.saveReminder()
+                        val message = DonationReminderHelper.thankYouMessageForSettings()
+                        onConfirmBtnClick(message)
+                    },
+                    content = {
+                        Text(
+                            stringResource(R.string.donation_reminders_settings_confirm_btn_label)
+                        )
+                    }
+                )
+            }
         }
+
+        TextButton(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
+            onClick = onAboutThisExperimentClick,
+            content = {
+                Text(
+                    text = stringResource(R.string.donation_reminders_settings_about_experiment_btn_label),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
+        )
     }
 }
 
@@ -472,43 +493,6 @@ fun DonationHeader(
 }
 
 @Composable
-fun BottomContent(
-    modifier: Modifier = Modifier,
-    onConfirmBtnClick: () -> Unit,
-    isFromSettings: Boolean,
-    onAboutThisExperimentClick: () -> Unit
-) {
-    Column(
-        modifier = modifier
-    ) {
-        if (!isFromSettings) {
-            AppButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                onClick = onConfirmBtnClick,
-                content = {
-                    Text(
-                        stringResource(R.string.donation_reminders_settings_confirm_btn_label)
-                    )
-                }
-            )
-        }
-
-        TextButton(
-            modifier = Modifier
-                .fillMaxWidth(),
-            onClick = onAboutThisExperimentClick,
-            content = {
-                Text(
-                    text = stringResource(R.string.donation_reminders_settings_about_experiment_btn_label),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        )
-    }
-}
-
-@Composable
 fun <T : Number>OptionSelector(
     title: String,
     option: SelectableOption<T>,
@@ -552,6 +536,7 @@ fun <T : Number>OptionSelector(
                     value = displayValue,
                     enabled = false,
                     onValueChange = {},
+                    textStyle = MaterialTheme.typography.bodyLarge,
                     colors = TextFieldDefaults.colors(
                         disabledContainerColor = WikipediaTheme.colors.backgroundColor,
                         disabledTextColor = WikipediaTheme.colors.primaryColor
@@ -652,6 +637,8 @@ fun InfoTooltip(
         positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
         tooltip = {
             PlainTooltip(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp),
                 containerColor = WikipediaTheme.colors.primaryColor,
                 content = {
                     Text(
@@ -706,13 +693,16 @@ fun CustomInputDialog(
                     .clip(RoundedCornerShape(28.dp))
                     .background(WikipediaTheme.colors.paperColor)
                     .padding(24.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     text = title,
-                    style = MaterialTheme.typography.bodyMedium,
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
+                Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
                     modifier = Modifier
                         .focusRequester(focusRequester),
@@ -747,14 +737,14 @@ fun CustomInputDialog(
                         cursorColor = WikipediaTheme.colors.primaryColor,
                         errorTextColor = WikipediaTheme.colors.primaryColor,
                     ),
-                    supportingText = {
-                        if (errorMessage.isNotEmpty()) {
+                    supportingText = if (errorMessage.isNotEmpty()) {
+                        {
                             Text(
                                 text = errorMessage,
                                 color = WikipediaTheme.colors.destructiveColor,
                             )
                         }
-                    },
+                    } else null,
                     trailingIcon = if (errorMessage.isNotEmpty()) {
                         {
                             Icon(
@@ -766,7 +756,9 @@ fun CustomInputDialog(
                     } else null
                 )
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
                 ) {
                     TextButton(
