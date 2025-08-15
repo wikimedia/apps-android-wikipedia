@@ -156,18 +156,20 @@ object FeedbackUtil {
         val snackbar = makeSnackbar(rootView, text, LENGTH_DEFAULT, wikiSite)
         val view = snackbar.view
         val params = view.layoutParams as ViewGroup.MarginLayoutParams
+        // Navigation types:
+        // 0: 3-button navigation
+        // 1: 2-button navigation
+        // 2: Gesture navigation
         val navigationType = Settings.Secure.getInt(activity.contentResolver, "navigation_mode", 0)
         val windowInsets = ViewCompat.getRootWindowInsets(rootView)
 
-        val bottomMargin = if (windowInsets != null) {
+        val marginForNavbar = if (windowInsets != null) {
             when (navigationType) {
                 0, 1 -> {
-                    // 0: 3-button navigation and 1: 2-button navigation
                     val navBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
                     navBarInsets.bottom
                 }
                 2 -> {
-                    // Gesture navigation
                     val gestureInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
                     gestureInsets.bottom
                 }
@@ -179,7 +181,7 @@ object FeedbackUtil {
             params.leftMargin,
             params.topMargin,
             params.rightMargin,
-            params.bottomMargin + bottomMargin
+            params.bottomMargin + marginForNavbar
         )
         view.layoutParams = params
         return snackbar
