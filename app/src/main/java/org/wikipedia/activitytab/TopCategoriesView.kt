@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
@@ -49,8 +48,7 @@ fun TopCategoriesView(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
-                    modifier = Modifier
-                        .size(16.dp),
+                    modifier = Modifier.size(16.dp),
                     painter = painterResource(R.drawable.ic_category_black_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = null
@@ -58,8 +56,7 @@ fun TopCategoriesView(
                 Text(
                     text = "Top categories read this month",
                     style = MaterialTheme.typography.labelMedium,
-                    color = WikipediaTheme.colors.primaryColor,
-                    fontWeight = FontWeight.SemiBold
+                    color = WikipediaTheme.colors.primaryColor
                 )
             }
 
@@ -100,9 +97,9 @@ private fun TopCategoriesViewPreview() {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             categories = listOf(
-                Category(2025, 1, "Category:Ancient History", "en", 1),
-                Category(2025, 1, "Category:World knowledge literature", "en", 1),
-                Category(2025, 1, "Category:Random stories of the Ancient Civilization", "en", 1),
+                Category(2025, 1, "Category:Ancient history", "en", 1),
+                Category(2025, 1, "Category:World literature", "en", 1),
+                Category(2025, 1, "Category:Cat breeds originating in the United States", "en", 1),
             ),
             onClick = {}
         )

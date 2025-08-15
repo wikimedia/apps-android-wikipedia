@@ -1199,8 +1199,7 @@
     <string name="activity_tab_explore_wikipedia">Explore Wikipedia</string>
     <string name="activity_tab_discover_encourage">Discover something new to read</string>
     <string name="activity_tab_donation_unknown">Unknown</string>
-    <string name="activity_tab_donation_last_donation">Last donation</string>
-    <string name="activity_tab_donation_in_app">in app</string>
+    <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

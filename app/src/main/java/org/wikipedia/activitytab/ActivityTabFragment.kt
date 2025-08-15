@@ -9,6 +9,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,7 +25,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -41,7 +44,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -78,7 +80,6 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class ActivityTabFragment : Fragment() {
-
     interface Callback {
         fun onNavigateTo(navTab: NavTab)
     }
@@ -94,8 +95,8 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
-                        donationUiState = viewModel.donationUiState.collectAsState().value,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
+                        donationUiState = viewModel.donationUiState.collectAsState().value,
                         onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                         onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
                         onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) }
@@ -113,8 +114,8 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         userName: String,
-        donationUiState: UiState<String?>,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
+        donationUiState: UiState<String?>,
         onArticlesReadClick: () -> Unit = {},
         onArticlesSavedClick: () -> Unit = {},
         onExploreClick: () -> Unit = {},
@@ -153,8 +154,6 @@ class ActivityTabFragment : Fragment() {
                                 }
                             )
                         )
-
-                        // Categories module
                     }
                 }
 
@@ -172,6 +171,10 @@ class ActivityTabFragment : Fragment() {
                                 )
                             )
                     ) {
+                        // impact module
+
+                        // game module
+
                         if (donationUiState is UiState.Success) {
                             // TODO: default is off. Handle this when building the configuration screen.
                             DonationModule(
@@ -196,14 +199,6 @@ class ActivityTabFragment : Fragment() {
 
                 // --- new column ---
 
-                // impact module
-
-                // game module
-
-                // donation module
-
-                // --- new column ---
-
                 // timeline module
             }
         }
@@ -224,7 +219,7 @@ class ActivityTabFragment : Fragment() {
             text = stringResource(R.string.activity_tab_user_reading, userName),
             modifier = modifier
                 .padding(top = 16.dp),
-            fontSize = 22.sp,
+            style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
             color = WikipediaTheme.colors.primaryColor
@@ -247,7 +242,12 @@ class ActivityTabFragment : Fragment() {
                 color = WikipediaTheme.colors.primaryColor
             )
         }
-        if (readingHistoryState is UiState.Success) {
+        if (readingHistoryState is UiState.Loading) {
+            CircularProgressIndicator(
+                modifier = modifier.padding(vertical = 16.dp).size(48.dp),
+                color = WikipediaTheme.colors.progressiveColor
+            )
+        } else if (readingHistoryState is UiState.Success) {
             val readingHistory = readingHistoryState.data
             val todayDate = LocalDate.now()
 
@@ -257,12 +257,10 @@ class ActivityTabFragment : Fragment() {
                     (readingHistory.timeSpentThisWeek / 3600),
                     (readingHistory.timeSpentThisWeek % 60)
                 ),
-                modifier = modifier
-                    .padding(top = 12.dp),
-                fontSize = 32.sp,
-                fontWeight = FontWeight.W500,
+                modifier = modifier.padding(top = 12.dp),
+                fontWeight = FontWeight.Medium,
                 textAlign = TextAlign.Center,
-                style = TextStyle(
+                style = MaterialTheme.typography.headlineLarge.copy(
                     brush = Brush.linearGradient(
                         colors = listOf(
                             ComposeColors.Red700,
@@ -278,7 +276,7 @@ class ActivityTabFragment : Fragment() {
                 text = stringResource(R.string.activity_tab_weekly_time_spent),
                 modifier = modifier
                     .padding(top = 8.dp, bottom = 16.dp),
-                fontWeight = FontWeight.W500,
+                style = MaterialTheme.typography.labelLarge,
                 textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.primaryColor
             )
@@ -306,7 +304,8 @@ class ActivityTabFragment : Fragment() {
                         modifier = modifier.weight(1f)
                     ) {
                         Row(
-                            modifier = modifier.fillMaxWidth()
+                            modifier = modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
                             Icon(
                                 modifier = Modifier.size(16.dp),
@@ -316,10 +315,21 @@ class ActivityTabFragment : Fragment() {
                             )
                             Text(
                                 text = stringResource(R.string.activity_tab_monthly_articles_read),
-                                modifier = Modifier.padding(start = 8.dp),
-                                fontWeight = FontWeight.Medium,
-                                fontSize = 12.sp,
+                                style = MaterialTheme.typography.labelMedium,
                                 color = WikipediaTheme.colors.primaryColor
+                            )
+                        }
+                        if (readingHistory.lastArticleReadTime != null) {
+                            Text(
+                                text = if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
+                                    readingHistory.lastArticleReadTime
+                                        .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
+                                else
+                                    readingHistory.lastArticleReadTime
+                                        .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
+                                modifier = Modifier.padding(top = 4.dp),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = WikipediaTheme.colors.secondaryColor
                             )
                         }
                     }
@@ -330,27 +340,15 @@ class ActivityTabFragment : Fragment() {
                         contentDescription = null
                     )
                 }
-                if (readingHistory.lastArticleReadTime != null) {
-                    Text(
-                        text = if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
-                            readingHistory.lastArticleReadTime
-                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
-                        else
-                            readingHistory.lastArticleReadTime
-                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
-                        modifier = Modifier.padding(start = 16.dp, top = 2.dp),
-                        fontSize = 12.sp,
-                        color = WikipediaTheme.colors.secondaryColor
-                    )
-                }
+
                 Row(
                     modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
                 ) {
                     Text(
                         text = readingHistory.articlesReadThisMonth.toString(),
                         modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Medium,
-                        fontSize = 22.sp,
                         color = WikipediaTheme.colors.primaryColor
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -387,7 +385,8 @@ class ActivityTabFragment : Fragment() {
                         modifier = modifier.weight(1f)
                     ) {
                         Row(
-                            modifier = modifier.fillMaxWidth()
+                            modifier = modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
                             Icon(
                                 modifier = Modifier.size(16.dp),
@@ -397,10 +396,21 @@ class ActivityTabFragment : Fragment() {
                             )
                             Text(
                                 text = stringResource(R.string.activity_tab_monthly_articles_saved),
-                                modifier = Modifier.padding(start = 8.dp),
-                                fontWeight = FontWeight.Medium,
-                                fontSize = 12.sp,
+                                style = MaterialTheme.typography.labelMedium,
                                 color = WikipediaTheme.colors.primaryColor
+                            )
+                        }
+                        if (readingHistory.lastArticleSavedTime != null) {
+                            Text(
+                                text = if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
+                                    readingHistory.lastArticleSavedTime
+                                        .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
+                                else
+                                    readingHistory.lastArticleSavedTime
+                                        .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
+                                modifier = Modifier.padding(top = 4.dp),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = WikipediaTheme.colors.secondaryColor
                             )
                         }
                     }
@@ -411,27 +421,14 @@ class ActivityTabFragment : Fragment() {
                         contentDescription = null
                     )
                 }
-                if (readingHistory.lastArticleSavedTime != null) {
-                    Text(
-                        text = if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
-                            readingHistory.lastArticleSavedTime
-                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "hhmm a")))
-                        else
-                            readingHistory.lastArticleSavedTime
-                                .format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d"))),
-                        modifier = Modifier.padding(start = 16.dp, top = 2.dp),
-                        fontSize = 12.sp,
-                        color = WikipediaTheme.colors.secondaryColor
-                    )
-                }
                 Row(
                     modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
                 ) {
                     Text(
                         text = readingHistory.articlesSavedThisMonth.toString(),
                         modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Medium,
-                        fontSize = 22.sp,
                         color = WikipediaTheme.colors.primaryColor
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -580,7 +577,7 @@ class ActivityTabFragment : Fragment() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
-                donationUiState = UiState.Success("5 days ago"),
+                donationUiState = UiState.Success("Unknown"),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,

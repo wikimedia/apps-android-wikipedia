@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,6 +41,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _readingHistoryState.value = UiState.Error(throwable)
         }) {
             _readingHistoryState.value = UiState.Loading
+            delay(3000)
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
             var weekAgo = now - weekInMillis

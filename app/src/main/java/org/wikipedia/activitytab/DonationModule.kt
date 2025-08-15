@@ -2,6 +2,7 @@ package org.wikipedia.activitytab
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -81,35 +83,26 @@ fun DonationModule(
             is UiState.Success -> {
                 val lastDonationTime = uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
                 Column(
-                    modifier = Modifier
-                        .padding(horizontal = 16.dp)
-                        .padding(top = 16.dp, bottom = 8.dp)
+                    modifier = Modifier.padding(16.dp)
                 ) {
-                    Row {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
                         Icon(
-                            modifier = Modifier
-                                .size(16.dp),
+                            modifier = Modifier.size(16.dp),
                             painter = painterResource(R.drawable.outline_credit_card_heart_24),
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
-                        Text(
-                            modifier = Modifier.padding(start = 16.dp),
+                        HtmlText(
                             text = stringResource(R.string.activity_tab_donation_last_donation),
-                            style = MaterialTheme.typography.labelMedium,
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
                             color = WikipediaTheme.colors.primaryColor,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Text(
-                            modifier = Modifier.padding(start = 4.dp, end = 16.dp),
-                            text = stringResource(R.string.activity_tab_donation_in_app),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = WikipediaTheme.colors.primaryColor
+                            lineHeight = MaterialTheme.typography.labelMedium.lineHeight
                         )
                     }
-
                     Text(
-                        modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
+                        modifier = Modifier.padding(top = 16.dp),
                         text = lastDonationTime,
                         style = MaterialTheme.typography.titleLarge,
                         color = WikipediaTheme.colors.progressiveColor,
