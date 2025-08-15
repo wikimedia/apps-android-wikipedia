@@ -55,6 +55,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
@@ -93,6 +94,7 @@ class ActivityTabFragment : Fragment() {
                 BaseTheme {
                     ActivityTabScreen(
                         userName = AccountUtil.userName,
+                        donationUiState = viewModel.donationUiState.collectAsState().value,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                         onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
@@ -111,6 +113,7 @@ class ActivityTabFragment : Fragment() {
     @Composable
     fun ActivityTabScreen(
         userName: String,
+        donationUiState: UiState<String?>,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         onArticlesReadClick: () -> Unit = {},
         onArticlesSavedClick: () -> Unit = {},
@@ -152,6 +155,42 @@ class ActivityTabFragment : Fragment() {
                         )
 
                         // Categories module
+                    }
+                }
+
+                item {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(paddingValues)
+                            .background(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        WikipediaTheme.colors.paperColor,
+                                        WikipediaTheme.colors.additionColor
+                                    )
+                                )
+                            )
+                    ) {
+                        if (donationUiState is UiState.Success) {
+                            // TODO: default is off. Handle this when building the configuration screen.
+                            DonationModule(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 16.dp, horizontal = 16.dp),
+                                uiState = donationUiState,
+                                wikiErrorClickEvents = WikiErrorClickEvents(
+                                    retryClickListener = {
+                                        viewModel.loadDonationResults()
+                                    }
+                                ),
+                                onClick = {
+                                    (requireActivity() as? BaseActivity)?.launchDonateDialog(
+                                        campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                                    )
+                                }
+                            )
+                        }
                     }
                 }
 
@@ -511,6 +550,7 @@ class ActivityTabFragment : Fragment() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
+                donationUiState = UiState.Success("5 days ago"),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -540,6 +580,7 @@ class ActivityTabFragment : Fragment() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
                 userName = "User",
+                donationUiState = UiState.Success("5 days ago"),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,

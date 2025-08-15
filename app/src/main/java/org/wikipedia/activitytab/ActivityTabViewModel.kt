@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import android.text.format.DateUtils
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,26 +12,27 @@ import kotlinx.coroutines.launch
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.donate.DonationResult
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
-    var gameStatistics: OnThisDayGameViewModel.GameStatistics? = null
-    var donationResults: List<DonationResult> = emptyList()
+    private val _donationUiState = MutableStateFlow<UiState<String?>>(UiState.Loading)
+    val donationUiState: StateFlow<UiState<String?>> = _donationUiState.asStateFlow()
 
     init {
         loadReadingHistory()
+        loadDonationResults()
     }
 
     fun loadReadingHistory() {
@@ -75,6 +77,24 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
+    fun loadDonationResults() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _donationUiState.value = UiState.Error(throwable)
+        }) {
+            _donationUiState.value = UiState.Loading
+            val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime?.let {
+                val timestampInLong = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).epochSecond
+                val relativeTime = DateUtils.getRelativeTimeSpanString(
+                    timestampInLong * 1000, // Convert seconds to milliseconds
+                    System.currentTimeMillis(),
+                    0L
+                )
+                return@let relativeTime.toString()
+            }
+            _donationUiState.value = UiState.Success(lastDonationTime)
+        }
+    }
+
     fun createPageTitleForCategory(category: Category): PageTitle {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
@@ -89,4 +109,8 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val articlesSaved: List<PageTitle>,
         val topCategories: List<Category>
     )
+
+    companion object {
+        const val CAMPAIGN_ID = "appmenu_activity"
+    }
 }
