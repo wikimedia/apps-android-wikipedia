@@ -41,7 +41,7 @@ object DonationReminderHelper {
         get() = ReleaseUtil.isDevRelease ||
                 (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
                         enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
-                        LocalDate.now() <= LocalDate.of(2025, 12, 1) && !AccountUtil.isLoggedIn)
+                        LocalDate.now() <= LocalDate.of(2025, 9, 21) && !AccountUtil.isLoggedIn)
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
             (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
