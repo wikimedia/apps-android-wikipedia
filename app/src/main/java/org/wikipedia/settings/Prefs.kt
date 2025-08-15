@@ -830,6 +830,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
+    var activityTabRedDotShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
+
     var donationReminderConfig
         get() = JsonUtil.decodeFromString<DonationReminderConfig>(
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)

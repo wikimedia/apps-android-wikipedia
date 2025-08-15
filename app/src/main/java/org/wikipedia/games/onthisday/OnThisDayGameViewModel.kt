@@ -165,14 +165,14 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     currentQuestionState = composeQuestionState(0),
                     currentQuestionIndex = currentState.totalQuestions
                 )
-                _gameState.postValue(GameEnded(currentState, getGameStatistics()))
+                _gameState.postValue(GameEnded(currentState, getGameStatistics(wikiSite.languageCode)))
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay && currentState.currentQuestionIndex == 0 && !currentState.currentQuestionState.goToNext) {
                 // we're just starting the current game.
                 _gameState.postValue(GameStarted(currentState))
             } else if (currentState.currentQuestionState.month == currentMonth && currentState.currentQuestionState.day == currentDay &&
                 currentState.currentQuestionIndex >= currentState.totalQuestions) {
                 // we're already done for today.
-                _gameState.postValue(GameEnded(currentState, getGameStatistics()))
+                _gameState.postValue(GameEnded(currentState, getGameStatistics(wikiSite.languageCode)))
             } else if (currentState.currentQuestionState.month != currentMonth || currentState.currentQuestionState.day != currentDay) {
                 // the date in our current state doesn't match the requested date, so start a new game.
                 currentState = currentState.copy(currentQuestionState = composeQuestionState(0), currentQuestionIndex = 0, answerState = List(MAX_QUESTIONS) { false })
@@ -243,7 +243,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             AppDatabase.instance.dailyGameHistoryDao().update(gameHistory)
                         }
                     }
-                    _gameState.postValue(GameEnded(currentState, getGameStatistics()))
+                    _gameState.postValue(GameEnded(currentState, getGameStatistics(wikiSite.languageCode)))
                 } else {
                     currentState = currentState.copy(
                         currentQuestionState = composeQuestionState(nextQuestionIndex),
@@ -347,35 +347,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         loadGameState(useDateFromState = false)
     }
 
-    private suspend fun getGameStatistics(): GameStatistics {
-        return withContext(Dispatchers.IO) {
-            val totalGamesPlayed = async {
-                AppDatabase.instance.dailyGameHistoryDao().getTotalGamesPlayed(
-                    gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                    language = wikiSite.languageCode
-                )
-            }
-            val averageScore = async {
-                AppDatabase.instance.dailyGameHistoryDao().getAverageScore(
-                    gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                    language = wikiSite.languageCode
-                )
-            }
-            val currentStreak = async {
-                AppDatabase.instance.dailyGameHistoryDao().getCurrentStreak(
-                    gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                    language = wikiSite.languageCode
-                )
-            }
-
-            GameStatistics(
-                totalGamesPlayed.await(),
-                averageScore.await(),
-                currentStreak.await()
-            )
-        }
-    }
-
     // TODO: remove this in May, 2026
     private suspend fun migrateGameHistoryFromPrefsToDatabase() {
         if (Prefs.otdGameHistory.isEmpty()) {
@@ -473,6 +444,35 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         fun dateReleasedForLang(lang: String): LocalDate {
             return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)
+        }
+
+        suspend fun getGameStatistics(languageCode: String): GameStatistics {
+            return withContext(Dispatchers.IO) {
+                val totalGamesPlayed = async {
+                    AppDatabase.instance.dailyGameHistoryDao().getTotalGamesPlayed(
+                        gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                        language = languageCode
+                    )
+                }
+                val averageScore = async {
+                    AppDatabase.instance.dailyGameHistoryDao().getAverageScore(
+                        gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                        language = languageCode
+                    )
+                }
+                val currentStreak = async {
+                    AppDatabase.instance.dailyGameHistoryDao().getCurrentStreak(
+                        gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                        language = languageCode
+                    )
+                }
+
+                GameStatistics(
+                    totalGamesPlayed.await(),
+                    averageScore.await(),
+                    currentStreak.await()
+                )
+            }
         }
     }
 }
