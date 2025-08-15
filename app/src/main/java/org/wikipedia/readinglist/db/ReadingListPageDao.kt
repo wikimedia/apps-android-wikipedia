@@ -87,7 +87,7 @@ interface ReadingListPageDao {
     fun getAllPagesToBeSynced(): List<ReadingListPage>
 
     @Query("SELECT COUNT(*) FROM ReadingListPage WHERE mtime > :timestamp")
-    suspend fun getTotalPagesSince(timestamp: Long): Long?
+    suspend fun getTotalPagesSince(timestamp: Long): Int?
 
     @Query("SELECT * FROM ReadingListPage WHERE mtime > :timestamp ORDER BY mtime DESC LIMIT :limit")
     suspend fun getPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
