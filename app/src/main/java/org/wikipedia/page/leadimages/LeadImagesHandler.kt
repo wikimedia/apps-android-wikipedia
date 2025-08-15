@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.parcelize.Experimental
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -207,7 +206,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            @Experimental
             override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
                 if (isInitialPrompt) {
@@ -226,7 +224,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            @Experimental
             override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
                 hideDonationReminderCard()
                 if (isInitialPrompt) {

@@ -26,10 +26,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        @Experimental
-        fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean)
-        @Experimental
-        fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean)
+        fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) // TODO: remove after the experiment
+        fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) // TODO: remove after the experiment
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -118,7 +116,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    @OptIn(Experimental::class)
+    // TODO: remove after the experiment
     private fun setDonationReminderCard() {
         if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
             return
@@ -149,7 +147,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 )
                 val donationAmount =
                     DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                context.getString(R.string.donation_reminders_prompt_message, dateText, donationAmount, articleText)
+                context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
             }
             val positiveButtonText = if (isInitialPrompt) {
                 context.getString(R.string.donation_reminders_initial_prompt_positive_button)

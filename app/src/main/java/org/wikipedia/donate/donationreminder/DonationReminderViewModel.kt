@@ -139,7 +139,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
-        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(0f)
+        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(minimumAmount)
         val options = presets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         } + OptionItem.Custom()
