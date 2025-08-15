@@ -73,6 +73,7 @@ class ActivityTabFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadReadingHistory()
+        viewModel.loadDonationResults()
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -99,6 +100,7 @@ class ActivityTabFragment : Fragment() {
                 onRefresh = {
                     isRefreshing = true
                     viewModel.loadReadingHistory()
+                    viewModel.loadDonationResults()
                 },
                 isRefreshing = isRefreshing,
                 state = state,

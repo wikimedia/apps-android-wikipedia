@@ -94,7 +94,7 @@ fun DonationModule(
 
 @Preview
 @Composable
-private fun DonationViewPreview() {
+private fun DonationModulePreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
