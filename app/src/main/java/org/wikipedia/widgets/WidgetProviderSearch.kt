@@ -24,12 +24,8 @@ class WidgetProviderSearch : AppWidgetProvider() {
         }
     }
 
-    override fun onAppWidgetOptionsChanged(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
-        newOptions: Bundle,
-    ) {
+    override fun onAppWidgetOptionsChanged(context: Context, appWidgetManager: AppWidgetManager,
+                                           appWidgetId: Int, newOptions: Bundle) {
         // appWidgetManager.updateAppWidget must be called here on API levels < 31
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             updateWidget(context, appWidgetManager, appWidgetId)
