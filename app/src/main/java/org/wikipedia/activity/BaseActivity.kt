@@ -188,16 +188,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> false
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {

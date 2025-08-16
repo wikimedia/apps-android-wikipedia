@@ -100,7 +100,7 @@ class GooglePayActivity : BaseActivity() {
         }
 
         binding.errorView.backClickListener = View.OnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
         binding.payButton.setOnClickListener {

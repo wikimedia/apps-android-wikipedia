@@ -113,7 +113,7 @@ class CategoryDeveloperPlayGround : BaseActivity() {
                         }
                     },
                     onBackButtonClick = {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     }
                 )
             }

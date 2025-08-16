@@ -344,7 +344,7 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
             } else {
                 DeviceUtil.hideSoftKeyboard(requireActivity())
-                requireActivity().onBackPressed()
+                requireActivity().onBackPressedDispatcher.onBackPressed()
             }
         }
 

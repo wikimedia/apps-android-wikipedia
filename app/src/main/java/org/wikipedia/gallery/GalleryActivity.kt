@@ -131,7 +131,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         binding.creditText.movementMethod = linkMovementMethod
         binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
-        binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.errorView.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             viewModel.fetchGalleryItems()
@@ -359,13 +359,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         super.onSaveInstanceState(outState)
         outState.putBoolean(KEY_CONTROLS_SHOWING, controlsShowing)
         outState.putInt(KEY_PAGER_INDEX, binding.pager.currentItem)
-    }
-
-    override fun onBackPressed() {
-        if (TRANSITION_INFO != null) {
-            showTransitionReceiver()
-        }
-        super.onBackPressed()
     }
 
     fun onMediaLoaded() {

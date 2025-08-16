@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -49,6 +50,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             window.isNavigationBarContrastEnforced = false
         }
         callback = this
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
@@ -114,7 +117,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             R.id.menu_learn_more -> {
@@ -151,17 +154,17 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         }
     }
 
-    override fun onBackPressed() {
-        WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-        if (viewModel.gameState.value !is Resource.Loading &&
-            !isGameMenuFragmentVisible() &&
-            viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-            showPauseDialog()
-            return
+    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
+            if (viewModel.gameState.value !is Resource.Loading &&
+                !isGameMenuFragmentVisible() &&
+                viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
+                showPauseDialog()
+                return
+            }
+            onFinish()
         }
-
-        super.onBackPressed()
-        onFinish()
     }
 
     private fun isGameMenuFragmentVisible(): Boolean {
