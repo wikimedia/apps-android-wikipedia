@@ -62,4 +62,30 @@ interface DailyGameHistoryDao {
 
         return currentStreak
     }
+
+    suspend fun getBestStreak(gameName: Int, language: String): Int {
+        val history = getGameHistory(gameName, language).filter { it.playType == PlayTypes.PLAYED_ON_SAME_DAY.ordinal }
+        if (history.isEmpty()) {
+            return 0
+        }
+
+        var bestStreak = 0
+        var currentStreak = 0
+        var expectedDate = LocalDate.now() // Start with today's date
+
+        for (record in history) {
+            val recordDate = LocalDate.of(record.year, Month.of(record.month), record.day)
+
+            if (recordDate == expectedDate) {
+                currentStreak++
+                expectedDate = expectedDate.minusDays(1) // Move to the previous day
+            } else if (recordDate.isBefore(expectedDate)) {
+                bestStreak = maxOf(bestStreak, currentStreak)
+                currentStreak = 0
+                expectedDate = recordDate.minusDays(1) // Reset to the day before the record date
+            }
+        }
+
+        return maxOf(bestStreak, currentStreak)
+    }
 }

@@ -411,7 +411,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     data class GameStatistics(
         val totalGamesPlayed: Int = 0,
         val averageScore: Double? = null,
-        val currentStreak: Int = 0
+        val currentStreak: Int = 0,
+        val bestStreak: Int = 0
     )
 
     @Serializable
@@ -467,10 +468,18 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     )
                 }
 
+                val bestStreak = async {
+                    AppDatabase.instance.dailyGameHistoryDao().getBestStreak(
+                        gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                        language = languageCode
+                    )
+                }
+
                 GameStatistics(
-                    totalGamesPlayed.await(),
-                    averageScore.await(),
-                    currentStreak.await()
+                    totalGamesPlayed = totalGamesPlayed.await(),
+                    averageScore = averageScore.await(),
+                    currentStreak = currentStreak.await(),
+                    bestStreak = bestStreak.await()
                 )
             }
         }
