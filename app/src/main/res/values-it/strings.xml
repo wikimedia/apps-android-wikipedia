@@ -9,6 +9,7 @@
 * Bsitzmann
 * Champ0999
 * Ciampix
+* Cooltey
 * Dbrant
 * Dv103
 * Elitre
@@ -55,6 +56,7 @@
 * Titore
 * UnGiglio
 * Vivbod
+* Wrai
 * Yacine Boussoufa
 -->
 <resources>
@@ -1900,4 +1902,36 @@
   <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
   <string name="recommended_reading_list_notification_subtitle">Tocca per vedere le tue ultime raccomandazioni.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando il tuo Discover sarà aggiornato, Wikipedia ti invierà una notifica.</string>
+  <string name="donation_reminders_initial_prompt_label">Esperimento</string>
+  <string name="donation_reminders_initial_prompt_title">Sostieni Wikipedia durante la lettura</string>
+  <string name="donation_reminders_initial_prompt_message">Imposta un promemoria per fare una donazione in base al numero di voci che leggi e per contribuire a mantenere Wikipedia priva di pubblicità, aggiornata e accessibile a tutti.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Inizia ora</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Non ora</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">I promemoria per fare una donazione possono essere modificati in qualsiasi momento nelle Impostazioni.</string>
+  <string name="donation_settings_section_header">Donazioni</string>
+  <string name="donation_reminders_settings_title">Promemoria di donazione</string>
+  <string name="donation_reminders_settings_thank_you_message">Unisciti al 2%% dei lettori che donano ciò che possono per mantenere Wikipedia priva di pubblicità, aggiornata e accessibile a tutti. Imposta ora il tuo promemoria di donazione:</string>
+  <string name="donation_reminders_settings_donation_info">Le donazioni sono destinate alla Wikimedia Foundation e alle sue organizzazioni affiliate, che gestiscono orgogliosamente Wikipedia e i siti correlati.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Quando leggo</string>
+  <string name="donation_reminders_settings_amount_label">Ricordami di donare</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Conferma il promemoria</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Informazioni sul presente esperimento</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">voci</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Grazie! Ti ricorderemo di donare %1$s\ndopo aver letto %2$s voci nel corso di questo esperimento.</string>
+  <string name="donation_reminders_prompt_title">Hai letto %1$s voci da quando hai promesso di donare %2$s!</string>
+  <string name="donation_reminders_prompt_message">Il giorno %1$s ci hai chiesto di ricordarti di effettuare una donazione dopo aver letto %2$s. Se Wikipedia ti ha fornito %3$s di conoscenza in più, unisciti al 2%% dei lettori che donano abitualmente e dai seguito alla tua promessa.</string>
+  <string name="donation_reminders_prompt_positive_button">Dona ora</string>
+  <string name="donation_reminders_prompt_negative_button">Non ora</string>
+  <string name="donation_reminders_gpay_text">Dona %s con Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Dona un importo diverso con Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Aiutaci a migliorare i promemoria di donazione.</string>
+  <string name="donation_reminders_survey_dialog_message">Come giudichi il tuo livello di soddisfazione in relazione a questa esperienza?</string>
+  <string name="donation_reminders_settings_description_on">I promemoria di donazione sono attivi. Wikipedia ti ricorderà\ndi donare %1$s ogni %2$s voci lette durante\nquesto esperimento.</string>
+  <string name="donation_reminders_settings_description_off">I promemoria di donazione non sono attivi.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Il conteggio delle voci è salvato in locale sul tuo dispositivo</string>
+  <string name="donation_reminders_prompt_success_snackbar">Grazie!La tua generosità verso Wikipedia significa molto per noi.</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d voce</item>
+    <item quantity="other">%d voci</item>
+  </plurals>
 </resources>
