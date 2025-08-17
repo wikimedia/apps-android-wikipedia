@@ -132,6 +132,8 @@ enum class Namespace(private val code: Int) : EnumCode {
     GRAM_TALK(1025),
     TRANSLATIONS(1198),
     TRANSLATIONS_TALK(1199),
+    EVENT(1728),
+    EVENT_TALK(1729),
     GADGET(2300),
     GADGET_TALK(2301),
     GADGET_DEFINITION(2302),

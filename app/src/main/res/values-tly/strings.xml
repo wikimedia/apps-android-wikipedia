@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 12imom
+* Dbrant
 * Patriot Kor
 * Гусейн
 -->
@@ -327,7 +328,10 @@
   <string name="enable_location_service">Pekardej</string>
   <string name="location_permissions_enable_prompt">Hašte mandəvyrə umute bo yšty nezonədə vyron vinde.</string>
   <string name="location_permissions_enable_action">Pekardej</string>
-  <string name="multi_items_selected">{{PLURAL\n|one=%d vyžnijə byə|%d vyžnijə byə}}</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d vyžnijə byə</item>
+    <item quantity="other">%d vyžnijə byə</item>
+  </plurals>
   <string name="multi_select_items_selected">%d vyžnijə byə</string>
   <string name="error_message_generic">Xəto beše</string>
   <string name="view_link_preview_error_button_dismiss">Žəj</string>

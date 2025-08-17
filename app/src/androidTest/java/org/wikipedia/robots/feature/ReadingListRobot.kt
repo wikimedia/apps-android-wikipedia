@@ -79,10 +79,10 @@ class ReadingListRobot : BaseRobot() {
     }
 
     fun typeNameOfTheList(title: String, context: Context) = apply {
-        input.typeTextInView(viewId = R.id.text_input, title)
+        input.replaceTextInView(viewId = R.id.text_input, title)
         delay(TestConfig.DELAY_MEDIUM)
         if (verify.isViewWithTextVisible(context.getString(R.string.reading_list_title_exists, title))) {
-            input.typeTextInView(viewId = R.id.text_input, "$title${Math.random()}")
+            input.replaceTextInView(viewId = R.id.text_input, "$title${Math.random()}")
         }
     }
 

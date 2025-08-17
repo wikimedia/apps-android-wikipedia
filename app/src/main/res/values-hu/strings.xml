@@ -93,7 +93,7 @@
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a szócikkben</string>
   <string name="menu_page_add_to_watchlist">Hozzáadás a figyelőlistához</string>
-  <string name="menu_page_watch">Figyel</string>
+  <string name="menu_page_watch">Figyelés</string>
   <string name="menu_page_unwatch">Lapfigyelés vége</string>
   <string name="menu_page_view_talk">Vitalap megtekintése</string>
   <string name="menu_page_talk_page">Vitalap</string>
@@ -109,15 +109,15 @@
   <string name="feed_card_add_to_default_list">Mentés</string>
   <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_article_share">Szócikk megosztása</string>
-  <string name="menu_page_article_share">Megoszt</string>
+  <string name="menu_page_article_share">Megosztás</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
-  <string name="menu_page_new_tab">Új fül</string>
+  <string name="menu_page_new_tab">Új lap</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
   <string name="menu_page_archive">Archívum</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_places">Megnyitás a Helyekben</string>
-  <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
+  <string name="menu_long_press_open_in_new_tab">Megnyitás új lapon</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
   <string name="menu_text_select_define">Definiálás</string>
   <string name="on_this_day_page_share">Megosztás</string>
@@ -170,6 +170,7 @@
   <string name="login_2fa_other_workflow_error_msg">Kétlépcsős azonosítás szükséges! Jelentkezz be a főképernyőről, és add meg a kétfaktoros tokened által generált kódot.</string>
   <string name="login_email_auth_hint">E-mail ellenőrző kód</string>
   <string name="login_email_auth_other_workflow_error_msg">E-mail cím ellenőrzése szükséges! Kérjük, jelentkezz be a főképernyőről, és add meg az e-mail cím ellenőrző kódját.</string>
+  <string name="login_background_error_msg">Nem sikerült újra bejelentkezni. Térj vissza a főképernyőre, és jelentkezz be kézileg.</string>
   <string name="onboarding_card_login">Bejelentkezés</string>
   <string name="page_editing_login">Bejelentkezés</string>
   <string name="reading_lists_sync_login">Bejelentkezés</string>
@@ -410,6 +411,7 @@
   <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
   <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
   <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
+  <string name="nav_item_year_in_review">Év áttekintése</string>
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
   <string name="enable_location_service">Engedélyezés</string>
@@ -438,9 +440,9 @@
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
   <string name="preference_title_delete_local_donation_history">Helyi adományozási előzmények törlése</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszer témával egyező</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszertémával egyező</string>
   <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
-  <string name="empty_tab_title">Új fül</string>
+  <string name="empty_tab_title">Új lap</string>
   <string name="menu_save_all_tabs">Összes lap mentése</string>
   <string name="error_blocked_title">Felhasználóneved vagy IP-címed blokkolva lett</string>
   <string name="error_blocked_by">A blokk beállítója: &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
@@ -821,7 +823,7 @@
   <string name="view_main_page_card_action">Kezdőlap megtekintése</string>
   <string name="view_featured_image_card_title">A nap képe</string>
   <string name="view_featured_image_card_download">Letöltés</string>
-  <string name="view_featured_image_card_share">Megoszt</string>
+  <string name="view_featured_image_card_share">Megosztás</string>
   <string name="menu_feed_card_dismiss">Kártya elrejtése</string>
   <string name="menu_feed_card_dismissed">Kártya elrejtve.</string>
   <string name="menu_feed_card_edit_card_languages">A kártya nyelveinek szerkesztése</string>
@@ -1325,7 +1327,7 @@
   <string name="talk_snackbar_survey_action_text">Kezdjük el</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
-  <string name="talk_edit_disclaimer">Ez egy vitalap. Kérjük, tartsd be a vitalapra vonatkozó irányelveket, és ne felejtse el aláírni a bejegyzéseit négy hullámvonal begépelésével: ~~~~, amikor wikiszöveg használatával tesz közzé.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Vitalapok_haszn%C3%A1lata\"&gt;Wikipédia:Vitalapok használata&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ez egy vitalap. Kérjük, tartsd be a vitalapra vonatkozó irányelveket, és ne felejtse el aláírni a bejegyzéseit négy hullámvonal begépelésével: ~~~~, amikor wikiszöveg használatával tesz közzé.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Vitalapok használata\"&gt;Wikipédia:Vitalapok használata&lt;/a&gt;</string>
   <string name="talk_search_hint">Üzenetek keresése</string>
   <string name="talk_search_topics_hint">Témák keresése</string>
   <string name="talk_search_find_in_talk_topics_hint">Keresés vitalapi témákban</string>
@@ -1768,6 +1770,55 @@
   <string name="on_this_day_game_continue_playing_btn_text">A játék folytatása</string>
   <string name="on_this_day_game_sound_on">Hang bekapcsolása</string>
   <string name="on_this_day_game_sound_off">Hang kikapcsolása</string>
+  <string name="year_in_review_learn_more">További információk</string>
+  <string name="year_in_review_get_started">Kezdés</string>
+  <string name="year_in_review_topbar_w_icon">Wikipédia W ikon</string>
+  <string name="year_in_review_navigate_left">Navigálás balra</string>
+  <string name="year_in_review_share_icon">Megosztás ikon</string>
+  <string name="year_in_review_heart_icon">Szív ikon</string>
+  <string name="year_in_review_navigate_right">Navigálás jobbra</string>
+  <string name="year_in_review_donate">Adományozás</string>
+  <string name="year_in_review_information_icon">Információs ikon</string>
+  <string name="year_in_review_get_started_headline">Fedezd fel a Wikipédia éváttekintését</string>
+  <string name="year_in_review_get_started_bodytext">Tekintsd meg, hogy mely cikkeket olvastad a Wikipédia alkalmazásban, és milyen módosításokat végeztél. Az olvasási előzményeid védve vannak. Az olvasási statisztikákat az eszközödön helyben tárolt adatok alapján számítjuk ki.</string>
+  <string name="year_in_review_entry_dialog_title">Fedezd fel a Wikipédia áttekintésedet</string>
+  <string name="year_in_review_entry_dialog_bodytext">Tekintsd meg, hogy milyen cikkeket olvastunk és szerkesztettünk, és oszd meg az év legfontosabb eseményeit a Wikipédián.</string>
+  <string name="year_in_review_entry_dialog_continue">Folytatás</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">%d cikket olvastál el idén</item>
+    <item quantity="other"> %d cikket olvastál el idén</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Idén %1$d cikket olvastál el, köztük ezeket: %2$s, %3$s és %4$s. A Wikipédián több mint 63 millió cikk volt elérhető, több mint 300 nyelven. Csatlakoztál milliókhoz a tudás bővítésében és a változatos témák felfedezésében.</item>
+    <item quantity="other">Idén %1$d cikket olvastál el, köztük ezeket: %2$s, %3$s és %4$s. A Wikipédián több mint 63 millió cikk volt elérhető, több mint 300 nyelven. Csatlakoztál milliókhoz a tudás bővítésében és a változatos témák felfedezésében.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">A Wikipédiát %d alkalommal szerkesztetted</item>
+    <item quantity="other">A Wikipédiát %d alkalommal szerkesztetted</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">A Wikipédiát %d alkalommal szerkesztetted. Köszönjük, hogy azon önkéntes szerkesztők egyike vagy, akik változást hoznak a Wikimédia-projektekben világszerte.</item>
+    <item quantity="other">A Wikipédiát %d alkalommal szerkesztetted. Köszönjük, hogy azon önkéntes szerkesztők egyike vagy, akik változást hoznak a Wikimédia-projektekben világszerte.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">A Wikipédia több mint 300 nyelven volt elérhető</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">A Wikipédián ebben az évben több mint 63 millió cikk volt, több mint 300 aktív nyelven. Több millió emberhez csatlakoztál, akik bővítik a tudásukat és különböző témákat fedeznek fel.</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Az iOS alkalmazás szerkesztői több mint 452 257 szerkesztést végeztek</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">A Wikipédia önkéntes szerkesztőinek közössége idén eddig több mint 452 257 szerkesztést végzett az iOS alkalmazásban. A Wikipédia szíve-lelke az önkéntes közreműködőkből, adományozókból és a hozzád hasonló több milliárd olvasóból álló globális közösségünk – akik mindannyian egyesülnek, hogy korlátlanul hozzáférhessenek a megbízható információkhoz.</string>
+  <string name="year_in_review_survey_title">Segíts nekünk az Év áttekintésének fejlesztésében</string>
+  <string name="year_in_review_survey_subtitle">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="year_in_review_survey_very_satisfied">Nagyon elégedett</string>
+  <string name="year_in_review_survey_satisfied">Elégedett</string>
+  <string name="year_in_review_survey_neutral">Semleges</string>
+  <string name="year_in_review_survey_unsatisfied">Elégedetlen</string>
+  <string name="year_in_review_survey_very_unsatisfied">Nagyon elégedetlen</string>
+  <string name="year_in_review_survey_placeholder_text">További gondolatod van?</string>
+  <string name="year_in_review_survey_cancel">Mégse</string>
+  <string name="year_in_review_survey_submit">Elküldés</string>
+  <string name="year_in_review_screendeck_image_content_description">Az Év áttekintése főképernyőjének képforrása</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">Képforrás az Év áttekintése beviteli párbeszédpanelhez</string>
+  <string name="year_in_review_screenshot_error">Nem sikerült képernyőképet készíteni: %s</string>
+  <string name="year_in_review_share_subject">Éves áttekintés képe és hivatkozása</string>
+  <string name="year_in_review_globe_icon">Földgömb ikon</string>
   <string name="recommended_reading_list_title">Felfedezés</string>
   <string name="recommended_reading_list_onboarding_card_title">Fedezz fel kifejezetten neked válogatott szócikkeket</string>
   <string name="recommended_reading_list_onboarding_card_message">A heti olvasólistád Wikipédia-szócikkekből, kifejezetten számodra válogatva.</string>

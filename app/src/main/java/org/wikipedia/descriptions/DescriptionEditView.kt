@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
@@ -12,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
@@ -47,7 +47,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
 
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
-    private lateinit var action: DescriptionEditActivity.Action
+    private var action: DescriptionEditActivity.Action? = null
     private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
     private val mlKitLanguageDetector = MlKitLanguageDetector()
     private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
@@ -109,10 +109,10 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         }
 
         binding.learnMoreButton.setOnClickListener {
-            UriUtil.visitInExternalBrowser(context, Uri.parse(WikipediaApp.instance.getString(if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
+            UriUtil.visitInExternalBrowser(context, WikipediaApp.instance.getString(if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION)
                 if (pageTitle.wikiSite.languageCode == "en") R.string.short_description_help_url_en else R.string.description_edit_description_learn_more_url
-            else R.string.description_edit_image_caption_learn_more_url)))
+            else R.string.description_edit_image_caption_learn_more_url).toUri())
         }
     }
 

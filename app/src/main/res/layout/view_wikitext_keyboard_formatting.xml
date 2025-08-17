@@ -7,6 +7,7 @@
     tools:parentTag="android.widget.FrameLayout">
 
     <HorizontalScrollView
+        android:id="@+id/wiki_text_keyboard_formatting_horizontal_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"

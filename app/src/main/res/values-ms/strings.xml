@@ -29,10 +29,12 @@
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_voice_search">Carian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
+  <string name="search_icon_content_description">Cari</string>
   <string name="filter_hint_filter_my_lists_and_articles">Tapis senarai saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Lagi</string>
   <string name="nav_item_search">Cari</string>
+  <string name="nav_item_contribute">Sumbangkan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="card_offline_error_retry">Cuba lagi</string>
@@ -68,7 +70,7 @@
   <string name="page_edit_history_filter_by">Tapis mengikut</string>
   <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Suntingan awanama (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Suntingan tidak berdaftar (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrik daripada %1$s hingga %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -151,8 +153,8 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
   <string name="account_creation_password_hint">Kata laluan</string>
-  <string name="login_2fa_hint" fuzzy="true">Kod Pengesahan Dwifaktor</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
+  <string name="login_2fa_hint">Kod Pengesahan Dwifaktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Pengesahan dua faktor diperlukan! Sila log masuk daripada skrin utama, dan masukkan kod daripada token 2FA anda.</string>
   <string name="onboarding_card_login">Log masuk</string>
   <string name="page_editing_login">Log masuk</string>
   <string name="reading_lists_sync_login">Log masuk</string>
@@ -242,18 +244,18 @@
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
   <string name="about_wikipedia_url">https://ms.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
   <string name="about_libraries_heading">Perpustakaan yang digunakan</string>
   <string name="about_contributors_heading">Penyumbang</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Laman pasukan&lt;/a&gt;</string>
   <string name="about_translators_heading">Penterjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lesen</string>
-  <string name="about_app_license" fuzzy="true">Kod sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lesen Apache 2.0&lt;/a&gt;. Kecuali dinyatakan lain, kandungan tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lesen Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Kod sumber tersedia di &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lesen Apache 2.0&lt;/a&gt; . Melainkan dinyatakan sebaliknya, kandungan tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lesen Atribusi-PerkongsianSerupa Creative Commons&lt;/a&gt; .</string>
   <string name="about_wmf">Keluaran &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Perihal</string>
   <string name="edit_abandon_confirm">Laman ini telah disunting. Adakah anda pasti ingin keluar tanpa menyimpan suntingan?</string>
@@ -509,8 +511,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Rencana muncul dalam beberapa senarai</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
   <string name="reading_lists_sync_reminder_title">Hidupkan penyegerakan senarai bacaan?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Rencana yang disimpan untuk membaca senarai kini boleh diselaraskan ke akaun Wikipedia anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Senarai bacaan kini boleh disegerakkan merentas peranti. Log masuk ke akaun Wikipedia anda dan izinkan daftar anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Rencana yang disimpan pada senarai bacaan kini boleh disegerakkan ke akaun Wikipedia anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Senarai bacaan kini boleh disegerakkan merentas peranti. Log masuk ke akaun Wikipedia anda dan benarkan senarai anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Dayakan penyegerakan</string>
   <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
   <string name="reading_lists_login_reminder_text">Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
@@ -648,7 +650,7 @@
   <string name="preference_title_notification_mention">Sebut</string>
   <string name="preference_summary_notification_mention">Seseorang menyebut nama anda dalam sebuah halaman</string>
   <string name="preference_title_notification_user_talk">Laman perbincangan</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Pesanan dari halaman perbincangan</string>
+  <string name="preference_summary_notification_user_talk">Mesej dan balasan daripada laman perbincangan</string>
   <string name="preference_title_notification_email_user">E-mel diterima</string>
   <string name="preference_summary_notification_email_user">Seseorang menghantar anda e-mel melalui wiki</string>
   <string name="preference_title_notification_user_rights">Perubahan hak pengguna</string>
@@ -665,7 +667,7 @@
   <string name="notifications_swipe_action_read">Baca</string>
   <string name="notifications_wiki_filter_header">Penapis Wiki</string>
   <string name="notifications_all_wikis_text">Semua wiki</string>
-  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
+  <string name="notifications_all_types_text">Semua jenis</string>
   <string name="notifications_menu_user_talk_page">Laman perbincangan %s</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
@@ -747,7 +749,7 @@
   <string name="description_edit_help_wikidata_guide">Bimbingan Wikidata untuk menulis penerangan</string>
   <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih kerana minat anda yang berterusan dalam menyunting huraian rencana! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Dengan menukar huraian rencana, saya bersetuju menerima &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Dasar Penggunaan&lt;/a&gt; dan melepaskan sumbangan saya tanpa boleh ditarik balik di bawah lesen &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
   <string name="description_edit_helper_text_lowercase_warning">biasanya bermula dengan huruf kecil</string>
   <string name="description_edit_voice_input_description">Input suara</string>
   <string name="description_edit_learn_more">Ketahui lebih lanjut tentang huraian artikel</string>
@@ -777,7 +779,7 @@
   <string name="customize_toolbar_category_toolbar">Bar alat</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_describe_articles">Huraikan rencana</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
+  <string name="suggested_edits_review_description">Semak huraian rencana</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_edit_description_button">Sunting huraian</string>
   <string name="suggested_edits_add_translation_button">Tambah terjemahan</string>
@@ -787,16 +789,16 @@
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
   <string name="suggested_edits_license_notice">Dengan menambah huraian ini, saya setuju dengan &lt;a href=\"%1$s\"&gt;Syarat-syarat Penggunaan&lt;/a&gt; dan melepaskan sumbangan saya tanpa menarik balik di bawah lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Maklumat</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_task_add_description_title">Tambah huraian rencana</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_image_caption_title">Tambah kapsyen gambar</string>
+  <string name="suggested_edits_task_image_caption_description">Tambahkan kapsyen pendek yang tiada pada imej</string>
   <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
   <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting berbilang bahasa</string>
   <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah menyunting %d kapsyen imej</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan rencana (disahkan)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
   <string name="suggested_edits_image_caption_summary_title_image">Fail</string>
@@ -855,11 +857,12 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Saranan penerangan</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Apa yang ingin anda laporkan?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Tidak cukup maklumat</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Tidak dapat melihat cadangan penerangan</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tidak dapat melihat penerangan yang dicadangkan</string>
   <string name="suggested_edits_inappropriate_suggestion">Cadangan yang tidak tepat</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
   <string name="suggested_edits_report_suggestion">Laporkan</string>
   <string name="suggested_edits_suggestion_report_submitted">Laporan dikirim</string>
+  <string name="suggested_edits_image_recommendations_task_title">Imej rencana</string>
   <string name="image_recommendation_accept">Ya</string>
   <string name="image_recommendation_reject">Tidak</string>
   <string name="image_recommendation_notsure">Tidak pasti</string>
@@ -941,8 +944,9 @@
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
-  <string name="insert_media_settings" fuzzy="true">Tetapan media</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Kapsyen</string>
+  <string name="wikitext_mention_user">Sebut pengguna</string>
+  <string name="insert_media_settings">Tambah butiran imej</string>
+  <string name="insert_media_settings_caption">Kapsyen gambar</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
@@ -1005,9 +1009,10 @@
   <string name="revision_diff_compare">Banding semakan</string>
   <string name="revision_diff_line_added">Baris ditambah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">untuk 1 minggu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">untuk 1 bulan</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">untuk 3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 minggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 bulan</string>
   <string name="watchlist_expiry_dialog_permanent">Kekal</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
   <string name="watchlist_expiry_dialog_one_month">1 bulan</string>
@@ -1039,6 +1044,7 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Suntingan Wikidata</string>
   <string name="watchlist_filter_type_of_change_new_users">Pengguna baru</string>
   <string name="watchlist_search_bar_filter_hint">Penapis senarai pantau</string>
+  <string name="preview_edit_watch_this_page">Pantau laman ini</string>
   <string name="action_item_categories">Kategori</string>
   <string name="category_tab_articles">Rencana</string>
   <string name="category_tab_subcategories">Subkategori</string>
@@ -1050,6 +1056,7 @@
   <string name="shareable_reading_lists_new_indicator">*baru*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Faham</string>
   <string name="reading_list_share_menu_label">Kongsi…</string>
+  <string name="talk_templates_new_message_subject_hint">Perkara</string>
   <string name="talk_templates_new_message_save">Simpan</string>
   <string name="talk_templates_new_message_dialog_title">Simpan perubahan</string>
   <string name="talk_templates_new_message_dialog_save">Simpan</string>
@@ -1078,5 +1085,22 @@
   <string name="survey_dialog_option_very_satisfied">Sangat berpuas hati</string>
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak berpuas hati</string>
   <string name="survey_dialog_cancel">Batalkan</string>
+  <string name="survey_dialog_general_yes">Ya</string>
+  <string name="survey_dialog_general_no">Tidak</string>
   <string name="survey_dialog_input_hint">Maklum balas tambahan</string>
+  <string name="on_this_day_game_point">+1 mata</string>
+  <string name="on_this_day_game_pause_negative">Teruskan bermain</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Permainan Wikipedia</string>
+  <string name="year_in_review_donate">Derma</string>
+  <string name="recommended_reading_list_page_snackbar_day">Hari</string>
+  <string name="recommended_reading_list_page_snackbar_week">Minggu</string>
+  <string name="recommended_reading_list_page_snackbar_month">Bulan</string>
+  <string name="recommended_reading_list_settings_articles">rencana</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">harian</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">mingguan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">bulanan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Setiap hari</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
+  <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
 </resources>

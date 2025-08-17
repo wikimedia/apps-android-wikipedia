@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -38,7 +37,7 @@ fun SearchEmptyView(
             modifier = Modifier
                 .requiredSize(96.dp)
                 .clip(CircleShape)
-                .background(ComposeColors.White)
+                .background(WikipediaTheme.colors.backgroundColor)
                 .padding(20.dp),
             imageVector = Icons.Outlined.Search,
             tint = WikipediaTheme.colors.placeholderColor,
@@ -46,7 +45,7 @@ fun SearchEmptyView(
         )
         Text(
             modifier = Modifier
-                .padding(top = 24.dp),
+                .padding(top = 4.dp),
             text = emptyTexTitle,
             style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.placeholderColor
@@ -58,7 +57,7 @@ fun SearchEmptyView(
 @Composable
 private fun SearchEmptyViewPreview() {
     BaseTheme(
-        currentTheme = Theme.DARK
+        currentTheme = Theme.LIGHT
     ) {
         Box(
             modifier = Modifier

@@ -1,0 +1,42 @@
+L'applicazione ufficiale Wikipedia per Android è stato progettata per aiutarti a trovare, scoprire ed esplorare il sapere su Wikipedia. Risolvi una scommessa con un amico facendo una ricerca rapida in una voce specifica, o sfoglia le voci  in primo piano, le immagini, i consigli, e molto altro ancora utilizzando il feed Esplora. Con oltre 40 milioni di voci in quasi 300 lingue, la tua enciclopedia online gratuita preferita ti sarà sempre più utile.
+
+Caratteristiche:
+Feed Esplora: Contenuti di Wikipedia consigliati tra cui eventi attuali, voci popolari, eventi del giorno nella storia, voci suggerite in base a ciò che hai già letto, e altro ancora. Il feed Esplora è completamente personalizzabile — basta selezionare i tipi di contenuti che si desidera vedere, o modificare l'ordine in cui compaiono i diversi tipi di contenuti.
+
+Supporto multilingue: Puoi vedere Esplora in diverse lingue, passare facilmente da una lingua all'altra durante la ricerca di voci, e leggere le voci in una delle quasi 300 lingue di Wikipedia. Personalizza la lingua per ogni tipo di contenuto che vuoi vedere, e la lingua che appare per prima nella ricerca.
+
+Liste di lettura con accesso offline: Salva e organizza le voci che sfogli in liste di lettura, alle quali potrai accedere anche quando sei offline. Puoi creare tutte le liste che vuoi, dare loro nomi personalizzati e descriverle, e riempirle con voci da wiki in qualsiasi lingua. È inoltre possibile sincronizzare le liste al tuo account Wikipedia su più dispositivi.
+
+Temi di colore: Con opzioni di tema chiaro, scuro e nero e la regolazione della dimensione del testo, è possibile personalizzare l'applicazione per rendere più comoda l'esperienza di lettura.
+
+Ricerca Vocale integrata: Puoi trovare facilmente quello che stai cercando con una barra di ricerca che si trova nella parte superiore della app, anche con la ricerca vocale abilitata nel tuo dispositivo.
+
+Nelle vicinanze: Per saperne di più su ciò che si trova intorno a te puoi selezionare i punti su una mappa interattiva per vedere le voci relative alla posizione in cui ti trovi.
+
+Anteprime di collegamento e schede voce: Tocca su una voce per visualizzarla in anteprima senza perdere quello che stai leggendo. O tieni premuto un link per aprirlo in una nuova scheda in modo da poter continuare a leggere la voce e passare alla nuova scheda quando lo desideri.
+
+Definizioni dal Wikizionario: Mantieni premuto per evidenziare una parola, quindi tocca il pulsante "Definizione" per vedere la definizione della parola dal Wikizionario.
+
+Per inviare il tuo feedback dalla app:
+Nel menù, premere il tasto "Impostazioni", poi "Informazioni sull'app di Wikipedia", quindi "Invia commento sull’applicazione".
+
+Il codice è 100% open source. Se avete esperienza con Java e l'SDK di Android, non vediamo l'ora per ricevere il vostro contributo!
+https://mediawiki.org/wiki/Wikimedia_Apps/Team/Android/App_hacking  
+
+Utilizzando questa applicazione, l'utente accetta la trasmissione automatica di segnalazione di errori ad un terza parte. Se si desidera disattivare questa funzione, premere "Impostazioni", quindi disattivare "Invia segnalazioni di errori" nella sezione Privacy.
+
+Spiegazione delle autorizzazioni necessarie per l'applicazione: 
+https://mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions   
+
+Politica sulla Privacy: 
+https://meta.wikimedia.org/wiki/Privacy_policy/it 
+
+Tutela della Privacy per la segnalazione d'errori a terze parti: 
+https://privacy.microsoft.com/it-it/privacystatement 
+
+Condizioni d'uso: 
+https://m.wikimediafoundation.org/wiki/Terms_of_Use/it  
+
+A proposito di Wikimedia Foundation:
+Wikimedia Foundation è un'organizzazione no-profit che supporta e gestisce Wikipedia e gli altri progetti Wikimedia. Wikimedia Foundation è un'organizzazione di beneficenza finanziata principalmente da donazioni. Per ulteriori informazioni, si prega di visitare il nostro sito:
+https://wikimediafoundation.org/wiki/Home
