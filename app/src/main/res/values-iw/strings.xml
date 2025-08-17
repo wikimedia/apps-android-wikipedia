@@ -471,7 +471,7 @@
   <string name="temp_account_anon_dialog_body">לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תאפשר לך לקבל קרדיט על עריכות עתידיות ולגשת לאפשרויות אחרות.</string>
   <string name="temp_account_temp_dialog_body">העריכה שלך תיוחס לשם המשתמש %1$s. כתובת ה־IP שלך תהיה גלויה למפעילים.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;כניסה&lt;/a&gt; או &lt;a href=\"https://#createaccount\"&gt;יצירת חשבון&lt;/a&gt; תגרום לכך שהעריכות שלך תיוחסנה לשם הנבחר שלך, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_dialog_ok">הבנתי</string>
-  <string name="temp_account_using_title">זהו חשבון חולף</string>
+  <string name="temp_account_using_title">החשבון שלך חולף</string>
   <string name="temp_account_dialog_discard">לזרוק את השינויים ולהיכנס לחשבון</string>
   <plurals name="temp_account_created">
     <item quantity="one">החשבון החולף %1$s נוצר אחרי שהעריכה שלך פורסמה. הוא יחלוף בעוד יום אחד.</item>
@@ -487,7 +487,7 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר עריכה, כתובת ה־IP שלך תשויך לעריכות שלך.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;לא נכנסת לחשבון.&lt;/b&gt; לאחר ביצוע עריכה, ייווצר בשבילך חשבון חולף כדי להגן על פרטיותך. &lt;a href=\"%1$s\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;החשבון שלך זמני.&lt;/b&gt; העריכה שלך תיוחס לשם המשתמש %1$s. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;.</string>
+  <string name="temp_account_edit_status">&lt;b&gt;החשבון שלך חולף.&lt;/b&gt; העריכה שלך תיוחס לשם המשתמש %1$s. &lt;a href=\"%2$s\"&gt;מידע נוסף&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;זהו חשבון חולף.&lt;/b&gt; עריכות שנעשו עם החשבון החולף %1$s לא יועברו לחשבון הקבוע שלך בעת הכניסה. כניסה או יצירת חשבון תאפשר לך לקבל קרדיט על עריכות עתידיות, ויש לזה גם יתרונות נוספים.</string>
   <string name="temp_account_end_session">יציאה מהתחברות</string>
   <string name="temp_account_end_session_confirm">הפעולה הזאת תנתק אותך מחשבונך הזמני. האם ברצונך להמשיך?</string>

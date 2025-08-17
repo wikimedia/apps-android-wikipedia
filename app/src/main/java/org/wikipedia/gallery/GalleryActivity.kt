@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
@@ -16,6 +15,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -332,10 +333,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun onLicenseLongClick(): Boolean {
-        val licenseUrl = binding.licenseIcon.tag as String
-        if (licenseUrl.isNotEmpty()) {
+        val licenseUrl = binding.licenseIcon.tag as? String
+        if (!licenseUrl.isNullOrEmpty()) {
             UriUtil.handleExternalLink(this@GalleryActivity,
-                Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
+                UriUtil.resolveProtocolRelativeUrl(licenseUrl).toUri())
         }
         return true
     }
@@ -377,7 +378,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun hideTransitionReceiver(delay: Boolean) {
-        if (binding.transitionReceiver.visibility == View.GONE) {
+        if (binding.transitionReceiver.isGone) {
             return
         }
         if (delay) {
@@ -421,7 +422,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             val title = PageTitle.titleForInternalLink(url, WikipediaApp.instance.wikiSite)
             showLinkPreview(title)
         } else {
-            val uri = Uri.parse(url)
+            val uri = url.toUri()
             val authority = uri.authority
             if (authority != null && WikiSite.supportedAuthority(authority) && uri.path?.startsWith("/wiki/") == true) {
                 val title = PageTitle.titleForUri(uri, WikiSite(uri))
@@ -432,7 +433,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
                     url = String.format("%1\$s://%2\$s", WikipediaApp.instance.wikiSite.scheme(),
                         WikipediaApp.instance.wikiSite.authority()) + url
                 }
-                UriUtil.handleExternalLink(this@GalleryActivity, Uri.parse(url))
+                UriUtil.handleExternalLink(this@GalleryActivity, url.toUri())
             }
         }
     }
@@ -616,7 +617,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         super.onProvideAssistContent(outContent)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             currentItem?.mediaInfo?.commonsUrl?.let {
-                outContent.setWebUri(Uri.parse(it))
+                outContent.setWebUri(it.toUri())
             }
         }
     }

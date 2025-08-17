@@ -24,6 +24,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -72,9 +73,10 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.games.onthisday.OnThisDayGameOnboardingFragment
+import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginActivity
@@ -149,7 +151,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private val activeTimer = ActiveTimer()
     private val scrollTriggerListener = WebViewScrollTriggerListener()
-    private val pageRefreshListener = OnRefreshListener { refreshPage() }
+    private val pageRefreshListener = OnRefreshListener {
+        webView.clearCache(true)
+        refreshPage()
+    }
     private val pageActionItemCallback = PageActionItemCallback()
 
     private lateinit var bridge: CommunicationBridge
@@ -174,6 +179,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
+    override val messageCardHeight get() = leadImagesHandler.getDonationReminderCardViewHeight()
 
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
@@ -250,6 +256,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
+
+        // adding this here, so that this call would always be before any donation reminder config updates
+        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -303,6 +312,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
+        DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -412,6 +422,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.onPcsReady()
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
                             DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
+
+                        // In the case of certain types of namespaces, especially pages with a lot of interactivity
+                        // that we can't control, we need to bounce them out explicitly to an external
+                        // browser, even after the page is fully loaded into our WebView. This is because
+                        // we can determine the namespace only after the loading sequence is in progress.
+                        if (model.page?.pageProperties?.namespace == Namespace.EVENT) {
+                            model.title?.let {
+                                UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
+                                binding.root.post {
+                                    if (isAdded) {
+                                        requireActivity().onBackPressed()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -585,6 +610,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                 AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
+
+            // Update the article visit for Donation Reminder
+            DonationReminderHelper.increaseArticleVisitCount(timeSpentSec)
         }
     }
 
@@ -917,8 +945,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
         maybeShowAnnouncement()
-        OnThisDayGameOnboardingFragment.maybeShowOnThisDayGameDialog(requireActivity(),
+        OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
 
         bridge.onMetadataReady()

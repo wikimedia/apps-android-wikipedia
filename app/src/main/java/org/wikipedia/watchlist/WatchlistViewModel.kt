@@ -238,7 +238,7 @@ class WatchlistViewModel : ViewModel() {
             } else {
                 FeedbackUtil.makeSnackbar(activity, message)
                     .setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        ExclusiveBottomSheetPresenter.show(fragmentManager, WatchlistExpiryDialog.newInstance(pageTitle, WatchlistExpiry.NEVER))
+                        ExclusiveBottomSheetPresenter.show(fragmentManager, WatchlistExpiryDialog.newInstance(pageTitle))
                     }
                     .show()
             }

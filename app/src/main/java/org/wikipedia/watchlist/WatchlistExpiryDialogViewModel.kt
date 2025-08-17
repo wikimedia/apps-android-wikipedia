@@ -16,7 +16,6 @@ class WatchlistExpiryDialogViewModel(savedStateHandle: SavedStateHandle) : ViewM
     }
 
     var pageTitle = savedStateHandle.get<PageTitle>(WatchlistExpiryDialog.ARG_PAGE_TITLE)!!
-    var expiry = savedStateHandle.get<WatchlistExpiry>(WatchlistExpiryDialog.ARG_EXPIRY)!!
 
     private val _uiState = MutableStateFlow(Resource<WatchlistExpiryChangeSuccess>())
     val uiState = _uiState.asStateFlow()

@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
@@ -197,7 +198,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         }
                         is ArticleSavedOrDeletedEvent -> {
                             pageFragment.title?.run {
-                                if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
+                                if (event.pages.any { it.apiTitle == prefixedText && it.lang == wikiSite.languageCode }) {
                                     pageFragment.updateBookmarkAndMenuOptionsFromDao()
                                 }
                             }
@@ -644,12 +645,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 startActivity(TalkTopicsActivity.newIntent(this, title, InvokeSource.PAGE_ACTIVITY))
                 finish()
                 return true
-            } else if (title.isSpecial && title.isContributions) {
-                title.displayText.split('/').lastOrNull()?.let {
-                    startActivity(UserContribListActivity.newIntent(this, it))
-                    finish()
-                    return true
+            } else if (title.isSpecial) {
+                if (title.isContributions) {
+                    title.displayText.split('/').lastOrNull()?.let {
+                        startActivity(UserContribListActivity.newIntent(this, it))
+                        finish()
+                        return true
+                    }
                 }
+                UriUtil.visitInExternalBrowser(this, title.uri.toUri())
+                finish()
+                return true
             }
         }
         return false
