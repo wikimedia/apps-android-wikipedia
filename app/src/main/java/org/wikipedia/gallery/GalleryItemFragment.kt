@@ -177,6 +177,10 @@ class GalleryItemFragment : Fragment(), MenuProvider {
                 // SVG thumbnails can be rendered with language-specific translations, so let's
                 // get the correct URL that points to the appropriate language.
                 url = ImageUrlUtil.insertLangIntoThumbUrl(url, activityViewModel.wikiSite.languageCode)
+            } else if (mediaInfo?.mime?.contains("gif") == true) {
+                // In the case of GIF files, just use the original url, since differently-scaled
+                // sizes of the image are not always guaranteed to be animated.
+                url = mediaInfo?.originalUrl ?: url
             }
             loadImage(url)
         }

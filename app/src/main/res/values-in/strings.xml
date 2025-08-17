@@ -188,6 +188,8 @@
   <string name="login_2fa_hint">Kode Autentikasi Dua Faktor</string>
   <string name="login_2fa_other_workflow_error_msg">Perlu autentikasi dua faktor! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
   <string name="login_email_auth_hint">Kode verifikasi email</string>
+  <string name="login_email_auth_other_workflow_error_msg">Verifikasi email diperlukan! Silakan masuk dari layar utama dan masukkan kode verifikasi email Anda.</string>
+  <string name="login_background_error_msg">Tidak dapat masuk kembali. Silakan kembali ke layar utama dan masuk secara manual.</string>
   <string name="onboarding_card_login">Masuk log</string>
   <string name="page_editing_login">Masuk log</string>
   <string name="reading_lists_sync_login">Masuk log</string>
