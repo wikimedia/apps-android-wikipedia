@@ -78,6 +78,25 @@ fun WikiGamesModule(
 }
 
 @Composable
+fun WikiGamesStatsCard(
+    modifier: Modifier = Modifier,
+    gameStatistics: OnThisDayGameViewModel.GameStatistics,
+    onClick: (() -> Unit)? = null
+) {
+    WikiCard(
+        modifier = modifier
+            .clickable(onClick = { onClick?.invoke() }),
+        elevation = 1.dp,
+        colors = CardDefaults.cardColors(
+            containerColor = WikipediaTheme.colors.paperColor,
+            contentColor = WikipediaTheme.colors.paperColor
+        )
+    ) {
+        // TODO: implement this
+    }
+}
+
+@Composable
 fun WikiGamesEntryCard(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null
