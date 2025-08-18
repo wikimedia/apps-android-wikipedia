@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
@@ -79,7 +79,7 @@ fun CustomizationScreen(
                     .padding(paddingValues)
                     .padding(vertical = 24.dp)
             ) {
-                items(ModuleType.entries) { moduleType ->
+                itemsIndexed(ModuleType.entries) { index, moduleType ->
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
                         title = moduleType.displayName,
@@ -88,6 +88,11 @@ fun CustomizationScreen(
                             Prefs.activityTabModules = currentModules
                         }
                     )
+                    if (index < ModuleType.entries.size - 1) {
+                        HorizontalDivider(
+                            color = WikipediaTheme.colors.borderColor
+                        )
+                    }
                 }
             }
         }
@@ -128,9 +133,6 @@ private fun CustomizationScreenSwitch(
                 )
             )
         }
-    )
-    HorizontalDivider(
-        color = WikipediaTheme.colors.borderColor
     )
 }
 
