@@ -475,7 +475,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="preference_title_delete_local_donation_history">ローカル寄付履歴を削除</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">ローカル寄付履歴を削除</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
