@@ -418,7 +418,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ပုံမှိန်ခြင်း (အမိုက်အပြင်အဆင်)</string>
   <string name="preference_title_prefer_offline_content">အော့ဖ်လိုင်း အကြောင်းအရာကို ပိုပြီးကေလိုလားရေ</string>
   <string name="preference_summary_prefer_offline_content">ဆောင်းပါးတခုဧ့ နောက်ဆုံးဗားရှင်းထက် အော့ဖ်လိုင်းရဟိနှိုင်မှုကို ခေါ်ယူသုံးစွဲခြင်းနန့် ဒေတာချွေတာဖို့</string>
-  <string name="preference_title_delete_local_donation_history">ဒေသတွင်း လှူဒါန်းမှုမှတ်တမ်းကို ဖျက်ပါ</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">ဒေသတွင်း လှူဒါန်းမှုမှတ်တမ်းကို ဖျက်ပါ</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ကိုက်ညီရေ စနစ်အပြင်အဆင်</string>
   <string name="page_footer_license_text">အကြောင်းအရာတိကို အခြားမှတ်ချက်မဟိပါကေ $1 အောက်တွင် ရဟိနိုင်ပါရေ။</string>
   <string name="empty_tab_title">tab အသစ်</string>
