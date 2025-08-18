@@ -1190,6 +1190,7 @@
     <string name="edit_summary_added_caption">Added caption</string>
     <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
+    <string name="activity_tab_logged_out_title">Log in or create an account to view your activity on the Wikipedia app</string>
     <string name="activity_tab_user_reading">%s\'s reading</string>
     <string name="activity_tab_on_wikipedia_android">On Wikipedia Android</string>
     <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
