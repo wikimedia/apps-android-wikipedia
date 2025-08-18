@@ -438,7 +438,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
   <string name="preference_title_prefer_offline_content">Foretrekk offline-innhold</string>
   <string name="preference_summary_prefer_offline_content">Reduser dataforbruket ved å vise artikler som er tilgjengelige offline i stedet for å alltid laste den siste versjonen av en artikkel</string>
-  <string name="preference_title_delete_local_donation_history">Slett lokal donasjonshistorikk</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Slett lokal donasjonshistorikk</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Match med systemets stil</string>
   <string name="page_footer_license_text">Innholdet er tilgjengelig under $1 med mindre annet er angitt</string>
   <string name="empty_tab_title">Ny fane</string>
