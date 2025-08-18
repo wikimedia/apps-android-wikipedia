@@ -245,88 +245,87 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    modules.getEnabledModules().forEach { moduleType ->
-                        when (moduleType) {
-                            ModuleType.READING_HISTORY -> {
-                                item {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .padding(paddingValues)
-                                            .background(
-                                                brush = Brush.verticalGradient(
-                                                    colors = listOf(
-                                                        WikipediaTheme.colors.paperColor,
-                                                        WikipediaTheme.colors.additionColor
-                                                    )
-                                                )
-                                            )
-                                    ) {
-                                        ReadingHistoryModule(
-                                            modifier = Modifier.align(Alignment.CenterHorizontally),
-                                            userName = userName,
-                                            readingHistoryState = readingHistoryState,
-                                            onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
-                                            onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                            onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
-                                            onCategoryItemClick = { category ->
-                                                val pageTitle =
-                                                    viewModel.createPageTitleForCategory(category)
-                                                startActivity(
-                                                    CategoryActivity.newIntent(
-                                                        requireActivity(),
-                                                        pageTitle
-                                                    )
-                                                )
-                                            },
-                                            wikiErrorClickEvents = WikiErrorClickEvents(
-                                                retryClickListener = {
-                                                    viewModel.loadReadingHistory()
-                                                }
+                    if (modules.isModuleEnabled(ModuleType.READING_HISTORY)) {
+                        item {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(paddingValues)
+                                    .background(
+                                        brush = Brush.verticalGradient(
+                                            colors = listOf(
+                                                WikipediaTheme.colors.paperColor,
+                                                WikipediaTheme.colors.additionColor
                                             )
                                         )
-                                    }
-                                }
-                            }
-                            // impact module
-                            ModuleType.IMPACT -> {}
-                            // game module
-                            ModuleType.GAMES -> {}
-                            ModuleType.DONATIONS -> {
-                                item {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .padding(paddingValues)
-                                            .background(
-                                                brush = Brush.verticalGradient(
-                                                    colors = listOf(
-                                                        WikipediaTheme.colors.paperColor,
-                                                        WikipediaTheme.colors.additionColor
-                                                    )
-                                                )
+                                    )
+                            ) {
+                                ReadingHistoryModule(
+                                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                                    userName = userName,
+                                    readingHistoryState = readingHistoryState,
+                                    onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
+                                    onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                                    onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                    onCategoryItemClick = { category ->
+                                        val pageTitle =
+                                            viewModel.createPageTitleForCategory(category)
+                                        startActivity(
+                                            CategoryActivity.newIntent(
+                                                requireActivity(),
+                                                pageTitle
                                             )
-                                    ) {
-                                        if (donationUiState is UiState.Success) {
-                                            // TODO: default is off. Handle this when building the configuration screen.
-                                            DonationModule(
-                                                modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(vertical = 16.dp, horizontal = 16.dp),
-                                                uiState = donationUiState,
-                                                onClick = {
-                                                    (requireActivity() as? BaseActivity)?.launchDonateDialog(
-                                                        campaignId = ActivityTabViewModel.CAMPAIGN_ID
-                                                    )
-                                                }
-                                            )
+                                        )
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadReadingHistory()
                                         }
-                                    }
-                                }
+                                    )
+                                )
                             }
-                            // timeline module
-                            ModuleType.TIMELINE -> {}
                         }
+                    }
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(paddingValues)
+                                .background(
+                                    brush = Brush.verticalGradient(
+                                        colors = listOf(
+                                            WikipediaTheme.colors.paperColor,
+                                            WikipediaTheme.colors.additionColor
+                                        )
+                                    )
+                                )
+                        ) {
+                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                // @TODO: MARK_ACTIVITY_TAB
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.GAMES)) {
+                                // @TODO: MARK_ACTIVITY_TAB
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                                DonationModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                    uiState = donationUiState,
+                                    onClick = {
+                                        (requireActivity() as? BaseActivity)?.launchDonateDialog(
+                                            campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                    }
+
+                    if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
+                        // @TODO: MARK_ACTIVITY_TAB
                     }
                 }
             }
