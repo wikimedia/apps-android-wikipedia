@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.readinglist.database.ReadingList
@@ -30,9 +31,9 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     }
 
     public override fun createFragment(): ReadingListFragment {
-        readingListMode = (intent.getSerializableExtra(EXTRA_READING_LIST_MODE) as ReadingListMode?) ?: ReadingListMode.DEFAULT
+        readingListMode = intent.serializableExtra(EXTRA_READING_LIST_MODE) ?: ReadingListMode.DEFAULT
         return if (readingListMode != ReadingListMode.DEFAULT) {
-            val invokeSource = intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource?
+            val invokeSource = intent.serializableExtra<InvokeSource>(EXTRA_SOURCE)
             ReadingListFragment.newInstance(readingListMode, invokeSource)
         } else {
             ReadingListFragment.newInstance(intent.getLongExtra(EXTRA_READING_LIST_ID, 0))
