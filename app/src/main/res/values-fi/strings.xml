@@ -451,7 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
   <string name="preference_summary_prefer_offline_content">Vähennä datankäyttöä näyttämällä laitteeseen jo ladattua sisältöä uusimman sisällön lataamisen sijaan.</string>
-  <string name="preference_title_delete_local_donation_history">Poista paikallinen lahjoitushistoria</string>
+  <string name="preference_title_delete_local_donation_history">Tyhjennä lahjoitushistoria</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Järjestelmäasetuksen mukainen</string>
   <string name="page_footer_license_text">Sisältö on käytettävissä lisenssillä $1, ellei toisin ole mainittu.</string>
   <string name="empty_tab_title">Uusi välilehti</string>
