@@ -454,7 +454,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
-  <string name="preference_title_delete_local_donation_history">Вилучити локальну історію пожертв</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Вилучити локальну історію пожертв</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="page_footer_license_text">Вміст доступний на умовах $1, якщо не вказано інше</string>
   <string name="empty_tab_title">Нова вкладка</string>
@@ -2048,7 +2048,6 @@
   <string name="donation_reminders_settings_description_on">Нагадування про пожертви ввімкнено. Вікіпедія нагадуватиме вам пожертвувати %1$s кожні %2$s, які ви прочитали, поки триває цей експеримент.</string>
   <string name="donation_reminders_settings_description_off">Нагадування про пожертви вимкнено.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Кількість статей зберігається локально на вашому пристрої</string>
-  <string name="donation_reminders_prompt_success_snackbar">Дякуємо! Ваша щедрість до Вікіпедії дуже цінна для нас.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">1 стаття</item>
     <item quantity="few">%d статті</item>
