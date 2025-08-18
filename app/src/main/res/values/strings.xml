@@ -1203,6 +1203,13 @@
     <string name="activity_tab_discover_encourage">Discover something new to read</string>
     <string name="activity_tab_donation_unknown">Unknown</string>
     <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
+    <string name="activity_tab_game_entry_title">Which came first?</string>
+    <string name="activity_tab_game_entry_message">Guess which event came first on this day in history.</string>
+    <string name="activity_tab_game_stats">Game stats</string>
+    <string name="activity_tab_game_stats_played">Games played</string>
+    <string name="activity_tab_game_stats_current_streak">Current streak</string>
+    <string name="activity_tab_game_stats_best_streak">Best streak</string>
+    <string name="activity_tab_game_stats_average_score">Average score</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
