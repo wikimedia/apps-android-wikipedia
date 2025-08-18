@@ -1202,6 +1202,11 @@
     <string name="activity_tab_discover_encourage">Discover something new to read</string>
     <string name="activity_tab_donation_unknown">Unknown</string>
     <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
+    <string name="activity_tab_report_email_subject">Issue Report - Activity tab</string>
+    <string name="activity_tab_report_email_body">I have encountered a problem with the Activity tab feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="activity_tab_menu_feedback">Problem with feature</string>
+    <string name="activity_tab_menu_info">Learn more</string>
+    <string name="activity_tab_menu_customize">Customize</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -2055,9 +2060,4 @@
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
     </plurals>
-    <string name="activity_tab_report_email_subject">Issue Report - Activity tab</string>
-    <string name="activity_tab_report_email_body">I have encountered a problem with the Activity tab feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
-    <string name="activity_tab_menu_feedback">Problem with feature</string>
-    <string name="activity_tab_menu_info">Learn more</string>
-    <string name="activity_tab_menu_customize">Customize</string>
 </resources>

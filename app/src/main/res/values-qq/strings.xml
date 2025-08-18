@@ -1183,6 +1183,11 @@
   <string name="activity_tab_discover_encourage">Label encouraging the user to discover new articles.</string>
   <string name="activity_tab_donation_unknown">Label on card that shows the last donation time.</string>
   <string name="activity_tab_donation_last_donation">Subtitle of the donation card that indicates last donation.</string>
+  <string name="activity_tab_report_email_subject">Subject heading for sending a report about a problem with the Activity tab feature.</string>
+  <string name="activity_tab_report_email_body">Body of email for sending a report about a problem with the Activity tab feature.</string>
+  <string name="activity_tab_menu_feedback">Menu label for providing feedback on the activity tab.</string>
+  <string name="activity_tab_menu_info">Menu label for visiting the information page of the activity tab.</string>
+  <string name="activity_tab_menu_customize">Menu label for opening the activity tab customization screen.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1953,11 +1958,6 @@
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
   <string name="donation_reminders_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
   <string name="donation_reminders_text_articles">Indicates the number of articles set by the user. %d is replaced by the count.</string>
-  <string name="activity_tab_report_email_subject">Subject heading for sending a report about a problem with the Activity tab feature.</string>
-  <string name="activity_tab_report_email_body">Body of email for sending a report about a problem with the Activity tab feature.</string>
-  <string name="activity_tab_menu_feedback">Menu label for providing feedback on the activity tab.</string>
-  <string name="activity_tab_menu_info">Menu label for visiting the information page of the activity tab.</string>
-  <string name="activity_tab_menu_customize">Menu label for opening the activity tab customization screen.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
     <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>

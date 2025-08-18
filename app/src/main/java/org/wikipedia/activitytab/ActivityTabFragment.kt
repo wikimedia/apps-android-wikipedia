@@ -157,7 +157,8 @@ class ActivityTabFragment : Fragment() {
                     val scrollState = rememberScrollState()
 
                     Column(
-                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp).verticalScroll(scrollState),
+                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                            .verticalScroll(scrollState),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
@@ -180,7 +181,12 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.paperColor,
                             ),
                             onClick = {
-                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY))
+                                startActivity(
+                                    LoginActivity.newIntent(
+                                        requireContext(),
+                                        LoginActivity.SOURCE_ACTIVITY
+                                    )
+                                )
                             },
                         ) {
                             Icon(
@@ -201,7 +207,13 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.primaryColor,
                             ),
                             onClick = {
-                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY, createAccountFirst = false))
+                                startActivity(
+                                    LoginActivity.newIntent(
+                                        requireContext(),
+                                        LoginActivity.SOURCE_ACTIVITY,
+                                        createAccountFirst = false
+                                    )
+                                )
                             },
                         ) {
                             Text(
@@ -258,7 +270,8 @@ class ActivityTabFragment : Fragment() {
                                             onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
                                             onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
                                             onCategoryItemClick = { category ->
-                                                val pageTitle = viewModel.createPageTitleForCategory(category)
+                                                val pageTitle =
+                                                    viewModel.createPageTitleForCategory(category)
                                                 startActivity(
                                                     CategoryActivity.newIntent(
                                                         requireActivity(),
@@ -275,49 +288,46 @@ class ActivityTabFragment : Fragment() {
                                     }
                                 }
                             }
+                            // impact module
                             ModuleType.IMPACT -> {}
+                            // game module
                             ModuleType.GAMES -> {}
                             ModuleType.DONATIONS -> {
-
-                    item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(paddingValues)
-                                .background(
-                                    brush = Brush.verticalGradient(
-                                        colors = listOf(
-                                            WikipediaTheme.colors.paperColor,
-                                            WikipediaTheme.colors.additionColor
-                                        )
-                                    )
-                                )
-                        ) {
-                            // impact module
-
-                            // game module
-
-                            if (donationUiState is UiState.Success) {
-                                // TODO: default is off. Handle this when building the configuration screen.
-                                DonationModule(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
-                                    uiState = donationUiState,
-                                    onClick = {
-                                        (requireActivity() as? BaseActivity)?.launchDonateDialog(
-                                            campaignId = ActivityTabViewModel.CAMPAIGN_ID
-                                        )
+                                item {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(paddingValues)
+                                            .background(
+                                                brush = Brush.verticalGradient(
+                                                    colors = listOf(
+                                                        WikipediaTheme.colors.paperColor,
+                                                        WikipediaTheme.colors.additionColor
+                                                    )
+                                                )
+                                            )
+                                    ) {
+                                        if (donationUiState is UiState.Success) {
+                                            // TODO: default is off. Handle this when building the configuration screen.
+                                            DonationModule(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(vertical = 16.dp, horizontal = 16.dp),
+                                                uiState = donationUiState,
+                                                onClick = {
+                                                    (requireActivity() as? BaseActivity)?.launchDonateDialog(
+                                                        campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                                                    )
+                                                }
+                                            )
+                                        }
                                     }
-                                )
+                                }
                             }
+                            // timeline module
                             ModuleType.TIMELINE -> {}
                         }
                     }
-
-                    // --- new column ---
-
-                    // timeline module
                 }
             }
         }
