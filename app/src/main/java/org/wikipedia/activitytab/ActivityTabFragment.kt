@@ -44,6 +44,11 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
@@ -53,7 +58,12 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.events.LoggedOutEvent
+import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -72,6 +82,16 @@ class ActivityTabFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is LoggedInEvent, is LoggedOutEvent, is LoggedOutInBackgroundEvent -> viewModel.loadAll()
+                    }
+                }
+            }
+        }
+
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -88,8 +108,7 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadReadingHistory()
-        viewModel.loadDonationResults()
+        viewModel.loadAll()
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -145,7 +164,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.paperColor,
                             ),
                             onClick = {
-                                // TODO
+                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY))
                             },
                         ) {
                             Icon(
@@ -166,7 +185,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.primaryColor,
                             ),
                             onClick = {
-                                // TODO
+                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY, createAccountFirst = false))
                             },
                         ) {
                             Text(

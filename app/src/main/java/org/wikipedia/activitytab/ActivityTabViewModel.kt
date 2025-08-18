@@ -30,6 +30,11 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _donationUiState = MutableStateFlow<UiState<String?>>(UiState.Loading)
     val donationUiState: StateFlow<UiState<String?>> = _donationUiState.asStateFlow()
 
+    fun loadAll() {
+        loadReadingHistory()
+        loadDonationResults()
+    }
+
     fun loadReadingHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _readingHistoryState.value = UiState.Error(throwable)
