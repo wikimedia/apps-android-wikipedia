@@ -105,12 +105,13 @@ class TalkTopicsViewModel(var pageTitle: PageTitle) : ViewModel() {
             val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
 
-            seenThreadItemsSha.clear()
-            seenThreadItemsSha.addAll(talkPageDao.getAll().map { it.sha })
-
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
             sortAndFilterThreadItems()
+
+            seenThreadItemsSha.clear()
+            val shaList = threadItems.mapNotNull { threadSha(it) }
+            seenThreadItemsSha.addAll(talkPageDao.getFor(shaList).map { it.sha })
 
             val watchStatus = if (WikipediaApp.instance.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite)
                     .getWatchedStatus(pageTitle.prefixedText).query?.firstPage()!! else MwQueryPage()
