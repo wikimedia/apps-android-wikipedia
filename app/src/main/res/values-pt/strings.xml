@@ -698,8 +698,8 @@
     <item quantity="other">A transferir os artigos</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">A transferir %1$d %1$% artigo…</item>
-    <item quantity="other">A transferir %1$d %1$d artigos…</item>
+    <item quantity="one">A transferir %1$d artigo…</item>
+    <item quantity="other">A transferir %1$d artigos…</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Falta %1$d artigo</item>
