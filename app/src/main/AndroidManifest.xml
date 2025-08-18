@@ -379,6 +379,10 @@
         <activity
             android:name=".activitytab.ActivityTabCustomizationActivity" />
 
+        <activity
+            android:name=".donate.donationreminder.DonationReminderActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

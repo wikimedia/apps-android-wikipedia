@@ -7,14 +7,25 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
@@ -28,12 +39,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
@@ -43,7 +62,12 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.events.LoggedOutEvent
+import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -72,10 +96,22 @@ class ActivityTabFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                FlowEventBus.events.collectLatest { event ->
+                    when (event) {
+                        is LoggedInEvent, is LoggedOutEvent, is LoggedOutInBackgroundEvent -> viewModel.loadAll()
+                    }
+                }
+            }
+        }
+
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
                     ActivityTabScreen(
+                        isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value
@@ -87,13 +123,14 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadReadingHistory()
+        viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun ActivityTabScreen(
+        isLoggedIn: Boolean,
         userName: String,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>
@@ -111,10 +148,77 @@ class ActivityTabFragment : Fragment() {
                 isRefreshing = false
             }
 
+            if (!isLoggedIn) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+                    val scrollState = rememberScrollState()
+
+                    Column(
+                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp).verticalScroll(scrollState),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Image(
+                            modifier = Modifier.size(164.dp),
+                            painter = painterResource(R.drawable.illustration_activity_tab_logged_out),
+                            contentDescription = null
+                        )
+                        Text(
+                            modifier = Modifier.padding(top = 16.dp),
+                            text = stringResource(R.string.activity_tab_logged_out_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Button(
+                            modifier = Modifier.padding(top = 16.dp),
+                            contentPadding = PaddingValues(horizontal = 18.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WikipediaTheme.colors.progressiveColor,
+                                contentColor = WikipediaTheme.colors.paperColor,
+                            ),
+                            onClick = {
+                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY))
+                            },
+                        ) {
+                            Icon(
+                                modifier = Modifier.size(20.dp),
+                                painter = painterResource(R.drawable.ic_user_avatar),
+                                tint = WikipediaTheme.colors.paperColor,
+                                contentDescription = null
+                            )
+                            Text(
+                                modifier = Modifier.padding(start = 6.dp),
+                                text = stringResource(R.string.create_account_button)
+                            )
+                        }
+                        Button(
+                            contentPadding = PaddingValues(horizontal = 18.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WikipediaTheme.colors.paperColor,
+                                contentColor = WikipediaTheme.colors.primaryColor,
+                            ),
+                            onClick = {
+                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY, createAccountFirst = false))
+                            },
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(start = 6.dp),
+                                text = stringResource(R.string.menu_login)
+                            )
+                        }
+                    }
+                }
+                return@Scaffold
+            }
+
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
                     viewModel.loadReadingHistory()
+                    viewModel.loadDonationResults()
                 },
                 isRefreshing = isRefreshing,
                 state = state,
@@ -175,40 +279,37 @@ class ActivityTabFragment : Fragment() {
                             ModuleType.GAMES -> {}
                             ModuleType.DONATIONS -> {
 
-                                item {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .padding(paddingValues)
-                                            .background(
-                                                brush = Brush.verticalGradient(
-                                                    colors = listOf(
-                                                        WikipediaTheme.colors.paperColor,
-                                                        WikipediaTheme.colors.additionColor
-                                                    )
-                                                )
-                                            )
-                                    ) {
-                                        // impact module
+                    item {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(paddingValues)
+                                .background(
+                                    brush = Brush.verticalGradient(
+                                        colors = listOf(
+                                            WikipediaTheme.colors.paperColor,
+                                            WikipediaTheme.colors.additionColor
+                                        )
+                                    )
+                                )
+                        ) {
+                            // impact module
 
-                                        // game module
+                            // game module
 
-                                        if (donationUiState is UiState.Success) {
-                                            // TODO: default is off. Handle this when building the configuration screen.
-                                            DonationModule(
-                                                modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(vertical = 16.dp, horizontal = 16.dp),
-                                                uiState = donationUiState,
-                                                onClick = {
-                                                    (requireActivity() as? BaseActivity)?.launchDonateDialog(
-                                                        campaignId = ActivityTabViewModel.CAMPAIGN_ID
-                                                    )
-                                                }
-                                            )
-                                        }
+                            if (donationUiState is UiState.Success) {
+                                // TODO: default is off. Handle this when building the configuration screen.
+                                DonationModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                    uiState = donationUiState,
+                                    onClick = {
+                                        (requireActivity() as? BaseActivity)?.launchDonateDialog(
+                                            campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                                        )
                                     }
-                                }
+                                )
                             }
                             ModuleType.TIMELINE -> {}
                         }
@@ -228,6 +329,7 @@ class ActivityTabFragment : Fragment() {
         val site = WikiSite("https://en.wikipedia.org/".toUri(), "en")
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
+                isLoggedIn = true,
                 userName = "User",
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
@@ -258,6 +360,29 @@ class ActivityTabFragment : Fragment() {
     fun ActivityTabScreenEmptyPreview() {
         BaseTheme(currentTheme = Theme.LIGHT) {
             ActivityTabScreen(
+                isLoggedIn = true,
+                userName = "User",
+                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                    timeSpentThisWeek = 0,
+                    articlesReadThisMonth = 0,
+                    lastArticleReadTime = null,
+                    articlesReadByWeek = listOf(0, 0, 0, 0),
+                    articlesSavedThisMonth = 0,
+                    lastArticleSavedTime = null,
+                    articlesSaved = emptyList(),
+                    topCategories = emptyList()
+                )),
+                donationUiState = UiState.Success("Unknown")
+            )
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityTabScreenLoggedOutPreview() {
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                isLoggedIn = false,
                 userName = "User",
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
