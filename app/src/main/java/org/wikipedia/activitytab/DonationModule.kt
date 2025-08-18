@@ -65,19 +65,30 @@ fun DonationModule(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
+                    Row(
+                        modifier = Modifier.weight(1f),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(R.drawable.outline_credit_card_heart_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = null
+                        )
+                        HtmlText(
+                            text = stringResource(R.string.activity_tab_donation_last_donation),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                            color = WikipediaTheme.colors.primaryColor,
+                            lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                        )
+                    }
                     Icon(
-                        modifier = Modifier.size(16.dp),
-                        painter = painterResource(R.drawable.outline_credit_card_heart_24),
-                        tint = WikipediaTheme.colors.primaryColor,
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                        tint = WikipediaTheme.colors.secondaryColor,
                         contentDescription = null
-                    )
-                    HtmlText(
-                        text = stringResource(R.string.activity_tab_donation_last_donation),
-                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
-                        color = WikipediaTheme.colors.primaryColor,
-                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
                     )
                 }
                 Text(
