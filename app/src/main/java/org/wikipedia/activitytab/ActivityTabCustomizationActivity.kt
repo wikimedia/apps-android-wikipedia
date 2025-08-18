@@ -164,11 +164,11 @@ data class ActivityTabModules(
 )
 
 enum class ModuleType(val displayName: Int) {
-    READING_HISTORY(R.string.activity_tab_customize_screen_reading_history_title),
-    IMPACT(R.string.activity_tab_customize_screen_impact_title),
-    GAMES(R.string.activity_tab_customize_screen_games_title),
-    DONATIONS(R.string.activity_tab_customize_screen_donations_title),
-    TIMELINE(R.string.activity_tab_customize_screen_timeline_title)
+    READING_HISTORY(R.string.activity_tab_customize_screen_reading_history_switch_title),
+    IMPACT(R.string.activity_tab_customize_screen_impact_switch_title),
+    GAMES(R.string.activity_tab_customize_screen_games_switch_title),
+    DONATIONS(R.string.activity_tab_customize_screen_donations_switch_title),
+    TIMELINE(R.string.activity_tab_customize_screen_timeline_switch_title)
 }
 
 @Preview
