@@ -2,18 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_customize_activity_tab"
-        android:title="Customize"
-        android:icon="@drawable/ic_settings_black_24dp"
-        app:iconTint="?attr/secondary_color" />
-    <item
-        android:id="@+id/menu_learn_more"
-        android:title="Learn more"
-        android:icon="@drawable/baseline_info_24"
-        app:iconTint="?attr/secondary_color" />
-    <item
-        android:id="@+id/menu_report_feature"
-        android:title="Problem with feature"
-        android:icon="@drawable/ic_report_flag"
-        app:iconTint="?attr/secondary_color" />
+        android:id="@+id/empty"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_customize_activity_tab"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="@string/activity_tab_menu_customize"
+                app:iconTint="?attr/secondary_color" />
+            <item
+                android:id="@+id/menu_learn_more"
+                android:icon="@drawable/baseline_info_24"
+                android:title="@string/activity_tab_menu_info"
+                app:iconTint="?attr/secondary_color" />
+            <item
+                android:id="@+id/menu_report_feature"
+                android:icon="@drawable/ic_report_flag"
+                android:title="@string/activity_tab_menu_feedback"
+                app:iconTint="?attr/secondary_color" />
+        </menu>
+    </item>
 </menu>

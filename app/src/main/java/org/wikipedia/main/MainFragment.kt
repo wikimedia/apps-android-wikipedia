@@ -266,9 +266,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 if (fragment is ReadingListsFragment) {
                     fragment.showReadingListsOverflowMenu()
                 }
-                if (fragment is ActivityTabFragment) {
-                    fragment.showOverflowMenu()
-                }
                 true
             }
             else -> false
@@ -279,7 +276,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         requestUpdateToolbarElevation()
 
         menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
-        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment || currentFragment is ActivityTabFragment
+        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
         if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {

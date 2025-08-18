@@ -150,6 +150,10 @@ fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean
     ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
 }
 
+fun ActivityTabModules.getEnabledModules(): List<ModuleType> {
+    return ModuleType.entries.filter { isModuleEnabled(it) }
+}
+
 @Serializable
 data class ActivityTabModules(
     val isReadingHistoryEnabled: Boolean = true,

@@ -2,6 +2,9 @@ package org.wikipedia.activitytab
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.background
@@ -28,6 +31,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.wikipedia.R
@@ -40,11 +44,11 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
 
@@ -54,11 +58,20 @@ class ActivityTabFragment : Fragment() {
     }
 
     private val viewModel: ActivityTabViewModel by viewModels()
+    private val menuProvider = object : MenuProvider {
+        override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+            menuInflater.inflate(R.menu.menu_activity_tab_overflow, menu)
+        }
+
+        override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+            return handleMenuItemClick(menuItem)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-
+        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -78,31 +91,6 @@ class ActivityTabFragment : Fragment() {
         requireActivity().invalidateOptionsMenu()
     }
 
-    fun showOverflowMenu() {
-        val toolbar = (requireActivity() as MainActivity).getToolbar()
-        val anchorView = toolbar.findViewById<View>(R.id.menu_overflow_button)
-        ActivityTabOverflowMenu(requireActivity(), anchorView).show(
-            menuRes = R.menu.menu_activity_tab_overflow,
-            onMenuItemClick = { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.menu_customize_activity_tab -> {
-                        startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
-                        true
-                    }
-                    R.id.menu_learn_more -> {
-                        println("orange: learn more")
-                        true
-                    }
-                    R.id.menu_report_feature -> {
-                        println("orange: problem with feature")
-                        true
-                    }
-                    else -> false
-                }
-            }
-        )
-    }
-
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun ActivityTabScreen(
@@ -118,7 +106,7 @@ class ActivityTabFragment : Fragment() {
         ) { paddingValues ->
             var isRefreshing by remember { mutableStateOf(false) }
             val state = rememberPullToRefreshState()
-
+            val modules = Prefs.activityTabModules
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
@@ -141,77 +129,88 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(paddingValues)
-                                .background(
-                                    brush = Brush.verticalGradient(
-                                        colors = listOf(
-                                            WikipediaTheme.colors.paperColor,
-                                            WikipediaTheme.colors.additionColor
-                                        )
-                                    )
-                                )
-                        ) {
-                            ReadingHistoryModule(
-                                modifier = Modifier.align(Alignment.CenterHorizontally),
-                                userName = userName,
-                                readingHistoryState = readingHistoryState,
-                                onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
-                                onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
-                                onCategoryItemClick = { category ->
-                                    val pageTitle = viewModel.createPageTitleForCategory(category)
-                                    startActivity(
-                                        CategoryActivity.newIntent(
-                                            requireActivity(),
-                                            pageTitle
-                                        )
-                                    )
-                                },
-                                wikiErrorClickEvents = WikiErrorClickEvents(
-                                    retryClickListener = {
-                                        viewModel.loadReadingHistory()
-                                    }
-                                )
-                            )
-                        }
-                    }
-
-                    item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(paddingValues)
-                                .background(
-                                    brush = Brush.verticalGradient(
-                                        colors = listOf(
-                                            WikipediaTheme.colors.paperColor,
-                                            WikipediaTheme.colors.additionColor
-                                        )
-                                    )
-                                )
-                        ) {
-                            // impact module
-
-                            // game module
-
-                            if (donationUiState is UiState.Success) {
-                                // TODO: default is off. Handle this when building the configuration screen.
-                                DonationModule(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
-                                    uiState = donationUiState,
-                                    onClick = {
-                                        (requireActivity() as? BaseActivity)?.launchDonateDialog(
-                                            campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                    modules.getEnabledModules().forEach { moduleType ->
+                        when (moduleType) {
+                            ModuleType.READING_HISTORY -> {
+                                item {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(paddingValues)
+                                            .background(
+                                                brush = Brush.verticalGradient(
+                                                    colors = listOf(
+                                                        WikipediaTheme.colors.paperColor,
+                                                        WikipediaTheme.colors.additionColor
+                                                    )
+                                                )
+                                            )
+                                    ) {
+                                        ReadingHistoryModule(
+                                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                                            userName = userName,
+                                            readingHistoryState = readingHistoryState,
+                                            onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
+                                            onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                                            onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                            onCategoryItemClick = { category ->
+                                                val pageTitle = viewModel.createPageTitleForCategory(category)
+                                                startActivity(
+                                                    CategoryActivity.newIntent(
+                                                        requireActivity(),
+                                                        pageTitle
+                                                    )
+                                                )
+                                            },
+                                            wikiErrorClickEvents = WikiErrorClickEvents(
+                                                retryClickListener = {
+                                                    viewModel.loadReadingHistory()
+                                                }
+                                            )
                                         )
                                     }
-                                )
+                                }
                             }
+                            ModuleType.IMPACT -> {}
+                            ModuleType.GAMES -> {}
+                            ModuleType.DONATIONS -> {
+
+                                item {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(paddingValues)
+                                            .background(
+                                                brush = Brush.verticalGradient(
+                                                    colors = listOf(
+                                                        WikipediaTheme.colors.paperColor,
+                                                        WikipediaTheme.colors.additionColor
+                                                    )
+                                                )
+                                            )
+                                    ) {
+                                        // impact module
+
+                                        // game module
+
+                                        if (donationUiState is UiState.Success) {
+                                            // TODO: default is off. Handle this when building the configuration screen.
+                                            DonationModule(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(vertical = 16.dp, horizontal = 16.dp),
+                                                uiState = donationUiState,
+                                                onClick = {
+                                                    (requireActivity() as? BaseActivity)?.launchDonateDialog(
+                                                        campaignId = ActivityTabViewModel.CAMPAIGN_ID
+                                                    )
+                                                }
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                            ModuleType.TIMELINE -> {}
                         }
                     }
 
@@ -282,6 +281,26 @@ class ActivityTabFragment : Fragment() {
                     // TODO
                 }
             }
+        }
+    }
+
+    private fun handleMenuItemClick(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.menu_customize_activity_tab -> {
+                startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                true
+            }
+            R.id.menu_learn_more -> {
+                // TODO: MARK_ACTIVITY_TAB --> add mediawiki page link
+                true
+            }
+            R.id.menu_report_feature -> {
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.activity_tab_report_email_subject),
+                    body = getString(R.string.activity_tab_report_email_body))
+                true
+            }
+            else -> false
         }
     }
 
