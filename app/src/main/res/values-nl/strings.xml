@@ -462,7 +462,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
   <string name="preference_summary_prefer_offline_content">Mobiel dataverkeer besparen door offline beschikbare artikelen te laden in plaats van steeds de laatste versie op te halen</string>
-  <string name="preference_title_delete_local_donation_history">Lokale donatiegeschiedenis verwijderen</string>
+  <string name="preference_title_delete_local_donation_history">Donatiegeschiedenis wissen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Gelijk aan systeemthema</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>

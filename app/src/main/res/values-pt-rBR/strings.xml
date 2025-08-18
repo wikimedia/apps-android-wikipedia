@@ -471,7 +471,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento de imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
-  <string name="preference_title_delete_local_donation_history">Deletar histórico de doações locais</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Deletar histórico de doações locais</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Corresponder tema do sistema</string>
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
@@ -1954,7 +1954,6 @@
   <string name="donation_reminders_survey_dialog_title">Ajude a melhorar os lembretes de doações.</string>
   <string name="donation_reminders_survey_dialog_message">Você está satisfeito com essa experiência?</string>
   <string name="donation_reminders_settings_tooltip_info_label">A contagem de artigos é armazenada localmente no seu dispositivo.</string>
-  <string name="donation_reminders_prompt_success_snackbar">Obrigado! Sua generosidade com a Wikipédia significa muito para nós.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d artigo</item>
     <item quantity="other">%d artigos</item>
