@@ -67,6 +67,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -121,7 +122,8 @@ class ActivityTabFragment : Fragment() {
                         modules = Prefs.activityTabModules,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
-                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value
+                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
+                        impactUiState = viewModel.impactUiState.collectAsState().value
                     )
                 }
             }
@@ -142,7 +144,8 @@ class ActivityTabFragment : Fragment() {
         modules: ActivityTabModules,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
-        wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>
+        wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
+        impactUiState: UiState<GrowthUserImpact>
     ) {
         Scaffold(
             modifier = Modifier
@@ -308,7 +311,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                         ) {
                             if (modules.isModuleEnabled(ModuleType.IMPACT)) {
-                                // @TODO: MARK_ACTIVITY_TAB
+                                // TODO: zomg do something with this!
                             }
 
                             if (modules.isModuleEnabled(ModuleType.GAMES)) {
@@ -399,7 +402,8 @@ class ActivityTabFragment : Fragment() {
                     averageScore = 4.5,
                     currentStreak = 15,
                     bestStreak = 25
-                ))
+                )),
+                impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345))
             )
         }
     }
@@ -423,7 +427,8 @@ class ActivityTabFragment : Fragment() {
                     topCategories = emptyList()
                 )),
                 donationUiState = UiState.Success("Unknown"),
-                wikiGamesUiState = UiState.Success(null)
+                wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact())
             )
         }
     }
@@ -447,7 +452,8 @@ class ActivityTabFragment : Fragment() {
                     topCategories = emptyList()
                 )),
                 donationUiState = UiState.Success("Unknown"),
-                wikiGamesUiState = UiState.Success(null)
+                wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact())
             )
         }
     }

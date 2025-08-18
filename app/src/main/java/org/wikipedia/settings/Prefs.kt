@@ -835,6 +835,14 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
 
+    var impactLastQueryTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
+
+    var impactLastResponseBody
+        get() = PrefsIoUtil.getString(R.string.preference_key_impact_last_response_body, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_impact_last_response_body, value)
+
     var donationReminderConfig
         get() = JsonUtil.decodeFromString<DonationReminderConfig>(
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
