@@ -22,9 +22,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.serialization.Serializable
+import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -68,7 +70,7 @@ fun CustomizationScreen(
             .safeDrawingPadding(),
         topBar = {
             WikiTopAppBar(
-                title = "Customize",
+                title = stringResource(R.string.activity_tab_customize_screen_title),
                 onNavigationClick = onBackButtonClick
             )
         },
@@ -82,7 +84,7 @@ fun CustomizationScreen(
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
-                        title = moduleType.displayName,
+                        title = stringResource(moduleType.displayName),
                         onCheckedChange = { isChecked ->
                             currentModules = currentModules.setModuleEnabled(moduleType, isChecked)
                             Prefs.activityTabModules = currentModules
@@ -161,12 +163,12 @@ data class ActivityTabModules(
     val isTimelineEnabled: Boolean = true,
 )
 
-enum class ModuleType(val displayName: String) {
-    READING_HISTORY("Reading History"),
-    IMPACT("Impact"),
-    GAMES("Games"),
-    DONATIONS("Donations"),
-    TIMELINE("Timeline")
+enum class ModuleType(val displayName: Int) {
+    READING_HISTORY(R.string.activity_tab_customize_screen_reading_history_title),
+    IMPACT(R.string.activity_tab_customize_screen_impact_title),
+    GAMES(R.string.activity_tab_customize_screen_games_title),
+    DONATIONS(R.string.activity_tab_customize_screen_donations_title),
+    TIMELINE(R.string.activity_tab_customize_screen_timeline_title)
 }
 
 @Preview

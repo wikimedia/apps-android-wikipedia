@@ -1188,6 +1188,12 @@
   <string name="activity_tab_menu_feedback">Menu label for providing feedback on the activity tab.</string>
   <string name="activity_tab_menu_info">Menu label for visiting the information page of the activity tab.</string>
   <string name="activity_tab_menu_customize">Menu label for opening the activity tab customization screen.</string>
+  <string name="activity_tab_customize_screen_reading_history_title">Title of the switch for the Reading History module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_impact_title">Title of the switch for the Impact module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_games_title">Title of the switch for the Games module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_donations_title">Title of the switch for the Donations module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_timeline_title">Title of the switch for the Timeline module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_title">Title shown at the top of the activity for the customize screen.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1956,8 +1962,6 @@
   <string name="donation_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and second %2$s will be replaced by the text of the number of articles.</string>
   <string name="donation_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
-  <string name="donation_reminders_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
-  <string name="donation_reminders_text_articles">Indicates the number of articles set by the user. %d is replaced by the count.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
     <item quantity="other">Indicating the number of articles that set by the user. %d is replaced by the count.</item>
