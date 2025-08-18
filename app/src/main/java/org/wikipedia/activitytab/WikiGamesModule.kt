@@ -122,13 +122,12 @@ fun WikiGamesEntryCard(
                 contentDescription = null
             )
         }
-
     }
 }
 
 @Preview
 @Composable
-private fun DonationModulePreview() {
+private fun DonationModuleEntryCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
