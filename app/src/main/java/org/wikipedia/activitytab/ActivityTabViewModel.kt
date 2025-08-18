@@ -35,6 +35,11 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
+    fun loadAll() {
+        loadReadingHistory()
+        loadDonationResults()
+    }
+
     fun loadReadingHistory() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _readingHistoryState.value = UiState.Error(throwable)
