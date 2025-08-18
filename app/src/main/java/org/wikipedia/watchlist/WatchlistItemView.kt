@@ -17,6 +17,7 @@ import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import kotlin.time.ExperimentalTime
 
 class WatchlistItemView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     val binding = ItemWatchlistBinding.inflate(LayoutInflater.from(context), this, true)
@@ -55,7 +56,8 @@ class WatchlistItemView(context: Context, attrs: AttributeSet? = null) : FrameLa
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
-        binding.timeText.text = DateUtil.getTimeString(context, item.date)
+        @OptIn(ExperimentalTime::class)
+        binding.timeText.text = DateUtil.getTimeString(context, item.timestamp)
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)

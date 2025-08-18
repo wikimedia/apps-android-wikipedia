@@ -11,7 +11,8 @@ import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
-import org.wikipedia.util.DateUtil
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 @Serializable
 class MwQueryPage {
@@ -88,20 +89,21 @@ class MwQueryPage {
     }
 
     @Serializable
-    class Revision {
-        private val slots: Map<String, RevisionSlot>? = null
-        val minor = false
-        @SerialName("revid") val revId: Long = 0
-        @SerialName("parentid") val parentRevId: Long = 0
-        @SerialName("anon") val isAnon = false
-        @SerialName("temp") val isTemp = false
-        @SerialName("timestamp") val timeStamp: String = ""
-        val size = 0
-        val user: String = ""
-        val comment: String = ""
-        val parsedcomment: String = ""
-
-        private val oresscores: JsonElement? = null
+    @OptIn(ExperimentalTime::class)
+    class Revision(
+        private val slots: Map<String, RevisionSlot>? = null,
+        val minor: Boolean = false,
+        @SerialName("revid") val revId: Long = 0,
+        @SerialName("parentid") val parentRevId: Long = 0,
+        @SerialName("anon") val isAnon: Boolean = false,
+        @SerialName("temp") val isTemp: Boolean = false,
+        val timestamp: Instant,
+        val size: Int = 0,
+        val user: String = "",
+        val comment: String = "",
+        val parsedcomment: String = "",
+        private val oresscores: JsonElement? = null,
+    ) {
         val ores: MwQueryResult.OresResult?
             get() = if (oresscores != null && oresscores !is JsonArray) {
                 JsonUtil.json.decodeFromJsonElement<MwQueryResult.OresResult>(oresscores)
@@ -110,8 +112,6 @@ class MwQueryPage {
         val contentMain get() = getContentFromSlot("main")
 
         var diffSize = 0
-
-        val localDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timeStamp) }
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()

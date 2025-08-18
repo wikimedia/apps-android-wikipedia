@@ -16,7 +16,10 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import java.time.LocalDateTime
+import java.time.LocalDate
+import java.time.ZoneId
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -28,22 +31,21 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         setPadding(padding, 0, padding, 0)
     }
 
+    @OptIn(ExperimentalTime::class)
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats?) {
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
                 "<a href=\"#\">${pageTitle.displayText}</a>"))
-        editHistoryStats?.let { stats ->
-            val timestamp = stats.revision.timeStamp
-            if (timestamp.isNotBlank()) {
-                val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
-                val localDateTime = LocalDateTime.now()
-                val today = DateUtil.getShortDateString(localDateTime.toLocalDate())
-                val lastYear = DateUtil.getShortDateString(localDateTime.minusYears(1).toLocalDate())
-                binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
-                    stats.allEdits.count, stats.allEdits.count, createdYear)
-                binding.statsGraphView.setData(stats.metrics.map { it.edits.toFloat() })
-                binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
-                FeedbackUtil.setButtonTooltip(binding.statsGraphView)
-            }
+        editHistoryStats?.revision?.timestamp?.let { timestamp ->
+            val date = LocalDate.ofInstant(timestamp.toJavaInstant(), ZoneId.systemDefault())
+            val createdYear = DateUtil.getYearOnlyDateString(date)
+            val localDate = LocalDate.now()
+            val today = DateUtil.getShortDateString(localDate)
+            val lastYear = DateUtil.getShortDateString(localDate.minusYears(1))
+            binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
+                editHistoryStats.allEdits.count, editHistoryStats.allEdits.count, createdYear)
+            binding.statsGraphView.setData(editHistoryStats.metrics.map { it.edits.toFloat() })
+            binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
+            FeedbackUtil.setButtonTooltip(binding.statsGraphView)
         }
         binding.articleTitleView.movementMethod = LinkMovementMethodExt { _ ->
             context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), pageTitle))
