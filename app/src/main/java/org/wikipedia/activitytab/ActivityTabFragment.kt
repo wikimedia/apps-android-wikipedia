@@ -12,6 +12,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -314,7 +315,7 @@ class ActivityTabFragment : Fragment() {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = wikiGamesUiState,
                                     onEntryCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
@@ -339,7 +340,7 @@ class ActivityTabFragment : Fragment() {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = donationUiState,
                                     onClick = {
                                         (requireActivity() as? BaseActivity)?.launchDonateDialog(
@@ -347,6 +348,11 @@ class ActivityTabFragment : Fragment() {
                                         )
                                     }
                                 )
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                // Add bottom padding only if at least one of the modules in this gradient box is enabled.
+                                Spacer(modifier = Modifier.size(16.dp))
                             }
                         }
                     }
@@ -367,7 +373,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
-                modules = ActivityTabModules(),
+                modules = ActivityTabModules(isDonationsEnabled = true),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -405,7 +411,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
-                modules = ActivityTabModules(),
+                modules = ActivityTabModules(isDonationsEnabled = true),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,

@@ -1,7 +1,6 @@
 package org.wikipedia.activitytab
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -63,16 +62,14 @@ fun WikiGamesModule(
     } else if (uiState is UiState.Success) {
         if (uiState.data == null) {
             WikiGamesEntryCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                modifier = modifier
+                    .fillMaxWidth(),
                 onClick = onEntryCardClick
             )
         } else {
             WikiGamesStatsCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                modifier = modifier
+                    .fillMaxWidth(),
                 gameStatistics = uiState.data,
                 onClick = onStatsCardClick
             )
@@ -253,9 +250,7 @@ private fun WikiGamesEntryCardPreview() {
         currentTheme = Theme.LIGHT
     ) {
         WikiGamesEntryCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+            modifier = Modifier,
             onClick = {}
         )
     }
@@ -267,18 +262,12 @@ private fun WikiGamesStatViewPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        Column(
-            modifier = Modifier
-                .background(WikipediaTheme.colors.paperColor)
-                .padding(16.dp)
-        ) {
-            WikiGamesStatView(
-                modifier = Modifier,
-                iconResource = R.drawable.ic_today_24px,
-                statValue = "42",
-                statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, 42)
-            )
-        }
+        WikiGamesStatView(
+            modifier = Modifier,
+            iconResource = R.drawable.ic_today_24px,
+            statValue = "42",
+            statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, 42)
+        )
     }
 }
 
@@ -288,21 +277,15 @@ private fun WikiGamesStatsCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        Column(
-            modifier = Modifier
-                .background(WikipediaTheme.colors.paperColor)
-                .padding(16.dp)
-        ) {
-            WikiGamesStatsCard(
-                modifier = Modifier.fillMaxWidth(),
-                gameStatistics = OnThisDayGameViewModel.GameStatistics(
-                    totalGamesPlayed = 43,
-                    averageScore = 4.5,
-                    currentStreak = 5,
-                    bestStreak = 15
-                ),
-                onClick = {}
-            )
-        }
+        WikiGamesStatsCard(
+            modifier = Modifier,
+            gameStatistics = OnThisDayGameViewModel.GameStatistics(
+                totalGamesPlayed = 43,
+                averageScore = 4.5,
+                currentStreak = 5,
+                bestStreak = 15
+            ),
+            onClick = {}
+        )
     }
 }
