@@ -432,7 +432,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                 UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
                                 binding.root.post {
                                     if (isAdded) {
-                                        requireActivity().onBackPressed()
+                                        requireActivity().onBackPressedDispatcher.onBackPressed()
                                     }
                                 }
                             }

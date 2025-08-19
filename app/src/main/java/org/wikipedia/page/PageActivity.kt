@@ -16,6 +16,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -190,6 +191,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -367,25 +370,27 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         handleIntent(intent)
     }
 
-    override fun onBackPressed() {
-        if (isCabOpen) {
-            onPageCloseActionMode()
-            return
-        }
-        app.appSessionEvent.backPressed()
-        if (pageFragment.onBackPressed()) {
-            return
-        }
+    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (isCabOpen) {
+                onPageCloseActionMode()
+                return
+            }
+            app.appSessionEvent.backPressed()
+            if (pageFragment.onBackPressed()) {
+                return
+            }
 
-        // If user enter PageActivity in portrait and leave in landscape,
-        // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
-            binding.wikiArticleCardView.visibility = View.GONE
-        } else {
-            binding.wikiArticleCardView.visibility = View.VISIBLE
-            binding.pageFragment.visibility = View.GONE
+            // If user enter PageActivity in portrait and leave in landscape,
+            // we should hide the transition animation view to prevent bad animation.
+            if (DimenUtil.isLandscape(this@PageActivity) || !hasTransitionAnimation) {
+                binding.wikiArticleCardView.visibility = View.GONE
+            } else {
+                binding.wikiArticleCardView.visibility = View.VISIBLE
+                binding.pageFragment.visibility = View.GONE
+            }
+            finish()
         }
-        super.onBackPressed()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {

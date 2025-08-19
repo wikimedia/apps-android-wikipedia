@@ -11,6 +11,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.net.toUri
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -45,7 +46,6 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.SearchActionProvider
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.imageservice.ImageLoadListener
-import androidx.core.net.toUri
 
 class InsertMediaActivity : BaseActivity() {
     private lateinit var binding: ActivityInsertMediaBinding

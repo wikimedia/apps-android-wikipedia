@@ -18,6 +18,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -75,7 +76,6 @@ import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
-import androidx.core.net.toUri
 
 class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback {
     private val viewModel: EditSectionViewModel by viewModels()

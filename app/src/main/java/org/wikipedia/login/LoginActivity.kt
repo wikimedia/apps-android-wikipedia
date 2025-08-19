@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
@@ -32,7 +33,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
-import androidx.core.net.toUri
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding

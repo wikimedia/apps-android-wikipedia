@@ -11,6 +11,7 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.activity.addCallback
 import androidx.activity.viewModels
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
@@ -35,7 +36,6 @@ import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
 import java.util.regex.Pattern
-import androidx.core.net.toUri
 
 class CreateAccountActivity : BaseActivity() {
     enum class ValidateResult {

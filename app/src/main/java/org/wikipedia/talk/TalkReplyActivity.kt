@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -113,6 +114,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
@@ -559,31 +562,33 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
-    override fun onBackPressed() {
-        setResult(RESULT_BACK_FROM_TOPIC)
-        sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-        if (messagePreviewFragment.isActive) {
-            showProgressBar(false)
-            binding.talkScrollContainer.isVisible = true
-            messagePreviewFragment.hide()
-            setSaveButtonEnabled(true)
-            binding.replyNextButton.text = getString(R.string.edit_next)
-            setToolbarTitle(viewModel.pageTitle)
-        } else if (subjectOrBodyModified) {
-            MaterialAlertDialogBuilder(this)
-                .setCancelable(false)
-                .setTitle(R.string.talk_new_topic_exit_dialog_title)
-                .setMessage(R.string.talk_new_topic_exit_dialog_message)
-                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
-                    sendPatrollerExperienceEvent("publish_exit", "pt_warning_messages")
-                    super.onBackPressed()
-                }
-                .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
-                    sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
-                }
-                .show()
-        } else {
-            super.onBackPressed()
+    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            setResult(RESULT_BACK_FROM_TOPIC)
+            sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
+            if (messagePreviewFragment.isActive) {
+                showProgressBar(false)
+                binding.talkScrollContainer.isVisible = true
+                messagePreviewFragment.hide()
+                setSaveButtonEnabled(true)
+                binding.replyNextButton.text = getString(R.string.edit_next)
+                setToolbarTitle(viewModel.pageTitle)
+            } else if (subjectOrBodyModified) {
+                MaterialAlertDialogBuilder(this@TalkReplyActivity)
+                    .setCancelable(false)
+                    .setTitle(R.string.talk_new_topic_exit_dialog_title)
+                    .setMessage(R.string.talk_new_topic_exit_dialog_message)
+                    .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
+                        sendPatrollerExperienceEvent("publish_exit", "pt_warning_messages")
+                        finish()
+                    }
+                    .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
+                        sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
+                    }
+                    .show()
+            } else {
+                finish()
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
@@ -13,13 +14,15 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setImageZoomHelper()
-    }
 
-    override fun onBackPressed() {
-        if (fragment.topBaseChild()?.onBackPressed() == false) {
-            return
-        }
-        super.onBackPressed()
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (fragment.topBaseChild()?.onBackPressed() == false) {
+                    return
+                }
+                finish()
+            }
+        })
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
