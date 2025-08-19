@@ -119,7 +119,8 @@ class ActivityTabFragment : Fragment() {
                         userName = AccountUtil.userName,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
-                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value
+                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
+                        timelineUiState = viewModel.timelineState.collectAsState().value
                     )
                 }
             }
@@ -139,7 +140,8 @@ class ActivityTabFragment : Fragment() {
         userName: String,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
-        wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>
+        wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
+        timelineUiState: TimelineUiState
     ) {
         Scaffold(
             modifier = Modifier
@@ -153,6 +155,7 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
+            val displayItems = remember(timelineUiState.items) { timelineUiState.items.groupByDateWithSeparators() }
 
             if (!isLoggedIn) {
                 Box(
@@ -352,6 +355,23 @@ class ActivityTabFragment : Fragment() {
 
                     if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
                         // @TODO: MARK_ACTIVITY_TAB
+                        items(
+                            count = displayItems.size,
+                        ) { index ->
+                            when (val displayItem = displayItems[index]) {
+                                is TimelineDisplayItem.DateSeparator -> {
+                                    TimelineDateSeparator(
+                                        date = displayItem.date,
+                                        modifier = Modifier
+                                            .padding(horizontal = 16.dp)
+                                            .padding(top = 32.dp)
+                                    )
+                                }
+                                is TimelineDisplayItem.TimelineEntry -> {
+                                    Timeline(timelineItem = displayItem.item)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -391,7 +411,8 @@ class ActivityTabFragment : Fragment() {
                     averageScore = 4.5,
                     currentStreak = 15,
                     bestStreak = 25
-                ))
+                )),
+                timelineUiState = TimelineUiState()
             )
         }
     }
@@ -414,7 +435,8 @@ class ActivityTabFragment : Fragment() {
                     topCategories = emptyList()
                 )),
                 donationUiState = UiState.Success("Unknown"),
-                wikiGamesUiState = UiState.Success(null)
+                wikiGamesUiState = UiState.Success(null),
+                timelineUiState = TimelineUiState()
             )
         }
     }
@@ -437,7 +459,8 @@ class ActivityTabFragment : Fragment() {
                     topCategories = emptyList()
                 )),
                 donationUiState = UiState.Success("Unknown"),
-                wikiGamesUiState = UiState.Success(null)
+                wikiGamesUiState = UiState.Success(null),
+                timelineUiState = TimelineUiState()
             )
         }
     }

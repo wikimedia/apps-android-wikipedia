@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
@@ -23,6 +24,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -35,10 +37,19 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
+    private val repository = TimelineRepository(userName = AccountUtil.userName)
+    private val pageSize = 50
+
+    private val _timelineState = MutableStateFlow(TimelineUiState())
+    val timelineState = _timelineState.asStateFlow()
+
+    private val allTimelineItems = mutableListOf<TimelineItem>()
+
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
         loadWikiGamesStats()
+        loadInitialTimeline()
     }
 
     fun loadReadingHistory() {
@@ -116,6 +127,67 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
 
+    fun loadInitialTimeline() {
+        viewModelScope.launch {
+            _timelineState.value = TimelineUiState(isInitialLoading = true)
+            loadTimelinePage(0, true)
+        }
+    }
+
+    fun loadNextPage() {
+        val currentState = _timelineState.value
+        if (currentState.isLoadingMore || !currentState.hasMoreData) return
+        viewModelScope.launch {
+            _timelineState.value = currentState.copy(isLoadingMore = true, hasError = false)
+            loadTimelinePage(currentState.currentPage + 1, isInitial = false)
+        }
+    }
+
+    private suspend fun loadTimelinePage(page: Int, isInitial: Boolean) {
+        try {
+            val (mergedItems, hasMoreData) = repository.getTimelinePage(page, pageSize)
+            if (isInitial) {
+                allTimelineItems.clear()
+                allTimelineItems.addAll(mergedItems)
+            } else {
+                // Append new items, avoiding duplicates
+                val newItems = mergedItems.filter { newItem ->
+                    allTimelineItems.none { it.id == newItem.id }
+                }
+                allTimelineItems.addAll(newItems)
+            }
+
+            _timelineState.value = _timelineState.value.copy(
+                items = allTimelineItems.toList(),
+                isLoadingMore = false,
+                isInitialLoading = false,
+                hasMoreData = hasMoreData,
+                currentPage = page,
+                hasError = false
+            )
+        } catch (e: Exception) {
+            _timelineState.value = _timelineState.value.copy(
+                isLoadingMore = false,
+                isInitialLoading = false,
+                hasError = true,
+                errorMessage = e.message ?: "Unknown error occurred"
+            )
+        }
+    }
+
+    fun retryLoading() {
+        if (_timelineState.value.items.isEmpty()) {
+            loadInitialTimeline()
+        } else {
+            loadNextPage()
+        }
+    }
+
+    fun refresh() {
+        allTimelineItems.clear()
+        loadInitialTimeline()
+    }
+
     class ReadingHistory(
         val timeSpentThisWeek: Long,
         val articlesReadThisMonth: Int,
@@ -130,4 +202,17 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     companion object {
         const val CAMPAIGN_ID = "appmenu_activity"
     }
+}
+
+// Extension functions
+fun Date.toLocalDate(): LocalDate {
+    return this.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+}
+
+fun Date.isToday(): Boolean {
+    return this.toLocalDate() == LocalDate.now()
+}
+
+fun Date.isYesterday(): Boolean {
+    return this.toLocalDate() == LocalDate.now().minusDays(1)
 }

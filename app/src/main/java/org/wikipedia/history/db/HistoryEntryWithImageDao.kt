@@ -97,7 +97,7 @@ interface HistoryEntryWithImageDao {
             lang = entryWithImage.lang,
             apiTitle = entryWithImage.apiTitle,
             displayTitle = entryWithImage.displayTitle,
-            id = 0,
+            id = entryWithImage.id,
             namespace = entryWithImage.namespace,
             timestamp = entryWithImage.timestamp,
             source = entryWithImage.source
