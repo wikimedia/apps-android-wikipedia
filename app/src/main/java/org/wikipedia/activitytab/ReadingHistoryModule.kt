@@ -430,7 +430,8 @@ fun ReadingHistoryModule(
     } else if (readingHistoryState is UiState.Error) {
         Box(
             modifier = modifier
-                .fillMaxSize(),
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             contentAlignment = Alignment.Center
         ) {
             WikiErrorView(
