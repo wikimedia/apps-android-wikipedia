@@ -199,7 +199,7 @@ fun WikiGamesStatView(
 
 @Composable
 fun WikiGamesEntryCard(
-    modifier: Modifier ,
+    modifier: Modifier,
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(
