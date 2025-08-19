@@ -40,6 +40,11 @@ class GrowthUserImpact(
     val topViewedArticles: Map<String, ArticleViews> by lazy { if (mTopViewedArticles is JsonObject) { JsonUtil.json.decodeFromJsonElement(mTopViewedArticles) } else { emptyMap() } }
     val longestEditingStreak: EditStreak? by lazy { if (mLongestEditingStreak is JsonObject) { JsonUtil.json.decodeFromJsonElement(mLongestEditingStreak) } else { null } }
 
+    val groupEditsByMonth: Map<String, Int> by lazy {
+        editCountByDay.entries.groupBy { it.key.substring(0, 7) }
+            .mapValues { it.value.sumOf { entry -> entry.value } }
+    }
+
     @Serializable
     class ArticleViews(
         val firstEditDate: String = "",

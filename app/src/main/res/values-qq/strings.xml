@@ -1197,6 +1197,39 @@
   <string name="activity_tab_customize_screen_games_switch_title">Title of the switch for the Games module in the customize screen.</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Title of the switch for the Donations module in the customize screen.</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Title of the switch for the Timeline module in the customize screen.</string>
+  <string name="activity_tab_impact">Label for the Impact section of the activity tab</string>
+  <string name="activity_tab_impact_most_viewed">Title of the most viewed card of the activity tab.</string>
+  <string name="activity_tab_impact_contributions_this_month">Title of the contributions card of the activity tab.</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">Label of the contributions card that indicates the edit this month.</item>
+    <item quantity="other">Label of the contributions card that indicates the edits this month.</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">Label of the contributions card that indicates the edit last month.</item>
+    <item quantity="other">Label of the contributions card that indicates the edits last month.</item>
+  </plurals>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">Label of the suggested edits card that indicates the number of total edits.</item>
+    <item quantity="other">Label of the suggested edits card that indicates the number of total edits.</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">Label of the suggested edits card that indicates the number of thanks.</item>
+    <item quantity="other">Label of the suggested edits card that indicates the number of thanks.</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Label of the suggested edits card that indicates the best streak</string>
+  <string name="activity_tab_impact_last_edited">Label of the suggested edits card that indicates the last edited</string>
+  <string name="activity_tab_impact_suggested_edits_title">Title of the suggested edits card in the impact section.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Message of the suggested edits card in the impact section.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Button label of the suggested edits card in the impact section.</string>
+  <string name="activity_tab_impact_recent_activity">Title of the recent activity section in the suggested edits card in the impact section.</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Label of the recent activity section in the suggested edits card that indicates the number of total edits.</item>
+    <item quantity="other">Label of the recent activity section in the suggested edits card that indicates the number of total edits.</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Label of the recent activity section in the suggested edits card that indicates the total views.</item>
+    <item quantity="other">Label of the recent activity section in the suggested edits card that indicates the total views.</item>
+  </plurals>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

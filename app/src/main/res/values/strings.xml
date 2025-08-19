@@ -1216,6 +1216,39 @@
     <string name="activity_tab_customize_screen_games_switch_title">Games</string>
     <string name="activity_tab_customize_screen_donations_switch_title">Donations</string>
     <string name="activity_tab_customize_screen_timeline_switch_title">Timeline</string>
+    <string name="activity_tab_impact">Your impact</string>
+    <string name="activity_tab_impact_most_viewed">Most viewed since your edit</string>
+    <string name="activity_tab_impact_contributions_this_month">Contributions this month</string>
+    <plurals name="activity_tab_impact_edits_this_month">
+        <item quantity="one">Edit this month</item>
+        <item quantity="other">Edits this month</item>
+    </plurals>
+    <plurals name="activity_tab_impact_edits_last_month">
+        <item quantity="one">Edit last month</item>
+        <item quantity="other">Edits last month</item>
+    </plurals>
+    <plurals name="activity_tab_impact_total_edits">
+        <item quantity="one">Total edit</item>
+        <item quantity="other">Total edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_thanks">
+        <item quantity="one">Thank</item>
+        <item quantity="other">Thanks</item>
+    </plurals>
+    <string name="activity_tab_impact_best_streak">Best streak</string>
+    <string name="activity_tab_impact_last_edited">Last edited</string>
+    <string name="activity_tab_impact_suggested_edits_title">0 edits to articles so far</string>
+    <string name="activity_tab_impact_suggested_edits_message">Help extend free knowledge to the world by editing topics that matter most to you.</string>
+    <string name="activity_tab_impact_suggested_edits_button">Try out suggested edits</string>
+    <string name="activity_tab_impact_recent_activity">Your recent activity (last 30 days)</string>
+    <plurals name="activity_tab_impact_recent_activity_edits">
+        <item quantity="one">Edit</item>
+        <item quantity="other">Edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_recent_activity_views">
+        <item quantity="one">View on articles you\'ve edited</item>
+        <item quantity="other">Views on articles you\'ve edited</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- File page -->
