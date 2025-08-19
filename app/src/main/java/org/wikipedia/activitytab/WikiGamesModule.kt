@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -130,13 +131,13 @@ fun WikiGamesStatsCard(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.baseline_extension_24,
                     statValue = gameStatistics.totalGamesPlayed.toString(),
-                    statLabel = stringResource(R.string.activity_tab_game_stats_played)
+                    statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, gameStatistics.totalGamesPlayed)
                 )
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.outline_motion_blur_24,
                     statValue = gameStatistics.currentStreak.toString(),
-                    statLabel = stringResource(R.string.activity_tab_game_stats_current_streak)
+                    statLabel = stringResource(R.string.on_this_day_game_stats_streak)
                 )
             }
             Row(
@@ -155,7 +156,7 @@ fun WikiGamesStatsCard(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.outline_sports_score_24,
                     statValue = gameStatistics.averageScore.toString(),
-                    statLabel = stringResource(R.string.activity_tab_game_stats_average_score)
+                    statLabel = stringResource(R.string.on_this_day_game_stats_average_score)
                 )
             }
         }
@@ -205,7 +206,7 @@ fun WikiGamesEntryCard(
     WikiCard(
         modifier = modifier
             .clickable(onClick = { onClick?.invoke() }),
-        elevation = 0.dp,
+        elevation = 4.dp,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.progressiveColor,
             contentColor = WikipediaTheme.colors.progressiveColor
@@ -224,13 +225,13 @@ fun WikiGamesEntryCard(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.activity_tab_game_entry_title),
+                    text = stringResource(R.string.on_this_day_game_title),
                     style = MaterialTheme.typography.headlineSmall,
                     color = WikipediaTheme.colors.paperColor,
                     fontFamily = FontFamily.Serif
                 )
                 HtmlText(
-                    text = stringResource(R.string.activity_tab_game_entry_message),
+                    text = stringResource(R.string.on_this_day_game_splash_message),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.paperColor
                 )
@@ -274,8 +275,8 @@ private fun WikiGamesStatViewPreview() {
             WikiGamesStatView(
                 modifier = Modifier,
                 iconResource = R.drawable.ic_today_24px,
-                statValue = "43",
-                statLabel = stringResource(R.string.activity_tab_game_stats_played)
+                statValue = "42",
+                statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, 42)
             )
         }
     }

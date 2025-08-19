@@ -117,6 +117,7 @@ class ActivityTabFragment : Fragment() {
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
+                        modules = Prefs.activityTabModules,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value
@@ -137,6 +138,7 @@ class ActivityTabFragment : Fragment() {
     fun ActivityTabScreen(
         isLoggedIn: Boolean,
         userName: String,
+        modules: ActivityTabModules,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>
@@ -149,7 +151,6 @@ class ActivityTabFragment : Fragment() {
         ) { paddingValues ->
             var isRefreshing by remember { mutableStateOf(false) }
             val state = rememberPullToRefreshState()
-            val modules = Prefs.activityTabModules
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
@@ -366,6 +367,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                modules = ActivityTabModules(),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -403,6 +405,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                modules = ActivityTabModules(),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -426,6 +429,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = false,
                 userName = "User",
+                modules = ActivityTabModules(),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
