@@ -1183,7 +1183,6 @@
   <string name="activity_tab_explore_wikipedia">Button label to go to the Explore screen.</string>
   <string name="activity_tab_discover_encourage">Label encouraging the user to discover new articles.</string>
   <string name="activity_tab_donation_unknown">Label on card that shows the last donation time.</string>
-  <string name="activity_tab_donation_last_donation">Title of the donation card that indicates last donation.</string>
   <string name="activity_tab_game_entry_title">Title of the Wikipedia games entry card.</string>
   <string name="activity_tab_game_entry_message">Message of the Wikipedia games entry card.</string>
   <string name="activity_tab_game_stats">Title of the game stats card.</string>
@@ -1191,6 +1190,18 @@
   <string name="activity_tab_game_stats_current_streak">Label of the game stats that indicates the current streak.</string>
   <string name="activity_tab_game_stats_best_streak">Label of the game stats that indicates the best streak.</string>
   <string name="activity_tab_game_stats_average_score">Label of the game stats that indicates the average score of the games.</string>
+  <string name="activity_tab_donation_last_donation">Subtitle of the donation card that indicates last donation.</string>
+  <string name="activity_tab_report_email_subject">Subject heading for sending a report about a problem with the Activity tab feature.</string>
+  <string name="activity_tab_report_email_body">Body of email for sending a report about a problem with the Activity tab feature.</string>
+  <string name="activity_tab_menu_feedback">Menu label for providing feedback on the activity tab.</string>
+  <string name="activity_tab_menu_info">Menu label for visiting the information page of the activity tab.</string>
+  <string name="activity_tab_menu_customize">Menu label for opening the activity tab customization screen.</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Title of the switch for the Reading History module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Title of the switch for the Impact module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Title of the switch for the Games module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Title of the switch for the Donations module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Title of the switch for the Timeline module in the customize screen.</string>
+  <string name="activity_tab_customize_screen_title">Title shown at the top of the activity for the customize screen.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

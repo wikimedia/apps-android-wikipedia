@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.ActivityTabModules
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -839,4 +840,9 @@ object Prefs {
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
         ) ?: DonationReminderConfig()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
+
+    var activityTabModules: ActivityTabModules
+        get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
+            ?: ActivityTabModules()
+        set(modules) = PrefsIoUtil.setString(R.string.preference_key_activity_tab_modules, JsonUtil.encodeToString(modules))
 }

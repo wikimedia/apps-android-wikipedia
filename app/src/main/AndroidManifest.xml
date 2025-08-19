@@ -381,6 +381,9 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".activitytab.ActivityTabCustomizationActivity" />
+
+        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
