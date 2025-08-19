@@ -160,7 +160,7 @@ class TemplatesSearchActivity : BaseActivity() {
         }
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (insertTemplateFragment.handleBackPressed()) {
                 if (templatesSearchAdapter != null) {

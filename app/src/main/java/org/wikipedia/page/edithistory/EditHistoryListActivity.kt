@@ -196,7 +196,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (viewModel.comparing) {
                 viewModel.toggleCompareState()

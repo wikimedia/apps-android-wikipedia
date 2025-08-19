@@ -43,7 +43,7 @@ class AddLanguagesListActivity : BaseActivity() {
                         .imePadding(),
                     uiState = uiState,
                     onBackButtonClick = {
-                        finish()
+                        onBackPressedDispatcher.onBackPressed()
                     },
                     onSearchQueryChange = { query ->
                         viewModel.updateSearchTerm(query)

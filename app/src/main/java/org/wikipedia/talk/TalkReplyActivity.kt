@@ -562,7 +562,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             setResult(RESULT_BACK_FROM_TOPIC)
             sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")

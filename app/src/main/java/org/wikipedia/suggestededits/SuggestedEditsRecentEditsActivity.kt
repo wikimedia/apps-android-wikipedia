@@ -3,7 +3,7 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.settings.Prefs
@@ -15,12 +15,10 @@ class SuggestedEditsRecentEditsActivity : SingleFragmentActivity<SuggestedEditsR
         maybeShowOnboarding()
         PatrollerExperienceEvent.logImpression("pt_recent_changes")
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                PatrollerExperienceEvent.logAction("back", "pt_recent_changes")
-                finish()
-            }
-        })
+        onBackPressedDispatcher.addCallback(this) {
+            PatrollerExperienceEvent.logAction("back", "pt_recent_changes")
+            finish()
+        }
     }
 
     public override fun createFragment(): SuggestedEditsRecentEditsFragment {

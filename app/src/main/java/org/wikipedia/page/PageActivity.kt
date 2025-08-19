@@ -370,7 +370,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         handleIntent(intent)
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (isCabOpen) {
                 onPageCloseActionMode()
@@ -389,7 +389,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 binding.wikiArticleCardView.visibility = View.VISIBLE
                 binding.pageFragment.visibility = View.GONE
             }
-            finish()
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 

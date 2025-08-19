@@ -49,7 +49,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (readingListMode == ReadingListMode.DEFAULT) {
                 ReadingListsAnalyticsHelper.logReceiveCancel(this@ReadingListActivity, fragment.readingList)

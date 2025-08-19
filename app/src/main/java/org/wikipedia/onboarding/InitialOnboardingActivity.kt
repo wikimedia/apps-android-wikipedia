@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.settings.Prefs
 
@@ -19,13 +19,9 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
-    }
-
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
+        onBackPressedDispatcher.addCallback(this) {
             if (fragment.onBackPressed()) {
-                return
+                return@addCallback
             }
             setResult(RESULT_OK)
             finish()

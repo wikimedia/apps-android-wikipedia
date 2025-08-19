@@ -190,7 +190,7 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    val onBackPressedCallback = object : OnBackPressedCallback(true) {
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (insertMediaSettingsFragment.handleBackPressed()) {
                 if (insertMediaAdapter != null) {
