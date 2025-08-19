@@ -303,15 +303,15 @@
   <string name="terms_of_use_description">利用規約</string>
   <string name="about_wikipedia_url">https://ja.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
@@ -380,6 +380,7 @@
   <string name="widget_name_featured_page">ウィキペディアの秀逸な記事</string>
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
+  <string name="widget_description_search">ウィキペディアを検索する最速の方法</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
@@ -474,7 +475,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="preference_title_delete_local_donation_history">ローカル寄付履歴を削除</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">ローカル寄付履歴を削除</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
@@ -619,8 +620,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">すべての閲覧リストに対して、%sはオフラインで利用できなくなります：</string>
   <string name="reading_lists_sync_reminder_title">あとで読むリストの同期を停止しますか?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
   <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
@@ -1691,16 +1692,29 @@
   <string name="survey_dialog_submitted_snackbar">フィードバックが送信されました。ありがとうございます！</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ウィキペディアゲーム</string>
   <string name="on_this_day_game_dialog_button">再生</string>
+  <string name="on_this_day_game_submit">送信</string>
   <string name="on_this_day_game_share_button">共有</string>
   <string name="on_this_day_game_pause_positive">わかりました</string>
   <string name="on_this_day_game_menu_info">詳細</string>
   <string name="on_this_day_game_menu_feedback">機能の問題</string>
   <string name="on_this_day_game_article_read_button">記事を読む</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">いいえ、そのままにします</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">オフにする</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
+  <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
+  <string name="year_in_review_survey_very_satisfied">非常に満足</string>
+  <string name="year_in_review_survey_satisfied">満足</string>
+  <string name="year_in_review_survey_neutral">どちらともいえない</string>
+  <string name="year_in_review_survey_unsatisfied">不満</string>
+  <string name="year_in_review_survey_very_unsatisfied">非常に不満</string>
+  <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">週</string>
@@ -1713,6 +1727,19 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">毎日</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">毎週</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_notifications_title">通知</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">通知をオフにしますか?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、そのままにします</string>
+  <string name="donation_reminders_initial_prompt_positive_button">始める</string>
+  <string name="donation_reminders_initial_prompt_negative_button">今はしない</string>
   <string name="donation_settings_section_header">寄付</string>
   <string name="donation_reminders_settings_title">寄付のリマインダー</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
+  <string name="donation_reminders_prompt_negative_button">今はしない</string>
+  <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>
+  <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
+  <string name="donation_reminders_survey_dialog_title">寄付リマインダーの改善にご協力ください。</string>
+  <string name="donation_reminders_settings_description_off">寄付リマインダーはオフです。</string>
 </resources>

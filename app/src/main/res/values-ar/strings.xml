@@ -493,7 +493,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
-  <string name="preference_title_delete_local_donation_history">حذف سجل التبرعات المحلية</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">حذف سجل التبرعات المحلية</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">تبويب جديد</string>
@@ -2117,4 +2117,33 @@
   <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>
+  <string name="donation_reminders_initial_prompt_label">تجربة</string>
+  <string name="donation_reminders_initial_prompt_title">ادعم ويكيبيديا أثناء قراءتك</string>
+  <string name="donation_reminders_initial_prompt_message">قم بإعداد تذكير بالتبرعات استنادًا إلى عدد المقالات التي تقرأها للمساعدة في إبقاء ويكيبيديا خالية من الإعلانات ومحدثة ومتاحة للجميع.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">البدء</string>
+  <string name="donation_reminders_initial_prompt_negative_button">ليس الآن</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">يمكن تعديل تذكيرات التبرع في أي وقت من خلال الإعدادات.</string>
+  <string name="donation_settings_section_header">التبرعات</string>
+  <string name="donation_reminders_settings_title">تذكيرات التبرع</string>
+  <string name="donation_reminders_settings_thank_you_message">انضم إلى ٢٪ من القراء الذين يبذلون قصارى جهدهم لإبقاء ويكيبيديا خالية من الإعلانات، ومُحدَّثة، ومتاحة للجميع. فعِّل تذكيرك بالتبرعات الآن.</string>
+  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والمؤسسات التابعة لها، المضيفين الفخورين لموقع ويكيبيديا ومواقعها الشقيقة.</string>
+  <string name="donation_reminders_settings_article_frequency_label">عندما أقرأ</string>
+  <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
+  <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">حول هذه التجربة</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">مقالات</string>
+  <string name="donation_reminders_settings_warning_min_amount">الرجاء إدخال ما لا يقل عن %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
+  <string name="donation_reminders_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
+  <string name="donation_reminders_prompt_message">في %1$s ، طلبتَ منا تذكيرك بالتبرع بعد قراءة %2$s . إذا زودتك ويكيبيديا بـ %3$s من المعرفة، فنرجو منك الانضمام إلى الـ 2%% من القراء المتبرعين وإتمام تبرعك اليوم.</string>
+  <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
+  <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
+  <string name="donation_reminders_gpay_text">تبرع بـ %s باستخدام Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">التبرع بمبلغ مختلف باستخدام Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">ساعد في تحسين تذكيرات التبرع.</string>
+  <string name="donation_reminders_survey_dialog_message">هل أنت راض عن هذه التجربة؟</string>
+  <string name="donation_reminders_settings_description_on">تذكيرات التبرع مُفعّلة. ستُذكّرك ويكيبيديا بالتبرع %1$s كل %2$s تقرأها أثناء هذه التجربة.</string>
+  <string name="donation_reminders_settings_description_off">تم إيقاف تذكير التبرعات.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">يتم تخزين عدد المقالات محليًا على جهازك</string>
 </resources>

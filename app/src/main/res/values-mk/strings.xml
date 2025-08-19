@@ -5,6 +5,7 @@
 * Dbrant
 * Violetova
 * Vlad5250
+* Wrai
 * Монтехристо
 -->
 <resources>
@@ -423,7 +424,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
-  <string name="preference_title_delete_local_donation_history">Избришете историја на месно дарување</string>
+  <string name="preference_title_delete_local_donation_history">Исчисти историја на дарување</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
@@ -1901,6 +1902,8 @@
   <string name="donation_reminders_settings_confirm_btn_label">Потврди го потсетникот</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">За овој опит</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">статии</string>
+  <string name="donation_reminders_settings_warning_min_amount">Внесете барем %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Дозволено е највеќе %s</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
   <string name="donation_reminders_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
   <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
@@ -1913,7 +1916,6 @@
   <string name="donation_reminders_settings_description_on">Потсетниците за дарување се вклучени. Википедија ќе ве потсетува да дарувате %1$s на секои %2$s што ќе ги прочитате додека трае опитот.</string>
   <string name="donation_reminders_settings_description_off">Потсетниците за дарување се исклучени.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Бројот на статии се складира месно на вашиот уред</string>
-  <string name="donation_reminders_prompt_success_snackbar">Ви благодариме! Вашата великодушност кон Википедија многу ни значи.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d статија</item>
     <item quantity="other">%d статии</item>

@@ -36,6 +36,7 @@
 * Walter Klosse
 * Want
 * WikipedistaOndra
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Wikipedie</string>
@@ -456,7 +457,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
-  <string name="preference_title_delete_local_donation_history">Smazat lokální historii darů</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Smazat lokální historii darů</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Přizpůsobit vzhledu systému</string>
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
   <string name="empty_tab_title">Nová záložka</string>
@@ -1597,4 +1598,16 @@
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Herní notifikace vypnuté</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Herní notifikace zapnuté</string>
   <string name="on_this_day_game_notification_undo">Zpět</string>
+  <string name="year_in_review_get_started">Začít</string>
+  <string name="recommended_reading_list_title">Objevit</string>
+  <string name="recommended_reading_list_onboarding_card_title">Objevte články vybrané právě pro vás</string>
+  <string name="recommended_reading_list_onboarding_card_message">Váš týdenní seznam článků na Wikipedii, sestavený právě pro vás.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nové!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Začít</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Ne, děkuji</string>
+  <string name="recommended_reading_list_interest_source_message">Jak bychom měli sestavit váš doporučený seznam k přečtení?</string>
+  <string name="recommended_reading_list_interest_source_interests">Nechte mě vybrat si na základě svých zájmů</string>
+  <string name="recommended_reading_list_interest_source_history">Vyberte pro mě na základě mé historie čtení</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Sestaveno pro %s</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Začít</string>
 </resources>
