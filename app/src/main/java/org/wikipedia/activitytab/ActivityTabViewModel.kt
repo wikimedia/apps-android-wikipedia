@@ -38,6 +38,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
+        loadWikiGamesStats()
     }
 
     fun loadReadingHistory() {
