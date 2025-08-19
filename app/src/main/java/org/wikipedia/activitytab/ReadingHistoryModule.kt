@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -48,6 +49,7 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.TinyBarChart
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -424,6 +426,19 @@ fun ReadingHistoryModule(
                     text = stringResource(R.string.activity_tab_explore_wikipedia)
                 )
             }
+        }
+    } else if (readingHistoryState is UiState.Error) {
+        Box(
+            modifier = modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            WikiErrorView(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                caught = readingHistoryState.error,
+                errorClickEvents = wikiErrorClickEvents
+            )
         }
     }
 }

@@ -338,14 +338,19 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onStatsCardClick = {
-                                        // TODO: ask PM if these two actions should be the same.
+                                        // TODO: link to the stats page when we have the WikiGames home page.
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
 
                                             wikiSite = WikipediaApp.instance.wikiSite
                                         ))
-                                    }
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadWikiGamesStats()
+                                        }
+                                    )
                                 )
                             }
 
