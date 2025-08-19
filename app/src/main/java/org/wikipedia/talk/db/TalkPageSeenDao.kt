@@ -16,6 +16,9 @@ interface TalkPageSeenDao {
     @Query("SELECT * FROM TalkPageSeen")
     suspend fun getAll(): List<TalkPageSeen>
 
+    @Query("SELECT * FROM TalkPageSeen WHERE sha IN (:shaList)")
+    suspend fun getFor(shaList: List<String>): List<TalkPageSeen>
+
     @Query("DELETE FROM TalkPageSeen WHERE sha = :sha")
     suspend fun deleteTalkPageSeen(sha: String)
 
