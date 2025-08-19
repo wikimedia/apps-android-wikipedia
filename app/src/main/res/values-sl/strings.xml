@@ -433,7 +433,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatemnitev slike (pri temni temi)</string>
   <string name="preference_title_prefer_offline_content">Prednost daj preneseni vsebini</string>
   <string name="preference_summary_prefer_offline_content">Prihranite pri porabi podatkov tako, da namesto stalnega prenašanja zadnje redakcije članka uporabljate članke, kakor so že na voljo preneseni.</string>
-  <string name="preference_title_delete_local_donation_history">Izbris lokalne zgodovine donacij</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Izbris lokalne zgodovine donacij</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Usklajeno s sistemsko temo</string>
   <string name="page_footer_license_text">Vsebina je na voljo pod licenco $1, razen če je navedeno drugače.</string>
   <string name="empty_tab_title">Nov zavihek</string>
@@ -1309,7 +1309,7 @@
   <string name="wikitext_headings">Podnaslovi</string>
   <string name="wikitext_insert_media">Vstavi predstavnost</string>
   <string name="wikitext_bulleted_list">Označen seznam</string>
-  <string name="wikitext_numbered_list">Oštevilčen seznam</string>
+  <string name="wikitext_numbered_list">Oštevilčeni seznam</string>
   <string name="wikitext_template">Predloga</string>
   <string name="wikitext_reference">Sklic</string>
   <string name="wikitext_preview_link">Predogled povezave</string>

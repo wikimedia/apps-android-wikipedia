@@ -58,6 +58,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override val toolbarMargin = 0
     override val referencesGroup get() = references.referencesGroup
     override val selectedReferenceIndex get() = references.selectedIndex
+    override val messageCardHeight: Int = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)

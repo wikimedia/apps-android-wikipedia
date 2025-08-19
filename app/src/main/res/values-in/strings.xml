@@ -451,7 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
   <string name="preference_summary_prefer_offline_content">Menghemat penggunaan data dengan memuat artikel yang tersedia secara luring daripada selalu memuat versi terbaru artikel</string>
-  <string name="preference_title_delete_local_donation_history">Hapus riwayat donasi lokal</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Hapus riwayat donasi lokal</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Cocokkan dengan tema sistem</string>
   <string name="page_footer_license_text">Konten tersedia di bawah $1 kecuali dinyatakan lain</string>
   <string name="empty_tab_title">Tab baru</string>

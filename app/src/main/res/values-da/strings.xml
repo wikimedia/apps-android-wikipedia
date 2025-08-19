@@ -437,7 +437,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
-  <string name="preference_title_delete_local_donation_history">Slet lokal donationshistorik</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Slet lokal donationshistorik</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Match systemtemaet</string>
   <string name="page_footer_license_text">Indholdet er tilgængeligt under $1 med mindre andet er angivet</string>
   <string name="empty_tab_title">Ny fane</string>
