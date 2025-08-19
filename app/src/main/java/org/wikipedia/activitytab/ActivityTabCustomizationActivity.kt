@@ -70,7 +70,7 @@ fun CustomizationScreen(
             .safeDrawingPadding(),
         topBar = {
             WikiTopAppBar(
-                title = stringResource(R.string.activity_tab_customize_screen_title),
+                title = stringResource(R.string.activity_tab_menu_customize),
                 onNavigationClick = onBackButtonClick
             )
         },

@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -312,6 +313,15 @@ class ActivityTabFragment : Fragment() {
                         ) {
                             if (modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // TODO: zomg do something with this!
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                                Text(
+                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+                                    text = stringResource(R.string.activity_tab_highlights),
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Medium
+                                )
                             }
 
                             if (modules.isModuleEnabled(ModuleType.GAMES)) {
