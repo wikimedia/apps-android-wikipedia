@@ -9,9 +9,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
@@ -30,9 +32,13 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _donationUiState = MutableStateFlow<UiState<String?>>(UiState.Loading)
     val donationUiState: StateFlow<UiState<String?>> = _donationUiState.asStateFlow()
 
+    private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
+    val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
+
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
+        loadWikiGamesStats()
     }
 
     fun loadReadingHistory() {
@@ -88,6 +94,22 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             return@let relativeTime.toString()
         }
         _donationUiState.value = UiState.Success(lastDonationTime)
+    }
+
+    fun loadWikiGamesStats() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _wikiGamesUiState.value = UiState.Error(throwable)
+        }) {
+            _wikiGamesUiState.value = UiState.Loading
+            val lastGameHistory = AppDatabase.instance.dailyGameHistoryDao().findLastGameHistory()
+            if (lastGameHistory == null) {
+                _wikiGamesUiState.value = UiState.Success(null)
+                return@launch
+            }
+
+            val gamesStats = OnThisDayGameViewModel.getGameStatistics(WikipediaApp.instance.wikiSite.languageCode)
+            _wikiGamesUiState.value = UiState.Success(gamesStats)
+        }
     }
 
     fun createPageTitleForCategory(category: Category): PageTitle {

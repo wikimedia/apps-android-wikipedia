@@ -53,7 +53,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
@@ -67,6 +69,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
@@ -114,7 +118,8 @@ class ActivityTabFragment : Fragment() {
                         isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
-                        donationUiState = viewModel.donationUiState.collectAsState().value
+                        donationUiState = viewModel.donationUiState.collectAsState().value,
+                        wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value
                     )
                 }
             }
@@ -133,7 +138,8 @@ class ActivityTabFragment : Fragment() {
         isLoggedIn: Boolean,
         userName: String,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
-        donationUiState: UiState<String?>
+        donationUiState: UiState<String?>,
+        wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>
     ) {
         Scaffold(
             modifier = Modifier
@@ -229,8 +235,7 @@ class ActivityTabFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
-                    viewModel.loadReadingHistory()
-                    viewModel.loadDonationResults()
+                    viewModel.loadAll()
                 },
                 isRefreshing = isRefreshing,
                 state = state,
@@ -305,7 +310,28 @@ class ActivityTabFragment : Fragment() {
                             }
 
                             if (modules.isModuleEnabled(ModuleType.GAMES)) {
-                                // @TODO: MARK_ACTIVITY_TAB
+                                WikiGamesModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                    uiState = wikiGamesUiState,
+                                    onEntryCardClick = {
+                                        requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                            context = requireContext(),
+                                            invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
+                                            wikiSite = WikipediaApp.instance.wikiSite
+                                        ))
+                                    },
+                                    onStatsCardClick = {
+                                        // TODO: ask PM if these two actions should be the same.
+                                        requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                            context = requireContext(),
+                                            invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
+
+                                            wikiSite = WikipediaApp.instance.wikiSite
+                                        ))
+                                    }
+                                )
                             }
 
                             if (modules.isModuleEnabled(ModuleType.DONATIONS)) {
@@ -359,7 +385,13 @@ class ActivityTabFragment : Fragment() {
                         Category(2025, 1, "Category:World literature", "en", 1),
                     )
                 )),
-                donationUiState = UiState.Success("5 days ago")
+                donationUiState = UiState.Success("5 days ago"),
+                wikiGamesUiState = UiState.Success(OnThisDayGameViewModel.GameStatistics(
+                    totalGamesPlayed = 10,
+                    averageScore = 4.5,
+                    currentStreak = 15,
+                    bestStreak = 25
+                ))
             )
         }
     }
@@ -381,7 +413,8 @@ class ActivityTabFragment : Fragment() {
                     articlesSaved = emptyList(),
                     topCategories = emptyList()
                 )),
-                donationUiState = UiState.Success("Unknown")
+                donationUiState = UiState.Success("Unknown"),
+                wikiGamesUiState = UiState.Success(null)
             )
         }
     }
@@ -403,7 +436,8 @@ class ActivityTabFragment : Fragment() {
                     articlesSaved = emptyList(),
                     topCategories = emptyList()
                 )),
-                donationUiState = UiState.Success("Unknown")
+                donationUiState = UiState.Success("Unknown"),
+                wikiGamesUiState = UiState.Success(null)
             )
         }
     }
