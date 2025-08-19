@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -62,7 +63,8 @@ fun WikiGamesModule(
         if (uiState.data == null) {
             WikiGamesEntryCard(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .padding(16.dp),
                 onClick = onEntryCardClick
             )
         } else {
@@ -86,10 +88,14 @@ fun WikiGamesStatsCard(
     WikiCard(
         modifier = modifier
             .clickable(onClick = { onClick?.invoke() }),
-        elevation = 1.dp,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
+        ),
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
         )
     ) {
         Column(
@@ -141,7 +147,7 @@ fun WikiGamesStatsCard(
             ) {
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
-                    iconResource = R.drawable.outline_family_star_24,
+                    iconResource = R.drawable.filled_family_star_24,
                     statValue = gameStatistics.bestStreak.toString(),
                     statLabel = stringResource(R.string.activity_tab_game_stats_best_streak)
                 )
@@ -193,7 +199,7 @@ fun WikiGamesStatView(
 
 @Composable
 fun WikiGamesEntryCard(
-    modifier: Modifier = Modifier,
+    modifier: Modifier ,
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(

@@ -49,7 +49,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.auth.AccountUtil
@@ -63,6 +65,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
@@ -273,17 +276,26 @@ class ActivityTabFragment : Fragment() {
                                 )
                         ) {
                             // impact module
-
                             WikiGamesModule(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(vertical = 16.dp, horizontal = 16.dp),
                                 uiState = wikiGamesUiState,
                                 onEntryCardClick = {
-                                    // TODO: go to the game screen
+                                    requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                        context = requireContext(),
+                                        invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
+                                        wikiSite = WikipediaApp.instance.wikiSite
+                                    ))
                                 },
                                 onStatsCardClick = {
-                                    // TODO: go to the game screen
+                                    // TODO: ask PM if these two actions should be the same.
+                                    requireActivity().startActivity(OnThisDayGameActivity.newIntent(
+                                        context = requireContext(),
+                                        invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
+
+                                        wikiSite = WikipediaApp.instance.wikiSite
+                                    ))
                                 }
                             )
 
