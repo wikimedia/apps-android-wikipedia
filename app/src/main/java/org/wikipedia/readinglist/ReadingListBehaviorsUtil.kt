@@ -51,7 +51,7 @@ object ReadingListBehaviorsUtil {
     fun getListsContainPage(readingListPage: ReadingListPage) =
             allReadingLists.filter { list -> list.pages.any { it.apiTitle == readingListPage.apiTitle } }
 
-    fun savePagesForOffline(activity: AppCompatActivity, selectedPages: List<ReadingListPage>, callback: Callback) {
+    fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 savePagesForOffline(activity, selectedPages, true)
@@ -63,9 +63,9 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    private fun savePagesForOffline(activity: AppCompatActivity, selectedPages: List<ReadingListPage>, forcedSave: Boolean) {
+    private fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, forcedSave: Boolean) {
         if (selectedPages.isNotEmpty()) {
-            activity.lifecycleScope.launch(exceptionHandler) {
+            MainScope().launch(exceptionHandler) {
                 for (page in selectedPages) {
                     resetPageProgress(page)
                 }
@@ -76,9 +76,9 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun removePagesFromOffline(activity: AppCompatActivity, selectedPages: List<ReadingListPage>, callback: Callback) {
+    fun removePagesFromOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (selectedPages.isNotEmpty()) {
-            activity.lifecycleScope.launch(exceptionHandler) {
+            MainScope().launch(exceptionHandler) {
                 AppDatabase.instance.readingListPageDao().markPagesForOffline(selectedPages, offline = false, forcedSave = false)
                 showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, false)
                 callback.onCompleted()
@@ -86,7 +86,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun deleteReadingList(activity: AppCompatActivity, readingList: ReadingList?, showDialog: Boolean, callback: Callback) {
+    fun deleteReadingList(activity: Activity, readingList: ReadingList?, showDialog: Boolean, callback: Callback) {
         if (readingList == null) {
             return
         }
@@ -94,7 +94,7 @@ object ReadingListBehaviorsUtil {
             MaterialAlertDialogBuilder(activity)
                     .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
                     .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
-                        activity.lifecycleScope.launch(exceptionHandler) {
+                        MainScope().launch(exceptionHandler) {
                             AppDatabase.instance.readingListDao().deleteList(readingList)
                             AppDatabase.instance.readingListPageDao()
                                 .markPagesForDeletion(readingList, readingList.pages, false)
@@ -104,7 +104,7 @@ object ReadingListBehaviorsUtil {
                     .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
                     .show()
         } else {
-            activity.lifecycleScope.launch(exceptionHandler) {
+            MainScope().launch(exceptionHandler) {
                 AppDatabase.instance.readingListDao().deleteList(readingList)
                 AppDatabase.instance.readingListPageDao()
                     .markPagesForDeletion(readingList, readingList.pages, false)
@@ -113,12 +113,12 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun deleteReadingLists(activity: AppCompatActivity, readingLists: List<ReadingList>, callback: Callback) {
+    fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>, callback: Callback) {
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.reading_list_delete_lists_confirm_dialog_title)
             .setMessage(activity.resources.getQuantityString(R.plurals.reading_list_delete_lists_confirm_dialog_message, readingLists.size, readingLists.size))
             .setPositiveButton(R.string.reading_list_delete_lists_dialog_delete_button_text) { _, _ ->
-                activity.lifecycleScope.launch(exceptionHandler) {
+                MainScope().launch(exceptionHandler) {
                     readingLists.filterNot { it.isDefault }.forEach {
                         AppDatabase.instance.readingListDao().deleteList(it)
                         AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
@@ -130,8 +130,8 @@ object ReadingListBehaviorsUtil {
             .show()
     }
 
-    fun deletePages(activity: AppCompatActivity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
-        activity.lifecycleScope.launch(exceptionHandler) {
+    fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
+        MainScope().launch(exceptionHandler) {
             if (listsContainPage.size > 1) {
                     val lists = withContext(Dispatchers.IO) {
                         val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
@@ -159,7 +159,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun renameReadingList(activity: AppCompatActivity, readingList: ReadingList?, callback: Callback) {
+    fun renameReadingList(activity: Activity, readingList: ReadingList?, callback: Callback) {
         if (readingList == null) {
             return
         } else if (readingList.isDefault) {
@@ -167,7 +167,7 @@ object ReadingListBehaviorsUtil {
             return
         }
 
-        activity.lifecycleScope.launch(exceptionHandler) {
+        MainScope().launch(exceptionHandler) {
             val existingTitles = AppDatabase.instance.readingListDao().getListsWithoutContents()
                 .map { it.title }
                 .filterNot { it == readingList.title }
@@ -176,7 +176,7 @@ object ReadingListBehaviorsUtil {
                 activity, readingList.title, readingList.description, existingTitles,
                 callback = object : ReadingListTitleDialog.Callback {
                     override fun onSuccess(text: String, description: String) {
-                        activity.lifecycleScope.launch(exceptionHandler) {
+                        MainScope().launch(exceptionHandler) {
                             readingList.title = text
                             readingList.description = description
                             readingList.dirty = true
@@ -188,7 +188,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    private fun showDeletePageFromListsUndoSnackbar(activity: AppCompatActivity, lists: List<ReadingList>?, page: ReadingListPage, callback: SnackbarCallback) {
+    private fun showDeletePageFromListsUndoSnackbar(activity: Activity, lists: List<ReadingList>?, page: ReadingListPage, callback: SnackbarCallback) {
         if (lists == null) {
             return
         }
@@ -202,7 +202,7 @@ object ReadingListBehaviorsUtil {
         FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_item_deleted_from_list,
                 page.displayTitle, readingListNames))
                 .setAction(R.string.reading_list_item_delete_undo) {
-                    activity.lifecycleScope.launch(exceptionHandler) {
+                    MainScope().launch(exceptionHandler) {
                         AppDatabase.instance.readingListPageDao().addPageToLists(lists, page, true)
                         callback.onUndoDeleteClicked()
                     }
@@ -210,7 +210,7 @@ object ReadingListBehaviorsUtil {
                 .show()
     }
 
-    fun showDeletePagesUndoSnackbar(activity: AppCompatActivity, readingList: ReadingList?, pages: List<ReadingListPage>, callback: SnackbarCallback) {
+    fun showDeletePagesUndoSnackbar(activity: Activity, readingList: ReadingList?, pages: List<ReadingListPage>, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
@@ -219,7 +219,7 @@ object ReadingListBehaviorsUtil {
                         pages[0].displayTitle, readingList.title) else activity.resources.getQuantityString(R.plurals.reading_list_articles_deleted_from_list,
                         pages.size, pages.size, readingList.title))
                 .setAction(R.string.reading_list_item_delete_undo) {
-                    activity.lifecycleScope.launch(exceptionHandler) {
+                    MainScope().launch(exceptionHandler) {
                         val newPages = pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
                         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, newPages, true)
                         readingList.pages.addAll(newPages)
@@ -229,13 +229,13 @@ object ReadingListBehaviorsUtil {
                 .show()
     }
 
-    fun showDeleteListUndoSnackbar(activity: AppCompatActivity, readingList: ReadingList?, callback: SnackbarCallback) {
+    fun showDeleteListUndoSnackbar(activity: Activity, readingList: ReadingList?, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
         FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title))
             .setAction(R.string.reading_list_item_delete_undo) {
-                activity.lifecycleScope.launch(exceptionHandler) {
+                MainScope().launch(exceptionHandler) {
                     val newList = AppDatabase.instance.readingListDao()
                         .createList(readingList.title, readingList.description)
                     val newPages = readingList.pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
@@ -247,14 +247,14 @@ object ReadingListBehaviorsUtil {
             .show()
     }
 
-    fun showDeleteListsUndoSnackbar(activity: AppCompatActivity, readingLists: List<ReadingList>?, callback: SnackbarCallback) {
+    fun showDeleteListsUndoSnackbar(activity: Activity, readingLists: List<ReadingList>?, callback: SnackbarCallback) {
         if (readingLists == null) {
             return
         }
         val snackBar = FeedbackUtil.makeSnackbar(activity, getDeleteListMessage(activity, readingLists))
         if (!(readingLists.size == 1 && readingLists[0].isDefault)) {
             snackBar.setAction(R.string.reading_list_item_delete_undo) {
-                activity.lifecycleScope.launch(exceptionHandler) {
+                MainScope().launch(exceptionHandler) {
                     readingLists.filterNot { it.isDefault }.forEach {
                         val newList = AppDatabase.instance.readingListDao()
                             .createList(it.title, it.description)
@@ -283,12 +283,12 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun togglePageOffline(activity: AppCompatActivity, page: ReadingListPage?, callback: Callback) {
+    fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
         if (page == null) {
             return
         }
         if (page.offline) {
-            activity.lifecycleScope.launch(exceptionHandler) {
+            MainScope().launch(exceptionHandler) {
                 val lists = withContext(Dispatchers.IO) {
                     val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page))
                     AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
@@ -309,7 +309,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun toggleOffline(activity: AppCompatActivity, page: ReadingListPage, callback: Callback) {
+    fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
         if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && !page.offline) {
             showMobileDataWarningDialog(activity) { _, _ ->
@@ -353,9 +353,9 @@ object ReadingListBehaviorsUtil {
             MoveToReadingListDialog.newInstance(sourceReadingListId, title, source, showDefaultList, listener))
     }
 
-    private fun toggleOffline(activity: AppCompatActivity, page: ReadingListPage, forcedSave: Boolean) {
+    private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {
 
-        activity.lifecycleScope.launch(exceptionHandler) {
+        MainScope().launch(exceptionHandler) {
             AppDatabase.instance.readingListPageDao()
                 .markPagesForOffline(listOf(page), !page.offline, forcedSave)
             FeedbackUtil.showMessage(

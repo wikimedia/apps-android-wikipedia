@@ -187,7 +187,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) { this.updateLists() }
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) { this.updateLists() }
     }
 
     override fun onShareItem(pageId: Long) {
@@ -213,7 +213,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
+        ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -522,18 +522,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onDelete(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.deleteReadingList(requireActivity() as AppCompatActivity, readingList, true) {
-                ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity() as AppCompatActivity, readingList) { updateLists() }
+            ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), readingList, true) {
+                ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), readingList) { updateLists() }
                 updateLists()
             }
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity() as AppCompatActivity, readingList.pages) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity() as AppCompatActivity, readingList.pages) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
 
         override fun onSelectList(readingList: ReadingList) {
@@ -604,7 +604,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 if (it.saving) {
                     Toast.makeText(context, R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
                 } else {
-                    ReadingListBehaviorsUtil.toggleOffline(requireActivity() as AppCompatActivity, it) { adapter.notifyDataSetChanged() }
+                    ReadingListBehaviorsUtil.toggleOffline(requireActivity(), it) { adapter.notifyDataSetChanged() }
                 }
             }
         }
@@ -621,8 +621,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)
             displayedLists.forEach {
                 if (it is ReadingList && it.title == titleToDelete) {
-                    ReadingListBehaviorsUtil.deleteReadingList(requireActivity() as AppCompatActivity, it, false) {
-                        ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity() as AppCompatActivity, it) { updateLists() }
+                    ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, false) {
+                        ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), it) { updateLists() }
                         updateLists()
                     }
                 }
@@ -708,8 +708,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onDeleteSelected() {
             selectedLists.let {
-                ReadingListBehaviorsUtil.deleteReadingLists(requireActivity() as AppCompatActivity, it) {
-                    ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity() as AppCompatActivity, it) { updateLists() }
+                ReadingListBehaviorsUtil.deleteReadingLists(requireActivity(), it) {
+                    ReadingListBehaviorsUtil.showDeleteListsUndoSnackbar(requireActivity(), it) { updateLists() }
                     finishActionMode()
                     updateLists()
                 }
