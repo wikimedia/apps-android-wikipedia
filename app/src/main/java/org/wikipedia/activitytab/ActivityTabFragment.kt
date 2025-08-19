@@ -2,6 +2,9 @@ package org.wikipedia.activitytab
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
@@ -42,6 +45,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -68,6 +72,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
 
@@ -77,10 +82,20 @@ class ActivityTabFragment : Fragment() {
     }
 
     private val viewModel: ActivityTabViewModel by viewModels()
+    private val menuProvider = object : MenuProvider {
+        override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+            menuInflater.inflate(R.menu.menu_activity_tab_overflow, menu)
+        }
+
+        override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+            return handleMenuItemClick(menuItem)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
+        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -109,6 +124,7 @@ class ActivityTabFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadAll()
+        requireActivity().invalidateOptionsMenu()
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -127,7 +143,7 @@ class ActivityTabFragment : Fragment() {
         ) { paddingValues ->
             var isRefreshing by remember { mutableStateOf(false) }
             val state = rememberPullToRefreshState()
-
+            val modules = Prefs.activityTabModules
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
@@ -141,7 +157,8 @@ class ActivityTabFragment : Fragment() {
                     val scrollState = rememberScrollState()
 
                     Column(
-                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp).verticalScroll(scrollState),
+                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                            .verticalScroll(scrollState),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
@@ -164,7 +181,12 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.paperColor,
                             ),
                             onClick = {
-                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY))
+                                startActivity(
+                                    LoginActivity.newIntent(
+                                        requireContext(),
+                                        LoginActivity.SOURCE_ACTIVITY
+                                    )
+                                )
                             },
                         ) {
                             Icon(
@@ -185,7 +207,13 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.primaryColor,
                             ),
                             onClick = {
-                                startActivity(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_ACTIVITY, createAccountFirst = false))
+                                startActivity(
+                                    LoginActivity.newIntent(
+                                        requireContext(),
+                                        LoginActivity.SOURCE_ACTIVITY,
+                                        createAccountFirst = false
+                                    )
+                                )
                             },
                         ) {
                             Text(
@@ -217,45 +245,47 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(paddingValues)
-                                .background(
-                                    brush = Brush.verticalGradient(
-                                        colors = listOf(
-                                            WikipediaTheme.colors.paperColor,
-                                            WikipediaTheme.colors.additionColor
+                    if (modules.isModuleEnabled(ModuleType.READING_HISTORY)) {
+                        item {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(paddingValues)
+                                    .background(
+                                        brush = Brush.verticalGradient(
+                                            colors = listOf(
+                                                WikipediaTheme.colors.paperColor,
+                                                WikipediaTheme.colors.additionColor
+                                            )
                                         )
                                     )
-                                )
-                        ) {
-                            ReadingHistoryModule(
-                                modifier = Modifier.align(Alignment.CenterHorizontally),
-                                userName = userName,
-                                readingHistoryState = readingHistoryState,
-                                onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
-                                onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
-                                onCategoryItemClick = { category ->
-                                    val pageTitle = viewModel.createPageTitleForCategory(category)
-                                    startActivity(
-                                        CategoryActivity.newIntent(
-                                            requireActivity(),
-                                            pageTitle
+                            ) {
+                                ReadingHistoryModule(
+                                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                                    userName = userName,
+                                    readingHistoryState = readingHistoryState,
+                                    onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
+                                    onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                                    onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                    onCategoryItemClick = { category ->
+                                        val pageTitle =
+                                            viewModel.createPageTitleForCategory(category)
+                                        startActivity(
+                                            CategoryActivity.newIntent(
+                                                requireActivity(),
+                                                pageTitle
+                                            )
                                         )
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadReadingHistory()
+                                        }
                                     )
-                                },
-                                wikiErrorClickEvents = WikiErrorClickEvents(
-                                    retryClickListener = {
-                                        viewModel.loadReadingHistory()
-                                    }
                                 )
-                            )
+                            }
                         }
                     }
-
                     item {
                         Column(
                             modifier = Modifier
@@ -270,12 +300,15 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            // impact module
+                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                // @TODO: MARK_ACTIVITY_TAB
+                            }
 
-                            // game module
+                            if (modules.isModuleEnabled(ModuleType.GAMES)) {
+                                // @TODO: MARK_ACTIVITY_TAB
+                            }
 
-                            if (donationUiState is UiState.Success) {
-                                // TODO: default is off. Handle this when building the configuration screen.
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS)) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -291,9 +324,9 @@ class ActivityTabFragment : Fragment() {
                         }
                     }
 
-                    // --- new column ---
-
-                    // timeline module
+                    if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
+                        // @TODO: MARK_ACTIVITY_TAB
+                    }
                 }
             }
         }
@@ -382,6 +415,26 @@ class ActivityTabFragment : Fragment() {
                     // TODO
                 }
             }
+        }
+    }
+
+    private fun handleMenuItemClick(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.menu_customize_activity_tab -> {
+                startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                true
+            }
+            R.id.menu_learn_more -> {
+                // TODO: MARK_ACTIVITY_TAB --> add mediawiki page link
+                true
+            }
+            R.id.menu_report_feature -> {
+                FeedbackUtil.composeEmail(requireContext(),
+                    subject = getString(R.string.activity_tab_report_email_subject),
+                    body = getString(R.string.activity_tab_report_email_body))
+                true
+            }
+            else -> false
         }
     }
 
