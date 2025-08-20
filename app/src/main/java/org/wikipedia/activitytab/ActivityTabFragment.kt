@@ -209,7 +209,8 @@ class ActivityTabFragment : Fragment() {
                             )
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.create_account_button)
+                                text = stringResource(R.string.create_account_button),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                         Button(
@@ -230,7 +231,8 @@ class ActivityTabFragment : Fragment() {
                         ) {
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.menu_login)
+                                text = stringResource(R.string.menu_login),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                     }

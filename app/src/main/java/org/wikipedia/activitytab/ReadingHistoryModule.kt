@@ -415,7 +415,10 @@ fun ReadingHistoryModule(
                     onExploreClick()
                 },
             ) {
-                Text(text = stringResource(R.string.activity_tab_explore_wikipedia))
+                Text(
+                    text = stringResource(R.string.activity_tab_explore_wikipedia),
+                    style = MaterialTheme.typography.labelLarge
+                )
             }
         }
     } else if (readingHistoryState is UiState.Error) {
