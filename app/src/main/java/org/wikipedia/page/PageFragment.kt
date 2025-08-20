@@ -936,7 +936,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     L.e(t)
                 }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
-                        AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
+                        AppDatabase.instance.readingListPageDao().updateThumbAndDescriptionByName(
+                            lang = page.wiki.languageCode,
+                            apiTitle = page.apiTitle,
+                            thumbUrl = title.thumbUrl,
+                            description = title.description
+                        )
                     }
                 }
             }
@@ -1077,13 +1082,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().invalidateOptionsMenu()
     }
 
-    fun updateBookmarkAndMenuOptionsFromDao() {
+    suspend fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            lifecycleScope.launch {
-                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
-                updateQuickActionsAndMenuOptions()
-                requireActivity().invalidateOptionsMenu()
-            }
+            model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+            updateQuickActionsAndMenuOptions()
+            requireActivity().invalidateOptionsMenu()
         }
     }
 
