@@ -6,7 +6,6 @@ import android.icu.text.ListFormatter
 import android.os.Build
 import android.text.Spanned
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -19,6 +18,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.extensions.isStarted
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -71,6 +71,9 @@ object ReadingListBehaviorsUtil {
                 }
                 AppDatabase.instance.readingListPageDao()
                     .markPagesForOffline(selectedPages, true, forcedSave)
+                if (!activity.isStarted) {
+                    return@launch
+                }
                 showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, true)
             }
         }
@@ -80,6 +83,9 @@ object ReadingListBehaviorsUtil {
         if (selectedPages.isNotEmpty()) {
             MainScope().launch(exceptionHandler) {
                 AppDatabase.instance.readingListPageDao().markPagesForOffline(selectedPages, offline = false, forcedSave = false)
+                if (!activity.isStarted) {
+                    return@launch
+                }
                 showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, false)
                 callback.onCompleted()
             }
@@ -98,6 +104,9 @@ object ReadingListBehaviorsUtil {
                             AppDatabase.instance.readingListDao().deleteList(readingList)
                             AppDatabase.instance.readingListPageDao()
                                 .markPagesForDeletion(readingList, readingList.pages, false)
+                            if (!activity.isStarted) {
+                                return@launch
+                            }
                             callback.onCompleted()
                         }
                     }
@@ -108,6 +117,9 @@ object ReadingListBehaviorsUtil {
                 AppDatabase.instance.readingListDao().deleteList(readingList)
                 AppDatabase.instance.readingListPageDao()
                     .markPagesForDeletion(readingList, readingList.pages, false)
+                if (!activity.isStarted) {
+                    return@launch
+                }
                 callback.onCompleted()
             }
         }
@@ -123,6 +135,9 @@ object ReadingListBehaviorsUtil {
                         AppDatabase.instance.readingListDao().deleteList(it)
                         AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
                     }
+                    if (!activity.isStarted) {
+                        return@launch
+                    }
                     callback.onCompleted()
                 }
             }
@@ -133,16 +148,20 @@ object ReadingListBehaviorsUtil {
     fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         MainScope().launch(exceptionHandler) {
             if (listsContainPage.size > 1) {
-                    val lists = withContext(Dispatchers.IO) {
-                        val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
-                        AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
-                    }
-                    RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
-                        showDeletePageFromListsUndoSnackbar(activity, list, page, snackbarCallback)
-                        callback.onCompleted()
-                    }
+                val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage))
+                val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                if (!activity.isStarted) {
+                    return@launch
+                }
+                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
+                    showDeletePageFromListsUndoSnackbar(activity, list, page, snackbarCallback)
+                    callback.onCompleted()
+                }
             } else {
                 AppDatabase.instance.readingListPageDao().markPagesForDeletion(listsContainPage[0], listOf(readingListPage))
+                if (!activity.isStarted) {
+                    return@launch
+                }
                 listsContainPage[0].pages.remove(readingListPage)
                 showDeletePagesUndoSnackbar(activity, listsContainPage[0], listOf(readingListPage), snackbarCallback)
                 callback.onCompleted()
@@ -152,10 +171,8 @@ object ReadingListBehaviorsUtil {
 
     fun updateReadingListPage(item: ReadingListPage) {
         MainScope().launch(exceptionHandler) {
-            withContext(Dispatchers.IO) {
-                AppDatabase.instance.readingListDao().updateLists(getListsContainPage(item), false)
-                AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
-            }
+            AppDatabase.instance.readingListDao().updateLists(getListsContainPage(item), false)
+            AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
         }
     }
 
@@ -171,6 +188,9 @@ object ReadingListBehaviorsUtil {
             val existingTitles = AppDatabase.instance.readingListDao().getListsWithoutContents()
                 .map { it.title }
                 .filterNot { it == readingList.title }
+            if (!activity.isStarted) {
+                return@launch
+            }
 
             ReadingListTitleDialog.readingListTitleDialog(
                 activity, readingList.title, readingList.description, existingTitles,
@@ -181,6 +201,9 @@ object ReadingListBehaviorsUtil {
                             readingList.description = description
                             readingList.dirty = true
                             AppDatabase.instance.readingListDao().updateList(readingList, true)
+                            if (!activity.isStarted) {
+                                return@launch
+                            }
                             callback.onCompleted()
                         }
                     }
@@ -204,6 +227,9 @@ object ReadingListBehaviorsUtil {
                 .setAction(R.string.reading_list_item_delete_undo) {
                     MainScope().launch(exceptionHandler) {
                         AppDatabase.instance.readingListPageDao().addPageToLists(lists, page, true)
+                        if (!activity.isStarted) {
+                            return@launch
+                        }
                         callback.onUndoDeleteClicked()
                     }
                 }
@@ -222,6 +248,9 @@ object ReadingListBehaviorsUtil {
                     MainScope().launch(exceptionHandler) {
                         val newPages = pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
                         AppDatabase.instance.readingListPageDao().addPagesToList(readingList, newPages, true)
+                        if (!activity.isStarted) {
+                            return@launch
+                        }
                         readingList.pages.addAll(newPages)
                         callback.onUndoDeleteClicked()
                     }
@@ -241,6 +270,9 @@ object ReadingListBehaviorsUtil {
                     val newPages = readingList.pages.map { ReadingListPage(ReadingListPage.toPageTitle(it)) }
                     AppDatabase.instance.readingListPageDao()
                         .addPagesToList(newList, newPages, true)
+                    if (!activity.isStarted) {
+                        return@launch
+                    }
                     callback.onUndoDeleteClicked()
                 }
             }
@@ -264,8 +296,11 @@ object ReadingListBehaviorsUtil {
                         AppDatabase.instance.readingListPageDao()
                             .addPagesToList(newList, newPages, true)
                     }
+                    if (!activity.isStarted) {
+                        return@launch
+                    }
+                    callback.onUndoDeleteClicked()
                 }
-                callback.onUndoDeleteClicked()
             }
         }
         snackBar.show()
@@ -289,9 +324,10 @@ object ReadingListBehaviorsUtil {
         }
         if (page.offline) {
             MainScope().launch(exceptionHandler) {
-                val lists = withContext(Dispatchers.IO) {
-                    val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page))
-                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                val pages = AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page))
+                val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages)
+                if (!activity.isStarted) {
+                    return@launch
                 }
                 if (lists.size > 1) {
                     MaterialAlertDialogBuilder(activity)
@@ -324,14 +360,17 @@ object ReadingListBehaviorsUtil {
 
     fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
         if (addToDefault) {
-            // If the title is a redirect, resolve it before saving to the reading list.
-            (activity as AppCompatActivity).lifecycleScope.launch(exceptionHandler) {
+            MainScope().launch(exceptionHandler) {
+                // If the title is a redirect, resolve it before saving to the reading list.
                 val pageInfo = ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText).query?.firstPage()
                 val finalPageTitle = pageInfo?.let {
                     PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
                 } ?: title
                 val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
                 val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(finalPageTitle))
+                if (!activity.isStarted) {
+                    return@launch
+                }
                 if (addedTitles.isNotEmpty()) {
                     FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(finalPageTitle.displayText)))
                         .setAction(R.string.reading_list_add_to_list_button) {
@@ -354,10 +393,12 @@ object ReadingListBehaviorsUtil {
     }
 
     private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {
-
         MainScope().launch(exceptionHandler) {
             AppDatabase.instance.readingListPageDao()
                 .markPagesForOffline(listOf(page), !page.offline, forcedSave)
+            if (!activity.isStarted) {
+                return@launch
+            }
             FeedbackUtil.showMessage(
                 activity,
                 activity.resources.getQuantityString(
@@ -401,7 +442,7 @@ object ReadingListBehaviorsUtil {
 
     fun searchListsAndPages(coroutineScope: CoroutineScope, searchQuery: String?, callback: SearchCallback) {
         coroutineScope.launch(exceptionHandler) {
-            allReadingLists = withContext(Dispatchers.IO) { AppDatabase.instance.readingListDao().getAllLists() }
+            allReadingLists = AppDatabase.instance.readingListDao().getAllLists()
             val list = withContext(Dispatchers.IO) { applySearchQuery(searchQuery, allReadingLists) }
             if (searchQuery.isNullOrEmpty()) {
                 ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
