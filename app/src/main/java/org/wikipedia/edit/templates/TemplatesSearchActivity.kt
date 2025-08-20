@@ -7,6 +7,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
@@ -69,6 +70,8 @@ class TemplatesSearchActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         sendPatrollerExperienceEvent("search_init", "pt_templates")
         initSearchView()
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         templatesSearchAdapter = TemplatesSearchAdapter()
         binding.templateRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -157,19 +160,21 @@ class TemplatesSearchActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (insertTemplateFragment.handleBackPressed()) {
-            if (templatesSearchAdapter != null) {
-                binding.searchCabView.isVisible = true
-                binding.insertTemplateButton.isVisible = false
-                supportActionBar?.title = null
-                updateToolbarElevation(true)
-            } else {
-                finish()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (insertTemplateFragment.handleBackPressed()) {
+                if (templatesSearchAdapter != null) {
+                    binding.searchCabView.isVisible = true
+                    binding.insertTemplateButton.isVisible = false
+                    supportActionBar?.title = null
+                    updateToolbarElevation(true)
+                } else {
+                    finish()
+                }
+                return
             }
-            return
+            finish()
         }
-        super.onBackPressed()
     }
 
     private inner class TemplatesSearchDiffCallback : DiffUtil.ItemCallback<PageTitle>() {

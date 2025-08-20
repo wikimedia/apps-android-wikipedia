@@ -438,7 +438,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
-  <string name="preference_title_delete_local_donation_history">Radera lokal donationshistorik</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Radera lokal donationshistorik</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Matcha systemtemat</string>
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>

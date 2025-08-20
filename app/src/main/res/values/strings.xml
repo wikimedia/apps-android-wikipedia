@@ -432,7 +432,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
-    <string name="preference_title_delete_local_donation_history">Delete local donation history</string>
+    <string name="preference_title_delete_local_donation_history">Clear donation history</string>
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
@@ -2007,4 +2007,39 @@
     <string name="recommended_reading_list_notification_subtitle">Tap to see your latest recommendations.</string>
     <string name="recommended_reading_list_settings_notification_subtitle_enable">When your Discover is updated, Wikipedia will send you a notification.</string>
     <string name="recommended_reading_list_settings_toggle_enable_message">Discover is on. Wikipedia will recommend you articles to read.</string>
+
+    <!-- Donation Reminder -->
+    <string name="donation_reminders_initial_prompt_label">Experiment</string>
+    <string name="donation_reminders_initial_prompt_title">Support Wikipedia as you read</string>
+    <string name="donation_reminders_initial_prompt_message">Set up a donation reminder based on the number of articles you read to help keep Wikipedia ad-free, up-to-date, and available for all.</string>
+    <string name="donation_reminders_initial_prompt_positive_button">Get started</string>
+    <string name="donation_reminders_initial_prompt_negative_button">Not now</string>
+    <string name="donation_reminders_prompt_dismiss_snackbar">Donation reminders can be modified anytime in Settings.</string>
+    <string name="donation_settings_section_header">Donations</string>
+    <string name="donation_reminders_settings_title">Donation reminders</string>
+    <string name="donation_reminders_settings_thank_you_message">Join the 2%% of readers who give what they can to keep Wikipedia ad-free, up-to-date, and available for all. Set up your donation reminder now.</string>
+    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
+    <string name="donation_reminders_settings_article_frequency_label">When I read</string>
+    <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
+    <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>
+    <string name="donation_reminders_settings_about_experiment_btn_label">About this experiment</string>
+    <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
+    <string name="donation_reminders_settings_warning_min_amount">Please enter at least %s</string>
+    <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
+    <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
+    <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
+    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
+    <string name="donation_reminders_prompt_positive_button">Donate now</string>
+    <string name="donation_reminders_prompt_negative_button">Not now</string>
+    <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
+    <string name="donation_reminders_gpay_different_amount_text">Donate a different amount with Google Pay</string>
+    <string name="donation_reminders_survey_dialog_title">Help improve donation reminders.</string>
+    <string name="donation_reminders_survey_dialog_message">Are you satisfied with this experience?</string>
+    <string name="donation_reminders_settings_description_on">Donation reminders are on. Wikipedia will remind you to donate %1$s every %2$s you read while this experiment runs.</string>
+    <string name="donation_reminders_settings_description_off">Donation reminders are off.</string>
+    <string name="donation_reminders_settings_tooltip_info_label">Article count is stored locally on your device</string>
+    <plurals name="donation_reminders_text_articles">
+        <item quantity="one">%d article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
 </resources>
