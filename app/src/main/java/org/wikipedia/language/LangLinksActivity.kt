@@ -54,7 +54,7 @@ class LangLinksActivity : BaseActivity() {
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
-                            onBackPressed()
+                            onBackPressedDispatcher.onBackPressed()
                         },
                         retryClickListener = {
                             viewModel.fetchAllData()
