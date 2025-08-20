@@ -52,7 +52,7 @@ class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = 
         coroutineScope().launch(CoroutineExceptionHandler {
             _, throwable -> L.w(throwable)
         }) {
-            currentReadingLists = AppDatabase.instance.readingListDao().getAllLists()
+            currentReadingLists = AppDatabase.instance.readingListDao().getListsWithoutContents()
         }
         binding.readingListTitle.doOnTextChanged { _, _, _, _ ->
             validateTitleAndList()
@@ -92,7 +92,7 @@ class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = 
         }
     }
 
-    private inner class ReadingListItemHolder constructor(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {
+    private inner class ReadingListItemHolder(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {
         private lateinit var readingListPage: ReadingListPage
 
         fun bindItem(readingListPage: ReadingListPage) {
