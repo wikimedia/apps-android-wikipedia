@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
-import android.provider.Settings
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -156,30 +155,8 @@ object FeedbackUtil {
         val snackbar = makeSnackbar(rootView, text, LENGTH_DEFAULT, wikiSite)
         val view = snackbar.view
         val params = view.layoutParams as ViewGroup.MarginLayoutParams
-        // Navigation types:
-        // 0: 3-button navigation
-        // 1: 2-button navigation
-        // 2: Gesture navigation
-        val navigationType = Settings.Secure.getInt(activity.contentResolver, "navigation_mode", 0)
-        val windowInsets = ViewCompat.getRootWindowInsets(rootView)
-
-        val marginForNavbar = if (windowInsets != null) {
-            when (navigationType) {
-                0, 1 -> {
-                    windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
-                }
-                else -> {
-                    windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
-                }
-            }
-        } else null
-
-        params.setMargins(
-            params.leftMargin,
-            params.topMargin,
-            params.rightMargin,
-            params.bottomMargin + (marginForNavbar?.bottom ?: 0)
-        )
+        val marginForNavbar = ViewCompat.getRootWindowInsets(rootView)?.getInsets(WindowInsetsCompat.Type.navigationBars())
+        params.bottomMargin += (marginForNavbar?.bottom ?: 0)
         view.layoutParams = params
         return snackbar
     }
