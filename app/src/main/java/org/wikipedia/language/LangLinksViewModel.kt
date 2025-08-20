@@ -56,7 +56,7 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             val langLinks = langLinksDeferred.await()
             siteInfoList = siteInfoDeferred.await()
 
-            precessLanguageEntries(langLinks)
+            processLanguageEntries(langLinks)
             originalLanguageEntries = langLinks
             appLanguageEntries = filterAppLanguages(langLinks)
 
@@ -94,7 +94,7 @@ class LangLinksViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }
     }
 
-    private fun precessLanguageEntries(langLinks: MutableList<PageTitle>) {
+    private fun processLanguageEntries(langLinks: MutableList<PageTitle>) {
         updateLanguageEntriesSupported(langLinks)
         sortLanguageEntriesByMru(langLinks)
     }

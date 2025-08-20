@@ -490,7 +490,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
-  <string name="preference_title_delete_local_donation_history">Supprimer l’historique local des dons</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Supprimer l’historique local des dons</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Correspondre au thème du système</string>
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
@@ -1955,4 +1955,14 @@
   <string name="recommended_reading_list_notification_subtitle">Appuyez pour voir vos dernières recommandations.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Lorsque votre Découverte est mise à jour, Wikipédia vous enverra une notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
+  <string name="donation_reminders_settings_amount_label">Me rappeler de faire un don</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Confirmer le rappel</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">À propos de cette expérimentation</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
+  <string name="donation_reminders_settings_warning_min_amount">Veuillez saisir au moins %s</string>
+  <string name="donation_reminders_prompt_positive_button">Faire un don maintenant</string>
+  <string name="donation_reminders_prompt_negative_button">Pas maintenant</string>
+  <string name="donation_reminders_gpay_different_amount_text">Faire un don d\'un autre montant avec Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Aider à améliorer le rappel de donation.</string>
+  <string name="donation_reminders_survey_dialog_message">Êtes-vous satisfait de cette expérience</string>
 </resources>

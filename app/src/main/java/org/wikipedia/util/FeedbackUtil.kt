@@ -5,15 +5,19 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
+import android.provider.Settings
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -148,6 +152,39 @@ object FeedbackUtil {
 
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         return makeSnackbar(findBestView(activity), text, duration, wikiSite)
+    }
+
+    fun makeNavigationAwareSnackbar(activity: Activity, text: CharSequence, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        val rootView = activity.findViewById<View>(android.R.id.content)
+        val snackbar = makeSnackbar(rootView, text, LENGTH_DEFAULT, wikiSite)
+        val view = snackbar.view
+        val params = view.layoutParams as ViewGroup.MarginLayoutParams
+        // Navigation types:
+        // 0: 3-button navigation
+        // 1: 2-button navigation
+        // 2: Gesture navigation
+        val navigationType = Settings.Secure.getInt(activity.contentResolver, "navigation_mode", 0)
+        val windowInsets = ViewCompat.getRootWindowInsets(rootView)
+
+        val marginForNavbar = if (windowInsets != null) {
+            when (navigationType) {
+                0, 1 -> {
+                    windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+                }
+                else -> {
+                    windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
+                }
+            }
+        } else null
+
+        params.setMargins(
+            params.leftMargin,
+            params.topMargin,
+            params.rightMargin,
+            params.bottomMargin + (marginForNavbar?.bottom ?: 0)
+        )
+        view.layoutParams = params
+        return snackbar
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {

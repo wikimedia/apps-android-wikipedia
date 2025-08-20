@@ -167,6 +167,7 @@
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Түнкү</string>
+  <string name="reading_list_menu_rename">Аталышты/сыпаттаманы түзөтүү</string>
   <string name="reading_list_item_delete_undo">Жокко чыгаруу</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>
@@ -187,6 +188,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_save">Жарыялоо</string>
+  <string name="description_edit_read">Окуу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
   <string name="description_edit_success_done">Даяр</string>
   <string name="suggested_edits_image_caption_summary_title_source">Булак</string>
@@ -198,6 +200,7 @@
   <string name="file_page_edit_button_content_description">%s түзөтүү</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="onboarding_continue">Улантуу</string>
+  <string name="app_shortcuts_random">Туш келди</string>
   <string name="app_shortcuts_search">Издөө</string>
   <string name="more_language_options">көбүрөөк</string>
   <string name="remove_language_dialog_cancel_button_text">Жокко чыгаруу</string>
