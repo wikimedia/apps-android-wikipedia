@@ -258,7 +258,7 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    if (modules.isModuleEnabled(ModuleType.READING_HISTORY)) {
+                    if (modules.isModuleEnabled(ModuleType.TIME_SPENT) || modules.isModuleEnabled(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -276,6 +276,8 @@ class ActivityTabFragment : Fragment() {
                                 ReadingHistoryModule(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     userName = userName,
+                                    showTimeSpent = modules.isModuleEnabled(ModuleType.TIME_SPENT),
+                                    showInsights = modules.isModuleEnabled(ModuleType.READING_INSIGHTS),
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },

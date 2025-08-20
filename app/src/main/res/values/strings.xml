@@ -1213,11 +1213,13 @@
     <string name="activity_tab_menu_customize">Customize</string>
     <string name="activity_tab_menu_customize_description">Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public.</string>
     <string name="activity_tab_highlights">Highlights</string>
-    <string name="activity_tab_customize_screen_reading_history_switch_title">Reading history</string>
-    <string name="activity_tab_customize_screen_impact_switch_title">Impact</string>
-    <string name="activity_tab_customize_screen_games_switch_title">Games</string>
-    <string name="activity_tab_customize_screen_donations_switch_title">Donations</string>
-    <string name="activity_tab_customize_screen_timeline_switch_title">Timeline</string>
+    <string name="activity_tab_customize_screen_time_spent_switch_title">Time spent reading</string>
+    <string name="activity_tab_customize_screen_reading_insights_switch_title">Reading insights</string>
+    <string name="activity_tab_customize_screen_editing_insights_switch_title">Editing insights</string>
+    <string name="activity_tab_customize_screen_impact_switch_title">All time impact</string>
+    <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
+    <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
+    <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
