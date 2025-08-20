@@ -302,7 +302,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
+    override fun onCheckedChanged(button: CompoundButton, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))

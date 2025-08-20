@@ -473,7 +473,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Bilddimmung (im dunklen Farbschema)</string>
   <string name="preference_title_prefer_offline_content">Offline-Inhalt bevorzugen</string>
   <string name="preference_summary_prefer_offline_content">Datennutzung durch das Laden von offline verfügbaren Artikeln einsparen und nicht immer die aktuelle Artikelversion laden.</string>
-  <string name="preference_title_delete_local_donation_history">Lokalen Spendenverlauf löschen</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Lokalen Spendenverlauf löschen</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Farbschema des Systems übernehmen</string>
   <string name="page_footer_license_text">Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.</string>
   <string name="empty_tab_title">Neue Registerkarte</string>

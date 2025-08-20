@@ -452,7 +452,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="preference_title_delete_local_donation_history">מחיקת היסטוריית תרומות מקומית</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">מחיקת היסטוריית תרומות מקומית</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>

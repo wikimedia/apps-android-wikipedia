@@ -506,7 +506,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
-  <string name="preference_title_delete_local_donation_history">Удалить локальную историю пожертвований</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Удалить локальную историю пожертвований</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Соответствует системной теме оформления</string>
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>

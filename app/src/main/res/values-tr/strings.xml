@@ -468,7 +468,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
   <string name="preference_summary_prefer_offline_content">Bir maddenin son sürümünü yüklemek yerine her daim çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
-  <string name="preference_title_delete_local_donation_history">Yerel bağış geçmişini sil</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Yerel bağış geçmişini sil</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>

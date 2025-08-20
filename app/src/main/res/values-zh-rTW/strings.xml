@@ -453,7 +453,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗佈景主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-  <string name="preference_title_delete_local_donation_history">刪除本地捐款紀錄</string>
+  <string name="preference_title_delete_local_donation_history">清除捐款紀錄</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統佈景主題</string>
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
@@ -1944,7 +1944,6 @@
   <string name="donation_reminders_settings_description_on">已開啟捐款提醒。在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
   <string name="donation_reminders_settings_description_off">捐款提醒已關閉。</string>
   <string name="donation_reminders_settings_tooltip_info_label">條目次數儲存在您的本地端裝置</string>
-  <string name="donation_reminders_prompt_success_snackbar">謝謝您！您對維基百科的慷慨捐款對我們意義重大。</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d 篇條目</item>
     <item quantity="other">%d 篇條目</item>

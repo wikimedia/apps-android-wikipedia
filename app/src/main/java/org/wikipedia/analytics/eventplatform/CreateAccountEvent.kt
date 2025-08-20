@@ -17,6 +17,10 @@ class CreateAccountEvent(private val requestSource: String) {
         submitEvent("success")
     }
 
+    fun logVanish() {
+        submitEvent("vanish_account")
+    }
+
     private fun submitEvent(action: String, errorText: String = "") {
         EventPlatformClient.submit(CreateAccountEventImpl(action, requestSource, errorText))
     }

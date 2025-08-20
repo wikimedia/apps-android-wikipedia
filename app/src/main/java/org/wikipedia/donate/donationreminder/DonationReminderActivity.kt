@@ -26,7 +26,7 @@ class DonationReminderActivity : BaseActivity() {
                 DonationReminderScreen(
                     viewModel = viewModel,
                     onBackButtonClick = {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     },
                     onConfirmBtnClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true

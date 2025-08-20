@@ -94,7 +94,7 @@ class NotificationActivity : BaseActivity() {
         supportActionBar?.title = getString(R.string.notifications_activity_title)
 
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { viewModel.fetchAndSave() }
-        binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, skipSearchBar = true))

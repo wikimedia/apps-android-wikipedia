@@ -1313,10 +1313,10 @@
   <string name="revision_compare_two_only">Trebuie selectate doar două modificări</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pentru 1 săptămână</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pentru 1 lună</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pentru 3 luni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pentru 6 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">o săptămână</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">o lună</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 luni</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
@@ -1430,7 +1430,7 @@
   <string name="recommended_reading_list_settings_toggle">Lista de lectură „Discover”</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">„Discover“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Dezactivați „Discover“?</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message" fuzzy="true">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură %s de la Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură %s de la Wikipedia.</string>
   <string name="recommended_reading_list_settings_articles">articole</string>
   <string name="recommended_reading_list_settings_updates_frequency">Se actualizează %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">zilnic</string>

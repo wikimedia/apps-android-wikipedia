@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -125,13 +126,22 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
         setNavigationBarColor(Color.BLACK)
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (TRANSITION_INFO != null) {
+                showTransitionReceiver()
+            }
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.toolbarGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.TOP)
         binding.infoGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
         binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
-        binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.errorView.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             viewModel.fetchGalleryItems()
@@ -359,13 +369,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         super.onSaveInstanceState(outState)
         outState.putBoolean(KEY_CONTROLS_SHOWING, controlsShowing)
         outState.putInt(KEY_PAGER_INDEX, binding.pager.currentItem)
-    }
-
-    override fun onBackPressed() {
-        if (TRANSITION_INFO != null) {
-            showTransitionReceiver()
-        }
-        super.onBackPressed()
     }
 
     fun onMediaLoaded() {

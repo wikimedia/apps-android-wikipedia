@@ -445,7 +445,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
-  <string name="preference_title_delete_local_donation_history">स्थानीय दान इतिहास हटाएं</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">स्थानीय दान इतिहास हटाएं</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">सिस्टम थीम जैसा</string>
   <string name="page_footer_license_text">उपलब्ध सामग्री $1 के अधीन है जब तक अलग से उल्लेख ना किया गया हो।</string>
   <string name="empty_tab_title">नया टैब</string>

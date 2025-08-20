@@ -59,7 +59,7 @@
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Compartir mediante…</string>
   <string name="image_share_via">Compartir mediante</string>
-  <string name="search_redirect_from">Redirixido desde %s</string>
+  <string name="search_redirect_from">Redirección desde %s</string>
   <string name="page_edit_history_activity_title">Historial de revisións: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumo de edición baleiro</string>

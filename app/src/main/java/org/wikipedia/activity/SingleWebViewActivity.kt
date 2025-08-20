@@ -15,6 +15,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
@@ -61,6 +62,14 @@ class SingleWebViewActivity : BaseActivity() {
         isWebForm = intent.getBooleanExtra(EXTRA_IS_WEB_FORM, false)
         pageTitleToLoadOnBackPress = intent.parcelableExtra(Constants.ARG_TITLE)
         blankLinkHandler = SingleWebViewLinkHandler(this, WikipediaApp.instance.wikiSite)
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (!isWebForm && binding.webView.canGoBack()) {
+                binding.webView.goBack()
+                return@addCallback
+            }
+            goBack()
+        }
 
         binding.backButton.isVisible = showBackButton
         binding.backButton.setOnClickListener {
@@ -165,15 +174,6 @@ class SingleWebViewActivity : BaseActivity() {
         binding.webView.clearAllListeners()
         (binding.webView.parent as ViewGroup).removeView(binding.webView)
         super.onDestroy()
-    }
-
-    override fun onBackPressed() {
-        if (!isWebForm && binding.webView.canGoBack()) {
-            binding.webView.goBack()
-            return
-        }
-        goBack()
-        super.onBackPressed()
     }
 
     private fun goBack() {

@@ -14,7 +14,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
+import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 
 @Suppress("unused")
@@ -70,6 +72,7 @@ class LogoutPreference : Preference {
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
                         it.finish()
+                        CreateAccountEvent(LoginActivity.SOURCE_SETTINGS).logVanish()
                         it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), isWebForm = true))
                     }.show()
             }

@@ -3,6 +3,7 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
@@ -27,6 +28,15 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        onBackPressedDispatcher.addCallback(this) {
+            if (fragment.binding.fragmentDescriptionEditView.showingReviewContent()) {
+                fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
+            } else {
+                DeviceUtil.hideSoftKeyboard(this@DescriptionEditActivity)
+                finish()
+            }
+        }
+
         if (viewModel.action == Action.ADD_DESCRIPTION && Prefs.isDescriptionEditTutorialEnabled) {
             Prefs.isDescriptionEditTutorialEnabled = false
             startActivity(DescriptionEditTutorialActivity.newIntent(this))
@@ -35,15 +45,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     // The description edit view model provides the activity's extras to the fragment.
     public override fun createFragment() = DescriptionEditFragment()
-
-    override fun onBackPressed() {
-        if (fragment.binding.fragmentDescriptionEditView.showingReviewContent()) {
-            fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
-        } else {
-            DeviceUtil.hideSoftKeyboard(this)
-            super.onBackPressed()
-        }
-    }
 
     override fun onDescriptionEditSuccess() {
         setResult(DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)
