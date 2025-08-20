@@ -415,16 +415,7 @@ fun ReadingHistoryModule(
                     onExploreClick()
                 },
             ) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(R.drawable.ic_globe),
-                    tint = WikipediaTheme.colors.paperColor,
-                    contentDescription = null
-                )
-                Text(
-                    modifier = Modifier.padding(start = 6.dp),
-                    text = stringResource(R.string.activity_tab_explore_wikipedia)
-                )
+                Text(text = stringResource(R.string.activity_tab_explore_wikipedia))
             }
         }
     } else if (readingHistoryState is UiState.Error) {
