@@ -102,7 +102,6 @@ class ActivityTabFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -133,8 +132,14 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().removeMenuProvider(menuProvider)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -209,7 +214,8 @@ class ActivityTabFragment : Fragment() {
                             )
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.create_account_button)
+                                text = stringResource(R.string.create_account_button),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                         Button(
@@ -230,7 +236,8 @@ class ActivityTabFragment : Fragment() {
                         ) {
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.menu_login)
+                                text = stringResource(R.string.menu_login),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                     }
@@ -256,7 +263,7 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    if (modules.isModuleEnabled(ModuleType.READING_HISTORY)) {
+                    if (modules.isModuleEnabled(ModuleType.TIME_SPENT) || modules.isModuleEnabled(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -274,10 +281,12 @@ class ActivityTabFragment : Fragment() {
                                 ReadingHistoryModule(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     userName = userName,
+                                    showTimeSpent = modules.isModuleEnabled(ModuleType.TIME_SPENT),
+                                    showInsights = modules.isModuleEnabled(ModuleType.READING_INSIGHTS),
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                    onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                    onExploreClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
                                     onCategoryItemClick = { category ->
                                         val pageTitle =
                                             viewModel.createPageTitleForCategory(category)
@@ -338,14 +347,19 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onStatsCardClick = {
-                                        // TODO: ask PM if these two actions should be the same.
+                                        // TODO: link to the stats page when we have the WikiGames home page.
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
 
                                             wikiSite = WikipediaApp.instance.wikiSite
                                         ))
-                                    }
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadWikiGamesStats()
+                                        }
+                                    )
                                 )
                             }
 

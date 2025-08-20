@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -32,6 +33,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
@@ -72,6 +74,19 @@ fun WikiGamesModule(
                     .fillMaxWidth(),
                 gameStatistics = uiState.data,
                 onClick = onStatsCardClick
+            )
+        }
+    } else if (uiState is UiState.Error) {
+        Box(
+            modifier = modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            WikiErrorView(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                caught = uiState.error,
+                errorClickEvents = wikiErrorClickEvents
             )
         }
     }
@@ -240,6 +255,24 @@ fun WikiGamesEntryCard(
                 contentDescription = null
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun WikiGamesModulePreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        WikiGamesModule(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            uiState = UiState.Error(Throwable("Error")),
+            onEntryCardClick = {},
+            onStatsCardClick = {},
+            wikiErrorClickEvents = null
+        )
     }
 }
 

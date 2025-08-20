@@ -79,8 +79,18 @@ fun CustomizationScreen(
             LazyColumn(
                 modifier = Modifier
                     .padding(paddingValues)
-                    .padding(vertical = 24.dp)
+                    .padding(vertical = 16.dp),
             ) {
+                item {
+                    Text(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .padding(bottom = 16.dp),
+                        text = stringResource(R.string.activity_tab_menu_customize_description),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
@@ -139,7 +149,9 @@ private fun CustomizationScreenSwitch(
 }
 
 fun ActivityTabModules.isModuleEnabled(moduleType: ModuleType): Boolean = when (moduleType) {
-    ModuleType.READING_HISTORY -> isReadingHistoryEnabled
+    ModuleType.TIME_SPENT -> isTimeSpentEnabled
+    ModuleType.READING_INSIGHTS -> isReadingInsightsEnabled
+    ModuleType.EDITING_INSIGHTS -> isEditingInsightsEnabled
     ModuleType.IMPACT -> isImpactEnabled
     ModuleType.GAMES -> isGamesEnabled
     ModuleType.DONATIONS -> isDonationsEnabled
@@ -147,7 +159,9 @@ fun ActivityTabModules.isModuleEnabled(moduleType: ModuleType): Boolean = when (
 }
 
 fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean) = when (moduleType) {
-    ModuleType.READING_HISTORY -> copy(isReadingHistoryEnabled = enabled)
+    ModuleType.TIME_SPENT -> copy(isTimeSpentEnabled = enabled)
+    ModuleType.READING_INSIGHTS -> copy(isReadingInsightsEnabled = enabled)
+    ModuleType.EDITING_INSIGHTS -> copy(isEditingInsightsEnabled = enabled)
     ModuleType.IMPACT -> copy(isImpactEnabled = enabled)
     ModuleType.GAMES -> copy(isGamesEnabled = enabled)
     ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
@@ -156,7 +170,9 @@ fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean
 
 @Serializable
 data class ActivityTabModules(
-    val isReadingHistoryEnabled: Boolean = true,
+    val isTimeSpentEnabled: Boolean = true,
+    val isReadingInsightsEnabled: Boolean = true,
+    val isEditingInsightsEnabled: Boolean = true,
     val isImpactEnabled: Boolean = true,
     val isGamesEnabled: Boolean = true,
     val isDonationsEnabled: Boolean = false,
@@ -164,7 +180,9 @@ data class ActivityTabModules(
 )
 
 enum class ModuleType(val displayName: Int) {
-    READING_HISTORY(R.string.activity_tab_customize_screen_reading_history_switch_title),
+    TIME_SPENT(R.string.activity_tab_customize_screen_time_spent_switch_title),
+    READING_INSIGHTS(R.string.activity_tab_customize_screen_reading_insights_switch_title),
+    EDITING_INSIGHTS(R.string.activity_tab_customize_screen_editing_insights_switch_title),
     IMPACT(R.string.activity_tab_customize_screen_impact_switch_title),
     GAMES(R.string.activity_tab_customize_screen_games_switch_title),
     DONATIONS(R.string.activity_tab_customize_screen_donations_switch_title),
