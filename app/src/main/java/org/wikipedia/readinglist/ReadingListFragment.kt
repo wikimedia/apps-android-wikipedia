@@ -244,7 +244,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.readingListHeader.isVisible = false
                                 binding.readingListSwipeRefresh.isVisible = false
                                 binding.errorView.backClickListener = View.OnClickListener {
-                                    (requireActivity() as ReadingListActivity).onBackPressed()
+                                    requireActivity().onBackPressedDispatcher.onBackPressed()
                                 }
                                 binding.errorView.setError(it.throwable)
                             }
