@@ -277,7 +277,7 @@ class ActivityTabFragment : Fragment() {
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                    onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                    onExploreClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
                                     onCategoryItemClick = { category ->
                                         val pageTitle =
                                             viewModel.createPageTitleForCategory(category)
