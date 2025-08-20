@@ -106,7 +106,7 @@ class AboutActivity : BaseActivity() {
                     versionName = BuildConfig.VERSION_NAME,
                     credits = credits,
                     onBackButtonClick = {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     }
                 )
             }
