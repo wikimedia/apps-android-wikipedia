@@ -17,10 +17,14 @@ import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.Namespace
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.*
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import java.util.*
+import java.util.Date
 
 class TalkTopicHolder internal constructor(
         private val binding: ItemTalkTopicBinding,
@@ -37,7 +41,7 @@ class TalkTopicHolder internal constructor(
         val topicTitle = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
         StringUtil.setHighlightedAndBoldenedText(binding.topicTitleText, topicTitle, viewModel.currentSearchQuery)
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_color))
-        itemView.setOnClickListener(this)
+        itemView.setOnClickListener(this@TalkTopicHolder)
 
         // setting tag for swipe action text
         if (!threadItem.seen) {
@@ -120,8 +124,9 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun markAsSeen(force: Boolean = false) {
-        viewModel.markAsSeen(threadItem, force)
-        bindingAdapter?.notifyDataSetChanged()
+        viewModel.markAsSeen(threadItem, force) {
+            bindingAdapter?.notifyDataSetChanged()
+        }
     }
 
     private fun showOverflowMenu(anchorView: View) {

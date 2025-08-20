@@ -16,6 +16,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -191,6 +192,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
@@ -313,7 +316,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         return when (item.itemId) {
             android.R.id.home -> {
                 if (app.haveMainActivity) {
-                    onBackPressed()
+                    onBackPressedDispatcher.onBackPressed()
                 } else {
                     pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
@@ -367,25 +370,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         handleIntent(intent)
     }
 
-    override fun onBackPressed() {
-        if (isCabOpen) {
-            onPageCloseActionMode()
-            return
-        }
-        app.appSessionEvent.backPressed()
-        if (pageFragment.onBackPressed()) {
-            return
-        }
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (isCabOpen) {
+                onPageCloseActionMode()
+                return
+            }
+            app.appSessionEvent.backPressed()
+            if (pageFragment.onBackPressed()) {
+                return
+            }
 
-        // If user enter PageActivity in portrait and leave in landscape,
-        // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
-            binding.wikiArticleCardView.visibility = View.GONE
-        } else {
-            binding.wikiArticleCardView.visibility = View.VISIBLE
-            binding.pageFragment.visibility = View.GONE
+            // If user enter PageActivity in portrait and leave in landscape,
+            // we should hide the transition animation view to prevent bad animation.
+            if (DimenUtil.isLandscape(this@PageActivity) || !hasTransitionAnimation) {
+                binding.wikiArticleCardView.visibility = View.GONE
+            } else {
+                binding.wikiArticleCardView.visibility = View.VISIBLE
+                binding.pageFragment.visibility = View.GONE
+            }
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
         }
-        super.onBackPressed()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
