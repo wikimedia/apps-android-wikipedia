@@ -1,0 +1,39 @@
+Det offisielle Android-programmet er myntet på å hjelpe deg å finne, oppdage og utforske viten på Wikipedia. Gjør opp veddemål med en venn ved å gjøre et raskt søk gjennom programmet, eller dykk ned i utmerkede artikler, bilder, anbefalte artikler, og mye mer fra utforskningsstrømmen. Med mer enn 39 millioner artikler på nesten 300 språk, har du din frie encyklopedi alltid tilgjengelig.
+
+Funksjoner:
+
+Utforskningsstrøm - Den nye utforskningsstrømmen anbefaler kontinuerlig oppdatert Wikipedia-innhold rett på hjemmeskjermen, inkludert nyhetsartikler i vinden, nylige hendelser, anbefalt lesning, med mer.
+
+Stemme-integrert søk - Finn hva du leter etter med et framtredende søkefelt på toppen av programmet, inkludert stemme-operert søk på din enhet.
+
+I nærheten - Lær mer om hva som finnes rundt deg ved å velge punkter på et interaktivt kart for å se artikler relatert til din gjeldende og lokale posisjon.
+
+Språkstøtte - Bytt sømløst til å lese enhver Wikipedia-avdeling med språkstøtte, enten ved å endre språket for gjeldende artikkel, eller ved å endre ditt foretrukne søkespråk mens du søker.
+
+Lenkeforhåndsvisninger - Trykk på en artikkel for å forhåndsvise den, uten å miste hvor du var i det du leste for øyeblikket. Trykk og hold en lenke for å åpne den i en ny fane, noe som lar deg fortsette å lese gjeldende artikkel uten å miste hvor du er, og bytte til den nye fanen når du er klar.
+
+Innholdsoversikt - dra til venstre på enhver artikkel for tilgang til innholdsoversikten, som lar deg hoppe til artikkeldeler enkelt.
+
+Leselister - Organiser artiklene du leser i leselister, som du har tilgang til når du ikke er tilkoblet. Opprett så mange lister du ønsker, gi dem egendefinerte navn og beskrivelser, og legg til så mange artikler du fra hvilken språkseksjon du ønsker.
+
+Billedgalleri - Trykk på et bilde for å vise det i fullskjerm i høy oppløsning, med valg for å dra nye bilder til syne.
+
+Beksrivelser fra Wikitionary - Trykk og hold for å framheve et ord, trykk så på "Definer"-knappen for å se en definisjon av ordet på Wiktionary.
+
+Wikipedia Zero - Få tilgang til Wikipedia for Android gratis, for deltagende mobiloperatører. (lenke til deltagende operatører).
+
+Send oss din tilbakemelding om programmet. I menyen, trykk "Innstillinger", så "Om Wikipedia-programmet", for så å trykke "Send tilbakemelding".
+
+100% fri kildekode. Hvis du har erfaring med Java og Android SDK-en, ser vi frem til bidrag fra deg. https://github.com/wikimedia/apps-android-wikipedia
+
+Ved å bruke dette programmet, samtykker du til innsending av automatiske krasjrapporter til en tredjepartstilbyder. Hvis du vil skru av denne funksjonen, trykk "Innstillinger", veksle så av "Send krasjrapporter" i hodeddelen. Forklaring av tilganger som brukes i programmet: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Personvernspraksis: https://meta.wikimedia.org/wiki/Privacy_policy/nb
+
+Personvernspraksis for forsendelse av krasjrapporter til tredjepartstjenestetilbydere: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Bruksvilkår: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Om Wikimedia-stiftelsen
+
+Wikimedia-stiftelsen er en organisasjon hvis virke ikke er profittbasert, som støtter Wikipedia og andre Wikimedia-prosjekter. Wikimedia-stiftelsen er en veldedig organisasjon som i hovedsak belager seg på donasjoner. For mer info, besøk vår nettside: https://wikimediafoundation.org/wiki/Home

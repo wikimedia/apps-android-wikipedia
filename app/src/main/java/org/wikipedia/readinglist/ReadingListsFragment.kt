@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -62,7 +63,6 @@ import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.RecommendedPage
-import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
@@ -187,7 +187,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) { this.updateLists() }
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) { this.updateLists() }
     }
 
     override fun onShareItem(pageId: Long) {
@@ -213,7 +213,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
+        ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -231,8 +231,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles, callback = object : ReadingListTitleDialog.Callback {
                     override fun onSuccess(text: String, description: String) {
-                        AppDatabase.instance.readingListDao().createList(text, description)
-                        updateLists()
+                        viewLifecycleOwner.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                            L.w(throwable)
+                        }) {
+                            AppDatabase.instance.readingListDao().createList(text, description)
+                            updateLists()
+                        }
                     }
                 }).show()
         }
@@ -511,7 +515,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 L.w("Attempted to rename default list.")
                 return
             }
-            ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
+            ReadingListBehaviorsUtil.renameReadingList(requireActivity() as AppCompatActivity, readingList) {
                 ReadingListSyncAdapter.manualSync()
                 updateLists(currentSearchQuery, true)
             }
@@ -807,7 +811,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if (RecommendedReadingListAbTest().isTestGroupUser() && !Prefs.isRecommendedReadingListOnboardingShown) {
+        if (!Prefs.isRecommendedReadingListOnboardingShown) {
             RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
@@ -862,7 +866,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.swipeRefreshLayout.isRefreshing = true
         activity?.contentResolver?.openInputStream(uri)?.use { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
-            ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
+            ReadingListsExportImportHelper.importLists(activity as AppCompatActivity, inputString)
             importMode = true
         }
     }

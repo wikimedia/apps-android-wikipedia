@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -26,6 +27,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         super.onCreate(savedInstanceState)
         updateStatusBarColor(false)
         title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         callback = this
     }
 
@@ -47,17 +49,18 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (readingListMode == ReadingListMode.DEFAULT) {
-            ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
-        }
-        if (!WikipediaApp.instance.haveMainActivity) {
-            startActivity(MainActivity.newIntent(this)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code())
-            )
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (readingListMode == ReadingListMode.DEFAULT) {
+                ReadingListsAnalyticsHelper.logReceiveCancel(this@ReadingListActivity, fragment.readingList)
+            }
+            if (!WikipediaApp.instance.haveMainActivity) {
+                startActivity(MainActivity.newIntent(this@ReadingListActivity)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code())
+                )
+            }
             finish()
         }
     }
