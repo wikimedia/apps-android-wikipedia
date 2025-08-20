@@ -17,27 +17,29 @@ import java.time.format.TextStyle
 import java.time.temporal.ChronoUnit
 import java.util.Date
 import java.util.Locale
+import kotlin.collections.first
 
 class TimelineRepository(private val userName: String) {
     var langCode = Prefs.userContribFilterLangCode
 
-    val wikiSite get(): WikiSite {
-        return when (langCode) {
-            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
-            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
-            else -> WikiSite.forLanguageCode(langCode)
+    val wikiSite
+        get(): WikiSite {
+            return when (langCode) {
+                Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+                Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+                else -> WikiSite.forLanguageCode(langCode)
+            }
         }
-    }
 
-    suspend fun getLocalTimelineItems(page: Int, pageSize: Int): List<TimelineItem> {
-        val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("")
-        println("orange --> getLocalTimelineItems")
+    suspend fun getLocalTimelineItemsInRange(startTime: Date, endTime: Date): List<TimelineItem> {
+        val items = AppDatabase.instance.historyEntryWithImageDao()
+            .getHistoryEntriesInRange(startTime, endTime)
         return items.map {
             TimelineItem(
                 id = it.id,
                 title = it.apiTitle,
-                description = it.title.description,
-                thumbnailUrl = it.title.thumbUrl,
+                description = it.description,
+                thumbnailUrl = it.imageName,
                 timestamp = it.timestamp,
                 wiki = it.lang,
                 activitySource = when (it.source) {
@@ -49,11 +51,12 @@ class TimelineRepository(private val userName: String) {
         }
     }
 
-    suspend fun getWikipediaContributions(page: Int, pageSize: Int): List<TimelineItem> {
-        val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, null, null, null)
-        val contribs = response.query?.userContributions!!
-        println("orange --> getWikipediaContributions")
-        return contribs.map {
+    suspend fun getWikipediaContributions(pageSize: Int, continueToken: String?): ApiResult {
+        val response = ServiceFactory.get(wikiSite)
+            .getUserContrib(userName, 2, null, null, continueToken, ucdir = "older")
+        val contribs = response.query?.userContributions ?: emptyList()
+        val nextToken = response.continuation?.ucContinuation
+        val items = contribs.map {
             TimelineItem(
                 id = it.revid,
                 title = it.title,
@@ -63,30 +66,44 @@ class TimelineRepository(private val userName: String) {
                 activitySource = ActivitySource.EDIT
             )
         }
+
+        return ApiResult(
+            items,
+            nextToken
+        )
     }
 
-    private fun mergeTimelines(
+    private fun mergerAndSortItems(
         localItems: List<TimelineItem>,
         apiItems: List<TimelineItem>
     ): List<TimelineItem> {
         return (localItems + apiItems)
-            .sortedBy { it.timestamp }
+            .sortedByDescending { it.timestamp }
             .distinctBy { it.id }
     }
 
-    suspend fun getTimelinePage(page: Int, pageSize: Int): Pair<List<TimelineItem>, Boolean> {
-        val localItems = getLocalTimelineItems(page, pageSize)
-        return try {
-            val apiItems = getWikipediaContributions(page, pageSize)
-            val mergedItems = mergeTimelines(localItems, apiItems)
-            val hasMoreData = localItems.size == pageSize || apiItems.isNotEmpty()
-
-            Pair(mergedItems, hasMoreData)
+    suspend fun getTimelinePage(pageSize: Int, continueToken: String?): TimelinePageResult {
+        val apiResult = try {
+            getWikipediaContributions(pageSize, continueToken)
         } catch (e: Exception) {
-            // If API fails, return local data only
-            val hasMoreData = localItems.size == pageSize
-            Pair(localItems, hasMoreData)
+            ApiResult(emptyList(), null)
         }
+
+        val timeRange = extractTimeRange(apiResult.items)
+        val localItems = if (timeRange != null) {
+            getLocalTimelineItemsInRange(timeRange.first, timeRange.second)
+        } else
+            emptyList()
+
+        val mergedItems = mergerAndSortItems(localItems, apiResult.items)
+        return TimelinePageResult(
+            items = mergedItems,
+            nextContinueToken = apiResult.nextToken
+        )
+    }
+
+    private fun extractTimeRange(apiItems: List<TimelineItem>): Pair<Date, Date>? {
+        return Pair(apiItems.first().timestamp, apiItems.last().timestamp)
     }
 }
 
@@ -157,6 +174,19 @@ data class TimelineItem(
     val timestamp: Date,
     val wiki: String = "en",
     val activitySource: ActivitySource?
+)
+data class ApiResult(
+    val items: List<TimelineItem>,
+    val nextToken: String?
+)
+
+data class TimelinePageResult(
+    val items: List<TimelineItem>,
+    val nextContinueToken: String?
+)
+
+data class TimelinePageKey(
+    val continueToken: String?
 )
 
 enum class ActivitySource {

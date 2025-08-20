@@ -4,10 +4,16 @@ import android.text.format.DateUtils
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.insertSeparators
+import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -38,18 +44,47 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
     private val repository = TimelineRepository(userName = AccountUtil.userName)
-    private val pageSize = 50
 
-    private val _timelineState = MutableStateFlow(TimelineUiState())
-    val timelineState = _timelineState.asStateFlow()
+    private val rawTimelineFlow = Pager(
+        config = PagingConfig(
+            pageSize = 2
+        ),
+        pagingSourceFactory = { TimelinePagingSource(repository) }
+    ).flow.cachedIn(viewModelScope)
 
-    private val allTimelineItems = mutableListOf<TimelineItem>()
+    val timelineFlow = rawTimelineFlow.map { pagingData ->
+        pagingData.insertSeparators { before: TimelineItem?, after: TimelineItem? ->
+            when {
+                // First item - always add date separator
+                before == null && after != null -> {
+                    TimelineDisplayItem.DateSeparator(after.timestamp)
+                }
+                // Between items - add separator if date changed
+                before != null && after != null -> {
+                    val beforeDate = before.timestamp.toLocalDate()
+                    val afterDate = after.timestamp.toLocalDate()
+                    if (beforeDate != afterDate) {
+                        TimelineDisplayItem.DateSeparator(after.timestamp)
+                    } else {
+                        null
+                    }
+                }
+                // Last item - no separator needed
+                else -> null
+            }
+        }.map { item ->
+            // Convert TimelineItem to TimelineDisplayItem.TimelineEntry
+            when (item) {
+                is TimelineItem -> TimelineDisplayItem.TimelineEntry(item)
+                else -> item as TimelineDisplayItem // Already a separator
+            }
+        }
+    }.cachedIn(viewModelScope)
 
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
         loadWikiGamesStats()
-        loadInitialTimeline()
     }
 
     fun loadReadingHistory() {
@@ -125,67 +160,6 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun createPageTitleForCategory(category: Category): PageTitle {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
-    }
-
-    fun loadInitialTimeline() {
-        viewModelScope.launch {
-            _timelineState.value = TimelineUiState(isInitialLoading = true)
-            loadTimelinePage(0, true)
-        }
-    }
-
-    fun loadNextPage() {
-        val currentState = _timelineState.value
-        if (currentState.isLoadingMore || !currentState.hasMoreData) return
-        viewModelScope.launch {
-            _timelineState.value = currentState.copy(isLoadingMore = true, hasError = false)
-            loadTimelinePage(currentState.currentPage + 1, isInitial = false)
-        }
-    }
-
-    private suspend fun loadTimelinePage(page: Int, isInitial: Boolean) {
-        try {
-            val (mergedItems, hasMoreData) = repository.getTimelinePage(page, pageSize)
-            if (isInitial) {
-                allTimelineItems.clear()
-                allTimelineItems.addAll(mergedItems)
-            } else {
-                // Append new items, avoiding duplicates
-                val newItems = mergedItems.filter { newItem ->
-                    allTimelineItems.none { it.id == newItem.id }
-                }
-                allTimelineItems.addAll(newItems)
-            }
-
-            _timelineState.value = _timelineState.value.copy(
-                items = allTimelineItems.toList(),
-                isLoadingMore = false,
-                isInitialLoading = false,
-                hasMoreData = hasMoreData,
-                currentPage = page,
-                hasError = false
-            )
-        } catch (e: Exception) {
-            _timelineState.value = _timelineState.value.copy(
-                isLoadingMore = false,
-                isInitialLoading = false,
-                hasError = true,
-                errorMessage = e.message ?: "Unknown error occurred"
-            )
-        }
-    }
-
-    fun retryLoading() {
-        if (_timelineState.value.items.isEmpty()) {
-            loadInitialTimeline()
-        } else {
-            loadNextPage()
-        }
-    }
-
-    fun refresh() {
-        allTimelineItems.clear()
-        loadInitialTimeline()
     }
 
     class ReadingHistory(

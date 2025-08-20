@@ -57,14 +57,13 @@ fun Timeline(
             )
         }
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .weight(1f)
         ) {
             Text(
                 text = timelineItem.title,
                 style = MaterialTheme.typography.titleMedium,
-                maxLines = 2,
+                maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
 
@@ -74,7 +73,7 @@ fun Timeline(
                     text = description,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 2,
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
             }

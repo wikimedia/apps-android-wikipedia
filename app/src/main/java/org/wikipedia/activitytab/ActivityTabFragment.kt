@@ -51,7 +51,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -120,7 +124,7 @@ class ActivityTabFragment : Fragment() {
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
-                        timelineUiState = viewModel.timelineState.collectAsState().value
+                        timelineFlow = viewModel.timelineFlow
                     )
                 }
             }
@@ -141,8 +145,9 @@ class ActivityTabFragment : Fragment() {
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
-        timelineUiState: TimelineUiState
+        timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
+        val timelineItems = timelineFlow.collectAsLazyPagingItems()
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -155,7 +160,6 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
-            val displayItems = remember(timelineUiState.items) { timelineUiState.items.groupByDateWithSeparators() }
 
             if (!isLoggedIn) {
                 Box(
@@ -356,9 +360,9 @@ class ActivityTabFragment : Fragment() {
                     if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
                         // @TODO: MARK_ACTIVITY_TAB
                         items(
-                            count = displayItems.size,
+                            count = timelineItems.itemCount,
                         ) { index ->
-                            when (val displayItem = displayItems[index]) {
+                            when (val displayItem = timelineItems[index]) {
                                 is TimelineDisplayItem.DateSeparator -> {
                                     TimelineDateSeparator(
                                         date = displayItem.date,
@@ -370,6 +374,7 @@ class ActivityTabFragment : Fragment() {
                                 is TimelineDisplayItem.TimelineEntry -> {
                                     Timeline(timelineItem = displayItem.item)
                                 }
+                                null -> {}
                             }
                         }
                     }
@@ -412,7 +417,7 @@ class ActivityTabFragment : Fragment() {
                     currentStreak = 15,
                     bestStreak = 25
                 )),
-                timelineUiState = TimelineUiState()
+                timelineFlow = emptyFlow()
             )
         }
     }
@@ -436,7 +441,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                timelineUiState = TimelineUiState()
+                timelineFlow = emptyFlow()
             )
         }
     }
@@ -460,7 +465,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                timelineUiState = TimelineUiState()
+                timelineFlow = emptyFlow()
             )
         }
     }
