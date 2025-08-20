@@ -79,8 +79,18 @@ fun CustomizationScreen(
             LazyColumn(
                 modifier = Modifier
                     .padding(paddingValues)
-                    .padding(vertical = 24.dp)
+                    .padding(vertical = 16.dp),
             ) {
+                item {
+                    Text(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .padding(bottom = 16.dp),
+                        text = stringResource(R.string.activity_tab_menu_customize_description),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
