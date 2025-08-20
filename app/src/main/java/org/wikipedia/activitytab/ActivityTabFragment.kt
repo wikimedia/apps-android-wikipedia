@@ -102,7 +102,6 @@ class ActivityTabFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -133,8 +132,14 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().removeMenuProvider(menuProvider)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
