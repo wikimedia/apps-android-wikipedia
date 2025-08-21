@@ -52,7 +52,8 @@ class TimelineRepository(private val userName: String) {
     }
 
     suspend fun getWikipediaContributions(pageSize: Int, continueToken: String?): ApiResult {
-        val response = ServiceFactory.get(wikiSite)
+        println("orange --> getWikipediaContributions")
+        val response = ServiceFactory.get(WikiSite(url = "https://test.wikipedia.org/"))
             .getUserContrib(userName, 2, null, null, continueToken, ucdir = "older")
         val contribs = response.query?.userContributions ?: emptyList()
         val nextToken = response.continuation?.ucContinuation
@@ -91,7 +92,15 @@ class TimelineRepository(private val userName: String) {
 
         val timeRange = extractTimeRange(apiResult.items)
         val localItems = if (timeRange != null) {
-            getLocalTimelineItemsInRange(timeRange.first, timeRange.second)
+            val startDate = if (continueToken == null) Date() else timeRange.first
+            val endDate = timeRange.second
+            val (from, to) = if (startDate.before(endDate)) {
+                startDate to endDate
+            } else {
+                endDate to startDate
+            }
+            println("orange --> local db from: $from to: $to")
+            getLocalTimelineItemsInRange(from, to)
         } else
             emptyList()
 
