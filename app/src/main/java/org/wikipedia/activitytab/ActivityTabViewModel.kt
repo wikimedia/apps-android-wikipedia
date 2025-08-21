@@ -45,14 +45,12 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val repository = TimelineRepository(userName = AccountUtil.userName)
 
-    private val rawTimelineFlow = Pager(
+    val timelineFlow = Pager(
         config = PagingConfig(
             pageSize = 2
         ),
         pagingSourceFactory = { TimelinePagingSource(repository) }
-    ).flow.cachedIn(viewModelScope)
-
-    val timelineFlow = rawTimelineFlow.map { pagingData ->
+    ).flow.cachedIn(viewModelScope).map { pagingData ->
         pagingData.insertSeparators { before: TimelineItem?, after: TimelineItem? ->
             when {
                 // First item - always add date separator

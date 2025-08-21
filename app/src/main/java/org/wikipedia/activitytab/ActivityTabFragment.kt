@@ -242,6 +242,7 @@ class ActivityTabFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
+                    timelineItems.refresh()
                     viewModel.loadAll()
                 },
                 isRefreshing = isRefreshing,

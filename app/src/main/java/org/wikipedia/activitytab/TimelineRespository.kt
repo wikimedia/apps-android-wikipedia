@@ -31,7 +31,31 @@ class TimelineRepository(private val userName: String) {
             }
         }
 
-    suspend fun getLocalTimelineItemsInRange(startTime: Date, endTime: Date): List<TimelineItem> {
+    suspend fun getHistoryItemsOlderThan(
+        startDate: Date,
+        pageSize: Int,
+        offset: Int
+    ): List<TimelineItem> {
+        val items = AppDatabase.instance.historyEntryWithImageDao()
+            .getHistoryEntriesOlderThan(startDate, pageSize, offset)
+        return items.map {
+            TimelineItem(
+                id = it.id,
+                title = it.apiTitle,
+                description = it.description,
+                thumbnailUrl = it.imageName,
+                timestamp = it.timestamp,
+                wiki = it.lang,
+                activitySource = when (it.source) {
+                    SOURCE_SEARCH -> ActivitySource.SEARCH
+                    SOURCE_INTERNAL_LINK, SOURCE_EXTERNAL_LINK, SOURCE_LANGUAGE_LINK -> ActivitySource.LINK
+                    else -> null
+                }
+            )
+        }
+    }
+
+    suspend fun getHistoryItemsInRange(startTime: Date, endTime: Date): List<TimelineItem> {
         val items = AppDatabase.instance.historyEntryWithImageDao()
             .getHistoryEntriesInRange(startTime, endTime)
         return items.map {
@@ -52,9 +76,8 @@ class TimelineRepository(private val userName: String) {
     }
 
     suspend fun getWikipediaContributions(pageSize: Int, continueToken: String?): ApiResult {
-        println("orange --> getWikipediaContributions")
-        val response = ServiceFactory.get(WikiSite(url = "https://test.wikipedia.org/"))
-            .getUserContrib(userName, 2, null, null, continueToken, ucdir = "older")
+        val response = ServiceFactory.get(wikiSite)
+            .getUserContrib(userName, pageSize, null, null, continueToken, ucdir = "older")
         val contribs = response.query?.userContributions ?: emptyList()
         val nextToken = response.continuation?.ucContinuation
         val items = contribs.map {
@@ -83,32 +106,48 @@ class TimelineRepository(private val userName: String) {
             .distinctBy { it.id }
     }
 
-    suspend fun getTimelinePage(pageSize: Int, continueToken: String?): TimelinePageResult {
-        val apiResult = try {
-            getWikipediaContributions(pageSize, continueToken)
-        } catch (e: Exception) {
-            ApiResult(emptyList(), null)
-        }
-
-        val timeRange = extractTimeRange(apiResult.items)
-        val localItems = if (timeRange != null) {
-            val startDate = if (continueToken == null) Date() else timeRange.first
-            val endDate = timeRange.second
-            val (from, to) = if (startDate.before(endDate)) {
-                startDate to endDate
-            } else {
-                endDate to startDate
+    suspend fun getTimelinePage(
+        pageSize: Int,
+        continueToken: String?,
+        dbOnly: Boolean,
+        dbOffset: Int = 0,
+        startDate: Date? = null
+    ): TimelinePageResult {
+        return if (dbOnly) {
+            val localItems = getHistoryItemsOlderThan(startDate!!, 2, dbOffset)
+            TimelinePageResult(
+                localItems,
+                nextContinueToken = if (localItems.isEmpty()) null else "db-key",
+                lastDbDate = localItems.lastOrNull()?.timestamp
+            )
+        } else {
+            val apiResult = try {
+                getWikipediaContributions(pageSize, continueToken)
+            } catch (e: Exception) {
+                ApiResult(emptyList(), null)
             }
-            println("orange --> local db from: $from to: $to")
-            getLocalTimelineItemsInRange(from, to)
-        } else
-            emptyList()
 
-        val mergedItems = mergerAndSortItems(localItems, apiResult.items)
-        return TimelinePageResult(
-            items = mergedItems,
-            nextContinueToken = apiResult.nextToken
-        )
+            val timeRange = extractTimeRange(apiResult.items)
+            val historyItems = if (timeRange != null) {
+                val startDate = if (continueToken == null) Date() else timeRange.first
+                val endDate = timeRange.second
+                val (from, to) = if (startDate.before(endDate)) {
+                    startDate to endDate
+                } else {
+                    endDate to startDate
+                }
+                getHistoryItemsInRange(from, to)
+            } else
+                emptyList()
+
+            val mergedItems = mergerAndSortItems(historyItems, apiResult.items)
+            TimelinePageResult(
+                items = mergedItems,
+                nextContinueToken = apiResult.nextToken,
+                isApiExhausted = apiResult.nextToken == null,
+                lastDbDate = historyItems.lastOrNull()?.timestamp
+            )
+        }
     }
 
     private fun extractTimeRange(apiItems: List<TimelineItem>): Pair<Date, Date>? {
@@ -120,28 +159,6 @@ class TimelineRepository(private val userName: String) {
 sealed class TimelineDisplayItem {
     data class DateSeparator(val date: Date) : TimelineDisplayItem()
     data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
-}
-
-// Extension function to group timeline items by date
-fun List<TimelineItem>.groupByDateWithSeparators(): List<TimelineDisplayItem> {
-    if (isEmpty()) return emptyList()
-
-    val groupedByDate = groupBy { it.timestamp.toLocalDate() }
-        .toSortedMap(compareByDescending { it })
-
-    return buildList {
-        groupedByDate.forEach { (localDate, items) ->
-            val dateForSeparator = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())
-
-            add(TimelineDisplayItem.DateSeparator(dateForSeparator))
-
-            // Add items for this date, sorted by time (newest first)
-            items.sortedByDescending { it.timestamp }
-                .forEach { item ->
-                    add(TimelineDisplayItem.TimelineEntry(item))
-                }
-        }
-    }
 }
 
 fun formatDate(date: LocalDate): String {
@@ -164,16 +181,6 @@ fun formatDate(date: LocalDate): String {
     }
 }
 
-data class TimelineUiState(
-    val items: List<TimelineItem> = emptyList(),
-    val isLoadingMore: Boolean = false,
-    val isInitialLoading: Boolean = true,
-    val hasError: Boolean = false,
-    val errorMessage: String? = null,
-    val hasMoreData: Boolean = true,
-    val currentPage: Int = 0
-)
-
 // Data Models
 data class TimelineItem(
     val id: Long,
@@ -184,6 +191,7 @@ data class TimelineItem(
     val wiki: String = "en",
     val activitySource: ActivitySource?
 )
+
 data class ApiResult(
     val items: List<TimelineItem>,
     val nextToken: String?
@@ -191,11 +199,16 @@ data class ApiResult(
 
 data class TimelinePageResult(
     val items: List<TimelineItem>,
-    val nextContinueToken: String?
+    val nextContinueToken: String?,
+    val isApiExhausted: Boolean = false,
+    val lastDbDate: Date? = null
 )
 
 data class TimelinePageKey(
-    val continueToken: String?
+    val continueToken: String?,
+    val dbOnly: Boolean = false,
+    val dbOffset: Int = 0,
+    val startDate: Date? = null
 )
 
 enum class ActivitySource {
