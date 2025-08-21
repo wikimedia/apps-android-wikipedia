@@ -25,6 +25,9 @@ fun LineChart(
     strokeWidth: Dp = 2.dp,
     strokeColor: Color = WikipediaTheme.colors.progressiveColor
 ) {
+    if (map.isEmpty()) {
+        return
+    }
     val maxValue = map.values.maxOrNull() ?: 1
     val minValue = 0
     val range = max(maxValue - minValue, 1)
@@ -46,7 +49,7 @@ fun LineChart(
 
         // Loop through all points and draw lines
         var index = 0
-        map.forEach { (key, value) ->
+        map.forEach { (_, value) ->
             if (index == 0) {
                 index++ // Skip the first point since we already moved to it
                 return@forEach

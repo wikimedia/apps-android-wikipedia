@@ -17,6 +17,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,16 +26,15 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.LineChart
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
@@ -46,6 +46,8 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
+import java.text.NumberFormat
+import java.util.Locale
 
 @Composable
 fun ImpactModule(
@@ -92,6 +94,7 @@ fun MostViewedCard(
     data: Map<PageSummary, ArticleViews>,
     onClick: (() -> Unit)? = null
 ) {
+    val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
         modifier = modifier
             .clickable(onClick = { onClick?.invoke() }),
@@ -109,22 +112,18 @@ fun MostViewedCard(
             modifier = Modifier.padding(16.dp)
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(16.dp),
                     painter = painterResource(R.drawable.outline_trending_up_24),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = null
                 )
                 Text(
-                    modifier = Modifier.weight(1f),
                     text = stringResource(R.string.activity_tab_impact_most_viewed),
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                    color = WikipediaTheme.colors.primaryColor,
-                    lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
                 )
             }
 
@@ -153,7 +152,9 @@ fun MostViewedCard(
                     ) {
                         Text(
                             text = pageSummary.displayTitle,
-                            style = MaterialTheme.typography.titleMedium,
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                fontFamily = FontFamily.Serif
+                            ),
                             color = WikipediaTheme.colors.primaryColor,
                         )
                         pageSummary.description?.let { description ->
@@ -165,8 +166,27 @@ fun MostViewedCard(
                                 overflow = TextOverflow.Ellipsis
                             )
                         }
-                        Row {
-                            // TODO: line chart and text
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 8.dp),
+                        ) {
+                            LineChart(
+                                map = articleViews.viewsByDay,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(40.dp),
+                                strokeWidth = 2.dp,
+                                strokeColor = WikipediaTheme.colors.progressiveColor
+                            )
+                            Text(
+                                modifier = Modifier
+                                    .padding(start = 8.dp)
+                                    .align(Alignment.CenterVertically),
+                                text = formatter.format(articleViews.viewsCount),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = WikipediaTheme.colors.progressiveColor
+                            )
                         }
                     }
                     if (pageSummary.thumbnailUrl != null) {
@@ -234,7 +254,7 @@ fun EditsStatView(
                 color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                text = statLabel.toLowerCase(Locale.current),
+                text = statLabel.lowercase(),
                 style = MaterialTheme.typography.bodySmall,
                 color = WikipediaTheme.colors.primaryColor
             )
@@ -244,15 +264,28 @@ fun EditsStatView(
 
 @Preview
 @Composable
-private fun WikiGamesStatViewPreview() {
+private fun MostViewedCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        WikiGamesStatView(
-            modifier = Modifier,
-            iconResource = R.drawable.ic_today_24px,
-            statValue = "42",
-            statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, 42)
+        val pageSummary = PageSummary(
+            displayTitle = "Wikipedia",
+            prefixTitle = "Wikipedia",
+            description = "The free encyclopedia",
+            extract = null,
+            thumbnail = null,
+            lang = "en"
+        )
+        val articleViews = ArticleViews(
+            firstEditDate = "2023-01-01",
+            newestEdit = "2023-10-01",
+            imageUrl = "https://example.com/image.jpg",
+            viewsCount = 1000
+        )
+        MostViewedCard(
+            data = mapOf(
+                pageSummary to articleViews
+            )
         )
     }
 }
