@@ -1225,6 +1225,7 @@
         <item quantity="one">Edit last month</item>
         <item quantity="other">Edits last month</item>
     </plurals>
+    <string name="activity_tab_impact_all_time">All time impact</string>
     <plurals name="activity_tab_impact_total_edits">
         <item quantity="one">Total edit</item>
         <item quantity="other">Total edits</item>

@@ -1206,6 +1206,7 @@
     <item quantity="one">Label of the contributions card that indicates the edit last month.</item>
     <item quantity="other">Label of the contributions card that indicates the edits last month.</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">Title of the all time impact card of the activity tab.</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">Label of the suggested edits card that indicates the number of total edits.</item>
     <item quantity="other">Label of the suggested edits card that indicates the number of total edits.</item>

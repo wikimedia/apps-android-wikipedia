@@ -5,6 +5,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -143,6 +145,19 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else {
                 impact = JsonUtil.decodeFromString(Prefs.impactLastResponseBody)!!
             }
+
+            // Use page/summary to get the proper page title.
+            val summaryResponses = impact.topViewedArticles.map {
+                async {
+                    val pageSummaryResponse = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(it.key)
+                    pageSummaryResponse to it.value
+                }
+            }
+
+            summaryResponses.awaitAll().forEach {
+                impact.topViewedArticlesWithPageSummary[it.first] = it.second
+            }
+
             _impactUiState.value = UiState.Success(impact)
         }
     }

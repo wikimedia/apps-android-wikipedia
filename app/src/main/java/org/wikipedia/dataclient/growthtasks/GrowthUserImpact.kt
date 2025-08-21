@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.JsonUtil
 
 @Suppress("unused")
@@ -44,6 +45,8 @@ class GrowthUserImpact(
         editCountByDay.entries.groupBy { it.key.substring(0, 7) }
             .mapValues { it.value.sumOf { entry -> entry.value } }
     }
+
+    val topViewedArticlesWithPageSummary: MutableMap<PageSummary, ArticleViews> = mutableMapOf()
 
     @Serializable
     class ArticleViews(
