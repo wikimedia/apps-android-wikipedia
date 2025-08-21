@@ -42,7 +42,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact.ArticleViews
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -52,9 +51,7 @@ import java.util.Locale
 @Composable
 fun ImpactModule(
     modifier: Modifier = Modifier,
-    uiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
-    onEntryCardClick: (() -> Unit)? = null,
-    onStatsCardClick: (() -> Unit)? = null,
+    uiState: UiState<GrowthUserImpact>,
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     if (uiState == UiState.Loading) {
@@ -71,20 +68,14 @@ fun ImpactModule(
             )
         }
     } else if (uiState is UiState.Success) {
-        if (uiState.data == null) {
-            WikiGamesEntryCard(
-                modifier = modifier
-                    .fillMaxWidth(),
-                onClick = onEntryCardClick
-            )
-        } else {
-            WikiGamesStatsCard(
-                modifier = modifier
-                    .fillMaxWidth(),
-                gameStatistics = uiState.data,
-                onClick = onStatsCardClick
-            )
-        }
+        MostViewedCard(
+            modifier = modifier
+                .fillMaxWidth(),
+            data = uiState.data.topViewedArticlesWithPageSummary,
+            onClick = {
+                // TODO: list item click
+            }
+        )
     }
 }
 
