@@ -459,7 +459,7 @@
   <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_deleted_from_list">%1$s له %2$s څخه لرې‌شو</string>
   <string name="reading_lists_default_list_delete_message">تلواليز لړليک (%s) نشي ړنگېدای</string>
-  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s ړنگ شو. تلواليز لړليک (%s) نشي ړنگېدای.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message" fuzzy="true">%1$s ړنگ شو. تلواليز لړليک (%2$s) نشي ړنگېدای.</string>
   <string name="single_list_json_file_name">%s (ويکيپېډيا لوستلړ).json</string>
   <string name="reading_list_items_deleted">%d ليکنې له لړليک نه لرې شوې</string>
   <string name="reading_lists_item_deleted">%s له لړليکونو لرې‌شوې</string>

@@ -1941,7 +1941,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Os lembretes de doação podem ser modificados a qualquer momento em Configurações.</string>
   <string name="donation_settings_section_header">Doações</string>
   <string name="donation_reminders_settings_title">Lembretes de doações</string>
-  <string name="donation_reminders_settings_thank_you_message">Junte-se aos 2% dos leitores que contribuem com o que podem para manter a Wikipédia livre de anúncios, atualizada e disponível para todos. Configure agora mesmo seu lembrete de doação.</string>
+  <string name="donation_reminders_settings_thank_you_message">Junte-se aos 2%% dos leitores que contribuem com o que podem para manter a Wikipédia livre de anúncios, atualizada e disponível para todos. Configure agora mesmo seu lembrete de doação.</string>
   <string name="donation_reminders_settings_donation_info">As doações vão para a Fundação Wikimedia e suas afiliadas, orgulhosas anfitriãs da Wikipédia e seus sites irmãos.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quando eu li</string>
   <string name="donation_reminders_settings_amount_label">Lembre-me de fazer uma doação</string>
