@@ -1,4 +1,4 @@
-package org.wikipedia.activitytab
+package org.wikipedia.activitytab.timeline
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,6 +27,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.activitytab.isToday
+import org.wikipedia.activitytab.isYesterday
+import org.wikipedia.activitytab.toLocalDate
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.views.imageservice.ImageService
 import java.time.format.DateTimeFormatter

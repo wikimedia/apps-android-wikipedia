@@ -4,18 +4,17 @@ import android.text.format.DateUtils
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import androidx.paging.insertSeparators
-import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.timeline.TimelineRepository
+import org.wikipedia.activitytab.timeline.TimelineState
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
@@ -50,49 +49,84 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
 
+    private val _timelineState = MutableStateFlow(TimelineState(isLoadingDatabase = true))
+    val timelineState: StateFlow<TimelineState> = _timelineState.asStateFlow()
+
     private val repository = TimelineRepository(userName = AccountUtil.userName)
+    private var currentApiContinueToken: String? = null
 
-    private val rawTimelineFlow = Pager(
-        config = PagingConfig(
-            pageSize = 2
-        ),
-        pagingSourceFactory = { TimelinePagingSource(repository) }
-    ).flow.cachedIn(viewModelScope)
-
-    val timelineFlow = rawTimelineFlow.map { pagingData ->
-        pagingData.insertSeparators { before: TimelineItem?, after: TimelineItem? ->
-            when {
-                // First item - always add date separator
-                before == null && after != null -> {
-                    TimelineDisplayItem.DateSeparator(after.timestamp)
-                }
-                // Between items - add separator if date changed
-                before != null && after != null -> {
-                    val beforeDate = before.timestamp.toLocalDate()
-                    val afterDate = after.timestamp.toLocalDate()
-                    if (beforeDate != afterDate) {
-                        TimelineDisplayItem.DateSeparator(after.timestamp)
-                    } else {
-                        null
-                    }
-                }
-                // Last item - no separator needed
-                else -> null
-            }
-        }.map { item ->
-            // Convert TimelineItem to TimelineDisplayItem.TimelineEntry
-            when (item) {
-                is TimelineItem -> TimelineDisplayItem.TimelineEntry(item)
-                else -> item as TimelineDisplayItem // Already a separator
-            }
+    val mergedTimelineItems = _timelineState
+        .map { state ->
+            // Only recomputes when database items or api items change
+            val allApiItems = state.apiItemsByPage.values.flatten()
+            (state.databaseItems + allApiItems)
+                .sortedByDescending { it.timestamp }
+                .distinctBy { it.id }
         }
-    }.cachedIn(viewModelScope)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
 
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
         loadWikiGamesStats()
         loadImpact()
+        loadTimeline()
+    }
+
+    fun loadTimeline() {
+        loadDatabaseItems()
+        loadNextApiPage()
+    }
+
+    private fun loadDatabaseItems() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _timelineState.value = _timelineState.value.copy(
+                isLoadingDatabase = false,
+                error = throwable
+            )
+        }) {
+            _timelineState.value = _timelineState.value.copy(isLoadingDatabase = true)
+
+            val databaseItems = repository.getLocalTimelineItems()
+
+            _timelineState.value = _timelineState.value.copy(
+                databaseItems = databaseItems,
+                isLoadingDatabase = false,
+                isLoadingApi = true
+            )
+        }
+    }
+
+    private fun loadNextApiPage() {
+        if (!_timelineState.value.hasMoreApiData || _timelineState.value.isLoadingApi) return
+
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _timelineState.value = _timelineState.value.copy(
+                isLoadingApi = false,
+                error = throwable
+            )
+        }) {
+            _timelineState.value = _timelineState.value.copy(isLoadingApi = true)
+            val apiResult = repository.getWikipediaContributions(20, currentApiContinueToken)
+            val currentPage = _timelineState.value.apiPageCount
+
+            _timelineState.value = _timelineState.value.copy(
+                apiItemsByPage = _timelineState.value.apiItemsByPage + (currentPage to apiResult.items),
+                apiPageCount = currentPage + 1,
+                isLoadingApi = false,
+                hasMoreApiData = apiResult.nextToken != null
+            )
+
+            currentApiContinueToken = apiResult.nextToken
+        }
+    }
+
+    fun loadMoreApiItems() {
+        loadNextApiPage()
     }
 
     fun loadReadingHistory() {

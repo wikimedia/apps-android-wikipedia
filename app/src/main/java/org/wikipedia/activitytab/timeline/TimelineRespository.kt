@@ -1,13 +1,11 @@
-package org.wikipedia.activitytab
+package org.wikipedia.activitytab.timeline
 
 import org.wikipedia.Constants
+import org.wikipedia.activitytab.toLocalDate
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_EXTERNAL_LINK
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_INTERNAL_LINK
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_LANGUAGE_LINK
 import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
@@ -17,7 +15,6 @@ import java.time.format.TextStyle
 import java.time.temporal.ChronoUnit
 import java.util.Date
 import java.util.Locale
-import kotlin.collections.first
 
 class TimelineRepository(private val userName: String) {
     var langCode = Prefs.userContribFilterLangCode
@@ -31,29 +28,28 @@ class TimelineRepository(private val userName: String) {
             }
         }
 
-    suspend fun getLocalTimelineItemsInRange(startTime: Date, endTime: Date): List<TimelineItem> {
-        val items = AppDatabase.instance.historyEntryWithImageDao()
-            .getHistoryEntriesInRange(startTime, endTime)
+    suspend fun getLocalTimelineItems(): List<TimelineItem> {
+        val items = AppDatabase.instance.historyEntryWithImageDao().filterHistoryItemsWithoutTime("")
         return items.map {
             TimelineItem(
                 id = it.id,
                 title = it.apiTitle,
-                description = it.description,
-                thumbnailUrl = it.imageName,
+                description = it.title.description,
+                thumbnailUrl = it.title.thumbUrl,
                 timestamp = it.timestamp,
                 wiki = it.lang,
                 activitySource = when (it.source) {
                     SOURCE_SEARCH -> ActivitySource.SEARCH
-                    SOURCE_INTERNAL_LINK, SOURCE_EXTERNAL_LINK, SOURCE_LANGUAGE_LINK -> ActivitySource.LINK
-                    else -> null
+                    else -> ActivitySource.LINK
                 }
             )
         }
     }
 
     suspend fun getWikipediaContributions(pageSize: Int, continueToken: String?): ApiResult {
-        val response = ServiceFactory.get(wikiSite)
-            .getUserContrib(userName, 2, null, null, continueToken, ucdir = "older")
+        println("orange --> getWikipediaContributions")
+        val response = ServiceFactory.get(WikiSite(url = "https://test.wikipedia.org/"))
+            .getUserContrib(userName, pageSize, null, null, continueToken, ucdir = "older")
         val contribs = response.query?.userContributions ?: emptyList()
         val nextToken = response.continuation?.ucContinuation
         val items = contribs.map {
@@ -81,58 +77,6 @@ class TimelineRepository(private val userName: String) {
             .sortedByDescending { it.timestamp }
             .distinctBy { it.id }
     }
-
-    suspend fun getTimelinePage(pageSize: Int, continueToken: String?): TimelinePageResult {
-        val apiResult = try {
-            getWikipediaContributions(pageSize, continueToken)
-        } catch (e: Exception) {
-            ApiResult(emptyList(), null)
-        }
-
-        val timeRange = extractTimeRange(apiResult.items)
-        val localItems = if (timeRange != null) {
-            getLocalTimelineItemsInRange(timeRange.first, timeRange.second)
-        } else
-            emptyList()
-
-        val mergedItems = mergerAndSortItems(localItems, apiResult.items)
-        return TimelinePageResult(
-            items = mergedItems,
-            nextContinueToken = apiResult.nextToken
-        )
-    }
-
-    private fun extractTimeRange(apiItems: List<TimelineItem>): Pair<Date, Date>? {
-        return Pair(apiItems.first().timestamp, apiItems.last().timestamp)
-    }
-}
-
-// Data class for timeline display items (includes separators)
-sealed class TimelineDisplayItem {
-    data class DateSeparator(val date: Date) : TimelineDisplayItem()
-    data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
-}
-
-// Extension function to group timeline items by date
-fun List<TimelineItem>.groupByDateWithSeparators(): List<TimelineDisplayItem> {
-    if (isEmpty()) return emptyList()
-
-    val groupedByDate = groupBy { it.timestamp.toLocalDate() }
-        .toSortedMap(compareByDescending { it })
-
-    return buildList {
-        groupedByDate.forEach { (localDate, items) ->
-            val dateForSeparator = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())
-
-            add(TimelineDisplayItem.DateSeparator(dateForSeparator))
-
-            // Add items for this date, sorted by time (newest first)
-            items.sortedByDescending { it.timestamp }
-                .forEach { item ->
-                    add(TimelineDisplayItem.TimelineEntry(item))
-                }
-        }
-    }
 }
 
 fun formatDate(date: LocalDate): String {
@@ -155,14 +99,50 @@ fun formatDate(date: LocalDate): String {
     }
 }
 
-data class TimelineUiState(
-    val items: List<TimelineItem> = emptyList(),
-    val isLoadingMore: Boolean = false,
-    val isInitialLoading: Boolean = true,
-    val hasError: Boolean = false,
-    val errorMessage: String? = null,
-    val hasMoreData: Boolean = true,
-    val currentPage: Int = 0
+// Stable display items with consistent keys
+sealed class StableDisplayItem(val key: String) {
+    data class DateSeparator(
+        val date: Date,
+        private val dateKey: String = "date_${date.toLocalDate()}"
+    ) : StableDisplayItem(dateKey)
+
+    data class TimelineEntry(
+        val item: TimelineItem,
+        private val itemKey: String = "item_${item.id}_${item.activitySource?.name ?: "unknown"}"
+    ) : StableDisplayItem(itemKey)
+}
+
+/**
+ * Creates stable display items that minimize recomposition
+ * Uses consistent keys for dates and items
+ */
+fun createStableDisplayItems(items: List<TimelineItem>): List<StableDisplayItem> {
+    val displayItems = mutableListOf<StableDisplayItem>()
+    var lastDate: LocalDate? = null
+
+    items.forEach { item ->
+        val itemDate = item.timestamp.toLocalDate()
+
+        // Add date separator if needed
+        if (lastDate != itemDate) {
+            displayItems.add(StableDisplayItem.DateSeparator(item.timestamp))
+            lastDate = itemDate
+        }
+
+        displayItems.add(StableDisplayItem.TimelineEntry(item))
+    }
+
+    return displayItems
+}
+
+data class TimelineState(
+    val databaseItems: List<TimelineItem> = emptyList(),
+    val apiItemsByPage: Map<Int, List<TimelineItem>> = emptyMap(),
+    val isLoadingDatabase: Boolean = false,
+    val isLoadingApi: Boolean = false,
+    val apiPageCount: Int = 0,
+    val hasMoreApiData: Boolean = true,
+    val error: Throwable? = null
 )
 
 // Data Models
@@ -184,11 +164,6 @@ data class TimelinePageResult(
     val items: List<TimelineItem>,
     val nextContinueToken: String?
 )
-
-data class TimelinePageKey(
-    val continueToken: String?
-)
-
 enum class ActivitySource {
     EDIT, SEARCH, LINK
 }

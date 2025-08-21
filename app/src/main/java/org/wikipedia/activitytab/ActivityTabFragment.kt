@@ -31,8 +31,11 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -53,17 +56,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.PagingData
-import androidx.paging.compose.collectAsLazyPagingItems
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.timeline.StableDisplayItem
+import org.wikipedia.activitytab.timeline.Timeline
+import org.wikipedia.activitytab.timeline.TimelineDateSeparator
+import org.wikipedia.activitytab.timeline.TimelineItem
+import org.wikipedia.activitytab.timeline.TimelineState
+import org.wikipedia.activitytab.timeline.createStableDisplayItems
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -128,7 +133,8 @@ class ActivityTabFragment : Fragment() {
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
                         impactUiState = viewModel.impactUiState.collectAsState().value,
-                        timelineFlow = viewModel.timelineFlow
+                        timelineState = viewModel.timelineState.collectAsState().value,
+                        mergedItems = viewModel.mergedTimelineItems.collectAsState().value
                     )
                 }
             }
@@ -157,9 +163,14 @@ class ActivityTabFragment : Fragment() {
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
         impactUiState: UiState<GrowthUserImpact>,
-        timelineFlow: Flow<PagingData<TimelineDisplayItem>>
+        timelineState: TimelineState,
+        mergedItems: List<TimelineItem>,
     ) {
-        val timelineItems = timelineFlow.collectAsLazyPagingItems()
+        val displayItems by remember(mergedItems) {
+            derivedStateOf {
+                createStableDisplayItems(mergedItems)
+            }
+        }
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -394,21 +405,41 @@ class ActivityTabFragment : Fragment() {
                     if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
                         // @TODO: MARK_ACTIVITY_TAB
                         items(
-                            count = timelineItems.itemCount,
+                            count = displayItems.size,
+                            key = { index -> displayItems[index].key }
                         ) { index ->
-                            when (val displayItem = timelineItems[index]) {
-                                is TimelineDisplayItem.DateSeparator -> {
+                            val displayItem = displayItems[index]
+
+                            when (displayItem) {
+                                is StableDisplayItem.DateSeparator -> {
                                     TimelineDateSeparator(
                                         date = displayItem.date,
                                         modifier = Modifier
                                             .padding(horizontal = 16.dp)
-                                            .padding(top = 32.dp)
+                                            .padding(top = if (index == 0) 8.dp else 24.dp)
                                     )
                                 }
-                                is TimelineDisplayItem.TimelineEntry -> {
-                                    Timeline(timelineItem = displayItem.item)
+
+                                is StableDisplayItem.TimelineEntry -> {
+                                    // Use key to prevent unnecessary recomposition
+                                    key(displayItem.key) {
+                                        Timeline(
+                                            timelineItem = displayItem.item,
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .padding(horizontal = 16.dp, vertical = 4.dp)
+                                        )
+                                    }
                                 }
-                                null -> {}
+                            }
+
+                            // Load more data if available from api
+                            if (index >= displayItems.size - 3 &&
+                                timelineState.hasMoreApiData &&
+                                !timelineState.isLoadingApi) {
+                                LaunchedEffect("load_more_$index") {
+                                   viewModel.loadMoreApiItems()
+                                }
                             }
                         }
                     }
@@ -426,7 +457,8 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
-                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                readingHistoryState = UiState.Success(
+                    ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
                     lastArticleReadTime = LocalDateTime.now(),
@@ -453,7 +485,8 @@ class ActivityTabFragment : Fragment() {
                     bestStreak = 25
                 )),
                 impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345)),
-                timelineFlow = emptyFlow()
+                timelineState = TimelineState(),
+                mergedItems = listOf()
             )
         }
     }
@@ -466,7 +499,8 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
-                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                readingHistoryState = UiState.Success(
+                    ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
                     lastArticleReadTime = null,
@@ -479,7 +513,8 @@ class ActivityTabFragment : Fragment() {
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
-                timelineFlow = emptyFlow()
+                timelineState = TimelineState(),
+                mergedItems = listOf()
             )
         }
     }
@@ -492,7 +527,8 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = false,
                 userName = "User",
                 modules = ActivityTabModules(),
-                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                readingHistoryState = UiState.Success(
+                    ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
                     lastArticleReadTime = null,
@@ -505,7 +541,8 @@ class ActivityTabFragment : Fragment() {
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
-                timelineFlow = emptyFlow()
+                timelineState = TimelineState(),
+                mergedItems = listOf()
             )
         }
     }
