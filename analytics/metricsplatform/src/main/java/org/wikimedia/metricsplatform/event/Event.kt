@@ -9,22 +9,28 @@ import org.wikimedia.metricsplatform.context.InteractionData
 
 @Serializable
 open class Event(@Transient val _stream: String = "") {
-    var name: String? = null
+    @Transient var name: String? = null
 
     @SerialName("\$schema")
     var schema: String = ""
 
     @SerialName("dt") var timestamp: String? = null
 
-    @SerialName("custom_data") var customData: Map<String, String>? = null
+    //@SerialName("custom_data")
+    @Transient
+    var customData: Map<String, String>? = null
 
     protected val meta = Meta(_stream)
 
-    @SerialName("client_data") var clientData: ClientData = ClientData()
+    //@SerialName("client_data")
+    @Transient
+    var clientData: ClientData = ClientData()
 
     @SerialName("sample") var sample: SampleConfig? = null
 
-    @SerialName("interaction_data") var interactionData: InteractionData = InteractionData()
+    //@SerialName("interaction_data")
+    @Transient
+    var interactionData: InteractionData = InteractionData()
 
     var stream
         get() = meta.stream

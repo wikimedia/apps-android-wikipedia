@@ -26,8 +26,8 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
 
     fun logDone() {
         submitEvent(
-            "android.product_metrics.find_in_page_interaction",
-            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.1.1",
+            "product_metrics.app_base",
+            "/analytics/product_metrics/app/base/1.4.2",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -147,7 +147,7 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
     private fun submitEvent(action: String) {
 
         submitEvent(
-            "android.product_metrics.article_toolbar_interaction",
+            "product_metrics.app_base",
             "article_toolbar_interaction",
             getInteractionData(
                 action,
@@ -189,17 +189,17 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             return
         }
         submitEvent(
-            "android.product_metrics.article_toc_interaction",
-            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.1.1",
-            "article_toc_interaction",
-            mapOf(
+            streamName = "product_metrics.app_base",
+            schemaId = "/analytics/product_metrics/app/base/1.4.2",
+            eventName = "article_toc_interaction",
+            customData = mapOf(
                 "num_opens" to numOpens,
                 "num_section_clicks" to numSectionClicks,
                 "total_open_sec" to totalOpenedSec,
                 "num_sections" to numSections
             ),
-            getInteractionData("article_toc_interaction"),
-            getPageData(fragment)
+            interactionData = getInteractionData("article_toc_interaction"),
+            pageData = getPageData(fragment)
         )
     }
 }
@@ -242,7 +242,7 @@ open class ArticleLinkPreviewInteraction : TimedMetricsEvent {
 
     protected fun submitEvent(action: String, contextData: ContextData) {
         submitEvent(
-            "android.product_metrics.article_link_preview_interaction",
+            "product_metrics.app_base",
             "article_link_preview_interaction",
             getInteractionData(
                 action,

@@ -1,5 +1,11 @@
 package org.wikimedia.metricsplatform
 
+import android.util.Log
+import androidx.core.net.toUri
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikimedia.metricsplatform.config.DestinationEventService
 import org.wikimedia.metricsplatform.config.SourceConfig
 import org.wikimedia.metricsplatform.config.StreamConfig
@@ -83,17 +89,22 @@ class EventProcessor(
         destinationEventService: DestinationEventService,
         pendingValidEvents: List<EventProcessed>
     ) {
-        try {
-            //TODO!
-            //eventSender.sendEvents(destinationEventService.getBaseUri(isDebug), pendingValidEvents)
-        } catch (e: UnknownHostException) {
-            //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
-            eventQueue.addAll(pendingValidEvents)
-        } catch (e: SocketTimeoutException) {
-            //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
-            eventQueue.addAll(pendingValidEvents)
-        } catch (e: Exception) {
-            //log.log(Level.WARNING, "Failed to send " + pendingValidEvents.size + " events.", e)
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    //TODO!
+                    eventSender.sendEvents((destinationEventService.baseUri + "/v1/events").toUri(), pendingValidEvents)
+                } catch (e: UnknownHostException) {
+                    //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
+                    eventQueue.addAll(pendingValidEvents)
+                } catch (e: SocketTimeoutException) {
+                    //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
+                    eventQueue.addAll(pendingValidEvents)
+                } catch (e: Exception) {
+                    //log.log(Level.WARNING, "Failed to send " + pendingValidEvents.size + " events.", e)
+                    Log.d("EventProcessor", "Failed to send $pendingValidEvents events.")
+                }
+            }
         }
     }
 }

@@ -28,11 +28,10 @@ open class MetricsEvent {
         interactionData: InteractionData? = null,
         pageData: PageData? = null
     ) {
-        MetricsPlatform.client.submitInteraction(
-            streamName,
+        MetricsPlatform.client.submitInteraction(streamName,
             EVENT_NAME_BASE + eventName,
-            getClientData(pageData),
-            interactionData)
+            clientData = getClientData(pageData),
+            interactionData = interactionData)
     }
 
     /**
@@ -54,10 +53,10 @@ open class MetricsEvent {
         pageData: PageData? = null
     ) {
         MetricsPlatform.client.submitInteraction(
-            streamName,
-            schemaId,
-            EVENT_NAME_BASE + eventName,
-            getClientData(pageData),
+            streamName = streamName,
+            eventName = EVENT_NAME_BASE + eventName,
+            schemaId = schemaId,
+            clientData = getClientData(pageData),
             interactionData,
             customData
         )

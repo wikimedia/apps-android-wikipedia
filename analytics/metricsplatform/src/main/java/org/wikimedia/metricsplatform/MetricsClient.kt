@@ -21,7 +21,12 @@ class MetricsClient(
     val queueCapacity: Int = 100
 ) {
 
-    private val sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
+    private var sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
+
+    fun updateSourceConfig(configs: Map<String, StreamConfig>) {
+        sourceConfig.set(SourceConfig(configs))
+        eventProcessor.sendEnqueuedEvents()
+    }
 
     /**
      * Handles logging session management. A new session begins (and a new session ID is created)
@@ -318,7 +323,7 @@ class MetricsClient(
         val ZONE_Z: ZoneId? = ZoneId.of("Z")
 
         const val METRICS_PLATFORM_LIBRARY_VERSION: String = "2.8"
-        const val METRICS_PLATFORM_BASE_VERSION: String = "1.2.2"
+        const val METRICS_PLATFORM_BASE_VERSION: String = "1.4.2"
 
         const val METRICS_PLATFORM_SCHEMA_BASE: String = "/analytics/product_metrics/app/base/$METRICS_PLATFORM_BASE_VERSION"
     }

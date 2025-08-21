@@ -45,8 +45,6 @@ object MetricsPlatform {
         clientData,
         EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client),
         null,
-
-        queueCapacity = Prefs.analyticsQueueSize,
-        isDebug = ReleaseUtil.isDevRelease
+        queueCapacity = Prefs.analyticsQueueSize
     )
 }

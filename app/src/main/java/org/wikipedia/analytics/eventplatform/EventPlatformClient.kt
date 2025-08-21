@@ -11,6 +11,7 @@ import org.wikimedia.metricsplatform.config.StreamConfig
 import org.wikimedia.metricsplatform.config.sampling.SampleConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
@@ -113,6 +114,8 @@ object EventPlatformClient {
     suspend fun refreshStreamConfigs() {
         val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
         updateStreamConfigs(response.streamConfigs)
+
+        MetricsPlatform.client.updateSourceConfig(response.streamConfigs)
     }
 
     private fun updateStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
