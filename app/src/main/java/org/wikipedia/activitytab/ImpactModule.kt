@@ -103,10 +103,9 @@ fun MostViewedCard(
             color = WikipediaTheme.colors.borderColor
         )
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
-        ) {
+        Column {
             Row(
+                modifier = Modifier.padding(16.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
@@ -134,79 +133,87 @@ fun MostViewedCard(
                 if (data.size <= 1) {
                     iconResource = null
                 }
-                Row(
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp)
-                        .clickable(onClick = { onClick(pageSummary) }),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                        .clickable(onClick = { onClick(pageSummary) })
                 ) {
-                    iconResource?.let {
-                        Icon(
-                            modifier = Modifier.size(24.dp),
-                            painter = painterResource(it),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                    }
-                    Column(
+                    Row(
                         modifier = Modifier
-                            .weight(1f)
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        HtmlText(
-                            text = pageSummary.displayTitle,
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontFamily = FontFamily.Serif
-                            ),
-                            color = WikipediaTheme.colors.primaryColor,
-                        )
-                        pageSummary.description?.let { description ->
-                            Text(
-                                text = description,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = WikipediaTheme.colors.secondaryColor,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
+                        iconResource?.let {
+                            Icon(
+                                modifier = Modifier.size(24.dp),
+                                painter = painterResource(it),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = null
                             )
                         }
-                        Row(
+                        Column(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 8.dp),
-                            verticalAlignment = Alignment.CenterVertically,
+                                .weight(1f)
                         ) {
-                            LineChart(
-                                map = articleViews.viewsByDay,
-                                modifier = Modifier
-                                    .width(24.dp)
-                                    .height(6.dp),
-                                chartSampleSize = 10,
-                                strokeWidth = 1.dp,
-                                strokeColor = WikipediaTheme.colors.progressiveColor
+                            HtmlText(
+                                text = pageSummary.displayTitle,
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontFamily = FontFamily.Serif
+                                ),
+                                color = WikipediaTheme.colors.primaryColor,
                             )
-                            Text(
+                            pageSummary.description?.let { description ->
+                                Text(
+                                    text = description,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = WikipediaTheme.colors.secondaryColor,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                            Row(
                                 modifier = Modifier
-                                    .weight(1f)
-                                    .padding(start = 8.dp),
-                                text = formatter.format(articleViews.viewsCount),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = WikipediaTheme.colors.progressiveColor
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                LineChart(
+                                    map = articleViews.viewsByDay,
+                                    modifier = Modifier
+                                        .width(24.dp)
+                                        .height(6.dp),
+                                    chartSampleSize = 10,
+                                    strokeWidth = 1.dp,
+                                    strokeColor = WikipediaTheme.colors.progressiveColor
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .padding(start = 8.dp),
+                                    text = formatter.format(articleViews.viewsCount),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = WikipediaTheme.colors.progressiveColor
+                                )
+                            }
+                        }
+                        if (pageSummary.thumbnailUrl != null) {
+                            val request =
+                                ImageService.getRequest(
+                                    LocalContext.current,
+                                    url = pageSummary.thumbnailUrl
+                                )
+                            AsyncImage(
+                                model = request,
+                                placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                                error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                                contentScale = ContentScale.Crop,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .size(56.dp)
+                                    .clip(RoundedCornerShape(16.dp))
                             )
                         }
-                    }
-                    if (pageSummary.thumbnailUrl != null) {
-                        val request =
-                            ImageService.getRequest(LocalContext.current, url = pageSummary.thumbnailUrl)
-                        AsyncImage(
-                            model = request,
-                            placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                            error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                            contentScale = ContentScale.Crop,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(56.dp)
-                                .clip(RoundedCornerShape(16.dp))
-                        )
                     }
                 }
                 if (index < data.size - 1) {
