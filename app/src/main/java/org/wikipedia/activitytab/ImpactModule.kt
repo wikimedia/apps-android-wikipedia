@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -34,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.LineChart
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -52,6 +55,7 @@ import java.util.Locale
 fun ImpactModule(
     modifier: Modifier = Modifier,
     uiState: UiState<GrowthUserImpact>,
+    onPageItemClicked: (PageSummary) -> Unit,
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     if (uiState == UiState.Loading) {
@@ -73,7 +77,7 @@ fun ImpactModule(
                 .fillMaxWidth(),
             data = uiState.data.topViewedArticlesWithPageSummary,
             onClick = {
-                // TODO: list item click
+                onPageItemClicked(it)
             }
         )
     }
@@ -83,12 +87,12 @@ fun ImpactModule(
 fun MostViewedCard(
     modifier: Modifier = Modifier,
     data: Map<PageSummary, ArticleViews>,
-    onClick: (() -> Unit)? = null
+    showSize: Int = 3,
+    onClick: (PageSummary) -> Unit
 ) {
     val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onClick?.invoke() }),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
@@ -120,28 +124,36 @@ fun MostViewedCard(
 
             var index = 1
             data.forEach { (pageSummary, articleViews) ->
-                val iconResource = when (index++) {
+                if (index > showSize) return@forEach
+                var iconResource = when (index++) {
                     1 -> R.drawable.outline_looks_one_24
                     2 -> R.drawable.outline_looks_two_24
-                    else -> R.drawable.outline_looks_three_24
+                    3 -> R.drawable.outline_looks_three_24
+                    else -> null
+                }
+                if (data.size <= 1) {
+                    iconResource = null
                 }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp),
+                        .padding(vertical = 16.dp)
+                        .clickable(onClick = { onClick(pageSummary) }),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource(iconResource),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = null
-                    )
+                    iconResource?.let {
+                        Icon(
+                            modifier = Modifier.size(24.dp),
+                            painter = painterResource(it),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = null
+                        )
+                    }
                     Column(
                         modifier = Modifier
                             .weight(1f)
                     ) {
-                        Text(
+                        HtmlText(
                             text = pageSummary.displayTitle,
                             style = MaterialTheme.typography.titleMedium.copy(
                                 fontFamily = FontFamily.Serif
@@ -161,19 +173,21 @@ fun MostViewedCard(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(top = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             LineChart(
                                 map = articleViews.viewsByDay,
                                 modifier = Modifier
-                                    .weight(1f)
-                                    .height(40.dp),
-                                strokeWidth = 2.dp,
+                                    .width(24.dp)
+                                    .height(6.dp),
+                                chartSampleSize = 10,
+                                strokeWidth = 1.dp,
                                 strokeColor = WikipediaTheme.colors.progressiveColor
                             )
                             Text(
                                 modifier = Modifier
-                                    .padding(start = 8.dp)
-                                    .align(Alignment.CenterVertically),
+                                    .weight(1f)
+                                    .padding(start = 8.dp),
                                 text = formatter.format(articleViews.viewsCount),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = WikipediaTheme.colors.progressiveColor
@@ -194,6 +208,11 @@ fun MostViewedCard(
                                 .clip(RoundedCornerShape(16.dp))
                         )
                     }
+                }
+                if (index < data.size - 1) {
+                    HorizontalDivider(
+                        color = WikipediaTheme.colors.borderColor
+                    )
                 }
             }
         }
@@ -276,7 +295,8 @@ private fun MostViewedCardPreview() {
         MostViewedCard(
             data = mapOf(
                 pageSummary to articleViews
-            )
+            ),
+            onClick = { },
         )
     }
 }

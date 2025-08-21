@@ -22,13 +22,27 @@ import kotlin.math.max
 fun LineChart(
     map: Map<String, Int>,
     modifier: Modifier = Modifier,
+    chartSampleSize: Int = 10,
     strokeWidth: Dp = 2.dp,
     strokeColor: Color = WikipediaTheme.colors.progressiveColor
 ) {
     if (map.isEmpty()) {
         return
     }
-    val maxValue = map.values.maxOrNull() ?: 1
+
+    val sortedValues = map.entries.sortedBy { it.key }.map { it.value }
+
+    // Downsample the data to avoid the chart being too crowded in a small layout.
+    val downsampledList = if (sortedValues.size <= chartSampleSize) {
+        sortedValues
+    } else {
+        val chunkSize = sortedValues.size / chartSampleSize
+        sortedValues
+            .chunked(chunkSize)
+            .map { it.average().toInt() }
+    }
+
+    val maxValue = downsampledList.maxOrNull() ?: 1
     val minValue = 0
     val range = max(maxValue - minValue, 1)
 
@@ -37,25 +51,21 @@ fun LineChart(
     ) {
         val canvasWidth = size.width
         val canvasHeight = size.height
-        // Calculate the scaling factors
-        val xScale = canvasWidth / (map.size - 1)
+        val xScale = canvasWidth / (downsampledList.size - 1)
         val yScale = canvasHeight / range
 
         val path = Path()
-
-        // Move to the first point
-        val firstY = canvasHeight - ((map.values.first() - minValue) * yScale)
+        val firstY = canvasHeight - ((downsampledList.first() - minValue) * yScale)
         path.moveTo(0f, firstY)
 
-        // Loop through all points and draw lines
         var index = 0
-        map.forEach { (_, value) ->
+        downsampledList.forEach {
             if (index == 0) {
                 index++ // Skip the first point since we already moved to it
                 return@forEach
             }
             val x = index++ * xScale
-            val y = canvasHeight - ((value - minValue) * yScale)
+            val y = canvasHeight - ((it - minValue) * yScale)
             path.lineTo(x, y)
         }
 
@@ -89,9 +99,20 @@ private fun LineChartPreview() {
                     "2025-01-07" to 110,
                     "2025-01-08" to 153,
                     "2025-01-09" to 100,
-                    "2025-01-10" to 100,
+                    "2025-01-10" to 150,
+                    "2025-01-11" to 160,
+                    "2025-01-12" to 170,
+                    "2025-01-13" to 180,
+                    "2025-01-14" to 140,
+                    "2025-01-15" to 130,
+                    "2025-01-16" to 106,
+                    "2025-01-17" to 102,
+                    "2025-01-18" to 103,
+                    "2025-01-19" to 95,
+                    "2025-01-20" to 76,
                 ),
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                chartSampleSize = 10,
             )
         }
     }

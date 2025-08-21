@@ -74,8 +74,10 @@ import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -332,6 +334,18 @@ class ActivityTabFragment : Fragment() {
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = impactUiState,
+                                    onPageItemClicked = {
+                                        val pageTitle = it.getPageTitle(WikiSite.forLanguageCode(it.lang))
+                                        val entry = HistoryEntry(
+                                            title = pageTitle,
+                                            source = HistoryEntry.SOURCE_ACTIVITY_TAB
+                                        )
+                                        requireActivity().startActivity(PageActivity.newIntentForNewTab(
+                                            context = requireActivity(),
+                                            entry = entry,
+                                            title = pageTitle
+                                        ))
+                                    },
                                     wikiErrorClickEvents = WikiErrorClickEvents(
                                         retryClickListener = {
                                             viewModel.loadImpact()
