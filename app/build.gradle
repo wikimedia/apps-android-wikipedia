@@ -185,6 +185,7 @@ dependencies {
     implementation libs.material
     implementation libs.appcompat
     implementation libs.core.ktx
+    implementation libs.androidx.core.remoteviews
     implementation libs.browser
     implementation libs.constraintlayout
     implementation libs.fragment.ktx
