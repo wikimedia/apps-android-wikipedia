@@ -1238,7 +1238,7 @@
     <string name="activity_tab_impact_last_edited">Last edited</string>
     <string name="activity_tab_impact_suggested_edits_title">0 edits to articles so far</string>
     <string name="activity_tab_impact_suggested_edits_message">Help extend free knowledge to the world by editing topics that matter most to you.</string>
-    <string name="activity_tab_impact_suggested_edits_button">Try out suggested edits</string>
+    <string name="activity_tab_impact_suggested_edits_button">Try out Suggested edits</string>
     <string name="activity_tab_impact_recent_activity">Your recent activity (last 30 days)</string>
     <plurals name="activity_tab_impact_recent_activity_edits">
         <item quantity="one">Edit</item>
