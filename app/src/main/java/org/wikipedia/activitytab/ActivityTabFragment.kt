@@ -81,6 +81,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
@@ -334,7 +335,7 @@ class ActivityTabFragment : Fragment() {
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = impactUiState,
-                                    onPageItemClicked = {
+                                    onPageItemClick = {
                                         val pageTitle = it.getPageTitle(WikiSite.forLanguageCode(it.lang))
                                         val entry = HistoryEntry(
                                             title = pageTitle,
@@ -344,6 +345,12 @@ class ActivityTabFragment : Fragment() {
                                             context = requireActivity(),
                                             entry = entry,
                                             title = pageTitle
+                                        ))
+                                    },
+                                    onContributionClick = {
+                                        requireActivity().startActivity(UserContribListActivity.newIntent(
+                                            context = requireActivity(),
+                                            userName = userName
                                         ))
                                     },
                                     wikiErrorClickEvents = WikiErrorClickEvents(

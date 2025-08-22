@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.growthtasks
 
+import android.text.format.DateUtils
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
@@ -7,6 +8,7 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.JsonUtil
+import java.time.LocalDate
 
 @Suppress("unused")
 @Serializable
@@ -47,6 +49,18 @@ class GrowthUserImpact(
     }
 
     val topViewedArticlesWithPageSummary: MutableMap<PageSummary, ArticleViews> = mutableMapOf()
+
+
+    val editsThisMonth get() = groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0
+    val editsLastMonth get() = groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0
+    val lastEditRelativeTime get() = lastEditTimestamp.let {
+        val relativeTime = DateUtils.getRelativeTimeSpanString(
+            lastEditTimestamp,
+            System.currentTimeMillis(),
+            0L
+        )
+        return@let relativeTime.toString()
+    }
 
     @Serializable
     class ArticleViews(
