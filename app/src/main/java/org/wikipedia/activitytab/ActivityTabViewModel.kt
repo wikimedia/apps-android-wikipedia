@@ -62,10 +62,13 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
     private val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
     private val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
+    private var currentTimelinePagingSource: TimelinePagingSource? = null
 
     val timelineFlow = Pager(
         config = PagingConfig(pageSize = 50),
-        pagingSourceFactory = { TimelinePagingSource(listOf(historyEntrySource, apiSource, readingListSource)) }
+        pagingSourceFactory = { TimelinePagingSource(listOf(historyEntrySource, apiSource, readingListSource)).also {
+            currentTimelinePagingSource = it
+        } }
     ).flow.cachedIn(viewModelScope)
         .map { pagingData ->
             pagingData.insertSeparators { before, after ->
@@ -89,6 +92,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         loadDonationResults()
         loadWikiGamesStats()
         loadImpact()
+    }
+
+    fun refreshTimeline() {
+        currentTimelinePagingSource?.invalidate()
     }
 
     fun loadReadingHistory() {

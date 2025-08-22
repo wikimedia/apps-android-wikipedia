@@ -144,6 +144,7 @@ class ActivityTabFragment : Fragment() {
         super.onResume()
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         viewModel.loadAll()
+        viewModel.refreshTimeline()
         requireActivity().invalidateOptionsMenu()
     }
 
