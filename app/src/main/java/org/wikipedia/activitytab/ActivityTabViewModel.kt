@@ -15,10 +15,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
@@ -38,6 +40,16 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    var langCode = Prefs.userContribFilterLangCode
+
+    val wikiSite get(): WikiSite {
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(langCode)
+        }
+    }
+
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -48,7 +60,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
     private val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
-    private val apiSource = ApiTimelineSource(WikiSite.forLanguageCode("en"), AccountUtil.userName)
+    private val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
     private val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
 
     val timelineFlow = Pager(

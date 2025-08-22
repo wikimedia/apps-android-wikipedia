@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,11 +36,13 @@ import java.util.Date
 @Composable
 fun Timeline(
     modifier: Modifier = Modifier,
-    timelineItem: TimelineItem
+    timelineItem: TimelineItem,
+    onItemClick: (TimelineItem) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = { onItemClick(timelineItem) })
             .padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -48,11 +51,13 @@ fun Timeline(
             ActivitySource.EDIT -> R.drawable.ic_mode_edit_white_24dp
             ActivitySource.SEARCH -> R.drawable.search_bold
             ActivitySource.LINK -> R.drawable.ic_link_black_24dp
+            ActivitySource.BOOKMARKED -> R.drawable.ic_bookmark_white_24dp
             null -> null
         }
         if (icon != null) {
             Icon(
                 painter = painterResource(icon),
+                tint = WikipediaTheme.colors.primaryColor,
                 contentDescription = null
             )
         }
@@ -61,7 +66,7 @@ fun Timeline(
                 .weight(1f)
         ) {
             Text(
-                text = timelineItem.title,
+                text = timelineItem.apiTitle,
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis

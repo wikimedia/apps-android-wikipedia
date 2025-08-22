@@ -75,13 +75,16 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -409,7 +412,28 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 }
                                 is TimelineDisplayItem.TimelineEntry -> {
-                                    Timeline(timelineItem = displayItem.item)
+                                    Timeline(
+                                        timelineItem = displayItem.item,
+                                        onItemClick = { item ->
+                                            when (item.activitySource) {
+                                                ActivitySource.EDIT -> {
+                                                    startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
+                                                        PageTitle(item.apiTitle, viewModel.wikiSite), item.pageId, revisionTo = item.id))
+                                                }
+                                                ActivitySource.BOOKMARKED -> {
+                                                    val title = toPageTitle(item)
+                                                    val entry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
+                                                    startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
+                                                }
+
+                                                ActivitySource.LINK -> {
+                                                    val entry = toHistoryEntry(item)
+                                                    startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
+                                                }
+                                                else -> {}
+                                            }
+                                        }
+                                    )
                                 }
                                 null -> {}
                             }
