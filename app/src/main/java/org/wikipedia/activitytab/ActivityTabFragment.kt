@@ -399,7 +399,6 @@ class ActivityTabFragment : Fragment() {
                     }
 
                     if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
-                        // @TODO: MARK_ACTIVITY_TAB
                         items(
                             count = timelineItems.itemCount,
                         ) { index ->
@@ -455,12 +454,7 @@ class ActivityTabFragment : Fragment() {
                                     }
                                 }
                             }
-                            is LoadState.Error -> {
-                                // @TODO: add error ui
-                            }
-                            is LoadState.NotLoading -> {
-                                // @TODO: add not loading ui
-                            }
+                            else -> {}
                         }
                     }
                 }
