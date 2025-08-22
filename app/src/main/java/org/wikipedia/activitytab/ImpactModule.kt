@@ -433,13 +433,14 @@ fun AllTimeImpactCard(
     modifier: Modifier = Modifier,
     totalEdits: Int = 0,
     totalThanks: Int = 0,
-    longestEditingStreak: Int? = null,
+    longestEditingStreak: Int = 0,
     lastEditTimestamp: Long = 0,
     lastThirtyDaysEdits: Map<String, Int> = emptyMap(),
     totalPageviewsCount: Long = 0,
     dailyTotalViews: Map<String, Int> = emptyMap(),
     onClick: (() -> Unit)? = null
 ) {
+    val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
         modifier = modifier,
         colors = CardDefaults.cardColors(
@@ -475,9 +476,9 @@ fun AllTimeImpactCard(
                     statValue = totalEdits.toString(),
                     statLabel = pluralStringResource(R.plurals.activity_tab_impact_total_edits, totalEdits)
                 )
-                val bestStreakString = longestEditingStreak?.let {
-                    pluralStringResource(R.plurals.activity_tab_impact_best_streak_text, it, it)
-                } ?: run {
+                val bestStreakString = if (longestEditingStreak > 0) {
+                    pluralStringResource(R.plurals.activity_tab_impact_best_streak_text, longestEditingStreak, longestEditingStreak)
+                } else {
                     "-"
                 }
                 ImpactStatView(
@@ -610,7 +611,7 @@ fun AllTimeImpactCard(
                         verticalAlignment = Alignment.Bottom
                     ) {
                         Text(
-                            text = totalPageviewsCount.toString(),
+                            text = formatter.format(totalPageviewsCount),
                             modifier = Modifier.align(Alignment.Bottom),
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Medium,
