@@ -13,10 +13,8 @@ import java.time.temporal.ChronoUnit
 import java.util.Date
 import java.util.Locale
 
-// Data class for timeline display items (includes separators)
-sealed class TimelineDisplayItem {
-    data class DateSeparator(val date: Date) : TimelineDisplayItem()
-    data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
+interface TimelineSource {
+    suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?>
 }
 
 fun formatDate(date: LocalDate): String {
@@ -37,35 +35,6 @@ fun formatDate(date: LocalDate): String {
             DateTimeFormatter.ofPattern("MMMM d, yyyy").format(date)
         }
     }
-}
-
-// Data Models
-enum class ActivitySource {
-    EDIT, SEARCH, LINK
-}
-
-data class TimelineItem(
-    val id: Long,
-    val title: String,
-    val description: String?,
-    val thumbnailUrl: String?,
-    val timestamp: Date,
-    val wiki: String = "en",
-    val activitySource: ActivitySource?
-)
-
-sealed class Cursor {
-    data class ApiCursor(val token: String?) : Cursor()
-    data class HistoryEntryCursor(val offset: Int) : Cursor()
-    data class ReadingListCursor(val offset: Int) : Cursor()
-}
-
-data class TimelinePageKey(
-    val cursors: Map<String, Cursor> = emptyMap()
-)
-
-interface TimelineSource {
-    suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?>
 }
 
 class HistoryEntrySource(
@@ -136,4 +105,42 @@ class ReadingListSource(
         val nextCursor = if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
         return items to nextCursor
     }
+}
+
+// Data Models
+enum class ActivitySource {
+    EDIT, SEARCH, LINK
+}
+
+data class TimelineItem(
+    val id: Long,
+    val title: String,
+    val description: String?,
+    val thumbnailUrl: String?,
+    val timestamp: Date,
+    val wiki: String = "en",
+    val activitySource: ActivitySource?
+)
+
+sealed class Cursor {
+    data class ApiCursor(val token: String?) : Cursor()
+    data class HistoryEntryCursor(val offset: Int) : Cursor()
+    data class ReadingListCursor(val offset: Int) : Cursor()
+}
+
+data class TimelinePageKey(
+    val cursors: Map<String, Cursor> = emptyMap()
+)
+
+// Extension functions
+fun Date.toLocalDate(): LocalDate {
+    return this.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+}
+
+fun Date.isToday(): Boolean {
+    return this.toLocalDate() == LocalDate.now()
+}
+
+fun Date.isYesterday(): Boolean {
+    return this.toLocalDate() == LocalDate.now().minusDays(1)
 }

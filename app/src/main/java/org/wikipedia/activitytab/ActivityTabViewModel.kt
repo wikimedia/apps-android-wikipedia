@@ -196,15 +196,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 }
 
-// Extension functions
-fun Date.toLocalDate(): LocalDate {
-    return this.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
-}
-
-fun Date.isToday(): Boolean {
-    return this.toLocalDate() == LocalDate.now()
-}
-
-fun Date.isYesterday(): Boolean {
-    return this.toLocalDate() == LocalDate.now().minusDays(1)
+sealed class TimelineDisplayItem {
+    data class DateSeparator(val date: Date) : TimelineDisplayItem()
+    data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
 }
