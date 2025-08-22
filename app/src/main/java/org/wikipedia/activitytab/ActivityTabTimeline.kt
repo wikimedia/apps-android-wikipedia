@@ -91,7 +91,7 @@ fun Timeline(
                         containerColor = WikipediaTheme.colors.additionColor,
                         contentColor = WikipediaTheme.colors.secondaryColor,
                     ),
-                    onClick = {},
+                    onClick = { onItemClick(timelineItem) },
                 ) {
                     Icon(
                         modifier = Modifier.size(20.dp),
