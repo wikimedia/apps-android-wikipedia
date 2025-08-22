@@ -43,41 +43,27 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
-    private val repository = TimelineRepository(userName = AccountUtil.userName)
+    private val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
+    private val apiSource = ApiTimelineSource(WikiSite.forLanguageCode("en"), AccountUtil.userName)
+    private val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
 
     val timelineFlow = Pager(
-        config = PagingConfig(
-            pageSize = 2
-        ),
-        pagingSourceFactory = { TimelinePagingSource(repository) }
-    ).flow.cachedIn(viewModelScope).map { pagingData ->
-        pagingData.insertSeparators { before: TimelineItem?, after: TimelineItem? ->
-            when {
-                // First item - always add date separator
-                before == null && after != null -> {
+        config = PagingConfig(pageSize = 50),
+        pagingSourceFactory = { TimelinePagingSource(listOf(historyEntrySource, apiSource, readingListSource)) }
+    ).flow.cachedIn(viewModelScope)
+        .map { pagingData ->
+            pagingData.insertSeparators { before, after ->
+                if (before == null && after != null) TimelineDisplayItem.DateSeparator(after.timestamp)
+                else if (before != null && after != null && before.timestamp.toLocalDate() != after.timestamp.toLocalDate()) {
                     TimelineDisplayItem.DateSeparator(after.timestamp)
+                } else null
+            }.map { item ->
+                when (item) {
+                    is TimelineItem -> TimelineDisplayItem.TimelineEntry(item)
+                    else -> item as TimelineDisplayItem
                 }
-                // Between items - add separator if date changed
-                before != null && after != null -> {
-                    val beforeDate = before.timestamp.toLocalDate()
-                    val afterDate = after.timestamp.toLocalDate()
-                    if (beforeDate != afterDate) {
-                        TimelineDisplayItem.DateSeparator(after.timestamp)
-                    } else {
-                        null
-                    }
-                }
-                // Last item - no separator needed
-                else -> null
-            }
-        }.map { item ->
-            // Convert TimelineItem to TimelineDisplayItem.TimelineEntry
-            when (item) {
-                is TimelineItem -> TimelineDisplayItem.TimelineEntry(item)
-                else -> item as TimelineDisplayItem // Already a separator
             }
         }
-    }.cachedIn(viewModelScope)
 
     fun loadAll() {
         loadReadingHistory()

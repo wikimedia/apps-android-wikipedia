@@ -21,6 +21,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -51,6 +52,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.Flow
@@ -376,6 +378,29 @@ class ActivityTabFragment : Fragment() {
                                     Timeline(timelineItem = displayItem.item)
                                 }
                                 null -> {}
+                            }
+                        }
+
+                        when (timelineItems.loadState.append) {
+                            LoadState.Loading -> {
+                                item {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(vertical = 16.dp),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        CircularProgressIndicator(
+                                            color = WikipediaTheme.colors.progressiveColor
+                                        )
+                                    }
+                                }
+                            }
+                            is LoadState.Error -> {
+                                // @TODO: add error ui
+                            }
+                            is LoadState.NotLoading -> {
+                                // @TODO: add not loading ui
                             }
                         }
                     }

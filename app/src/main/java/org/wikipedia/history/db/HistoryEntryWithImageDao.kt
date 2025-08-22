@@ -23,9 +23,8 @@ interface HistoryEntryWithImageDao {
     suspend fun getHistoryEntriesInRange(startTime: Date, endTime: Date): List<HistoryEntryWithImage>
 
     @Query("""
-    SELECT HistoryEntry.*, PageImage.imageName, PageImage.description,PageImage.geoLat, PageImage.geoLon,PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE HistoryEntry.timestamp <= :startDate ORDER BY timestamp DESC LIMIT :limit OFFSET :offset""")
-    suspend fun getHistoryEntriesOlderThan(
-        startDate: Date,
+    SELECT HistoryEntry.*, PageImage.imageName, PageImage.description,PageImage.geoLat, PageImage.geoLon,PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset""")
+    suspend fun getHistoryEntriesWithOffset(
         limit: Int,
         offset: Int
     ): List<HistoryEntryWithImage>

@@ -1,15 +1,10 @@
 package org.wikipedia.activitytab
 
-import org.wikipedia.Constants
-import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_EXTERNAL_LINK
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_INTERNAL_LINK
-import org.wikipedia.history.HistoryEntry.Companion.SOURCE_LANGUAGE_LINK
 import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
-import org.wikipedia.settings.Prefs
+import org.wikipedia.history.db.HistoryEntryWithImageDao
+import org.wikipedia.readinglist.db.ReadingListPageDao
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -17,143 +12,6 @@ import java.time.format.TextStyle
 import java.time.temporal.ChronoUnit
 import java.util.Date
 import java.util.Locale
-import kotlin.collections.first
-
-class TimelineRepository(private val userName: String) {
-    var langCode = Prefs.userContribFilterLangCode
-
-    val wikiSite
-        get(): WikiSite {
-            return when (langCode) {
-                Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
-                Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
-                else -> WikiSite.forLanguageCode(langCode)
-            }
-        }
-
-    suspend fun getHistoryItemsOlderThan(
-        startDate: Date,
-        pageSize: Int,
-        offset: Int
-    ): List<TimelineItem> {
-        val items = AppDatabase.instance.historyEntryWithImageDao()
-            .getHistoryEntriesOlderThan(startDate, pageSize, offset)
-        return items.map {
-            TimelineItem(
-                id = it.id,
-                title = it.apiTitle,
-                description = it.description,
-                thumbnailUrl = it.imageName,
-                timestamp = it.timestamp,
-                wiki = it.lang,
-                activitySource = when (it.source) {
-                    SOURCE_SEARCH -> ActivitySource.SEARCH
-                    SOURCE_INTERNAL_LINK, SOURCE_EXTERNAL_LINK, SOURCE_LANGUAGE_LINK -> ActivitySource.LINK
-                    else -> null
-                }
-            )
-        }
-    }
-
-    suspend fun getHistoryItemsInRange(startTime: Date, endTime: Date): List<TimelineItem> {
-        val items = AppDatabase.instance.historyEntryWithImageDao()
-            .getHistoryEntriesInRange(startTime, endTime)
-        return items.map {
-            TimelineItem(
-                id = it.id,
-                title = it.apiTitle,
-                description = it.description,
-                thumbnailUrl = it.imageName,
-                timestamp = it.timestamp,
-                wiki = it.lang,
-                activitySource = when (it.source) {
-                    SOURCE_SEARCH -> ActivitySource.SEARCH
-                    SOURCE_INTERNAL_LINK, SOURCE_EXTERNAL_LINK, SOURCE_LANGUAGE_LINK -> ActivitySource.LINK
-                    else -> null
-                }
-            )
-        }
-    }
-
-    suspend fun getWikipediaContributions(pageSize: Int, continueToken: String?): ApiResult {
-        val response = ServiceFactory.get(wikiSite)
-            .getUserContrib(userName, pageSize, null, null, continueToken, ucdir = "older")
-        val contribs = response.query?.userContributions ?: emptyList()
-        val nextToken = response.continuation?.ucContinuation
-        val items = contribs.map {
-            TimelineItem(
-                id = it.revid,
-                title = it.title,
-                description = null,
-                thumbnailUrl = null,
-                timestamp = Date.from(it.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
-                activitySource = ActivitySource.EDIT
-            )
-        }
-
-        return ApiResult(
-            items,
-            nextToken
-        )
-    }
-
-    private fun mergerAndSortItems(
-        localItems: List<TimelineItem>,
-        apiItems: List<TimelineItem>
-    ): List<TimelineItem> {
-        return (localItems + apiItems)
-            .sortedByDescending { it.timestamp }
-            .distinctBy { it.id }
-    }
-
-    suspend fun getTimelinePage(
-        pageSize: Int,
-        continueToken: String?,
-        dbOnly: Boolean,
-        dbOffset: Int = 0,
-        startDate: Date? = null
-    ): TimelinePageResult {
-        return if (dbOnly) {
-            val localItems = getHistoryItemsOlderThan(startDate!!, 2, dbOffset)
-            TimelinePageResult(
-                localItems,
-                nextContinueToken = if (localItems.isEmpty()) null else "db-key",
-                lastDbDate = localItems.lastOrNull()?.timestamp
-            )
-        } else {
-            val apiResult = try {
-                getWikipediaContributions(pageSize, continueToken)
-            } catch (e: Exception) {
-                ApiResult(emptyList(), null)
-            }
-
-            val timeRange = extractTimeRange(apiResult.items)
-            val historyItems = if (timeRange != null) {
-                val startDate = if (continueToken == null) Date() else timeRange.first
-                val endDate = timeRange.second
-                val (from, to) = if (startDate.before(endDate)) {
-                    startDate to endDate
-                } else {
-                    endDate to startDate
-                }
-                getHistoryItemsInRange(from, to)
-            } else
-                emptyList()
-
-            val mergedItems = mergerAndSortItems(historyItems, apiResult.items)
-            TimelinePageResult(
-                items = mergedItems,
-                nextContinueToken = apiResult.nextToken,
-                isApiExhausted = apiResult.nextToken == null,
-                lastDbDate = historyItems.lastOrNull()?.timestamp
-            )
-        }
-    }
-
-    private fun extractTimeRange(apiItems: List<TimelineItem>): Pair<Date, Date>? {
-        return Pair(apiItems.first().timestamp, apiItems.last().timestamp)
-    }
-}
 
 // Data class for timeline display items (includes separators)
 sealed class TimelineDisplayItem {
@@ -182,6 +40,10 @@ fun formatDate(date: LocalDate): String {
 }
 
 // Data Models
+enum class ActivitySource {
+    EDIT, SEARCH, LINK
+}
+
 data class TimelineItem(
     val id: Long,
     val title: String,
@@ -192,25 +54,86 @@ data class TimelineItem(
     val activitySource: ActivitySource?
 )
 
-data class ApiResult(
-    val items: List<TimelineItem>,
-    val nextToken: String?
-)
-
-data class TimelinePageResult(
-    val items: List<TimelineItem>,
-    val nextContinueToken: String?,
-    val isApiExhausted: Boolean = false,
-    val lastDbDate: Date? = null
-)
+sealed class Cursor {
+    data class ApiCursor(val token: String?) : Cursor()
+    data class HistoryEntryCursor(val offset: Int) : Cursor()
+    data class ReadingListCursor(val offset: Int) : Cursor()
+}
 
 data class TimelinePageKey(
-    val continueToken: String?,
-    val dbOnly: Boolean = false,
-    val dbOffset: Int = 0,
-    val startDate: Date? = null
+    val cursors: Map<String, Cursor> = emptyMap()
 )
 
-enum class ActivitySource {
-    EDIT, SEARCH, LINK
+interface TimelineSource {
+    suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?>
+}
+
+class HistoryEntrySource(
+    private val dao: HistoryEntryWithImageDao
+) : TimelineSource {
+
+    override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
+        val offset = (cursor as? Cursor.HistoryEntryCursor)?.offset ?: 0
+        val items = dao.getHistoryEntriesWithOffset(pageSize, offset).map { TimelineItem(
+            id = it.id,
+            title = it.apiTitle,
+            description = it.description,
+            thumbnailUrl = it.imageName,
+            timestamp = it.timestamp,
+            activitySource = when (it.source) {
+                SOURCE_SEARCH -> ActivitySource.SEARCH
+                else -> ActivitySource.LINK
+            }
+        ) }
+        val nextCursor = if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
+        return items to nextCursor
+    }
+}
+
+class ApiTimelineSource(
+    private val wikiSite: WikiSite,
+    private val userName: String
+) : TimelineSource {
+
+    override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
+        val token = (cursor as? Cursor.ApiCursor)?.token
+        val response = ServiceFactory.get(wikiSite)
+            .getUserContrib(userName, pageSize, null, null, token, ucdir = "older")
+
+        val items = response.query?.userContributions?.map {
+            TimelineItem(
+                id = it.revid,
+                title = it.title,
+                description = null,
+                thumbnailUrl = null,
+                timestamp = Date.from(it.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
+                activitySource = ActivitySource.EDIT
+            )
+        } ?: emptyList()
+
+        val nextCursor = response.continuation?.ucContinuation?.let { Cursor.ApiCursor(it) }
+        return items to nextCursor
+    }
+}
+
+class ReadingListSource(
+    val dao: ReadingListPageDao
+) : TimelineSource {
+    override suspend fun fetch(
+        pageSize: Int,
+        cursor: Cursor?
+    ): Pair<List<TimelineItem>, Cursor?> {
+        val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
+        val items = dao.getPagesWithLimitOffset(pageSize, offset).map { TimelineItem(
+            id = it.id,
+            title = it.apiTitle,
+            description = it.description,
+            thumbnailUrl = it.thumbUrl,
+            timestamp = Date(it.mtime),
+            wiki = it.wiki.languageCode,
+            activitySource = ActivitySource.EDIT
+        ) }
+        val nextCursor = if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
+        return items to nextCursor
+    }
 }
