@@ -49,9 +49,11 @@ import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact.ArticleViews
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 import java.text.NumberFormat
+import java.util.Date
 import java.util.Locale
 
 @Composable
@@ -394,14 +396,90 @@ fun ContributionCard(
 @Composable
 fun AllTimeImpactCard(
     modifier: Modifier = Modifier,
-    impact: GrowthUserImpact,
+    totalEdits: Int = 0,
+    totalThanks: Int = 0,
+    longestEditingStreak: Int? = null,
+    lastEditTimestamp: Long = 0,
     onClick: (() -> Unit)? = null
 ) {
-    // TODO: Implement the UI for the EditsStatsCard
+    WikiCard(
+        modifier = modifier
+            .clickable(onClick = { onClick?.invoke() }),
+        colors = CardDefaults.cardColors(
+            containerColor = WikipediaTheme.colors.paperColor,
+            contentColor = WikipediaTheme.colors.paperColor
+        ),
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.activity_tab_impact_all_time),
+                style = MaterialTheme.typography.labelMedium.copy(
+                    fontWeight = FontWeight.SemiBold
+                ),
+                color = WikipediaTheme.colors.primaryColor,
+                lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                ImpactStatView(
+                    modifier = Modifier.weight(1f),
+                    iconResource = R.drawable.ic_mode_edit_white_24dp,
+                    statValue = totalEdits.toString(),
+                    statLabel = pluralStringResource(R.plurals.activity_tab_impact_total_edits, totalEdits)
+                )
+                val bestStreakString = longestEditingStreak?.let {
+                    pluralStringResource(R.plurals.activity_tab_impact_best_streak_text, it, it)
+                } ?: run {
+                    "-"
+                }
+                ImpactStatView(
+                    modifier = Modifier.weight(1f),
+                    iconResource = R.drawable.baseline_stars_24,
+                    statValue = bestStreakString,
+                    statLabel = stringResource(R.string.activity_tab_impact_best_streak)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                ImpactStatView(
+                    modifier = Modifier.weight(1f),
+                    iconResource = R.drawable.ic_notification_thanks,
+                    statValue = totalThanks.toString(),
+                    statLabel = pluralStringResource(R.plurals.activity_tab_impact_thanks, totalThanks)
+                )
+                val lastEditedDateString = if (lastEditTimestamp > 0) {
+                    DateUtil.getMDYDateString(Date(lastEditTimestamp))
+                } else {
+                    "-"
+                }
+                ImpactStatView(
+                    modifier = Modifier.weight(1f),
+                    iconResource = R.drawable.edit_history_ooui,
+                    statValue = lastEditedDateString,
+                    statLabel = stringResource(R.string.activity_tab_impact_last_edited)
+                )
+            }
+        }
+    }
 }
 
 @Composable
-fun EditsStatView(
+fun ImpactStatView(
     modifier: Modifier,
     iconResource: Int,
     statValue: String,
@@ -475,6 +553,23 @@ private fun ContributionCardPreview() {
             lastEditRelativeTime = "2 days ago",
             editsThisMonth = 9,
             editsLastMonth = 2,
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AllTimeImpactCardPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        AllTimeImpactCard(
+            modifier = Modifier.fillMaxWidth(),
+            totalEdits = 1234,
+            totalThanks = 56,
+            longestEditingStreak = 15,
+            lastEditTimestamp = System.currentTimeMillis() - 86400000L,
             onClick = {}
         )
     }

@@ -1215,6 +1215,10 @@
     <item quantity="one">Label of the suggested edits card that indicates the number of thanks.</item>
     <item quantity="other">Label of the suggested edits card that indicates the number of thanks.</item>
   </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">Text that indicates the length of the best streak. %d will be replaced by the number of days.</item>
+    <item quantity="other">Text that indicates the length of the best streak. %d will be replaced by the number of days.</item>
+  </plurals>
   <string name="activity_tab_impact_best_streak">Label of the suggested edits card that indicates the best streak</string>
   <string name="activity_tab_impact_last_edited">Label of the suggested edits card that indicates the last edited</string>
   <string name="activity_tab_impact_suggested_edits_title">Title of the suggested edits card in the impact section.</string>

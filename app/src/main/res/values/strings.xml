@@ -1234,6 +1234,10 @@
         <item quantity="one">Thank</item>
         <item quantity="other">Thanks</item>
     </plurals>
+    <plurals name="activity_tab_impact_best_streak_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
     <string name="activity_tab_impact_best_streak">Best streak</string>
     <string name="activity_tab_impact_last_edited">Last edited</string>
     <string name="activity_tab_impact_suggested_edits_title">0 edits to articles so far</string>
