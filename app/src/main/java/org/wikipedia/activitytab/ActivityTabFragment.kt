@@ -12,6 +12,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -42,6 +43,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -72,6 +74,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -105,7 +108,6 @@ class ActivityTabFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -123,9 +125,11 @@ class ActivityTabFragment : Fragment() {
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
+                        modules = Prefs.activityTabModules,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
+                        impactUiState = viewModel.impactUiState.collectAsState().value,
                         timelineFlow = viewModel.timelineFlow
                     )
                 }
@@ -135,8 +139,14 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        requireActivity().removeMenuProvider(menuProvider)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -144,9 +154,11 @@ class ActivityTabFragment : Fragment() {
     fun ActivityTabScreen(
         isLoggedIn: Boolean,
         userName: String,
+        modules: ActivityTabModules,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
+        impactUiState: UiState<GrowthUserImpact>,
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
@@ -158,7 +170,6 @@ class ActivityTabFragment : Fragment() {
         ) { paddingValues ->
             var isRefreshing by remember { mutableStateOf(false) }
             val state = rememberPullToRefreshState()
-            val modules = Prefs.activityTabModules
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
@@ -212,7 +223,8 @@ class ActivityTabFragment : Fragment() {
                             )
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.create_account_button)
+                                text = stringResource(R.string.create_account_button),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                         Button(
@@ -233,7 +245,8 @@ class ActivityTabFragment : Fragment() {
                         ) {
                             Text(
                                 modifier = Modifier.padding(start = 6.dp),
-                                text = stringResource(R.string.menu_login)
+                                text = stringResource(R.string.menu_login),
+                                style = MaterialTheme.typography.labelLarge
                             )
                         }
                     }
@@ -260,7 +273,7 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    if (modules.isModuleEnabled(ModuleType.READING_HISTORY)) {
+                    if (modules.isModuleEnabled(ModuleType.TIME_SPENT) || modules.isModuleEnabled(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -278,10 +291,12 @@ class ActivityTabFragment : Fragment() {
                                 ReadingHistoryModule(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     userName = userName,
+                                    showTimeSpent = modules.isModuleEnabled(ModuleType.TIME_SPENT),
+                                    showInsights = modules.isModuleEnabled(ModuleType.READING_INSIGHTS),
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                    onExploreClick = { callback()?.onNavigateTo(NavTab.EXPLORE) },
+                                    onExploreClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
                                     onCategoryItemClick = { category ->
                                         val pageTitle =
                                             viewModel.createPageTitleForCategory(category)
@@ -316,14 +331,23 @@ class ActivityTabFragment : Fragment() {
                                 )
                         ) {
                             if (modules.isModuleEnabled(ModuleType.IMPACT)) {
-                                // @TODO: MARK_ACTIVITY_TAB
+                                // TODO: zomg do something with this!
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                                Text(
+                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+                                    text = stringResource(R.string.activity_tab_highlights),
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Medium
+                                )
                             }
 
                             if (modules.isModuleEnabled(ModuleType.GAMES)) {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = wikiGamesUiState,
                                     onEntryCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
@@ -333,14 +357,19 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onStatsCardClick = {
-                                        // TODO: ask PM if these two actions should be the same.
+                                        // TODO: link to the stats page when we have the WikiGames home page.
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
 
                                             wikiSite = WikipediaApp.instance.wikiSite
                                         ))
-                                    }
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadWikiGamesStats()
+                                        }
+                                    )
                                 )
                             }
 
@@ -348,7 +377,7 @@ class ActivityTabFragment : Fragment() {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(vertical = 16.dp, horizontal = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = donationUiState,
                                     onClick = {
                                         (requireActivity() as? BaseActivity)?.launchDonateDialog(
@@ -356,6 +385,11 @@ class ActivityTabFragment : Fragment() {
                                         )
                                     }
                                 )
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                // Add bottom padding only if at least one of the modules in this gradient box is enabled.
+                                Spacer(modifier = Modifier.size(16.dp))
                             }
                         }
                     }
@@ -417,6 +451,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                modules = ActivityTabModules(isDonationsEnabled = true),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -443,6 +478,7 @@ class ActivityTabFragment : Fragment() {
                     currentStreak = 15,
                     bestStreak = 25
                 )),
+                impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345)),
                 timelineFlow = emptyFlow()
             )
         }
@@ -455,6 +491,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                modules = ActivityTabModules(isDonationsEnabled = true),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -467,6 +504,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact()),
                 timelineFlow = emptyFlow()
             )
         }
@@ -479,6 +517,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = false,
                 userName = "User",
+                modules = ActivityTabModules(),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -491,6 +530,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact()),
                 timelineFlow = emptyFlow()
             )
         }

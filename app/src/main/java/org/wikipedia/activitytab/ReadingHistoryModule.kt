@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -48,6 +50,7 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.TinyBarChart
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -59,6 +62,8 @@ import java.util.Locale
 fun ReadingHistoryModule(
     modifier: Modifier,
     userName: String,
+    showTimeSpent: Boolean,
+    showInsights: Boolean,
     readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
     onArticlesReadClick: () -> Unit = {},
     onArticlesSavedClick: () -> Unit = {},
@@ -102,38 +107,45 @@ fun ReadingHistoryModule(
         val readingHistory = readingHistoryState.data
         val todayDate = LocalDate.now()
 
-        Text(
-            text = stringResource(
-                R.string.activity_tab_weekly_time_spent_hm,
-                (readingHistory.timeSpentThisWeek / 3600),
-                (readingHistory.timeSpentThisWeek % 60)
-            ),
-            modifier = modifier.padding(top = 12.dp),
-            fontWeight = FontWeight.Medium,
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineLarge.copy(
-                brush = Brush.linearGradient(
-                    colors = listOf(
-                        ComposeColors.Red700,
-                        ComposeColors.Orange500,
-                        ComposeColors.Yellow500,
-                        ComposeColors.Blue300
+        if (showTimeSpent) {
+            Text(
+                text = stringResource(
+                    R.string.activity_tab_weekly_time_spent_hm,
+                    (readingHistory.timeSpentThisWeek / 3600),
+                    (readingHistory.timeSpentThisWeek % 60)
+                ),
+                modifier = modifier.padding(top = 12.dp),
+                fontWeight = FontWeight.Medium,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.headlineLarge.copy(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            ComposeColors.Red700,
+                            ComposeColors.Orange500,
+                            ComposeColors.Yellow500,
+                            ComposeColors.Blue300
+                        )
                     )
-                )
-            ),
-            color = WikipediaTheme.colors.primaryColor
-        )
-        Text(
-            text = stringResource(R.string.activity_tab_weekly_time_spent),
-            modifier = modifier
-                .padding(top = 8.dp, bottom = 16.dp),
-            style = MaterialTheme.typography.labelLarge,
-            textAlign = TextAlign.Center,
-            color = WikipediaTheme.colors.primaryColor
-        )
+                ),
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Text(
+                text = stringResource(R.string.activity_tab_weekly_time_spent),
+                modifier = modifier
+                    .padding(top = 8.dp),
+                style = MaterialTheme.typography.labelLarge,
+                textAlign = TextAlign.Center,
+                color = WikipediaTheme.colors.primaryColor
+            )
+        }
+
+        if (!showInsights) {
+            Spacer(modifier = Modifier.height(16.dp))
+            return
+        }
 
         Card(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+            modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 16.dp)
                 .clickable {
                     onArticlesReadClick()
                 },
@@ -413,17 +425,25 @@ fun ReadingHistoryModule(
                     onExploreClick()
                 },
             ) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(R.drawable.ic_globe),
-                    tint = WikipediaTheme.colors.paperColor,
-                    contentDescription = null
-                )
                 Text(
-                    modifier = Modifier.padding(start = 6.dp),
-                    text = stringResource(R.string.activity_tab_explore_wikipedia)
+                    text = stringResource(R.string.activity_tab_explore_wikipedia),
+                    style = MaterialTheme.typography.labelLarge
                 )
             }
+        }
+    } else if (readingHistoryState is UiState.Error) {
+        Box(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            WikiErrorView(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                caught = readingHistoryState.error,
+                errorClickEvents = wikiErrorClickEvents
+            )
         }
     }
 }

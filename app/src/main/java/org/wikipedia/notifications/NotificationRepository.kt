@@ -8,11 +8,7 @@ import org.wikipedia.notifications.db.NotificationDao
 
 class NotificationRepository(private val notificationDao: NotificationDao) {
 
-    fun getAllNotifications() = notificationDao.getAllNotifications()
-
-    private fun insertNotifications(notifications: List<Notification>) {
-        notificationDao.insertNotifications(notifications)
-    }
+    suspend fun getAllNotifications() = notificationDao.getAllNotifications()
 
     suspend fun updateNotification(notification: Notification) {
         notificationDao.updateNotification(notification)
@@ -28,7 +24,7 @@ class NotificationRepository(private val notificationDao: NotificationDao) {
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(wikiList, filter, continueStr)
         response.query?.notifications?.let {
-            insertNotifications(it.list.orEmpty())
+            notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
         return newContinueStr

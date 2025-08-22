@@ -9,7 +9,13 @@
   <string name="app_name_beta">विकिपीडिया उपान्त्यम्</string>
   <string name="app_name_alpha">विकिपीडिया आल्फा</string>
   <string name="wikimedia">विकिमीडिया</string>
+  <string name="nav_item_back">प्रतिगम्यताम्</string>
+  <string name="page_tabs_back">प्रतिगम्यताम्</string>
+  <string name="nav_item_forward">पुरोगम्यताम्</string>
   <string name="search_hint">विकिपीडिया-जाले अन्विष्यताम्</string>
+  <string name="search_hint_voice_search">ध्वनि-निवेश-अन्वेषणम्</string>
+  <string name="search_hint_search_languages">भाषा अन्विष्यताम्</string>
+  <string name="search_back_button_content_description">प्रतिगम्यताम्</string>
   <string name="error_network_error">अन्तर्जालेन सह सम्पर्कः न शक्यते</string>
   <string name="page_error_retry">पुनःप्रयासः</string>
   <string name="page_error_back_to_main">प्रतिगम्यताम्</string>

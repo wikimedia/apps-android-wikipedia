@@ -19,8 +19,11 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
@@ -32,6 +35,7 @@ import java.time.ZoneId
 import java.time.ZoneOffset
 import java.util.Date
 import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
@@ -65,10 +69,14 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         }
 
+    private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
+    val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
+
     fun loadAll() {
         loadReadingHistory()
         loadDonationResults()
         loadWikiGamesStats()
+        loadImpact()
     }
 
     fun loadReadingHistory() {
@@ -137,8 +145,34 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 return@launch
             }
 
-            val gamesStats = OnThisDayGameViewModel.getGameStatistics(WikipediaApp.instance.wikiSite.languageCode)
+            val gamesStats =
+                OnThisDayGameViewModel.getGameStatistics(WikipediaApp.instance.wikiSite.languageCode)
             _wikiGamesUiState.value = UiState.Success(gamesStats)
+        }
+    }
+
+    fun loadImpact() {
+        if (!AccountUtil.isLoggedIn) {
+            return
+        }
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _impactUiState.value = UiState.Error(throwable)
+        }) {
+            _impactUiState.value = UiState.Loading
+
+            // The impact API is rate limited, so we cache it manually.
+            val now = Instant.now().epochSecond
+            val impact: GrowthUserImpact
+            if (Prefs.impactLastResponseBody.isEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.DAYS.toSeconds(1)) {
+                Prefs.impactLastResponseBody = ""
+                val userId = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo().query?.userInfo?.id!!
+                impact = ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getUserImpact(userId)
+                Prefs.impactLastResponseBody = JsonUtil.encodeToString(impact).orEmpty()
+                Prefs.impactLastQueryTime = now
+            } else {
+                impact = JsonUtil.decodeFromString(Prefs.impactLastResponseBody)!!
+            }
+            _impactUiState.value = UiState.Success(impact)
         }
     }
 

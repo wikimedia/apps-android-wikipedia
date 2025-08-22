@@ -5,11 +5,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -59,8 +62,7 @@ fun DonationModule(
                 )
             }
         } else if (uiState is UiState.Success) {
-            val lastDonationTime =
-                uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
+            val lastDonationTime = uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -98,6 +100,29 @@ fun DonationModule(
                     color = WikipediaTheme.colors.progressiveColor,
                     fontWeight = FontWeight.Medium
                 )
+                if (uiState.data.isNullOrEmpty()) {
+                    Button(
+                        modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
+                        contentPadding = PaddingValues(horizontal = 18.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WikipediaTheme.colors.progressiveColor,
+                            contentColor = WikipediaTheme.colors.paperColor,
+                        ),
+                        onClick = { onClick?.invoke() },
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(20.dp),
+                            painter = painterResource(R.drawable.ic_heart_24),
+                            tint = WikipediaTheme.colors.paperColor,
+                            contentDescription = null
+                        )
+                        Text(
+                            modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                            text = stringResource(R.string.activity_tab_donation_button),
+                            style = MaterialTheme.typography.labelLarge
+                        )
+                    }
+                }
             }
         }
     }
@@ -106,15 +131,19 @@ fun DonationModule(
 @Preview
 @Composable
 private fun DonationModulePreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
+    BaseTheme(currentTheme = Theme.LIGHT) {
         DonationModule(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            uiState = UiState.Success("5 days ago"),
-            onClick = {}
+            uiState = UiState.Success("5 days ago")
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun DonationModuleEmptyPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        DonationModule(
+            uiState = UiState.Success(null)
         )
     }
 }
