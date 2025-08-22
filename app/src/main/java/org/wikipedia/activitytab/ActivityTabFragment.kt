@@ -80,6 +80,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
@@ -351,6 +352,11 @@ class ActivityTabFragment : Fragment() {
                                         requireActivity().startActivity(UserContribListActivity.newIntent(
                                             context = requireActivity(),
                                             userName = userName
+                                        ))
+                                    },
+                                    onSuggestedEditsClick = {
+                                        requireActivity().startActivity(SuggestedEditsTasksActivity.newIntent(
+                                            context = requireActivity()
                                         ))
                                     },
                                     wikiErrorClickEvents = WikiErrorClickEvents(

@@ -52,6 +52,17 @@ class GrowthUserImpact(
 
     val editsThisMonth by lazy { groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0 }
     val editsLastMonth by lazy { groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0 }
+
+    val lastThirtyDaysEdits by lazy {
+        val thirtyDaysAgo = LocalDate.now().minusDays(30)
+        // Some days do not have a key, fill them with 0
+        val filledEditCountByDay = (0..30).associate {
+            val date = thirtyDaysAgo.plusDays(it.toLong()).toString()
+            date to (editCountByDay[date] ?: 0)
+        }
+        filledEditCountByDay
+    }
+
     val lastEditRelativeTime by lazy {
         DateUtils.getRelativeTimeSpanString(
             lastEditTimestamp * 1000,
