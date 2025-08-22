@@ -51,15 +51,14 @@ class GrowthUserImpact(
     val topViewedArticlesWithPageSummary: MutableMap<PageSummary, ArticleViews> = mutableMapOf()
 
 
-    val editsThisMonth get() = groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0
-    val editsLastMonth get() = groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0
-    val lastEditRelativeTime get() = lastEditTimestamp.let {
-        val relativeTime = DateUtils.getRelativeTimeSpanString(
-            lastEditTimestamp,
+    val editsThisMonth by lazy { groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0 }
+    val editsLastMonth by lazy { groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0 }
+    val lastEditRelativeTime by lazy {
+        DateUtils.getRelativeTimeSpanString(
+            lastEditTimestamp * 1000,
             System.currentTimeMillis(),
             0L
-        )
-        return@let relativeTime.toString()
+        ).toString()
     }
 
     @Serializable
