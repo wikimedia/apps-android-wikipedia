@@ -1,4 +1,4 @@
-package org.wikipedia.activitytab
+package org.wikipedia.activitytab.timeline
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

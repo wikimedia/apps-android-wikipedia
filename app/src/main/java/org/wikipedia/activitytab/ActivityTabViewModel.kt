@@ -17,6 +17,12 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.timeline.ApiTimelineSource
+import org.wikipedia.activitytab.timeline.HistoryEntrySource
+import org.wikipedia.activitytab.timeline.ReadingListSource
+import org.wikipedia.activitytab.timeline.TimelineItem
+import org.wikipedia.activitytab.timeline.TimelinePagingSource
+import org.wikipedia.activitytab.timeline.toLocalDate
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
@@ -59,14 +65,21 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
-    private val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
+    private val historyEntrySource =
+        HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
     private val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
     private val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
     val timelineFlow = Pager(
         config = PagingConfig(pageSize = 50),
-        pagingSourceFactory = { TimelinePagingSource(listOf(historyEntrySource, apiSource, readingListSource)).also {
+        pagingSourceFactory = { TimelinePagingSource(
+            listOf(
+                historyEntrySource,
+                apiSource,
+                readingListSource
+            )
+        ).also {
             currentTimelinePagingSource = it
         } }
     ).flow.cachedIn(viewModelScope)

@@ -1,4 +1,4 @@
-package org.wikipedia.activitytab
+package org.wikipedia.activitytab.timeline
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

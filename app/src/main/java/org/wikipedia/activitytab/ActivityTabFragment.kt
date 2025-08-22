@@ -66,6 +66,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.timeline.ActivitySource
+import org.wikipedia.activitytab.timeline.Timeline
+import org.wikipedia.activitytab.timeline.TimelineDateSeparator
+import org.wikipedia.activitytab.timeline.toHistoryEntry
+import org.wikipedia.activitytab.timeline.toPageTitle
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -417,19 +422,43 @@ class ActivityTabFragment : Fragment() {
                                         onItemClick = { item ->
                                             when (item.activitySource) {
                                                 ActivitySource.EDIT -> {
-                                                    startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
-                                                        PageTitle(item.apiTitle, viewModel.wikiSite), item.pageId, revisionTo = item.id))
+                                                    startActivity(
+                                                        ArticleEditDetailsActivity.newIntent(
+                                                            requireContext(),
+                                                            PageTitle(
+                                                                item.apiTitle,
+                                                                viewModel.wikiSite
+                                                            ), item.pageId, revisionTo = item.id
+                                                        )
+                                                    )
                                                 }
+
                                                 ActivitySource.BOOKMARKED -> {
                                                     val title = toPageTitle(item)
-                                                    val entry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
-                                                    startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
+                                                    val entry = HistoryEntry(
+                                                        title,
+                                                        HistoryEntry.SOURCE_INTERNAL_LINK
+                                                    )
+                                                    startActivity(
+                                                        PageActivity.newIntentForCurrentTab(
+                                                            requireContext(),
+                                                            entry,
+                                                            entry.title
+                                                        )
+                                                    )
                                                 }
 
                                                 ActivitySource.LINK -> {
                                                     val entry = toHistoryEntry(item)
-                                                    startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
+                                                    startActivity(
+                                                        PageActivity.newIntentForCurrentTab(
+                                                            requireContext(),
+                                                            entry,
+                                                            entry.title
+                                                        )
+                                                    )
                                                 }
+
                                                 else -> {}
                                             }
                                         }

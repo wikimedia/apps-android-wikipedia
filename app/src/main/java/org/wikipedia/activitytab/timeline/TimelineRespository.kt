@@ -1,4 +1,4 @@
-package org.wikipedia.activitytab
+package org.wikipedia.activitytab.timeline
 
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
