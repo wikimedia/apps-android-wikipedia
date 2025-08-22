@@ -22,6 +22,7 @@ import org.wikipedia.activitytab.timeline.HistoryEntrySource
 import org.wikipedia.activitytab.timeline.ReadingListSource
 import org.wikipedia.activitytab.timeline.TimelineItem
 import org.wikipedia.activitytab.timeline.TimelinePagingSource
+import org.wikipedia.activitytab.timeline.TimelineSource
 import org.wikipedia.activitytab.timeline.toLocalDate
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
@@ -65,20 +66,12 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
-    private val historyEntrySource =
-        HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
-    private val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
-    private val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
     val timelineFlow = Pager(
         config = PagingConfig(pageSize = 50),
         pagingSourceFactory = { TimelinePagingSource(
-            listOf(
-                historyEntrySource,
-                apiSource,
-                readingListSource
-            )
+            createTimelineSources()
         ).also {
             currentTimelinePagingSource = it
         } }
@@ -105,9 +98,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         loadDonationResults()
         loadWikiGamesStats()
         loadImpact()
+        refreshTimeline()
     }
 
-    fun refreshTimeline() {
+    private fun refreshTimeline() {
         currentTimelinePagingSource?.invalidate()
     }
 
@@ -210,6 +204,13 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun createPageTitleForCategory(category: Category): PageTitle {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
+    }
+
+    private fun createTimelineSources(): List<TimelineSource> {
+        val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
+        val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
+        val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
+        return listOf(historyEntrySource, apiSource, readingListSource)
     }
 
     class ReadingHistory(
