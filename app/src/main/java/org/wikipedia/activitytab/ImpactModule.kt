@@ -441,8 +441,7 @@ fun AllTimeImpactCard(
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onClick?.invoke() }),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
@@ -501,7 +500,7 @@ fun AllTimeImpactCard(
                     statLabel = pluralStringResource(R.plurals.activity_tab_impact_thanks, totalThanks)
                 )
                 val lastEditedDateString = if (lastEditTimestamp > 0) {
-                    DateUtil.getMDYDateString(Date(lastEditTimestamp))
+                    DateUtil.getMDYDateString(Date(lastEditTimestamp * 1000))
                 } else {
                     "-"
                 }
@@ -634,9 +633,9 @@ fun AllTimeImpactCard(
                         map = dailyTotalViews,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(15.dp)
+                            .height(32.dp)
                             .padding(top = 8.dp),
-                        chartSampleSize = 30,
+                        chartSampleSize = 90,
                         strokeWidth = 2.dp,
                         strokeColor = WikipediaTheme.colors.progressiveColor
                     )
