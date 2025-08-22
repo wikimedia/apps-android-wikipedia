@@ -74,7 +74,7 @@ class ApiTimelineSource(
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val token = (cursor as? Cursor.ApiCursor)?.token
-        val response = ServiceFactory.get(WikiSite(url = "https://test.wikipedia.org/"))
+        val response = ServiceFactory.get(wikiSite)
             .getUserContrib(userName, pageSize, null, null, token, ucdir = "older")
 
         val items = response.query?.userContributions?.map {
