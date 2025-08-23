@@ -63,6 +63,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
+    fun getMonthOnlyDateStringFromTimeString(dateStr: String): String {
+        return getMonthOnlyDateString(SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr)!!)
+    }
+
     fun getMonthOnlyWithoutDayDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
