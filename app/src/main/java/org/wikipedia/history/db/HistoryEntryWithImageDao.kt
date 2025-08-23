@@ -29,6 +29,13 @@ interface HistoryEntryWithImageDao {
     @RewriteQueriesToDropUnusedColumns
     suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
 
+    @Query("SELECT SUM(timeSpentSec) FROM (" +
+            "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE timestamp > :timeStamp" +
+            ")")
+    suspend fun getTimeSpentSinceTimeStamp(timeStamp: Long): Long
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
