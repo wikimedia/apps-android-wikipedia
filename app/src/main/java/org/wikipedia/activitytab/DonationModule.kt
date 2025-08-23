@@ -102,8 +102,12 @@ fun DonationModule(
                 )
                 if (uiState.data.isNullOrEmpty()) {
                     Button(
-                        modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
-                        contentPadding = PaddingValues(horizontal = 18.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 16.dp)
+                            .padding(horizontal = 8.dp)
+                            .align(Alignment.CenterHorizontally),
+                        contentPadding = PaddingValues(horizontal = 12.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = WikipediaTheme.colors.progressiveColor,
                             contentColor = WikipediaTheme.colors.paperColor,
