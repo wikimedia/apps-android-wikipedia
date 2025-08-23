@@ -329,7 +329,8 @@ class ActivityTabFragment : Fragment() {
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_impact),
                                     style = MaterialTheme.typography.titleLarge,
-                                    fontWeight = FontWeight.Medium
+                                    fontWeight = FontWeight.Medium,
+                                    color = WikipediaTheme.colors.primaryColor
                                 )
                                 ImpactModule(
                                     modifier = Modifier
