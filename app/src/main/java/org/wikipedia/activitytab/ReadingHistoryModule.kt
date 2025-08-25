@@ -350,7 +350,7 @@ fun ReadingHistoryModule(
                                 Icon(
                                     modifier = Modifier.size(24.dp).align(Alignment.Center),
                                     painter = painterResource(R.drawable.ic_wikipedia_b),
-                                    tint = WikipediaTheme.colors.primaryColor,
+                                    tint = Color.Black,
                                     contentDescription = null
                                 )
                             }
@@ -406,7 +406,7 @@ fun ReadingHistoryModule(
             )
         }
 
-        if (readingHistory.articlesReadThisMonth == 0 && readingHistory.articlesSavedThisMonth == 0) {
+        if (readingHistory.articlesReadThisMonth == 0) {
             Text(
                 text = stringResource(R.string.activity_tab_discover_encourage),
                 modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
