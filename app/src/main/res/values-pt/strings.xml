@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Albertoleoncio
 * Athena in Wonderland
 * B3rnas
 * Caiofernandes
@@ -33,7 +34,7 @@
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
-  <string name="wikimedia">Wikimédia</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Voltar</string>
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
@@ -67,8 +68,8 @@
   <string name="history_list_title">Histórico</string>
   <string name="image_content_description">Imagem: %s</string>
   <string name="page_content_description">Página: %s</string>
-  <string name="wikimedia_commons">Wikimédia Commons</string>
-  <string name="wikidata">Wikidados</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto irá eliminar todo o seu histórico de navegação, e fechar todos os separadores atuais abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -1647,7 +1648,7 @@
   <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
   <string name="donate_gpay_activity_title">Selecione um montante</string>
   <string name="donate_gpay_check_recurring">Faça disto um mês doação recorrente.</string>
-  <string name="donate_gpay_check_send_email">Sim, a Fundação Wikimédia pode enviar-me uma mensagem ocasional.</string>
+  <string name="donate_gpay_check_send_email">Sim, a Fundação Wikimedia pode enviar-me uma mensagem ocasional.</string>
   <string name="donate_gpay_minimum_amount">Por favor, selecione um valor (mínimo %s)</string>
   <string name="donate_gpay_maximum_amount">Nós não podemos aceitar donativos superiores a %s através da nossa aplicação. Por favor, contacte a nossa equipa principal de contribuições via benefactors@wikimedia.org.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Obrigado!&lt;/b&gt; A sua generosidade para com a Wikipédia significa muito para nós.</string>

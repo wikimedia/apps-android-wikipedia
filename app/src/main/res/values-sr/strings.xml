@@ -1672,6 +1672,13 @@
   <string name="year_in_review_learn_more">Сазнајте више</string>
   <string name="year_in_review_donate">Донирај</string>
   <string name="year_in_review_entry_dialog_continue">Настави</string>
+  <string name="year_in_review_non_english_collective_readcount_headline">Википедија је била доступна на више од 300 језика</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Уредници на iOS апликацији су направили преко 452.257 измена</string>
+  <string name="year_in_review_survey_very_satisfied">Веома задовољан</string>
+  <string name="year_in_review_survey_satisfied">Задовољан</string>
+  <string name="year_in_review_survey_neutral">Неутрално</string>
+  <string name="year_in_review_survey_unsatisfied">Незадовољан</string>
+  <string name="year_in_review_survey_very_unsatisfied">Веома незадовољан</string>
   <string name="year_in_review_survey_cancel">Откажи</string>
   <string name="year_in_review_survey_submit">Проследи</string>
   <string name="recommended_reading_list_title">Откриј</string>
@@ -1698,5 +1705,8 @@
   <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
+  <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Највише дозвољено %s</string>
+  <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
 </resources>
