@@ -4,15 +4,30 @@ import android.text.format.DateUtils
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.insertSeparators
+import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.timeline.ApiTimelineSource
+import org.wikipedia.activitytab.timeline.HistoryEntrySource
+import org.wikipedia.activitytab.timeline.ReadingListSource
+import org.wikipedia.activitytab.timeline.TimelineItem
+import org.wikipedia.activitytab.timeline.TimelinePagingSource
+import org.wikipedia.activitytab.timeline.TimelineSource
+import org.wikipedia.activitytab.timeline.toLocalDate
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
@@ -27,10 +42,21 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    var langCode = Prefs.userContribFilterLangCode
+
+    val wikiSite get(): WikiSite {
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(langCode)
+        }
+    }
+
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -40,6 +66,33 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private val _wikiGamesUiState = MutableStateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>>(UiState.Loading)
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
+    private var currentTimelinePagingSource: TimelinePagingSource? = null
+
+    val timelineFlow = Pager(
+        config = PagingConfig(
+            pageSize = 50,
+            prefetchDistance = 20
+        ),
+        pagingSourceFactory = { TimelinePagingSource(
+            createTimelineSources()
+        ).also {
+            currentTimelinePagingSource = it
+        } }
+    ).flow.cachedIn(viewModelScope)
+        .map { pagingData ->
+            pagingData.insertSeparators { before, after ->
+                if (before == null && after != null) TimelineDisplayItem.DateSeparator(after.timestamp)
+                else if (before != null && after != null && before.timestamp.toLocalDate() != after.timestamp.toLocalDate()) {
+                    TimelineDisplayItem.DateSeparator(after.timestamp)
+                } else null
+            }.map { item ->
+                when (item) {
+                    is TimelineItem -> TimelineDisplayItem.TimelineEntry(item)
+                    else -> item as TimelineDisplayItem
+                }
+            }
+        }
+
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
 
@@ -48,6 +101,11 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         loadDonationResults()
         loadWikiGamesStats()
         loadImpact()
+        refreshTimeline()
+    }
+
+    private fun refreshTimeline() {
+        currentTimelinePagingSource?.invalidate()
     }
 
     fun loadReadingHistory() {
@@ -151,6 +209,13 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
 
+    private fun createTimelineSources(): List<TimelineSource> {
+        val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
+        val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
+        val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
+        return listOf(historyEntrySource, readingListSource, apiSource)
+    }
+
     class ReadingHistory(
         val timeSpentThisWeek: Long,
         val articlesReadThisMonth: Int,
@@ -165,4 +230,9 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     companion object {
         const val CAMPAIGN_ID = "appmenu_activity"
     }
+}
+
+sealed class TimelineDisplayItem {
+    data class DateSeparator(val date: Date) : TimelineDisplayItem()
+    data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
 }
