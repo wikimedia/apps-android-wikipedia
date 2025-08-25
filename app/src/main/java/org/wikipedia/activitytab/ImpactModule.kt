@@ -28,6 +28,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
@@ -42,6 +43,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -98,8 +100,7 @@ fun ImpactModule(
             )
             ContributionCard(
                 modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 lastEditRelativeTime = uiState.data.lastEditRelativeTime,
                 editsThisMonth = uiState.data.editsThisMonth,
                 editsLastMonth = uiState.data.editsLastMonth,
@@ -109,8 +110,7 @@ fun ImpactModule(
             )
             AllTimeImpactCard(
                 modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 totalEdits = uiState.data.totalEditsCount,
                 totalThanks = uiState.data.receivedThanksCount,
                 longestEditingStreak = uiState.data.longestEditingStreak?.totalEditCountForPeriod ?: 0,
@@ -347,85 +347,32 @@ fun ContributionCard(
                     .padding(vertical = 16.dp)
             ) {
                 val maxEditsCount = maxOf(editsThisMonth, editsLastMonth).toFloat()
-                Row(
+
+                ContributionEditsView(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.Bottom
-                ) {
-                    Text(
-                        text = editsThisMonth.toString(),
-                        modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Medium,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.activity_tab_impact_edits_this_month,
-                            editsThisMonth
-                        ).lowercase(),
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            fontWeight = FontWeight.Medium,
-                            lineHeight = 22.sp
-                        ),
-                        color = WikipediaTheme.colors.secondaryColor
-                    )
-                }
+                    text = pluralStringResource(
+                        R.plurals.activity_tab_impact_edits_this_month,
+                        editsThisMonth
+                    ).lowercase(),
+                    edits = editsThisMonth,
+                    maxEdits = maxEditsCount,
+                    barColor = WikipediaTheme.colors.successColor
+                )
 
-                if (editsThisMonth > 0) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth(editsThisMonth.toFloat() / maxEditsCount)
-                            .padding(horizontal = 16.dp)
-                            .height(20.dp)
-                            .background(
-                                color = WikipediaTheme.colors.successColor,
-                                shape = RoundedCornerShape(16.dp)
-                            )
-                    )
-                }
-
-                Row(
+                ContributionEditsView(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.Bottom
-                ) {
-                    Text(
-                        text = editsLastMonth.toString(),
-                        modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Medium,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.activity_tab_impact_edits_last_month,
-                            editsLastMonth
-                        ).lowercase(),
-                        style = MaterialTheme.typography.bodySmall.copy(
-                            fontWeight = FontWeight.Medium,
-                            lineHeight = 22.sp
-                        ),
-                        color = WikipediaTheme.colors.secondaryColor
-                    )
-                }
-
-                if (editsLastMonth > 0) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth(editsLastMonth.toFloat() / maxEditsCount)
-                            .padding(horizontal = 16.dp)
-                            .height(20.dp)
-                            .background(
-                                color = WikipediaTheme.colors.borderColor,
-                                shape = RoundedCornerShape(16.dp)
-                            )
-                    )
-                }
+                        .padding(top = 8.dp),
+                    text = pluralStringResource(
+                        R.plurals.activity_tab_impact_edits_last_month,
+                        editsLastMonth
+                    ).lowercase(),
+                    edits = editsLastMonth,
+                    maxEdits = maxEditsCount,
+                    barColor = WikipediaTheme.colors.borderColor
+                )
             }
         }
     }
@@ -698,6 +645,50 @@ fun ImpactSuggestedEditsView(
 }
 
 @Composable
+fun ContributionEditsView(
+    modifier: Modifier,
+    text: String,
+    edits: Int,
+    maxEdits: Float,
+    barColor: Color
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.Bottom
+    ) {
+        Text(
+            text = edits.toString(),
+            modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Medium,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodySmall.copy(
+                fontWeight = FontWeight.Medium,
+                lineHeight = 22.sp
+            ),
+            color = WikipediaTheme.colors.secondaryColor
+        )
+    }
+
+    if (edits > 0) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(edits.toFloat() / maxEdits)
+                .padding(horizontal = 16.dp)
+                .height(20.dp)
+                .background(
+                    color = barColor,
+                    shape = RoundedCornerShape(16.dp)
+                )
+        )
+    }
+}
+
+@Composable
 fun ImpactStatView(
     modifier: Modifier,
     iconResource: Int,
@@ -741,7 +732,7 @@ private fun MostViewedCardPreview() {
         val pageTitle = PageTitle(
             text = "Test Article",
             displayText = "Test Article",
-            wiki = WikiSite("en.wikipedia.org"),
+            wiki = WikiSite("en.wikipedia.org".toUri(), "en"),
             description = "This is a test article",
             thumbUrl = "https://example.com/thumb.jpg"
         )
