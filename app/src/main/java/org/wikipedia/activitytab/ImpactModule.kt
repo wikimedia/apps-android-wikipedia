@@ -72,66 +72,71 @@ fun ImpactModule(
     onSuggestedEditsClick: (() -> Unit),
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
-    if (uiState == UiState.Loading) {
-        Box(
-            modifier = modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        ) {
-            CircularProgressIndicator(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(24.dp),
-                color = WikipediaTheme.colors.progressiveColor
+    when (uiState) {
+        UiState.Loading -> {
+            Box(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(24.dp),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
+        }
+        is UiState.Success -> {
+            MostViewedCard(
+                modifier = modifier
+                    .fillMaxWidth(),
+                data = uiState.data.topViewedArticlesWithPageTitle,
+                onClick = {
+                    onPageItemClick(it)
+                }
+            )
+            ContributionCard(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                lastEditRelativeTime = uiState.data.lastEditRelativeTime,
+                editsThisMonth = uiState.data.editsThisMonth,
+                editsLastMonth = uiState.data.editsLastMonth,
+                onClick = {
+                    onContributionClick()
+                }
+            )
+            AllTimeImpactCard(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                totalEdits = uiState.data.totalEditsCount,
+                totalThanks = uiState.data.receivedThanksCount,
+                longestEditingStreak = uiState.data.longestEditingStreak?.totalEditCountForPeriod ?: 0,
+                lastEditTimestamp = uiState.data.lastEditTimestamp,
+                lastThirtyDaysEdits = uiState.data.lastThirtyDaysEdits,
+                totalPageviewsCount = uiState.data.totalPageviewsCount,
+                dailyTotalViews = uiState.data.dailyTotalViews,
+                onClick = {
+                    onSuggestedEditsClick()
+                }
             )
         }
-    } else if (uiState is UiState.Success) {
-        MostViewedCard(
-            modifier = modifier
-                .fillMaxWidth(),
-            data = uiState.data.topViewedArticlesWithPageTitle,
-            onClick = {
-                onPageItemClick(it)
+
+        is UiState.Error -> {
+            Box(
+                modifier = modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    caught = uiState.error,
+                    errorClickEvents = wikiErrorClickEvents
+                )
             }
-        )
-        ContributionCard(
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp),
-            lastEditRelativeTime = uiState.data.lastEditRelativeTime,
-            editsThisMonth = uiState.data.editsThisMonth,
-            editsLastMonth = uiState.data.editsLastMonth,
-            onClick = {
-                onContributionClick()
-            }
-        )
-        AllTimeImpactCard(
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(top = 16.dp),
-            totalEdits = uiState.data.totalEditsCount,
-            totalThanks = uiState.data.receivedThanksCount,
-            longestEditingStreak = uiState.data.longestEditingStreak?.totalEditCountForPeriod ?: 0,
-            lastEditTimestamp = uiState.data.lastEditTimestamp,
-            lastThirtyDaysEdits = uiState.data.lastThirtyDaysEdits,
-            totalPageviewsCount = uiState.data.totalPageviewsCount,
-            dailyTotalViews = uiState.data.dailyTotalViews,
-            onClick = {
-                onSuggestedEditsClick()
-            }
-        )
-    } else if (uiState is UiState.Error) {
-        Box(
-            modifier = modifier
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            WikiErrorView(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                caught = uiState.error,
-                errorClickEvents = wikiErrorClickEvents
-            )
         }
     }
 }
@@ -143,6 +148,9 @@ fun MostViewedCard(
     showSize: Int = 3,
     onClick: (PageTitle) -> Unit
 ) {
+    if (data.isEmpty()) {
+        return
+    }
     val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
         modifier = modifier,
@@ -303,34 +311,21 @@ fun ContributionCard(
         Column {
             Row(
                 modifier = Modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(16.dp),
-                            painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        Text(
-                            text = stringResource(R.string.activity_tab_impact_contributions_this_month),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                    Text(
-                        text = lastEditRelativeTime,
-                        modifier = Modifier.padding(top = 4.dp),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WikipediaTheme.colors.secondaryColor
-                    )
-                }
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = null
+                )
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = stringResource(R.string.activity_tab_impact_contributions_this_month),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
@@ -338,6 +333,13 @@ fun ContributionCard(
                     contentDescription = null
                 )
             }
+
+            Text(
+                text = lastEditRelativeTime,
+                modifier = Modifier.padding(start = 16.dp),
+                style = MaterialTheme.typography.bodySmall,
+                color = WikipediaTheme.colors.secondaryColor
+            )
 
             Column(
                 modifier = Modifier
@@ -739,7 +741,7 @@ private fun MostViewedCardPreview() {
         val pageTitle = PageTitle(
             text = "Test Article",
             displayText = "Test Article",
-            wiki = WikiSite.forLanguageCode("en"),
+            wiki = WikiSite("en.wikipedia.org"),
             description = "This is a test article",
             thumbUrl = "https://example.com/thumb.jpg"
         )
