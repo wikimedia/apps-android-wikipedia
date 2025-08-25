@@ -51,9 +51,10 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact.ArticleViews
-import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
@@ -66,7 +67,7 @@ import java.util.Locale
 fun ImpactModule(
     modifier: Modifier = Modifier,
     uiState: UiState<GrowthUserImpact>,
-    onPageItemClick: (PageSummary) -> Unit,
+    onPageItemClick: (PageTitle) -> Unit,
     onContributionClick: (() -> Unit),
     onSuggestedEditsClick: (() -> Unit),
     wikiErrorClickEvents: WikiErrorClickEvents? = null
@@ -88,7 +89,7 @@ fun ImpactModule(
         MostViewedCard(
             modifier = modifier
                 .fillMaxWidth(),
-            data = uiState.data.topViewedArticlesWithPageSummary,
+            data = uiState.data.topViewedArticlesWithPageTitle,
             onClick = {
                 onPageItemClick(it)
             }
@@ -138,9 +139,9 @@ fun ImpactModule(
 @Composable
 fun MostViewedCard(
     modifier: Modifier = Modifier,
-    data: Map<PageSummary, ArticleViews>,
+    data: Map<PageTitle, ArticleViews>,
     showSize: Int = 3,
-    onClick: (PageSummary) -> Unit
+    onClick: (PageTitle) -> Unit
 ) {
     val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
@@ -174,7 +175,7 @@ fun MostViewedCard(
             }
 
             var index = 1
-            data.forEach { (pageSummary, articleViews) ->
+            data.forEach { (pageTitle, articleViews) ->
                 if (index > showSize) return@forEach
                 var iconResource = when (index++) {
                     1 -> R.drawable.outline_looks_one_24
@@ -188,7 +189,7 @@ fun MostViewedCard(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable(onClick = { onClick(pageSummary) })
+                        .clickable(onClick = { onClick(pageTitle) })
                 ) {
                     Row(
                         modifier = Modifier
@@ -209,13 +210,13 @@ fun MostViewedCard(
                                 .weight(1f)
                         ) {
                             HtmlText(
-                                text = pageSummary.displayTitle,
+                                text = pageTitle.displayText,
                                 style = MaterialTheme.typography.titleMedium.copy(
                                     fontFamily = FontFamily.Serif
                                 ),
                                 color = WikipediaTheme.colors.primaryColor,
                             )
-                            pageSummary.description?.let { description ->
+                            pageTitle.description?.let { description ->
                                 Text(
                                     text = description,
                                     style = MaterialTheme.typography.bodyMedium,
@@ -249,11 +250,11 @@ fun MostViewedCard(
                                 )
                             }
                         }
-                        if (pageSummary.thumbnailUrl != null) {
+                        if (pageTitle.thumbUrl != null) {
                             val request =
                                 ImageService.getRequest(
                                     LocalContext.current,
-                                    url = pageSummary.thumbnailUrl
+                                    url = pageTitle.thumbUrl
                                 )
                             AsyncImage(
                                 model = request,
@@ -735,13 +736,12 @@ private fun MostViewedCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        val pageSummary = PageSummary(
-            displayTitle = "Wikipedia",
-            prefixTitle = "Wikipedia",
-            description = "The free encyclopedia",
-            extract = null,
-            thumbnail = null,
-            lang = "en"
+        val pageTitle = PageTitle(
+            text = "Test Article",
+            displayText = "Test Article",
+            wiki = WikiSite.forLanguageCode("en"),
+            description = "This is a test article",
+            thumbUrl = "https://example.com/thumb.jpg"
         )
         val articleViews = ArticleViews(
             firstEditDate = "2023-01-01",
@@ -751,7 +751,7 @@ private fun MostViewedCardPreview() {
         )
         MostViewedCard(
             data = mapOf(
-                pageSummary to articleViews
+                pageTitle to articleViews
             ),
             onClick = { },
         )

@@ -338,15 +338,14 @@ class ActivityTabFragment : Fragment() {
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = impactUiState,
                                     onPageItemClick = {
-                                        val pageTitle = it.getPageTitle(WikiSite.forLanguageCode(it.lang))
                                         val entry = HistoryEntry(
-                                            title = pageTitle,
+                                            title = it,
                                             source = HistoryEntry.SOURCE_ACTIVITY_TAB
                                         )
                                         requireActivity().startActivity(PageActivity.newIntentForNewTab(
                                             context = requireActivity(),
                                             entry = entry,
-                                            title = pageTitle
+                                            title = it
                                         ))
                                     },
                                     onContributionClick = {

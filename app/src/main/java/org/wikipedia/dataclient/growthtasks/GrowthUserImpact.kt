@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import java.time.LocalDate
 
 @Suppress("unused")
@@ -48,7 +48,7 @@ class GrowthUserImpact(
             .mapValues { it.value.sumOf { entry -> entry.value } }
     }
 
-    val topViewedArticlesWithPageSummary: MutableMap<PageSummary, ArticleViews> = mutableMapOf()
+    var topViewedArticlesWithPageTitle: Map<PageTitle, ArticleViews> = emptyMap()
 
     val editsThisMonth by lazy { groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0 }
     val editsLastMonth by lazy { groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0 }

@@ -5,8 +5,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -134,29 +132,38 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             _impactUiState.value = UiState.Loading
 
             // The impact API is rate limited, so we cache it manually.
+            val wikiSite = WikipediaApp.instance.wikiSite
             val now = Instant.now().epochSecond
             val impact: GrowthUserImpact
-            if (Prefs.impactLastResponseBody.isEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.DAYS.toSeconds(1)) {
-                Prefs.impactLastResponseBody = ""
-                val userId = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo().query?.userInfo?.id!!
-                impact = ServiceFactory.getCoreRest(WikipediaApp.instance.wikiSite).getUserImpact(userId)
-                Prefs.impactLastResponseBody = JsonUtil.encodeToString(impact).orEmpty()
+            val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+            val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+            if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.DAYS.toSeconds(1)) {
+                val userId = ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                impactLastResponseBodyMap[wikiSite.languageCode] = JsonUtil.encodeToString(impact).orEmpty()
+                Prefs.impactLastResponseBody = impactLastResponseBodyMap
                 Prefs.impactLastQueryTime = now
             } else {
-                impact = JsonUtil.decodeFromString(Prefs.impactLastResponseBody)!!
+                impact = JsonUtil.decodeFromString(impactResponse)!!
             }
 
-            // Use page/summary to get the proper page title.
-            val summaryResponses = impact.topViewedArticles.map {
-                async {
-                    val pageSummaryResponse = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getPageSummary(it.key)
-                    pageSummaryResponse to it.value
-                }
-            }
+            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+                titles = impact.topViewedArticles.keys.joinToString(separator = "|")
+            )
 
-            summaryResponses.awaitAll().forEach {
-                impact.topViewedArticlesWithPageSummary[it.first] = it.second
-            }
+            // Transform the response to a map of PageTitle to ArticleViews
+            val pageMap = pagesResponse.query?.pages?.associate { page ->
+                val pageTitle = PageTitle(
+                    text = page.title,
+                    wiki = wikiSite,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(wikiSite.languageCode)
+                )
+                pageTitle to impact.topViewedArticles[pageTitle.text]!!
+            } ?: emptyMap()
+
+            impact.topViewedArticlesWithPageTitle = pageMap
 
             _impactUiState.value = UiState.Success(impact)
         }
