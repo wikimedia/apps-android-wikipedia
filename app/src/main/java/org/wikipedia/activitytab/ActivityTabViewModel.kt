@@ -69,7 +69,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
     val timelineFlow = Pager(
-        config = PagingConfig(pageSize = 50),
+        config = PagingConfig(
+            pageSize = 50,
+            prefetchDistance = 20
+        ),
         pagingSourceFactory = { TimelinePagingSource(
             createTimelineSources()
         ).also {
@@ -210,7 +213,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
         val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
         val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
-        return listOf(historyEntrySource, apiSource, readingListSource)
+        return listOf(historyEntrySource, readingListSource, apiSource)
     }
 
     class ReadingHistory(

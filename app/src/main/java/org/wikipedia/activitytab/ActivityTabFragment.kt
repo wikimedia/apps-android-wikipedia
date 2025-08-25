@@ -447,7 +447,7 @@ class ActivityTabFragment : Fragment() {
                                                     )
                                                 }
 
-                                                ActivitySource.LINK -> {
+                                                ActivitySource.LINK, ActivitySource.SEARCH -> {
                                                     val entry = toHistoryEntry(item)
                                                     startActivity(
                                                         PageActivity.newIntentForCurrentTab(

@@ -98,13 +98,10 @@ class ApiTimelineSource(
 class ReadingListSource(
     val dao: ReadingListPageDao
 ) : TimelineSource {
-    override suspend fun fetch(
-        pageSize: Int,
-        cursor: Cursor?
-    ): Pair<List<TimelineItem>, Cursor?> {
+    override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
         val items = dao.getPagesWithLimitOffset(pageSize, offset).map { TimelineItem(
-            id = it.id,
+            id = it.mtime + it.atime,
             pageId = 0,
             apiTitle = it.apiTitle,
             description = it.description,
