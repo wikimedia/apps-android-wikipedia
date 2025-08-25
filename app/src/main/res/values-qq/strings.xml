@@ -482,10 +482,7 @@
   <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
   <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
   <string name="temp_account_dialog_discard">Action button for going directly to the Login screen.</string>
-  <plurals name="temp_account_created">
-    <item quantity="one">Message shown when a temporary account with a name of %1$s is created, and will expire in 1 day.</item>
-    <item quantity="other">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</item>
-  </plurals>
+  <string name="temp_account_created">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</string>
   <plurals name="temp_account_expiry">
     <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
     <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
