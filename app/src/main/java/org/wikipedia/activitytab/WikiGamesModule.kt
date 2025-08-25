@@ -27,6 +27,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
@@ -225,20 +226,21 @@ fun WikiGamesEntryCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(24.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Column(
                 modifier = Modifier.weight(1f)
-                    .heightIn(min = 132.dp)
-                    .padding(horizontal = 4.dp),
+                    .heightIn(min = 116.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
                     text = stringResource(R.string.on_this_day_game_title),
-                    style = MaterialTheme.typography.headlineSmall,
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        lineHeight = 24.sp
+                    ),
                     color = WikipediaTheme.colors.paperColor,
-                    fontFamily = FontFamily.Serif
+                    fontFamily = FontFamily.Serif,
                 )
                 HtmlText(
                     text = stringResource(R.string.on_this_day_game_splash_message),

@@ -19,6 +19,9 @@
   <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߋߘߌߦߊ ߞߣߐ߫</string>
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
+  <string name="search_back_button_content_description">ߌ ߞߐߛߊ߬ߦߌ߬</string>
+  <string name="search_clear_query_content_description">ߡߞߊ߬ߛߌ߬ߟߌ ߖߏ߰ߛߌ߬</string>
+  <string name="search_icon_content_description">ߢߌߣߌ߲ߠߌ߲</string>
   <string name="filter_hint_filter_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߟߎ߬ ߛߍ߲ߛߍ߲߫</string>
   <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
@@ -76,6 +79,7 @@
   <string name="menu_page_remove_from_watchlist">ߊ߬ ߛߋ߲߬ߓߐ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="menu_page_watched">ߘߐߜߍߣߍ߲ ߠߎ߬</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
+  <string name="menu_page_font_and_theme">ߛߓߍߘߋ߲ ߣߌ߫ ߞߎߡߘߊ</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="menu_page_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="feed_card_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
@@ -89,6 +93,7 @@
   <string name="menu_page_recently_viewed">ߦߋߣߍ߲߫ ߞߎߘߊ</string>
   <string name="menu_page_archive">ߟߊ߬ߡߙߊ߬ߣߍ߲</string>
   <string name="menu_long_press_open_page">ߊ߬ ߟߊߞߊ߬</string>
+  <string name="menu_long_press_open_in_places">ߊ߬ ߟߊߞߊ߬ ߦߙߐ ߟߎ߬ ߘߐ߫</string>
   <string name="menu_long_press_open_in_new_tab">ߊ߬ ߟߊߞߊ߬ ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߘߐ߫</string>
   <string name="menu_long_press_copy_page">ߛߘߌ߬ߜߋ߲ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊߓߌ߬ߟߊ߬</string>
   <string name="menu_text_select_define">ߊ߬ ߡߊߕߍ߰</string>
