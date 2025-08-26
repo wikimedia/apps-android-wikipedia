@@ -10,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
@@ -96,6 +97,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerEditContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)
+            // TODO: ACTIVITY_TAB_INSTRUMENTATION update edit_count action data once confirmed with data
+            ActivityTabEvent.submit(activeInterface = "more_menu", action = "edit_click")
             startActivity(SuggestedEditsTasksActivity.newIntent(requireContext()))
             dismiss()
         }
