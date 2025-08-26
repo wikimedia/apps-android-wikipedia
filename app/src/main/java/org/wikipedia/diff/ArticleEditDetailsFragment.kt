@@ -270,7 +270,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
             } else if (viewModel.pageTitle.wikiSite.dbName() == Constants.WIKIDATA_DB_NAME ||
                 viewModel.pageTitle.wikiSite.dbName() == Constants.COMMONS_DB_NAME) {
-                CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.mobileUri)
+                CustomTabsUtil.openInCustomTab(requireContext(), viewModel.pageTitle.uri)
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)))
