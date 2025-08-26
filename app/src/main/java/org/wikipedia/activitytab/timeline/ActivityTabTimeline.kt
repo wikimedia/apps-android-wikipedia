@@ -35,6 +35,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.util.Date
 
+// @TODO: MARK_ACTIVITY_TAB retrieve description and thumbnail for contributions through API
 @Composable
 fun Timeline(
     modifier: Modifier = Modifier,
