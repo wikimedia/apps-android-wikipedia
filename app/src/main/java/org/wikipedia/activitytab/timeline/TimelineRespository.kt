@@ -7,9 +7,9 @@ import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.db.ReadingListPageDao
+import org.wikipedia.util.DateUtil
 import java.time.LocalDate
 import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.time.temporal.ChronoUnit
 import java.util.Date
@@ -19,22 +19,23 @@ interface TimelineSource {
     suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?>
 }
 
-fun formatDate(date: LocalDate): String {
+fun formatDate(date: Date): String {
+    val localDate = date.toLocalDate()
     val now = LocalDate.now()
-    val daysDiff = ChronoUnit.DAYS.between(date, now)
+    val daysDiff = ChronoUnit.DAYS.between(localDate, now)
 
     return when {
         daysDiff < 7 -> {
-            val dayOfWeek = date.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
+            val dayOfWeek = localDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
             dayOfWeek
         }
 
-        date.year == now.year -> {
-            DateTimeFormatter.ofPattern("MMMM d").format(date)
+        localDate.year == now.year -> {
+            DateUtil.getMonthOnlyDateString(date)
         }
 
         else -> {
-            DateTimeFormatter.ofPattern("MMMM d, yyyy").format(date)
+            DateUtil.getMMMMdYYYY(date)
         }
     }
 }
@@ -45,24 +46,27 @@ class HistoryEntrySource(
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.HistoryEntryCursor)?.offset ?: 0
-        val items = dao.getHistoryEntriesWithOffset(pageSize, offset).map { TimelineItem(
-            id = it.id,
-            pageId = 0,
-            authority = it.authority,
-            apiTitle = it.apiTitle,
-            displayTitle = it.displayTitle,
-            description = it.description,
-            thumbnailUrl = it.imageName,
-            timestamp = it.timestamp,
-            namespace = it.namespace,
-            lang = it.lang,
-            source = it.source,
-            activitySource = when (it.source) {
-                SOURCE_SEARCH -> ActivitySource.SEARCH
-                else -> ActivitySource.LINK
-            }
-        ) }
-        val nextCursor = if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
+        val items = dao.getHistoryEntriesWithOffset(pageSize, offset).map {
+            TimelineItem(
+                id = it.id,
+                pageId = 0,
+                authority = it.authority,
+                apiTitle = it.apiTitle,
+                displayTitle = it.displayTitle,
+                description = it.description,
+                thumbnailUrl = it.imageName,
+                timestamp = it.timestamp,
+                namespace = it.namespace,
+                lang = it.lang,
+                source = it.source,
+                activitySource = when (it.source) {
+                    SOURCE_SEARCH -> ActivitySource.SEARCH
+                    else -> ActivitySource.LINK
+                }
+            )
+        }
+        val nextCursor =
+            if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
         return items to nextCursor
     }
 }
@@ -75,13 +79,13 @@ class ApiTimelineSource(
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val token = (cursor as? Cursor.ApiCursor)?.token
         val response = ServiceFactory.get(wikiSite)
-            .getUserContrib(userName, pageSize, null, null, token, ucdir = "older")
+            .getUserContrib("Choess", pageSize, null, null, token, ucdir = "older")
 
         val items = response.query?.userContributions?.map {
             TimelineItem(
                 id = it.revid,
                 pageId = it.pageid,
-                apiTitle = it.title,
+                displayTitle = it.title,
                 description = null,
                 thumbnailUrl = null,
                 timestamp = Date.from(it.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
@@ -100,18 +104,22 @@ class ReadingListSource(
 ) : TimelineSource {
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
-        val items = dao.getPagesWithLimitOffset(pageSize, offset).map { TimelineItem(
-            id = it.mtime + it.atime,
-            pageId = 0,
-            apiTitle = it.apiTitle,
-            description = it.description,
-            thumbnailUrl = it.thumbUrl,
-            timestamp = Date(it.mtime),
-            wiki = it.wiki,
-            activitySource = ActivitySource.BOOKMARKED,
-            source = -1
-        ) }
-        val nextCursor = if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
+        val items = dao.getPagesWithLimitOffset(pageSize, offset).map {
+            TimelineItem(
+                id = it.mtime + it.atime,
+                pageId = 0,
+                apiTitle = it.apiTitle,
+                displayTitle = it.displayTitle,
+                description = it.description,
+                thumbnailUrl = it.thumbUrl,
+                timestamp = Date(it.mtime),
+                wiki = it.wiki,
+                activitySource = ActivitySource.BOOKMARKED,
+                source = -1
+            )
+        }
+        val nextCursor =
+            if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
         return items to nextCursor
     }
 }
@@ -134,7 +142,8 @@ data class TimelineItem(
     var apiTitle: String = "",
     var displayTitle: String = "",
     var namespace: String = "",
-    val wiki: WikiSite? = null)
+    val wiki: WikiSite? = null
+)
 
 sealed class Cursor {
     data class ApiCursor(val token: String?) : Cursor()
@@ -179,5 +188,11 @@ fun toHistoryEntry(timelineItem: TimelineItem): HistoryEntry {
 fun toPageTitle(timelineItem: TimelineItem): PageTitle {
     val wiki = timelineItem.wiki
     wiki?.languageCode = timelineItem.lang
-    return PageTitle(timelineItem.apiTitle, wiki!!, timelineItem.thumbnailUrl, timelineItem.description, timelineItem.displayTitle)
+    return PageTitle(
+        timelineItem.apiTitle,
+        wiki!!,
+        timelineItem.thumbnailUrl,
+        timelineItem.description,
+        timelineItem.displayTitle
+    )
 }

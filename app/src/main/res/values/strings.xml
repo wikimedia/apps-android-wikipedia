@@ -1220,6 +1220,8 @@
     <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
     <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
     <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
+    <string name="activity_tab_timeline_today">Today</string>
+    <string name="activity_tab_timeline_yesterday">Yesterday</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

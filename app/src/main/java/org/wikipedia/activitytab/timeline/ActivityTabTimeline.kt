@@ -23,14 +23,16 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.util.DateUtil
 import org.wikipedia.views.imageservice.ImageService
-import java.time.format.DateTimeFormatter
 import java.util.Date
 
 @Composable
@@ -65,8 +67,8 @@ fun Timeline(
             modifier = Modifier
                 .weight(1f)
         ) {
-            Text(
-                text = timelineItem.apiTitle,
+            HtmlText(
+                text = timelineItem.displayTitle,
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
@@ -117,7 +119,7 @@ fun Timeline(
                 contentDescription = null,
                 modifier = Modifier
                     .size(56.dp)
-                    .clip(RoundedCornerShape(16.dp))
+                    .clip(RoundedCornerShape(8.dp))
             )
         }
     }
@@ -129,14 +131,11 @@ fun TimelineDateSeparator(
     date: Date,
     modifier: Modifier = Modifier
 ) {
-    val localDate = date.toLocalDate()
     val dateText = when {
-        date.isToday() -> "Today"
-        date.isYesterday() -> "Yesterday"
-        else -> formatDate(localDate)
+        date.isToday() -> stringResource(R.string.activity_tab_timeline_today)
+        date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday)
+        else -> formatDate(date)
     }
-
-    val fullDateText = DateTimeFormatter.ofPattern("MMMM d, yyyy").format(localDate)
 
     Column(
         modifier = modifier
@@ -149,7 +148,7 @@ fun TimelineDateSeparator(
             color = WikipediaTheme.colors.primaryColor
         )
         Text(
-            text = fullDateText,
+            text = DateUtil.getMMMMdYYYY(date),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
         )

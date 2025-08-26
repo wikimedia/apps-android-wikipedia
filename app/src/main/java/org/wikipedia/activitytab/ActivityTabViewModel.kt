@@ -70,7 +70,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val timelineFlow = Pager(
         config = PagingConfig(
-            pageSize = 50,
+            pageSize = 150,
             prefetchDistance = 20
         ),
         pagingSourceFactory = { TimelinePagingSource(
