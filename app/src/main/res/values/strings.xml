@@ -1218,21 +1218,21 @@
     <string name="activity_tab_impact_most_viewed">Most viewed since your edit</string>
     <string name="activity_tab_impact_contributions_this_month">Contributions this month</string>
     <plurals name="activity_tab_impact_edits_this_month">
-        <item quantity="one">Edit this month</item>
-        <item quantity="other">Edits this month</item>
+        <item quantity="one">edit this month</item>
+        <item quantity="other">edits this month</item>
     </plurals>
     <plurals name="activity_tab_impact_edits_last_month">
-        <item quantity="one">Edit last month</item>
-        <item quantity="other">Edits last month</item>
+        <item quantity="one">edit last month</item>
+        <item quantity="other">edits last month</item>
     </plurals>
     <string name="activity_tab_impact_all_time">All time impact</string>
     <plurals name="activity_tab_impact_total_edits">
-        <item quantity="one">Total edit</item>
-        <item quantity="other">Total edits</item>
+        <item quantity="one">total edit</item>
+        <item quantity="other">total edits</item>
     </plurals>
     <plurals name="activity_tab_impact_thanks">
-        <item quantity="one">Thank</item>
-        <item quantity="other">Thanks</item>
+        <item quantity="one">thank</item>
+        <item quantity="other">thanks</item>
     </plurals>
     <plurals name="activity_tab_impact_best_streak_text">
         <item quantity="one">%d day</item>
