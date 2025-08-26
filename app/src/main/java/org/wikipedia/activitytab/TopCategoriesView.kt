@@ -41,11 +41,9 @@ fun TopCategoriesView(
             color = WikipediaTheme.colors.borderColor
         )
     ) {
-        Column(
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
+        Column {
             Row(
-                modifier = Modifier.padding(horizontal = 16.dp),
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Icon(
