@@ -74,11 +74,15 @@ import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.theme.Theme
+import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
@@ -321,7 +325,46 @@ class ActivityTabFragment : Fragment() {
                                 )
                         ) {
                             if (modules.isModuleEnabled(ModuleType.IMPACT)) {
-                                // TODO: zomg do something with this!
+                                Text(
+                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+                                    text = stringResource(R.string.activity_tab_impact),
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Medium,
+                                    color = WikipediaTheme.colors.primaryColor
+                                )
+                                ImpactModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                    uiState = impactUiState,
+                                    onPageItemClick = {
+                                        val entry = HistoryEntry(
+                                            title = it,
+                                            source = HistoryEntry.SOURCE_ACTIVITY_TAB
+                                        )
+                                        requireActivity().startActivity(PageActivity.newIntentForNewTab(
+                                            context = requireActivity(),
+                                            entry = entry,
+                                            title = it
+                                        ))
+                                    },
+                                    onContributionClick = {
+                                        requireActivity().startActivity(UserContribListActivity.newIntent(
+                                            context = requireActivity(),
+                                            userName = userName
+                                        ))
+                                    },
+                                    onSuggestedEditsClick = {
+                                        requireActivity().startActivity(SuggestedEditsTasksActivity.newIntent(
+                                            context = requireActivity()
+                                        ))
+                                    },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadImpact()
+                                        }
+                                    )
+                                )
                             }
 
                             if (modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.DONATIONS)) {

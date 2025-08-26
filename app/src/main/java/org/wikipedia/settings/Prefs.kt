@@ -840,8 +840,9 @@ object Prefs {
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
 
     var impactLastResponseBody
-        get() = PrefsIoUtil.getString(R.string.preference_key_impact_last_response_body, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_impact_last_response_body, value)
+        get() = JsonUtil.decodeFromString<Map<String, String>>(PrefsIoUtil.getString(R.string.preference_key_impact_last_response_body, null))
+            ?: emptyMap()
+        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_impact_last_response_body, JsonUtil.encodeToString(langSupportedMap))
 
     var donationReminderConfig
         get() = JsonUtil.decodeFromString<DonationReminderConfig>(
