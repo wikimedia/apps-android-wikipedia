@@ -407,7 +407,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) && Prefs.donationResults.isNotEmpty()) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
