@@ -112,7 +112,7 @@ fun ReadingHistoryModule(
                 text = stringResource(
                     R.string.activity_tab_weekly_time_spent_hm,
                     (readingHistory.timeSpentThisWeek / 3600),
-                    (readingHistory.timeSpentThisWeek % 60)
+                    ((readingHistory.timeSpentThisWeek / 60) % 60)
                 ),
                 modifier = modifier.padding(top = 12.dp),
                 fontWeight = FontWeight.Medium,
