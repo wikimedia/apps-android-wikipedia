@@ -63,6 +63,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
+    fun getMonthOnlyDateString(date: LocalDate): String {
+        return getDateStringWithSkeletonPattern(date, "MMMM d")
+    }
+
     fun getMonthOnlyWithoutDayDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
@@ -75,8 +79,8 @@ object DateUtil {
         return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
     }
 
-    fun getMMMMdYYYY(date: Date): String {
-        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), true).format(date)
+    fun getMMMMdYYYY(date: Date, utc: Boolean = true): String {
+        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), utc).format(date)
     }
 
     private fun getExtraShortDateString(date: Date): String {

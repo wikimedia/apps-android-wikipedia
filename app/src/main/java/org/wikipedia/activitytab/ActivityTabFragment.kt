@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -67,8 +68,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.timeline.ActivitySource
-import org.wikipedia.activitytab.timeline.Timeline
 import org.wikipedia.activitytab.timeline.TimelineDateSeparator
+import org.wikipedia.activitytab.timeline.TimelineModule
 import org.wikipedia.activitytab.timeline.toHistoryEntry
 import org.wikipedia.activitytab.timeline.toPageTitle
 import org.wikipedia.auth.AccountUtil
@@ -413,11 +414,11 @@ class ActivityTabFragment : Fragment() {
                                         date = displayItem.date,
                                         modifier = Modifier
                                             .padding(horizontal = 16.dp)
-                                            .padding(top = 32.dp)
+                                            .padding(top = 22.dp, bottom = 8.dp)
                                     )
                                 }
                                 is TimelineDisplayItem.TimelineEntry -> {
-                                    Timeline(
+                                    TimelineModule(
                                         timelineItem = displayItem.item,
                                         onItemClick = { item ->
                                             when (item.activitySource) {
@@ -463,6 +464,7 @@ class ActivityTabFragment : Fragment() {
                                             }
                                         }
                                     )
+                                    Spacer(modifier = Modifier.height(6.dp))
                                 }
                                 null -> {}
                             }

@@ -27,18 +27,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.DateUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.util.Date
 
 // @TODO: MARK_ACTIVITY_TAB retrieve description and thumbnail for contributions through API
 @Composable
-fun Timeline(
+fun TimelineModule(
     modifier: Modifier = Modifier,
     timelineItem: TimelineItem,
     onItemClick: (TimelineItem) -> Unit
@@ -47,7 +50,7 @@ fun Timeline(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = { onItemClick(timelineItem) })
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -67,7 +70,8 @@ fun Timeline(
         }
         Column(
             modifier = Modifier
-                .weight(1f)
+                .weight(1f),
+            verticalArrangement = Arrangement.Center
         ) {
             HtmlText(
                 text = timelineItem.displayTitle,
@@ -77,9 +81,9 @@ fun Timeline(
             )
 
             // Description
-            timelineItem.description?.let { description ->
+            if (!timelineItem.description.isNullOrEmpty()) {
                 Text(
-                    text = description,
+                    text = timelineItem.description,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
@@ -89,7 +93,7 @@ fun Timeline(
 
             if (timelineItem.activitySource == ActivitySource.EDIT) {
                 Button(
-                    modifier = modifier.padding(top = 8.dp, bottom = 16.dp),
+                    modifier = modifier.padding(top = 8.dp),
                     contentPadding = PaddingValues(horizontal = 18.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.additionColor,
@@ -150,9 +154,46 @@ fun TimelineDateSeparator(
             color = WikipediaTheme.colors.primaryColor
         )
         Text(
-            text = DateUtil.getMMMMdYYYY(date),
+            text = DateUtil.getMMMMdYYYY(date, false),
             style = MaterialTheme.typography.bodySmall,
             color = WikipediaTheme.colors.secondaryColor
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TimelineItemPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TimelineModule(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            timelineItem = TimelineItem(
+                id = 1,
+                pageId = 1,
+                displayTitle = "1980s professional wrestling boxing",
+                description = "Era of professional wrestling",
+                thumbnailUrl = "",
+                timestamp = Date(),
+                source = 1,
+                activitySource = ActivitySource.EDIT
+            ),
+            onItemClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TimelineDateSeparatorPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TimelineDateSeparator(
+            date = Date()
         )
     }
 }

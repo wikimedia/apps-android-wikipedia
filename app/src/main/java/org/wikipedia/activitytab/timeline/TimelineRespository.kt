@@ -31,11 +31,11 @@ fun formatDate(date: Date): String {
         }
 
         localDate.year == now.year -> {
-            DateUtil.getMonthOnlyDateString(date)
+            DateUtil.getMonthOnlyDateString(localDate)
         }
 
         else -> {
-            DateUtil.getMMMMdYYYY(date)
+            DateUtil.getShortDateString(localDate)
         }
     }
 }
