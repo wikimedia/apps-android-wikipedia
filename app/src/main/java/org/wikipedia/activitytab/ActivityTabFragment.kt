@@ -324,13 +324,15 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            Text(
-                                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
-                                text = stringResource(R.string.activity_tab_impact),
-                                style = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Medium,
-                                color = WikipediaTheme.colors.primaryColor
-                            )
+                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                Text(
+                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+                                    text = stringResource(R.string.activity_tab_impact),
+                                    style = MaterialTheme.typography.titleLarge,
+                                    fontWeight = FontWeight.Medium,
+                                    color = WikipediaTheme.colors.primaryColor
+                                )
+                            }
 
                             if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS)) {
                                 EditingInsightsModule(
@@ -439,7 +441,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // Add bottom padding only if at least one of the modules in this gradient box is enabled.
                                 Spacer(modifier = Modifier.size(16.dp))
                             }
