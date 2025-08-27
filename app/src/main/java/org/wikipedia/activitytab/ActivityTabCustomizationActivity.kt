@@ -46,7 +46,9 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                 CustomizationScreen(
                     onBackButtonClick = {
                         finish()
-                    }
+                    },
+                    modules = Prefs.activityTabModules,
+                    showLastDonation = Prefs.donationResults.isNotEmpty()
                 )
             }
         }
@@ -71,9 +73,11 @@ class ActivityTabCustomizationActivity : BaseActivity() {
 @Composable
 fun CustomizationScreen(
     modifier: Modifier = Modifier,
-    onBackButtonClick: () -> Unit
+    onBackButtonClick: () -> Unit,
+    modules: ActivityTabModules,
+    showLastDonation: Boolean = false
 ) {
-    var currentModules by remember { mutableStateOf(Prefs.activityTabModules) }
+    var currentModules by remember { mutableStateOf(modules) }
 
     Scaffold(
         modifier = modifier
@@ -102,6 +106,9 @@ fun CustomizationScreen(
                     )
                 }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
+                    if (moduleType == ModuleType.DONATIONS && !showLastDonation) {
+                        return@itemsIndexed
+                    }
                     CustomizationScreenSwitch(
                         isChecked = currentModules.isModuleEnabled(moduleType),
                         title = stringResource(moduleType.displayName),
@@ -228,7 +235,8 @@ private fun CustomizationScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         CustomizationScreen(
-            onBackButtonClick = {}
+            onBackButtonClick = {},
+            modules = ActivityTabModules()
         )
     }
 }

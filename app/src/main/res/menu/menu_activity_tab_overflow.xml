@@ -19,6 +19,11 @@
                 android:title="@string/activity_tab_menu_info"
                 app:iconTint="?attr/secondary_color" />
             <item
+                android:id="@+id/menu_clear_history"
+                android:icon="@drawable/ic_delete_white_24dp"
+                android:title="@string/menu_clear_all_history"
+                app:iconTint="?attr/secondary_color" />
+            <item
                 android:id="@+id/menu_report_feature"
                 android:icon="@drawable/ic_report_flag"
                 android:title="@string/activity_tab_menu_feedback"

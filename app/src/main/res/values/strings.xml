@@ -45,7 +45,7 @@
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
-    <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
+    <string name="dialog_message_clear_history">This will delete all of your browsing history. Are you sure?</string>
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>
@@ -1201,7 +1201,6 @@
     <string name="activity_tab_monthly_top_categories">Top categories read this month</string>
     <string name="activity_tab_explore_wikipedia">Discover through Wikipedia</string>
     <string name="activity_tab_discover_encourage">Looking for something new to read?</string>
-    <string name="activity_tab_donation_button">Donate to the Wikimedia Foundation</string>
     <string name="activity_tab_donation_unknown">Unknown</string>
     <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
     <string name="activity_tab_game_stats">Game stats</string>

@@ -77,6 +77,7 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageActivity
@@ -335,7 +336,7 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_impact),
@@ -343,7 +344,10 @@ class ActivityTabFragment : Fragment() {
                                     fontWeight = FontWeight.Medium,
                                     color = WikipediaTheme.colors.primaryColor
                                 )
-                                ImpactModule(
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS)) {
+                                EditingInsightsModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
@@ -353,24 +357,41 @@ class ActivityTabFragment : Fragment() {
                                             title = it,
                                             source = HistoryEntry.SOURCE_ACTIVITY_TAB
                                         )
-                                        requireActivity().startActivity(PageActivity.newIntentForNewTab(
+                                        requireActivity().startActivity(
+                                            PageActivity.newIntentForNewTab(
                                             context = requireActivity(),
                                             entry = entry,
                                             title = it
                                         ))
                                     },
                                     onContributionClick = {
-                                        requireActivity().startActivity(UserContribListActivity.newIntent(
+                                        requireActivity().startActivity(
+                                            UserContribListActivity.newIntent(
                                             context = requireActivity(),
                                             userName = userName
                                         ))
                                     },
                                     onSuggestedEditsClick = {
                                         ActivityTabEvent.submit(activeInterface = "activity_tab", action = "sugg_edit_click", editCount = viewModel.getTotalEditsCount())
-                                        requireActivity().startActivity(SuggestedEditsTasksActivity.newIntent(
+                                        requireActivity().startActivity(
+                                            SuggestedEditsTasksActivity.newIntent(
                                             context = requireActivity()
                                         ))
                                     },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadImpact()
+                                        }
+                                    )
+                                )
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                ImpactModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                    uiState = impactUiState,
                                     wikiErrorClickEvents = WikiErrorClickEvents(
                                         retryClickListener = {
                                             viewModel.loadImpact()
@@ -419,7 +440,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) && Prefs.donationResults.isNotEmpty()) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -435,7 +456,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // Add bottom padding only if at least one of the modules in this gradient box is enabled.
                                 Spacer(modifier = Modifier.size(16.dp))
                             }
@@ -555,6 +576,12 @@ class ActivityTabFragment : Fragment() {
             R.id.menu_customize_activity_tab -> {
                 ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "customize_click")
                 startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                true
+            }
+            R.id.menu_clear_history -> {
+                HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
+                    viewModel.loadAll()
+                }
                 true
             }
             R.id.menu_learn_more -> {
