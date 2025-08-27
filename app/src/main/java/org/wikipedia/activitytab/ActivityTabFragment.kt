@@ -324,15 +324,16 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
-                                Text(
-                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
-                                    text = stringResource(R.string.activity_tab_impact),
-                                    style = MaterialTheme.typography.titleLarge,
-                                    fontWeight = FontWeight.Medium,
-                                    color = WikipediaTheme.colors.primaryColor
-                                )
-                                ImpactModule(
+                            Text(
+                                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
+                                text = stringResource(R.string.activity_tab_impact),
+                                style = MaterialTheme.typography.titleLarge,
+                                fontWeight = FontWeight.Medium,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+
+                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS)) {
+                                EditingInsightsModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
@@ -342,23 +343,40 @@ class ActivityTabFragment : Fragment() {
                                             title = it,
                                             source = HistoryEntry.SOURCE_ACTIVITY_TAB
                                         )
-                                        requireActivity().startActivity(PageActivity.newIntentForNewTab(
+                                        requireActivity().startActivity(
+                                            PageActivity.newIntentForNewTab(
                                             context = requireActivity(),
                                             entry = entry,
                                             title = it
                                         ))
                                     },
                                     onContributionClick = {
-                                        requireActivity().startActivity(UserContribListActivity.newIntent(
+                                        requireActivity().startActivity(
+                                            UserContribListActivity.newIntent(
                                             context = requireActivity(),
                                             userName = userName
                                         ))
                                     },
                                     onSuggestedEditsClick = {
-                                        requireActivity().startActivity(SuggestedEditsTasksActivity.newIntent(
+                                        requireActivity().startActivity(
+                                            SuggestedEditsTasksActivity.newIntent(
                                             context = requireActivity()
                                         ))
                                     },
+                                    wikiErrorClickEvents = WikiErrorClickEvents(
+                                        retryClickListener = {
+                                            viewModel.loadImpact()
+                                        }
+                                    )
+                                )
+                            }
+
+                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                                ImpactModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                    uiState = impactUiState,
                                     wikiErrorClickEvents = WikiErrorClickEvents(
                                         retryClickListener = {
                                             viewModel.loadImpact()
