@@ -45,7 +45,7 @@
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
-    <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
+    <string name="dialog_message_clear_history">This will delete all of your browsing history. Are you sure?</string>
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>

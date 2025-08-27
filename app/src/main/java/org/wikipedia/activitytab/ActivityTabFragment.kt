@@ -75,6 +75,7 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageActivity
@@ -560,6 +561,12 @@ class ActivityTabFragment : Fragment() {
         return when (menuItem.itemId) {
             R.id.menu_customize_activity_tab -> {
                 startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                true
+            }
+            R.id.menu_clear_history -> {
+                HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
+                    viewModel.loadAll()
+                }
                 true
             }
             R.id.menu_learn_more -> {
