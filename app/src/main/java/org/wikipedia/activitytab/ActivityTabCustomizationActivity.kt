@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -49,6 +50,15 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                 )
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (Prefs.activityTabModules.areAllModulesDisabled())
+            ActivityTabEvent.submit(activeInterface = "activity_tab_cutomize", "customize_click", all = "off")
+
+        if (Prefs.activityTabModules.areAllModulesEnabled())
+            ActivityTabEvent.submit(activeInterface = "activity_tab_cutomize", "customize_click", all = "on")
     }
 
     companion object {
@@ -96,6 +106,7 @@ fun CustomizationScreen(
                         isChecked = currentModules.isModuleEnabled(moduleType),
                         title = stringResource(moduleType.displayName),
                         onCheckedChange = { isChecked ->
+                            submitModuleToggleEvent(moduleType, isChecked)
                             currentModules = currentModules.setModuleEnabled(moduleType, isChecked)
                             Prefs.activityTabModules = currentModules
                         }
@@ -166,6 +177,27 @@ fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean
     ModuleType.GAMES -> copy(isGamesEnabled = enabled)
     ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
     ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
+}
+
+fun ActivityTabModules.areAllModulesEnabled(): Boolean {
+    return ModuleType.entries.all { this.isModuleEnabled(it) }
+}
+
+fun ActivityTabModules.areAllModulesDisabled(): Boolean {
+    return ModuleType.entries.none { this.isModuleEnabled(it) }
+}
+
+private fun submitModuleToggleEvent(moduleType: ModuleType, isEnabled: Boolean, activeInterface: String = "activity_tab_cutomize", action: String = "customize_click") {
+    val data = if (isEnabled) "on" else "off"
+    when (moduleType) {
+        ModuleType.TIME_SPENT -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, timeSpent = data)
+        ModuleType.READING_INSIGHTS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, readingInsight = data)
+        ModuleType.EDITING_INSIGHTS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, editingInsight = data)
+        ModuleType.IMPACT -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, impact = data)
+        ModuleType.GAMES -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, games = data)
+        ModuleType.DONATIONS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, donations = data)
+        ModuleType.TIMELINE -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, timeline = data)
+    }
 }
 
 @Serializable

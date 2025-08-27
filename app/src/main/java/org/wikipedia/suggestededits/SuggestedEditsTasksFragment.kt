@@ -25,6 +25,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -131,6 +132,9 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
         tasksContainer.learnMoreButton.setOnClickListener {
+            if (ActivityTabABTest().isInTestGroup()) {
+                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
+            }
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
@@ -276,6 +280,10 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     }
 
     private fun setFinalUIState() {
+        if (inActivityAbTestGroup) {
+            ActivityTabEvent.submit(activeInterface = "edit_home", action = "impression", editCount = viewModel.totalContributions)
+        }
+
         clearContents(false)
 
         if (maybeSetPausedOrDisabled()) {
@@ -480,23 +488,38 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
             if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 requestAddLanguage.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS))
             } else if (task == addDescriptionsTask) {
-                ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
+                } else
+                    ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
+                } else
+                    ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
-                ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
+                } else
+                    ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
                 if (Prefs.showImageTagsOnboarding) {
                     requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             } else if (task == imageRecommendationsTask) {
-                ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
+                } else
+                    ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
             } else if (task == vandalismPatrolTask) {
-                PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
+                } else
+                    PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
                 startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
             }
         }

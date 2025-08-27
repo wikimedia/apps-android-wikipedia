@@ -97,7 +97,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerEditContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)
-            // TODO: ACTIVITY_TAB_INSTRUMENTATION update edit_count action data once confirmed with data
             ActivityTabEvent.submit(activeInterface = "more_menu", action = "edit_click")
             startActivity(SuggestedEditsTasksActivity.newIntent(requireContext()))
             dismiss()
