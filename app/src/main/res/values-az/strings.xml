@@ -426,7 +426,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Şəklin qaralması (Qaranlıq temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
   <string name="preference_summary_prefer_offline_content">Həmişə məqalənin ən son versiyasını yükləməkdənsə, oflayn mövcud olan məqalələri yükləməklə data istifadəsinə qənaət edin</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Lokal ianə tarixçəsini sil</string>
+  <string name="preference_title_delete_local_donation_history">İanə tarixçəsini təmizlə</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem mövzusuna uyğunlaşdırın</string>
   <string name="page_footer_license_text">Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.</string>
   <string name="empty_tab_title">Yeni nişan</string>
