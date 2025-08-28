@@ -19,13 +19,14 @@ import java.util.Date
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
     private var dialog: AlertDialog? = null
+    private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
 
     init {
         val campaignView = CampaignDialogView(context)
         campaignView.callback = this
         val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
         campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
-        campaignView.setupViews(campaign.id, campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode])
+        campaignView.setupViews(campaignId, campaign.getAssetsForLang(WikipediaApp.instance.appOrSystemLanguageCode))
         setView(campaignView)
     }
 
@@ -37,16 +38,16 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     private fun dismissDialog(skipCampaign: Boolean = true) {
         // "Maybe later" option will show up the campaign after one day.
         if (skipCampaign) {
-            Prefs.announcementShownDialogs = setOf(campaign.id)
+            Prefs.announcementShownDialogs = setOf(campaignId)
         }
         dialog?.dismiss()
     }
 
     override fun onPositiveAction(url: String) {
-        DonorExperienceEvent.logAction("donate_start_click", "article_banner", campaignId = campaign.id)
+        DonorExperienceEvent.logAction("donate_start_click", "article_banner", campaignId = campaignId)
         val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
         if (context is BaseActivity) {
-            context.launchDonateDialog(campaign.id, customTabUrl)
+            context.launchDonateDialog(campaignId, customTabUrl)
             dismissDialog(false)
         } else {
             CustomTabsUtil.openInCustomTab(context, customTabUrl)
@@ -55,21 +56,21 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     }
 
     override fun onNegativeAction() {
-        DonorExperienceEvent.logAction("already_donated_click", "article_banner", campaignId = campaign.id)
+        DonorExperienceEvent.logAction("already_donated_click", "article_banner", campaignId = campaignId)
         FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
         dismissDialog()
     }
 
     override fun onNeutralAction() {
-        DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaign.id)
+        DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         Prefs.announcementPauseTime = Date().time
         FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
-        DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaign.id)
+        DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         dismissDialog(false)
     }
 
     override fun onClose() {
-        DonorExperienceEvent.logAction("close_click", "article_banner", campaignId = campaign.id)
+        DonorExperienceEvent.logAction("close_click", "article_banner", campaignId = campaignId)
         dismissDialog()
     }
 }
