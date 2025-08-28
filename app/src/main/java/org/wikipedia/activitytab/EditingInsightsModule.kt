@@ -283,8 +283,7 @@ fun ContributionCard(
     onSuggestedEditsClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onContributionClick?.invoke() }),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
@@ -293,7 +292,8 @@ fun ContributionCard(
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
-        )
+        ),
+        onClick = onContributionClick
     ) {
         Column {
             Row(
