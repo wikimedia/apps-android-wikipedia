@@ -483,7 +483,7 @@
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nejste přihlášen k účtu.&lt;/b&gt; Jakmile provedete editaci, vaše IP adresa bude propojena s vašimi editacemi.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Nejste přihlášený.&lt;/b&gt; Jakmile provedete editaci, bude pro Vás vytvořen dočasný účet pro ochranu Vašeho soukromí. &lt;a href=\"%1$s\"&gt;Dozvědět se více&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Používáte dočasný účet.&lt;/b&gt; Vaše úprava bude připsána %1$s. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Zjistěte více&lt;/a&gt; .</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Používáte dočasný účet.&lt;/b&gt; Vaše úprava bude připsána %1$s. &lt;a href=\"%2$s\"&gt;Zjistěte více&lt;/a&gt;.</string>
   <string name="temp_account_end_session">Ukončit relaci</string>
   <string name="temp_account_end_session_confirm">Toto Vás odhlásí z Vašeho dočasného účtu. Chcete pokračovat?</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
@@ -706,7 +706,7 @@
   <string name="reading_lists_preview_header_title">Sdílený seznam</string>
   <string name="reading_lists_preview_save_button">Uložit</string>
   <string name="reading_lists_preview_save_dialog_title">Uložit seznam</string>
-  <string name="reading_lists_preview_save_dialog_text">Pojmenujte seznam ke čtení a vyberte články k uložení do něj.</string>
+  <string name="reading_lists_preview_save_dialog_text">Pojmenujte seznam a vyberte články, které se uloží.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Název</string>
   <string name="reading_lists_preview_save_dialog_cancel">Storno</string>
   <string name="reading_lists_preview_save_dialog_save">Uložit</string>
@@ -1620,7 +1620,15 @@
   <string name="recommended_reading_list_page_subtitle_made_for">Sestaveno pro %s</string>
   <string name="recommended_reading_list_page_overflow_customize">Přizpůsobit</string>
   <string name="recommended_reading_list_page_overflow_about">O této funkci</string>
+  <string name="recommended_reading_list_settings_section_header">Doporučení</string>
   <string name="recommended_reading_list_settings_title">Nastavení Objevit</string>
+  <string name="recommended_reading_list_settings_toggle">Objevit seznam k přečtení</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Objevit je vypnutý. Wikipedie vám nebude doporučovat články k přečtení.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Vypnout Objevit?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Pokud vypnete Objevit, přestanete dostávat %s doporučení k přečtení z Wikipedie.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Vypnout</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Ne, nechat zapnuté</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Objevit bylo vypnuto. Můžete jej kdykoli znovu zapnout v nastavení.</string>
   <string name="recommended_reading_list_settings_articles">článků</string>
   <string name="recommended_reading_list_settings_updates_frequency">Aktualizace %s</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">denně</string>
@@ -1629,10 +1637,14 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Každý den</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Každý týden</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Každý měsíc</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Jak je Objevit sestaveno</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Na základě vašich zájmů</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Na základě vašich uložených článků</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Na základě vaší historie čtení</string>
   <string name="recommended_reading_list_settings_notifications_title">Upozornění</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedie vám nezašle upozornění, když se Objevit aktualizuje.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
   <string name="donation_reminders_initial_prompt_positive_button">Začít</string>
   <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
