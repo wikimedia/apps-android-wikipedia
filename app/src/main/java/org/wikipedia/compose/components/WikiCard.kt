@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -38,6 +39,7 @@ fun WikiCard(
         contentColor = WikipediaTheme.colors.paperColor
     ),
     border: BorderStroke? = null,
+    onClick: (() -> Unit)? = null,
     shape: Shape = RoundedCornerShape(12.dp),
     content: @Composable () -> Unit
 ) {
@@ -57,7 +59,14 @@ fun WikiCard(
         border = border,
         shape = shape
     ) {
-        content()
+        Box(
+            modifier = Modifier
+                .clickable(enabled = onClick != null) {
+                    onClick?.invoke()
+                }
+        ) {
+            content()
+        }
     }
 }
 
@@ -79,10 +88,10 @@ fun MessageCard(
     ) {
         Column(
             modifier = Modifier
-            .fillMaxWidth()
-            .clickable(enabled = onContainerClick != null) {
-                onContainerClick?.invoke()
-            }
+                .fillMaxWidth()
+                .clickable(enabled = onContainerClick != null) {
+                    onContainerClick?.invoke()
+                }
         ) {
             Column(
                 modifier = Modifier
