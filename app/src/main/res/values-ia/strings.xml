@@ -420,7 +420,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuation de imagines (in thema Obscur)</string>
   <string name="preference_title_prefer_offline_content">Preferer contento foras de linea</string>
   <string name="preference_summary_prefer_offline_content">Economisar le utilisation de datos cargante articulos disponibile foras de linea in loco de sempre cargar le ultime version de un articulo</string>
-  <string name="preference_title_delete_local_donation_history">Deler le historia local de donationes</string>
+  <string name="preference_title_delete_local_donation_history">Rader le historia de donationes</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Adaptar al thema del systema</string>
   <string name="page_footer_license_text">Le contento es disponibile sub $1 salvo indication contrari</string>
   <string name="empty_tab_title">Nove scheda</string>
@@ -1909,7 +1909,6 @@
   <string name="donation_reminders_settings_description_on">Le rememorationes de donation es active. Wikipedia te rememorara de donar %1$s cata %2$s que tu lege durante iste experimento.</string>
   <string name="donation_reminders_settings_description_off">Le rememorationes de donation es inactive.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Le contage de articulos se immagazina localmente sur tu apparato</string>
-  <string name="donation_reminders_prompt_success_snackbar">Gratias! Tu generositate con Wikipedia importa tanto pro nos.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d articulo</item>
     <item quantity="other">%d articulo</item>

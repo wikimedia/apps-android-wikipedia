@@ -481,10 +481,7 @@
   <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
   <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
   <string name="temp_account_dialog_discard">Action button for going directly to the Login screen.</string>
-  <plurals name="temp_account_created">
-    <item quantity="one">Message shown when a temporary account with a name of %1$s is created, and will expire in 1 day.</item>
-    <item quantity="other">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</item>
-  </plurals>
+  <string name="temp_account_created">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</string>
   <plurals name="temp_account_expiry">
     <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
     <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
@@ -1840,10 +1837,7 @@
   <string name="recommended_reading_list_interest_source_history">Option to build the reading list based on the reading history from user.</string>
   <string name="recommended_reading_list_interest_pick_title">Title of the screen where user can select their interests.</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Hint text for the search bar to find articles of interest.</string>
-  <plurals name="recommended_reading_list_interest_pick_selected_articles">
-    <item quantity="one">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
-    <item quantity="other">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</item>
-  </plurals>
+  <string name="recommended_reading_list_interest_pick_selected_articles">Text indicating the number of articles the user has selected as their interests. %d is replaced by the count.</string>
   <string name="recommended_reading_list_interest_select_minimum">Message requiring the user to select at least one article as an interest.</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">Content description for the button that randomly selects articles as interests.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">Snackbar message shown when the app randomly selects articles for the interests.</string>
@@ -1854,10 +1848,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Negative action button in the dialog to cancel random selection.</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Subtitle on the Discover page indicating the user for whom the list is generated. %s is replaced by the username.</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Subtitle on the Discover page indicating that the list is generated for the logged out user.</string>
-  <plurals name="recommended_reading_list_page_subtitle_articles">
-    <item quantity="one">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
-    <item quantity="other">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</item>
-  </plurals>
+  <string name="recommended_reading_list_page_subtitle_articles">Subtitle on the Discover page indicating the number of articles in the list. %d is replaced by the count.</string>
   <string name="recommended_reading_list_page_description_daily">Description of the daily reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_description_weekly">Description of the weekly reading list, explaining its purpose and update frequency.</string>
   <string name="recommended_reading_list_page_description_monthly">Description of the monthly reading list, explaining its purpose and update frequency.</string>
@@ -1873,12 +1864,12 @@
   <string name="recommended_reading_list_settings_toggle">Label for the switch to enable or disable the recommended reading list.</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Message displayed below the toggle when recommended reading list is disabled.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Title of the dialog asking the user to confirm turning off the recommended reading list.</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">Message in the dialog explaining what happens when the recommended reading list is turned off. %s will be replaced by the update frequency.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Message in the dialog explaining what happens when the recommended reading list is turned off. &lt;code&gt;%s&lt;/code&gt; will be replaced by the update frequency: {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency daily}}, {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency weekly}}, or {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency monthly}}.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Positive action button in the dialog to turn off the recommended reading list.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Negative action button in the dialog to keep the recommended reading list on.</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">Snackbar message shown when the user turns off the recommended reading list.</string>
   <string name="recommended_reading_list_settings_articles">Label indicating how many articles will show in the recommended reading list.</string>
-  <string name="recommended_reading_list_settings_updates_frequency">Label indicating the update frequency of the reading list. %s will be replaced by frequency.</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Label indicating the update frequency of the reading list. %s will be replaced by frequency: {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency daily}}, {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency weekly}}, or {{msg-wm|Wikipedia-android-strings-recommended reading list settings updates frequency monthly}}.</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">Text for daily update frequency in the settings.</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">Text for weekly update frequency in the settings.</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">Text for monthly update frequency in the settings.</string>
@@ -1938,6 +1929,5 @@
   <string name="donation_reminders_settings_description_on">Description shown on the settings screen when the donation reminder feature is enabled. The first %1$s will be replaced by the donation amount and second %2$s will be replaced by the text of the number of articles.</string>
   <string name="donation_reminders_settings_description_off">Description shown on the settings screen when the donation reminder feature is disabled.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
-  <string name="donation_reminders_prompt_success_snackbar">Snackbar message that indicates the donation has been made.</string>
-  <string name="donation_reminders_text_articles">Indicates the number of articles set by the user. %d is replaced by the count.</string>
+  <string name="donation_reminders_text_articles">Indicating the number of articles that was set by the user. %d is replaced by the count.</string>
 </resources>

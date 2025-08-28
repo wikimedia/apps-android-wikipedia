@@ -2,6 +2,7 @@ package org.wikipedia.language.addlanguages
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +24,15 @@ class AddLanguagesListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+
+        onBackPressedDispatcher.addCallback(this) {
+            DeviceUtil.hideSoftKeyboard(this@AddLanguagesListActivity)
+            val returnIntent = Intent()
+            returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
+            setResult(RESULT_OK, returnIntent)
+            finish()
+        }
+
         setContent {
             BaseTheme {
                 val uiState = viewModel.uiState.collectAsState().value
@@ -33,7 +43,7 @@ class AddLanguagesListActivity : BaseActivity() {
                         .imePadding(),
                     uiState = uiState,
                     onBackButtonClick = {
-                        finish()
+                        onBackPressedDispatcher.onBackPressed()
                     },
                     onSearchQueryChange = { query ->
                         viewModel.updateSearchTerm(query)
@@ -53,20 +63,12 @@ class AddLanguagesListActivity : BaseActivity() {
                         isLanguageSearched = it
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
-                        backClickListener = { onBackPressed() },
+                        backClickListener = { onBackPressedDispatcher.onBackPressed() },
                         retryClickListener = { viewModel.fetchAllData() }
                     )
                 )
             }
         }
-    }
-
-    override fun onBackPressed() {
-        DeviceUtil.hideSoftKeyboard(this)
-        val returnIntent = Intent()
-        returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
-        setResult(RESULT_OK, returnIntent)
-        super.onBackPressed()
     }
 
     companion object {

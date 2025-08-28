@@ -426,7 +426,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Şəklin qaralması (Qaranlıq temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
   <string name="preference_summary_prefer_offline_content">Həmişə məqalənin ən son versiyasını yükləməkdənsə, oflayn mövcud olan məqalələri yükləməklə data istifadəsinə qənaət edin</string>
-  <string name="preference_title_delete_local_donation_history">Lokal ianə tarixçəsini sil</string>
+  <string name="preference_title_delete_local_donation_history">İanə tarixçəsini təmizlə</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem mövzusuna uyğunlaşdırın</string>
   <string name="page_footer_license_text">Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.</string>
   <string name="empty_tab_title">Yeni nişan</string>
@@ -1910,7 +1910,6 @@
   <string name="donation_reminders_settings_description_on">İanə xatırlatmaları aktivdir. Vikipediya sizə bu eksperiment zamanı oxuduğunuz hər %2$s məqalədə %1$s ianə etməyi xatırladacaq.</string>
   <string name="donation_reminders_settings_description_off">İanə xatırlatmaları deaktivdir.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Məqalələrin sayı cihazınızda lokal olaraq saxlanılır</string>
-  <string name="donation_reminders_prompt_success_snackbar">Təşəkkürlər! Vikipediyaya olan səxavətiniz bizim üçün çox şey deməkdir.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d məqalə</item>
     <item quantity="other">%d məqalə</item>

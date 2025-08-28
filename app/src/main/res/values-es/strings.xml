@@ -81,6 +81,7 @@
 * Reverse88
 * Rodm23
 * Rodney Araujo
+* Rousmery96
 * Ryo567
 * SRuizR
 * Samthony
@@ -2004,7 +2005,6 @@
   <string name="donation_reminders_settings_description_on">Los recordatorios de donación están activados. Wikipedia te recordará que dones %1$s cada %2$s que leas mientras se ejecuta este experimento.</string>
   <string name="donation_reminders_settings_description_off">Los recordatorios de donaciones están desactivados.</string>
   <string name="donation_reminders_settings_tooltip_info_label">El recuento de artículos se almacena localmente en su dispositivo</string>
-  <string name="donation_reminders_prompt_success_snackbar">¡Gracias! Su generosidad con Wikipedia es muy importante para nosotros.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d artículos</item>
     <item quantity="other">%d artículos</item>
