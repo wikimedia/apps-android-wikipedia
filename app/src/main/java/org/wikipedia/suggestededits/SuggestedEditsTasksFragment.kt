@@ -487,40 +487,49 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
             if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 requestAddLanguage.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS))
-            } else if (task == addDescriptionsTask) {
-                if (ActivityTabABTest().isInTestGroup()) {
-                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
-                } else
-                    ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
-            } else if (task == addImageCaptionsTask) {
-                if (ActivityTabABTest().isInTestGroup()) {
-                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
-                } else
-                    ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
-            } else if (task == addImageTagsTask) {
-                if (ActivityTabABTest().isInTestGroup()) {
-                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
-                } else
-                    ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
-                if (Prefs.showImageTagsOnboarding) {
-                    requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
-                } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                return
+            }
+
+            when (task) {
+                addDescriptionsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
+                    } else
+                        ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
                 }
-            } else if (task == imageRecommendationsTask) {
-                if (ActivityTabABTest().isInTestGroup()) {
-                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
-                } else
-                    ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
-            } else if (task == vandalismPatrolTask) {
-                if (ActivityTabABTest().isInTestGroup()) {
-                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
-                } else
-                    PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
-                startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
+                addImageCaptionsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
+                    } else
+                        ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
+                }
+                addImageTagsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
+                    } else
+                        ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
+                    if (Prefs.showImageTagsOnboarding) {
+                        requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+                    } else {
+                        startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    }
+                }
+                imageRecommendationsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
+                    } else
+                        ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
+                }
+                vandalismPatrolTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
+                    } else
+                        PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
+                    startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
+                }
             }
         }
     }

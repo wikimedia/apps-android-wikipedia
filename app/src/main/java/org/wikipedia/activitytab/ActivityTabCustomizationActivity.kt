@@ -56,11 +56,28 @@ class ActivityTabCustomizationActivity : BaseActivity() {
 
     override fun onPause() {
         super.onPause()
-        if (Prefs.activityTabModules.areAllModulesDisabled())
-            ActivityTabEvent.submit(activeInterface = "activity_tab_cutomize", "customize_click", all = "off")
+        submitCustomizationModulesEvent()
+    }
 
-        if (Prefs.activityTabModules.areAllModulesEnabled())
-            ActivityTabEvent.submit(activeInterface = "activity_tab_cutomize", "customize_click", all = "on")
+    private fun submitCustomizationModulesEvent() {
+        with(Prefs.activityTabModules) {
+            ActivityTabEvent.submit(
+                activeInterface = "activity_tab_customize",
+                action = "customize_click",
+                timeSpent = isTimeSpentEnabled.toOnOffString(),
+                readingInsight = isReadingInsightsEnabled.toOnOffString(),
+                editingInsight = isEditingInsightsEnabled.toOnOffString(),
+                impact = isImpactEnabled.toOnOffString(),
+                games = isGamesEnabled.toOnOffString(),
+                donations = if (Prefs.donationResults.isNotEmpty()) isDonationsEnabled.toOnOffString() else null,
+                timeline = isTimelineEnabled.toOnOffString(),
+                all = when {
+                    areAllModulesDisabled() -> "off"
+                    areAllModulesEnabled() -> "on"
+                    else -> null
+                }
+            )
+        }
     }
 
     companion object {
@@ -113,7 +130,6 @@ fun CustomizationScreen(
                         isChecked = currentModules.isModuleEnabled(moduleType),
                         title = stringResource(moduleType.displayName),
                         onCheckedChange = { isChecked ->
-                            submitModuleToggleEvent(moduleType, isChecked)
                             currentModules = currentModules.setModuleEnabled(moduleType, isChecked)
                             Prefs.activityTabModules = currentModules
                         }
@@ -194,18 +210,7 @@ fun ActivityTabModules.areAllModulesDisabled(): Boolean {
     return ModuleType.entries.none { this.isModuleEnabled(it) }
 }
 
-private fun submitModuleToggleEvent(moduleType: ModuleType, isEnabled: Boolean, activeInterface: String = "activity_tab_cutomize", action: String = "customize_click") {
-    val data = if (isEnabled) "on" else "off"
-    when (moduleType) {
-        ModuleType.TIME_SPENT -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, timeSpent = data)
-        ModuleType.READING_INSIGHTS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, readingInsight = data)
-        ModuleType.EDITING_INSIGHTS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, editingInsight = data)
-        ModuleType.IMPACT -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, impact = data)
-        ModuleType.GAMES -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, games = data)
-        ModuleType.DONATIONS -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, donations = data)
-        ModuleType.TIMELINE -> ActivityTabEvent.submit(activeInterface = activeInterface, action = action, timeline = data)
-    }
-}
+private fun Boolean.toOnOffString(): String = if (this) "on" else "off"
 
 @Serializable
 data class ActivityTabModules(

@@ -255,7 +255,8 @@ class ActivityTabFragment : Fragment() {
 
             LaunchedEffect(Unit) {
                 // TODO: ACTIVITY_TAB_INSTRUMENTATION update state action data once timeline is merged
-                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "impression", editCount = viewModel.getTotalEditsCount())
+                val state = ""
+                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "impression", editCount = viewModel.getTotalEditsCount(), state = state)
             }
 
             PullToRefreshBox(

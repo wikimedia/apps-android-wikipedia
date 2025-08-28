@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.JsonUtil
 
+// TODO: ACTIVITY_TAB_INSTRUMENTATION send events from onboarding screen
 object ActivityTabEvent {
     fun submit(
         activeInterface: String,
