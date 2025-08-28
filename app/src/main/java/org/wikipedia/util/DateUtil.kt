@@ -8,6 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.getResources
 import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.toLocalDate
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -18,6 +19,8 @@ import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import java.time.format.TextStyle
+import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAccessor
 import java.util.Calendar
 import java.util.Date
@@ -210,5 +213,26 @@ object DateUtil {
     fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
         val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
         return zonedDateTime.year
+    }
+
+    fun toRelativeDateString(date: Date): String {
+        val localDate = date.toLocalDate()
+        val now = LocalDate.now()
+        val daysDiff = ChronoUnit.DAYS.between(localDate, now)
+
+        return when {
+            daysDiff < 7 -> {
+                val dayOfWeek = localDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
+                dayOfWeek
+            }
+
+            localDate.year == now.year -> {
+                DateUtil.getMonthOnlyDateString(localDate)
+            }
+
+            else -> {
+                DateUtil.getShortDateString(localDate)
+            }
+        }
     }
 }

@@ -7,42 +7,19 @@ import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.db.ReadingListPageDao
-import org.wikipedia.util.DateUtil
-import java.time.LocalDate
 import java.time.ZoneId
-import java.time.format.TextStyle
-import java.time.temporal.ChronoUnit
 import java.util.Date
-import java.util.Locale
 
 interface TimelineSource {
+    val id: String
     suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?>
 }
 
-fun formatDate(date: Date): String {
-    val localDate = date.toLocalDate()
-    val now = LocalDate.now()
-    val daysDiff = ChronoUnit.DAYS.between(localDate, now)
-
-    return when {
-        daysDiff < 7 -> {
-            val dayOfWeek = localDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
-            dayOfWeek
-        }
-
-        localDate.year == now.year -> {
-            DateUtil.getMonthOnlyDateString(localDate)
-        }
-
-        else -> {
-            DateUtil.getShortDateString(localDate)
-        }
-    }
-}
-
-class HistoryEntrySource(
+class HistoryEntryPagingSource(
     private val dao: HistoryEntryWithImageDao
 ) : TimelineSource {
+
+    override val id: String = "history_entry"
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.HistoryEntryCursor)?.offset ?: 0
@@ -71,13 +48,15 @@ class HistoryEntrySource(
     }
 }
 
-class ApiTimelineSource(
+class UserContribPagingSource(
     private val wikiSite: WikiSite,
     private val userName: String
 ) : TimelineSource {
 
+    override val id: String = "user_contrib"
+
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
-        val token = (cursor as? Cursor.ApiCursor)?.token
+        val token = (cursor as? Cursor.UserContribCursor)?.token
         val response = ServiceFactory.get(wikiSite)
             .getUserContrib(userName, pageSize, null, null, token, ucdir = "older")
 
@@ -94,14 +73,17 @@ class ApiTimelineSource(
             )
         } ?: emptyList()
 
-        val nextCursor = response.continuation?.ucContinuation?.let { Cursor.ApiCursor(it) }
+        val nextCursor = response.continuation?.ucContinuation?.let { Cursor.UserContribCursor(it) }
         return items to nextCursor
     }
 }
 
-class ReadingListSource(
+class ReadingListPagingSource(
     val dao: ReadingListPageDao
 ) : TimelineSource {
+
+    override val id: String = "reading_list"
+
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
         val items = dao.getPagesWithLimitOffset(pageSize, offset).map {
@@ -143,10 +125,39 @@ data class TimelineItem(
     var displayTitle: String = "",
     var namespace: String = "",
     val wiki: WikiSite? = null
-)
+) {
+    fun toHistoryEntry(): HistoryEntry {
+        val entry = HistoryEntry(
+            authority = authority,
+            lang = lang,
+            apiTitle = apiTitle,
+            displayTitle = displayTitle,
+            id = id,
+            namespace = namespace,
+            timestamp = timestamp,
+            source = source
+        )
+        entry.title.thumbUrl = thumbnailUrl
+        entry.title.description = description
+
+        return entry
+    }
+
+    fun toPageTitle(): PageTitle {
+        val wiki = wiki
+        wiki?.languageCode = lang
+        return PageTitle(
+            apiTitle,
+            wiki!!,
+            thumbnailUrl,
+            description,
+            displayTitle
+        )
+    }
+}
 
 sealed class Cursor {
-    data class ApiCursor(val token: String?) : Cursor()
+    data class UserContribCursor(val token: String?) : Cursor()
     data class HistoryEntryCursor(val offset: Int) : Cursor()
     data class ReadingListCursor(val offset: Int) : Cursor()
 }
@@ -154,45 +165,3 @@ sealed class Cursor {
 data class TimelinePageKey(
     val cursors: Map<String, Cursor> = emptyMap()
 )
-
-// Extension functions
-fun Date.toLocalDate(): LocalDate {
-    return this.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
-}
-
-fun Date.isToday(): Boolean {
-    return this.toLocalDate() == LocalDate.now()
-}
-
-fun Date.isYesterday(): Boolean {
-    return this.toLocalDate() == LocalDate.now().minusDays(1)
-}
-
-fun toHistoryEntry(timelineItem: TimelineItem): HistoryEntry {
-    val entry = HistoryEntry(
-        authority = timelineItem.authority,
-        lang = timelineItem.lang,
-        apiTitle = timelineItem.apiTitle,
-        displayTitle = timelineItem.displayTitle,
-        id = timelineItem.id,
-        namespace = timelineItem.namespace,
-        timestamp = timelineItem.timestamp,
-        source = timelineItem.source
-    )
-    entry.title.thumbUrl = timelineItem.thumbnailUrl
-    entry.title.description = timelineItem.description
-
-    return entry
-}
-
-fun toPageTitle(timelineItem: TimelineItem): PageTitle {
-    val wiki = timelineItem.wiki
-    wiki?.languageCode = timelineItem.lang
-    return PageTitle(
-        timelineItem.apiTitle,
-        wiki!!,
-        timelineItem.thumbnailUrl,
-        timelineItem.description,
-        timelineItem.displayTitle
-    )
-}

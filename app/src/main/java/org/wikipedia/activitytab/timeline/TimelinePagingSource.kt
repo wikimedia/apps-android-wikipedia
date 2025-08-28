@@ -17,7 +17,7 @@ class TimelinePagingSource(
             val newCursors = mutableMapOf<String, Cursor>()
 
             sources.forEach { source ->
-                val sourceName = source.javaClass.simpleName
+                val sourceName = source.id
                 val cursor = key.cursors[sourceName]
                 if (cursor != null || key.cursors.isEmpty()) {
                     val (items, nextCursor) = source.fetch(params.loadSize, cursor)

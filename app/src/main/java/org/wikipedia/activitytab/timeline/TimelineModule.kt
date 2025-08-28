@@ -34,6 +34,8 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.isToday
+import org.wikipedia.extensions.isYesterday
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DateUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -140,7 +142,7 @@ fun TimelineDateSeparator(
     val dateText = when {
         date.isToday() -> stringResource(R.string.activity_tab_timeline_today)
         date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday)
-        else -> formatDate(date)
+        else -> DateUtil.toRelativeDateString(date)
     }
 
     Column(

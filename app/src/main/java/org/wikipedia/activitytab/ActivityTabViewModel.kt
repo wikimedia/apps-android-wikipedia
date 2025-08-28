@@ -17,13 +17,12 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activitytab.timeline.ApiTimelineSource
-import org.wikipedia.activitytab.timeline.HistoryEntrySource
-import org.wikipedia.activitytab.timeline.ReadingListSource
+import org.wikipedia.activitytab.timeline.HistoryEntryPagingSource
+import org.wikipedia.activitytab.timeline.ReadingListPagingSource
 import org.wikipedia.activitytab.timeline.TimelineItem
 import org.wikipedia.activitytab.timeline.TimelinePagingSource
 import org.wikipedia.activitytab.timeline.TimelineSource
-import org.wikipedia.activitytab.timeline.toLocalDate
+import org.wikipedia.activitytab.timeline.UserContribPagingSource
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
 import org.wikipedia.database.AppDatabase
@@ -31,6 +30,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.extensions.toLocalDate
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -232,10 +232,10 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun createTimelineSources(): List<TimelineSource> {
-        val historyEntrySource = HistoryEntrySource(AppDatabase.instance.historyEntryWithImageDao())
-        val apiSource = ApiTimelineSource(wikiSite, AccountUtil.userName)
-        val readingListSource = ReadingListSource(AppDatabase.instance.readingListPageDao())
-        return listOf(historyEntrySource, readingListSource, apiSource)
+        val historyEntryPagingSource = HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao())
+        val userContribPagingSource = UserContribPagingSource(wikiSite, AccountUtil.userName)
+        val readingListPagingSource = ReadingListPagingSource(AppDatabase.instance.readingListPageDao())
+        return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
     }
 
     class ReadingHistory(

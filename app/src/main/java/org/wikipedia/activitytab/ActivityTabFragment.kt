@@ -70,8 +70,6 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.timeline.ActivitySource
 import org.wikipedia.activitytab.timeline.TimelineDateSeparator
 import org.wikipedia.activitytab.timeline.TimelineModule
-import org.wikipedia.activitytab.timeline.toHistoryEntry
-import org.wikipedia.activitytab.timeline.toPageTitle
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -489,7 +487,7 @@ class ActivityTabFragment : Fragment() {
                                                         ArticleEditDetailsActivity.newIntent(
                                                             requireContext(),
                                                             PageTitle(
-                                                                item.apiTitle,
+                                                                item.displayTitle,
                                                                 viewModel.wikiSite
                                                             ), item.pageId, revisionTo = item.id
                                                         )
@@ -497,7 +495,7 @@ class ActivityTabFragment : Fragment() {
                                                 }
 
                                                 ActivitySource.BOOKMARKED -> {
-                                                    val title = toPageTitle(item)
+                                                    val title = item.toPageTitle()
                                                     val entry = HistoryEntry(
                                                         title,
                                                         HistoryEntry.SOURCE_INTERNAL_LINK
@@ -512,7 +510,7 @@ class ActivityTabFragment : Fragment() {
                                                 }
 
                                                 ActivitySource.LINK, ActivitySource.SEARCH -> {
-                                                    val entry = toHistoryEntry(item)
+                                                    val entry = item.toHistoryEntry()
                                                     startActivity(
                                                         PageActivity.newIntentForCurrentTab(
                                                             requireContext(),
