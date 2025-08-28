@@ -233,7 +233,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private fun createTimelineSources(): List<TimelineSource> {
         val historyEntryPagingSource = HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao())
-        val userContribPagingSource = UserContribPagingSource(wikiSite, AccountUtil.userName)
+        val userContribPagingSource = UserContribPagingSource(wikiSite, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
         val readingListPagingSource = ReadingListPagingSource(AppDatabase.instance.readingListPageDao())
         return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
     }

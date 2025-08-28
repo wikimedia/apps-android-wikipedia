@@ -487,8 +487,11 @@ class ActivityTabFragment : Fragment() {
                                                         ArticleEditDetailsActivity.newIntent(
                                                             requireContext(),
                                                             PageTitle(
-                                                                item.displayTitle,
-                                                                viewModel.wikiSite
+                                                                item.apiTitle,
+                                                                viewModel.wikiSite,
+                                                                item.thumbnailUrl,
+                                                                item.description,
+                                                                item.displayTitle
                                                             ), item.pageId, revisionTo = item.id
                                                         )
                                                     )

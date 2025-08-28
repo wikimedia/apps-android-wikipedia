@@ -5,6 +5,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
 import org.wikipedia.history.db.HistoryEntryWithImageDao
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.db.ReadingListPageDao
 import java.time.ZoneId
@@ -50,30 +51,62 @@ class HistoryEntryPagingSource(
 
 class UserContribPagingSource(
     private val wikiSite: WikiSite,
-    private val userName: String
+    private val userName: String,
+    private val historyEntryWithImageDao: HistoryEntryWithImageDao
 ) : TimelineSource {
+
+    private val MAX_BATCH_SIZE = 50
 
     override val id: String = "user_contrib"
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val token = (cursor as? Cursor.UserContribCursor)?.token
-        val response = ServiceFactory.get(wikiSite)
-            .getUserContrib(userName, pageSize, null, null, token, ucdir = "older")
+        val service = ServiceFactory.get(wikiSite)
+        val userContribResponse = service.getUserContrib(username = userName, maxCount = pageSize, ns = null, filter = null, uccontinue = token, ucdir = "older")
 
-        val items = response.query?.userContributions?.map {
-            TimelineItem(
-                id = it.revid,
-                pageId = it.pageid,
-                displayTitle = it.title,
-                description = null,
-                thumbnailUrl = null,
-                timestamp = Date.from(it.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
+        val missingPageInfoIds = mutableListOf<Int>()
+        val timelineItemsByPageId = mutableMapOf<Long, TimelineItem>()
+        userContribResponse.query?.userContributions?.forEach { contribution ->
+            // pageId for article namespace and revid for other namespace as key because they can have similar pageId for example (User talk namespace)
+            // Only check database cache for article namespace article
+            val (savedHistoryItem, keyForMap) = if (contribution.ns == Namespace.MAIN.code()) {
+                // checks if any article with this contribution title is in the database
+                historyEntryWithImageDao.getHistoryItemWIthImage(contribution.title).firstOrNull() to contribution.pageid.toLong()
+            } else null to contribution.revid
+
+            val timelineItem = TimelineItem(
+                id = contribution.revid,
+                pageId = contribution.pageid,
+                displayTitle = contribution.title,
+                description = savedHistoryItem?.description,
+                thumbnailUrl = savedHistoryItem?.imageName,
+                timestamp = Date.from(contribution.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
                 activitySource = ActivitySource.EDIT,
                 source = -1
             )
-        } ?: emptyList()
+            timelineItemsByPageId[keyForMap] = timelineItem
+            // only fetch page info for contribution in article namespace
+            if (contribution.ns == Namespace.MAIN.code() && savedHistoryItem == null) {
+                missingPageInfoIds.add(contribution.pageid)
+            }
+        }
 
-        val nextCursor = response.continuation?.ucContinuation?.let { Cursor.UserContribCursor(it) }
+        // Fetching missing page info in batches
+        missingPageInfoIds.chunked(MAX_BATCH_SIZE).forEach { batch ->
+            val pages = service.getInfoByPageIdsOrTitles(pageIds = batch.joinToString(separator = "|")).query?.pages.orEmpty()
+            pages.forEach { page ->
+                timelineItemsByPageId[page.pageId.toLong()]?.let { existingItem ->
+                    timelineItemsByPageId[page.pageId.toLong()] = existingItem.copy(
+                        description = page.description,
+                        thumbnailUrl = page.thumbUrl()
+                    )
+                }
+            }
+        }
+
+        val items = timelineItemsByPageId.values.sortedByDescending { it.timestamp }
+
+        val nextCursor = userContribResponse.continuation?.ucContinuation?.let { Cursor.UserContribCursor(it) }
         return items to nextCursor
     }
 }
