@@ -203,7 +203,7 @@
   <string name="create_account_already_have">Већ имате налог?</string>
   <string name="create_account_activity_title">Отварање налога</string>
   <string name="dialog_create_account_checking_progress">Потврђујем</string>
-  <string name="create_account_email_hint">Имејл (опционално)</string>
+  <string name="create_account_email_hint">Имејл (необавезно)</string>
   <string name="create_account_password_repeat_hint">Поновите лозинку</string>
   <string name="create_account_password_is_username">Лозинка не може бити иста као корисничко име</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
@@ -535,7 +535,7 @@
   <string name="reading_list_action_menu_move_to_another_list">Премести на другу листу</string>
   <string name="reading_list_name_sample">Моја листа за читање</string>
   <string name="reading_list_name_hint">Име ове листе</string>
-  <string name="reading_list_description_hint">Опис (опционално)</string>
+  <string name="reading_list_description_hint">Опис (необавезно)</string>
   <string name="reading_list_item_deleted">Чланак „%s” је уклоњен са листе</string>
   <string name="reading_list_item_deleted_from_list">%1$s је уклоњен са списка %2$s</string>
   <plurals name="reading_list_articles_deleted">
