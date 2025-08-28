@@ -84,14 +84,12 @@ fun MessageCard(
     onContainerClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
+        modifier = modifier,
+        onClick = onContainerClick
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(enabled = onContainerClick != null) {
-                    onContainerClick?.invoke()
-                }
         ) {
             Column(
                 modifier = Modifier
