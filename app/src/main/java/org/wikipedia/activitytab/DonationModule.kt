@@ -1,7 +1,6 @@
 package org.wikipedia.activitytab
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,13 +36,13 @@ fun DonationModule(
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onClick?.invoke() }),
+        modifier = modifier,
         elevation = 0.dp,
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
-        )
+        ),
+        onClick = onClick
     ) {
         if (uiState == UiState.Loading) {
             Box(
