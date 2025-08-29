@@ -384,6 +384,9 @@
             android:name=".activitytab.ActivityTabCustomizationActivity" />
 
         <activity
+            android:name=".activitytab.ActivityTabOnboardingActivity" />
+
+        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
