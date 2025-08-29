@@ -29,7 +29,6 @@ import org.wikipedia.language.AcceptLanguageUtil
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
-import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -66,7 +65,6 @@ class WikipediaApp : Application() {
     private var defaultWikiSite: WikiSite? = null
 
     val connectionStateMonitor = ConnectionStateMonitor()
-    val tabList = mutableListOf<Tab>()
 
     var currentTheme = Theme.fallback
         set(value) {
@@ -112,10 +110,6 @@ class WikipediaApp : Application() {
             return defaultWikiSite!!
         }
 
-    // handle the case where we have a single tab with an empty backstack, which shouldn't count as a valid tab:
-    val tabCount
-        get() = if (tabList.size > 1) tabList.size else if (tabList.isEmpty()) 0 else if (tabList[0].backStack.isEmpty()) 0 else tabList.size
-
     val isOnline
         get() = connectionStateMonitor.isOnline()
 
@@ -149,7 +143,6 @@ class WikipediaApp : Application() {
 
         currentTheme = unmarshalTheme(Prefs.currentThemeId)
 
-        initTabs()
         enableWebViewDebugging()
         registerActivityLifecycleCallbacks(activityLifecycleHandler)
         registerComponentCallbacks(activityLifecycleHandler)
@@ -211,15 +204,6 @@ class WikipediaApp : Application() {
         // TODO: send exception to custom crash reporting system
     }
 
-    fun commitTabState() {
-        if (tabList.isEmpty()) {
-            Prefs.clearTabs()
-            initTabs()
-        } else {
-            Prefs.tabs = tabList
-        }
-    }
-
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
@@ -278,15 +262,6 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
-    }
-
-    private fun initTabs() {
-        if (Prefs.hasTabs) {
-            tabList.addAll(Prefs.tabs)
-        }
-        if (tabList.isEmpty()) {
-            tabList.add(Tab())
-        }
     }
 
     companion object {
