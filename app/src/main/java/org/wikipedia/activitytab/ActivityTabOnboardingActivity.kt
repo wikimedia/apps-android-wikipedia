@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -38,7 +38,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 
-// TODO: MARK_ACTIVITY_TAB add actual strings from design and update accordingly
+// TODO: MARK_ACTIVITY_TAB add actual resources from design and update accordingly
 private val onboardingItems = listOf(
     OnboardingItem(
         icon = R.drawable.ic_newsstand_24,
@@ -96,67 +96,67 @@ fun OnboardingScreen(
             .safeDrawingPadding(),
         containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
-        Box(
+        Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
-            Column(
+            Text(
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
-            ) {
-                Text(
+                    .fillMaxWidth()
+                    .padding(top = 64.dp, bottom = 32.dp),
+                textAlign = TextAlign.Center,
+                text = "Introducing Activity",
+                style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            onboardingItems.forEach { onboardingItem ->
+                ListItem(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 64.dp, bottom = 32.dp),
-                    textAlign = TextAlign.Center,
-                    text = "Introducing Activity",
-                    style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
-                    color = WikipediaTheme.colors.primaryColor
+                        .padding(horizontal = 8.dp)
+                        .padding(bottom = 16.dp),
+                    colors = ListItemDefaults.colors(
+                        containerColor = WikipediaTheme.colors.paperColor
+                    ),
+                    headlineContent = {
+                        Text(
+                            text = onboardingItem.title,
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    },
+                    supportingContent = {
+                        Text(
+                            text = onboardingItem.subTitle,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = WikipediaTheme.colors.secondaryColor
+                        )
+                    },
+                    leadingContent = {
+                        Icon(
+                            painter = painterResource(onboardingItem.icon),
+                            contentDescription = null
+                        )
+                    }
                 )
-
-                onboardingItems.forEach { onboardingItem ->
-                    ListItem(
-                        modifier = Modifier
-                            .padding(horizontal = 8.dp)
-                            .padding(bottom = 16.dp),
-                        colors = ListItemDefaults.colors(
-                            containerColor = WikipediaTheme.colors.paperColor
-                        ),
-                        headlineContent = {
-                            Text(
-                                text = onboardingItem.title,
-                                style = MaterialTheme.typography.titleMedium,
-
-                                )
-                        },
-                        supportingContent = {
-                            Text(
-                                text = onboardingItem.subTitle
-                            )
-                        },
-                        leadingContent = {
-                            Icon(
-                                painter = painterResource(onboardingItem.icon),
-                                contentDescription = null
-                            )
-                        }
-                    )
-                }
             }
+
+            Spacer(modifier = Modifier.weight(1f))
 
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.BottomCenter)
-                    .padding(horizontal = 16.dp)
-                    .padding(vertical = 32.dp),
+                    .padding(horizontal = 16.dp, vertical = 32.dp),
                 horizontalArrangement = Arrangement.spacedBy(
                     space = 24.dp,
                     alignment = Alignment.CenterHorizontally
                 )
             ) {
                 Button(
+                    modifier = Modifier
+                        .weight(1f),
                     border = BorderStroke(
                         width = 1.dp,
                         color = WikipediaTheme.colors.borderColor
@@ -174,6 +174,8 @@ fun OnboardingScreen(
                 }
 
                 Button(
+                    modifier = Modifier
+                        .weight(1f),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.progressiveColor
                     ),
