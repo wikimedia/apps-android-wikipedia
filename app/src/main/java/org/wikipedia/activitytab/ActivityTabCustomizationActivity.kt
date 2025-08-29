@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -50,6 +51,32 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                     showLastDonation = Prefs.donationResults.isNotEmpty()
                 )
             }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        submitCustomizationModulesEvent()
+    }
+
+    private fun submitCustomizationModulesEvent() {
+        with(Prefs.activityTabModules) {
+            ActivityTabEvent.submit(
+                activeInterface = "activity_tab_customize",
+                action = "customize_click",
+                timeSpent = isTimeSpentEnabled.toOnOffString(),
+                readingInsight = isReadingInsightsEnabled.toOnOffString(),
+                editingInsight = isEditingInsightsEnabled.toOnOffString(),
+                impact = isImpactEnabled.toOnOffString(),
+                games = isGamesEnabled.toOnOffString(),
+                donations = if (Prefs.donationResults.isNotEmpty()) isDonationsEnabled.toOnOffString() else null,
+                timeline = isTimelineEnabled.toOnOffString(),
+                all = when {
+                    areAllModulesDisabled() -> "off"
+                    areAllModulesEnabled() -> "on"
+                    else -> null
+                }
+            )
         }
     }
 
@@ -174,6 +201,16 @@ fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean
     ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
     ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
 }
+
+fun ActivityTabModules.areAllModulesEnabled(): Boolean {
+    return ModuleType.entries.all { this.isModuleEnabled(it) }
+}
+
+fun ActivityTabModules.areAllModulesDisabled(): Boolean {
+    return ModuleType.entries.none { this.isModuleEnabled(it) }
+}
+
+private fun Boolean.toOnOffString(): String = if (this) "on" else "off"
 
 @Serializable
 data class ActivityTabModules(

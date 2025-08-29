@@ -173,6 +173,20 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return PageTitle(title = category.title, wiki = WikiSite.forLanguageCode(category.lang))
     }
 
+    fun getTotalEditsCount(): Int {
+        return when (val currentState = _impactUiState.value) {
+            is UiState.Success -> currentState.data.totalEditsCount
+            else -> 0
+        }
+    }
+
+    fun isDonationUnknown(): Boolean {
+        return when (val currentState = _donationUiState.value) {
+            is UiState.Success -> currentState.data != null
+            else -> false
+        }
+    }
+
     class ReadingHistory(
         val timeSpentThisWeek: Long,
         val articlesReadThisMonth: Int,

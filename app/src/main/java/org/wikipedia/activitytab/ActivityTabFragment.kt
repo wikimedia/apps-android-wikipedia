@@ -31,6 +31,7 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,6 +61,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -117,7 +119,6 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
-
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -203,6 +204,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.paperColor,
                             ),
                             onClick = {
+                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "create_account_click")
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
@@ -230,6 +232,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.primaryColor,
                             ),
                             onClick = {
+                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "login_click")
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
@@ -248,6 +251,12 @@ class ActivityTabFragment : Fragment() {
                     }
                 }
                 return@Scaffold
+            }
+
+            LaunchedEffect(Unit) {
+                // TODO: ACTIVITY_TAB_INSTRUMENTATION update state action data once timeline is merged
+                val state = ""
+                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "impression", editCount = viewModel.getTotalEditsCount(), state = state)
             }
 
             PullToRefreshBox(
@@ -291,7 +300,10 @@ class ActivityTabFragment : Fragment() {
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                    onExploreClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                                    onExploreClick = {
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "explore_click", editCount = viewModel.getTotalEditsCount())
+                                        callback()?.onNavigateTo(NavTab.READING_LISTS)
+                                    },
                                     onCategoryItemClick = { category ->
                                         val pageTitle =
                                             viewModel.createPageTitleForCategory(category)
@@ -361,6 +373,7 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onSuggestedEditsClick = {
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "sugg_edit_click", editCount = viewModel.getTotalEditsCount())
                                         requireActivity().startActivity(
                                             SuggestedEditsTasksActivity.newIntent(
                                             context = requireActivity()
@@ -435,6 +448,8 @@ class ActivityTabFragment : Fragment() {
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = donationUiState,
                                     onClick = {
+                                        val state = if (viewModel.isDonationUnknown()) "empty" else "complete"
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click", editCount = viewModel.getTotalEditsCount(), state = state)
                                         (requireActivity() as? BaseActivity)?.launchDonateDialog(
                                             campaignId = ActivityTabViewModel.CAMPAIGN_ID
                                         )
@@ -560,20 +575,24 @@ class ActivityTabFragment : Fragment() {
     private fun handleMenuItemClick(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_customize_activity_tab -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "customize_click")
                 startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
                 true
             }
             R.id.menu_clear_history -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "clear_history_click")
                 HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
                     viewModel.loadAll()
                 }
                 true
             }
             R.id.menu_learn_more -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "learn_click")
                 // TODO: MARK_ACTIVITY_TAB --> add mediawiki page link
                 true
             }
             R.id.menu_report_feature -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "problem_click")
                 FeedbackUtil.composeEmail(requireContext(),
                     subject = getString(R.string.activity_tab_report_email_subject),
                     body = getString(R.string.activity_tab_report_email_body))
