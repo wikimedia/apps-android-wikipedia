@@ -580,6 +580,7 @@ class ActivityTabFragment : Fragment() {
                 true
             }
             R.id.menu_clear_history -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "clear_history_click")
                 HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
                     viewModel.loadAll()
                 }
