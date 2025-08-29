@@ -461,14 +461,14 @@ fun ReadingListInterestCard(
         colors = CardDefaults.cardColors(
             containerColor = if (isSelected) WikipediaTheme.colors.additionColor else WikipediaTheme.colors.paperColor
         ),
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
+        onClick = {
+            onItemClick(item)
+        }
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable {
-                    onItemClick(item)
-                }
         ) {
             if (!item.thumbUrl.isNullOrEmpty()) {
                 val request = ImageService.getRequest(LocalContext.current, url = item.thumbUrl, detectFace = true)

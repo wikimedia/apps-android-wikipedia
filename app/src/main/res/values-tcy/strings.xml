@@ -199,7 +199,7 @@
   <string name="email_recommendation_message">ಖಾತೆ ಪುನಃ ಪಡೆಯರಾ ಮಿಂಚಂಚೆ ಅಗತ್ಯ ಇಪ್ಪುಂಡು,  ಶಿಫಾರಸ್ಸು ಮಾಲ್ಪುಲೆ.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ಮಿಂಚಂಚೆ ಇಜ್ಜಿಯಾಂತೆ ದುಂಬು ಪೊಲೆ.</string>
   <string name="email_recommendation_dialog_create_with_email_action">ಮಿಂಚಂಚೆ ವಿಲಾಸೊನು ಸ್ತಾಪನೆ ಮಲ್ಪುಲೆ.</string>
-  <string name="create_account_button">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
+  <string name="create_account_button">ಕಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="create_account_name_unavailable">ಸದಸ್ಯತ್ವೊದ ಪುದರ್  \"%s\" ಲಭ್ಯ ಇಜ್ಜಿ. ದಯಮಾಲ್ತ್ ಬೇತೆ ಪುದಾರ್ ಆಯ್ಕೆ ಮಾಲ್ಪುಲೆ.</string>
   <string name="create_account_ip_block_message">ಕ್ಷಮೆ ಉಪ್ಪಾಡ್, ಪೊಸ ಖಾತೆನ್ ಸೃಷ್ಟಿ ಮಾಲ್ಪುಯಾರ ಇರೆನ IP ವಿಲಾಸೊನ್ ಇತ್ತೆ ನಿರ್ಬಂಧ ಮಾಲ್ತೆರ್.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
