@@ -135,6 +135,7 @@
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
   <string name="menu_page_archive">Archivovat</string>
   <string name="menu_long_press_open_page">Otevřít</string>
+  <string name="menu_long_press_open_in_places">Otevřít v Místech</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
   <string name="menu_text_select_define">Definovat</string>
@@ -148,6 +149,7 @@
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="edit_anon_warning">Editace budou přiřazeny IP adrese vašeho zařízení. Pokud se &lt;a href=\"https://#login\"&gt;přihlásíte&lt;/a&gt;, budete mít více soukromí.</string>
@@ -187,6 +189,8 @@
   <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
   <string name="login_email_auth_hint">Ověřovací kód z e-mailu</string>
+  <string name="login_email_auth_other_workflow_error_msg">Je vyžadováno ověření e-mailu! Přihlaste se prosím z hlavní strany a zadejte ověřovací kód z e-mailu.</string>
+  <string name="login_background_error_msg">Nelze se znovu přihlásit. Vraťte se prosím na hlavní stranu a přihlaste se ručně.</string>
   <string name="onboarding_card_login">Přihlásit se</string>
   <string name="page_editing_login">Přihlásit se</string>
   <string name="reading_lists_sync_login">Přihlásit se</string>
@@ -428,6 +432,7 @@
   <string name="preference_title_collapse_tables">Sbalit tabulky</string>
   <string name="preference_summary_collapse_tables">Automaticky sbalí tabulky v článcích, jako jsou infoboxy, reference a poznámky.</string>
   <string name="nav_item_donate">Podpořte nás</string>
+  <string name="nav_item_year_in_review">Rok v přehledu</string>
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
@@ -457,7 +462,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Smazat lokální historii darů</string>
+  <string name="preference_title_delete_local_donation_history">Smazat historii darů</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Přizpůsobit vzhledu systému</string>
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
   <string name="empty_tab_title">Nová záložka</string>
@@ -478,6 +483,7 @@
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Nejste přihlášen k účtu.&lt;/b&gt; Jakmile provedete editaci, vaše IP adresa bude propojena s vašimi editacemi.</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;Nejste přihlášený.&lt;/b&gt; Jakmile provedete editaci, bude pro Vás vytvořen dočasný účet pro ochranu Vašeho soukromí. &lt;a href=\"%1$s\"&gt;Dozvědět se více&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Používáte dočasný účet.&lt;/b&gt; Vaše úprava bude připsána %1$s. &lt;a href=\"%2$s\"&gt;Zjistěte více&lt;/a&gt;.</string>
   <string name="temp_account_end_session">Ukončit relaci</string>
   <string name="temp_account_end_session_confirm">Toto Vás odhlásí z Vašeho dočasného účtu. Chcete pokračovat?</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
@@ -700,7 +706,7 @@
   <string name="reading_lists_preview_header_title">Sdílený seznam</string>
   <string name="reading_lists_preview_save_button">Uložit</string>
   <string name="reading_lists_preview_save_dialog_title">Uložit seznam</string>
-  <string name="reading_lists_preview_save_dialog_text">Pojmenujte seznam ke čtení a vyberte články k uložení do něj.</string>
+  <string name="reading_lists_preview_save_dialog_text">Pojmenujte seznam a vyberte články, které se uloží.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Název</string>
   <string name="reading_lists_preview_save_dialog_cancel">Storno</string>
   <string name="reading_lists_preview_save_dialog_save">Uložit</string>
@@ -981,6 +987,7 @@
   <string name="suggested_edits_caption_images">Otitulkujte obrázky</string>
   <string name="suggested_edits_tag_images">Označit obrázky</string>
   <string name="suggested_edits_edit_patrol">Editační patrola</string>
+  <string name="suggested_edits_edit_patrol_review">Zkontrolovat</string>
   <string name="suggested_edits_review_description">Náhled popisu článku</string>
   <string name="suggested_edits_add_description_button">Přidat popis</string>
   <string name="suggested_edits_edit_description_button">Editovat popis</string>
@@ -1285,6 +1292,7 @@
   <string name="insert_media_advanced_settings_image_size_default">Výchozí</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Šířka</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Výška</string>
+  <string name="insert_media_insert_button">Vložit</string>
   <string name="templates_search_hint">Hledat šablony</string>
   <string name="templates_insert_button">Vložit</string>
   <string name="templates_learn_more_link">Dozvědět se více</string>
@@ -1305,6 +1313,7 @@
   <string name="talk_user_title">Diskuse: %s</string>
   <string name="talk_new_topic">Nové téma</string>
   <string name="talk_new_topic_submitted">Téma zveřejněno.</string>
+  <string name="talk_warn">Varovat</string>
   <string name="talk_warn_save_dialog_title">Přejete si uložit změny?</string>
   <string name="talk_warn_save_dialog_message">Uložit jako novou zprávu</string>
   <string name="talk_warn_save_dialog_existing_update_message">Aktualizovat existující zprávu</string>
@@ -1609,5 +1618,37 @@
   <string name="recommended_reading_list_interest_source_interests">Nechte mě vybrat si na základě svých zájmů</string>
   <string name="recommended_reading_list_interest_source_history">Vyberte pro mě na základě mé historie čtení</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Sestaveno pro %s</string>
+  <string name="recommended_reading_list_page_overflow_customize">Přizpůsobit</string>
+  <string name="recommended_reading_list_page_overflow_about">O této funkci</string>
+  <string name="recommended_reading_list_settings_section_header">Doporučení</string>
+  <string name="recommended_reading_list_settings_title">Nastavení Objevit</string>
+  <string name="recommended_reading_list_settings_toggle">Objevit seznam k přečtení</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Objevit je vypnutý. Wikipedie vám nebude doporučovat články k přečtení.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Vypnout Objevit?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Pokud vypnete Objevit, přestanete dostávat %s doporučení k přečtení z Wikipedie.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Vypnout</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Ne, nechat zapnuté</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Objevit bylo vypnuto. Můžete jej kdykoli znovu zapnout v nastavení.</string>
+  <string name="recommended_reading_list_settings_articles">článků</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Aktualizace %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">denně</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">týdně</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">měsíčně</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Každý den</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Každý týden</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Každý měsíc</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Jak je Objevit sestaveno</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Na základě vašich zájmů</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Na základě vašich uložených článků</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Na základě vaší historie čtení</string>
+  <string name="recommended_reading_list_settings_notifications_title">Upozornění</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedie vám nezašle upozornění, když se Objevit aktualizuje.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
   <string name="donation_reminders_initial_prompt_positive_button">Začít</string>
+  <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
+  <string name="donation_reminders_prompt_negative_button">Teď ne</string>
+  <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Darovat jinou částku pomocí Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Pomozte vylepšit připomenutí darů.</string>
 </resources>

@@ -242,7 +242,9 @@ class WikipediaApp : Application() {
         Prefs.tempAccountCreateDay = 0L
         Prefs.tempAccountDialogShown = false
         SharedPreferenceCookieManager.instance.clearAllCookies()
-        AppDatabase.instance.notificationDao().deleteAll()
+        MainScope().launch {
+            AppDatabase.instance.notificationDao().deleteAll()
+        }
         FlowEventBus.post(LoggedOutEvent())
         L.d("Logout complete.")
     }

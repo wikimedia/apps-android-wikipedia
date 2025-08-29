@@ -51,7 +51,7 @@ class TabActivity : BaseActivity() {
         setContentView(binding.root)
         binding.tabRecyclerView.adapter = TabItemAdapter()
         binding.tabCountsView.updateTabCount(false)
-        binding.tabCountsView.setOnClickListener { onBackPressed() }
+        binding.tabCountsView.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
         FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
 
         lifecycleScope.launch {
