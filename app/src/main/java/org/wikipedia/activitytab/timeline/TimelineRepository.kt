@@ -77,6 +77,7 @@ class UserContribPagingSource(
             val timelineItem = TimelineItem(
                 id = contribution.revid,
                 pageId = contribution.pageid,
+                apiTitle = contribution.title,
                 displayTitle = contribution.title,
                 description = savedHistoryItem?.description,
                 thumbnailUrl = savedHistoryItem?.imageName,
