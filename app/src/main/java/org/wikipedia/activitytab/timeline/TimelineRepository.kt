@@ -62,18 +62,15 @@ class UserContribPagingSource(
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val token = (cursor as? Cursor.UserContribCursor)?.token
         val service = ServiceFactory.get(wikiSite)
-        val userContribResponse = service.getUserContrib(username = userName, maxCount = pageSize, ns = null, filter = null, uccontinue = token, ucdir = "older")
+        val userContribResponse = service.getUserContrib(username = "Cooltey", maxCount = pageSize, ns = null, filter = null, uccontinue = token, ucdir = "older")
 
         val missingPageInfoIds = mutableListOf<Int>()
         val timelineItemsByPageId = mutableMapOf<Long, TimelineItem>()
         userContribResponse.query?.userContributions?.forEach { contribution ->
             // pageId for article namespace and revid for other namespace as key because they can have similar pageId for example (User talk namespace)
             // Only check database cache for article namespace article
-            val (savedHistoryItem, keyForMap) = if (contribution.ns == Namespace.MAIN.code()) {
-                // checks if any article with this contribution title is in the database
-                historyEntryWithImageDao.getHistoryItemWIthImage(contribution.title).firstOrNull() to contribution.pageid.toLong()
-            } else null to contribution.revid
-
+            val savedHistoryItem = if (contribution.ns == Namespace.MAIN.code()) historyEntryWithImageDao.getHistoryItemWIthImage(contribution.title).firstOrNull() else null
+            val keyForMap = savedHistoryItem?.id ?: contribution.revid
             val timelineItem = TimelineItem(
                 id = contribution.revid,
                 pageId = contribution.pageid,

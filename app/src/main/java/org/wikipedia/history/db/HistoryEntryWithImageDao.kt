@@ -92,7 +92,6 @@ interface HistoryEntryWithImageDao {
     suspend fun getHistoryItemWIthImage(searchTerm: String): List<HistoryEntryWithImage> {
         val normalizedQuery = StringUtils.stripAccents(searchTerm).replace("\\", "\\\\")
             .replace("%", "\\%").replace("_", "\\_")
-        println("orange --> %$normalizedQuery%")
         return findEntriesBySearchTerm("%$normalizedQuery%")
     }
 
