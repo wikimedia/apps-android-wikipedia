@@ -121,14 +121,14 @@ class ReadingListPagingSource(
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
         val items = dao.getPagesWithLimitOffset(pageSize, offset).map {
             TimelineItem(
-                id = it.mtime + it.atime,
+                id = it.mtime + it.atime + it.id,
                 pageId = 0,
                 apiTitle = it.apiTitle,
                 displayTitle = it.displayTitle,
                 description = it.description,
                 thumbnailUrl = it.thumbUrl,
                 timestamp = Date(it.mtime),
-                wiki = it.wiki,
+                wiki = WikiSite.forLanguageCode(it.lang),
                 activitySource = ActivitySource.BOOKMARKED,
                 source = -1
             )
@@ -177,8 +177,6 @@ data class TimelineItem(
     }
 
     fun toPageTitle(): PageTitle {
-        val wiki = wiki
-        wiki?.languageCode = lang
         return PageTitle(
             apiTitle,
             wiki!!,
