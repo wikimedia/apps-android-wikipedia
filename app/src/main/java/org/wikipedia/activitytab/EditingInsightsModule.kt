@@ -121,7 +121,8 @@ fun EditingInsightsModule(
                     modifier = Modifier
                         .fillMaxWidth(),
                     caught = uiState.error,
-                    errorClickEvents = wikiErrorClickEvents
+                    errorClickEvents = wikiErrorClickEvents,
+                    retryForGenericError = true
                 )
             }
         }
