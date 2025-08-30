@@ -166,8 +166,7 @@ fun DonationReminderScreen(
                     modifier = Modifier
                         .fillMaxWidth(),
                     caught = uiState.error,
-                    errorClickEvents = wikiErrorClickEvents,
-                    retryForGenericError = true
+                    errorClickEvents = wikiErrorClickEvents
                 )
             }
             return@Scaffold
