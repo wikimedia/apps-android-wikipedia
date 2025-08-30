@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,6 +23,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -53,13 +55,21 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
+import androidx.paging.PagingData
+import androidx.paging.compose.collectAsLazyPagingItems
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.timeline.ActivitySource
+import org.wikipedia.activitytab.timeline.TimelineDateSeparator
+import org.wikipedia.activitytab.timeline.TimelineModule
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -69,6 +79,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -128,7 +139,8 @@ class ActivityTabFragment : Fragment() {
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
-                        impactUiState = viewModel.impactUiState.collectAsState().value
+                        impactUiState = viewModel.impactUiState.collectAsState().value,
+                        timelineFlow = viewModel.timelineFlow
                     )
                 }
             }
@@ -156,8 +168,10 @@ class ActivityTabFragment : Fragment() {
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
-        impactUiState: UiState<GrowthUserImpact>
+        impactUiState: UiState<GrowthUserImpact>,
+        timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
+        val timelineItems = timelineFlow.collectAsLazyPagingItems()
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -253,6 +267,7 @@ class ActivityTabFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
+                    timelineItems.refresh()
                     viewModel.loadAll()
                 },
                 isRefreshing = isRefreshing,
@@ -450,7 +465,91 @@ class ActivityTabFragment : Fragment() {
                     }
 
                     if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
-                        // @TODO: MARK_ACTIVITY_TAB
+                        items(
+                            count = timelineItems.itemCount,
+                        ) { index ->
+                            when (val displayItem = timelineItems[index]) {
+                                is TimelineDisplayItem.DateSeparator -> {
+                                    TimelineDateSeparator(
+                                        date = displayItem.date,
+                                        modifier = Modifier
+                                            .padding(horizontal = 16.dp)
+                                            .padding(top = 22.dp, bottom = 8.dp)
+                                    )
+                                }
+                                is TimelineDisplayItem.TimelineEntry -> {
+                                    TimelineModule(
+                                        timelineItem = displayItem.item,
+                                        onItemClick = { item ->
+                                            when (item.activitySource) {
+                                                ActivitySource.EDIT -> {
+                                                    startActivity(
+                                                        ArticleEditDetailsActivity.newIntent(
+                                                            requireContext(),
+                                                            PageTitle(
+                                                                item.apiTitle,
+                                                                viewModel.wikiSite,
+                                                                item.thumbnailUrl,
+                                                                item.description,
+                                                                item.displayTitle
+                                                            ), item.pageId, revisionTo = item.id
+                                                        )
+                                                    )
+                                                }
+
+                                                ActivitySource.BOOKMARKED -> {
+                                                    val title = item.toPageTitle()
+                                                    val entry = HistoryEntry(
+                                                        title,
+                                                        HistoryEntry.SOURCE_INTERNAL_LINK
+                                                    )
+                                                    startActivity(
+                                                        PageActivity.newIntentForCurrentTab(
+                                                            requireContext(),
+                                                            entry,
+                                                            entry.title
+                                                        )
+                                                    )
+                                                }
+
+                                                ActivitySource.LINK, ActivitySource.SEARCH -> {
+                                                    val entry = item.toHistoryEntry()
+                                                    startActivity(
+                                                        PageActivity.newIntentForCurrentTab(
+                                                            requireContext(),
+                                                            entry,
+                                                            entry.title
+                                                        )
+                                                    )
+                                                }
+
+                                                else -> {}
+                                            }
+                                        }
+                                    )
+                                    Spacer(modifier = Modifier.height(6.dp))
+                                }
+                                null -> {}
+                            }
+                        }
+
+                        when (timelineItems.loadState.append) {
+                            LoadState.Loading -> {
+                                item {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(vertical = 16.dp),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        CircularProgressIndicator(
+                                            color = WikipediaTheme.colors.progressiveColor
+                                        )
+                                    }
+                                }
+                            }
+                            else -> {}
+                        }
                     }
                 }
             }
@@ -492,7 +591,8 @@ class ActivityTabFragment : Fragment() {
                     currentStreak = 15,
                     bestStreak = 25
                 )),
-                impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345))
+                impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345)),
+                timelineFlow = emptyFlow()
             )
         }
     }
@@ -517,7 +617,8 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                impactUiState = UiState.Success(GrowthUserImpact())
+                impactUiState = UiState.Success(GrowthUserImpact()),
+                timelineFlow = emptyFlow()
             )
         }
     }
@@ -542,7 +643,8 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                impactUiState = UiState.Success(GrowthUserImpact())
+                impactUiState = UiState.Success(GrowthUserImpact()),
+                timelineFlow = emptyFlow()
             )
         }
     }

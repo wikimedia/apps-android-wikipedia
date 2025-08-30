@@ -438,7 +438,8 @@ interface Service {
             @Query("uclimit") maxCount: Int,
             @Query("ucnamespace") ns: String?,
             @Query("ucshow") filter: String?,
-            @Query("uccontinue") uccontinue: String?
+            @Query("uccontinue") uccontinue: String?,
+            @Query("ucdir") ucdir: String? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&meta=userinfo&uiprop=editcount")

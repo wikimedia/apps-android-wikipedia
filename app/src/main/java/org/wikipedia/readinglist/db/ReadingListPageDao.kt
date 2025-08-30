@@ -95,6 +95,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage ORDER BY mtime DESC LIMIT 1")
     suspend fun getMostRecentSavedPage(): ReadingListPage?
 
+    @Query("SELECT * FROM ReadingListPage ORDER BY mtime DESC LIMIT :limit OFFSET :offset")
+    suspend fun getPagesWithLimitOffset(limit: Int, offset: Int): List<ReadingListPage>
+
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
     suspend fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
