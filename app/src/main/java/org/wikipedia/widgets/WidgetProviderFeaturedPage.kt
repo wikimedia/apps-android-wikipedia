@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.PendingIntentCompat
-import androidx.core.os.BundleCompat
 import androidx.work.BackoffPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -18,6 +17,7 @@ import androidx.work.WorkRequest
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -37,12 +37,9 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             L.d("updating widget...")
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_featured_page)
             val options = appWidgetManager.getAppWidgetOptions(widgetId)
-
-            var pageTitle: PageTitle? = null
-            val bundle = BundleCompat.getParcelable(options, Constants.ARG_TITLE, Bundle::class.java)
-            if (bundle != null) {
-                bundle.classLoader = WikipediaApp.instance.classLoader
-                pageTitle = BundleCompat.getParcelable(bundle, Constants.ARG_TITLE, PageTitle::class.java)
+            val pageTitle = options.getBundle(Constants.ARG_TITLE)?.let {
+                it.classLoader = WikipediaApp.instance.classLoader
+                it.parcelable<PageTitle>(Constants.ARG_TITLE)
             }
             if (pageTitle == null || (System.currentTimeMillis() - lastServerUpdateMillis) > TimeUnit.HOURS.toMillis(1)) {
                 lastServerUpdateMillis = System.currentTimeMillis()

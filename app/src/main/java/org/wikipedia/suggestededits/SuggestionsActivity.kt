@@ -7,6 +7,7 @@ import androidx.activity.addCallback
 import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
@@ -24,7 +25,7 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
-        return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
+        return newInstance(intent.serializableExtra(INTENT_EXTRA_ACTION)!!)
     }
 
     companion object {

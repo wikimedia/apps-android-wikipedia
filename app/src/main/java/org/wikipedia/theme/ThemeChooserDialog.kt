@@ -28,6 +28,7 @@ import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -141,7 +142,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        invokeSource = requireArguments().serializable(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
     }
 
