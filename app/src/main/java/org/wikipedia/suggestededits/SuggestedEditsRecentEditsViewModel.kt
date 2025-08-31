@@ -21,11 +21,14 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.Duration
 import java.time.Instant
-import java.util.Calendar
-import java.util.Date
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import kotlin.math.max
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
@@ -42,22 +45,25 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private var cachedContinueKey: String? = null
     private val pageSize = 50
 
+    @OptIn(ExperimentalTime::class)
     val recentEditsFlow = Pager(PagingConfig(pageSize = pageSize, initialLoadSize = pageSize), pagingSourceFactory = {
         RecentEditsPagingSource()
     }).flow.map { pagingData ->
+        val zoneId = ZoneId.systemDefault()
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
+                val dateTime = LocalDateTime.ofInstant(it.timestamp.toJavaInstant(), zoneId)
                 it.parsedComment.contains(currentQuery, true) ||
                         it.title.contains(currentQuery, true) ||
                         it.user.contains(currentQuery, true) ||
                         it.joinedTags.contains(currentQuery, true) ||
-                        it.parsedDateTime.toString().contains(currentQuery, true)
+                        dateTime.toString().contains(currentQuery, true)
             } else true
         }.map {
             RecentEditsItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
-            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            val dateBefore = before?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
+            val dateAfter = after?.item?.timestamp?.let { LocalDate.ofInstant(it.toJavaInstant(), zoneId) }
             if (dateAfter != null && dateAfter != dateBefore) {
                 RecentEditsSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
@@ -133,7 +139,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             userInfoCache.addAll(usersInfoResponse)
 
             // Filtering User experiences and registration.
-            val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache)).sortedByDescending { it.parsedDateTime }
+            @OptIn(ExperimentalTime::class)
+            val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache))
+                .sortedByDescending { it.timestamp }
 
             return Triple(finalRecentChanges, allRecentChanges, response.continuation?.rcContinuation)
         }
@@ -220,7 +228,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     var qualifiedUser = false
                     userInfo?.let {
                         val editsCount = userInfo.editCount
-                        val diffDays = diffDays(userInfo.registrationDate)
+                        val diffDays = userInfo.registrationDate.until(LocalDate.now(), ChronoUnit.DAYS)
                         findUserExperienceFilters.forEach { type ->
                             val userExperienceArray = type.value.split("|")
                             val requiredEdits = userExperienceArray.first().split(",")
@@ -293,12 +301,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
-        }
-
-        private fun diffDays(date: Date): Long {
-            val nowDate = Calendar.getInstance().toInstant()
-            val beginDate = date.toInstant()
-            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 }

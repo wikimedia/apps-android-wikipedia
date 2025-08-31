@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.LocalTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
@@ -25,7 +26,10 @@ import java.util.GregorianCalendar
 import java.util.Locale
 import java.util.TimeZone
 import java.util.concurrent.ConcurrentHashMap
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
+@OptIn(ExperimentalTime::class)
 object DateUtil {
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
     private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
@@ -55,7 +59,7 @@ object DateUtil {
         return getExtraShortDateString(date.time)
     }
 
-    fun getMDYDateString(date: Date): String {
+    fun getMDYDateString(date: LocalDate): String {
         return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
     }
 
@@ -67,7 +71,7 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
 
-    fun getYearOnlyDateString(date: Date): String {
+    fun getYearOnlyDateString(date: LocalDate): String {
         return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 
@@ -75,26 +79,19 @@ object DateUtil {
         return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
     }
 
-    fun getMMMMdYYYY(date: Date): String {
-        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), true).format(date)
-    }
-
     private fun getExtraShortDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
-    fun getTimeString(context: Context, date: Date): String {
+    fun getTimeString(context: Context, instant: kotlin.time.Instant): String {
+        val localTime = LocalTime.ofInstant(instant.toJavaInstant(), ZoneId.systemDefault())
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
-        return getDateStringWithSkeletonPattern(date, datePattern)
+        return getDateStringWithSkeletonPattern(localTime, datePattern)
     }
 
-    fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
-        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
-        return getDateStringWithSkeletonPattern(localDateTime, datePattern)
-    }
-
-    fun getShortDayWithTimeString(dateStr: String): String {
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "MMM d HH:mm")
+    fun getShortDayWithTimeString(instant: kotlin.time.Instant): String {
+        val localDateTime = LocalDateTime.ofInstant(instant.toJavaInstant(), ZoneId.systemDefault())
+        return getDateStringWithSkeletonPattern(localDateTime, "MMM d HH:mm")
     }
 
     fun getShortDayWithTimeString(date: Date): String {
@@ -102,13 +99,23 @@ object DateUtil {
     }
 
     fun getTimeAndDateString(context: Context, date: Date): String {
+        val localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault())
+        return getTimeAndDateString(context, localDateTime)
+    }
+
+    fun getTimeAndDateString(context: Context, instant: kotlin.time.Instant): String {
+        val localDateTime = LocalDateTime.ofInstant(instant.toJavaInstant(), ZoneId.systemDefault())
+        return getTimeAndDateString(context, localDateTime)
+    }
+
+    fun getTimeAndDateString(context: Context, date: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
         return getDateStringWithSkeletonPattern(date, datePattern)
     }
 
     fun getTimeAndDateString(context: Context, dateStr: String): String {
-        val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm, MMM d, yyyy" else "hh:mm a, MMM d, yyyy"
-        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), datePattern)
+        val localDateTime = iso8601LocalDateTimeParse(dateStr)
+        return getTimeAndDateString(context, localDateTime)
     }
 
     fun getDateAndTime(context: Context, date: Date): String {
@@ -139,7 +146,7 @@ object DateUtil {
     private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): DateTimeFormatter {
         return DATE_TIME_FORMATTERS.getOrPut(pattern) {
             val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
-            return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
+            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }
 

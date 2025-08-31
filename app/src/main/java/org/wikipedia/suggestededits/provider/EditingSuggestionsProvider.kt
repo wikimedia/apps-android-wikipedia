@@ -17,10 +17,13 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import org.wikipedia.util.log.L
-import java.time.Instant
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.toJavaInstant
 
+@OptIn(ExperimentalTime::class)
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
 
@@ -45,7 +48,7 @@ object EditingSuggestionsProvider {
     private var revertCandidateLang: String = ""
     private val revertCandidateCache: ArrayDeque<MwQueryResult.RecentChange> = ArrayDeque()
     private var revertCandidateLastRevId = 0L
-    private var revertCandidateLastTimeStamp = Instant.now()
+    private var revertCandidateLastTimeStamp = Clock.System.now()
 
     private const val MAX_RETRY_LIMIT: Long = 20
 
@@ -353,7 +356,7 @@ object EditingSuggestionsProvider {
             revertCandidateCache.addFirst(it)
             if (it.curRev > revertCandidateLastRevId) {
                 revertCandidateLastRevId = it.curRev
-                revertCandidateLastTimeStamp = it.parsedInstant
+                revertCandidateLastTimeStamp = it.timestamp
             }
         }
     }
@@ -385,7 +388,8 @@ object EditingSuggestionsProvider {
                                 SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite)
                             else
                                 SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
-                                    startTimeStamp = revertCandidateLastTimeStamp, direction = "newer")
+                                    startTimeStamp = revertCandidateLastTimeStamp.toJavaInstant(),
+                                    direction = "newer")
 
                             // Retrieve the list of filtered changes from our filter, but *also* get
                             // the list of total changes so that we can update our maxRevId and latest
@@ -398,8 +402,8 @@ object EditingSuggestionsProvider {
                                 if (candidate.curRev > maxRevId) {
                                     maxRevId = candidate.curRev
                                 }
-                                if (candidate.parsedInstant > revertCandidateLastTimeStamp) {
-                                    revertCandidateLastTimeStamp = candidate.parsedInstant
+                                if (candidate.timestamp > revertCandidateLastTimeStamp) {
+                                    revertCandidateLastTimeStamp = candidate.timestamp
                                 }
                             }
                             for (candidate in filteredChanges) {

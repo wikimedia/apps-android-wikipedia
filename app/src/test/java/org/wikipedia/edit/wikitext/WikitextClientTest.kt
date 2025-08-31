@@ -6,6 +6,8 @@ import org.hamcrest.Matchers
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 class WikitextClientTest : MockRetrofitTest() {
     @Test
@@ -16,7 +18,9 @@ class WikitextClientTest : MockRetrofitTest() {
             requestWikiTextForSectionWithInfo()
         }.run {
             MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.contentMain, Matchers.`is`("\\o/\n\ntest12\n\n3"))
-            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.timeStamp, Matchers.`is`("2018-03-18T18:10:54Z"))
+            @OptIn(ExperimentalTime::class)
+            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.timestamp,
+                Matchers.`is`(Instant.parse("2018-03-18T18:10:54Z")))
         }
     }
 
