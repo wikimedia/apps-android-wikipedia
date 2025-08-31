@@ -16,6 +16,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Date
 import java.util.Random
+import kotlin.time.ExperimentalTime
 
 class NotificationViewModel : ViewModel() {
 
@@ -47,6 +48,7 @@ class NotificationViewModel : ViewModel() {
         _uiState.value = Resource.Success(pair)
     }
 
+    @OptIn(ExperimentalTime::class)
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
@@ -57,7 +59,7 @@ class NotificationViewModel : ViewModel() {
             }
         }
         // Sort them by descending date...
-        notificationList.sortByDescending { it.date() }
+        notificationList.sortByDescending { it.instant() }
 
         // Filtered the tab selection
         val tabSelectedList = notificationList
