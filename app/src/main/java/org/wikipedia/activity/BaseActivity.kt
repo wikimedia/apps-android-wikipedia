@@ -97,7 +97,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Conditionally execute all recurring tasks
-        RecurringTasksExecutor().run()
+        RecurringTasksExecutor.schedule()
         if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
             Prefs.isReadingListsFirstTimeSync = false
             Prefs.isReadingListSyncEnabled = true
