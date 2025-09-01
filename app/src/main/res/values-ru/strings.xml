@@ -70,6 +70,7 @@
 * UniCollab
 * VitalKanev
 * Vlad5250
+* Vonavy
 * Wikisaurus
 * Wileyfoxyx
 * WindEwriX
@@ -1822,8 +1823,15 @@
   <string name="on_this_day_game_feed_entry_card_heading">Игры Википедии</string>
   <string name="on_this_day_game_feed_entry_card_title">Что произошло раньше?</string>
   <string name="on_this_day_game_feed_entry_card_subtitle">Угадайте, какое событие произошло первым в истории в этот день.</string>
+  <string name="on_this_day_game_result">Ваш счёт: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Следующая игра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Игра сыграна</item>
+    <item quantity="few">Игры сыграно</item>
+    <item quantity="many">Игр сыграно</item>
+    <item quantity="other">Игр сыграно</item>
+  </plurals>
   <string name="on_this_day_game_stats_average_score">Средний балл</string>
   <string name="on_this_day_game_stats_streak">Текущая серия</string>
   <string name="on_this_day_game_result_subtitle">Статьи, упомянутые в сегодняшней игре</string>

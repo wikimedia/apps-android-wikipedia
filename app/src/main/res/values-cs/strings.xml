@@ -1401,10 +1401,10 @@
   <string name="revision_compare_two_only">Pouze dvě revize článku mohou být zvoleny.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trvale</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na týden</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na měsíc</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na 3 měsíce</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na 6 měsíců</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 týden</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 měsíc</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 měsíce</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 měsíců</string>
   <string name="watchlist_expiry_dialog_title">Doba sledování stránky</string>
   <string name="watchlist_expiry_dialog_permanent">Trvale</string>
   <string name="watchlist_expiry_dialog_one_week">týden</string>
@@ -1646,6 +1646,7 @@
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
   <string name="donation_reminders_initial_prompt_positive_button">Začít</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
