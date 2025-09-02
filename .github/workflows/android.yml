@@ -48,7 +48,7 @@ jobs:
     - name: Sleep for 30 seconds, to allow the tag to be deleted
       run: sleep 30s
       shell: bash
-    - uses: ncipollo/release-action@v1.18.0
+    - uses: ncipollo/release-action@v1.19.1
       name: Create new tag and release and upload artifacts
       with:
         name: latest
