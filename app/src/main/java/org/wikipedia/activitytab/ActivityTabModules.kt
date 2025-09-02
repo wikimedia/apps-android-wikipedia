@@ -32,6 +32,8 @@ data class ActivityTabModules(
         ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
         ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
     }
+
+    fun noModulesEnabled() = !(isTimeSpentEnabled || isReadingInsightsEnabled || isEditingInsightsEnabled || isImpactEnabled || isGamesEnabled || isDonationsEnabled || isTimelineEnabled)
 }
 
 enum class ModuleType(val displayName: Int) {

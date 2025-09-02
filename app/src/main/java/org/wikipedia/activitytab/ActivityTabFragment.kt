@@ -250,6 +250,42 @@ class ActivityTabFragment : Fragment() {
                 return@Scaffold
             }
 
+            if (modules.noModulesEnabled()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+                    val scrollState = rememberScrollState()
+                    Column(
+                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                            .verticalScroll(scrollState),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Image(
+                            modifier = Modifier.size(164.dp),
+                            painter = painterResource(R.drawable.illustration_activity_tab_empty),
+                            contentDescription = null
+                        )
+                        Text(
+                            modifier = Modifier.padding(top = 16.dp),
+                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Text(
+                            modifier = Modifier.padding(top = 4.dp),
+                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    }
+                    return@Scaffold
+                }
+            }
+
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
@@ -530,6 +566,39 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = false,
                 userName = "User",
                 modules = ActivityTabModules(),
+                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                    timeSpentThisWeek = 0,
+                    articlesReadThisMonth = 0,
+                    lastArticleReadTime = null,
+                    articlesReadByWeek = listOf(0, 0, 0, 0),
+                    articlesSavedThisMonth = 0,
+                    lastArticleSavedTime = null,
+                    articlesSaved = emptyList(),
+                    topCategories = emptyList()
+                )),
+                donationUiState = UiState.Success("Unknown"),
+                wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact())
+            )
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityTabNoModulesPreview() {
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                isLoggedIn = true,
+                userName = "User",
+                modules = ActivityTabModules(
+                    isTimeSpentEnabled = false,
+                    isReadingInsightsEnabled = false,
+                    isEditingInsightsEnabled = false,
+                    isImpactEnabled = false,
+                    isGamesEnabled = false,
+                    isDonationsEnabled = false,
+                    isTimelineEnabled = false
+                ),
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
