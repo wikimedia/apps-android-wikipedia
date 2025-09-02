@@ -216,8 +216,8 @@
   <string name="logged_out_in_background_login">Aanmelden</string>
   <string name="logged_out_in_background_cancel">Annuleren</string>
   <string name="account_vanish_request_title">Account laten verdwijnen</string>
-  <string name="account_vanish_request_confirm_title">Waarschuwing verwijdering account</string>
-  <string name="account_vanish_request_confirm">Accountverwijdering is een &lt;b&gt;laatste redmiddel&lt;/b&gt; en moet &lt;b&gt;alleen worden gebruikt als u voor altijd wilt stoppen met bewerken&lt;/b&gt; en om zoveel mogelijk van uw vroegere relaties te verbergen.&lt;br/&gt;&lt;br/&gt;Accountverwijdering op Wikipedia gebeurt door uw accountnaam te wijzigen opdat anderen uw bijdragen niet meer kunnen herkennen. De procedure wordt accountwijziging genoemd. &lt;b&gt;Door de wijziging wordt geen volledige anonimiteit gegarandeerd en worden geen bijdragen aan de projecten verwijderd.&lt;/b&gt;</string>
+  <string name="account_vanish_request_confirm_title">Waarschuwing verdwijnen account</string>
+  <string name="account_vanish_request_confirm">Verdwijnen is een &lt;b&gt;laatste redmiddel&lt;/b&gt; en moet &lt;b&gt;alleen worden gebruikt als u voor altijd wilt stoppen met bewerken&lt;/b&gt; en ook om zoveel mogelijk van uw vroegere relaties te verbergen.&lt;br/&gt;&lt;br/&gt;Accountverwijdering op Wikipedia gebeurt door uw accountnaam te wijzigen zodat anderen uw bijdragen niet kunnen herkennen. Deze procedure wordt accountverdwijning genoemd. &lt;b&gt;Door het verdwijnen wordt geen volledige anonimiteit gegarandeerd en worden geen bijdragen aan de projecten verwijderd.&lt;/b&gt;</string>
   <string name="history_empty_title">Geen recent bekeken artikelen</string>
   <string name="history_empty_message">Blijf hier op de hoogte van wat u hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>
@@ -226,10 +226,10 @@
   <string name="delete_selected_items">Geselecteerde items verwijderen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
-  <string name="login_dont_have_account">Heeft u geen account?</string>
+  <string name="login_dont_have_account">Hebt u geen account?</string>
   <string name="login_join_wikipedia">Account aanmaken bij Wikipedia</string>
   <string name="login_forgot_password">Wachtwoord vergeten?</string>
-  <string name="create_account_already_have">Heeft u al een account?</string>
+  <string name="create_account_already_have">Hebt u al een account?</string>
   <string name="create_account_activity_title">Account aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
