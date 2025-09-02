@@ -121,7 +121,8 @@ fun EditingInsightsModule(
                     modifier = Modifier
                         .fillMaxWidth(),
                     caught = uiState.error,
-                    errorClickEvents = wikiErrorClickEvents
+                    errorClickEvents = wikiErrorClickEvents,
+                    retryForGenericError = true
                 )
             }
         }
@@ -298,21 +299,34 @@ fun ContributionCard(
         Column {
             Row(
                 modifier = Modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
             ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
-                )
-                Text(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.activity_tab_impact_contributions_this_month),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = null
+                        )
+                        Text(
+                            text = stringResource(R.string.activity_tab_impact_contributions_this_month),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    }
+                    Text(
+                        text = lastEditRelativeTime,
+                        modifier = Modifier.padding(top = 4.dp),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
@@ -320,13 +334,6 @@ fun ContributionCard(
                     contentDescription = null
                 )
             }
-
-            Text(
-                text = lastEditRelativeTime,
-                modifier = Modifier.padding(start = 16.dp),
-                style = MaterialTheme.typography.bodySmall,
-                color = WikipediaTheme.colors.secondaryColor
-            )
 
             Column(
                 modifier = Modifier

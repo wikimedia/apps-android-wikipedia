@@ -20,6 +20,7 @@
 * Kokage si
 * Kokoko-H
 * LaMagiaaa
+* Largestone
 * Los688
 * M1660661
 * MagicAho
@@ -1714,6 +1715,7 @@
   <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="recommended_reading_list_onboarding_card_new">New!</string>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>

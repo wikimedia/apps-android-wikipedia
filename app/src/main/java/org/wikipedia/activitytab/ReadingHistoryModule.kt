@@ -19,9 +19,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -40,18 +39,26 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.TinyBarChart
+import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
+import org.wikipedia.theme.Theme
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
@@ -144,30 +151,111 @@ fun ReadingHistoryModule(
             return
         }
 
-        Card(
-            modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                .clickable {
-                    onArticlesReadClick()
+        ArticleReadThisMonthCard(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            readingHistory = readingHistory,
+            todayDate = todayDate,
+            onClick = {
+                onArticlesReadClick()
+            }
+        )
+
+        ArticleSavedThisMonthCard(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .padding(bottom = 16.dp),
+            readingHistory = readingHistory,
+            todayDate = todayDate,
+            onClick = {
+                onArticlesSavedClick()
+            }
+        )
+
+        if (readingHistory.topCategories.isNotEmpty()) {
+            TopCategoriesCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
+                categories = readingHistory.topCategories,
+                onClick = {
+                    onCategoryItemClick(it)
+                }
+            )
+        }
+
+        if (readingHistory.articlesReadThisMonth == 0) {
+            Text(
+                text = stringResource(R.string.activity_tab_discover_encourage),
+                modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Button(
+                modifier = modifier.padding(top = 8.dp, bottom = 16.dp),
+                contentPadding = PaddingValues(horizontal = 18.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor,
+                    contentColor = WikipediaTheme.colors.paperColor,
+                ),
+                onClick = {
+                    onExploreClick()
                 },
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = WikipediaTheme.colors.paperColor
-            ),
-            border = BorderStroke(
-                width = 1.dp,
-                color = WikipediaTheme.colors.borderColor
-            ),
-            shape = RoundedCornerShape(12.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.activity_tab_explore_wikipedia),
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
+        }
+    } else if (readingHistoryState is UiState.Error) {
+        Box(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            WikiErrorView(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                caught = readingHistoryState.error,
+                errorClickEvents = wikiErrorClickEvents,
+                retryForGenericError = true
+            )
+        }
+    }
+}
+
+@Composable
+private fun ArticleReadThisMonthCard(
+    modifier: Modifier,
+    readingHistory: ActivityTabViewModel.ReadingHistory,
+    todayDate: LocalDate,
+    onClick: () -> Unit
+) {
+    WikiCard(
+        modifier = modifier,
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
+        onClick = onClick
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
         ) {
             Row(
-                modifier = modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Column(
-                    modifier = modifier.weight(1f)
+                    modifier = Modifier.weight(1f)
                 ) {
                     Row(
-                        modifier = modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Icon(
@@ -219,11 +307,11 @@ fun ReadingHistoryModule(
             }
 
             Row(
-                modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
+                modifier = Modifier.fillMaxWidth().padding(top = 6.dp)
             ) {
                 Text(
                     text = readingHistory.articlesReadThisMonth.toString(),
-                    modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                    modifier = Modifier.align(Alignment.Bottom),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Medium,
                     color = WikipediaTheme.colors.primaryColor
@@ -232,7 +320,7 @@ fun ReadingHistoryModule(
 
                 TinyBarChart(
                     values = readingHistory.articlesReadByWeek,
-                    modifier = Modifier.padding(end = 16.dp).size(
+                    modifier = Modifier.size(
                         72.dp,
                         if (readingHistory.articlesReadThisMonth == 0) 32.dp else 48.dp
                     ),
@@ -241,31 +329,36 @@ fun ReadingHistoryModule(
                 )
             }
         }
+    }
+}
 
-        Card(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp)
-                .clickable {
-                    onArticlesSavedClick()
-                },
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = WikipediaTheme.colors.paperColor
-            ),
-            border = BorderStroke(
-                width = 1.dp,
-                color = WikipediaTheme.colors.borderColor
-            ),
-            shape = RoundedCornerShape(12.dp)
+@Composable
+private fun ArticleSavedThisMonthCard(
+    modifier: Modifier,
+    readingHistory: ActivityTabViewModel.ReadingHistory,
+    todayDate: LocalDate,
+    onClick: () -> Unit
+) {
+    WikiCard(
+        modifier = modifier,
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
+        onClick = onClick
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
         ) {
             Row(
-                modifier = modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Column(
-                    modifier = modifier.weight(1f)
+                    modifier = Modifier.weight(1f)
                 ) {
                     Row(
-                        modifier = modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Icon(
@@ -316,19 +409,17 @@ fun ReadingHistoryModule(
                 )
             }
             Row(
-                modifier = modifier.fillMaxWidth().padding(top = 6.dp, bottom = 16.dp)
+                modifier = Modifier.fillMaxWidth().padding(top = 6.dp)
             ) {
                 Text(
                     text = readingHistory.articlesSavedThisMonth.toString(),
-                    modifier = Modifier.padding(start = 16.dp).align(Alignment.Bottom),
+                    modifier = Modifier.align(Alignment.Bottom),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Medium,
                     color = WikipediaTheme.colors.primaryColor
                 )
                 Spacer(modifier = Modifier.weight(1f))
-                Row(
-                    modifier = Modifier.padding(end = 16.dp)
-                ) {
+                Row {
                     val itemsToShow =
                         if (readingHistory.articlesSaved.size <= 4) readingHistory.articlesSaved.size else 3
                     val showOverflowItem = readingHistory.articlesSaved.size > 4
@@ -393,57 +484,134 @@ fun ReadingHistoryModule(
                 }
             }
         }
+    }
+}
 
-        if (readingHistory.topCategories.isNotEmpty()) {
-            TopCategoriesView(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
-                categories = readingHistory.topCategories,
-                onClick = {
-                    onCategoryItemClick(it)
-                }
-            )
-        }
-
-        if (readingHistory.articlesReadThisMonth == 0) {
-            Text(
-                text = stringResource(R.string.activity_tab_discover_encourage),
-                modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-                color = WikipediaTheme.colors.primaryColor
-            )
-            Button(
-                modifier = modifier.padding(top = 8.dp, bottom = 16.dp),
-                contentPadding = PaddingValues(horizontal = 18.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = WikipediaTheme.colors.progressiveColor,
-                    contentColor = WikipediaTheme.colors.paperColor,
-                ),
-                onClick = {
-                    onExploreClick()
-                },
+@Composable
+fun TopCategoriesCard(
+    modifier: Modifier = Modifier,
+    categories: List<Category>,
+    onClick: (Category) -> Unit
+) {
+    WikiCard(
+        modifier = modifier,
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        )
+    ) {
+        Column {
+            Row(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_category_black_24dp),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = null
+                )
                 Text(
-                    text = stringResource(R.string.activity_tab_explore_wikipedia),
-                    style = MaterialTheme.typography.labelLarge
+                    text = stringResource(R.string.activity_tab_monthly_top_categories),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
                 )
             }
+
+            categories.forEachIndexed { index, value ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable(onClick = { onClick(value) })
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .padding(horizontal = 32.dp, vertical = 16.dp),
+                        text = StringUtil.removeNamespace(value.title),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                }
+
+                if (index < categories.size - 1) {
+                    HorizontalDivider(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
+            }
         }
-    } else if (readingHistoryState is UiState.Error) {
-        Box(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 16.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            WikiErrorView(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                caught = readingHistoryState.error,
-                errorClickEvents = wikiErrorClickEvents
-            )
-        }
+    }
+}
+
+@Preview
+@Composable
+private fun ArticleReadThisMonthCardPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ArticleReadThisMonthCard(
+            modifier = Modifier
+                .padding(20.dp),
+            readingHistory = ActivityTabViewModel.ReadingHistory(
+                articlesReadThisMonth = 42,
+                articlesSavedThisMonth = 8,
+                timeSpentThisWeek = 3661,
+                lastArticleReadTime = LocalDate.now().atStartOfDay(),
+                lastArticleSavedTime = LocalDate.now().atStartOfDay(),
+                articlesReadByWeek = listOf(5, 10, 8, 12),
+                articlesSaved = listOf(),
+                topCategories = listOf()
+            ),
+            todayDate = LocalDate.now(),
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ArticleSavedThisMonthCardPreview() {
+    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ArticleSavedThisMonthCard(
+            modifier = Modifier
+                .padding(20.dp),
+            readingHistory = ActivityTabViewModel.ReadingHistory(
+                articlesReadThisMonth = 42,
+                articlesSavedThisMonth = 8,
+                timeSpentThisWeek = 3661,
+                lastArticleReadTime = LocalDate.now().atStartOfDay(),
+                lastArticleSavedTime = LocalDate.now().atStartOfDay(),
+                articlesReadByWeek = listOf(5, 10, 8, 12),
+                articlesSaved = listOf(
+                    PageTitle("Title1", wikiSite),
+                    PageTitle("Title2", wikiSite),
+                    PageTitle("Title3", wikiSite),
+                ),
+                topCategories = listOf()
+            ),
+            todayDate = LocalDate.now(),
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TopCategoriesViewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TopCategoriesCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            categories = listOf(
+                Category(2025, 1, "Category:Ancient history", "en", 1),
+                Category(2025, 1, "Category:World literature", "en", 1),
+                Category(2025, 1, "Category:Cat breeds originating in the United States", "en", 1),
+            ),
+            onClick = {}
+        )
     }
 }
