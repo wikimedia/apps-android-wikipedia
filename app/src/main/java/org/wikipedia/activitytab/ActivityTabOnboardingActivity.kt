@@ -188,6 +188,8 @@ fun OnboardingScreen(
                     },
                     leadingContent = {
                         Icon(
+                            modifier = Modifier
+                                .padding(top = 2.dp),
                             painter = painterResource(onboardingItem.icon),
                             tint = WikipediaTheme.colors.progressiveColor,
                             contentDescription = null
