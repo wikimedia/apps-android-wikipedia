@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab.timeline
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -77,7 +79,10 @@ fun TimelineModule(
         ) {
             HtmlText(
                 text = timelineItem.displayTitle,
-                style = MaterialTheme.typography.titleMedium.copy(fontFamily = FontFamily.Serif),
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontFamily = FontFamily.Serif,
+                    color = WikipediaTheme.colors.primaryColor
+                ),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -87,7 +92,7 @@ fun TimelineModule(
                 Text(
                     text = timelineItem.description,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = WikipediaTheme.colors.secondaryColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -130,6 +135,44 @@ fun TimelineModule(
                     .clip(RoundedCornerShape(8.dp))
             )
         }
+    }
+}
+
+@Composable
+fun TimelineModuleEmptyView(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 48.dp),
+            text = stringResource(R.string.activity_tab_timeline_today),
+            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.titleLarge,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Image(
+            modifier = Modifier
+                .size(164.dp),
+            painter = painterResource(R.drawable.illustration_activity_tab_empty),
+            contentDescription = null
+        )
+        Text(
+            modifier = Modifier.padding(top = 16.dp),
+            text = stringResource(R.string.activity_tab_timeline_empty_state_title),
+            style = MaterialTheme.typography.titleSmall,
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            modifier = Modifier.padding(top = 4.dp),
+            text = stringResource(R.string.activity_tab_timeline_empty_state_message),
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            color = WikipediaTheme.colors.primaryColor
+        )
     }
 }
 

@@ -1240,6 +1240,8 @@
   <string name="activity_tab_customize_screen_no_modules_message">Message of the empty state when all modules are turned off.</string>
   <string name="activity_tab_timeline_today">Date separator label for today\'s entries in activity timeline.</string>
   <string name="activity_tab_timeline_yesterday">Date separator label for yesterday\'s entries in activity timeline.</string>
+  <string name="activity_tab_timeline_empty_state_title">Title displayed when the timeline is empty.</string>
+  <string name="activity_tab_timeline_empty_state_message">Message shown when there are no items in the timeline.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

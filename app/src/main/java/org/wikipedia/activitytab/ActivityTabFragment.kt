@@ -70,6 +70,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.timeline.ActivitySource
 import org.wikipedia.activitytab.timeline.TimelineDateSeparator
 import org.wikipedia.activitytab.timeline.TimelineModule
+import org.wikipedia.activitytab.timeline.TimelineModuleEmptyView
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -502,6 +503,16 @@ class ActivityTabFragment : Fragment() {
                     }
 
                     if (modules.isModuleVisible(ModuleType.TIMELINE)) {
+                        if (timelineItems.itemCount == 0) {
+                            item {
+                                TimelineModuleEmptyView(
+                                    modifier = Modifier.align(Alignment.Center)
+                                        .padding(horizontal = 16.dp)
+                                        .padding(top = 32.dp, bottom = 52.dp)
+                                )
+                            }
+                            return@LazyColumn
+                        }
                         items(
                             count = timelineItems.itemCount,
                         ) { index ->
