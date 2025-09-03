@@ -102,6 +102,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
 
+// TODO: add onboarding instrumentation
 class ActivityTabFragment : Fragment() {
     interface Callback {
         fun onNavigateTo(navTab: NavTab)
@@ -174,6 +175,8 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
+        var hasImpressionBeenSent by remember { mutableStateOf(false) }
+
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -305,10 +308,18 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
-            LaunchedEffect(Unit) {
-                // TODO: ACTIVITY_TAB_INSTRUMENTATION update state action data once timeline is merged
-                val state = ""
-                ActivityTabEvent.submit(activeInterface = "activity_tab", action = "impression", editCount = viewModel.getTotalEditsCount(), state = state)
+            LaunchedEffect(timelineItems.loadState.refresh) {
+                if (!hasImpressionBeenSent &&
+                    timelineItems.loadState.refresh is LoadState.NotLoading) {
+                    val state = if (timelineItems.itemCount == 0) "empty" else "complete"
+                    ActivityTabEvent.submit(
+                        activeInterface = "activity_tab",
+                        action = "impression",
+                        editCount = viewModel.getTotalEditsCount(),
+                        state = state
+                    )
+                    hasImpressionBeenSent = true
+                }
             }
 
             PullToRefreshBox(

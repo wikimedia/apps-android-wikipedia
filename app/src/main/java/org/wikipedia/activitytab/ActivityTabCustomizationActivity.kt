@@ -181,14 +181,6 @@ private fun CustomizationScreenSwitch(
     )
 }
 
-fun ActivityTabModules.areAllModulesEnabled(): Boolean {
-    return ModuleType.entries.all { this.isModuleEnabled(it) }
-}
-
-fun ActivityTabModules.areAllModulesDisabled(): Boolean {
-    return ModuleType.entries.none { this.isModuleEnabled(it) }
-}
-
 private fun Boolean.toOnOffString(): String = if (this) "on" else "off"
 
 @Preview

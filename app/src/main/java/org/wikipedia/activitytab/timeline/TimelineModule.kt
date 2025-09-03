@@ -48,7 +48,7 @@ import java.util.Date
 fun TimelineModule(
     modifier: Modifier = Modifier,
     timelineItem: TimelineItem,
-    onItemClick: (TimelineItem) -> Unit
+    onItemClick: (TimelineItem) -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -139,7 +139,9 @@ fun TimelineModule(
 }
 
 @Composable
-fun TimelineModuleEmptyView(modifier: Modifier = Modifier) {
+fun TimelineModuleEmptyView(
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -239,6 +241,19 @@ private fun TimelineDateSeparatorPreview() {
     ) {
         TimelineDateSeparator(
             date = Date()
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TimelineModuleEmptyViewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TimelineModuleEmptyView(
+            modifier = Modifier
+                .padding(16.dp)
         )
     }
 }
