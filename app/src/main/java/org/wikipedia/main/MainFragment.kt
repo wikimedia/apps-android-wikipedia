@@ -125,7 +125,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             goToTab(NavTab.EDITS)
         }
@@ -167,7 +167,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             if (item.order == NavTab.EDITS.code()) {
                 if (ActivityTabABTest().isInTestGroup() && !Prefs.isActivityTabOnboardingShown) {
-                    onboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     return@setOnItemSelectedListener false
                 }
             }

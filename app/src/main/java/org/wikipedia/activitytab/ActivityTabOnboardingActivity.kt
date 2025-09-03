@@ -8,7 +8,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -103,12 +102,57 @@ fun OnboardingScreen(
         modifier = modifier
             .safeDrawingPadding(),
         containerColor = WikipediaTheme.colors.paperColor,
+        bottomBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(
+                    space = 24.dp,
+                    alignment = Alignment.CenterHorizontally
+                )
+            ) {
+                Button(
+                    modifier = Modifier
+                        .weight(1f),
+                    border = BorderStroke(
+                        width = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    ),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.paperColor
+                    ),
+                    onClick = onLearnMoreClick
+                ) {
+                    Text(
+                        text = stringResource(R.string.activity_tab_menu_info),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+
+                Button(
+                    modifier = Modifier
+                        .weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.progressiveColor
+                    ),
+                    onClick = onContinueClick
+                ) {
+                    Text(
+                        text = stringResource(R.string.onboarding_continue),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.paperColor
+                    )
+                }
+            }
+        }
     ) { paddingValues ->
         Column(
             modifier = Modifier
-                .padding(paddingValues)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
         ) {
             Text(
                 modifier = Modifier
@@ -150,52 +194,6 @@ fun OnboardingScreen(
                         )
                     }
                 )
-            }
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 32.dp),
-                horizontalArrangement = Arrangement.spacedBy(
-                    space = 24.dp,
-                    alignment = Alignment.CenterHorizontally
-                )
-            ) {
-                Button(
-                    modifier = Modifier
-                        .weight(1f),
-                    border = BorderStroke(
-                        width = 1.dp,
-                        color = WikipediaTheme.colors.borderColor
-                    ),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.paperColor
-                    ),
-                    onClick = onLearnMoreClick
-                ) {
-                    Text(
-                        text = stringResource(R.string.activity_tab_menu_info),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = WikipediaTheme.colors.progressiveColor
-                    )
-                }
-
-                Button(
-                    modifier = Modifier
-                        .weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onContinueClick
-                ) {
-                    Text(
-                        text = stringResource(R.string.onboarding_continue),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = WikipediaTheme.colors.paperColor
-                    )
-                }
             }
         }
     }
