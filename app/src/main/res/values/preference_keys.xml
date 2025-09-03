@@ -203,5 +203,6 @@
     <string name="preference_key_donation_reminders_dev_reset_seen_date">donationReminderDevResetSeenDate</string>
     <string name="preference_category_donations">donations</string>
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
+    <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
 
 </resources>

@@ -1242,6 +1242,15 @@
   <string name="activity_tab_timeline_yesterday">Date separator label for yesterday\'s entries in activity timeline.</string>
   <string name="activity_tab_timeline_empty_state_title">Title displayed when the timeline is empty.</string>
   <string name="activity_tab_timeline_empty_state_message">Message shown when there are no items in the timeline.</string>
+  <string name="activity_tab_onboarding_screen_title">Title for the activity tab onboarding screen.</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Title for the section about user\'s reading habits.</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Short explanation about user\'s reading habits.</string>
+  <string name="activity_tab_onboarding_impact_title">Title for the section about user\'s impact.</string>
+  <string name="activity_tab_onboarding_impact_message">Short explanation about the user\'s impact.</string>
+  <string name="activity_tab_onboarding_engage_title">Title for the section about about ways to engage with Wikipedia..</string>
+  <string name="activity_tab_onboarding_engage_message">Short explanation about the stats, saved articles, and other activities that connect the user more deeply with Wikipedia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Title for the section about privacy and control.</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
