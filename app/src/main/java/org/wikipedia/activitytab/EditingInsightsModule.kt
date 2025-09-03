@@ -87,6 +87,15 @@ fun EditingInsightsModule(
             }
         }
         is UiState.Success -> {
+            if (uiState.data.totalEditsCount == 0) {
+                SuggestedEditsCard(
+                    modifier = modifier.fillMaxWidth(),
+                    onClick = {
+                        onSuggestedEditsClick()
+                    }
+                )
+                return
+            }
             MostViewedCard(
                 modifier = modifier
                     .fillMaxWidth(),
@@ -101,12 +110,8 @@ fun EditingInsightsModule(
                 lastEditRelativeTime = uiState.data.lastEditRelativeTime,
                 editsThisMonth = uiState.data.editsThisMonth,
                 editsLastMonth = uiState.data.editsLastMonth,
-                totalEdits = uiState.data.totalEditsCount,
                 onContributionClick = {
                     onContributionClick()
-                },
-                onSuggestedEditsClick = {
-                    onSuggestedEditsClick()
                 }
             )
         }
@@ -121,7 +126,8 @@ fun EditingInsightsModule(
                     modifier = Modifier
                         .fillMaxWidth(),
                     caught = uiState.error,
-                    errorClickEvents = wikiErrorClickEvents
+                    errorClickEvents = wikiErrorClickEvents,
+                    retryForGenericError = true
                 )
             }
         }
@@ -278,13 +284,10 @@ fun ContributionCard(
     lastEditRelativeTime: String,
     editsThisMonth: Int,
     editsLastMonth: Int,
-    totalEdits: Int = 0,
     onContributionClick: (() -> Unit)? = null,
-    onSuggestedEditsClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onContributionClick?.invoke() }),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
@@ -293,26 +296,40 @@ fun ContributionCard(
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
-        )
+        ),
+        onClick = onContributionClick
     ) {
         Column {
             Row(
                 modifier = Modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
             ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
-                )
-                Text(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.activity_tab_impact_contributions_this_month),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
+                Column(
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = null
+                        )
+                        Text(
+                            text = stringResource(R.string.activity_tab_impact_contributions_this_month),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    }
+                    Text(
+                        text = lastEditRelativeTime,
+                        modifier = Modifier.padding(top = 4.dp),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WikipediaTheme.colors.secondaryColor
+                    )
+                }
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
@@ -320,13 +337,6 @@ fun ContributionCard(
                     contentDescription = null
                 )
             }
-
-            Text(
-                text = lastEditRelativeTime,
-                modifier = Modifier.padding(start = 16.dp),
-                style = MaterialTheme.typography.bodySmall,
-                color = WikipediaTheme.colors.secondaryColor
-            )
 
             Column(
                 modifier = Modifier
@@ -361,63 +371,68 @@ fun ContributionCard(
                     barColor = WikipediaTheme.colors.borderColor
                 )
             }
-            if (totalEdits == 0) {
-                HorizontalDivider(
-                    modifier = Modifier.padding(top = 16.dp),
-                    color = WikipediaTheme.colors.borderColor
-                )
-                SuggestedEditsView(
-                    onClick = onSuggestedEditsClick
-                )
-            }
         }
     }
 }
 
 @Composable
-fun SuggestedEditsView(
+fun SuggestedEditsCard(
+    modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    WikiCard(
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = WikipediaTheme.colors.paperColor,
+            contentColor = WikipediaTheme.colors.paperColor
+        ),
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
     ) {
-        Text(
-            modifier = Modifier.padding(bottom = 8.dp),
-            text = stringResource(R.string.activity_tab_impact_suggested_edits_title),
-            style = MaterialTheme.typography.titleSmall.copy(
-                fontWeight = FontWeight.Medium
-            ),
-            color = WikipediaTheme.colors.primaryColor
-        )
-        Text(
-            textAlign = TextAlign.Center,
-            text = stringResource(R.string.activity_tab_impact_suggested_edits_message),
-            style = MaterialTheme.typography.bodyMedium,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        Button(
-            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
-            contentPadding = PaddingValues(horizontal = 18.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = WikipediaTheme.colors.progressiveColor,
-                contentColor = WikipediaTheme.colors.paperColor,
-            ),
-            onClick = { onClick?.invoke() },
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Icon(
-                modifier = Modifier.size(20.dp),
-                painter = painterResource(R.drawable.ic_mode_edit_white_24dp),
-                tint = WikipediaTheme.colors.paperColor,
-                contentDescription = null
+            Text(
+                modifier = Modifier.padding(bottom = 8.dp),
+                text = stringResource(R.string.activity_tab_impact_suggested_edits_title),
+                style = MaterialTheme.typography.titleSmall.copy(
+                    fontWeight = FontWeight.Medium
+                ),
+                color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
-                text = stringResource(R.string.activity_tab_impact_suggested_edits_button),
-                style = MaterialTheme.typography.labelLarge
+                textAlign = TextAlign.Center,
+                text = stringResource(R.string.activity_tab_impact_suggested_edits_message),
+                style = MaterialTheme.typography.bodyMedium,
+                color = WikipediaTheme.colors.primaryColor
             )
+            Button(
+                modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
+                contentPadding = PaddingValues(horizontal = 18.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor,
+                    contentColor = WikipediaTheme.colors.paperColor,
+                ),
+                onClick = { onClick?.invoke() },
+            ) {
+                Icon(
+                    modifier = Modifier.size(20.dp),
+                    painter = painterResource(R.drawable.ic_mode_edit_white_24dp),
+                    tint = WikipediaTheme.colors.paperColor,
+                    contentDescription = null
+                )
+                Text(
+                    modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                    text = stringResource(R.string.activity_tab_impact_suggested_edits_button),
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
         }
     }
 }
@@ -503,11 +518,22 @@ private fun ContributionCardPreview() {
         ContributionCard(
             modifier = Modifier.fillMaxWidth(),
             lastEditRelativeTime = "2 days ago",
-            totalEdits = 9,
             editsThisMonth = 9,
             editsLastMonth = 2,
-            onContributionClick = null,
-            onSuggestedEditsClick = null
+            onContributionClick = null
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun SuggestedEditsCardPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SuggestedEditsCard(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {}
         )
     }
 }

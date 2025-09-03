@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
@@ -48,7 +47,7 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                         finish()
                     },
                     modules = Prefs.activityTabModules,
-                    showLastDonation = Prefs.donationResults.isNotEmpty()
+                    haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
                 )
             }
         }
@@ -92,7 +91,7 @@ fun CustomizationScreen(
     modifier: Modifier = Modifier,
     onBackButtonClick: () -> Unit,
     modules: ActivityTabModules,
-    showLastDonation: Boolean = false
+    haveAtLeastOneDonation: Boolean = false
 ) {
     var currentModules by remember { mutableStateOf(modules) }
 
@@ -123,7 +122,7 @@ fun CustomizationScreen(
                     )
                 }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
-                    if (moduleType == ModuleType.DONATIONS && !showLastDonation) {
+                    if (moduleType == ModuleType.DONATIONS && !haveAtLeastOneDonation) {
                         return@itemsIndexed
                     }
                     CustomizationScreenSwitch(
@@ -182,26 +181,6 @@ private fun CustomizationScreenSwitch(
     )
 }
 
-fun ActivityTabModules.isModuleEnabled(moduleType: ModuleType): Boolean = when (moduleType) {
-    ModuleType.TIME_SPENT -> isTimeSpentEnabled
-    ModuleType.READING_INSIGHTS -> isReadingInsightsEnabled
-    ModuleType.EDITING_INSIGHTS -> isEditingInsightsEnabled
-    ModuleType.IMPACT -> isImpactEnabled
-    ModuleType.GAMES -> isGamesEnabled
-    ModuleType.DONATIONS -> isDonationsEnabled
-    ModuleType.TIMELINE -> isTimelineEnabled
-}
-
-fun ActivityTabModules.setModuleEnabled(moduleType: ModuleType, enabled: Boolean) = when (moduleType) {
-    ModuleType.TIME_SPENT -> copy(isTimeSpentEnabled = enabled)
-    ModuleType.READING_INSIGHTS -> copy(isReadingInsightsEnabled = enabled)
-    ModuleType.EDITING_INSIGHTS -> copy(isEditingInsightsEnabled = enabled)
-    ModuleType.IMPACT -> copy(isImpactEnabled = enabled)
-    ModuleType.GAMES -> copy(isGamesEnabled = enabled)
-    ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
-    ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
-}
-
 fun ActivityTabModules.areAllModulesEnabled(): Boolean {
     return ModuleType.entries.all { this.isModuleEnabled(it) }
 }
@@ -211,27 +190,6 @@ fun ActivityTabModules.areAllModulesDisabled(): Boolean {
 }
 
 private fun Boolean.toOnOffString(): String = if (this) "on" else "off"
-
-@Serializable
-data class ActivityTabModules(
-    val isTimeSpentEnabled: Boolean = true,
-    val isReadingInsightsEnabled: Boolean = true,
-    val isEditingInsightsEnabled: Boolean = true,
-    val isImpactEnabled: Boolean = true,
-    val isGamesEnabled: Boolean = true,
-    val isDonationsEnabled: Boolean = false,
-    val isTimelineEnabled: Boolean = true,
-)
-
-enum class ModuleType(val displayName: Int) {
-    TIME_SPENT(R.string.activity_tab_customize_screen_time_spent_switch_title),
-    READING_INSIGHTS(R.string.activity_tab_customize_screen_reading_insights_switch_title),
-    EDITING_INSIGHTS(R.string.activity_tab_customize_screen_editing_insights_switch_title),
-    IMPACT(R.string.activity_tab_customize_screen_impact_switch_title),
-    GAMES(R.string.activity_tab_customize_screen_games_switch_title),
-    DONATIONS(R.string.activity_tab_customize_screen_donations_switch_title),
-    TIMELINE(R.string.activity_tab_customize_screen_timeline_switch_title)
-}
 
 @Preview
 @Composable

@@ -85,7 +85,8 @@ fun WikiGamesModule(
                 modifier = Modifier
                     .fillMaxWidth(),
                 caught = uiState.error,
-                errorClickEvents = wikiErrorClickEvents
+                errorClickEvents = wikiErrorClickEvents,
+                retryForGenericError = true
             )
         }
     }
@@ -98,8 +99,7 @@ fun WikiGamesStatsCard(
     onClick: (() -> Unit)? = null
 ) {
     WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onClick?.invoke() }),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = WikipediaTheme.colors.paperColor,
             contentColor = WikipediaTheme.colors.paperColor
@@ -108,7 +108,8 @@ fun WikiGamesStatsCard(
         border = BorderStroke(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
-        )
+        ),
+        onClick = onClick
     ) {
         Column(
             modifier = Modifier.padding(16.dp)

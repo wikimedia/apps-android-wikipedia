@@ -1,9 +1,11 @@
 package org.wikipedia.dataclient
 
+import okhttp3.ResponseBody
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
@@ -183,6 +185,12 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): Metrics
+
+    @POST("transform/wikitext/to/mobile-html/{title}")
+    suspend fun getHtmlPreviewFromWikitext(
+        @Path("title") title: String,
+        @Body body: PreviewRequest
+    ): ResponseBody
 
     companion object {
         const val REST_API_PREFIX = "/api/rest_v1"

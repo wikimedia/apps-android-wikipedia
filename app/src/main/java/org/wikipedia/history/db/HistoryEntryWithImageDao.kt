@@ -17,10 +17,15 @@ import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
+    suspend fun getHistoryEntriesWithOffset(
+        limit: Int,
+        offset: Int
+    ): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
     // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN(SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     @RewriteQueriesToDropUnusedColumns
     suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
@@ -84,6 +89,12 @@ interface HistoryEntryWithImageDao {
         return entries.map { toHistoryEntry(it) }
     }
 
+    suspend fun getHistoryItemWIthImage(searchTerm: String): List<HistoryEntryWithImage> {
+        val normalizedQuery = StringUtils.stripAccents(searchTerm).replace("\\", "\\\\")
+            .replace("%", "\\%").replace("_", "\\_")
+        return findEntriesBySearchTerm("%$normalizedQuery%")
+    }
+
     private fun normalizedQuery(searchQuery: String): String {
         return StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
             .replace("\\", "\\\\")
@@ -97,7 +108,7 @@ interface HistoryEntryWithImageDao {
             lang = entryWithImage.lang,
             apiTitle = entryWithImage.apiTitle,
             displayTitle = entryWithImage.displayTitle,
-            id = 0,
+            id = entryWithImage.id,
             namespace = entryWithImage.namespace,
             timestamp = entryWithImage.timestamp,
             source = entryWithImage.source
