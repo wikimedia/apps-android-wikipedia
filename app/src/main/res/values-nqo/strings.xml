@@ -363,6 +363,7 @@
   <string name="preference_title_collapse_tables">ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬</string>
   <string name="preference_summary_collapse_tables">ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬ ߦߌߟߡߊ ߟߎ߬ ߘߐ߫ ߞߍߒߖߘߍߦߋߓߟߏߡߊ߬߸ ߦߏ߫ ߞߟߊ߬ߟߐ߲ߞߏ߲߬ߘߏ߸ ߦߟߌߡߊߛߙߋ߸ ߊ߬ ߣߌ߫ ߦߟߌߣߐ ߟߎ߬.</string>
   <string name="nav_item_donate">ߝߌߛߙߌߘߌ</string>
+  <string name="nav_item_year_in_review">ߛߊ߲߭ ߓߊ߯ߙߊ߫ ߣߐ</string>
   <string name="error_voice_search_not_available">ߤߊߞߍ߬ߕߏ߫߸ ߡߍ߲ߞߊ߲ ߡߊߟߐ߲ߠߌ߲ ߕߴߦߋ߲߬.</string>
   <string name="location_service_disabled">ߘߌ߲߬ߞߌ߬ߙߊ߬ߟߐ߲ ߗߋߘߊ ߓߘߊ߫ ߓߴߊ߬ ߟߊ߫.</string>
   <string name="enable_location_service">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
@@ -386,6 +387,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ߖߌ߬ߦߊ߬ߓߍ ߟߎ߬ ߟߊߘߓߌ߬ (ߘߌ߬ߓߌ ߦߋߝߊߘߌ ߘߐ߫)</string>
   <string name="preference_title_prefer_offline_content">ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߫ ߞߣߐߘߐ ߟߎ߬ ߞߊ߬ߣߌ߲߬ߒ߬ߕߋ߬ߦߊ</string>
   <string name="preference_summary_prefer_offline_content">ߓߟߏߡߟߊ ߟߊߓߊ߯ߙߊ ߟߊߞߊ߲ߘߊ߫ ߞߎߡߘߊ߫ ߟߎ߫ ߟߊߢߎ߲ ߛߐ߫ ߡߍ߲ ߠߎ߬ ߡߙߊ߬ߣߍ߲߫ ߦߴߌ ߓߟߏ߫ ߓߟߐߟߐ ߞߐߞߊ߲߬߸ ߦߊ߬ߣߴߊ߬ ߕߏ߫ ߕߐ߫ ߞߎߡߘߊ ߦߌߟߡߊ߫ ߞߎߘߊ ߟߎ߬ ߟߊߢߎ߲߫ ߠߊ߫ ߟߐ߲߫.</string>
+  <string name="preference_title_delete_local_donation_history">ߣߌ߬ߟߌ ߘߐ߬ߝߐ ߖߏ߰ߛߌ߫</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ߞߵߊ߬ ߛߎߡߊ߲߫ ߞߊ߲ߞߋ ߞߐ߬ߟߐ ߡߊ߬</string>
   <string name="page_footer_license_text">ߞߣߐߘߐ ߦߋ߫ $1 ߟߊ߫ ߓߌ߬ߟߊ ߟߋ߬ ߘߐ߫߸ ߝߴߊ߬ ߛߌ߬ߣߊ߬ߦߊ߫ ߢߊߝߐߟߌ ߘߋ߬.</string>
   <string name="empty_tab_title">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫</string>
