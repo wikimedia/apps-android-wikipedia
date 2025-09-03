@@ -222,7 +222,8 @@ fun ReadingHistoryModule(
                 modifier = Modifier
                     .fillMaxWidth(),
                 caught = readingHistoryState.error,
-                errorClickEvents = wikiErrorClickEvents
+                errorClickEvents = wikiErrorClickEvents,
+                retryForGenericError = true
             )
         }
     }

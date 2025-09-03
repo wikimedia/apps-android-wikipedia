@@ -673,6 +673,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ناگارل</string>
   <string name="feed_accessibility_card_load_more_button">نور بارول</string>
   <string name="feed_language_variants_removal_dialog_save">خوندي کول</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">مهرباني وکړئ خپلې دوهمي ژبې هم‌مهاله کړئ</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">اوڼنو ته ورتلل</string>
   <string name="tabs_activity_title">ريښکې</string>
   <string name="description_edit_text_hint">ليکنې څرگنداوی</string>
@@ -700,6 +701,14 @@
   <string name="description_edit_image_caption_learn_more">د انځور نيونگو په اړه نور زده کول</string>
   <string name="description_too_short">ليک ډېر لنډ دی.</string>
   <string name="description_edit_suggested_description_button_text">وړانديزشوو څرگنداوي ښودل</string>
+  <string name="description_edit_success_saved">د ليکنې څرگنداوی خپور شو!</string>
+  <string name="description_edit_success_saved_snackbar">د ليکنې څرگنداوی خپور شو!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">د ليکنې څرگنداوی خپور شو! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">د انځور نيونگ خپور شو!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">د انځور نيونگ خپور شو! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">د انځور نښلن(ونه) خپور شو!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">ترې خوند مو واخيست؟ له موږ سره مرسته وکړئ؛ چې نور ورگډ کړو.</string>
+  <string name="description_edit_success_encouragement">تاسو ويکيپېډيا د ټولو لپاره ښه کړه</string>
   <string name="description_edit_success_done">وشو</string>
   <string name="description_edit_success_did_you_know">ايا پوهېدې؟</string>
   <string name="description_edit_tutorial_title_descriptions">ليکنې څرگنداوي</string>
@@ -777,6 +786,8 @@
   <string name="suggested_edits_image_tags_published_list">خپاره‌شوي نښلنونه</string>
   <string name="suggested_edits_image_tags_search">نښنلنونه پلټل</string>
   <string name="suggested_edits_image_tags_add_tag">نښلن ورگډول</string>
+  <string name="suggested_edits_editing_tips_link_text">د سمون لارښوونې او چلونه</string>
+  <string name="suggested_edits_help_page_link_text">وړانديز شوو سمونونو لارښود مخ</string>
   <string name="suggested_edits_edit_streak_label_text">سمون لړۍ</string>
   <string name="suggested_edits_views_label_text">کتنې</string>
   <string name="suggested_edits_quality_label_text">سمون څرنگوالی</string>
@@ -1370,6 +1381,7 @@
   <string name="on_this_day_game_notification_undo">ناکړل</string>
   <string name="on_this_day_game_share_screen_subtitle">رانغاړل‌شوې سکالوگانې:</string>
   <string name="on_this_day_game_archive_calendar_title">د لوبولو لپاره د نېټې له مخې يوه خوښه کړئ.</string>
+  <string name="on_this_day_game_review_results_btn_text">پايلو بياکتنه</string>
   <string name="on_this_day_game_continue_playing_btn_text">لوبولو ته دوام‌‌ورکول</string>
   <string name="on_this_day_game_sound_on">غږ بلول</string>
   <string name="on_this_day_game_sound_off">غږ گولول</string>
@@ -1398,6 +1410,7 @@
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">پيلول</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">نه مننه</string>
+  <string name="recommended_reading_list_interest_pick_title">تاسو د څه لېوال ياست؟</string>
   <string name="recommended_reading_list_interest_pick_search_hint">د يوې ليکنې پلټل</string>
   <plurals name="recommended_reading_list_interest_pick_selected_articles">
     <item quantity="one">%d غوره‌شوی</item>
@@ -1426,6 +1439,7 @@
   <string name="recommended_reading_list_settings_title">موندلو اوڼنې</string>
   <string name="recommended_reading_list_settings_toggle">لوستلړ موندل</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">گولول</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">نه، بل يې وساتئ</string>
   <string name="recommended_reading_list_settings_articles">ليکنې</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s هم‌مهالونې</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">ورځنی</string>
@@ -1434,14 +1448,30 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">هره ورځ</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">هره اوونۍ</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">هره مياشت</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">ترتيبول</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">پروا نه لري</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">ستاسو وړانديزونه اوس ستاسو لېوالتياوې پورې اړه لري.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ناکړل</string>
   <string name="recommended_reading_list_settings_interests">لېوالتياوې</string>
   <string name="recommended_reading_list_settings_notifications_title">خبرتياوې</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">خبرتياوې گولې کړي؟</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">دوی بندول</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">نه، بل يې وساتئ</string>
   <string name="donation_reminders_initial_prompt_label">ازمېښتي</string>
+  <string name="donation_reminders_initial_prompt_title">د ويکيپېډيا ملاتړ کول لکه څنگه يې چې لولئ</string>
   <string name="donation_settings_section_header">بسپنې</string>
+  <string name="donation_reminders_settings_article_frequency_label">کله چې ما لوستل</string>
   <string name="donation_reminders_settings_amount_label">د بسپنې ورکولو يادونه راته وکړه</string>
+  <string name="donation_reminders_settings_confirm_btn_label">يادگر تاييدول</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">د دې ازمېښت په‌اړه</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">ليکنې</string>
+  <string name="donation_reminders_settings_warning_min_amount">مهرباني وکړئ لږترلږه %s دننه کړئ</string>
+  <string name="donation_reminders_settings_warning_max_amount">ډېر تر ډېره %s اجازه لري</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
+  <string name="donation_reminders_settings_tooltip_info_label">ليکنې شمېر په ځايي توگه ستاسو سولگر کې ساتل‌شوی</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d ليکنه</item>
+    <item quantity="other">%d ليکنې</item>
+  </plurals>
 </resources>

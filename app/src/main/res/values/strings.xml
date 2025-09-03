@@ -1239,9 +1239,9 @@
     </plurals>
     <string name="activity_tab_impact_best_streak">Best streak</string>
     <string name="activity_tab_impact_last_edited">Last edited</string>
-    <string name="activity_tab_impact_suggested_edits_title">0 edits to articles so far</string>
+    <string name="activity_tab_impact_suggested_edits_title">0 edits to articles recently</string>
     <string name="activity_tab_impact_suggested_edits_message">Help extend free knowledge to the world by editing topics that matter most to you.</string>
-    <string name="activity_tab_impact_suggested_edits_button">Try out Suggested edits</string>
+    <string name="activity_tab_impact_suggested_edits_button">Make an edit</string>
     <string name="activity_tab_impact_recent_activity">Your recent activity (last 30 days)</string>
     <plurals name="activity_tab_impact_recent_activity_edits">
         <item quantity="one">Edit</item>
@@ -1258,6 +1258,12 @@
     <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
     <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
     <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
+    <string name="activity_tab_customize_screen_no_modules_title">Your Activity Tab modules are off</string>
+    <string name="activity_tab_customize_screen_no_modules_message">Turn on Activity Tab modules to see your reading history, editing history, and more.</string>
+    <string name="activity_tab_timeline_today">Today</string>
+    <string name="activity_tab_timeline_yesterday">Yesterday</string>
+    <string name="activity_tab_timeline_empty_state_title">Nothing to show</string>
+    <string name="activity_tab_timeline_empty_state_message">Start reading and editing to build your history</string>
     <string name="activity_tab_onboarding_reading_patterns_title">Reading patterns</string>
     <string name="activity_tab_onboarding_reading_patterns_message">See how much time you\'ve spent reading and which articles or topics you\'ve explored over time.</string>
     <string name="activity_tab_onboarding_impact_title">Impact highlights</string>
