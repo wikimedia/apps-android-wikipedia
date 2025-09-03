@@ -1266,6 +1266,7 @@
     <string name="activity_tab_timeline_empty_state_message">Start reading and editing to build your history</string>
     <string name="activity_tab_onboarding_reading_patterns_title">Reading patterns</string>
     <string name="activity_tab_onboarding_reading_patterns_message">See how much time you\'ve spent reading and which articles or topics you\'ve explored over time.</string>
+    <string name="activity_tab_onboarding_screen_title">Introducing Activity</string>
     <string name="activity_tab_onboarding_impact_title">Impact highlights</string>
     <string name="activity_tab_onboarding_impact_message">Discover insights about your contributions and the reach of the knowledge you\'ve shared.</string>
     <string name="activity_tab_onboarding_engage_title">More ways to engage</string>

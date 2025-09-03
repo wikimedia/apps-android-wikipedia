@@ -73,6 +73,7 @@ class ActivityTabOnboardingActivity : BaseActivity() {
                     onboardingItems = onboardingItems,
                     onLearnMoreClick = {
                         // TODO: MARK_ACTIVITY_TAB waiting for mediawiki page link
+                        Prefs.isActivityTabOnboardingShown = true
                     },
                     onContinueClick = {
                         Prefs.isActivityTabOnboardingShown = true
@@ -114,7 +115,7 @@ fun OnboardingScreen(
                     .fillMaxWidth()
                     .padding(top = 64.dp, bottom = 32.dp),
                 textAlign = TextAlign.Center,
-                text = "Introducing Activity",
+                text = stringResource(R.string.activity_tab_onboarding_screen_title),
                 style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
                 color = WikipediaTheme.colors.primaryColor
             )
