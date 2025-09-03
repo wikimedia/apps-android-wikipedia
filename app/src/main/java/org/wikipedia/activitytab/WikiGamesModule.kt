@@ -1,17 +1,18 @@
 package org.wikipedia.activitytab
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -23,13 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.wikipedia.R
-import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -43,51 +41,52 @@ import org.wikipedia.util.UiState
 fun WikiGamesModule(
     modifier: Modifier = Modifier,
     uiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
-    onEntryCardClick: (() -> Unit)? = null,
+    onPlayGameCardClick: (() -> Unit)? = null,
     onStatsCardClick: (() -> Unit)? = null,
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
-    if (uiState == UiState.Loading) {
-        Box(
-            modifier = modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        ) {
-            CircularProgressIndicator(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(24.dp),
-                color = WikipediaTheme.colors.progressiveColor
-            )
-        }
-    } else if (uiState is UiState.Success) {
-        if (uiState.data == null) {
-            WikiGamesEntryCard(
+    when (uiState) {
+        UiState.Loading -> {
+            Box(
                 modifier = modifier
-                    .fillMaxWidth(),
-                onClick = onEntryCardClick
-            )
-        } else {
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(24.dp),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
+        }
+        is UiState.Success -> {
             WikiGamesStatsCard(
                 modifier = modifier
                     .fillMaxWidth(),
-                gameStatistics = uiState.data,
-                onClick = onStatsCardClick
+                totalGamesPlayed = uiState.data?.totalGamesPlayed ?: 0,
+                currentStreak = uiState.data?.currentStreak ?: 0,
+                bestStreak = uiState.data?.bestStreak ?: 0,
+                averageScore = uiState.data?.averageScore ?: 0.0,
+                onStatsCardClick = onStatsCardClick,
+                onPlayGameCardClick = onPlayGameCardClick
             )
         }
-    } else if (uiState is UiState.Error) {
-        Box(
-            modifier = modifier
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            WikiErrorView(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                caught = uiState.error,
-                errorClickEvents = wikiErrorClickEvents,
-                retryForGenericError = true
-            )
+
+        is UiState.Error -> {
+            Box(
+                modifier = modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    caught = uiState.error,
+                    errorClickEvents = wikiErrorClickEvents,
+                    retryForGenericError = true
+                )
+            }
         }
     }
 }
@@ -95,8 +94,12 @@ fun WikiGamesModule(
 @Composable
 fun WikiGamesStatsCard(
     modifier: Modifier = Modifier,
-    gameStatistics: OnThisDayGameViewModel.GameStatistics,
-    onClick: (() -> Unit)? = null
+    totalGamesPlayed: Int = 0,
+    currentStreak: Int = 0,
+    bestStreak: Int = 0,
+    averageScore: Double = 0.0,
+    onStatsCardClick: (() -> Unit)? = null,
+    onPlayGameCardClick: (() -> Unit)? = null
 ) {
     WikiCard(
         modifier = modifier,
@@ -109,7 +112,7 @@ fun WikiGamesStatsCard(
             width = 1.dp,
             color = WikipediaTheme.colors.borderColor
         ),
-        onClick = onClick
+        onClick = onStatsCardClick
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -142,13 +145,13 @@ fun WikiGamesStatsCard(
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.baseline_extension_24,
-                    statValue = gameStatistics.totalGamesPlayed.toString(),
-                    statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, gameStatistics.totalGamesPlayed)
+                    statValue = totalGamesPlayed.toString(),
+                    statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, totalGamesPlayed)
                 )
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.outline_motion_blur_24,
-                    statValue = gameStatistics.currentStreak.toString(),
+                    statValue = if (currentStreak == 0) "-" else currentStreak.toString(),
                     statLabel = stringResource(R.string.on_this_day_game_stats_streak)
                 )
             }
@@ -161,15 +164,32 @@ fun WikiGamesStatsCard(
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.filled_family_star_24,
-                    statValue = gameStatistics.bestStreak.toString(),
+                    statValue = if (bestStreak == 0) "-" else bestStreak.toString(),
                     statLabel = stringResource(R.string.activity_tab_game_stats_best_streak)
                 )
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.outline_sports_score_24,
-                    statValue = gameStatistics.averageScore.toString(),
+                    statValue = if (averageScore == 0.0) "-" else averageScore.toString(),
                     statLabel = stringResource(R.string.on_this_day_game_stats_average_score)
                 )
+            }
+            if (totalGamesPlayed == 0) {
+                Button(
+                    modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
+                    contentPadding = PaddingValues(horizontal = 18.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.progressiveColor,
+                        contentColor = WikipediaTheme.colors.paperColor,
+                    ),
+                    onClick = { onPlayGameCardClick?.invoke() },
+                ) {
+                    Text(
+                        modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                        text = stringResource(R.string.activity_tab_play_wiki_games),
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                }
             }
         }
     }
@@ -210,56 +230,7 @@ fun WikiGamesStatView(
     }
 }
 
-@Composable
-fun WikiGamesEntryCard(
-    modifier: Modifier,
-    onClick: (() -> Unit)? = null
-) {
-    WikiCard(
-        modifier = modifier
-            .clickable(onClick = { onClick?.invoke() }),
-        elevation = 4.dp,
-        colors = CardDefaults.cardColors(
-            containerColor = WikipediaTheme.colors.progressiveColor,
-            contentColor = WikipediaTheme.colors.progressiveColor
-        )
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f)
-                    .heightIn(min = 116.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.on_this_day_game_title),
-                    style = MaterialTheme.typography.headlineSmall.copy(
-                        lineHeight = 24.sp
-                    ),
-                    color = WikipediaTheme.colors.paperColor,
-                    fontFamily = FontFamily.Serif,
-                )
-                HtmlText(
-                    text = stringResource(R.string.on_this_day_game_splash_message),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.paperColor
-                )
-            }
-            Icon(
-                modifier = Modifier.size(44.dp),
-                painter = painterResource(R.drawable.ic_today_24px),
-                tint = WikipediaTheme.colors.paperColor,
-                contentDescription = null
-            )
-        }
-    }
-}
-
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun WikiGamesModulePreview() {
     BaseTheme(
@@ -269,8 +240,15 @@ private fun WikiGamesModulePreview() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            uiState = UiState.Error(Throwable("Error")),
-            onEntryCardClick = {},
+            uiState = UiState.Success(
+                OnThisDayGameViewModel.GameStatistics(
+                    totalGamesPlayed = 43,
+                    averageScore = 4.5,
+                    currentStreak = 5,
+                    bestStreak = 15
+                )
+            ),
+            onPlayGameCardClick = {},
             onStatsCardClick = {},
             wikiErrorClickEvents = null
         )
@@ -279,47 +257,25 @@ private fun WikiGamesModulePreview() {
 
 @Preview
 @Composable
-private fun WikiGamesEntryCardPreview() {
+private fun WikiGamesModuleWithPlayButtonPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        WikiGamesEntryCard(
-            modifier = Modifier,
-            onClick = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun WikiGamesStatViewPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        WikiGamesStatView(
-            modifier = Modifier,
-            iconResource = R.drawable.ic_today_24px,
-            statValue = "42",
-            statLabel = pluralStringResource(R.plurals.on_this_day_game_stats_games_played, 42)
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun WikiGamesStatsCardPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        WikiGamesStatsCard(
-            modifier = Modifier,
-            gameStatistics = OnThisDayGameViewModel.GameStatistics(
-                totalGamesPlayed = 43,
-                averageScore = 4.5,
-                currentStreak = 5,
-                bestStreak = 15
+        WikiGamesModule(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            uiState = UiState.Success(
+                OnThisDayGameViewModel.GameStatistics(
+                    totalGamesPlayed = 0,
+                    averageScore = 0.0,
+                    currentStreak = 0,
+                    bestStreak = 0
+                )
             ),
-            onClick = {}
+            onPlayGameCardClick = {},
+            onStatsCardClick = {},
+            wikiErrorClickEvents = null
         )
     }
 }

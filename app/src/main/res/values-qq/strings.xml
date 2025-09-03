@@ -1182,6 +1182,7 @@
   <string name="activity_tab_donation_unknown">Label on card that shows the last donation time.</string>
   <string name="activity_tab_game_stats">Title of the game stats card.</string>
   <string name="activity_tab_game_stats_best_streak">Label of the game stats that indicates the best streak.</string>
+  <string name="activity_tab_play_wiki_games">Button label to go to the WikiGames.</string>
   <string name="activity_tab_donation_last_donation">Subtitle of the donation card that indicates last donation.</string>
   <string name="activity_tab_report_email_subject">Subject heading for sending a report about a problem with the Activity tab feature.</string>
   <string name="activity_tab_report_email_body">Body of email for sending a report about a problem with the Activity tab feature.</string>

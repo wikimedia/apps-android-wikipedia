@@ -457,7 +457,7 @@ class ActivityTabFragment : Fragment() {
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = wikiGamesUiState,
-                                    onEntryCardClick = {
+                                    onPlayGameCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
