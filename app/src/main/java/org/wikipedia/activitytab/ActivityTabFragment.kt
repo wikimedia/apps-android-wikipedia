@@ -74,6 +74,7 @@ import org.wikipedia.activitytab.timeline.TimelineModuleEmptyView
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -283,19 +284,15 @@ class ActivityTabFragment : Fragment() {
                             painter = painterResource(R.drawable.illustration_activity_tab_empty),
                             contentDescription = null
                         )
-                        Text(
-                            modifier = Modifier.padding(top = 16.dp),
-                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_title),
-                            style = MaterialTheme.typography.titleSmall,
-                            textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                        Text(
-                            modifier = Modifier.padding(top = 4.dp),
+                        HtmlText(
+                            modifier = Modifier.padding(vertical = 16.dp),
                             text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
                             style = MaterialTheme.typography.bodyMedium,
                             textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor
+                            color = WikipediaTheme.colors.primaryColor,
+                            linkInteractionListener = {
+                                startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                            }
                         )
                     }
                     return@Scaffold
