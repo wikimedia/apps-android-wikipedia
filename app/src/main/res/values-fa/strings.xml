@@ -62,10 +62,12 @@
   <string name="search_hint_voice_search">جستجوی صوتی</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="search_back_button_content_description">بازگشت به عقب</string>
+  <string name="search_icon_content_description">جستجو</string>
   <string name="filter_hint_filter_my_lists_and_articles">پالایش فهرست‌های من</string>
   <string name="nav_item_suggested_edits">ویرایش‌ها</string>
   <string name="nav_item_more">بیشتر</string>
   <string name="nav_item_search">جستجو</string>
+  <string name="nav_item_contribute">مشارکت</string>
   <string name="error_network_error">نمی‌توان به اینترنت متصل شد.</string>
   <string name="page_error_retry">سعى دوباره</string>
   <string name="card_offline_error_retry">تلاش مجدد</string>
@@ -172,6 +174,8 @@
   <string name="dialog_message_leaving_edit">ویرایش شما هنوز ذخیره نشده است. آیا واقعاً می‌خواهید از این صفحه خارج شوید؟</string>
   <string name="dialog_message_leaving_edit_leave">ترک‌کردن</string>
   <string name="dialog_message_leaving_edit_stay">ماندن</string>
+  <string name="dialog_confirm_delete_donation_history_delete">حذف</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">لغو</string>
   <string name="menu_show_toc">فهرست محتویات</string>
   <string name="search_no_results_found">نتیجه‌ای یافت نشد</string>
   <string name="search_reading_list_no_results">نتیجه‌ای در \"%s\" یافت نشد</string>
@@ -186,7 +190,7 @@
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">رمز عبور</string>
   <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint" fuzzy="true">کد اصالت‌سنجی دومرحله‌ای</string>
+  <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>

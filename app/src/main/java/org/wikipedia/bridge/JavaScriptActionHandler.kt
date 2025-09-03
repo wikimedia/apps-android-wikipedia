@@ -21,11 +21,11 @@ import kotlin.math.roundToInt
 object JavaScriptActionHandler {
 
     fun setTopMargin(top: Int): String {
-        return setMargins(16, top + 16, 16, 48)
+        return setMargins(top + 16, 48)
     }
 
-    fun setMargins(left: Int, top: Int, right: Int, bottom: Int): String {
-        return "pcs.c1.Page.setMargins({ top:'${top}px', right:'${right}px', bottom:'${bottom}px', left:'${left}px' })"
+    fun setMargins(top: Int, bottom: Int): String {
+        return "pcs.c1.Page.setMargins({ top:'${top}px', bottom:'${bottom}px' })"
     }
 
     fun getTextSelection(): String {
@@ -104,14 +104,14 @@ object JavaScriptActionHandler {
                 "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
-                "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "   \"margins\": { \"top\": \"%dpx\", \"bottom\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
                 "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": ${JsonUtil.encodeToString(AccountUtil.groups)}," +
                 "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
-                "}", topMargin, 16, 48, 16, leadImageHeight)
+                "}", topMargin, 48, leadImageHeight)
     }
 
     fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {

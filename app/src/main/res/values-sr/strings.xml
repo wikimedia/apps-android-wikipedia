@@ -203,7 +203,7 @@
   <string name="create_account_already_have">Већ имате налог?</string>
   <string name="create_account_activity_title">Отварање налога</string>
   <string name="dialog_create_account_checking_progress">Потврђујем</string>
-  <string name="create_account_email_hint">Имејл (опционално)</string>
+  <string name="create_account_email_hint">Имејл (необавезно)</string>
   <string name="create_account_password_repeat_hint">Поновите лозинку</string>
   <string name="create_account_password_is_username">Лозинка не може бити иста као корисничко име</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
@@ -535,7 +535,7 @@
   <string name="reading_list_action_menu_move_to_another_list">Премести на другу листу</string>
   <string name="reading_list_name_sample">Моја листа за читање</string>
   <string name="reading_list_name_hint">Име ове листе</string>
-  <string name="reading_list_description_hint">Опис (опционално)</string>
+  <string name="reading_list_description_hint">Опис (необавезно)</string>
   <string name="reading_list_item_deleted">Чланак „%s” је уклоњен са листе</string>
   <string name="reading_list_item_deleted_from_list">%1$s је уклоњен са списка %2$s</string>
   <plurals name="reading_list_articles_deleted">
@@ -1672,6 +1672,13 @@
   <string name="year_in_review_learn_more">Сазнајте више</string>
   <string name="year_in_review_donate">Донирај</string>
   <string name="year_in_review_entry_dialog_continue">Настави</string>
+  <string name="year_in_review_non_english_collective_readcount_headline">Википедија је била доступна на више од 300 језика</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">Уредници на iOS апликацији су направили преко 452.257 измена</string>
+  <string name="year_in_review_survey_very_satisfied">Веома задовољан</string>
+  <string name="year_in_review_survey_satisfied">Задовољан</string>
+  <string name="year_in_review_survey_neutral">Неутрално</string>
+  <string name="year_in_review_survey_unsatisfied">Незадовољан</string>
+  <string name="year_in_review_survey_very_unsatisfied">Веома незадовољан</string>
   <string name="year_in_review_survey_cancel">Откажи</string>
   <string name="year_in_review_survey_submit">Проследи</string>
   <string name="recommended_reading_list_title">Откриј</string>
@@ -1698,5 +1705,8 @@
   <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
+  <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Највише дозвољено %s</string>
+  <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
 </resources>

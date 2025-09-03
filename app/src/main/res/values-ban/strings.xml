@@ -133,7 +133,7 @@
   <string name="dialog_confirm_delete_donation_history_delete">Apus</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Wangdé</string>
   <string name="menu_show_toc">Lis Isi</string>
-  <string name="search_no_results_found">Nénten wénten asil sané katemu</string>
+  <string name="search_no_results_found">Nénten wénten asil sané kacunduk</string>
   <string name="search_reading_list_no_results">Nénten wénten hasil katemu ring \"%s\"</string>
   <string name="search_reading_lists_no_results">Nénten wenten asil katemu ring lis wacaan</string>
   <string name="search_history_no_results">Nenten wénten asil katemu ring lelintihan</string>

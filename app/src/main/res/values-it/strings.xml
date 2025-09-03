@@ -474,7 +474,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (nel tema Scuro e Nero)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti in assenza di connessione</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili in assenza di connessione anziché caricare sempre l\'ultima versione di una voce</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Cancella la cronologia delle donazioni locali</string>
+  <string name="preference_title_delete_local_donation_history">Cancella la cronologia delle donazioni</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>

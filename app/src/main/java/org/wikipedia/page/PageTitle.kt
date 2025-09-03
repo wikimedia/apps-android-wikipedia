@@ -84,9 +84,6 @@ data class PageTitle(
     val uri: String
         get() = getUriForDomain(wikiSite.authority())
 
-    val mobileUri: String
-        get() = getUriForDomain(wikiSite.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
-
     /**
      * Notes on the `namespace` field:
      * The localised namespace of the page as a string, or null if the page is in mainspace.
