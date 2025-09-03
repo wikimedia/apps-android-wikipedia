@@ -157,7 +157,7 @@ fun OnboardingScreen(
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 64.dp, bottom = 32.dp),
+                    .padding(top = 58.dp, bottom = 32.dp),
                 textAlign = TextAlign.Center,
                 text = stringResource(R.string.activity_tab_onboarding_screen_title),
                 style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
