@@ -169,6 +169,7 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
+            val haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
 
             if (!isLoggedIn) {
                 Box(
@@ -250,7 +251,7 @@ class ActivityTabFragment : Fragment() {
                 return@Scaffold
             }
 
-            if (modules.noModulesEnabled()) {
+            if (modules.noModulesVisible(haveAtLeastOneDonation)) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -304,7 +305,7 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    if (modules.isModuleEnabled(ModuleType.TIME_SPENT) || modules.isModuleEnabled(ModuleType.READING_INSIGHTS)) {
+                    if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -322,8 +323,8 @@ class ActivityTabFragment : Fragment() {
                                 ReadingHistoryModule(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     userName = userName,
-                                    showTimeSpent = modules.isModuleEnabled(ModuleType.TIME_SPENT),
-                                    showInsights = modules.isModuleEnabled(ModuleType.READING_INSIGHTS),
+                                    showTimeSpent = modules.isModuleVisible(ModuleType.TIME_SPENT),
+                                    showInsights = modules.isModuleVisible(ModuleType.READING_INSIGHTS),
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
@@ -361,7 +362,7 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleVisible(ModuleType.IMPACT)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_impact),
@@ -371,7 +372,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS)) {
+                            if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS)) {
                                 EditingInsightsModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -410,7 +411,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.IMPACT)) {
                                 ImpactModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -424,7 +425,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.DONATIONS)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_highlights),
@@ -434,7 +435,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.GAMES)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES)) {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -464,7 +465,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) && Prefs.donationResults.isNotEmpty()) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation)) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -478,14 +479,14 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation) || modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // Add bottom padding only if at least one of the modules in this gradient box is enabled.
                                 Spacer(modifier = Modifier.size(16.dp))
                             }
                         }
                     }
 
-                    if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
+                    if (modules.isModuleVisible(ModuleType.TIMELINE)) {
                         // @TODO: MARK_ACTIVITY_TAB
                     }
                 }
