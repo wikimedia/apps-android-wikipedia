@@ -1258,6 +1258,15 @@
     <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
     <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
     <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
+    <string name="activity_tab_onboarding_reading_patterns_title">Reading patterns</string>
+    <string name="activity_tab_onboarding_reading_patterns_message">See how much time you\'ve spent reading and which articles or topics you\'ve explored over time.</string>
+    <string name="activity_tab_onboarding_impact_title">Impact highlights</string>
+    <string name="activity_tab_onboarding_impact_message">Discover insights about your contributions and the reach of the knowledge you\'ve shared.</string>
+    <string name="activity_tab_onboarding_engage_title">More ways to engage</string>
+    <string name="activity_tab_onboarding_engage_message">Explore stats for games, saved articles, and other activities that connect you more deeply with Wikipedia.</string>
+    <string name="activity_tab_onboarding_stay_in_control_title">Stay in control</string>
+    <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
+
     <!-- /Suggested edits -->
 
     <!-- File page -->

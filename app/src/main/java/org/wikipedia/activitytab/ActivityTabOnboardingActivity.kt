@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,30 +36,30 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 
-// TODO: MARK_ACTIVITY_TAB add actual resources from design and update accordingly
 private val onboardingItems = listOf(
     OnboardingItem(
         icon = R.drawable.ic_newsstand_24,
-        title = "Reading history",
-        subTitle = "Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public."
+        title = R.string.activity_tab_onboarding_reading_patterns_title,
+        subTitle = R.string.activity_tab_onboarding_reading_patterns_message
     ),
     OnboardingItem(
-        icon = R.drawable.ic_icon_user_contributions_ooui,
-        title = "Your Impact",
-        subTitle = "Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public."
+        icon = R.drawable.ic_mode_edit_white_24dp,
+        title = R.string.activity_tab_onboarding_impact_title,
+        subTitle = R.string.activity_tab_onboarding_impact_message
     ),
     OnboardingItem(
-        icon = R.drawable.ic_star_24,
-        title = "Highlights",
-        subTitle = "Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public."
+        icon = R.drawable.ic_outline_stadia_controller_24,
+        title = R.string.activity_tab_onboarding_engage_title,
+        subTitle = R.string.activity_tab_onboarding_engage_message
     ),
     OnboardingItem(
-        icon = R.drawable.ic_link_black_24dp,
-        title = "Timeline",
-        subTitle = "Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public."
+        icon = R.drawable.ic_outline_lock_24,
+        title = R.string.activity_tab_onboarding_stay_in_control_title,
+        subTitle = R.string.activity_tab_onboarding_stay_in_control_message
     )
 )
 
@@ -70,8 +71,14 @@ class ActivityTabOnboardingActivity : BaseActivity() {
             BaseTheme {
                 OnboardingScreen(
                     onboardingItems = onboardingItems,
-                    onLearnMoreClick = {},
-                    onContinueClick = {}
+                    onLearnMoreClick = {
+                        // TODO: MARK_ACTIVITY_TAB waiting for mediawiki page link
+                    },
+                    onContinueClick = {
+                        Prefs.isActivityTabOnboardingShown = true
+                        setResult(RESULT_OK)
+                        finish()
+                    }
                 )
             }
         }
@@ -122,14 +129,14 @@ fun OnboardingScreen(
                     ),
                     headlineContent = {
                         Text(
-                            text = onboardingItem.title,
+                            text = stringResource(onboardingItem.title),
                             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
                             color = WikipediaTheme.colors.primaryColor
                         )
                     },
                     supportingContent = {
                         Text(
-                            text = onboardingItem.subTitle,
+                            text = stringResource(onboardingItem.subTitle),
                             style = MaterialTheme.typography.bodyMedium,
                             color = WikipediaTheme.colors.secondaryColor
                         )
@@ -137,6 +144,7 @@ fun OnboardingScreen(
                     leadingContent = {
                         Icon(
                             painter = painterResource(onboardingItem.icon),
+                            tint = WikipediaTheme.colors.progressiveColor,
                             contentDescription = null
                         )
                     }
@@ -167,7 +175,7 @@ fun OnboardingScreen(
                     onClick = onLearnMoreClick
                 ) {
                     Text(
-                        text = "Learn more",
+                        text = stringResource(R.string.activity_tab_menu_info),
                         style = MaterialTheme.typography.labelLarge,
                         color = WikipediaTheme.colors.progressiveColor
                     )
@@ -182,7 +190,7 @@ fun OnboardingScreen(
                     onClick = onContinueClick
                 ) {
                     Text(
-                        text = "Continue",
+                        text = stringResource(R.string.onboarding_continue),
                         style = MaterialTheme.typography.labelLarge,
                         color = WikipediaTheme.colors.paperColor
                     )
@@ -194,8 +202,8 @@ fun OnboardingScreen(
 
 data class OnboardingItem(
     val icon: Int,
-    val title: String,
-    val subTitle: String
+    val title: Int,
+    val subTitle: Int
 )
 
 @Preview
