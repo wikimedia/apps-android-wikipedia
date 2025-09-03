@@ -199,7 +199,7 @@ fun ReadingHistoryModule(
                 contentPadding = PaddingValues(horizontal = 18.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = WikipediaTheme.colors.progressiveColor,
-                    contentColor = WikipediaTheme.colors.paperColor,
+                    contentColor = Color.White,
                 ),
                 onClick = {
                     onExploreClick()

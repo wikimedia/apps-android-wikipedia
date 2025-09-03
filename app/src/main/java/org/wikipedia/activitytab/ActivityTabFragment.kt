@@ -41,6 +41,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -138,6 +139,7 @@ class ActivityTabFragment : Fragment() {
                         isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
                         modules = Prefs.activityTabModules,
+                        haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
@@ -167,6 +169,7 @@ class ActivityTabFragment : Fragment() {
         isLoggedIn: Boolean,
         userName: String,
         modules: ActivityTabModules,
+        haveAtLeastOneDonation: Boolean,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
@@ -185,7 +188,6 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
-            val haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
 
             if (!isLoggedIn) {
                 Box(
@@ -217,7 +219,7 @@ class ActivityTabFragment : Fragment() {
                             contentPadding = PaddingValues(horizontal = 18.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = WikipediaTheme.colors.progressiveColor,
-                                contentColor = WikipediaTheme.colors.paperColor,
+                                contentColor = Color.White,
                             ),
                             onClick = {
                                 startActivity(
@@ -231,7 +233,7 @@ class ActivityTabFragment : Fragment() {
                             Icon(
                                 modifier = Modifier.size(20.dp),
                                 painter = painterResource(R.drawable.ic_user_avatar),
-                                tint = WikipediaTheme.colors.paperColor,
+                                tint = Color.White,
                                 contentDescription = null
                             )
                             Text(
@@ -610,6 +612,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
+                haveAtLeastOneDonation = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -650,6 +653,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
+                haveAtLeastOneDonation = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -676,6 +680,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = false,
                 userName = "User",
                 modules = ActivityTabModules(),
+                haveAtLeastOneDonation = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -710,6 +715,7 @@ class ActivityTabFragment : Fragment() {
                     isDonationsEnabled = false,
                     isTimelineEnabled = false
                 ),
+                haveAtLeastOneDonation = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,

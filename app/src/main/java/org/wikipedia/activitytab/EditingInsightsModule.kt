@@ -417,14 +417,14 @@ fun SuggestedEditsView(
             contentPadding = PaddingValues(horizontal = 18.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.progressiveColor,
-                contentColor = WikipediaTheme.colors.paperColor,
+                contentColor = Color.White,
             ),
             onClick = { onClick?.invoke() },
         ) {
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = painterResource(R.drawable.ic_mode_edit_white_24dp),
-                tint = WikipediaTheme.colors.paperColor,
+                tint = Color.White,
                 contentDescription = null
             )
             Text(
