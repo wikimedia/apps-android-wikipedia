@@ -46,7 +46,7 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                         finish()
                     },
                     modules = Prefs.activityTabModules,
-                    showLastDonation = Prefs.donationResults.isNotEmpty()
+                    haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
                 )
             }
         }
@@ -64,7 +64,7 @@ fun CustomizationScreen(
     modifier: Modifier = Modifier,
     onBackButtonClick: () -> Unit,
     modules: ActivityTabModules,
-    showLastDonation: Boolean = false
+    haveAtLeastOneDonation: Boolean = false
 ) {
     var currentModules by remember { mutableStateOf(modules) }
 
@@ -95,7 +95,7 @@ fun CustomizationScreen(
                     )
                 }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
-                    if (moduleType == ModuleType.DONATIONS && !showLastDonation) {
+                    if (moduleType == ModuleType.DONATIONS && !haveAtLeastOneDonation) {
                         return@itemsIndexed
                     }
                     CustomizationScreenSwitch(

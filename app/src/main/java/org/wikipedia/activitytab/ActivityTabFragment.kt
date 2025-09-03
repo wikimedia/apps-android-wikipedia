@@ -183,6 +183,7 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
+            val haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
 
             if (!isLoggedIn) {
                 Box(
@@ -264,6 +265,42 @@ class ActivityTabFragment : Fragment() {
                 return@Scaffold
             }
 
+            if (modules.noModulesVisible(haveAtLeastOneDonation)) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+                    val scrollState = rememberScrollState()
+                    Column(
+                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                            .verticalScroll(scrollState),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Image(
+                            modifier = Modifier.size(164.dp),
+                            painter = painterResource(R.drawable.illustration_activity_tab_empty),
+                            contentDescription = null
+                        )
+                        Text(
+                            modifier = Modifier.padding(top = 16.dp),
+                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Text(
+                            modifier = Modifier.padding(top = 4.dp),
+                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    }
+                    return@Scaffold
+                }
+            }
+
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
@@ -283,7 +320,7 @@ class ActivityTabFragment : Fragment() {
                 }
             ) {
                 LazyColumn {
-                    if (modules.isModuleEnabled(ModuleType.TIME_SPENT) || modules.isModuleEnabled(ModuleType.READING_INSIGHTS)) {
+                    if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
                                 modifier = Modifier
@@ -301,8 +338,8 @@ class ActivityTabFragment : Fragment() {
                                 ReadingHistoryModule(
                                     modifier = Modifier.align(Alignment.CenterHorizontally),
                                     userName = userName,
-                                    showTimeSpent = modules.isModuleEnabled(ModuleType.TIME_SPENT),
-                                    showInsights = modules.isModuleEnabled(ModuleType.READING_INSIGHTS),
+                                    showTimeSpent = modules.isModuleVisible(ModuleType.TIME_SPENT),
+                                    showInsights = modules.isModuleVisible(ModuleType.READING_INSIGHTS),
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
@@ -340,7 +377,7 @@ class ActivityTabFragment : Fragment() {
                                     )
                                 )
                         ) {
-                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleVisible(ModuleType.IMPACT)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_impact),
@@ -350,7 +387,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS)) {
+                            if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS)) {
                                 EditingInsightsModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -389,7 +426,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.IMPACT)) {
                                 ImpactModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -403,7 +440,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.DONATIONS)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.DONATIONS)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_highlights),
@@ -413,7 +450,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.GAMES)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES)) {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -443,7 +480,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) && Prefs.donationResults.isNotEmpty()) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation)) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -457,14 +494,14 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleEnabled(ModuleType.DONATIONS) || modules.isModuleEnabled(ModuleType.GAMES) || modules.isModuleEnabled(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation) || modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // Add bottom padding only if at least one of the modules in this gradient box is enabled.
                                 Spacer(modifier = Modifier.size(16.dp))
                             }
                         }
                     }
 
-                    if (modules.isModuleEnabled(ModuleType.TIMELINE)) {
+                    if (modules.isModuleVisible(ModuleType.TIMELINE)) {
                         items(
                             count = timelineItems.itemCount,
                         ) { index ->
@@ -645,6 +682,40 @@ class ActivityTabFragment : Fragment() {
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
                 timelineFlow = emptyFlow()
+            )
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityTabNoModulesPreview() {
+        BaseTheme(currentTheme = Theme.LIGHT) {
+            ActivityTabScreen(
+                isLoggedIn = true,
+                userName = "User",
+                modules = ActivityTabModules(
+                    isTimeSpentEnabled = false,
+                    isReadingInsightsEnabled = false,
+                    isEditingInsightsEnabled = false,
+                    isImpactEnabled = false,
+                    isGamesEnabled = false,
+                    isDonationsEnabled = false,
+                    isTimelineEnabled = false
+                ),
+                readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
+                    timeSpentThisWeek = 0,
+                    articlesReadThisMonth = 0,
+                    lastArticleReadTime = null,
+                    articlesReadByWeek = listOf(0, 0, 0, 0),
+                    articlesSavedThisMonth = 0,
+                    lastArticleSavedTime = null,
+                    articlesSaved = emptyList(),
+                    topCategories = emptyList()
+                )),
+                donationUiState = UiState.Success("Unknown"),
+                wikiGamesUiState = UiState.Success(null),
+                impactUiState = UiState.Success(GrowthUserImpact()),
+                    timelineFlow = emptyFlow()
             )
         }
     }

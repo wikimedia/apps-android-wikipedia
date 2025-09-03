@@ -1236,6 +1236,8 @@
   <string name="activity_tab_customize_screen_games_switch_title">Title of the switch for the Games module in the Activity Tab customization screen.</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Title of the switch for the Donations module in the Activity Tab customization screen.</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Title of the switch for the Timeline module in the Activity Tab customization screen.</string>
+  <string name="activity_tab_customize_screen_no_modules_title">Title of the empty state when all modules are turned off.</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Message of the empty state when all modules are turned off.</string>
   <string name="activity_tab_timeline_today">Date separator label for today\'s entries in activity timeline.</string>
   <string name="activity_tab_timeline_yesterday">Date separator label for yesterday\'s entries in activity timeline.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>

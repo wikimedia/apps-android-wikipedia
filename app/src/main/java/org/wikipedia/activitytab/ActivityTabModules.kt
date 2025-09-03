@@ -32,6 +32,13 @@ data class ActivityTabModules(
         ModuleType.DONATIONS -> copy(isDonationsEnabled = enabled)
         ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
     }
+
+    fun isModuleVisible(moduleType: ModuleType, haveAtLeastOneDonation: Boolean = false): Boolean = when (moduleType) {
+        ModuleType.DONATIONS -> isModuleEnabled(moduleType) && haveAtLeastOneDonation
+        else -> isModuleEnabled(moduleType)
+    }
+
+    fun noModulesVisible(haveAtLeastOneDonation: Boolean = false) = ModuleType.entries.all { !isModuleVisible(it, haveAtLeastOneDonation) }
 }
 
 enum class ModuleType(val displayName: Int) {
