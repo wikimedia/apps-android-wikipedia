@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
@@ -38,6 +39,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.UriUtil
 
 private val onboardingItems = listOf(
     OnboardingItem(
@@ -71,7 +73,7 @@ class ActivityTabOnboardingActivity : BaseActivity() {
                 OnboardingScreen(
                     onboardingItems = onboardingItems,
                     onLearnMoreClick = {
-                        // TODO: MARK_ACTIVITY_TAB waiting for mediawiki page link
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.activity_tab_url).toUri())
                         Prefs.isActivityTabOnboardingShown = true
                     },
                     onContinueClick = {

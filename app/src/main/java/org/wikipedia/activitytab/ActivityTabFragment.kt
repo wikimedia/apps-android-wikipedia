@@ -100,6 +100,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
+import org.wikipedia.util.UriUtil
 import java.time.LocalDateTime
 
 class ActivityTabFragment : Fragment() {
@@ -757,7 +758,7 @@ class ActivityTabFragment : Fragment() {
                 true
             }
             R.id.menu_learn_more -> {
-                // TODO: MARK_ACTIVITY_TAB --> add mediawiki page link
+                UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.activity_tab_url).toUri())
                 true
             }
             R.id.menu_report_feature -> {
