@@ -584,6 +584,7 @@
   <string name="suggested_edits_edit_caption_button">وضاحت میں ترمیم کریں</string>
   <string name="suggested_edits_review_image_caption">تصویر کی وضاحت پر نظر ثانی کریں</string>
   <string name="suggested_edits_my_contributions">میری شراکتیں</string>
+  <string name="suggested_edits_task_multilingual_positive">زبانیں شامل کریں</string>
   <string name="suggested_edits_image_caption_summary_title_image">تصویر</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فن کار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>

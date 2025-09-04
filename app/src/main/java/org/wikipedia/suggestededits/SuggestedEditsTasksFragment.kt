@@ -39,6 +39,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTI
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.events.LoggedOutEvent
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
@@ -364,7 +365,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        if (WikipediaApp.instance.appOrSystemLanguageCode == "test") {
+        if (WikipediaApp.instance.appOrSystemLanguageCode.startsWith(AppLanguageLookUpTable.TEST_LANGUAGE_CODE)) {
             return false
         }
 
