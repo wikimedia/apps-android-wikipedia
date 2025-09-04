@@ -7,10 +7,7 @@ import json
 import codecs
 import requests
 from jinja2 import Environment, FileSystemLoader
-
-headers = {
-    'User-Agent': 'WikipediaApp/2.7 (android-support@wikimedia.org) make-templates-script/1.0'
-}
+from constants import HEADERS as headers
 
 CHINESE_WIKI_LANG = "zh"
 SIMPLIFIED_CHINESE_LANG = "zh-hans"

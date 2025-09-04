@@ -6,10 +6,7 @@ import lxml
 import lxml.builder as lb
 import json
 import requests
-
-headers = {
-    'User-Agent': 'WikipediaApp/2.7 (android-support@wikimedia.org) language-list-script/1.0'
-}
+from constants import HEADERS as headers
 
 QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
     '&format=json&formatversion=2&smtype=language&smstate=all'
