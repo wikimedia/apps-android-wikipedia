@@ -55,7 +55,7 @@ class UserContribPagingSource(
     private val historyEntryWithImageDao: HistoryEntryWithImageDao
 ) : TimelineSource {
 
-    private val MAX_BATCH_SIZE = 50
+    private val maxBatchSize = 50
 
     override val id: String = "user_contrib"
 
@@ -90,7 +90,7 @@ class UserContribPagingSource(
         }
 
         // Fetching missing page info in batches
-        missingPageInfoIds.chunked(MAX_BATCH_SIZE).forEach { batch ->
+        missingPageInfoIds.chunked(maxBatchSize).forEach { batch ->
             val pages = service.getInfoByPageIdsOrTitles(pageIds = batch.joinToString(separator = "|")).query?.pages.orEmpty()
             pages.forEach { page ->
                 timelineItemsByPageId[page.pageId.toLong()]?.let { existingItem ->

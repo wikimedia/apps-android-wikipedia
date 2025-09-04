@@ -535,7 +535,7 @@ class ActivityTabFragment : Fragment() {
                                                             requireContext(),
                                                             PageTitle(
                                                                 item.apiTitle,
-                                                                viewModel.wikiSite,
+                                                                viewModel.wikiSiteForTimeline,
                                                                 item.thumbnailUrl,
                                                                 item.description,
                                                                 item.displayTitle
