@@ -1242,6 +1242,7 @@
   <string name="activity_tab_timeline_yesterday">Date separator label for yesterday\'s entries in activity timeline.</string>
   <string name="activity_tab_timeline_empty_state_title">Title displayed when the timeline is empty.</string>
   <string name="activity_tab_timeline_empty_state_message">Message shown when there are no items in the timeline.</string>
+  <string name="activity_tab_timeline_view_changes_button">Button label to view edit changes in the timeline.</string>
   <string name="activity_tab_onboarding_screen_title">Title for the activity tab onboarding screen.</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Title for the section about user\'s reading habits.</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Short explanation about user\'s reading habits.</string>
