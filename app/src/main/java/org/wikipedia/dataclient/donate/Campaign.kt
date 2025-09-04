@@ -34,8 +34,8 @@ class Campaign(
     }
 
     fun getAssetsForLang(lang: String): Assets? {
-        val list = assets[lang].orEmpty()
-        if (list.isEmpty()) {
+        val list = assets[lang]
+        if (list.isNullOrEmpty()) {
             return null
         } else if (list.size == 1) {
             return list[0]
@@ -57,7 +57,7 @@ class Campaign(
                 return i
             }
         }
-        return assets.size - 1
+        return assets.lastIndex
     }
 
     @Serializable
