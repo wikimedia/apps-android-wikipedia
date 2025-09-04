@@ -104,7 +104,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import java.time.LocalDateTime
 
-// TODO: add onboarding instrumentation
 class ActivityTabFragment : Fragment() {
     interface Callback {
         fun onNavigateTo(navTab: NavTab)
