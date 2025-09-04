@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.compose.theme.getShimmerColors
+import org.wikipedia.compose.theme.shimmerColors
 import org.wikipedia.theme.Theme
 
 fun Modifier.pulse(
@@ -121,20 +121,20 @@ private fun PreviewPulse() {
 
 fun Modifier.shimmerEffect(
     shimmerColors: List<Color>? = null,
-    durationMs: Int = 1200
+    durationMs: Int = 1200,
+    easing: Easing = LinearEasing
 ): Modifier = composed {
-    val colors = shimmerColors ?: WikipediaTheme.colors.getShimmerColors()
+    val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
     var size by remember { mutableStateOf(IntSize.Zero) }
-    val transition = rememberInfiniteTransition(label = "shimmer")
+    val transition = rememberInfiniteTransition()
 
     val startOffsetX by transition.animateFloat(
         initialValue = -2 * size.width.toFloat(),
         targetValue = 2 * size.width.toFloat(),
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMs, easing = LinearEasing),
+            animation = tween(durationMs, easing = easing),
             repeatMode = RepeatMode.Restart
-        ),
-        label = "shimmer"
+        )
     )
 
     val brush = Brush.linearGradient(

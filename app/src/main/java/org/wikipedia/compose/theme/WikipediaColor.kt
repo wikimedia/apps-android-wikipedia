@@ -121,7 +121,7 @@ val SepiaColors = WikipediaColor(
 )
 
 @Composable
-fun WikipediaColor.getShimmerColors(): List<Color> {
+fun WikipediaColor.shimmerColors(): List<Color> {
     return if (isDarkTheme) {
         listOf(
             borderColor.copy(alpha = 0.3f),
