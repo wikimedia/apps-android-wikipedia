@@ -116,12 +116,12 @@ fun TimelineModule(
                     )
                     Text(
                         modifier = Modifier.padding(start = 6.dp),
-                        text = "View changes"
+                        text = stringResource(R.string.activity_tab_timeline_view_changes_button)
                     )
                 }
             }
         }
-        if (timelineItem.thumbnailUrl != null) {
+        if (!timelineItem.thumbnailUrl.isNullOrEmpty()) {
             val request =
                 ImageService.getRequest(LocalContext.current, url = timelineItem.thumbnailUrl)
             AsyncImage(
@@ -208,7 +208,7 @@ fun TimelineDateSeparator(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun TimelineItemPreview() {
     BaseTheme(
@@ -233,7 +233,7 @@ private fun TimelineItemPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun TimelineDateSeparatorPreview() {
     BaseTheme(

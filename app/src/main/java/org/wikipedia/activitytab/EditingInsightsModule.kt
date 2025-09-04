@@ -243,7 +243,7 @@ fun MostViewedCard(
                                 )
                             }
                         }
-                        if (pageTitle.thumbUrl != null) {
+                        if (!pageTitle.thumbUrl.isNullOrEmpty()) {
                             val request =
                                 ImageService.getRequest(
                                     LocalContext.current,

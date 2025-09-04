@@ -426,7 +426,7 @@ private fun ArticleSavedThisMonthCard(
 
                     for (i in 0 until itemsToShow) {
                         val url = readingHistory.articlesSaved[i].thumbUrl
-                        if (url == null) {
+                        if (url.isNullOrEmpty()) {
                             Box(
                                 modifier = Modifier.padding(start = 4.dp).size(38.dp)
                                     .background(
