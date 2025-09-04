@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab.timeline
 
+import kotlinx.coroutines.delay
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
@@ -23,6 +24,7 @@ class HistoryEntryPagingSource(
     override val id: String = "history_entry"
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
+        delay(500)
         val offset = (cursor as? Cursor.HistoryEntryCursor)?.offset ?: 0
         val items = dao.getHistoryEntriesWithOffset(pageSize, offset).map {
             TimelineItem(

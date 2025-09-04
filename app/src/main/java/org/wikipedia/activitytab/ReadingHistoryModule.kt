@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -106,10 +105,7 @@ fun ReadingHistoryModule(
         )
     }
     if (readingHistoryState is UiState.Loading) {
-        CircularProgressIndicator(
-            modifier = modifier.padding(vertical = 16.dp).size(48.dp),
-            color = WikipediaTheme.colors.progressiveColor
-        )
+        ActivityTabShimmerView()
     } else if (readingHistoryState is UiState.Success) {
         val readingHistory = readingHistoryState.data
         val todayDate = LocalDate.now()

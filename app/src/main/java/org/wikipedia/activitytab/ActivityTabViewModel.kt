@@ -9,6 +9,7 @@ import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -110,6 +111,7 @@ class ActivityTabViewModel() : ViewModel() {
             _readingHistoryState.value = UiState.Error(throwable)
         }) {
             _readingHistoryState.value = UiState.Loading
+            delay(500)
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
             var weekAgo = now - weekInMillis
@@ -165,6 +167,7 @@ class ActivityTabViewModel() : ViewModel() {
             _wikiGamesUiState.value = UiState.Error(throwable)
         }) {
             _wikiGamesUiState.value = UiState.Loading
+            delay(500)
             val lastGameHistory = AppDatabase.instance.dailyGameHistoryDao().findLastGameHistory()
             if (lastGameHistory == null) {
                 _wikiGamesUiState.value = UiState.Success(null)
@@ -185,7 +188,7 @@ class ActivityTabViewModel() : ViewModel() {
             _impactUiState.value = UiState.Error(throwable)
         }) {
             _impactUiState.value = UiState.Loading
-
+             delay(500)
             // The impact API is rate limited, so we cache it manually.
             val wikiSite = WikipediaApp.instance.wikiSite
             val now = Instant.now().epochSecond
