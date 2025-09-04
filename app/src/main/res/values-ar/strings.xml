@@ -2146,4 +2146,12 @@
   <string name="donation_reminders_settings_description_on">تذكيرات التبرع مُفعّلة. ستُذكّرك ويكيبيديا بالتبرع %1$s كل %2$s تقرأها أثناء هذه التجربة.</string>
   <string name="donation_reminders_settings_description_off">تم إيقاف تذكير التبرعات.</string>
   <string name="donation_reminders_settings_tooltip_info_label">يتم تخزين عدد المقالات محليًا على جهازك</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="zero">لا مقال</item>
+    <item quantity="one">%d مقال</item>
+    <item quantity="two">مقالان</item>
+    <item quantity="few">مقالات قليلة</item>
+    <item quantity="many">مقالات كثيرة</item>
+    <item quantity="other">%d مقالات</item>
+  </plurals>
 </resources>
