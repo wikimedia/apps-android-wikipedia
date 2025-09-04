@@ -42,6 +42,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -76,6 +77,7 @@ import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -139,6 +141,7 @@ class ActivityTabFragment : Fragment() {
                         isLoggedIn = AccountUtil.isLoggedIn,
                         userName = AccountUtil.userName,
                         modules = Prefs.activityTabModules,
+                        haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
@@ -168,6 +171,7 @@ class ActivityTabFragment : Fragment() {
         isLoggedIn: Boolean,
         userName: String,
         modules: ActivityTabModules,
+        haveAtLeastOneDonation: Boolean,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
@@ -188,7 +192,6 @@ class ActivityTabFragment : Fragment() {
             if (readingHistoryState is UiState.Success) {
                 isRefreshing = false
             }
-            val haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
 
             if (!isLoggedIn) {
                 Box(
@@ -220,7 +223,7 @@ class ActivityTabFragment : Fragment() {
                             contentPadding = PaddingValues(horizontal = 18.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = WikipediaTheme.colors.progressiveColor,
-                                contentColor = WikipediaTheme.colors.paperColor,
+                                contentColor = Color.White,
                             ),
                             onClick = {
                                 ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "create_account_click")
@@ -235,7 +238,7 @@ class ActivityTabFragment : Fragment() {
                             Icon(
                                 modifier = Modifier.size(20.dp),
                                 painter = painterResource(R.drawable.ic_user_avatar),
-                                tint = WikipediaTheme.colors.paperColor,
+                                tint = Color.White,
                                 contentDescription = null
                             )
                             Text(
@@ -289,19 +292,15 @@ class ActivityTabFragment : Fragment() {
                             painter = painterResource(R.drawable.illustration_activity_tab_empty),
                             contentDescription = null
                         )
-                        Text(
-                            modifier = Modifier.padding(top = 16.dp),
-                            text = stringResource(R.string.activity_tab_customize_screen_no_modules_title),
-                            style = MaterialTheme.typography.titleSmall,
-                            textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                        Text(
-                            modifier = Modifier.padding(top = 4.dp),
+                        HtmlText(
+                            modifier = Modifier.padding(vertical = 16.dp),
                             text = stringResource(R.string.activity_tab_customize_screen_no_modules_message),
                             style = MaterialTheme.typography.bodyMedium,
                             textAlign = TextAlign.Center,
-                            color = WikipediaTheme.colors.primaryColor
+                            color = WikipediaTheme.colors.primaryColor,
+                            linkInteractionListener = {
+                                startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
+                            }
                         )
                     }
                     return@Scaffold
@@ -481,7 +480,7 @@ class ActivityTabFragment : Fragment() {
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = wikiGamesUiState,
-                                    onEntryCardClick = {
+                                    onPlayGameCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
@@ -562,7 +561,7 @@ class ActivityTabFragment : Fragment() {
                                                             requireContext(),
                                                             PageTitle(
                                                                 item.apiTitle,
-                                                                viewModel.wikiSite,
+                                                                viewModel.wikiSiteForTimeline,
                                                                 item.thumbnailUrl,
                                                                 item.description,
                                                                 item.displayTitle
@@ -639,6 +638,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
+                haveAtLeastOneDonation = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -679,6 +679,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = true,
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
+                haveAtLeastOneDonation = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -705,6 +706,7 @@ class ActivityTabFragment : Fragment() {
                 isLoggedIn = false,
                 userName = "User",
                 modules = ActivityTabModules(),
+                haveAtLeastOneDonation = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -739,6 +741,7 @@ class ActivityTabFragment : Fragment() {
                     isDonationsEnabled = false,
                     isTimelineEnabled = false
                 ),
+                haveAtLeastOneDonation = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,

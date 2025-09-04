@@ -1,7 +1,6 @@
 package org.wikipedia.activitytab
 
 import android.text.format.DateUtils
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -46,17 +45,7 @@ import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
-    var langCode = Prefs.userContribFilterLangCode
-
-    val wikiSite get(): WikiSite {
-        return when (langCode) {
-            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
-            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
-            else -> WikiSite.forLanguageCode(langCode)
-        }
-    }
-
+class ActivityTabViewModel() : ViewModel() {
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -68,6 +57,14 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
+    val wikiSiteForTimeline get(): WikiSite {
+        val langCode = Prefs.userContribFilterLangCode
+        return when (langCode) {
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(langCode)
+        }
+    }
     val timelineFlow = Pager(
         config = PagingConfig(
             pageSize = 150,
@@ -233,7 +230,7 @@ class ActivityTabViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private fun createTimelineSources(): List<TimelineSource> {
         val historyEntryPagingSource = HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao())
-        val userContribPagingSource = UserContribPagingSource(wikiSite, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
+        val userContribPagingSource = UserContribPagingSource(wikiSiteForTimeline, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
         val readingListPagingSource = ReadingListPagingSource(AppDatabase.instance.readingListPageDao())
         return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
     }
