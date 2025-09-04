@@ -22,6 +22,9 @@
   <string name="search_hint">Търсене в Уикипедия</string>
   <string name="search_hint_voice_search">Гласово търсене</string>
   <string name="search_hint_search_languages">Търсене на език</string>
+  <string name="search_back_button_content_description">Назад</string>
+  <string name="search_clear_query_content_description">Изчистване на заявката</string>
+  <string name="search_icon_content_description">Търсене</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
@@ -133,6 +136,10 @@
   <string name="dialog_message_leaving_edit">Промените Ви все още не са публикувани. Наистина ли искате да напуснете тази страница?</string>
   <string name="dialog_message_leaving_edit_leave">Излизане</string>
   <string name="dialog_message_leaving_edit_stay">Оставане</string>
+  <string name="dialog_confirm_delete_donation_history_title">Потвърждаване на изтриването</string>
+  <string name="dialog_confirm_delete_donation_history_message">Това ще важи само за дарения, направени от това устройство.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Изтриване</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Отказ</string>
   <string name="menu_show_toc">Съдържание</string>
   <string name="search_no_results_found">Не бяха открити резултати</string>
   <string name="search_reading_list_no_results">Не са открити резултати в „%s“</string>
@@ -149,6 +156,7 @@
   <string name="account_creation_password_hint">Парола</string>
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
   <string name="login_2fa_other_workflow_error_msg">Изисква се двуфакторно удостоверяване! Моля, влезте от главния екран и въведете кода от вашия 2FA токен.</string>
+  <string name="login_email_auth_hint">Код за потвърждение на имейл</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -160,7 +168,7 @@
   <string name="reset_password_title">Въведете паролата си</string>
   <string name="reset_password_description">Влязохте с временна парола. За да завършите влизането, моля, въведете нова парола тук.</string>
   <string name="reset_password_hint">Нова парола</string>
-  <string name="reset_password_button">Запазване и влизане</string>
+  <string name="reset_password_button">Съхраняване и влизане</string>
   <string name="preference_title_logout">Излизане</string>
   <string name="toast_logout_complete">Излезли сте от системата</string>
   <string name="logout_prompt">Ще излезете за всички устройства, на които сте влезли. Искате ли да продължите?</string>
@@ -236,13 +244,13 @@
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
   <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
@@ -264,6 +272,7 @@
   <string name="edit_rollback">Отмяна</string>
   <string name="edit_warn">Предупреждение</string>
   <string name="edit_damage">Щети %s</string>
+  <string name="edit_intent">Намерение %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байта</item>
@@ -464,12 +473,27 @@
   <string name="reading_list_create_new">Създаване на нов</string>
   <string name="reading_list_title_exists">Списъкът за четене „%s“ вече съществува.</string>
   <string name="reading_list_article_added_to_named">%1$s е добавена към %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">%s е съхранена. Искате ли да я добавите към списъка?</string>
   <string name="reading_list_article_moved_to_named">%1$s е преместена в %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Всичко е наред! %1$s вече съдържа %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Всичко е наред! %s вече съдържа всички статии.</string>
   <string name="reading_list_added_view_button">Преглед на списъка</string>
   <string name="reading_list_add_to_list_button">Добавяне към списък</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 статия</item>
+    <item quantity="other">%d статии</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 статия, %2$.2f MB</item>
     <item quantity="other">%1$d статии, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d от 1 статия е достъпни офлайн</item>
+    <item quantity="other">%1$d от %2$d статии са достъпни офлайн</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d от 1 статия е достъпни офлайн, %3$.2f MB</item>
+    <item quantity="other">%1$d от %2$d статии са достъпни офлайн, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Сортиране</string>
   <string name="reading_list_sort_ellipsis">Подреждане по...</string>
@@ -483,6 +507,7 @@
   <string name="reading_list_menu_export">Изнасяне на списък</string>
   <string name="reading_list_menu_select">Избиране</string>
   <string name="reading_list_menu_unselect">Премахване на избора</string>
+  <string name="reading_list_export_write_permission_rationale">Нужно е разрешение за записване в паметта на устройството, за да се запази списъка за четене.</string>
   <string name="reading_list_menu_rename">Редактиране на име/описание</string>
   <string name="reading_list_action_menu_remove_from_offline">Премахване от офлайн достъп</string>
   <string name="reading_list_action_menu_save_for_offline">Запазване за офлайн достъп</string>
@@ -494,6 +519,22 @@
   <string name="reading_list_name_hint">Име на този списък</string>
   <string name="reading_list_description_hint">Описание (незадължително)</string>
   <string name="reading_list_item_deleted">статията %s е премахната от списъка</string>
+  <string name="reading_list_item_deleted_from_list">%1$s е отстранена от %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d статия е премахната от списъка</item>
+    <item quantity="other">%d статии са премахнати от списъка</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d статия е премахната от %s</item>
+    <item quantity="other">%d статии са премахнати от %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d списък е изтрит</item>
+    <item quantity="other">%d списъка са изтрити</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Списъкът по подразбиране (%s) не може да се изтрива</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s е изтрит. Списъкът по подразбиране (%2$s) не може да се изтрива.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Списъците са изтрити. Списъкът по подразбиране (%s) не може да се изтрива.</string>
   <string name="reading_list_items_deleted">%d статии са премахнати от списъка</string>
   <string name="reading_lists_item_deleted">%s е премахната от списъците</string>
   <string name="reading_list_item_delete_undo">Отмяна</string>
@@ -513,8 +554,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Статията се намира в няколко списъка</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
   <string name="reading_lists_sync_reminder_title">Включване на синхронизиране на списъци за четене?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статиите, съхранени в списъците Ви за четене, вече могат да се синхронизират със сметката Ви в Уикипедия. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Списъците за четене вече могат да бъдат синхронизирани на различни устройства. Влезте във Вашата сметка в Уикипедия и позволете списъците Ви да бъдат запазвани. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
   <string name="reading_lists_login_reminder_text">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
@@ -642,6 +683,7 @@
   <string name="notifications_mark_unread">Отбелязване като непрочетено</string>
   <string name="notifications_mark_all_as_read">Отбелязване на всички като прочетени</string>
   <string name="notifications_direct_reply_action">Отговор</string>
+  <string name="notifications_direct_reply_progress">Публикуване на отговор до %s…</string>
   <string name="notifications_direct_reply_success">Отговорът е публикуван.</string>
   <string name="notifications_direct_reply_error">Отговорът не може да бъде публикуван автоматично.</string>
   <string name="notifications_mark_all_as_read_message">%d означени като прочетени</string>
@@ -717,6 +759,8 @@
   <string name="view_random_article_card_action">Още случайни статии</string>
   <string name="view_top_read_card_title">Най-четени</string>
   <string name="view_top_read_card_action">Още най-четени</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d хил.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d млн.</string>
   <string name="view_next_random_article">Зареждане на друга случайна страница</string>
   <string name="view_main_page_card_title">Днес в Уикипедия</string>
   <string name="view_main_page_card_action">Преглед на главната страница</string>
@@ -922,6 +966,10 @@
     <item quantity="one">Принос</item>
     <item quantity="other">Приноси</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Редакция</item>
+    <item quantity="other">Редакции</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дни</item>
@@ -964,6 +1012,10 @@
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s етикет</item>
     <item quantity="other">%1$s етикета</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s знак</item>
+    <item quantity="other">%1$s знака</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">Премахнахте %d знак</item>
@@ -1023,6 +1075,7 @@
   <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;br/&gt;Влезте в сметката си в Уикипедия, за да синхронизирате списъците си за четене. &lt;a href=\"#login\"&gt;Присъединете се към Уикипедия&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Данни и поверителност</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_got_it">Разбрах</string>
   <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>
@@ -1091,6 +1144,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Източник</string>
   <string name="wikitext_preview_link">Преглед на връзката</string>
+  <string name="wikitext_mention_user">Споменаване на потребител</string>
   <string name="insert_media_title">Вмъкване на медиен файл</string>
   <string name="insert_media_search_description">Изберете файл от Общомедия</string>
   <string name="insert_media_search_hint">Търсене на медиен файл</string>
@@ -1120,6 +1174,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Височина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Вмъкване</string>
+  <string name="templates_search_hint">Търсене на шаблони</string>
   <string name="templates_insert_button">Вмъкване</string>
   <string name="templates_param_suggested_value">напр. %s</string>
   <string name="templates_param_optional_hint">%s (незадължително)</string>
@@ -1314,11 +1369,23 @@
   <string name="media_playback_error">Грешка при възпроизвеждане на мултимедия.</string>
   <string name="user_contrib_menu_label">Приноси</string>
   <string name="user_contrib_filter_activity_title">Филтриране на приноси</string>
+  <string name="shareable_reading_lists_new_indicator">*нов*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Разбрах</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
+  <string name="talk_templates_new_message_title">Ново съобщение</string>
+  <string name="talk_templates_new_message_subject_hint">Тема</string>
+  <string name="talk_templates_new_message_compose_hint">Съставяне на съобщение</string>
+  <string name="talk_templates_new_message_save">Съхраняване</string>
+  <string name="talk_templates_new_message_dialog_title">Съхраняване на промените</string>
+  <string name="talk_templates_new_message_dialog_description">Добавяне на заглавие и съхраняване на съобщението.</string>
+  <string name="talk_templates_new_message_dialog_hint">Заглавие на съобщението</string>
+  <string name="talk_templates_new_message_dialog_save">Съхраняване</string>
   <string name="talk_templates_new_message_dialog_cancel">Отказ</string>
+  <string name="talk_templates_new_message_dialog_exists">Шаблон „%s“ вече съществува.</string>
+  <string name="talk_templates_new_message_saved">Съобщението е съхранено</string>
+  <string name="talk_templates_edit_message_dialog_title">Редактиране на съобщение</string>
   <string name="talk_templates_edit_message_dialog_save">Съхраняване</string>
   <string name="talk_templates_edit_message_dialog_delete">Изтриване</string>
   <string name="talk_templates_edit_message_updated">Съобщението е актуализирано</string>
@@ -1406,6 +1473,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Как можем да подобрим тази възможност?</string>
   <string name="patroller_diff_menu_edit_history_title">История на редакциите на статията</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратна връзка</string>
+  <string name="talk_templates_menu_edit_title">Редактиране</string>
   <string name="data_opt_in_accept">Приемане</string>
   <string name="data_opt_in_reject">Отхвърляне</string>
   <string name="page_issues_title">Проблеми със страницата</string>
@@ -1444,5 +1512,34 @@
   <string name="survey_dialog_option_very_unsatisfied">Много недоволен</string>
   <string name="survey_dialog_cancel">Отказ</string>
   <string name="survey_dialog_submit">Изпращане</string>
+  <string name="survey_dialog_general_yes">Да</string>
+  <string name="survey_dialog_general_no">Не</string>
+  <string name="survey_dialog_general_maybe">Може би</string>
+  <string name="survey_dialog_input_hint">Допълнителна обратна връзка</string>
   <string name="survey_dialog_submitted_snackbar">Обратната връзка е изпратена. Благодарим Ви!</string>
+  <string name="on_this_day_game_entry_dialog_title">Въведение</string>
+  <string name="year_in_review_survey_cancel">Отказ</string>
+  <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Начало</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Не, благодаря</string>
+  <string name="recommended_reading_list_page_snackbar_day">Ден</string>
+  <string name="recommended_reading_list_page_snackbar_week">Седмица</string>
+  <string name="recommended_reading_list_page_snackbar_month">Месец</string>
+  <string name="recommended_reading_list_settings_section_header">Препоръки</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">дневно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">седмично</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">месечно</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Всеки ден</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Всяка седмица</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Всеки месец</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Отмяна</string>
+  <string name="recommended_reading_list_settings_interests">Интереси</string>
+  <string name="donation_settings_section_header">Дарения</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">статии</string>
+  <string name="donation_reminders_prompt_positive_button">Дарете сега</string>
+  <string name="donation_reminders_prompt_negative_button">Не сега</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d статия</item>
+    <item quantity="other">%d статии</item>
+  </plurals>
 </resources>
