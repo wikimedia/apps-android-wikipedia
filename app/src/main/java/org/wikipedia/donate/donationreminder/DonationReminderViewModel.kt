@@ -106,7 +106,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         val optionItems = options.map {
             OptionItem.Preset(it, context.resources.getQuantityString(R.plurals.donation_reminders_text_articles,
                 it, it))
-        } + OptionItem.Custom()
+        } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))
 
         val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()
         else Prefs.donationReminderConfig.articleFrequency
@@ -139,10 +139,11 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
 
+        val context = WikipediaApp.instance
         val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(minimumAmount)
         val options = presets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
-        } + OptionItem.Custom()
+        } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))
 
         val selectedValue = if (Prefs.donationReminderConfig.donateAmount <= 0f) presets.first()
         else Prefs.donationReminderConfig.donateAmount
@@ -182,7 +183,7 @@ data class DonationReminderUiState(
 
 sealed class OptionItem<T : Number>(val displayText: String) {
     data class Preset<T : Number>(val value: T, val text: String) : OptionItem<T>(text)
-    class Custom<T : Number> : OptionItem<T>("Custom...")
+    class Custom<T : Number>(val text: String) : OptionItem<T>(text)
 }
 
 data class SelectableOption<T : Number>(

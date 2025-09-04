@@ -259,6 +259,7 @@ object UserTalkAliasData {
             "pt" to "Usuário(a) Discussão",
             "pwn" to "kipakamanguanguaq kakaljavaran",
             "qu" to "Ruraq rimanakuy",
+            "rki" to "အသုံးပြုလူ ဆွီးနွီးချက်",
             "rm" to "Utilisader discussiun",
             "rmy" to "Jeno vakyarimata",
             "rn" to "Ikiyago c'uwukoresha",
@@ -357,5 +358,6 @@ object UserTalkAliasData {
             "zh-yue" to "User talk",
             "zu" to "User talk",
             "test" to "User talk",
+            "test2" to "User talk",
     )
 }

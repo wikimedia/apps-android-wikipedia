@@ -259,6 +259,7 @@ object TalkAliasData {
             "pt" to "Discussão",
             "pwn" to "kakaljavaran",
             "qu" to "Rimanakuy",
+            "rki" to "ဆွီးနွီးချက်",
             "rm" to "Discussiun",
             "rmy" to "Vakyarimata",
             "rn" to "Ikiyago",
@@ -357,5 +358,6 @@ object TalkAliasData {
             "zh-yue" to "Talk",
             "zu" to "Talk",
             "test" to "Talk",
+            "test2" to "Talk",
     )
 }

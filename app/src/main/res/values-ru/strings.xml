@@ -1277,6 +1277,7 @@
   <string name="image_recommendation_tooltip_main">Добавьте отсутствующие изображения в статьи в разделе «Предложенные правки».</string>
   <string name="image_recommendation_onboarding_1">Изображения помогают людям в понимании, но во многих статьях их нет.</string>
   <string name="image_recommendation_onboarding_2">Вы сами решаете, следует ли размещать предлагаемое изображение в статье Википедии.</string>
+  <string name="image_recommendation_onboarding_3">Предложения генерируются системой, и вы сами решаете, принять их или отклонить.</string>
   <string name="image_recommendation_onboarding_4">Изображения взяты из Викисклада, коллекции свободно лицензированных изображений, используемых Википедией.</string>
   <string name="image_recommendation_tooltip_1">Просмотрите эту статью, чтобы понять ее тему</string>
   <string name="image_recommendation_tooltip_3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
@@ -1887,11 +1888,18 @@
   <string name="recommended_reading_list_interest_pick_title">Что вас интересует?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Поиск статьи</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Отменить</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Неважно</string>
+  <string name="recommended_reading_list_page_overflow_about">Об этой функции</string>
   <string name="recommended_reading_list_page_snackbar_day">День</string>
   <string name="recommended_reading_list_page_snackbar_week">Неделя</string>
   <string name="recommended_reading_list_page_snackbar_month">Месяц</string>
   <string name="recommended_reading_list_settings_section_header">Рекомендации</string>
   <string name="recommended_reading_list_settings_toggle">Список для чтения</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Каждый день</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Каждую неделю</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Каждый месяц</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Отменить</string>
+  <string name="recommended_reading_list_settings_notifications_title">Уведомления</string>
   <string name="donation_reminders_initial_prompt_positive_button">Начать</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сейчас</string>
   <string name="donation_reminders_prompt_negative_button">Не сейчас</string>

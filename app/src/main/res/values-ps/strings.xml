@@ -117,6 +117,7 @@
   <string name="language_count_link_text">په %d نورو ژبو د لاسرسي وړ ده</string>
   <string name="edit_save_action_license_logged_in">خپرولو سره، تاسو له &lt;a href=\"%1$s\"&gt; کارولو منښتونه&lt;/a&gt; منئ او د &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپلې ونډې په نه بدلېدونکي ډول خپروئ.</string>
   <string name="edit_save_action_license_anon">د خپرولو سره تاسو د &lt;a href=\"%1$s\"&gt;کارولو منښتونه&lt;/a&gt; منئ او په نه بدلېدونکي ډول خپلې ونډې د &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; منښتليک لاندې خپروئ. سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي. که تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېره پټنتيا ولرئ.</string>
+  <string name="edit_anon_warning">سمونونه به ستاسو د سولگر وېبپتې ته منسوب شي، که چېرې تاسو &lt;a href=\"https://#login\"&gt;ننوځئ&lt;/a&gt;؛ نو تاسو به ډېر خونديتوب ولرئ.</string>
   <string name="preference_title_language">د ويکيپېډيا ژبې</string>
   <string name="langlinks_filter_hint">پلټل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
@@ -142,6 +143,7 @@
   <string name="search_reading_lists_no_results">لوست لړليکونو کې هيڅ پايلې ونه موندل شوې</string>
   <string name="search_history_no_results">پېښليک کې هيڅ پايلې ونه موندل شوې</string>
   <string name="edit_section_captcha_message">د خپلکاره سپم څخه ژغورنې لپاره مهرباني وکړئ لاندېې ويي وليکئ.</string>
+  <string name="edit_section_captcha_request_an_account_message">انځور نه وينئ؟&lt;a href=\"https://ps.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;د يو گڼون غوښتنه وکړئ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">پورتني ويوکي بياويل</string>
   <string name="title_captcha">کېپچا ورکړئ</string>
   <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
@@ -150,6 +152,7 @@
   <string name="login_password_hint">پټنوم</string>
   <string name="account_creation_password_hint">پټنوم</string>
   <string name="login_2fa_hint">دوه‌پړاويز تاييد کوډ</string>
+  <string name="login_2fa_other_workflow_error_msg">دوه‌گونی تاييد اړين دی! مهرباني وکړئ له ارې ښيښې ورننوځئ او د خپل دوه‌گوني تاييد کونجي کوډ وردننه کړئ.</string>
   <string name="login_email_auth_hint">برېښليک تاييد کوډ</string>
   <string name="login_email_auth_other_workflow_error_msg">برېښليک تاييدول اړين دي!\nمهرباني وکړئ له آر سکرين څخه ننوځئ، او  خپل د برېښليک تاييد کوډ دننه کړئ.</string>
   <string name="login_background_error_msg">بياننوتل ناشوني دي. مهرباني وکړئ آر سکرين ته ورشئ او په لاسي ډول ننوځئ.</string>
@@ -162,6 +165,7 @@
   <string name="login_in_progress_dialog_message">په ننوتلو کې دی…</string>
   <string name="login_success_toast">ورننوتي ياست!</string>
   <string name="reset_password_title">پټنوم مو وټاکئ</string>
+  <string name="reset_password_description">تاسو له لنډمهاله پټنوم سره ننوتي ياست. د ننوتلو بشپړولو لپاره مهرباني وکړئ، خپل نوی پټنوم دلته واوڼئ.</string>
   <string name="reset_password_hint">نوی پټنوم</string>
   <string name="reset_password_button">خوندي کول او ننوتل</string>
   <string name="preference_title_logout">وتل</string>
@@ -230,6 +234,7 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلار</string>
   <string name="terms_of_use_description">د کارولو منښتونه</string>
+  <string name="about_wikipedia_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:پېژندنه</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:د_گڼون_جوړېدو_غوښتنه</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
@@ -1395,6 +1400,11 @@
   <string name="year_in_review_donate">بسپنه ورکول</string>
   <string name="year_in_review_information_icon">مالوماتو نښه</string>
   <string name="year_in_review_get_started_headline">د خپل ويکيپېډيا کال بياکتنه وپلټئ</string>
+  <string name="year_in_review_entry_dialog_continue">پرله‌پورې</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">تاسو سږ کال %d ليکنه ولوسته</item>
+    <item quantity="other">تاسو سږ کال %d ليکنې ولوستلې</item>
+  </plurals>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
@@ -1405,11 +1415,15 @@
   <string name="year_in_review_survey_placeholder_text">کوم زياتي اندونه لرئ؟</string>
   <string name="year_in_review_survey_cancel">ناگارل</string>
   <string name="year_in_review_survey_submit">سپارل</string>
+  <string name="year_in_review_globe_icon">نړۍ نښه</string>
   <string name="recommended_reading_list_title">موندل</string>
   <string name="recommended_reading_list_onboarding_card_title">ستاسو لپاره غوره‌شوې ليکنې ومومئ</string>
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">پيلول</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">نه مننه</string>
+  <string name="recommended_reading_list_interest_source_interests">پرېږده چې د خپلو گټو له مخې يې خوښ کړم</string>
+  <string name="recommended_reading_list_interest_source_saved">زما د خوندي‌شوو ليکنو پربنسټ يې راته خوښ کړئ</string>
+  <string name="recommended_reading_list_interest_source_history">زما د لوست پېښليک پربنسټ يې راته خوښ کړئ</string>
   <string name="recommended_reading_list_interest_pick_title">تاسو د څه لېوال ياست؟</string>
   <string name="recommended_reading_list_interest_pick_search_hint">د يوې ليکنې پلټل</string>
   <plurals name="recommended_reading_list_interest_pick_selected_articles">
@@ -1459,7 +1473,11 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">نه، بل يې وساتئ</string>
   <string name="donation_reminders_initial_prompt_label">ازمېښتي</string>
   <string name="donation_reminders_initial_prompt_title">د ويکيپېډيا ملاتړ کول لکه څنگه يې چې لولئ</string>
+  <string name="donation_reminders_initial_prompt_positive_button">پيلول</string>
+  <string name="donation_reminders_initial_prompt_negative_button">اوس نه</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">د بسپنې يادونې هروخت په اوڼنو کې بدلېدلای شي.</string>
   <string name="donation_settings_section_header">بسپنې</string>
+  <string name="donation_reminders_settings_title">د بسپنې يادونې</string>
   <string name="donation_reminders_settings_article_frequency_label">کله چې ما لوستل</string>
   <string name="donation_reminders_settings_amount_label">د بسپنې ورکولو يادونه راته وکړه</string>
   <string name="donation_reminders_settings_confirm_btn_label">يادگر تاييدول</string>
@@ -1469,6 +1487,12 @@
   <string name="donation_reminders_settings_warning_max_amount">ډېر تر ډېره %s اجازه لري</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
+  <string name="donation_reminders_gpay_text">له گوگل پی سره %s  بسپنه‌ورکول</string>
+  <string name="donation_reminders_gpay_different_amount_text">له گوگل پی سره يو توپيري رقم بسپنه ورکول</string>
+  <string name="donation_reminders_survey_dialog_title">د بسپنې يادوونکي ښه کولو کې مرسته وکړئ.</string>
+  <string name="donation_reminders_survey_dialog_message">ايا تاسو له دې ازمېښته خوښ ياست؟</string>
+  <string name="donation_reminders_settings_description_on">د بسپنې يادونې بلې دي. ويکيپېډيا به تاسو ته درياد کړي چې د دې ازمېښت پرمهال د هر %2$s لوستلو وروسته %1$s بسپنه ورکړئ.</string>
+  <string name="donation_reminders_settings_description_off">د بسپنې يادونې گولې دي.</string>
   <string name="donation_reminders_settings_tooltip_info_label">ليکنې شمېر په ځايي توگه ستاسو سولگر کې ساتل‌شوی</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d ليکنه</item>

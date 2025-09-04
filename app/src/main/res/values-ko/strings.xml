@@ -2,6 +2,7 @@
 <!-- Authors:
 * Alex00728
 * Apzp79
+* Bisang
 * Bluemersen
 * Codenstory
 * Cooltey
@@ -445,7 +446,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">영상 어둡게 하기(어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용량을 줄입니다.</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">로컬 기부 내역 삭제</string>
+  <string name="preference_title_delete_local_donation_history">기부 내역 삭제</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>

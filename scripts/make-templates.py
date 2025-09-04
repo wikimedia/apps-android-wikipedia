@@ -7,7 +7,7 @@ import json
 import codecs
 import requests
 from jinja2 import Environment, FileSystemLoader
-
+from constants import HEADERS as headers
 
 CHINESE_WIKI_LANG = "zh"
 SIMPLIFIED_CHINESE_LANG = "zh-hans"
@@ -63,7 +63,7 @@ def list_from_sitematrix():
         '&format=json&formatversion=2&smtype=language&smstate=all'
 
     print(u"Fetching languages...")
-    data = json.loads(requests.get(QUERY_SITEMATRIX).text)
+    data = json.loads(requests.get(QUERY_SITEMATRIX, headers=headers).text)
     wikis = []
 
     for key, value in data[u"sitematrix"].items():
@@ -99,6 +99,7 @@ def filter_supported_wikis(wikis):
 def preprocess_wikis(wikis):
     # Add TestWiki.
     wikis.append(build_wiki(lang="test", english_name="Test", local_name="Test"))
+    wikis.append(build_wiki(lang="test2", english_name="Test2", local_name="Test2"))
 
     return wikis
 
@@ -134,7 +135,7 @@ def populate_aliases(wikis):
         print(u"Fetching namespace strings for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
-        data = json.loads(requests.get(url).text)
+        data = json.loads(requests.get(url, headers=headers).text)
         # according to https://www.mediawiki.org/wiki/Manual:Namespace
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
@@ -155,7 +156,7 @@ def populate_main_pages(wikis):
         print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=general|specialpagealiases"
-        data = json.loads(requests.get(url).text)
+        data = json.loads(requests.get(url, headers=headers).text)
         wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
         for specialPage in data[u"query"][u"specialpagealiases"]:
             if specialPage[u"realname"] == "Contributions":

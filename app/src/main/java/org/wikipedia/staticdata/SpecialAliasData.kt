@@ -259,6 +259,7 @@ object SpecialAliasData {
             "pt" to "Especial",
             "pwn" to "pinakisumaljiyan",
             "qu" to "Sapaq",
+            "rki" to "အထူး",
             "rm" to "Spezial",
             "rmy" to "Uzalutno",
             "rn" to "Vyisangije",
@@ -357,5 +358,6 @@ object SpecialAliasData {
             "zh-yue" to "Special",
             "zu" to "Special",
             "test" to "Special",
+            "test2" to "Special",
     )
 }
