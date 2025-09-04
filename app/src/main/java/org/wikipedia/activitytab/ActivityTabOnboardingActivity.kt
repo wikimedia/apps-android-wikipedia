@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
@@ -66,6 +67,7 @@ class ActivityTabOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "impression")
         setContent {
             BaseTheme {
                 OnboardingScreen(
@@ -73,8 +75,10 @@ class ActivityTabOnboardingActivity : BaseActivity() {
                     onLearnMoreClick = {
                         // TODO: MARK_ACTIVITY_TAB waiting for mediawiki page link
                         Prefs.isActivityTabOnboardingShown = true
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "learn_click")
                     },
                     onContinueClick = {
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "continue_click")
                         Prefs.isActivityTabOnboardingShown = true
                         setResult(RESULT_OK)
                         finish()
