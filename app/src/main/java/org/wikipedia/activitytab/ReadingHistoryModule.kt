@@ -105,7 +105,11 @@ fun ReadingHistoryModule(
         )
     }
     if (readingHistoryState is UiState.Loading) {
-        ActivityTabShimmerView()
+        Column {
+            ActivityTabShimmerView()
+            ActivityTabShimmerView()
+            ActivityTabShimmerView()
+        }
     } else if (readingHistoryState is UiState.Success) {
         val readingHistory = readingHistoryState.data
         val todayDate = LocalDate.now()

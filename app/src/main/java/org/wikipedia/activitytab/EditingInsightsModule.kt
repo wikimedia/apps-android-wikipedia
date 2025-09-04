@@ -72,7 +72,10 @@ fun EditingInsightsModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            ActivityTabShimmerView()
+            Column {
+                ActivityTabShimmerView()
+                ActivityTabShimmerView()
+            }
         }
         is UiState.Success -> {
             MostViewedCard(
