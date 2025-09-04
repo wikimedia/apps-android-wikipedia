@@ -188,7 +188,6 @@ class ActivityTabViewModel() : ViewModel() {
             _impactUiState.value = UiState.Error(throwable)
         }) {
             _impactUiState.value = UiState.Loading
-             delay(500)
             // The impact API is rate limited, so we cache it manually.
             val wikiSite = WikipediaApp.instance.wikiSite
             val now = Instant.now().epochSecond

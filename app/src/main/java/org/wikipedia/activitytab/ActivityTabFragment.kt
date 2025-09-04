@@ -185,7 +185,7 @@ class ActivityTabFragment : Fragment() {
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor),
-            containerColor = WikipediaTheme.colors.paperColor,
+            containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
             var isRefreshing by remember { mutableStateOf(false) }
             val state = rememberPullToRefreshState()
