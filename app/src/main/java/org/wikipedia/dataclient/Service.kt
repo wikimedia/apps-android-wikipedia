@@ -299,7 +299,8 @@ interface Service {
         @Field("captchaWord") captchaWord: String? = null,
         @Field("loginreturnurl") returnUrl: String? = null,
         @Field("logintoken") loginToken: String? = null,
-        @Field("logincontinue") loginContinue: Boolean? = null
+        @Field("logincontinue") loginContinue: Boolean? = null,
+        @Field("newModule") newModule: String? = null
     ): LoginResponse
 
     @FormUrlEncoded
