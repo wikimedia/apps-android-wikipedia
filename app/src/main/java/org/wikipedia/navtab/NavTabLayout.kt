@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.core.view.updateMarginsRelative
 import com.google.android.material.bottomnavigation.BottomNavigationView
