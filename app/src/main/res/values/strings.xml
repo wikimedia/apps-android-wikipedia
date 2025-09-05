@@ -30,7 +30,7 @@
     <string name="page_error_back_to_main">Go back</string>
     <string name="error_back">Go back</string>
     <string name="error_next">Next</string>
-    <string name="menu_clear_all_history">Clear history</string>
+    <string name="menu_clear_all_history">Clear reading history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
@@ -2112,6 +2112,7 @@
     <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
     <string name="donation_reminders_settings_warning_min_amount">Please enter at least %s</string>
     <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
+    <string name="donation_reminders_settings_option_custom">Custom…</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
     <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
     <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>

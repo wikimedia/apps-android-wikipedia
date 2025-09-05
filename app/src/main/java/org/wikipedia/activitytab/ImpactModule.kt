@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -52,18 +51,7 @@ fun ImpactModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            Box(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            ) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(24.dp),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
+            ActivityTabShimmerView()
         }
         is UiState.Success -> {
             AllTimeImpactCard(

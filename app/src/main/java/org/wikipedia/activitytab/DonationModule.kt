@@ -2,19 +2,15 @@ package org.wikipedia.activitytab
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -45,18 +41,7 @@ fun DonationModule(
         onClick = onClick
     ) {
         if (uiState == UiState.Loading) {
-            Box(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            ) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(24.dp),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
+            ActivityTabShimmerView()
         } else if (uiState is UiState.Success) {
             val lastDonationTime = uiState.data ?: stringResource(R.string.activity_tab_donation_unknown)
             Column(
