@@ -26,10 +26,10 @@ class NavTabLayout(context: Context, attrs: AttributeSet) : BottomNavigationView
 
     fun setOverlayDot(tab: NavTab, enabled: Boolean) {
         val itemView = findViewById<ViewGroup>(tab.id)
-        val imageView = itemView.findViewById<View>(com.google.android.material.R.id.navigation_bar_item_icon_view)
-        val imageParent = imageView.parent as LinearLayout
-        var overlayDotView: ImageView? = itemView.findViewById<ImageView?>(R.id.nav_tab_overlay_dot)
-        if (overlayDotView == null) {
+        val imageView = itemView.findViewById<View?>(com.google.android.material.R.id.navigation_bar_item_icon_view)
+        val imageParent = (imageView?.parent as? ViewGroup)?.parent as? ViewGroup
+        var overlayDotView: ImageView? = itemView.findViewById(R.id.nav_tab_overlay_dot)
+        if (overlayDotView == null && imageParent != null) {
             overlayDotView = ImageView(context)
             overlayDotView.id = R.id.nav_tab_overlay_dot
             val dotSize = DimenUtil.roundedDpToPx(6f)
@@ -42,6 +42,6 @@ class NavTabLayout(context: Context, attrs: AttributeSet) : BottomNavigationView
             overlayDotView.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
             imageParent.addView(overlayDotView)
         }
-        overlayDotView.isVisible = enabled
+        overlayDotView?.isVisible = enabled
     }
 }
