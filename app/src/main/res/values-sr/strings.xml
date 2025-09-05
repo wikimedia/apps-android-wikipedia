@@ -1707,6 +1707,7 @@
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
   <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Највише дозвољено %s</string>
+  <string name="donation_reminders_settings_option_custom">Прилагођено…</string>
   <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
 </resources>
