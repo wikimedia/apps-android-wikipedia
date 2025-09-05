@@ -7,8 +7,8 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.core.view.updateMarginsRelative
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,7 +27,7 @@ class NavTabLayout(context: Context, attrs: AttributeSet) : BottomNavigationView
     fun setOverlayDot(tab: NavTab, enabled: Boolean) {
         val itemView = findViewById<ViewGroup>(tab.id)
         val imageView = itemView.findViewById<View>(com.google.android.material.R.id.navigation_bar_item_icon_view)
-        val imageParent = imageView.parent as FrameLayout
+        val imageParent = imageView.parent as LinearLayout
         var overlayDotView: ImageView? = itemView.findViewById<ImageView?>(R.id.nav_tab_overlay_dot)
         if (overlayDotView == null) {
             overlayDotView = ImageView(context)
