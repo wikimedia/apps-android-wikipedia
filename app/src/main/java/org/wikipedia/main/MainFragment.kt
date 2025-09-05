@@ -134,7 +134,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
                         is LoggedOutEvent,
-                        is LoggedOutInBackgroundEvent-> {
+                        is LoggedOutInBackgroundEvent -> {
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
