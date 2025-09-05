@@ -123,7 +123,6 @@ class ActivityTabFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
@@ -306,10 +305,10 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
-            LaunchedEffect(timelineItems.loadState.refresh) {
+            LaunchedEffect(timelineItems.loadState.refresh, readingHistoryState) {
                 if (!hasImpressionBeenSent &&
-                    timelineItems.loadState.refresh is LoadState.NotLoading) {
-                    val state = if (timelineItems.itemCount == 0) "empty" else "complete"
+                    timelineItems.loadState.refresh is LoadState.NotLoading && readingHistoryState is UiState.Success) {
+                    val state = if (timelineItems.itemCount == 0 || viewModel.hasIncompleteReadingHistoryData()) "empty" else "complete"
                     ActivityTabEvent.submit(
                         activeInterface = "activity_tab",
                         action = "impression",

@@ -244,7 +244,17 @@ class ActivityTabViewModel() : ViewModel() {
 
     fun isDonationUnknown(): Boolean {
         return when (val currentState = _donationUiState.value) {
-            is UiState.Success -> currentState.data != null
+            is UiState.Success -> currentState.data == null
+            else -> true
+        }
+    }
+
+    fun hasIncompleteReadingHistoryData(): Boolean {
+        return when (val currentState = _readingHistoryState.value) {
+            is UiState.Success -> {
+                val data = currentState.data
+                data.timeSpentThisWeek <= 0 || data.articlesReadThisMonth <= 0 || data.articlesSavedThisMonth <= 0 || data.topCategories.isEmpty()
+            }
             else -> false
         }
     }

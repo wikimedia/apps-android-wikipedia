@@ -71,7 +71,7 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                 donations = if (Prefs.donationResults.isNotEmpty()) isDonationsEnabled.toOnOffString() else null,
                 timeline = isTimelineEnabled.toOnOffString(),
                 all = when {
-                    areAllModulesDisabled() -> "off"
+                    noModulesVisible(Prefs.donationResults.isNotEmpty()) -> "off"
                     areAllModulesEnabled() -> "on"
                     else -> null
                 }

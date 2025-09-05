@@ -48,7 +48,7 @@ import java.util.Date
 fun TimelineModule(
     modifier: Modifier = Modifier,
     timelineItem: TimelineItem,
-    onItemClick: (TimelineItem) -> Unit,
+    onItemClick: (TimelineItem) -> Unit
 ) {
     Row(
         modifier = Modifier

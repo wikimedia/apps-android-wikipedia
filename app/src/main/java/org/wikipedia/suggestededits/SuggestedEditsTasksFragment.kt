@@ -494,22 +494,25 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                 addDescriptionsTask -> {
                     if (ActivityTabABTest().isInTestGroup()) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
-                    } else
+                    } else {
                         ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
+                    }
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
                 }
                 addImageCaptionsTask -> {
                     if (ActivityTabABTest().isInTestGroup()) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
-                    } else
+                    } else {
                         ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
+                    }
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
                 }
                 addImageTagsTask -> {
                     if (ActivityTabABTest().isInTestGroup()) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
-                    } else
+                    } else {
                         ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
+                    }
                     if (Prefs.showImageTagsOnboarding) {
                         requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
                     } else {
@@ -519,15 +522,17 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                 imageRecommendationsTask -> {
                     if (ActivityTabABTest().isInTestGroup()) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
-                    } else
+                    } else {
                         ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
+                    }
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
                 }
                 vandalismPatrolTask -> {
                     if (ActivityTabABTest().isInTestGroup()) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
-                    } else
+                    } else {
                         PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
+                    }
                     startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
                 }
             }

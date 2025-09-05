@@ -43,10 +43,6 @@ data class ActivityTabModules(
     fun areAllModulesEnabled(): Boolean {
         return ModuleType.entries.all { this.isModuleEnabled(it) }
     }
-
-    fun areAllModulesDisabled(): Boolean {
-        return ModuleType.entries.none { this.isModuleEnabled(it) }
-    }
 }
 
 enum class ModuleType(val displayName: Int) {
