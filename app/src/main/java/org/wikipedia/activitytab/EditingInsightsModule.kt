@@ -18,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -73,17 +72,9 @@ fun EditingInsightsModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            Box(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            ) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(24.dp),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
+            Column {
+                ActivityTabShimmerView()
+                ActivityTabShimmerView()
             }
         }
         is UiState.Success -> {

@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -40,6 +41,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
@@ -70,6 +72,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.timeline.ActivitySource
 import org.wikipedia.activitytab.timeline.TimelineDateSeparator
+import org.wikipedia.activitytab.timeline.TimelineItem
 import org.wikipedia.activitytab.timeline.TimelineModule
 import org.wikipedia.activitytab.timeline.TimelineModuleEmptyView
 import org.wikipedia.auth.AccountUtil
@@ -77,6 +80,7 @@ import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.concurrency.FlowEventBus
@@ -199,7 +203,9 @@ class ActivityTabFragment : Fragment() {
                     val scrollState = rememberScrollState()
 
                     Column(
-                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(horizontal = 16.dp)
                             .verticalScroll(scrollState),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -278,7 +284,9 @@ class ActivityTabFragment : Fragment() {
                 ) {
                     val scrollState = rememberScrollState()
                     Column(
-                        modifier = Modifier.align(Alignment.Center).padding(horizontal = 16.dp)
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(horizontal = 16.dp)
                             .verticalScroll(scrollState),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -503,16 +511,28 @@ class ActivityTabFragment : Fragment() {
                     }
 
                     if (modules.isModuleVisible(ModuleType.TIMELINE)) {
-                        if (timelineItems.itemCount == 0) {
-                            item {
-                                TimelineModuleEmptyView(
-                                    modifier = Modifier.align(Alignment.Center)
-                                        .padding(horizontal = 16.dp)
-                                        .padding(top = 32.dp, bottom = 52.dp)
-                                )
+                        val isRefreshing = timelineItems.loadState.refresh is LoadState.Loading
+                        val isEmpty = timelineItems.itemCount == 0
+                        when {
+                            isRefreshing -> {
+                                item {
+                                    ActivityTabShimmerView()
+                                }
+                                return@LazyColumn
                             }
-                            return@LazyColumn
+                            isEmpty -> {
+                                item {
+                                    TimelineModuleEmptyView(
+                                        modifier = Modifier
+                                            .align(Alignment.Center)
+                                            .padding(horizontal = 16.dp)
+                                            .padding(top = 32.dp, bottom = 52.dp)
+                                    )
+                                }
+                                return@LazyColumn
+                            }
                         }
+
                         items(
                             count = timelineItems.itemCount,
                         ) { index ->
@@ -528,51 +548,8 @@ class ActivityTabFragment : Fragment() {
                                 is TimelineDisplayItem.TimelineEntry -> {
                                     TimelineModule(
                                         timelineItem = displayItem.item,
-                                        onItemClick = { item ->
-                                            when (item.activitySource) {
-                                                ActivitySource.EDIT -> {
-                                                    startActivity(
-                                                        ArticleEditDetailsActivity.newIntent(
-                                                            requireContext(),
-                                                            PageTitle(
-                                                                item.apiTitle,
-                                                                viewModel.wikiSiteForTimeline,
-                                                                item.thumbnailUrl,
-                                                                item.description,
-                                                                item.displayTitle
-                                                            ), item.pageId, revisionTo = item.id
-                                                        )
-                                                    )
-                                                }
-
-                                                ActivitySource.BOOKMARKED -> {
-                                                    val title = item.toPageTitle()
-                                                    val entry = HistoryEntry(
-                                                        title,
-                                                        HistoryEntry.SOURCE_INTERNAL_LINK
-                                                    )
-                                                    startActivity(
-                                                        PageActivity.newIntentForCurrentTab(
-                                                            requireContext(),
-                                                            entry,
-                                                            entry.title
-                                                        )
-                                                    )
-                                                }
-
-                                                ActivitySource.LINK, ActivitySource.SEARCH -> {
-                                                    val entry = item.toHistoryEntry()
-                                                    startActivity(
-                                                        PageActivity.newIntentForCurrentTab(
-                                                            requireContext(),
-                                                            entry,
-                                                            entry.title
-                                                        )
-                                                    )
-                                                }
-
-                                                else -> {}
-                                            }
+                                        onItemClick = {
+                                            handleTimelineItemClick(it)
                                         }
                                     )
                                     Spacer(modifier = Modifier.height(6.dp))
@@ -581,22 +558,19 @@ class ActivityTabFragment : Fragment() {
                             }
                         }
 
-                        when (timelineItems.loadState.append) {
-                            LoadState.Loading -> {
-                                item {
-                                    Box(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .padding(vertical = 16.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        CircularProgressIndicator(
-                                            color = WikipediaTheme.colors.progressiveColor
-                                        )
-                                    }
+                        if (timelineItems.loadState.append is LoadState.Loading) {
+                            item {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(vertical = 16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    CircularProgressIndicator(
+                                        color = WikipediaTheme.colors.progressiveColor
+                                    )
                                 }
                             }
-                            else -> {}
                         }
                     }
                 }
@@ -771,7 +745,66 @@ class ActivityTabFragment : Fragment() {
         }
     }
 
+    private fun handleTimelineItemClick(item: TimelineItem) {
+        when (item.activitySource) {
+            ActivitySource.EDIT -> {
+                startActivity(
+                    ArticleEditDetailsActivity.newIntent(
+                        requireContext(),
+                        PageTitle(
+                            item.apiTitle,
+                            viewModel.wikiSiteForTimeline,
+                            item.thumbnailUrl,
+                            item.description,
+                            item.displayTitle
+                        ), item.pageId, revisionTo = item.id
+                    )
+                )
+            }
+
+            ActivitySource.BOOKMARKED -> {
+                val title = item.toPageTitle()
+                val entry = HistoryEntry(
+                    title,
+                    HistoryEntry.SOURCE_INTERNAL_LINK
+                )
+                startActivity(
+                    PageActivity.newIntentForCurrentTab(
+                        requireContext(),
+                        entry,
+                        entry.title
+                    )
+                )
+            }
+
+            ActivitySource.LINK, ActivitySource.SEARCH -> {
+                val entry = item.toHistoryEntry()
+                startActivity(
+                    PageActivity.newIntentForCurrentTab(
+                        requireContext(),
+                        entry,
+                        entry.title
+                    )
+                )
+            }
+
+            else -> {}
+        }
+    }
+
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
     }
+}
+
+@Composable
+fun ActivityTabShimmerView() {
+    Box(
+        modifier = Modifier
+            .padding(16.dp)
+            .clip(RoundedCornerShape(size = 12.dp))
+            .fillMaxWidth()
+            .shimmerEffect()
+            .size(120.dp)
+    )
 }

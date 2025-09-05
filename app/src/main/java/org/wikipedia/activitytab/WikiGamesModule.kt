@@ -1,5 +1,6 @@
 package org.wikipedia.activitytab
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,13 +9,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -48,23 +47,13 @@ fun WikiGamesModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            Box(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            ) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(24.dp),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
+            ActivityTabShimmerView()
         }
         is UiState.Success -> {
             WikiGamesStatsCard(
                 modifier = modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .animateContentSize(),
                 totalGamesPlayed = uiState.data?.totalGamesPlayed ?: 0,
                 currentStreak = uiState.data?.currentStreak ?: 0,
                 bestStreak = uiState.data?.bestStreak ?: 0,
