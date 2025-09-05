@@ -14,6 +14,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
+import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.login.LoginActivity
@@ -48,6 +50,9 @@ class LogoutPreference : Preference {
         holder.itemView.findViewById<Button>(R.id.logoutButton).apply {
             text = context.getString(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session else R.string.preference_title_logout)
             setOnClickListener {
+                if (ActivityTabABTest().isInTestGroup()) {
+                    ActivityTabEvent.submit(activeInterface = "global_setting", action = "tab_logout_account")
+                }
                 activity?.let {
                     MaterialAlertDialogBuilder(it)
                         .setMessage(if (AccountUtil.isTemporaryAccount) R.string.temp_account_end_session_confirm else R.string.logout_prompt)
@@ -64,6 +69,9 @@ class LogoutPreference : Preference {
             }
         }
         holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
+            if (ActivityTabABTest().isInTestGroup()) {
+                ActivityTabEvent.submit(activeInterface = "global_setting", action = "tab_vanish_account")
+            }
             activity?.let {
                 MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
                     .setIcon(R.drawable.ic_person_remove)

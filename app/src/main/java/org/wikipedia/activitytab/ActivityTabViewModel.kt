@@ -237,6 +237,30 @@ class ActivityTabViewModel() : ViewModel() {
         return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
     }
 
+    fun getTotalEditsCount(): Int {
+        return when (val currentState = _impactUiState.value) {
+            is UiState.Success -> currentState.data.totalEditsCount
+            else -> 0
+        }
+    }
+
+    fun isDonationUnknown(): Boolean {
+        return when (val currentState = _donationUiState.value) {
+            is UiState.Success -> currentState.data == null
+            else -> true
+        }
+    }
+
+    fun hasIncompleteReadingHistoryData(): Boolean {
+        return when (val currentState = _readingHistoryState.value) {
+            is UiState.Success -> {
+                val data = currentState.data
+                data.timeSpentThisWeek <= 0 || data.articlesReadThisMonth <= 0 || data.articlesSavedThisMonth <= 0 || data.topCategories.isEmpty()
+            }
+            else -> false
+        }
+    }
+
     class ReadingHistory(
         val timeSpentThisWeek: Long,
         val articlesReadThisMonth: Int,

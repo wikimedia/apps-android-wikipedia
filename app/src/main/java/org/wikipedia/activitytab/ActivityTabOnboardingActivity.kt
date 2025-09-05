@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
@@ -68,6 +69,7 @@ class ActivityTabOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "impression")
         setContent {
             BaseTheme {
                 OnboardingScreen(
@@ -75,8 +77,10 @@ class ActivityTabOnboardingActivity : BaseActivity() {
                     onLearnMoreClick = {
                         UriUtil.visitInExternalBrowser(this, getString(R.string.activity_tab_url).toUri())
                         Prefs.isActivityTabOnboardingShown = true
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "learn_click")
                     },
                     onContinueClick = {
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "continue_click")
                         Prefs.isActivityTabOnboardingShown = true
                         setResult(RESULT_OK)
                         finish()
