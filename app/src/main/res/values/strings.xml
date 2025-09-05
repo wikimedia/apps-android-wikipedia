@@ -17,6 +17,7 @@
     <string name="search_icon_content_description">Search</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_suggested_edits">Edits</string>
+    <string name="nav_item_activity">Activity</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>
     <string name="nav_item_contribute">Contribute</string>
@@ -29,7 +30,7 @@
     <string name="page_error_back_to_main">Go back</string>
     <string name="error_back">Go back</string>
     <string name="error_next">Next</string>
-    <string name="menu_clear_all_history">Clear history</string>
+    <string name="menu_clear_all_history">Clear reading history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
@@ -44,7 +45,7 @@
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
-    <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
+    <string name="dialog_message_clear_history">This will delete all of your browsing history. Are you sure?</string>
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>
@@ -976,6 +977,7 @@
     <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
+    <string name="suggested_edits_activity_title">Edit</string>
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
@@ -1189,6 +1191,90 @@
     <string name="edit_summary_added_caption">Added caption</string>
     <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
+    <string name="activity_tab_logged_out_title">Log in or create an account to view your activity on the Wikipedia app</string>
+    <string name="activity_tab_user_reading">%s\'s reading</string>
+    <string name="activity_tab_on_wikipedia_android">On Wikipedia Android</string>
+    <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+    <string name="activity_tab_weekly_time_spent">Time spent reading this week</string>
+    <string name="activity_tab_monthly_articles_read">Articles read this month</string>
+    <string name="activity_tab_monthly_articles_saved">Articles saved this month</string>
+    <string name="activity_tab_monthly_top_categories">Top categories read this month</string>
+    <string name="activity_tab_explore_wikipedia">Discover through Wikipedia</string>
+    <string name="activity_tab_discover_encourage">Looking for something new to read?</string>
+    <string name="activity_tab_donation_unknown">Unknown</string>
+    <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
+    <string name="activity_tab_game_stats">Game stats</string>
+    <string name="activity_tab_game_stats_best_streak">Best streak</string>
+    <string name="activity_tab_play_wiki_games">Play WikiGames</string>
+    <string name="activity_tab_report_email_subject">Issue report - Activity Tab</string>
+    <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="activity_tab_menu_feedback">Problem with feature</string>
+    <string name="activity_tab_menu_info">Learn more</string>
+    <string name="activity_tab_menu_customize">Customize</string>
+    <string name="activity_tab_menu_customize_description">Activity tab insights are based on the primary language set in settings and is leveraging local data with the exception of edits which are public.</string>
+    <string name="activity_tab_highlights">Highlights</string>
+    <string name="activity_tab_customize_screen_reading_history_switch_title">Reading history</string>
+    <string name="activity_tab_impact">Your impact</string>
+    <string name="activity_tab_impact_most_viewed">Most viewed since your edit</string>
+    <string name="activity_tab_impact_contributions_this_month">Contributions this month</string>
+    <plurals name="activity_tab_impact_edits_this_month">
+        <item quantity="one">edit this month</item>
+        <item quantity="other">edits this month</item>
+    </plurals>
+    <plurals name="activity_tab_impact_edits_last_month">
+        <item quantity="one">edit last month</item>
+        <item quantity="other">edits last month</item>
+    </plurals>
+    <string name="activity_tab_impact_all_time">All time impact</string>
+    <plurals name="activity_tab_impact_total_edits">
+        <item quantity="one">total edit</item>
+        <item quantity="other">total edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_thanks">
+        <item quantity="one">thank</item>
+        <item quantity="other">thanks</item>
+    </plurals>
+    <plurals name="activity_tab_impact_best_streak_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <string name="activity_tab_impact_best_streak">Best streak</string>
+    <string name="activity_tab_impact_last_edited">Last edited</string>
+    <string name="activity_tab_impact_suggested_edits_title">0 edits to articles recently</string>
+    <string name="activity_tab_impact_suggested_edits_message">Looks like you haven\'t made an edit this month. Extend free knowledge by editing topics that matter most to you.</string>
+    <string name="activity_tab_impact_suggested_edits_button">Make an edit</string>
+    <string name="activity_tab_impact_recent_activity">Your recent activity (last 30 days)</string>
+    <plurals name="activity_tab_impact_recent_activity_edits">
+        <item quantity="one">Edit</item>
+        <item quantity="other">Edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_recent_activity_views">
+        <item quantity="one">View on articles you\'ve edited</item>
+        <item quantity="other">Views on articles you\'ve edited</item>
+    </plurals>
+    <string name="activity_tab_customize_screen_time_spent_switch_title">Time spent reading</string>
+    <string name="activity_tab_customize_screen_reading_insights_switch_title">Reading insights</string>
+    <string name="activity_tab_customize_screen_editing_insights_switch_title">Editing insights</string>
+    <string name="activity_tab_customize_screen_impact_switch_title">All time impact</string>
+    <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
+    <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
+    <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
+    <string name="activity_tab_customize_screen_no_modules_message"><![CDATA[Activity modules are turned off. <a href=\"#\">Switch them on</a> to see updates in this tab.]]></string>
+    <string name="activity_tab_timeline_today">Today</string>
+    <string name="activity_tab_timeline_yesterday">Yesterday</string>
+    <string name="activity_tab_timeline_empty_state_title">Nothing to show</string>
+    <string name="activity_tab_timeline_empty_state_message">Start reading and editing to build your history</string>
+    <string name="activity_tab_timeline_view_changes_button">View changes</string>
+    <string name="activity_tab_onboarding_reading_patterns_title">Reading patterns</string>
+    <string name="activity_tab_onboarding_reading_patterns_message">See how much time you\'ve spent reading and which articles or topics you\'ve explored over time.</string>
+    <string name="activity_tab_onboarding_screen_title">Introducing Activity</string>
+    <string name="activity_tab_onboarding_impact_title">Impact highlights</string>
+    <string name="activity_tab_onboarding_impact_message">Discover insights about your contributions and the reach of the knowledge you\'ve shared.</string>
+    <string name="activity_tab_onboarding_engage_title">More ways to engage</string>
+    <string name="activity_tab_onboarding_engage_message">Explore stats for games, saved articles, and other activities that connect you more deeply with Wikipedia.</string>
+    <string name="activity_tab_onboarding_stay_in_control_title">Stay in control</string>
+    <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
+
     <!-- /Suggested edits -->
 
     <!-- File page -->

@@ -9,6 +9,7 @@ import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -37,7 +38,8 @@ fun HtmlText(
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
     lineHeight: TextUnit = 1.6.em,
-    linkInteractionListener: LinkInteractionListener? = null
+    linkInteractionListener: LinkInteractionListener? = null,
+    textAlign: TextAlign = TextAlign.Start
 ) {
     Text(
         modifier = modifier,
@@ -51,6 +53,7 @@ fun HtmlText(
         color = color,
         maxLines = maxLines,
         overflow = overflow,
+        textAlign = textAlign
     )
 }
 

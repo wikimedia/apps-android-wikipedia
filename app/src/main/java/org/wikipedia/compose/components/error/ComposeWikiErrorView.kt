@@ -51,8 +51,9 @@ fun WikiErrorView(
     caught: Throwable?,
     pageTitle: PageTitle? = null,
     errorClickEvents: WikiErrorClickEvents? = null,
+    retryForGenericError: Boolean = false
 ) {
-    val errorType = getErrorType(caught, pageTitle)
+    val errorType = getErrorType(caught, pageTitle, retryForGenericError)
     val context = LocalContext.current
 
     val errorMessage = when {
@@ -164,12 +165,13 @@ private fun getClickEventForErrorType(
         is ComposeErrorType.Generic -> wikiErrorClickEvents?.backClickListener
         is ComposeErrorType.LoggedOut -> wikiErrorClickEvents?.loginClickListener
         is ComposeErrorType.Empty -> wikiErrorClickEvents?.nextClickListener
+        is ComposeErrorType.Retry,
         is ComposeErrorType.Offline,
         is ComposeErrorType.Timeout -> wikiErrorClickEvents?.retryClickListener
     }
 }
 
-private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?): ComposeErrorType {
+private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?, retryForGenericError: Boolean): ComposeErrorType {
     caught?.let {
         when {
             is404(it) -> {
@@ -190,15 +192,15 @@ private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?): ComposeErro
             }
         }
     }
-    return ComposeErrorType.Generic()
+    return if (retryForGenericError) ComposeErrorType.Retry() else ComposeErrorType.Generic()
 }
 
 sealed class ComposeErrorType(
-    @DrawableRes val icon: Int,
-    @StringRes val text: Int,
-    @StringRes val buttonText: Int,
+    @param:DrawableRes val icon: Int,
+    @param:StringRes val text: Int,
+    @param:StringRes val buttonText: Int,
     val hasFooterText: Boolean = false,
-    @StringRes val footerText: Int = 0,
+    @param:StringRes val footerText: Int = 0,
 ) {
     class UserPageMissing : ComposeErrorType(
         icon = R.drawable.ic_userpage_error_icon,
@@ -241,6 +243,12 @@ sealed class ComposeErrorType(
         text = R.string.error_message_generic,
         buttonText = R.string.error_back
     )
+
+    class Retry : ComposeErrorType(
+        icon = R.drawable.ic_error_black_24dp,
+        text = R.string.error_message_generic,
+        buttonText = R.string.offline_load_error_retry
+    )
 }
 
 data class WikiErrorClickEvents(
@@ -250,14 +258,27 @@ data class WikiErrorClickEvents(
     var loginClickListener: (() -> Unit)? = null,
 )
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-private fun WikiErrorViewPreview() {
+private fun WikiErrorViewGenericPreview() {
     BaseTheme(
         currentTheme = Theme.DARK
     ) {
         WikiErrorView(
             caught = Exception()
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun WikiErrorViewRetryPreview() {
+    BaseTheme(
+        currentTheme = Theme.DARK
+    ) {
+        WikiErrorView(
+            caught = Exception(),
+            retryForGenericError = true
         )
     }
 }

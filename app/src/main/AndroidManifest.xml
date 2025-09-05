@@ -158,6 +158,10 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".suggestededits.SuggestedEditsTasksActivity"
+            android:theme="@style/AppTheme.ActionBar"
+            android:label="@string/suggested_edits_activity_title" />
+        <activity
             android:name=".edit.EditSectionActivity"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
@@ -375,6 +379,12 @@
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activitytab.ActivityTabCustomizationActivity" />
+
+        <activity
+            android:name=".activitytab.ActivityTabOnboardingActivity" />
 
         <activity
             android:name=".donate.donationreminder.DonationReminderActivity"

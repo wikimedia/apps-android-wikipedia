@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.descendants
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -37,6 +38,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.activitytab.ActivityTabFragment
+import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -91,7 +95,7 @@ import org.wikipedia.yearinreview.YearInReviewEntryDialog
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -118,6 +122,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             pendingDownloadImage?.let { download(it) }
         } else {
             FeedbackUtil.showMessage(this, R.string.gallery_save_image_write_permission_rationale)
+        }
+    }
+
+    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            goToTab(NavTab.EDITS)
         }
     }
 
@@ -155,6 +165,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            if (item.order == NavTab.EDITS.code()) {
+                if (ActivityTabABTest().isInTestGroup() && !Prefs.isActivityTabOnboardingShown) {
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    return@setOnItemSelectedListener false
+                }
+            }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
@@ -171,6 +187,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             requireActivity().invalidateOptionsMenu()
             true
         }
+
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, ActivityTabABTest().isInTestGroup() && !Prefs.activityTabRedDotShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
@@ -535,7 +553,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     private fun goToTab(tab: NavTab) {
-        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu.getItem(tab.code()).itemId
+        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu[tab.code()].itemId
     }
 
     private fun refreshContents() {
@@ -607,6 +625,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    override fun onNavigateTo(navTab: NavTab) {
+        goToTab(navTab)
     }
 
     companion object {
