@@ -38,7 +38,7 @@ class PageBackStackItem(
     )
 
     fun getPageTitle(): PageTitle {
-        return PageTitle(namespace, apiTitle, WikiSite.Companion.forLanguageCode(langCode)).also {
+        return PageTitle(namespace, apiTitle, WikiSite.forLanguageCode(langCode)).also {
             it.displayText = displayTitle
             it.thumbUrl = thumbUrl
             it.description = description
