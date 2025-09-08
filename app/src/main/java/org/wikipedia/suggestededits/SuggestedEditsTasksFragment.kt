@@ -1,12 +1,16 @@
 package org.wikipedia.suggestededits
 
 import android.app.Activity
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
+import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -20,6 +24,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -38,6 +44,7 @@ import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -50,10 +57,11 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.NotificationButtonView
 import java.time.LocalDateTime
 import java.time.ZoneId
 
-class SuggestedEditsTasksFragment : Fragment() {
+class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
     private val binding get() = _binding!!
 
@@ -65,8 +73,12 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var imageRecommendationsTask: SuggestedEditsTask
     private lateinit var vandalismPatrolTask: SuggestedEditsTask
 
+    private var notificationButtonView: NotificationButtonView? = null
+
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
+
+    private val inActivityAbTestGroup = ActivityTabABTest().isInTestGroup()
 
     private val sequentialTooltipRunnable = Runnable {
         if (!isAdded) {
@@ -108,6 +120,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
+        if (inActivityAbTestGroup) {
+            notificationButtonView = NotificationButtonView(requireContext())
+            requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        }
+
         binding.layoutContributionsContainer.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
@@ -116,6 +133,9 @@ class SuggestedEditsTasksFragment : Fragment() {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
         tasksContainer.learnMoreButton.setOnClickListener {
+            if (ActivityTabABTest().isInTestGroup()) {
+                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
+            }
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
@@ -127,6 +147,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+            if (inActivityAbTestGroup) {
+                return@OnScrollChangeListener
+            }
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
         tasksContainer.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -148,8 +171,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                 launch {
                     FlowEventBus.events.collectLatest { event ->
-                        if (event is LoggedOutEvent &&
-                            (requireActivity() as MainActivity).isCurrentFragmentSelected(this@SuggestedEditsTasksFragment)) {
+                        if (event is LoggedOutEvent) {
                             refreshContents()
                         }
                     }
@@ -159,7 +181,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     fun refreshContents() {
-        (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
+        if (!inActivityAbTestGroup) {
+            (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
+        }
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
     }
@@ -167,6 +191,50 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshContents()
+    }
+
+    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return false
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        notificationButtonView?.let {
+            val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            if (AccountUtil.isLoggedIn) {
+                notificationMenuItem.isVisible = true
+                it.setUnreadCount(Prefs.notificationUnreadCount)
+                it.setOnClickListener {
+                    if (AccountUtil.isLoggedIn) {
+                        startActivity(NotificationActivity.newIntent(requireActivity()))
+                    }
+                }
+                it.contentDescription =
+                    getString(R.string.notifications_activity_title)
+                notificationMenuItem.actionView = it
+                notificationMenuItem.expandActionView()
+                FeedbackUtil.setButtonTooltip(it)
+            } else {
+                notificationMenuItem.isVisible = false
+            }
+            updateNotificationDot(false)
+        }
+    }
+
+    fun updateNotificationDot(animate: Boolean) {
+        notificationButtonView?.let {
+            if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+                it.setUnreadCount(Prefs.notificationUnreadCount)
+                if (animate) {
+                    it.runAnimation()
+                }
+            } else {
+                it.setUnreadCount(0)
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -213,6 +281,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setFinalUIState() {
+        if (inActivityAbTestGroup) {
+            ActivityTabEvent.submit(activeInterface = "edit_home", action = "impression", editCount = viewModel.totalContributions)
+        }
+
         clearContents(false)
 
         if (maybeSetPausedOrDisabled()) {
@@ -262,6 +334,13 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUserStatsViewsAndTooltips() {
         val contributionContainer = binding.layoutContributionsContainer
+
+        if (inActivityAbTestGroup) {
+            contributionContainer.root.isVisible = false
+            binding.layoutTasksContainer.contributeSubtitleView.isVisible = false
+            return
+        }
+
         contributionContainer.editsCountStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionContainer.editsCountStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
@@ -279,6 +358,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
+        if (inActivityAbTestGroup) {
+            return
+        }
         binding.suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
         binding.suggestedEditsScrollView.postDelayed(sequentialTooltipRunnable, 500)
@@ -301,7 +383,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             binding.messageCard.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
             binding.messageCard.setPositiveButton(R.string.suggested_edits_learn_more, {
-                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
+                UriUtil.visitInExternalBrowser(requireContext(), MIN_CONTRIBUTIONS_GATE_URL.toUri())
             }, true)
             binding.messageCard.isVisible = true
             return true
@@ -406,25 +488,54 @@ class SuggestedEditsTasksFragment : Fragment() {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
             if (WikipediaApp.instance.languageState.appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 requestAddLanguage.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), Constants.InvokeSource.SUGGESTED_EDITS))
-            } else if (task == addDescriptionsTask) {
-                ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
-            } else if (task == addImageCaptionsTask) {
-                ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
-            } else if (task == addImageTagsTask) {
-                ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
-                if (Prefs.showImageTagsOnboarding) {
-                    requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
-                } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                return
+            }
+
+            when (task) {
+                addDescriptionsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
+                    } else {
+                        ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
+                    }
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
                 }
-            } else if (task == imageRecommendationsTask) {
-                ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
-            } else if (task == vandalismPatrolTask) {
-                PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
-                startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
+                addImageCaptionsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
+                    } else {
+                        ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
+                    }
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
+                }
+                addImageTagsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
+                    } else {
+                        ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
+                    }
+                    if (Prefs.showImageTagsOnboarding) {
+                        requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+                    } else {
+                        startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    }
+                }
+                imageRecommendationsTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
+                    } else {
+                        ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
+                    }
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
+                }
+                vandalismPatrolTask -> {
+                    if (ActivityTabABTest().isInTestGroup()) {
+                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
+                    } else {
+                        PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
+                    }
+                    startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
+                }
             }
         }
     }

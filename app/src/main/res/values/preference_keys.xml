@@ -175,6 +175,9 @@
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
+    <string name="preference_key_activity_tab_red_dot_shown">activityTabRedDotShown</string>
+    <string name="preference_key_impact_last_query_time">impactLastQueryTime</string>
+    <string name="preference_key_impact_last_response_body">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
     <string name="preference_key_delete_local_donation_history">deleteLocalDonationHistory</string>
     <string name="preference_key_playground_category">categoryPlayground</string>
@@ -199,4 +202,7 @@
     <string name="preference_key_donation_reminders_dev_reset">donationReminderDevReset</string>
     <string name="preference_key_donation_reminders_dev_reset_seen_date">donationReminderDevResetSeenDate</string>
     <string name="preference_category_donations">donations</string>
+    <string name="preference_key_activity_tab_modules">activityTabModules</string>
+    <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
+
 </resources>

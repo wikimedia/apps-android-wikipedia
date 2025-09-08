@@ -19,8 +19,10 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageTitle
@@ -194,6 +196,7 @@ class LoginActivity : BaseActivity() {
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false
         updateSubscription()
+        FlowEventBus.post(LoggedInEvent())
         finish()
     }
 
@@ -294,6 +297,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
+        const val SOURCE_ACTIVITY_TAB = "activity_tab"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

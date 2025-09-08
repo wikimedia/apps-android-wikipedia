@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:ignore="UseCompoundDrawables,UselessParent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -98,6 +99,27 @@
                     android:layout_marginStart="24dp"
                     android:layout_weight="1"
                     android:text="@string/user_contrib_menu_label" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_drawer_edit_container"
+                style="@style/SideDrawerMenuItem"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/selector_nav_edits"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/suggested_edits_activity_title" />
             </LinearLayout>
 
             <LinearLayout

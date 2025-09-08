@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.ActivityTabModules
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -830,9 +831,31 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
+    var activityTabRedDotShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
+
+    var impactLastQueryTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
+
+    var impactLastResponseBody
+        get() = JsonUtil.decodeFromString<Map<String, String>>(PrefsIoUtil.getString(R.string.preference_key_impact_last_response_body, null))
+            ?: emptyMap()
+        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_impact_last_response_body, JsonUtil.encodeToString(langSupportedMap))
+
     var donationReminderConfig
         get() = JsonUtil.decodeFromString<DonationReminderConfig>(
             PrefsIoUtil.getString(R.string.preference_key_donation_reminder_config, null)
         ) ?: DonationReminderConfig()
         set(types) = PrefsIoUtil.setString(R.string.preference_key_donation_reminder_config, JsonUtil.encodeToString(types))
+
+    var activityTabModules: ActivityTabModules
+        get() = JsonUtil.decodeFromString<ActivityTabModules>(PrefsIoUtil.getString(R.string.preference_key_activity_tab_modules, null))
+            ?: ActivityTabModules()
+        set(modules) = PrefsIoUtil.setString(R.string.preference_key_activity_tab_modules, JsonUtil.encodeToString(modules))
+
+    var isActivityTabOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_onboarding_shown, value)
 }
