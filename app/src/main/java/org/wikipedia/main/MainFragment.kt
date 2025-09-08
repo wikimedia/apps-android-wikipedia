@@ -44,6 +44,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
@@ -132,7 +133,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
+                            ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
                         is ImportReadingListsEvent -> {
