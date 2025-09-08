@@ -95,11 +95,13 @@ class ActivityTabViewModel() : ViewModel() {
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
 
     fun loadAll() {
-        loadReadingHistory()
-        loadDonationResults()
-        loadWikiGamesStats()
-        loadImpact()
-        refreshTimeline()
+        if (AccountUtil.isLoggedIn) {
+            loadReadingHistory()
+            loadDonationResults()
+            loadWikiGamesStats()
+            loadImpact()
+            refreshTimeline()
+        }
     }
 
     private fun refreshTimeline() {
