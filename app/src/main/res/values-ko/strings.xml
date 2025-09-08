@@ -1742,6 +1742,7 @@
   <string name="year_in_review_survey_placeholder_text">추가 의견이 있으신가요?</string>
   <string name="year_in_review_survey_cancel">취소</string>
   <string name="year_in_review_survey_submit">제출</string>
+  <string name="year_in_review_globe_icon">지구본 아이콘</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
@@ -1776,6 +1777,10 @@
   <string name="donation_reminders_initial_prompt_positive_button">시작하기</string>
   <string name="donation_reminders_initial_prompt_negative_button">지금은 괜찮습니다</string>
   <string name="donation_settings_section_header">기부</string>
+  <string name="donation_reminders_settings_option_custom">사용자 지정…</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>
   <string name="donation_reminders_prompt_negative_button">지금은 괜찮습니다</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="other">문서 %d개</item>
+  </plurals>
 </resources>
