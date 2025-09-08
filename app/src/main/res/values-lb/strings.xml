@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Envlh
+* GilPe
 * Les Meloures
 * MuratTheTurkish
 * Robby
@@ -12,13 +13,13 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="nav_item_back">Zréck</string>
-  <string name="page_tabs_back">Zréck</string>
+  <string name="nav_item_back">Zeréck</string>
+  <string name="page_tabs_back">Zeréck</string>
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_voice_search">Sproochsich</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
-  <string name="search_back_button_content_description">Zréck goen</string>
+  <string name="search_back_button_content_description">Zeréck goen</string>
   <string name="search_clear_query_content_description">Requête eidel maachen</string>
   <string name="search_icon_content_description">Sichen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
@@ -32,8 +33,8 @@
   <string name="storage_access_error_retry">Nach eng Kéier probéieren</string>
   <string name="article_load_error_retry">Nach eng Kéier probéieren</string>
   <string name="offline_load_error_retry">Nach eng Kéier probéieren</string>
-  <string name="page_error_back_to_main">Zréck goen</string>
-  <string name="error_back">Zréck goen</string>
+  <string name="page_error_back_to_main">Zeréck goen</string>
+  <string name="error_back">Zeréck goen</string>
   <string name="error_next">Weider</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
@@ -56,7 +57,7 @@
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="page_edit_history_activity_title">Historique vun de Versiounen: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Eidele Resumé vun der Ännerung</string>
+  <string name="page_edit_history_comment_placeholder">Eidele Resümmee vun der Ännerung</string>
   <string name="page_edit_history_search_or_filter_edits_hint">No Ännerunge sichen oder Ännerunge filteren</string>
   <string name="page_edit_history_filter_by">Filteren no</string>
   <string name="page_edit_history_filter_by_all">All Ännerungen (%s)</string>
@@ -1127,7 +1128,7 @@
     <item quantity="other">Viru(n) %d Joer</item>
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Dir sidd duerch d\'Zäit gereest 🚀</string>
-  <string name="on_this_day_back_to_future">Zréck an d\'Zukunft</string>
+  <string name="on_this_day_back_to_future">Zeréck an d\'Zukunft</string>
   <string name="languages_list_activity_title">Eng Sprooch derbäisetzen</string>
   <string name="languages_list_suggested_text">Virgeschloen</string>
   <string name="languages_list_all_text">All Sproochen</string>
@@ -1318,7 +1319,7 @@
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
   <string name="revision_undo_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
-  <string name="revision_undo_summary_hint">Resumé (fakultativ)</string>
+  <string name="revision_undo_summary_hint">Resümmee (fakultativ)</string>
   <string name="revision_undo_reason">Gitt wgl. de Grond u fir dës Ännerung réckgängeg ze maachen</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
   <string name="revision_rollback_dialog_title">Sidd Dir sécher, datt Dir dës Ännerungen zrécksetze wëllt?</string>
@@ -1518,7 +1519,7 @@
   <string name="patroller_saved_message_title_editing_tests">Testännerungen</string>
   <string name="patroller_saved_message_title_auto_trans">Automatesch Iwwersetzung</string>
   <string name="patroller_saved_message_title_final_warning">Lescht Warnung</string>
-  <string name="patroller_saved_message_title_edit_summary_reminder">Schreift e Resumé vun der Ännerung</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Schreift e Resümmee vun der Ännerung</string>
   <string name="patroller_saved_message_title_do_not_censor">Net zenséieren</string>
   <string name="patroller_saved_message_title_art_imp">Artikelverbesserungsvirschlag</string>
   <string name="talk_templates_menu_edit_title">Änneren</string>
