@@ -34,7 +34,6 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -137,6 +136,24 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.allDataLoaded.collectLatest {
+                    if (it) {
+                        val isAllDataEmpty = viewModel.hasNoReadingHistoryData() &&
+                                viewModel.hasNoImpactData() &&
+                                viewModel.hasNoGameStats() &&
+                                viewModel.hasNoDonationData()
+                        ActivityTabEvent.submit(
+                            activeInterface = "activity_tab",
+                            action = "impression",
+                            editCount = viewModel.getTotalEditsCount(),
+                            state = if (isAllDataEmpty) "empty" else "complete"
+                        )
+                    }
+                }
+            }
+        }
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -182,7 +199,6 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
-        var hasImpressionBeenSent by remember { mutableStateOf(false) }
 
         Scaffold(
             modifier = Modifier
@@ -235,7 +251,7 @@ class ActivityTabFragment : Fragment() {
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
-                                        LoginActivity.SOURCE_ACTIVITY
+                                        LoginActivity.SOURCE_ACTIVITY_TAB
                                     )
                                 )
                             },
@@ -263,7 +279,7 @@ class ActivityTabFragment : Fragment() {
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
-                                        LoginActivity.SOURCE_ACTIVITY,
+                                        LoginActivity.SOURCE_ACTIVITY_TAB,
                                         createAccountFirst = false
                                     )
                                 )
@@ -311,22 +327,6 @@ class ActivityTabFragment : Fragment() {
                         )
                     }
                     return@Scaffold
-                }
-            }
-
-            LaunchedEffect(viewModel.allDataLoaded.collectAsState().value, timelineItems.loadState.refresh) {
-                if (viewModel.allDataLoaded.value && timelineItems.loadState.refresh !is LoadState.Loading && !hasImpressionBeenSent) {
-                    val isAllDataEmpty = viewModel.hasNoReadingHistoryData() &&
-                            viewModel.hasNoImpactData() &&
-                            viewModel.hasNoGameStats() &&
-                            viewModel.isDonationUnknown() && timelineItems.itemCount == 0
-                    val state = if (isAllDataEmpty) "empty" else "complete"
-                    ActivityTabEvent.submit(
-                        activeInterface = "activity_tab",
-                        action = "impression",
-                        editCount = viewModel.getTotalEditsCount(),
-                        state = state
-                    )
                 }
             }
 
@@ -520,8 +520,8 @@ class ActivityTabFragment : Fragment() {
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = donationUiState,
                                     onClick = {
-                                        val state = if (viewModel.isDonationUnknown()) "empty" else "complete"
-                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click", editCount = viewModel.getTotalEditsCount(), state = state)
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click",
+                                            editCount = viewModel.getTotalEditsCount(), state = if (viewModel.hasNoDonationData()) "empty" else "complete")
                                         (requireActivity() as? BaseActivity)?.launchDonateDialog(
                                             campaignId = ActivityTabViewModel.CAMPAIGN_ID
                                         )

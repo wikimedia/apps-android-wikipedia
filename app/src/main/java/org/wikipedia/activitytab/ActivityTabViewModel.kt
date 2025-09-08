@@ -263,7 +263,7 @@ class ActivityTabViewModel() : ViewModel() {
         }
     }
 
-    fun isDonationUnknown(): Boolean {
+    fun hasNoDonationData(): Boolean {
         return when (val currentState = _donationUiState.value) {
             is UiState.Success -> currentState.data == null
             else -> true
@@ -284,7 +284,7 @@ class ActivityTabViewModel() : ViewModel() {
         return when (val currentState = _impactUiState.value) {
             is UiState.Success -> {
                 val data = currentState.data
-                data.totalEditsCount <= 0 && data.receivedThanksCount <= 0 && data.longestEditingStreak == null && data.lastEditTimestamp <= 0 && data.lastThirtyDaysEdits.values.sum() <= 0 && data.totalPageviewsCount <= 0 && data.dailyTotalViews.isEmpty()
+                data.totalEditsCount <= 0 && data.receivedThanksCount <= 0 && data.totalPageviewsCount <= 0
             }
             else -> true
         }
@@ -294,7 +294,7 @@ class ActivityTabViewModel() : ViewModel() {
         return when (val currentState = _wikiGamesUiState.value) {
             is UiState.Success -> {
                 val data = currentState.data ?: return true
-                data.totalGamesPlayed <= 0 && data.bestStreak <= 0 && data.currentStreak <= 0 && (data.averageScore ?: 0.0) <= 0.0
+                data.totalGamesPlayed <= 0
             }
             else -> true
         }

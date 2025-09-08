@@ -297,7 +297,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
-        const val SOURCE_ACTIVITY = "activity_tab"
+        const val SOURCE_ACTIVITY_TAB = "activity_tab"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)
