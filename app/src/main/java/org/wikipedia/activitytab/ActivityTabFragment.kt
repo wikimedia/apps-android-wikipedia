@@ -314,17 +314,19 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
-            LaunchedEffect(timelineItems.loadState.refresh, readingHistoryState) {
-                if (!hasImpressionBeenSent &&
-                    timelineItems.loadState.refresh is LoadState.NotLoading && readingHistoryState is UiState.Success) {
-                    val state = if (timelineItems.itemCount == 0 || viewModel.hasIncompleteReadingHistoryData()) "empty" else "complete"
+            LaunchedEffect(viewModel.allDataLoaded.collectAsState().value, timelineItems.loadState.refresh) {
+                if (viewModel.allDataLoaded.value && timelineItems.loadState.refresh !is LoadState.Loading && !hasImpressionBeenSent) {
+                    val isAllDataEmpty = viewModel.hasNoReadingHistoryData() &&
+                            viewModel.hasNoImpactData() &&
+                            viewModel.hasNoGameStats() &&
+                            viewModel.isDonationUnknown() && timelineItems.itemCount == 0
+                    val state = if (isAllDataEmpty) "empty" else "complete"
                     ActivityTabEvent.submit(
                         activeInterface = "activity_tab",
                         action = "impression",
                         editCount = viewModel.getTotalEditsCount(),
                         state = state
                     )
-                    hasImpressionBeenSent = true
                 }
             }
 
