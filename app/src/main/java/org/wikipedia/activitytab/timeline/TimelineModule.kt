@@ -54,14 +54,14 @@ fun TimelineModule(
             .clickable(onClick = { onItemClick(timelineItem) })
             .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
-        TimelineHeader(
+        TimelineContent(
             modifier = Modifier
                 .fillMaxWidth(),
             timelineItem = timelineItem
         )
 
         if (timelineItem.activitySource == ActivitySource.EDIT) {
-            TimelineBottomView(
+            TimelineButtonView(
                 onViewChangesBtnClick = { onItemClick(timelineItem) }
             )
         }
@@ -69,7 +69,7 @@ fun TimelineModule(
 }
 
 @Composable
-fun TimelineHeader(
+fun TimelineContent(
     timelineItem: TimelineItem,
     modifier: Modifier = Modifier
 ) {
@@ -137,7 +137,7 @@ fun TimelineHeader(
 }
 
 @Composable
-fun TimelineBottomView(
+fun TimelineButtonView(
     modifier: Modifier = Modifier,
     onViewChangesBtnClick: () -> Unit
 ) {
