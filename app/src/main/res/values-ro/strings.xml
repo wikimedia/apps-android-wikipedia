@@ -587,6 +587,7 @@
   <string name="reading_list_articles_added_to_named">Adăugat %1$d articole la %2$s</string>
   <string name="reading_list_articles_moved_to_named">Mutat %1$d articole la %2$s</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Ștergeți lista/listele selectate?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Conectați-vă pentru a activa sincronizarea</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Conectați-vă pentru a permite salvarea listelor de citire în cont.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anulare</string>
@@ -1420,12 +1421,26 @@
   <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
   <string name="recommended_reading_list_interest_source_saved">Alege pentru mine pe baza articolelor mele salvate</string>
   <string name="recommended_reading_list_interest_source_history">Alege pentru mine pe baza istoricului meu de lectură</string>
+  <string name="recommended_reading_list_interest_pick_title">Ce vă interesează?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Caută un articol</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d selectat</item>
+    <item quantity="few">%d selectate</item>
+    <item quantity="other">%d selectate</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Am selectat aleatoriu câteva articole pentru dvs.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Nu mai contează</string>
   <string name="recommended_reading_list_page_subtitle_made_for">Făcută pentru %s</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Făcută pentru dvs.</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d articol</item>
+    <item quantity="few">• %d articole</item>
+    <item quantity="other">• %d articole</item>
+  </plurals>
   <string name="recommended_reading_list_page_description_weekly">Lista dvs. săptămânală de lectură. Aflați despre subiecte noi, alese doar pentru dvs. Lista se actualizează la începutul săptămânii.</string>
-  <string name="recommended_reading_list_page_overflow_customize">Personalizați</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalizează</string>
   <string name="recommended_reading_list_page_overflow_about">Despre această funcție</string>
-  <string name="recommended_reading_list_page_snackbar_action">Personalizați „Discover“</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalizează „Discover“</string>
   <string name="recommended_reading_list_settings_title">Setări Discover</string>
   <string name="recommended_reading_list_settings_toggle">Lista de lectură „Discover”</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">„Discover“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
@@ -1443,6 +1458,12 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Bazat pe interesele dvs.</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Bazat pe articolele dvs. salvate</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Bazat pe istoria dvs. de lectură</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Ajustați cum este făcut Discover?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Dacă ajustați modul în care Discover generează recomandările, recomandările dvs. actuale vor fi înlocuite.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajustează</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Nu mai contează</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Acum, recomandările sunt bazate pe interesele dvs.</string>
+  <string name="recommended_reading_list_settings_interests">Interese</string>
   <string name="recommended_reading_list_settings_notifications_title">Notificări</string>
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notificările pentru Discover sunt dezactivate. Nu veți primi o notificare când Discover este actualizat.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">Dezactivați notificările?</string>
