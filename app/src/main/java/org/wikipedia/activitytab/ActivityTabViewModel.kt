@@ -112,6 +112,9 @@ class ActivityTabViewModel() : ViewModel() {
 
     fun loadAll() {
         loadReadingHistory()
+        if (!AccountUtil.isLoggedIn) {
+            return
+        }
         loadDonationResults()
         loadWikiGamesStats()
         loadImpact()

@@ -3,6 +3,7 @@ package org.wikipedia.activitytab.timeline
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -43,24 +44,43 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.util.Date
 
-// @TODO: MARK_ACTIVITY_TAB retrieve description and thumbnail for contributions through API
 @Composable
 fun TimelineModule(
-    modifier: Modifier = Modifier,
     timelineItem: TimelineItem,
     onItemClick: (TimelineItem) -> Unit
 ) {
-    Row(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
             .clickable(onClick = { onItemClick(timelineItem) })
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+    ) {
+        TimelineContent(
+            modifier = Modifier
+                .fillMaxWidth(),
+            timelineItem = timelineItem
+        )
+
+        if (timelineItem.activitySource == ActivitySource.EDIT) {
+            TimelineButtonView(
+                onViewChangesBtnClick = { onItemClick(timelineItem) }
+            )
+        }
+    }
+}
+
+@Composable
+fun TimelineContent(
+    timelineItem: TimelineItem,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         val icon = when (timelineItem.activitySource) {
             ActivitySource.EDIT -> R.drawable.ic_mode_edit_white_24dp
-            ActivitySource.SEARCH -> R.drawable.search_bold
+            ActivitySource.SEARCH -> R.drawable.outline_search_24
             ActivitySource.LINK -> R.drawable.ic_link_black_24dp
             ActivitySource.BOOKMARKED -> R.drawable.ic_bookmark_white_24dp
             null -> null
@@ -97,30 +117,8 @@ fun TimelineModule(
                     overflow = TextOverflow.Ellipsis
                 )
             }
-
-            if (timelineItem.activitySource == ActivitySource.EDIT) {
-                Button(
-                    modifier = modifier.padding(top = 8.dp),
-                    contentPadding = PaddingValues(horizontal = 18.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.additionColor,
-                        contentColor = WikipediaTheme.colors.secondaryColor,
-                    ),
-                    onClick = { onItemClick(timelineItem) },
-                ) {
-                    Icon(
-                        modifier = Modifier.size(20.dp),
-                        painter = painterResource(R.drawable.outline_difference_24),
-                        tint = WikipediaTheme.colors.secondaryColor,
-                        contentDescription = null
-                    )
-                    Text(
-                        modifier = Modifier.padding(start = 6.dp),
-                        text = stringResource(R.string.activity_tab_timeline_view_changes_button)
-                    )
-                }
-            }
         }
+
         if (!timelineItem.thumbnailUrl.isNullOrEmpty()) {
             val request =
                 ImageService.getRequest(LocalContext.current, url = timelineItem.thumbnailUrl)
@@ -139,9 +137,44 @@ fun TimelineModule(
 }
 
 @Composable
-fun TimelineModuleEmptyView(
-    modifier: Modifier = Modifier
+fun TimelineButtonView(
+    modifier: Modifier = Modifier,
+    onViewChangesBtnClick: () -> Unit
 ) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(24.dp)
+        )
+
+        Button(
+            modifier = Modifier.padding(top = 8.dp),
+            contentPadding = PaddingValues(horizontal = 18.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WikipediaTheme.colors.additionColor,
+                contentColor = WikipediaTheme.colors.secondaryColor,
+            ),
+            onClick = onViewChangesBtnClick
+        ) {
+            Icon(
+                modifier = Modifier.size(20.dp),
+                painter = painterResource(R.drawable.filled_difference_24),
+                tint = WikipediaTheme.colors.secondaryColor,
+                contentDescription = null
+            )
+            Text(
+                modifier = Modifier.padding(start = 6.dp),
+                text = stringResource(R.string.activity_tab_timeline_view_changes_button)
+            )
+        }
+    }
+}
+
+@Composable
+fun TimelineModuleEmptyView(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -184,10 +217,11 @@ fun TimelineDateSeparator(
     date: Date,
     modifier: Modifier = Modifier
 ) {
-    val dateText = when {
-        date.isToday() -> stringResource(R.string.activity_tab_timeline_today)
-        date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday)
-        else -> DateUtil.toRelativeDateString(date)
+    val context = LocalContext.current
+    val (dateHeaderText, showSecondaryDate) = when {
+        date.isToday() -> context.getString(R.string.activity_tab_timeline_today) to true
+        date.isYesterday() -> context.getString(R.string.activity_tab_timeline_yesterday) to true
+        else -> DateUtil.getMMMMdYYYY(date, false) to false
     }
 
     Column(
@@ -195,16 +229,18 @@ fun TimelineDateSeparator(
             .fillMaxWidth()
     ) {
         Text(
-            text = dateText,
+            text = dateHeaderText,
             style = MaterialTheme.typography.titleLarge,
-            fontWeight = FontWeight.Bold,
+            fontWeight = FontWeight.Medium,
             color = WikipediaTheme.colors.primaryColor
         )
-        Text(
-            text = DateUtil.getMMMMdYYYY(date, false),
-            style = MaterialTheme.typography.bodySmall,
-            color = WikipediaTheme.colors.secondaryColor
-        )
+        if (showSecondaryDate) {
+            Text(
+                text = DateUtil.getMMMMdYYYY(date, false),
+                style = MaterialTheme.typography.bodySmall,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+        }
     }
 }
 
@@ -215,9 +251,6 @@ private fun TimelineItemPreview() {
         currentTheme = Theme.LIGHT
     ) {
         TimelineModule(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
             timelineItem = TimelineItem(
                 id = 1,
                 pageId = 1,

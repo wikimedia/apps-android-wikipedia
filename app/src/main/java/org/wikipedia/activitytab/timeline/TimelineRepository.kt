@@ -72,7 +72,7 @@ class UserContribPagingSource(
             // pageId for article namespace and revid for other namespace as key because they can have similar pageId for example (User talk namespace)
             // Only check database cache for article namespace article
             val savedHistoryItem = if (contribution.ns == Namespace.MAIN.code()) historyEntryWithImageDao.getHistoryItemWIthImage(contribution.title).firstOrNull() else null
-            val keyForMap = savedHistoryItem?.id ?: contribution.revid
+            val keyForMap = savedHistoryItem?.id ?: if (contribution.ns == Namespace.MAIN.code()) contribution.pageid.toLong() else contribution.revid
             val timelineItem = TimelineItem(
                 id = contribution.revid,
                 pageId = contribution.pageid,

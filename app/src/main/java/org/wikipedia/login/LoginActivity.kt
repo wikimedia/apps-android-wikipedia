@@ -213,7 +213,7 @@ class LoginActivity : BaseActivity() {
                 captchaId = captchaHandler.captchaId(), captchaWord = captchaHandler.captchaWord(), cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
-                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
                 emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null, isContinuation = true, cb = loginCallback)
         }
     }
