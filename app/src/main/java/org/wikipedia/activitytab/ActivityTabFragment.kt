@@ -34,6 +34,7 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -75,6 +76,7 @@ import org.wikipedia.activitytab.timeline.TimelineDateSeparator
 import org.wikipedia.activitytab.timeline.TimelineItem
 import org.wikipedia.activitytab.timeline.TimelineModule
 import org.wikipedia.activitytab.timeline.TimelineModuleEmptyView
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
@@ -126,7 +128,6 @@ class ActivityTabFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         Prefs.activityTabRedDotShown = true
-
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
@@ -136,7 +137,6 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
-
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -182,6 +182,8 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
+        var hasImpressionBeenSent by remember { mutableStateOf(false) }
+
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -229,6 +231,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = Color.White,
                             ),
                             onClick = {
+                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "create_account_click")
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
@@ -256,6 +259,7 @@ class ActivityTabFragment : Fragment() {
                                 contentColor = WikipediaTheme.colors.primaryColor,
                             ),
                             onClick = {
+                                ActivityTabEvent.submit(activeInterface = "activity_tab_login", action = "login_click")
                                 startActivity(
                                     LoginActivity.newIntent(
                                         requireContext(),
@@ -310,6 +314,22 @@ class ActivityTabFragment : Fragment() {
                 }
             }
 
+            LaunchedEffect(viewModel.allDataLoaded.collectAsState().value, timelineItems.loadState.refresh) {
+                if (viewModel.allDataLoaded.value && timelineItems.loadState.refresh !is LoadState.Loading && !hasImpressionBeenSent) {
+                    val isAllDataEmpty = viewModel.hasNoReadingHistoryData() &&
+                            viewModel.hasNoImpactData() &&
+                            viewModel.hasNoGameStats() &&
+                            viewModel.isDonationUnknown() && timelineItems.itemCount == 0
+                    val state = if (isAllDataEmpty) "empty" else "complete"
+                    ActivityTabEvent.submit(
+                        activeInterface = "activity_tab",
+                        action = "impression",
+                        editCount = viewModel.getTotalEditsCount(),
+                        state = state
+                    )
+                }
+            }
+
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
@@ -352,7 +372,10 @@ class ActivityTabFragment : Fragment() {
                                     readingHistoryState = readingHistoryState,
                                     onArticlesReadClick = { callback()?.onNavigateTo(NavTab.SEARCH) },
                                     onArticlesSavedClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
-                                    onExploreClick = { callback()?.onNavigateTo(NavTab.READING_LISTS) },
+                                    onExploreClick = {
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "explore_click", editCount = viewModel.getTotalEditsCount())
+                                        callback()?.onNavigateTo(NavTab.READING_LISTS)
+                                    },
                                     onCategoryItemClick = { category ->
                                         val pageTitle =
                                             viewModel.createPageTitleForCategory(category)
@@ -422,6 +445,7 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onSuggestedEditsClick = {
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "sugg_edit_click", editCount = viewModel.getTotalEditsCount())
                                         requireActivity().startActivity(
                                             SuggestedEditsTasksActivity.newIntent(
                                             context = requireActivity()
@@ -496,6 +520,8 @@ class ActivityTabFragment : Fragment() {
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = donationUiState,
                                     onClick = {
+                                        val state = if (viewModel.isDonationUnknown()) "empty" else "complete"
+                                        ActivityTabEvent.submit(activeInterface = "activity_tab", action = "last_donation_click", editCount = viewModel.getTotalEditsCount(), state = state)
                                         (requireActivity() as? BaseActivity)?.launchDonateDialog(
                                             campaignId = ActivityTabViewModel.CAMPAIGN_ID
                                         )
@@ -722,20 +748,24 @@ class ActivityTabFragment : Fragment() {
     private fun handleMenuItemClick(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_customize_activity_tab -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "customize_click")
                 startActivity(ActivityTabCustomizationActivity.newIntent(requireContext()))
                 true
             }
             R.id.menu_clear_history -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "clear_history_click")
                 HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
                     viewModel.loadAll()
                 }
                 true
             }
             R.id.menu_learn_more -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "learn_click")
                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.activity_tab_url).toUri())
                 true
             }
             R.id.menu_report_feature -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "problem_click")
                 FeedbackUtil.composeEmail(requireContext(),
                     subject = getString(R.string.activity_tab_report_email_subject),
                     body = getString(R.string.activity_tab_report_email_body))

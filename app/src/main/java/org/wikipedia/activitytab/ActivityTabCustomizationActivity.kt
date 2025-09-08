@@ -27,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -49,6 +50,32 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                     haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
                 )
             }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        submitCustomizationModulesEvent()
+    }
+
+    private fun submitCustomizationModulesEvent() {
+        with(Prefs.activityTabModules) {
+            ActivityTabEvent.submit(
+                activeInterface = "activity_tab_customize",
+                action = "customize_click",
+                timeSpent = isTimeSpentEnabled.toOnOffString(),
+                readingInsight = isReadingInsightsEnabled.toOnOffString(),
+                editingInsight = isEditingInsightsEnabled.toOnOffString(),
+                impact = isImpactEnabled.toOnOffString(),
+                games = isGamesEnabled.toOnOffString(),
+                donations = if (Prefs.donationResults.isNotEmpty()) isDonationsEnabled.toOnOffString() else null,
+                timeline = isTimelineEnabled.toOnOffString(),
+                all = when {
+                    noModulesVisible(Prefs.donationResults.isNotEmpty()) -> "off"
+                    areAllModulesEnabled() -> "on"
+                    else -> null
+                }
+            )
         }
     }
 
@@ -153,6 +180,8 @@ private fun CustomizationScreenSwitch(
         }
     )
 }
+
+private fun Boolean.toOnOffString(): String = if (this) "on" else "off"
 
 @Preview
 @Composable

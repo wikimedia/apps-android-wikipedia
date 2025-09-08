@@ -11,9 +11,12 @@ import androidx.paging.map
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -66,6 +69,7 @@ class ActivityTabViewModel() : ViewModel() {
             else -> WikiSite.forLanguageCode(langCode)
         }
     }
+
     val timelineFlow = Pager(
         config = PagingConfig(
             pageSize = 150,
@@ -93,6 +97,18 @@ class ActivityTabViewModel() : ViewModel() {
 
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
+
+    val allDataLoaded = combine(
+        readingHistoryState,
+        donationUiState,
+        wikiGamesUiState,
+        impactUiState
+    ) { reading, donation, games, impact ->
+        reading !is UiState.Loading &&
+                donation !is UiState.Loading &&
+                games !is UiState.Loading &&
+                impact !is UiState.Loading
+    }.stateIn(viewModelScope, SharingStarted.Lazily, false)
 
     fun loadAll() {
         loadReadingHistory()
@@ -238,6 +254,50 @@ class ActivityTabViewModel() : ViewModel() {
         val userContribPagingSource = UserContribPagingSource(wikiSiteForTimeline, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
         val readingListPagingSource = ReadingListPagingSource(AppDatabase.instance.readingListPageDao())
         return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
+    }
+
+    fun getTotalEditsCount(): Int {
+        return when (val currentState = _impactUiState.value) {
+            is UiState.Success -> currentState.data.totalEditsCount
+            else -> 0
+        }
+    }
+
+    fun isDonationUnknown(): Boolean {
+        return when (val currentState = _donationUiState.value) {
+            is UiState.Success -> currentState.data == null
+            else -> true
+        }
+    }
+
+    fun hasNoReadingHistoryData(): Boolean {
+        return when (val currentState = _readingHistoryState.value) {
+            is UiState.Success -> {
+                val data = currentState.data
+                data.timeSpentThisWeek <= 0 && data.articlesReadThisMonth <= 0 && data.articlesSavedThisMonth <= 0 && data.topCategories.isEmpty()
+            }
+            else -> true
+        }
+    }
+
+    fun hasNoImpactData(): Boolean {
+        return when (val currentState = _impactUiState.value) {
+            is UiState.Success -> {
+                val data = currentState.data
+                data.totalEditsCount <= 0 && data.receivedThanksCount <= 0 && data.longestEditingStreak == null && data.lastEditTimestamp <= 0 && data.lastThirtyDaysEdits.values.sum() <= 0 && data.totalPageviewsCount <= 0 && data.dailyTotalViews.isEmpty()
+            }
+            else -> true
+        }
+    }
+
+    fun hasNoGameStats(): Boolean {
+        return when (val currentState = _wikiGamesUiState.value) {
+            is UiState.Success -> {
+                val data = currentState.data ?: return true
+                data.totalGamesPlayed <= 0 && data.bestStreak <= 0 && data.currentStreak <= 0 && (data.averageScore ?: 0.0) <= 0.0
+            }
+            else -> true
+        }
     }
 
     class ReadingHistory(

@@ -277,3 +277,16 @@ private fun TimelineDateSeparatorPreview() {
         )
     }
 }
+
+@Preview
+@Composable
+private fun TimelineModuleEmptyViewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TimelineModuleEmptyView(
+            modifier = Modifier
+                .padding(16.dp)
+        )
+    }
+}

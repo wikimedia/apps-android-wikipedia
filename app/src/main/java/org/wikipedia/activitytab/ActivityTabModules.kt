@@ -39,6 +39,10 @@ data class ActivityTabModules(
     }
 
     fun noModulesVisible(haveAtLeastOneDonation: Boolean = false) = ModuleType.entries.all { !isModuleVisible(it, haveAtLeastOneDonation) }
+
+    fun areAllModulesEnabled(): Boolean {
+        return ModuleType.entries.all { this.isModuleEnabled(it) }
+    }
 }
 
 enum class ModuleType(val displayName: Int) {
