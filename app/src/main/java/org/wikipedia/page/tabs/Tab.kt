@@ -1,22 +1,53 @@
 package org.wikipedia.page.tabs
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
-import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
+@Entity
 @Serializable
-class Tab {
-    val backStack = mutableListOf<PageBackStackItem>()
-
+class Tab(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    var order: Int = 0,
+    var backStackIds: String = ""
+) {
     var backStackPosition: Int = -1
         get() = if (field < 0) backStack.size - 1 else field
 
-    val backStackPositionTitle: PageTitle?
-        get() = if (backStack.isEmpty()) null else backStack[backStackPosition].title
+    // The value of backStack will be initialized from the database in TabHelper
+    @Ignore
+    var backStack = mutableListOf<PageBackStackItem>()
+
+    fun setBackStackIds(ids: List<Long>) {
+        backStackIds = ids.joinToString(separator = ",")
+    }
+
+    fun getBackStackIds(): List<Long> {
+        return if (backStackIds.isEmpty()) {
+            emptyList()
+        } else {
+            backStackIds.split(",").mapNotNull { it.toLongOrNull() }
+        }
+    }
+
+    fun getBackStackPositionTitle(): PageTitle? {
+        return backStack.getOrNull(backStackPosition)?.getPageTitle()
+    }
 
     fun setBackStackPositionTitle(title: PageTitle) {
-        backStackPositionTitle?.run {
-            backStack[backStackPosition].title = title
+        getBackStackPositionTitle()?.run {
+            val backStackItem = backStack[backStackPosition]
+            backStack[backStackPosition] = backStackItem.apply {
+                apiTitle = title.prefixedText
+                displayTitle = title.displayText
+                langCode = title.wikiSite.languageCode
+                namespace = title.namespace
+                thumbUrl = title.thumbUrl
+                description = title.description
+                extract = title.extract
+            }
         }
     }
 
@@ -25,11 +56,11 @@ class Tab {
     }
 
     fun canGoForward(): Boolean {
-        return backStackPosition < backStack.size - 1
+        return backStackPosition < getBackStackIds().size - 1
     }
 
     fun moveForward() {
-        if (backStackPosition < backStack.size - 1) {
+        if (backStackPosition < getBackStackIds().size - 1) {
             backStackPosition++
         }
     }
@@ -41,23 +72,22 @@ class Tab {
     }
 
     fun pushBackStackItem(item: PageBackStackItem) {
-        // remove all backstack items past the current position
-        while (backStack.size > backStackPosition + 1) {
-            backStack.removeAt(backStackPosition + 1)
-        }
         backStack.add(item)
         backStackPosition = backStack.size - 1
+        setBackStackIds(backStack.map { it.id })
     }
 
     fun clearBackstack() {
         backStack.clear()
         backStackPosition = -1
+        setBackStackIds(emptyList())
     }
 
     fun squashBackstack() {
         backStack.lastOrNull()?.let {
             backStack.clear()
             backStack.add(it)
+            setBackStackIds(listOf(it.id))
             backStackPosition = 0
         }
     }
