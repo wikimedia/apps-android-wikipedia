@@ -48,6 +48,7 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabUpdateEvent
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -61,6 +62,7 @@ import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.CategoryDialog
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
@@ -1387,6 +1389,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
                 }
             }
+            FlowEventBus.post(ActivityTabUpdateEvent.ReadingHistoryChanged)
             articleInteractionEvent?.logSaveClick()
             metricsPlatformArticleEventToolbarInteraction.logSaveClick()
         }

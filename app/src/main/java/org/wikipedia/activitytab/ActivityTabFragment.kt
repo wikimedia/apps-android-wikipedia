@@ -131,7 +131,9 @@ class ActivityTabFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
-                        is LoggedInEvent, is LoggedOutEvent, is LoggedOutInBackgroundEvent -> viewModel.loadAll()
+                        is LoggedInEvent, is LoggedOutEvent, is LoggedOutInBackgroundEvent -> {
+                            viewModel.refreshActivityTab()
+                        }
                     }
                 }
             }
@@ -333,8 +335,7 @@ class ActivityTabFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
-                    timelineItems.refresh()
-                    viewModel.loadAll()
+                    viewModel.refreshActivityTab()
                 },
                 isRefreshing = isRefreshing,
                 state = state,
@@ -540,7 +541,7 @@ class ActivityTabFragment : Fragment() {
                         val isRefreshing = timelineItems.loadState.refresh is LoadState.Loading
                         val isEmpty = timelineItems.itemCount == 0
                         when {
-                            isRefreshing -> {
+                            isRefreshing && !viewModel.shouldRefreshTimelineSilently -> {
                                 item {
                                     ActivityTabShimmerView()
                                 }
@@ -755,7 +756,7 @@ class ActivityTabFragment : Fragment() {
             R.id.menu_clear_history -> {
                 ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "clear_history_click")
                 HistoryFragment.clearAllHistory(requireContext(), lifecycleScope) {
-                    viewModel.loadAll()
+                    viewModel.refreshActivityTab()
                 }
                 true
             }

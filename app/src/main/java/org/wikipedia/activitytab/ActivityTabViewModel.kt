@@ -28,6 +28,7 @@ import org.wikipedia.activitytab.timeline.TimelineSource
 import org.wikipedia.activitytab.timeline.UserContribPagingSource
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.db.Category
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -98,6 +99,8 @@ class ActivityTabViewModel() : ViewModel() {
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
 
+    var shouldRefreshTimelineSilently = false
+
     val allDataLoaded = combine(
         readingHistoryState,
         donationUiState,
@@ -111,18 +114,60 @@ class ActivityTabViewModel() : ViewModel() {
     }.stateIn(viewModelScope, SharingStarted.Lazily, false)
 
     fun loadAll() {
-        loadReadingHistory()
-        if (!AccountUtil.isLoggedIn) {
-            return
+        val pendingEvents = FlowEventBus.consumePendingActivityTabEvents()
+        if (pendingEvents.isNotEmpty()) {
+            handlePendingEvents(pendingEvents)
+        } else {
+            // Check if we need initial load - only load if we don't have data yet
+            val needsInitialLoad = readingHistoryState.value is UiState.Loading ||
+                    donationUiState.value is UiState.Loading ||
+                    wikiGamesUiState.value is UiState.Loading ||
+                    impactUiState.value is UiState.Loading
+
+            if (needsInitialLoad) {
+                loadReadingHistory()
+                if (AccountUtil.isLoggedIn) {
+                    loadDonationResults()
+                    loadWikiGamesStats()
+                    loadImpact()
+                }
+                refreshTimeline()
+            } else {
+                shouldRefreshTimelineSilently = true
+                refreshTimeline()
+            }
         }
-        loadDonationResults()
-        loadWikiGamesStats()
-        loadImpact()
+    }
+
+    fun refreshActivityTab() {
+        FlowEventBus.clearPendingActivityTabEvents()
+        resetActivityTabState()
+        loadAll()
+    }
+
+    private fun handlePendingEvents(events: Set<ActivityTabUpdateEvent>) {
+        val hasReadingChanges = events.contains(ActivityTabUpdateEvent.ReadingHistoryChanged)
+        val hasImpactChanges = events.contains(ActivityTabUpdateEvent.ImpactChanged)
+        val hasDonationChanges = events.contains(ActivityTabUpdateEvent.DonationsChanged)
+        val hasGameChanges = events.contains(ActivityTabUpdateEvent.GamesChanged)
+
+        if (hasReadingChanges) loadReadingHistory()
+        if (hasImpactChanges) loadImpact()
+        if (hasDonationChanges) loadDonationResults()
+        if (hasGameChanges) loadWikiGamesStats()
+
+        shouldRefreshTimelineSilently = true
         refreshTimeline()
     }
 
     private fun refreshTimeline() {
         currentTimelinePagingSource?.invalidate()
+    }
+
+    private fun resetActivityTabState() {
+        _readingHistoryState.value = UiState.Loading
+        _wikiGamesUiState.value = UiState.Loading
+        _impactUiState.value = UiState.Loading
     }
 
     fun loadReadingHistory() {
@@ -319,4 +364,11 @@ class ActivityTabViewModel() : ViewModel() {
 sealed class TimelineDisplayItem {
     data class DateSeparator(val date: Date) : TimelineDisplayItem()
     data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
+}
+
+sealed class ActivityTabUpdateEvent {
+    object ReadingHistoryChanged : ActivityTabUpdateEvent()
+    object ImpactChanged : ActivityTabUpdateEvent()
+    object DonationsChanged : ActivityTabUpdateEvent()
+    object GamesChanged : ActivityTabUpdateEvent()
 }

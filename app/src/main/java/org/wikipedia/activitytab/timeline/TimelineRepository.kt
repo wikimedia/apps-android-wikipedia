@@ -134,7 +134,7 @@ class ReadingListPagingSource(
             )
         }
         val nextCursor =
-            if (items.size < pageSize) null else Cursor.HistoryEntryCursor(offset + items.size)
+            if (items.size < pageSize) null else Cursor.ReadingListCursor(offset + items.size)
         return items to nextCursor
     }
 }
