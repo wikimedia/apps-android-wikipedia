@@ -84,6 +84,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.concurrency.ActivityTabEventBus
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
@@ -136,6 +137,35 @@ class ActivityTabFragment : Fragment() {
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                ActivityTabEventBus.events.collectLatest { event ->
+                    println("orange ActivityTabEventBus event --> $event")
+                    when (event) {
+                        ActivityTabUpdateEvent.ReadingHistoryChanged -> {
+                            println("orange ReadingHistoryChanged")
+                            viewModel.loadReadingHistory()
+                            viewModel.shouldRefreshTimelineSilently = true
+                            viewModel.refreshTimeline()
+                        }
+                        ActivityTabUpdateEvent.DonationsChanged -> {
+                            println("orange DonationsChanged")
+                            viewModel.loadDonationResults()
+                        }
+                        ActivityTabUpdateEvent.GamesChanged -> {
+                            println("orange GamesChanged")
+                            viewModel.loadWikiGamesStats()
+                        }
+                        ActivityTabUpdateEvent.ImpactChanged -> {
+                            println("orange ImpactChanged")
+                            viewModel.loadImpact()
+                        }
+                    }
+                }
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.allDataLoaded.collectLatest {
@@ -175,13 +205,14 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        println("orange onResume")
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
-        viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
     }
 
     override fun onPause() {
         super.onPause()
+        println("orange onPause")
         requireActivity().removeMenuProvider(menuProvider)
     }
 
@@ -540,7 +571,7 @@ class ActivityTabFragment : Fragment() {
                         val isRefreshing = timelineItems.loadState.refresh is LoadState.Loading
                         val isEmpty = timelineItems.itemCount == 0
                         when {
-                            isRefreshing -> {
+                            isRefreshing && !viewModel.shouldRefreshTimelineSilently -> {
                                 item {
                                     ActivityTabShimmerView()
                                 }

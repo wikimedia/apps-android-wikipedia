@@ -69,6 +69,7 @@ class ActivityTabViewModel() : ViewModel() {
             else -> WikiSite.forLanguageCode(langCode)
         }
     }
+    var shouldRefreshTimelineSilently = false
 
     val timelineFlow = Pager(
         config = PagingConfig(
@@ -110,6 +111,10 @@ class ActivityTabViewModel() : ViewModel() {
                 impact !is UiState.Loading
     }.stateIn(viewModelScope, SharingStarted.Lazily, false)
 
+    init {
+        loadAll()
+    }
+
     fun loadAll() {
         loadReadingHistory()
         if (!AccountUtil.isLoggedIn) {
@@ -121,7 +126,7 @@ class ActivityTabViewModel() : ViewModel() {
         refreshTimeline()
     }
 
-    private fun refreshTimeline() {
+    fun refreshTimeline() {
         currentTimelinePagingSource?.invalidate()
     }
 
@@ -319,4 +324,11 @@ class ActivityTabViewModel() : ViewModel() {
 sealed class TimelineDisplayItem {
     data class DateSeparator(val date: Date) : TimelineDisplayItem()
     data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
+}
+
+sealed class ActivityTabUpdateEvent {
+    object ReadingHistoryChanged : ActivityTabUpdateEvent()
+    object ImpactChanged : ActivityTabUpdateEvent()
+    object DonationsChanged : ActivityTabUpdateEvent()
+    object GamesChanged : ActivityTabUpdateEvent()
 }

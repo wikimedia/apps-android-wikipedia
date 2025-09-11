@@ -8,12 +8,15 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activitytab.ActivityTabUpdateEvent
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.db.Category
+import org.wikipedia.concurrency.ActivityTabEventBus
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -287,6 +290,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 WikipediaApp.instance.appSessionEvent.pageViewed(entry)
                 ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
                 ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
+                ActivityTabEventBus.post(ActivityTabUpdateEvent.ReadingHistoryChanged)
             }
         }
     }

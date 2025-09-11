@@ -64,7 +64,7 @@ class UserContribPagingSource(
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val token = (cursor as? Cursor.UserContribCursor)?.token
         val service = ServiceFactory.get(wikiSite)
-        val userContribResponse = service.getUserContrib(username = userName, maxCount = pageSize, ns = null, filter = null, uccontinue = token, ucdir = "older")
+        val userContribResponse = service.getUserContrib(username = "Cooltey", maxCount = pageSize, ns = null, filter = null, uccontinue = token, ucdir = "older")
 
         val missingPageInfoIds = mutableListOf<Int>()
         val timelineItemsByPageId = mutableMapOf<Long, TimelineItem>()
