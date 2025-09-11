@@ -84,7 +84,7 @@
   <string name="page_error_back_to_main">Zurück</string>
   <string name="error_back">Zurück</string>
   <string name="error_next">Nächster</string>
-  <string name="menu_clear_all_history">Verlauf löschen</string>
+  <string name="menu_clear_all_history" fuzzy="true">Verlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
   <string name="history_items_deleted">%d Artikel aus dem Verlauf gelöscht</string>
   <string name="history_item_delete_undo">Rückgängig</string>
@@ -97,7 +97,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
-  <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nein</string>
   <string name="share_via">Teilen über</string>

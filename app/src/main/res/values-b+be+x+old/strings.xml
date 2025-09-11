@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Вярнуцца</string>
   <string name="error_next">Далей</string>
-  <string name="menu_clear_all_history">Ачысьціць гісторыю</string>
+  <string name="menu_clear_all_history" fuzzy="true">Ачысьціць гісторыю</string>
   <string name="history_item_deleted">Артыкул %s выдалены з гісторыі</string>
   <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі</string>
   <string name="history_item_delete_undo">Аднавіць</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">ВікіСховішча</string>
   <string name="wikidata">ВікіЗьвесткі</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
-  <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>

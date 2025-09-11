@@ -73,7 +73,7 @@
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
   <string name="error_next">Dalej</string>
-  <string name="menu_clear_all_history">Wyczyść historię</string>
+  <string name="menu_clear_all_history" fuzzy="true">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
@@ -86,7 +86,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
-  <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Udostępnij przez</string>

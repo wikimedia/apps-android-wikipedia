@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">Lɛm nya\'aŋ</string>
   <string name="error_back">Lɛm nya\'aŋ</string>
   <string name="error_next">Tɔlisim</string>
-  <string name="menu_clear_all_history">Saasim labakʋda</string>
+  <string name="menu_clear_all_history" fuzzy="true">Saasim labakʋda</string>
   <string name="history_item_deleted">%s yisimi li yi\' labakʋda ni</string>
   <string name="history_items_deleted">%d labaya la yi\' labakʋda la ni</string>
   <string name="history_item_delete_undo">Saamɛ li</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">Wikimedia yɛlbabʋg</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Ieemsim labakʋda tʋʋma la</string>
-  <string name="dialog_message_clear_history">Nɛ\'ɛŋa na eensi fʋ labakʋda tʋʋma la wʋsa,ka yɔ linɛ ka fʋ yɔ\'ɔg nannanna la wʋsa. Fʋ siaki yaa?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Nɛ\'ɛŋa na eensi fʋ labakʋda tʋʋma la wʋsa,ka yɔ linɛ ka fʋ yɔ\'ɔg nannanna la wʋsa. Fʋ siaki yaa?</string>
   <string name="dialog_message_clear_history_yes">Een</string>
   <string name="dialog_message_clear_history_no">Ayei</string>
   <string name="share_via">Pʋdʋgim n dɔl</string>

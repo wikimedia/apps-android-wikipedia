@@ -63,7 +63,7 @@
   <string name="page_error_back_to_main">돌아가기</string>
   <string name="error_back">돌아가기</string>
   <string name="error_next">다음</string>
-  <string name="menu_clear_all_history">방문 기록 지우기</string>
+  <string name="menu_clear_all_history" fuzzy="true">방문 기록 지우기</string>
   <string name="history_item_deleted">%s 문서가 방문 기록에서 제거되었습니다</string>
   <string name="history_items_deleted">%d개의 문서가 방문 기록에서 제거되었습니다</string>
   <string name="history_item_delete_undo">실행 취소</string>
@@ -76,7 +76,7 @@
   <string name="wikimedia_commons">위키미디어 공용</string>
   <string name="wikidata">위키데이터</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
-  <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
   <string name="dialog_message_clear_history_no">아니오</string>
   <string name="share_via">다음을 통해 공유</string>

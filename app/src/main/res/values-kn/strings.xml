@@ -43,7 +43,7 @@
   <string name="page_error_back_to_main">ಹಿಂದೆ ಹೋಗಿ</string>
   <string name="error_back">ಹಿಂದೆ ಹೋಗಿ</string>
   <string name="error_next">ಮುಂದೆ</string>
-  <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="history_item_deleted">%s ಅನ್ನು ಇತಿಹಾಸದಿಂದ ತೆಗೆಯಲಾಯಿತು</string>
   <string name="history_items_deleted">%d ಲೇಖನಗಳನ್ನು ಇತಿಹಾಸದಿಂದ ತೆಗೆಯಲಾಯಿತು</string>
   <string name="history_item_delete_undo">ರದ್ದುಗೊಳಿಸಿ</string>
@@ -56,7 +56,7 @@
   <string name="wikimedia_commons">ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್</string>
   <string name="wikidata">ವಿಕಿಡೇಟಾ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
-  <string name="dialog_message_clear_history">ಇದು ನಿಮ್ಮ ಎಲ್ಲಾ ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸುತ್ತದೆ ಮತ್ತು ಪ್ರಸ್ತುತ ತೆರೆದಿರುವ ಯಾವುದೇ ಟ್ಯಾಬ್‌ಗಳನ್ನು ಮುಚ್ಚುತ್ತದೆ. ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ಇದು ನಿಮ್ಮ ಎಲ್ಲಾ ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸುತ್ತದೆ ಮತ್ತು ಪ್ರಸ್ತುತ ತೆರೆದಿರುವ ಯಾವುದೇ ಟ್ಯಾಬ್‌ಗಳನ್ನು ಮುಚ್ಚುತ್ತದೆ. ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?</string>
   <string name="dialog_message_clear_history_yes">ಹೌದು</string>
   <string name="dialog_message_clear_history_no">ಇಲ್ಲ</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>

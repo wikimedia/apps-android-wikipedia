@@ -28,7 +28,7 @@
   <string name="page_error_back_to_main">Bwuok bai</string>
   <string name="error_back">Bwuok bai</string>
   <string name="error_next">Nat á̱zanson</string>
-  <string name="menu_clear_all_history">Kak nkhang gbangbang</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kak nkhang gbangbang</string>
   <string name="history_item_deleted">Á̱ turung %s neet nkhang gbangbang na</string>
   <string name="history_items_deleted">Á̱ turung a̱yaati̱kut %d neet nkhang gbangbang na</string>
   <string name="history_item_delete_undo">Bwuok ndyo</string>
@@ -41,7 +41,7 @@
   <string name="wikimedia_commons">Wukimedia Komon</string>
   <string name="wikidata">Wukideita</string>
   <string name="dialog_title_clear_history">Kak nkhang gbangbang brauza</string>
-  <string name="dialog_message_clear_history">Si̱ huni na ti̱n a̱mgba̱m nkhang gbangbang brauza ang na, a̱wot ku nyim kuzang mbyiam na̱ shyia̱ ma̱ khwuk di̱ yong huni. A nwuak a̱cucuk a?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Si̱ huni na ti̱n a̱mgba̱m nkhang gbangbang brauza ang na, a̱wot ku nyim kuzang mbyiam na̱ shyia̱ ma̱ khwuk di̱ yong huni. A nwuak a̱cucuk a?</string>
   <string name="dialog_message_clear_history_yes">Ii</string>
   <string name="dialog_message_clear_history_no">Kaai</string>
   <string name="share_via">Ka̱u di̱n vak</string>

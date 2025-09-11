@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">ಪಿರ ಪೋಲೆ</string>
   <string name="error_back">ಪಿರ ಪೋಲೆ</string>
   <string name="error_next">ನನತ್ತ</string>
-  <string name="menu_clear_all_history">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
   <string name="history_item_deleted">%s ಪನ್ಪಿ ಲೇಕನೊನು ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_items_deleted">%d ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
@@ -52,7 +52,7 @@
   <string name="wikimedia_commons">ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್</string>
   <string name="wikidata">ವಿಕಿಡಾಟ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಲ್ತಿ ಇತಿಹಾಸೊನ್ ಮಾಜಾಲೆ</string>
-  <string name="dialog_message_clear_history">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
   <string name="dialog_message_clear_history_yes">ಅಂದ್</string>
   <string name="dialog_message_clear_history_no">ಅತ್ತ್</string>
   <string name="share_via">ನೆನ್ನೊಟ್ಟುಗೂ ಪಟ್ಟೊನ್ಲೆ</string>

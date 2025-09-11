@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Retornar</string>
   <string name="error_back">Retornar</string>
   <string name="error_next">Sequente</string>
-  <string name="menu_clear_all_history">Rader historia</string>
+  <string name="menu_clear_all_history">Rader le historia de lectura</string>
   <string name="history_item_deleted">%s removite del historia</string>
   <string name="history_items_deleted">%d articulos removite del historia</string>
   <string name="history_item_delete_undo">Disfacer</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
-  <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
+  <string name="dialog_message_clear_history">Isto delera tote tu historia de navigation. Es tu secur?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Condivider via</string>

@@ -41,7 +41,7 @@
   <string name="page_error_back_to_main">پیچھے جائیں</string>
   <string name="error_back">پیچھے جائیں</string>
   <string name="error_next">اگلا</string>
-  <string name="menu_clear_all_history">تاریخچہ مٹائیں</string>
+  <string name="menu_clear_all_history" fuzzy="true">تاریخچہ مٹائیں</string>
   <string name="history_item_deleted">%s کو تاریخچے سے حذف کر دیا گیا</string>
   <string name="history_items_deleted">%d مضامین تاریخچے سے حذف کر دیے گئے</string>
   <string name="history_item_delete_undo">رد ترمیم</string>
@@ -54,7 +54,7 @@
   <string name="wikimedia_commons">ویکی ذخائر</string>
   <string name="wikidata">ویکی ڈیٹا</string>
   <string name="dialog_title_clear_history">تاریخچہ مٹائیں</string>
-  <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
   <string name="dialog_message_clear_history_no">نہیں</string>
   <string name="share_via">ارسال بذریعہ</string>

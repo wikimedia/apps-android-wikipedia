@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">Balik</string>
   <string name="error_back">Balik</string>
   <string name="error_next">Sunod</string>
-  <string name="menu_clear_all_history">Linisin ang nakaraan</string>
+  <string name="menu_clear_all_history" fuzzy="true">Linisin ang nakaraan</string>
   <string name="history_item_deleted">Tinanggal na ang %s mula sa nakaraan</string>
   <string name="history_items_deleted">Tinanggal na ang %d (na) artikulo mula sa nakaraan</string>
   <string name="history_item_delete_undo">I-undo</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Linisin ang nakaraang na-browse</string>
-  <string name="dialog_message_clear_history">Buburahin niyo ang lahat ng mga nakaraang na-browse mo, at isasara din ang lahat ng mga nakabukas na tab sa ngayon. Sigurado ka ba?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Buburahin niyo ang lahat ng mga nakaraang na-browse mo, at isasara din ang lahat ng mga nakabukas na tab sa ngayon. Sigurado ka ba?</string>
   <string name="dialog_message_clear_history_yes">Oo</string>
   <string name="dialog_message_clear_history_no">Hindi</string>
   <string name="share_via">Ibahagi gamit ang</string>

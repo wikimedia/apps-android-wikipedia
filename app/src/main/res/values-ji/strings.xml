@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">צוריקגיין</string>
   <string name="error_back">צוריקגיין</string>
   <string name="error_next">נעקסטער</string>
-  <string name="menu_clear_all_history">אפראמען היסטאריע</string>
+  <string name="menu_clear_all_history" fuzzy="true">אפראמען היסטאריע</string>
   <string name="history_item_deleted">%s אראפגענומען פון היסטאריע</string>
   <string name="history_items_deleted">%d ארטיקלען אוועקגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">וויקימעדיע קאמאנס</string>
   <string name="wikidata">וויקידאַטן</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
-  <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="dialog_message_clear_history_yes">יא</string>
   <string name="dialog_message_clear_history_no">ניין</string>
   <string name="share_via">טיילן דורך</string>

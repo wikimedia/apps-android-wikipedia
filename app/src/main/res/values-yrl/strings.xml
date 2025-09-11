@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Muyuirisawa</string>
   <string name="error_back">Muyuirisawa</string>
   <string name="error_next">Tenundewara</string>
-  <string name="menu_clear_all_history">Umuwéu maranduwapawa</string>
+  <string name="menu_clear_all_history" fuzzy="true">Umuwéu maranduwapawa</string>
   <string name="history_item_deleted">%s umusaka ana maranduwapawa suí</string>
   <string name="history_items_deleted">%d kuatiata taumuçaká ã mbeuçawara ukara kití</string>
   <string name="history_item_delete_undo">Muyuíri</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Wikimédiya Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Umuwéu sikarisawa mumbeusawa</string>
-  <string name="dialog_message_clear_history">Yawá usó umuéu pãnhé nesikariçawa rumbueçá açuí yawá usikĩdá kurí aramẽ yuí pãnhé ukena’i pirariwá. Ĩdé çatãbika yawá reçé?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Yawá usó umuéu pãnhé nesikariçawa rumbueçá açuí yawá usikĩdá kurí aramẽ yuí pãnhé ukena’i pirariwá. Ĩdé çatãbika yawá reçé?</string>
   <string name="dialog_message_clear_history_yes">Ẽẽ</string>
   <string name="dialog_message_clear_history_no">Umbaá</string>
   <string name="share_via">Muputawa rupí</string>

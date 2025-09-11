@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Vegere</string>
   <string name="error_back">Vegere</string>
   <string name="error_next">Pêşve</string>
-  <string name="menu_clear_all_history">Dîrokê paqij bike</string>
+  <string name="menu_clear_all_history" fuzzy="true">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
   <string name="history_items_deleted">%d gotar ji dîrokê hatin rakirin</string>
   <string name="history_item_delete_undo">Betal bike</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Wîkîmedya Kommons</string>
   <string name="wikidata">Wîkîdane</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
-  <string name="dialog_message_clear_history">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
   <string name="dialog_message_clear_history_yes">Erê</string>
   <string name="dialog_message_clear_history_no">Na</string>
   <string name="share_via">Bi awayê $ parve bike</string>

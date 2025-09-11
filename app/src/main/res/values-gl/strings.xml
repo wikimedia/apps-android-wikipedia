@@ -41,7 +41,7 @@
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
   <string name="error_next">Seguinte</string>
-  <string name="menu_clear_all_history">Limpar o historial</string>
+  <string name="menu_clear_all_history" fuzzy="true">Limpar o historial</string>
   <string name="history_item_deleted">%s eliminado do historial</string>
   <string name="history_items_deleted">%d artigos eliminados do historial</string>
   <string name="history_item_delete_undo">Desfacer</string>
@@ -54,7 +54,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
-  <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Compartir mediante…</string>

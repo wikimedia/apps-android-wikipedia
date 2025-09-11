@@ -47,7 +47,7 @@
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="error_back">Кире ҡайтырға</string>
   <string name="error_next">Артабан</string>
-  <string name="menu_clear_all_history">Тарихты таҙартырға</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихты таҙартырға</string>
   <string name="history_item_deleted">\"%s\" ҡарау тарихынан юйылған</string>
   <string name="history_items_deleted">%d мәҡәлә ҡарау тарихынан юйылған</string>
   <string name="history_item_delete_undo">Кире алырға</string>
@@ -60,7 +60,7 @@
   <string name="wikimedia_commons">Викимилек</string>
   <string name="wikidata">Викимәғлүмәт</string>
   <string name="dialog_title_clear_history">Ҡаралған биттәр тарихын таҙартырға</string>
-  <string name="dialog_message_clear_history">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
   <string name="dialog_message_clear_history_no">Юҡ</string>
   <string name="share_via">Уртаҡлашырға</string>
