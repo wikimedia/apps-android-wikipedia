@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">Labimi nyaanga</string>
   <string name="error_back">labimi nyaaŋga</string>
   <string name="error_next">dimpaya</string>
-  <string name="menu_clear_all_history">nyɛhimi dinpungari</string>
+  <string name="menu_clear_all_history" fuzzy="true">nyɛhimi dinpungari</string>
   <string name="history_item_deleted">%s yihiya dinpungari maa puuni</string>
   <string name="history_items_deleted">%d lahabaya yihiya dinpungari maa puuni</string>
   <string name="history_item_delete_undo">M bi lahi niŋ</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">nyɛhimi avihigu dinpungari zaa</string>
-  <string name="dialog_message_clear_history">ŋɔ nyɛla din yen nyɛhi avihigu lahibaya zaa ka kpihimmi tab shɛŋa zaa ani yoli yooi. A dihitabili?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ŋɔ nyɛla din yen nyɛhi avihigu lahibaya zaa ka kpihimmi tab shɛŋa zaa ani yoli yooi. A dihitabili?</string>
   <string name="dialog_message_clear_history_yes">iin</string>
   <string name="dialog_message_clear_history_no">aayi</string>
   <string name="share_via">doli talim</string>

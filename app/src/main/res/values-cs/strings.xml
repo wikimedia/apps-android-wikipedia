@@ -66,7 +66,7 @@
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="error_back">Vrátit se</string>
   <string name="error_next">Další</string>
-  <string name="menu_clear_all_history">Vymazat historii</string>
+  <string name="menu_clear_all_history" fuzzy="true">Vymazat historii</string>
   <string name="history_item_deleted">Článek %s odebrán z historie</string>
   <string name="history_items_deleted">%d článků odebráno z historie</string>
   <string name="history_item_delete_undo">Vrátit</string>
@@ -79,7 +79,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
-  <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené záložky. Jste si jisti?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené záložky. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Sdílet přes</string>

@@ -50,7 +50,7 @@
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="error_back">Înapoi</string>
   <string name="error_next">Următorul</string>
-  <string name="menu_clear_all_history">Curăță istoricul</string>
+  <string name="menu_clear_all_history" fuzzy="true">Curăță istoricul</string>
   <string name="history_item_deleted">%s îndepărtate din istoric</string>
   <string name="history_items_deleted">%d articole îndepărtate din istoric</string>
   <string name="history_item_delete_undo">Anulează</string>
@@ -63,7 +63,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
-  <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Nu</string>
   <string name="share_via">Distribuire prin</string>

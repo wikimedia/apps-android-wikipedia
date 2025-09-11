@@ -23,14 +23,14 @@
   <string name="offline_load_error_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
   <string name="page_error_back_to_main">ၵႂႃႇၽၢႆႇလင်</string>
   <string name="error_back">ၵႂႃႇၽၢႆႇလင်</string>
-  <string name="menu_clear_all_history">ၽဵဝ်ႈလၢင်ႉ ပိုၼ်းလင်</string>
+  <string name="menu_clear_all_history" fuzzy="true">ၽဵဝ်ႈလၢင်ႉ ပိုၼ်းလင်</string>
   <string name="history_item_deleted">%s ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈၵႃႈတီႈ ပိုၼ်းလင်</string>
   <string name="history_items_deleted">ပွင်ႈလိၵ်ႈ %d ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈၵႃႈတီႈ ပိုၼ်းလင်</string>
   <string name="history_item_delete_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="notification_archive_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="app_settings">ၵၢၼ်တင်ႈ ဢႅပ်ႉ</string>
   <string name="dialog_title_clear_history">ၽဵဝ်ႈလၢင်ႉပႅတ်ႈ ပိုၼ်းပိုတ်ႇႁႃ</string>
-  <string name="dialog_message_clear_history">တေပွတ်ႇပႅတ်ႈ ပိုၼ်းပိုတ်ႇႁႃ ၸဝ်ႈၵဝ်ႇ တင်းသဵင်ႈသေ တေႁပ်းပႃး ထႅပ်ႉၸိူဝ်းပိုတ်ႇဝႆႉ ယၢမ်းလဵဝ်ဢေႃႈ။ ၸဝ်ႈၵဝ်ႇလပ်ႉလွင်းယူႇႁႃႉ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">တေပွတ်ႇပႅတ်ႈ ပိုၼ်းပိုတ်ႇႁႃ ၸဝ်ႈၵဝ်ႇ တင်းသဵင်ႈသေ တေႁပ်းပႃး ထႅပ်ႉၸိူဝ်းပိုတ်ႇဝႆႉ ယၢမ်းလဵဝ်ဢေႃႈ။ ၸဝ်ႈၵဝ်ႇလပ်ႉလွင်းယူႇႁႃႉ?</string>
   <string name="dialog_message_clear_history_yes">ၸႂ်ႈယဝ်ႉ</string>
   <string name="dialog_message_clear_history_no">ဢမ်ႇ</string>
   <string name="share_via">ၽႄႈတိုၼ်း ၵႃႈတီႈ</string>

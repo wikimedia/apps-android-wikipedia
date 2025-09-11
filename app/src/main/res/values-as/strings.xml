@@ -33,7 +33,7 @@
   <string name="page_error_back_to_main">ঘূৰি যাওক</string>
   <string name="error_back">পাছলৈ যাওক</string>
   <string name="error_next">পৰৱৰ্তী</string>
-  <string name="menu_clear_all_history">ইতিহাস মোহাৰক</string>
+  <string name="menu_clear_all_history" fuzzy="true">ইতিহাস মোহাৰক</string>
   <string name="history_item_deleted">ইতিহাসৰ পৰা %s আঁতৰোৱা হৈছে</string>
   <string name="history_items_deleted">ইতিহাসৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হৈছে</string>
   <string name="history_item_delete_undo">পূৰ্ববত কৰক</string>
@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">ৱিকিমিডিয়া কমঞ্চ</string>
   <string name="wikidata">ৱিকিডাটা</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
-  <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_clear_history_yes">হয়</string>
   <string name="dialog_message_clear_history_no">নহয়</string>
   <string name="share_via">শ্বেয়াৰ</string>

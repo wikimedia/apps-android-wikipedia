@@ -24,7 +24,7 @@
   <string name="offline_load_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="page_error_back_to_main">Mååusat</string>
   <string name="error_back">Mååusat</string>
-  <string name="menu_clear_all_history">Kuârad historia</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kuârad historia</string>
   <string name="history_item_delete_undo">Kååʹmet</string>
   <string name="notification_archive_undo">Kååʹmet</string>
   <string name="history_list_title">Historia</string>

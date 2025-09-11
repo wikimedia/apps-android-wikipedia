@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">Pojdi nazaj</string>
   <string name="error_back">Pojdi nazaj</string>
   <string name="error_next">Naprej</string>
-  <string name="menu_clear_all_history">Izbriši zgodovino</string>
+  <string name="menu_clear_all_history" fuzzy="true">Izbriši zgodovino</string>
   <string name="history_item_deleted">Članek %s izbrisan iz zgodovine</string>
   <string name="history_items_deleted">%d člankov izbrisanih iz zgodovine</string>
   <string name="history_item_delete_undo">Razveljavi</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">Wikimedijina zbirka</string>
   <string name="wikidata">Wikipodatki</string>
   <string name="dialog_title_clear_history">Izbriši zgodovino brskanja</string>
-  <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali to res želite storiti?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali to res želite storiti?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Deli z</string>

@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Kombali</string>
   <string name="error_back">Kombali</string>
   <string name="error_next">Terus</string>
-  <string name="menu_clear_all_history">Bersiin riwayat</string>
+  <string name="menu_clear_all_history" fuzzy="true">Bersiin riwayat</string>
   <string name="history_item_deleted">%s dibuang deri riwayat</string>
   <string name="history_items_deleted">%d makalah dibuang deri riwayat</string>
   <string name="history_item_delete_undo">Balikin</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Bersiin riwayat pengubekan</string>
-  <string name="dialog_message_clear_history">Ni bakal ngapus semua lu punya riwayat pengubekan, èn nutup mana-mana lembaran nyang masing kebuka. Apa lu yakin?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ni bakal ngapus semua lu punya riwayat pengubekan, èn nutup mana-mana lembaran nyang masing kebuka. Apa lu yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Kaga\'</string>
   <string name="share_via">Dumanin liwat</string>

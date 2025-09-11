@@ -11,7 +11,7 @@
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
   <string name="page_error_retry">Erġa\' pprova</string>
-  <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
+  <string name="menu_clear_all_history" fuzzy="true">Ħassar il-kronoloġija</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
   <string name="share_via">Aqsam permezz…</string>
   <string name="menu_page_other_languages" fuzzy="true">Aqra f\'lingwa oħra</string>

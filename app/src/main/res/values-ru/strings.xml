@@ -109,7 +109,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Далее</string>
-  <string name="menu_clear_all_history">Очистить историю</string>
+  <string name="menu_clear_all_history" fuzzy="true">Очистить историю</string>
   <string name="history_item_deleted">Статья \"%s\" удалена из истории просмотров</string>
   <string name="history_items_deleted">%d статей удалено из истории просмотров</string>
   <string name="history_item_delete_undo">Вернуть</string>
@@ -122,7 +122,7 @@
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
-  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Нет</string>
   <string name="share_via">Поделиться...</string>

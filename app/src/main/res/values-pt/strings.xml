@@ -58,7 +58,7 @@
   <string name="page_error_back_to_main">Voltar</string>
   <string name="error_back">Voltar</string>
   <string name="error_next">Seguinte</string>
-  <string name="menu_clear_all_history">Limpar histórico</string>
+  <string name="menu_clear_all_history" fuzzy="true">Limpar histórico</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
   <string name="history_item_delete_undo">Anular</string>
@@ -71,7 +71,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history">Isto irá eliminar todo o seu histórico de navegação, e fechar todos os separadores atuais abertos. Tem a certeza?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Isto irá eliminar todo o seu histórico de navegação, e fechar todos os separadores atuais abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Partilhar via</string>

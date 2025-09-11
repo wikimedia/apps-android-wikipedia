@@ -37,7 +37,7 @@
   <string name="page_error_back_to_main">Mine tagasi</string>
   <string name="error_back">Mine tagasi</string>
   <string name="error_next">Edasi</string>
-  <string name="menu_clear_all_history">Tühjenda ajalugu</string>
+  <string name="menu_clear_all_history" fuzzy="true">Tühjenda ajalugu</string>
   <string name="history_item_deleted">%s on ajaloost kustutatud</string>
   <string name="history_items_deleted">%d artiklit on ajaloost kustutatud</string>
   <string name="history_item_delete_undo">Võta tagasi</string>
