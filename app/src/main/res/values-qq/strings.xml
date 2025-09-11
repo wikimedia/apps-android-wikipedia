@@ -57,10 +57,10 @@
   <string name="search_icon_content_description">Accessibility text informing users that this icon opens the search bar.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
+  <string name="nav_item_activity">Navigation menu item label for the user\'s activity.</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
   <string name="nav_item_contribute">Navigation menu item label for contribute.\n\n{{Identical|Contribute}}</string>
-  <string name="nav_item_activity">Navigation menu item label for the user\'s activity.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -1180,10 +1180,10 @@
   <string name="activity_tab_explore_wikipedia">Button label to go to the Reading Lists screen, which will give the user further guidance for exploring Wikipedia.</string>
   <string name="activity_tab_discover_encourage">Label encouraging the user to discover new articles.</string>
   <string name="activity_tab_donation_unknown">Label on card that shows the last donation time.</string>
+  <string name="activity_tab_donation_last_donation">Subtitle of the donation card that indicates last donation.</string>
   <string name="activity_tab_game_stats">Title of the game stats card.</string>
   <string name="activity_tab_game_stats_best_streak">Label of the game stats that indicates the best streak.</string>
   <string name="activity_tab_play_wiki_games">Button label to go to the WikiGames.</string>
-  <string name="activity_tab_donation_last_donation">Subtitle of the donation card that indicates last donation.</string>
   <string name="activity_tab_report_email_subject">Subject heading for sending a report about a problem with the Activity tab feature.</string>
   <string name="activity_tab_report_email_body">Body of email for sending a report about a problem with the Activity tab feature.</string>
   <string name="activity_tab_menu_feedback">Menu label for providing feedback on the activity tab.</string>
@@ -1195,41 +1195,23 @@
   <string name="activity_tab_impact">Label for the Impact section of the activity tab</string>
   <string name="activity_tab_impact_most_viewed">Title of the most viewed card of the activity tab.</string>
   <string name="activity_tab_impact_contributions_this_month">Title of the contributions card of the activity tab.</string>
-  <plurals name="activity_tab_impact_edits_this_month">
-    <item quantity="one">Label of the contributions card that indicates the edit this month.</item>
-    <item quantity="other">Label of the contributions card that indicates the edits this month.</item>
-  </plurals>
+  <string name="activity_tab_impact_edits_this_month">Label of the contributions card that indicates the edits this month.</string>
   <plurals name="activity_tab_impact_edits_last_month">
     <item quantity="one">Label of the contributions card that indicates the edit last month.</item>
     <item quantity="other">Label of the contributions card that indicates the edits last month.</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Title of the all time impact card of the activity tab.</string>
-  <plurals name="activity_tab_impact_total_edits">
-    <item quantity="one">Label of the suggested edits card that indicates the number of total edits.</item>
-    <item quantity="other">Label of the suggested edits card that indicates the number of total edits.</item>
-  </plurals>
-  <plurals name="activity_tab_impact_thanks">
-    <item quantity="one">Label of the suggested edits card that indicates the number of thanks.</item>
-    <item quantity="other">Label of the suggested edits card that indicates the number of thanks.</item>
-  </plurals>
-  <plurals name="activity_tab_impact_best_streak_text">
-    <item quantity="one">Text that indicates the length of the best streak. %d will be replaced by the number of days.</item>
-    <item quantity="other">Text that indicates the length of the best streak. %d will be replaced by the number of days.</item>
-  </plurals>
+  <string name="activity_tab_impact_total_edits">Label of the suggested edits card that indicates the total number of edits.</string>
+  <string name="activity_tab_impact_thanks">Label of the suggested edits card that indicates the number of thanks.</string>
+  <string name="activity_tab_impact_best_streak_text">Text that indicates the length of the best streak. %d will be replaced by the number of days.</string>
   <string name="activity_tab_impact_best_streak">Label of the suggested edits card that indicates the best streak</string>
   <string name="activity_tab_impact_last_edited">Label of the suggested edits card that indicates the last edited</string>
   <string name="activity_tab_impact_suggested_edits_title">Title of the suggested edits card in the impact section.</string>
   <string name="activity_tab_impact_suggested_edits_message">Message of the suggested edits card in the impact section.</string>
   <string name="activity_tab_impact_suggested_edits_button">Button label of the suggested edits card in the impact section.</string>
   <string name="activity_tab_impact_recent_activity">Title of the recent activity section in the suggested edits card in the impact section.</string>
-  <plurals name="activity_tab_impact_recent_activity_edits">
-    <item quantity="one">Label of the recent activity section in the suggested edits card that indicates the number of total edits.</item>
-    <item quantity="other">Label of the recent activity section in the suggested edits card that indicates the number of total edits.</item>
-  </plurals>
-  <plurals name="activity_tab_impact_recent_activity_views">
-    <item quantity="one">Label of the recent activity section in the suggested edits card that indicates the total views.</item>
-    <item quantity="other">Label of the recent activity section in the suggested edits card that indicates the total views.</item>
-  </plurals>
+  <string name="activity_tab_impact_recent_activity_edits">Label of the recent activity section in the suggested edits card that indicates the number of total edits.</string>
+  <string name="activity_tab_impact_recent_activity_views">Label of the recent activity section in the suggested edits card that indicates the total views.</string>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Title of the switch to enable total time spent insights in the Activity Tab customization screen.</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Title of the switch to enable reading insights in the Activity Tab customization screen.</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">Title of the switch to enable editing insights in the Activity Tab customization screen.</string>
@@ -1243,9 +1225,9 @@
   <string name="activity_tab_timeline_empty_state_title">Title displayed when the timeline is empty.</string>
   <string name="activity_tab_timeline_empty_state_message">Message shown when there are no items in the timeline.</string>
   <string name="activity_tab_timeline_view_changes_button">Button label to view edit changes in the timeline.</string>
-  <string name="activity_tab_onboarding_screen_title">Title for the activity tab onboarding screen.</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Title for the section about user\'s reading habits.</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Short explanation about user\'s reading habits.</string>
+  <string name="activity_tab_onboarding_screen_title">Title for the activity tab onboarding screen.</string>
   <string name="activity_tab_onboarding_impact_title">Title for the section about user\'s impact.</string>
   <string name="activity_tab_onboarding_impact_message">Short explanation about the user\'s impact.</string>
   <string name="activity_tab_onboarding_engage_title">Title for the section about about ways to engage with Wikipedia..</string>

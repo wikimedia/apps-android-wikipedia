@@ -33,7 +33,7 @@
   <string name="page_error_back_to_main">Retroirar</string>
   <string name="error_back">Retroirar</string>
   <string name="error_next">Sequanta</string>
-  <string name="menu_clear_all_history">Efacar historio</string>
+  <string name="menu_clear_all_history" fuzzy="true">Efacar historio</string>
   <string name="history_item_deleted">%s efacesis de la historio</string>
   <string name="history_items_deleted">%d artikli efacesis de la historio</string>
   <string name="history_item_delete_undo">Desfacar</string>
@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Eliminar la listo historiala dil retnavigilo</string>
-  <string name="dialog_message_clear_history">To eliminos komplete la listo di pagini vizitita de vua retnavigilo, e klozos omna pagini apertita. Ka tu deziras facar to?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">To eliminos komplete la listo di pagini vizitita de vua retnavigilo, e klozos omna pagini apertita. Ka tu deziras facar to?</string>
   <string name="dialog_message_clear_history_yes">Yes</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Difuzar en</string>

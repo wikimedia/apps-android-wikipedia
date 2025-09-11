@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Bə dumo</string>
   <string name="error_back">Bə dumo</string>
   <string name="error_next">Dumotono še</string>
-  <string name="menu_clear_all_history">Tarixi mole</string>
+  <string name="menu_clear_all_history" fuzzy="true">Tarixi mole</string>
   <string name="history_item_deleted">Məǧolə \"%s\" molə byə ce dijə kardə tarixonku</string>
   <string name="history_items_deleted">%d məǧolon molə byən ce dijə karde tarixiku</string>
   <string name="history_item_delete_undo">Ohaštej</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiməlumot</string>
   <string name="dialog_title_clear_history">Dijə karde tarixi mole</string>
-  <string name="dialog_message_clear_history">Dijə kardə səhifon tarix həmmə molə byəben ijən həmmə ožə vərəǧon dəbastə byben. Idomə karde?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dijə kardə səhifon tarix həmmə molə byəben ijən həmmə ožə vərəǧon dəbastə byben. Idomə karde?</string>
   <string name="dialog_message_clear_history_yes">Bəle</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Pevylo karde</string>

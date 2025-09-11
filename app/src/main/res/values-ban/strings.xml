@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">Balik</string>
   <string name="error_back">Balik</string>
   <string name="error_next">Selanturné</string>
-  <string name="menu_clear_all_history">Apus lelintihan</string>
+  <string name="menu_clear_all_history" fuzzy="true">Apus lelintihan</string>
   <string name="history_item_deleted">%s kaapus saking lelintihan</string>
   <string name="history_items_deleted">%d suratan kaapus saking lelintihan</string>
   <string name="history_item_delete_undo">ulihang</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Apus leliltihan parerehan</string>
-  <string name="dialog_message_clear_history">Puniki pacang ngapus sinamian lelintihan parerehan Ida, miwah minutup tab sané mangkin kantun kabuka. Napiké Ida seken?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Puniki pacang ngapus sinamian lelintihan parerehan Ida, miwah minutup tab sané mangkin kantun kabuka. Napiké Ida seken?</string>
   <string name="dialog_message_clear_history_yes">Inggih</string>
   <string name="dialog_message_clear_history_no">Nénten</string>
   <string name="share_via">Wagiang lumantar</string>

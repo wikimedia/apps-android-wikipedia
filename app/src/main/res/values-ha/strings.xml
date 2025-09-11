@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Koma baya</string>
   <string name="error_back">Koma baya</string>
   <string name="error_next">Gaba</string>
-  <string name="menu_clear_all_history">Share tarihi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Share tarihi</string>
   <string name="history_item_deleted">%s cire daga tarihi</string>
   <string name="history_items_deleted">%d maƙalolin da aka cire daga tarihi</string>
   <string name="history_item_delete_undo">Warware</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Goge tarihin browsing</string>
-  <string name="dialog_message_clear_history">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
   <string name="dialog_message_clear_history_yes">Eh</string>
   <string name="dialog_message_clear_history_no">A\'a</string>
   <string name="share_via">Aika ta</string>

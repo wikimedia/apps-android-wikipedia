@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="error_back">Atpakaļ</string>
   <string name="error_next">Tālāk</string>
-  <string name="menu_clear_all_history">Notīrīt vēsturi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
   <string name="notification_archive_undo">Atsaukt</string>
   <string name="app_settings">Lietotnes iestatījumi</string>

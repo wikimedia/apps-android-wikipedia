@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
   <string name="error_back">వెనక్కి వెళ్ళు</string>
   <string name="error_next">తరువాతి</string>
-  <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
+  <string name="menu_clear_all_history" fuzzy="true">చరిత్రను తుడిచివెయ్యి</string>
   <string name="history_item_deleted">%s ని చరిత్ర నుండి తీసేసాం</string>
   <string name="history_items_deleted">%d వ్యాసాలను చరిత్ర నుండి తీసేసాం</string>
   <string name="history_item_delete_undo">వెనక్కి తిప్పు</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">వికీమీడియా కామన్స్</string>
   <string name="wikidata">వికీడేటా</string>
   <string name="dialog_title_clear_history">బ్రౌజరు చరిత్రను తుడిచివేయి</string>
-  <string name="dialog_message_clear_history">దీంతో మీ బ్రౌజింగు చరిత్రంతా పోతుంది, ప్రస్తుతం తెరిచి ఉన్న ట్యాబులన్నీ మూసుకుపోతాయి. చేసెయ్యమంటారా?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">దీంతో మీ బ్రౌజింగు చరిత్రంతా పోతుంది, ప్రస్తుతం తెరిచి ఉన్న ట్యాబులన్నీ మూసుకుపోతాయి. చేసెయ్యమంటారా?</string>
   <string name="dialog_message_clear_history_yes">అవును</string>
   <string name="dialog_message_clear_history_no">కాదు</string>
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>

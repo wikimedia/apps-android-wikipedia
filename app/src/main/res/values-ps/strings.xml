@@ -36,7 +36,7 @@
   <string name="page_error_back_to_main">پر شا تلل</string>
   <string name="error_back">پر شا تلل</string>
   <string name="error_next">راتلونکی</string>
-  <string name="menu_clear_all_history">پېښليک پاکول</string>
+  <string name="menu_clear_all_history" fuzzy="true">پېښليک پاکول</string>
   <string name="history_item_deleted">%s له پېښليک څخه لرې شو</string>
   <string name="history_items_deleted">%d ليکنې له پېښليک څخه لرې شوې</string>
   <string name="history_item_delete_undo">ناکړل</string>
@@ -49,7 +49,7 @@
   <string name="wikimedia_commons">ويکيمېډيا ټولواله</string>
   <string name="wikidata">ويکي‌اومتوک</string>
   <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
-  <string name="dialog_message_clear_history">دا به ستاسو د لټون ټول پېښليک ړنگ کړي، او هر اوسمهاله پرانېستې کړکۍ به وتړي. ايا تاسو ډاډه ياست؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">دا به ستاسو د لټون ټول پېښليک ړنگ کړي، او هر اوسمهاله پرانېستې کړکۍ به وتړي. ايا تاسو ډاډه ياست؟</string>
   <string name="dialog_message_clear_history_yes">هو</string>
   <string name="dialog_message_clear_history_no">نه</string>
   <string name="share_via">د شريکولو لار</string>
@@ -178,6 +178,7 @@
   <string name="logged_out_in_background_cancel">ناگارل</string>
   <string name="account_vanish_request_title">گڼون له منځه وړل</string>
   <string name="account_vanish_request_confirm_title">د گڼون له منځه وړلو خبرتيا</string>
+  <string name="account_vanish_request_confirm">ورکېدل يوه &lt;b&gt;وروستۍ چاره ده&lt;/b&gt; او بايد &lt;b&gt;يوازې هغه وخت وکارول شي کله چې تاسو غواړئ د تل لپاره سمون پرېږدئ&lt;/b&gt; او همدارنگه تر شوني بريده د ځان اړوند پخوانۍ اړيکې پټې کړئ.&lt;br/&gt;&lt;br/&gt;په ويکيپېډيا کې گڼون ړنگول ستاسو د گڼون نوم بدلولو له لارې ترسره کېږي؛ ترڅو نور ستاسو ونډې ونه پېژني، دې چارې ته ورکېدل يا گڼون له منځه وړل وايي. &lt;b&gt;ورکېدل په پروژو کې په بشپړ ډول ستاسو د هويت او ونډو لرې کولو ډاډ نه درکوي&lt;/b&gt;.</string>
   <string name="history_empty_title">وروستيو کې هيڅ ليکنې ليدل شوې نه دي</string>
   <string name="history_empty_message">هغه څه چې تاسو دلته لوستې دي، وڅارئ.</string>
   <string name="history_offline_articles_toast">په پېښليک کې ځينې ليکنې شايد د افلاين کېدو پرمهال د کتلو وړ نه وي.</string>

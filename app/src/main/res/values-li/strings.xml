@@ -12,13 +12,13 @@
   <string name="error_network_error">Kan gein verbinje make mit internet.</string>
   <string name="page_error_retry">Perbeer oppernuuj</string>
   <string name="page_error_back_to_main">Trök</string>
-  <string name="menu_clear_all_history">Maak gesjiedenis laeg</string>
+  <string name="menu_clear_all_history" fuzzy="true">Maak gesjiedenis laeg</string>
   <string name="history_item_deleted">%s eweggesjaf oet gesjiechte</string>
   <string name="history_items_deleted">%d pagina\'s eweggesjaf oet gesjiechte</string>
   <string name="history_item_delete_undo">Drej trök</string>
   <string name="app_settings">App-instèllinge</string>
   <string name="dialog_title_clear_history">Maak browsergesjiechte laeg</string>
-  <string name="dialog_message_clear_history">Hiedoor weurt de ganse browsergesjiechte eweggesjaf en waere alle hujige aope tabblajer geslaote. Wèts se-n \'t zeker?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Hiedoor weurt de ganse browsergesjiechte eweggesjaf en waere alle hujige aope tabblajer geslaote. Wèts se-n \'t zeker?</string>
   <string name="dialog_message_clear_history_yes">Jao</string>
   <string name="dialog_message_clear_history_no">Nae</string>
   <string name="share_via">Deil via</string>

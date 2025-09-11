@@ -22,14 +22,14 @@
   <string name="offline_load_error_retry">Cubo lai</string>
   <string name="page_error_back_to_main">Baliak</string>
   <string name="error_back">Baliak</string>
-  <string name="menu_clear_all_history">Hapuih riwayaik</string>
+  <string name="menu_clear_all_history" fuzzy="true">Hapuih riwayaik</string>
   <string name="history_item_deleted">%s dihapuih dari riwayaik</string>
   <string name="history_items_deleted">%d artikel dihapuih dari riwayaik</string>
   <string name="history_item_delete_undo">Batal</string>
   <string name="notification_archive_undo">Batal</string>
   <string name="app_settings">Pangaturan aplikasi</string>
   <string name="dialog_title_clear_history">Hapuih riwayaik panjalajahan</string>
-  <string name="dialog_message_clear_history">Iko ka maapuih sadoalah riwayaik jalajah Sanak, sarato manutuik tab nan kini masih tabukak. Lai Sanak yakin?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Iko ka maapuih sadoalah riwayaik jalajah Sanak, sarato manutuik tab nan kini masih tabukak. Lai Sanak yakin?</string>
   <string name="dialog_message_clear_history_yes">Yo</string>
   <string name="dialog_message_clear_history_no">Ndak</string>
   <string name="share_via">Bagikan lewaik</string>

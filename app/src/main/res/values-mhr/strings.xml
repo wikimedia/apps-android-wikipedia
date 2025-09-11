@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Шеҥгек</string>
   <string name="error_back">Шеҥгек</string>
   <string name="error_next">Умбакыже</string>
-  <string name="menu_clear_all_history">Историйым эрыкташ</string>
+  <string name="menu_clear_all_history" fuzzy="true">Историйым эрыкташ</string>
   <string name="history_item_deleted">%s статьям ончымаш историй гыч кораҥдыме</string>
   <string name="history_items_deleted">%d статьям ончымаш историй гыч кораҥдыме</string>
   <string name="history_item_delete_undo">Пӧртылташ</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Викиклат</string>
   <string name="wikidata">Викиданный</string>
   <string name="dialog_title_clear_history">Ончымаш историйым эрыкташ</string>
-  <string name="dialog_message_clear_history">Чыла велыжыш пурымо эртылык кораҥдыме лиеш да чыла почмо ушештарымаш-влак тӱчылтыт. Шуяш?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Чыла велыжыш пурымо эртылык кораҥдыме лиеш да чыла почмо ушештарымаш-влак тӱчылтыт. Шуяш?</string>
   <string name="dialog_message_clear_history_yes">Туге</string>
   <string name="dialog_message_clear_history_no">Уке</string>
   <string name="share_via">Пайлалташ...</string>

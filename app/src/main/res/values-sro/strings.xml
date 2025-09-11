@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Torra acoa</string>
   <string name="error_back">Torra acoa</string>
   <string name="error_next">Sighi</string>
-  <string name="menu_clear_all_history">Sbuida sa cronologia</string>
+  <string name="menu_clear_all_history" fuzzy="true">Sbuida sa cronologia</string>
   <string name="history_item_deleted">%s bogau de sa cronologia</string>
   <string name="history_items_deleted">%d artìculus bogaus de sa cronologia</string>
   <string name="history_item_delete_undo">Annudda</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Wikimèdia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Sbuida sa cronologia de nàvigu</string>
-  <string name="dialog_message_clear_history">Custu at a bogai totu sa cronologia tua de nàvigu e at a serrai totu is scedas abertas imoi. Siguru ses?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Custu at a bogai totu sa cronologia tua de nàvigu e at a serrai totu is scedas abertas imoi. Siguru ses?</string>
   <string name="dialog_message_clear_history_yes">Eja</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Cumpartzi cun</string>

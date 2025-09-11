@@ -61,7 +61,7 @@
   <string name="wikimedia_commons">Викимедијина остава</string>
   <string name="wikidata">Википодаци</string>
   <string name="dialog_title_clear_history">Брисање историје прегледања</string>
-  <string name="dialog_message_clear_history">Желите ли заиста да избришете сву историју прегледања и затворите све отворене картице?</string>
+  <string name="dialog_message_clear_history">Желите ли заиста да избришете сву историју прегледања?</string>
   <string name="dialog_message_clear_history_yes">Избриши</string>
   <string name="dialog_message_clear_history_no">Откажи</string>
   <string name="share_via">Делите помоћу…</string>
@@ -899,6 +899,7 @@
   <string name="description_edit_tutorial_machine_suggestions_description">Предлози су машински генерисани! Не од стране волонтера или Задужбине Викимедија</string>
   <string name="customize_toolbar_category_menu">Мени</string>
   <string name="customize_toolbar_reset_to_default_button">Врати на подразумевано</string>
+  <string name="suggested_edits_activity_title">Уреди</string>
   <string name="suggested_edits_describe_articles">Опис чланака</string>
   <string name="suggested_edits_caption_images">Опис слике</string>
   <string name="suggested_edits_tag_images">Означавање слика</string>
@@ -1107,6 +1108,11 @@
   <string name="edit_summary_added_caption">Додат натпис</string>
   <string name="edit_summary_added_image_and_caption">Додата слика и натпис</string>
   <string name="edit_published_view">Прикажи</string>
+  <string name="activity_tab_donation_unknown">Непознато</string>
+  <string name="activity_tab_menu_info">Сазнајте више</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
+  <string name="activity_tab_timeline_today">Данас</string>
+  <string name="activity_tab_timeline_yesterday">Јуче</string>
   <string name="file_page_activity_title">Страница датотеке</string>
   <string name="file_page_add_image_caption_button">Додај натпис слике</string>
   <string name="file_page_add_image_tags_button">Додај ознаке за слику</string>

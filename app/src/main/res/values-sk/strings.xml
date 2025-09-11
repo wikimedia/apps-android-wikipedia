@@ -47,7 +47,7 @@
   <string name="page_error_back_to_main">Späť</string>
   <string name="error_back">Späť</string>
   <string name="error_next">Ďalej</string>
-  <string name="menu_clear_all_history">Vymazať históriu</string>
+  <string name="menu_clear_all_history" fuzzy="true">Vymazať históriu</string>
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
   <string name="history_items_deleted">Počet odstránených článkov z histórie %d</string>
   <string name="history_item_delete_undo">Vrátiť</string>
@@ -60,7 +60,7 @@
   <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikiúdaje</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
-  <string name="dialog_message_clear_history">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Zdieľať cez</string>

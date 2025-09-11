@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">Til baka</string>
   <string name="error_back">Fara til baka</string>
   <string name="error_next">Næsta</string>
-  <string name="menu_clear_all_history">Hreinsa feril</string>
+  <string name="menu_clear_all_history" fuzzy="true">Hreinsa feril</string>
   <string name="history_item_deleted">%s fjarlægt úr breytingaskrá</string>
   <string name="history_items_deleted">%d greinar fjarlægðar úr ferilskrá</string>
   <string name="history_item_delete_undo">Afturkalla</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Hreinsa vafurferil</string>
-  <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
   <string name="dialog_message_clear_history_yes">Já</string>
   <string name="dialog_message_clear_history_no">Nei</string>
   <string name="share_via">Deila með</string>

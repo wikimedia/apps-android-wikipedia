@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">Gaa puori</string>
   <string name="error_back">Gaa puori</string>
   <string name="error_next">Gaŋene</string>
-  <string name="menu_clear_all_history">Meele a Dabaŋkoroŋ</string>
+  <string name="menu_clear_all_history" fuzzy="true">Meele a Dabaŋkoroŋ</string>
   <string name="history_item_deleted">%s iri yi Dabaŋkoroŋ</string>
   <string name="history_items_deleted">%d aketelehi naŋ iri yi Dabaŋkoroŋ</string>
   <string name="history_item_delete_undo">Leɛ iri a toma na bare</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">Wikimiideɛ Commons</string>
   <string name="wikidata">Wikideeta</string>
   <string name="dialog_title_clear_history">Meele a viili goɔle dabaŋkroŋ</string>
-  <string name="dialog_message_clear_history">Ŋaaŋ na sãã la fo viili goɔle dabaŋkroŋ zaa, a kyɛ page a tabs ŋa fo naŋ yuo tona toma pampana ŋa. Fo boɔbo la lɛ ŋa?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ŋaaŋ na sãã la fo viili goɔle dabaŋkroŋ zaa, a kyɛ page a tabs ŋa fo naŋ yuo tona toma pampana ŋa. Fo boɔbo la lɛ ŋa?</string>
   <string name="dialog_message_clear_history_yes">Ɔɔ</string>
   <string name="dialog_message_clear_history_no">Aayi</string>
   <string name="share_via">Tɔre ko a yi</string>

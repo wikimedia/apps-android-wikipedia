@@ -24,6 +24,7 @@
   <string name="search_icon_content_description">Пребарување</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
+  <string name="nav_item_activity">Активност</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
   <string name="nav_item_contribute">Учествувајте</string>
@@ -36,7 +37,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Следно</string>
-  <string name="menu_clear_all_history">Исчисти историја</string>
+  <string name="menu_clear_all_history">Исчисти историја на читање</string>
   <string name="history_item_deleted">%s е отстранета од историјата</string>
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
@@ -49,7 +50,7 @@
   <string name="wikimedia_commons">Ризница</string>
   <string name="wikidata">Википодатоци</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
-  <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
+  <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Сподели преку</string>
@@ -925,6 +926,7 @@
   <string name="customize_toolbar_reset_to_default_button">Врати по основно</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Придржете и довлечете ја иконата за да ја преместите ставката</string>
   <string name="customize_toolbar_item_default_tooltip">Стиснете и довлечете ја ставката за да ѝ го смените местото</string>
+  <string name="suggested_edits_activity_title">Уреди</string>
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
@@ -1137,6 +1139,89 @@
   <string name="edit_summary_added_caption">Додаден опис</string>
   <string name="edit_summary_added_image_and_caption">Додадени слика и опис</string>
   <string name="edit_published_view">Погледај</string>
+  <string name="activity_tab_logged_out_title">Најавете се или направете сметка за да ги гледате вашите активности на Википедииниот прилог</string>
+  <string name="activity_tab_user_reading">Читање на %s</string>
+  <string name="activity_tab_on_wikipedia_android">На Википедија Андроид</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Време поминато во читање неделава</string>
+  <string name="activity_tab_monthly_articles_read">Прочитани статии овој месец</string>
+  <string name="activity_tab_monthly_articles_saved">Зачувани статии овој месец</string>
+  <string name="activity_tab_monthly_top_categories">Најчитани категории овој месец</string>
+  <string name="activity_tab_explore_wikipedia">Откријте преку Википедија</string>
+  <string name="activity_tab_discover_encourage">Барате нешто ново за читање?</string>
+  <string name="activity_tab_donation_unknown">Непознато</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Последен дар&lt;/b&gt; во прилог</string>
+  <string name="activity_tab_game_stats">Статистика за игри</string>
+  <string name="activity_tab_game_stats_best_streak">Најдобра тура</string>
+  <string name="activity_tab_play_wiki_games">Играјте Викиигри</string>
+  <string name="activity_tab_report_email_subject">Пријава на проблем — Јазиче за активности</string>
+  <string name="activity_tab_report_email_body">Наидов на проблем со функцијата Јазиче за активности:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
+  <string name="activity_tab_menu_feedback">Проблем со функција</string>
+  <string name="activity_tab_menu_info">Дознајте повеќе</string>
+  <string name="activity_tab_menu_customize">Прилагоди</string>
+  <string name="activity_tab_menu_customize_description">Сознанијата за јазичето за активности се засноваат на главниот јазик зададен во нагодувањата и користи месно податоци со исклучок на уредувањата кои се јавни.</string>
+  <string name="activity_tab_highlights">Најважно</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Историја на читање</string>
+  <string name="activity_tab_impact">Вашето влијание</string>
+  <string name="activity_tab_impact_most_viewed">Најгледано од вашето уредување</string>
+  <string name="activity_tab_impact_contributions_this_month">Придонеси за овој месец</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">уредување месецов</item>
+    <item quantity="other">уредувања месецов</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">уредување минатиот месец</item>
+    <item quantity="other">уредувања минатиот месец</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Севкупно влијание</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">вкупно уредување</item>
+    <item quantity="other">вкупно уредувања</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">благодарница</item>
+    <item quantity="other">благодарници</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d ден</item>
+    <item quantity="other">%d дена</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Најдобра тура</string>
+  <string name="activity_tab_impact_last_edited">Последно уредување</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
+  <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ви значат.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Направете уредување</string>
+  <string name="activity_tab_impact_recent_activity">Ваша скорешна активност (изминатите 30 дена)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Преглед на статии што сте ги уредиле</item>
+    <item quantity="other">Прегледи на статии што сте ги уредиле</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Време поминато во читање</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Сознанија за читање</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Сознанија за уредување</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Севкупно влијание</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Статистика за игри</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Последно дарување од прилог</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Времеслед на поведение</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Модулите за активности се исклучени. &lt;a href=\"#\"&gt;Вклучете ги&lt;/a&gt; за да ги погледате новостите во ова јазиче.</string>
+  <string name="activity_tab_timeline_today">Денес</string>
+  <string name="activity_tab_timeline_yesterday">Вчера</string>
+  <string name="activity_tab_timeline_empty_state_title">Нема што да се прикаже</string>
+  <string name="activity_tab_timeline_empty_state_message">Почнете да читате и уредувате за да ја изградите вашата историја</string>
+  <string name="activity_tab_timeline_view_changes_button">Погл. промени</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Читачки навики</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Погледајте колку време сте провеле читајќи, и кои статии или теми сте ги истражувале со текот на времето.</string>
+  <string name="activity_tab_onboarding_screen_title">Вовед во Активност</string>
+  <string name="activity_tab_onboarding_impact_title">Најважни моменти од влијанието</string>
+  <string name="activity_tab_onboarding_impact_message">Откријте сознанија за вашите придоенси и досегот на знаењето што сте го споделиле.</string>
+  <string name="activity_tab_onboarding_engage_title">Повеќе начини на вклучување</string>
+  <string name="activity_tab_onboarding_engage_message">Истражете статистика за игри, зачувани статии и други активности што ве поврзуваат подлабоко со Википедија.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Останете во контрола</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Изберете кои модули да се прикажуваат. Сите лични податоци остануваат доверливи на вашиот уред, а историјата на прелистување може да се исчисти во секое време.</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>

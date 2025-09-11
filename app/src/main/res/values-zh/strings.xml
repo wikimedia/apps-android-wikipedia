@@ -105,7 +105,7 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
   <string name="error_next">下一个</string>
-  <string name="menu_clear_all_history">清除历史</string>
+  <string name="menu_clear_all_history">清除阅读历史</string>
   <string name="history_item_deleted">%s已从历史中移除</string>
   <string name="history_items_deleted">已从历史中移除%d个条目</string>
   <string name="history_item_delete_undo">撤销</string>
@@ -118,7 +118,7 @@
   <string name="wikimedia_commons">维基共享资源</string>
   <string name="wikidata">维基数据</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
-  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签页。您确定吗？</string>
+  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史。您确定吗？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">分享到…</string>

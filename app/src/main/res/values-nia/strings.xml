@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Ae furi</string>
   <string name="error_back">Ae furi</string>
   <string name="error_next">Tohugö</string>
-  <string name="menu_clear_all_history">Heta waö-waö</string>
+  <string name="menu_clear_all_history" fuzzy="true">Heta waö-waö</string>
   <string name="history_item_deleted">%s teheta moroi ba waö-waö</string>
   <string name="history_items_deleted">%d zura teheta moroi ba waö-waö</string>
   <string name="history_item_delete_undo">Fangawuli furi</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Heta waö-waö wangalui</string>
-  <string name="dialog_message_clear_history">Edöna teheta waö-waö wangalui ba teduhö fefu tab si teboka. Aro dödöu?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Edöna teheta waö-waö wangalui ba teduhö fefu tab si teboka. Aro dödöu?</string>
   <string name="dialog_message_clear_history_yes">Ya\'ia</string>
   <string name="dialog_message_clear_history_no">Lö\'ö</string>
   <string name="share_via">Bagi faoma</string>

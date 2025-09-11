@@ -62,7 +62,7 @@
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="error_back">Quay lại</string>
   <string name="error_next">Tiếp</string>
-  <string name="menu_clear_all_history">Xóa lịch sử</string>
+  <string name="menu_clear_all_history" fuzzy="true">Xóa lịch sử</string>
   <string name="history_item_deleted">%s đã được xóa khỏi lịch sử</string>
   <string name="history_items_deleted">%d bài viết đã được xóa khỏi lịch sử</string>
   <string name="history_item_delete_undo">Hoàn tác</string>
@@ -75,7 +75,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
-  <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="dialog_message_clear_history_yes">Có</string>
   <string name="dialog_message_clear_history_no">Không</string>
   <string name="share_via">Chia sẻ qua</string>

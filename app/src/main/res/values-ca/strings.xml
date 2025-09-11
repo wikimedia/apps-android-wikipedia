@@ -59,7 +59,7 @@
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="error_back">Enrere</string>
   <string name="error_next">Següent</string>
-  <string name="menu_clear_all_history">Esborra l\'historial</string>
+  <string name="menu_clear_all_history" fuzzy="true">Esborra l\'historial</string>
   <string name="history_item_deleted">%s eliminat de l\'historial</string>
   <string name="history_items_deleted">%d articles eliminats de l\'historial</string>
   <string name="history_item_delete_undo">Desfés</string>
@@ -72,7 +72,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
-  <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Comparteix mitjançant…</string>

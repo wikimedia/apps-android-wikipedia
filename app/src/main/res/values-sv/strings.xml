@@ -50,7 +50,7 @@
   <string name="page_error_back_to_main">Gå tillbaka</string>
   <string name="error_back">Gå tillbaka</string>
   <string name="error_next">Nästa</string>
-  <string name="menu_clear_all_history">Rensa historik</string>
+  <string name="menu_clear_all_history" fuzzy="true">Rensa historik</string>
   <string name="history_item_deleted">%s togs bort från historiken</string>
   <string name="history_items_deleted">%d artiklar togs bort från historiken</string>
   <string name="history_item_delete_undo">Ångra</string>
@@ -63,7 +63,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Rensa webbläsarhistoriken</string>
-  <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nej</string>
   <string name="share_via">Dela via</string>

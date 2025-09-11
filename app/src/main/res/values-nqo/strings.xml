@@ -36,7 +36,7 @@
   <string name="page_error_back_to_main">ߌ ߞߐߛߊ߬ߦߌ߬</string>
   <string name="error_back">ߌ ߞߐߛߊ߬ߦߌ߬</string>
   <string name="error_next">ߢߍߕߊ</string>
-  <string name="menu_clear_all_history">ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
+  <string name="menu_clear_all_history" fuzzy="true">ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
   <string name="history_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ ߘߐ߫</string>
   <string name="history_items_deleted">ߞߎߡߘߊ %d ߟߎ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ</string>
   <string name="history_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
@@ -49,7 +49,7 @@
   <string name="wikimedia_commons">ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ</string>
   <string name="wikidata">ߥߞߌߘߕߊ</string>
   <string name="dialog_title_clear_history">ߛߏ߲߯ߓߊߟߌ ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
-  <string name="dialog_message_clear_history">ߣߌ߲߬ ߘߌ߫ ߣߵߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߌ ߞߘߐ߬ߡߊ߲ ߓߍ߯ ߖߏ߰ߛߌ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߕߋ߲߬ߕߋ߲߬ ߘߎ߲ߛߓߍ߫ ߟߊߞߊ߬ߣߍ߲ ߓߍ߯ ߘߊߕߎ߲߯. ߌ ߟߊ߫ ߣߴߏ߬ ߟߊ߫؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ߣߌ߲߬ ߘߌ߫ ߣߵߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߌ ߞߘߐ߬ߡߊ߲ ߓߍ߯ ߖߏ߰ߛߌ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߕߋ߲߬ߕߋ߲߬ ߘߎ߲ߛߓߍ߫ ߟߊߞߊ߬ߣߍ߲ ߓߍ߯ ߘߊߕߎ߲߯. ߌ ߟߊ߫ ߣߴߏ߬ ߟߊ߫؟</string>
   <string name="dialog_message_clear_history_yes">ߊ߬ߥߐ߫</string>
   <string name="dialog_message_clear_history_no">ߍ߲߬ߍ߲߫</string>
   <string name="share_via">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫ ߛߌߟߊ ߣߌ߲߬ ߝߍ߬</string>

@@ -56,7 +56,7 @@
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="error_back">Повернутися</string>
   <string name="error_next">Далі</string>
-  <string name="menu_clear_all_history">Очистити історію</string>
+  <string name="menu_clear_all_history" fuzzy="true">Очистити історію</string>
   <string name="history_item_deleted">%s вилучено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
   <string name="history_item_delete_undo">Скасувати</string>
@@ -69,7 +69,7 @@
   <string name="wikimedia_commons">Вікісховище</string>
   <string name="wikidata">Вікідані</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
-  <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Ні</string>
   <string name="share_via">Поділитися через</string>
