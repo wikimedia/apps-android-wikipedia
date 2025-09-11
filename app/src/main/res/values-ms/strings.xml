@@ -44,7 +44,7 @@
   <string name="page_error_back_to_main">Kembali</string>
   <string name="error_back">Kembali</string>
   <string name="error_next">Seterusnya</string>
-  <string name="menu_clear_all_history">Padamkan sejarah</string>
+  <string name="menu_clear_all_history" fuzzy="true">Padamkan sejarah</string>
   <string name="history_item_deleted">%s dihapus dari sejarah</string>
   <string name="history_items_deleted">%d rencana dipadamkan dari sejarah</string>
   <string name="history_item_delete_undo">Nyahbuat</string>
@@ -57,7 +57,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
-  <string name="dialog_message_clear_history">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Tidak</string>
   <string name="share_via">Sebarkan melalui</string>

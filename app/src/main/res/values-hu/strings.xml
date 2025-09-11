@@ -51,7 +51,7 @@
   <string name="page_error_back_to_main">Vissza</string>
   <string name="error_back">Visszalépés</string>
   <string name="error_next">Következő</string>
-  <string name="menu_clear_all_history">Előzmények törlése</string>
+  <string name="menu_clear_all_history" fuzzy="true">Előzmények törlése</string>
   <string name="history_item_deleted">%s eltávolítva az előzményekből</string>
   <string name="history_items_deleted">%d szócikk eltávolítva az előzményekből</string>
   <string name="history_item_delete_undo">Visszavonás</string>
@@ -64,7 +64,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
-  <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="dialog_message_clear_history_yes">Igen</string>
   <string name="dialog_message_clear_history_no">Nem</string>
   <string name="share_via">Megosztás ezzel:</string>

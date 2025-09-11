@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">უკახალე დორთინა</string>
   <string name="error_back">უკახალე დორთინა</string>
   <string name="error_next">უკული</string>
-  <string name="menu_clear_all_history">ისტორიაშ ლასუა</string>
+  <string name="menu_clear_all_history" fuzzy="true">ისტორიაშ ლასუა</string>
   <string name="history_item_deleted">%s ისტორიაშე ლასირი რე</string>
   <string name="history_items_deleted">%d სტატია ისტორიაშე ლასირი რე</string>
   <string name="history_item_delete_undo">გოუქვაფა</string>
@@ -41,7 +41,7 @@
   <string name="wikimedia_commons">ვიკიოწკარუე</string>
   <string name="wikidata">ვიკიმუნაჩემეფი</string>
   <string name="dialog_title_clear_history">მიშნაველი სტატიეფიშ ისტორიაშ ლასუა</string>
-  <string name="dialog_message_clear_history">თენა დოლასუნს თქვან გორუაშ ისტორიას დო დოკილანს გონწყუმილჷ ხასჷლეფს. დობლასათო?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">თენა დოლასუნს თქვან გორუაშ ისტორიას დო დოკილანს გონწყუმილჷ ხასჷლეფს. დობლასათო?</string>
   <string name="dialog_message_clear_history_yes">ქო</string>
   <string name="dialog_message_clear_history_no">ვარი</string>
   <string name="share_via">გობჟინაფაშ საშუალება</string>

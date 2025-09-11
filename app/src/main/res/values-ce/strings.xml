@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Йуханехьа</string>
   <string name="error_back">Йуханехьа</string>
   <string name="error_next">Кхидӏа</string>
-  <string name="menu_clear_all_history">ДӀацӀанйе истори?</string>
+  <string name="menu_clear_all_history" fuzzy="true">ДӀацӀанйе истори?</string>
   <string name="history_item_deleted">\"%s\" йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_items_deleted">%d йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_item_delete_undo">Йухайаккха</string>

@@ -49,7 +49,7 @@
   <string name="page_error_back_to_main">Вярнуцца</string>
   <string name="error_back">Вярнуцца</string>
   <string name="error_next">Далей</string>
-  <string name="menu_clear_all_history">Ачысціць гісторыю</string>
+  <string name="menu_clear_all_history" fuzzy="true">Ачысціць гісторыю</string>
   <string name="history_item_deleted">Артыкул \"%s\" выдалены з гісторыі праглядаў</string>
   <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі праглядаў</string>
   <string name="history_item_delete_undo">Вярнуць</string>
@@ -62,7 +62,7 @@
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
-  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>

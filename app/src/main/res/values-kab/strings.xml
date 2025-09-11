@@ -37,7 +37,7 @@
   <string name="page_error_back_to_main">Uɣal ar deffir</string>
   <string name="error_back">Uɣal ɣer deffir</string>
   <string name="error_next">Ɣer zdat</string>
-  <string name="menu_clear_all_history">Sfeḍ amazray</string>
+  <string name="menu_clear_all_history" fuzzy="true">Sfeḍ amazray</string>
   <string name="history_item_deleted">%s yettwakkes seg umazray</string>
   <string name="history_items_deleted">%d n imagraden ttwakksen seg umazray</string>
   <string name="history_item_delete_undo">Err-d</string>
@@ -49,7 +49,7 @@
   <string name="page_content_description">Asebter: %s</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Sfeḍ amazray n tunigin</string>
-  <string name="dialog_message_clear_history">ayagi ad yekkes akk amazray n tunigin, sakin ad yemdel akk iccaren yeldin tura. Tebɣiḍ ad teged aya?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ayagi ad yekkes akk amazray n tunigin, sakin ad yemdel akk iccaren yeldin tura. Tebɣiḍ ad teged aya?</string>
   <string name="dialog_message_clear_history_yes">Ih</string>
   <string name="dialog_message_clear_history_no">Uhu</string>
   <string name="share_via">Bḍu s</string>

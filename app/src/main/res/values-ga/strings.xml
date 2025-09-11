@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">Gabh siar</string>
   <string name="error_back">Gabh siar</string>
   <string name="error_next">Ar aghaidh</string>
-  <string name="menu_clear_all_history">Glan stair</string>
+  <string name="menu_clear_all_history" fuzzy="true">Glan stair</string>
   <string name="history_item_deleted">Baineadh %s ón stair</string>
   <string name="history_items_deleted">Baineadh %d alt amach ón stair</string>
   <string name="history_item_delete_undo">Cealaigh</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Cómhaoin Wikimedia</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Glan stair bhrabhsála</string>
-  <string name="dialog_message_clear_history">Scriosfar do chuid stair bhrabhsála uile, agus dúnfar na táib uile atá oscailte agat. An bhfuil tú cinnte?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Scriosfar do chuid stair bhrabhsála uile, agus dúnfar na táib uile atá oscailte agat. An bhfuil tú cinnte?</string>
   <string name="dialog_message_clear_history_yes">Tá</string>
   <string name="dialog_message_clear_history_no">Níl</string>
   <string name="share_via">Comhroinn trí</string>

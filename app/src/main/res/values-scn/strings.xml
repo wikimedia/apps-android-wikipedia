@@ -27,7 +27,7 @@
   <string name="article_load_error_retry">Ripruva</string>
   <string name="offline_load_error_retry">Ripruva</string>
   <string name="error_next">N avanti</string>
-  <string name="menu_clear_all_history">Cancella la crunuluggìa</string>
+  <string name="menu_clear_all_history" fuzzy="true">Cancella la crunuluggìa</string>
   <string name="history_item_deleted">%s rimovutu dâ crunuluggìa</string>
   <string name="history_items_deleted">%d vuci rimuvuti dâ crunuluggìa</string>
   <string name="history_item_delete_undo">Annulla</string>
@@ -39,7 +39,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Svanca crunuluggìa di navigazzioni</string>
-  <string name="dialog_message_clear_history">Si cunfermi cancillirai tutta la tò crunuluggìa di navigazzioni e chiudirai tutti li schedi apruti attualimenti. Sî sìcuru?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Si cunfermi cancillirai tutta la tò crunuluggìa di navigazzioni e chiudirai tutti li schedi apruti attualimenti. Sî sìcuru?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Cunnividi cu</string>

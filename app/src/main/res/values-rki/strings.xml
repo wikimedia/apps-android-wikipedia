@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">နောက်ကို ပြန်လားပါ</string>
   <string name="error_back">နောက်ကို ပြန်လားပါ</string>
   <string name="error_next">နောက်တစ်ခု</string>
-  <string name="menu_clear_all_history">မှတ်တမ်းကို ရှင်းပါ</string>
+  <string name="menu_clear_all_history" fuzzy="true">မှတ်တမ်းကို ရှင်းပါ</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးဗျာလ်</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးပါဗျာလ်</string>
   <string name="history_item_delete_undo">နောက်တဆင့်ဆုတ်</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">ဘုံဖြိုက်တေ ဝီကီမီးဒီးယား</string>
   <string name="wikidata">ဝီကီးဒေတာ</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းပါ</string>
-  <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းတိ အားလုံးကို ဖျက်ပနာ လက်ရှိဖွင့်ထားစွာတိကို ပိတ်ပါဖို့။ သင်သေချာပါဗျာလ်လား?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">သင်၏ အသုံးပြုမှတ်တမ်းတိ အားလုံးကို ဖျက်ပနာ လက်ရှိဖွင့်ထားစွာတိကို ပိတ်ပါဖို့။ သင်သေချာပါဗျာလ်လား?</string>
   <string name="dialog_message_clear_history_yes">ဟုတ်ပါရေ</string>
   <string name="dialog_message_clear_history_no">မလုပ်ပါယာ</string>
   <string name="share_via">မှမျှဝီ</string>

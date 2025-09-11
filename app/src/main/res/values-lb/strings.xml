@@ -24,6 +24,7 @@
   <string name="search_icon_content_description">Sichen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
   <string name="nav_item_suggested_edits">Ännerungen</string>
+  <string name="nav_item_activity">Aktivitéit</string>
   <string name="nav_item_more">Méi</string>
   <string name="nav_item_search">Sichen</string>
   <string name="nav_item_contribute">Bäidroen</string>
@@ -36,7 +37,7 @@
   <string name="page_error_back_to_main">Zeréck goen</string>
   <string name="error_back">Zeréck goen</string>
   <string name="error_next">Weider</string>
-  <string name="menu_clear_all_history">Historique läschen</string>
+  <string name="menu_clear_all_history">Lies-Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
   <string name="history_items_deleted">%d Artikelen aus dem Historique geläscht</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
@@ -49,7 +50,7 @@
   <string name="wikimedia_commons">Wikimedia-Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Historique läschen</string>
-  <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all d\'Tabs, déi momentan op sinn, zou. Sidd Dir sécher?</string>
+  <string name="dialog_message_clear_history">Doduerch gëtt Äre kompletten Browsing-Historique geläscht. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
   <string name="dialog_message_clear_history_no">Nee</string>
   <string name="share_via">Deelen iwwer</string>
@@ -1090,6 +1091,44 @@
   <string name="edit_summary_added_caption">Beschrëftung derbäigesat</string>
   <string name="edit_summary_added_image_and_caption">Bild a Beschrëftung derbäigesat</string>
   <string name="edit_published_view">Weisen</string>
+  <string name="activity_tab_donation_unknown">Onbekannt</string>
+  <string name="activity_tab_game_stats">Spillstatistiken</string>
+  <string name="activity_tab_game_stats_best_streak">Bescht Serie</string>
+  <string name="activity_tab_play_wiki_games">WikiGames spillen</string>
+  <string name="activity_tab_menu_feedback">Problem mat der Funktioun</string>
+  <string name="activity_tab_menu_info">Méi gewuer ginn</string>
+  <string name="activity_tab_menu_customize">Upassen</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Lies-Historique</string>
+  <string name="activity_tab_impact">Ären Impakt</string>
+  <string name="activity_tab_impact_contributions_this_month">Kontributiounen dësem Mount</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">Ännerung dëse Mount</item>
+    <item quantity="other">Ännerungen dëse Mount</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">Ännerung leschte Mount</item>
+    <item quantity="other">Ännerunge leschte Mount</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">Merci</item>
+    <item quantity="other">Mercien</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d Dag</item>
+    <item quantity="other">%d Deeg</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Bescht Serie</string>
+  <string name="activity_tab_impact_recent_activity">Är rezent Aktivitéit (lescht 30 Deeg)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Ännerung</item>
+    <item quantity="other">Ännerungen</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_games_switch_title">Spillstatistiken</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Leschten Don iwwer d\'App</string>
+  <string name="activity_tab_timeline_today">Haut</string>
+  <string name="activity_tab_timeline_yesterday">Gëschter</string>
+  <string name="activity_tab_timeline_empty_state_title">Näischt fir ze weisen</string>
+  <string name="activity_tab_timeline_view_changes_button">Ännerunge weisen</string>
   <string name="file_page_activity_title">Dateisäit</string>
   <string name="file_page_add_image_caption_button">Bildbeschrëftung derbäisetzen</string>
   <string name="file_page_add_image_tags_button">Bildmarkéierungen derbäisetzen</string>
@@ -1665,7 +1704,7 @@
   <string name="year_in_review_survey_neutral">Neutral</string>
   <string name="year_in_review_survey_unsatisfied">Onzefridden</string>
   <string name="year_in_review_survey_very_unsatisfied">Ganz onzefridden</string>
-  <string name="year_in_review_survey_placeholder_text">Soss nach Iwwerleeungen?</string>
+  <string name="year_in_review_survey_placeholder_text">Wëllt Dir nach eppes soen?</string>
   <string name="year_in_review_survey_cancel">Ofbriechen</string>
   <string name="year_in_review_survey_submit">Ofschécken</string>
   <string name="year_in_review_screenshot_error">Et konnt kee Screenshot gemaach ginn: %s</string>

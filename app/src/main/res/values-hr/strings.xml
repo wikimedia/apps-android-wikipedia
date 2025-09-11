@@ -44,7 +44,7 @@
   <string name="page_error_back_to_main">Idi natrag</string>
   <string name="error_back">Idi natrag</string>
   <string name="error_next">Dalje</string>
-  <string name="menu_clear_all_history">Očisti povijest</string>
+  <string name="menu_clear_all_history" fuzzy="true">Očisti povijest</string>
   <string name="history_item_deleted">Članak %s uklonjen iz povijesti</string>
   <string name="history_items_deleted">Uklonjenih članaka iz povijesti: %d</string>
   <string name="history_item_delete_undo">Vrati</string>
@@ -57,7 +57,7 @@
   <string name="wikimedia_commons">Zajednički poslužitelj</string>
   <string name="wikidata">Wikipodatci</string>
   <string name="dialog_title_clear_history">Izbriši povijest</string>
-  <string name="dialog_message_clear_history">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Podijeliti putem</string>

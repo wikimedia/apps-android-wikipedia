@@ -87,7 +87,7 @@
   <string name="page_error_back_to_main">Torna indietro</string>
   <string name="error_back">Torna indietro</string>
   <string name="error_next">Successivo</string>
-  <string name="menu_clear_all_history">Cancella cronologia</string>
+  <string name="menu_clear_all_history">Cancella cronologia di lettura</string>
   <string name="history_item_deleted">%s rimosso dalla cronologia</string>
   <string name="history_items_deleted">%d voci rimosse dalla cronologia</string>
   <string name="history_item_delete_undo">Annulla</string>
@@ -100,7 +100,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
-  <string name="dialog_message_clear_history">Se confermi cancellerai tutta la tua cronologia di navigazione e chiuderai tutte le schede attualmente aperte. Sei sicuro?</string>
+  <string name="dialog_message_clear_history">Se confermi cancellerai tutta la tua cronologia di navigazione. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Condividi tramite</string>

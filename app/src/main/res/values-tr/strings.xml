@@ -81,7 +81,7 @@
   <string name="page_error_back_to_main">Geri dön</string>
   <string name="error_back">Geri dön</string>
   <string name="error_next">Sonraki</string>
-  <string name="menu_clear_all_history">Geçmişi temizle</string>
+  <string name="menu_clear_all_history" fuzzy="true">Geçmişi temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
   <string name="history_item_delete_undo">Geri al</string>
@@ -94,7 +94,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiveri</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
-  <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
   <string name="dialog_message_clear_history_no">Hayır</string>
   <string name="share_via">Şununla paylaş:</string>

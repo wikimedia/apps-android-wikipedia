@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">Nazad</string>
   <string name="error_back">Nazad</string>
   <string name="error_next">Dalje</string>
-  <string name="menu_clear_all_history">Izčistiti historiju</string>
+  <string name="menu_clear_all_history" fuzzy="true">Izčistiti historiju</string>
   <string name="history_item_deleted">Članok %s odstranjeny iz historije</string>
   <string name="history_items_deleted">%d člankov odstranjenyh iz historije</string>
   <string name="history_item_delete_undo">Odčiniti</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">Vikisklad</string>
   <string name="wikidata">Vikidane</string>
   <string name="dialog_title_clear_history">Izčistiti historije prěgleděnja</string>
-  <string name="dialog_message_clear_history">Tuta operacija odstrani vsu vašu historiju prěgleděnja i zatvori vse odkryte zakladky. Jeste li uvěrjeni?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tuta operacija odstrani vsu vašu historiju prěgleděnja i zatvori vse odkryte zakladky. Jeste li uvěrjeni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Poděliti se črěz</string>

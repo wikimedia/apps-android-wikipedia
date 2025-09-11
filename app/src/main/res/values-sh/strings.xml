@@ -33,7 +33,7 @@
   <string name="page_error_back_to_main">Nazad</string>
   <string name="error_back">Nazad</string>
   <string name="error_next">Sljedeće</string>
-  <string name="menu_clear_all_history">Očisti historiju</string>
+  <string name="menu_clear_all_history" fuzzy="true">Očisti historiju</string>
   <string name="history_item_deleted">Članak \"%s\" uklonjen je iz historije</string>
   <string name="history_items_deleted">%d članaka uklonjeno iz historije</string>
   <string name="history_item_delete_undo">Vrati</string>
@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">Wikimedijina ostava</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Izbriši historiju pregledavanja</string>
-  <string name="dialog_message_clear_history">Ovim ćete izbrisati svu historiju pregledavanja i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ovim ćete izbrisati svu historiju pregledavanja i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Podijeli pomoću</string>

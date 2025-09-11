@@ -48,7 +48,7 @@
   <string name="page_error_back_to_main">பின்னே</string>
   <string name="error_back">பின்னே</string>
   <string name="error_next">அடுத்து</string>
-  <string name="menu_clear_all_history">வரலாற்றை நீக்கு</string>
+  <string name="menu_clear_all_history" fuzzy="true">வரலாற்றை நீக்கு</string>
   <string name="history_item_deleted">%s வரலாற்றிலிருந்து நீக்கப்பட்டது</string>
   <string name="history_items_deleted">%d கட்டுரைகள் வரலாற்றிலிருந்து நீக்கப்பட்டன</string>
   <string name="history_item_delete_undo">மீளமை</string>
@@ -60,7 +60,7 @@
   <string name="wikimedia_commons">விக்கிமீடியா பொதுவகம்</string>
   <string name="wikidata">விக்கித்தரவு</string>
   <string name="dialog_title_clear_history">உலாவல் வரலாற்றை நீக்கு</string>
-  <string name="dialog_message_clear_history">இது உங்கள் உலவல் வரலாற்றை மொத்தமாக அழித்து விடும், மேலும் திரந்திருக்கும் எல்லா தத்தல்களையும் மூடிவிடும். நீங்கள் உறுதியாக இருக்கிறீர்க்ளா?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">இது உங்கள் உலவல் வரலாற்றை மொத்தமாக அழித்து விடும், மேலும் திரந்திருக்கும் எல்லா தத்தல்களையும் மூடிவிடும். நீங்கள் உறுதியாக இருக்கிறீர்க்ளா?</string>
   <string name="dialog_message_clear_history_yes">ஆம்</string>
   <string name="dialog_message_clear_history_no">இல்லை</string>
   <string name="share_via">பகிர்வு வழி</string>

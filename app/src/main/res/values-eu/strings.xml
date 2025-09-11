@@ -44,7 +44,7 @@
   <string name="page_error_back_to_main">Atzera joan</string>
   <string name="error_back">Atzera joan</string>
   <string name="error_next">Hurrengoa</string>
-  <string name="menu_clear_all_history">Historia garbitu</string>
+  <string name="menu_clear_all_history" fuzzy="true">Historia garbitu</string>
   <string name="history_item_deleted">«%s» kendu da historiatik</string>
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
@@ -57,7 +57,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
-  <string name="dialog_message_clear_history">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
   <string name="dialog_message_clear_history_yes">Bai</string>
   <string name="dialog_message_clear_history_no">Ez</string>
   <string name="share_via">Partekatu honela</string>

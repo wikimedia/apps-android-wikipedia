@@ -77,7 +77,7 @@
   <string name="page_error_back_to_main">برگرد</string>
   <string name="error_back">برگرد</string>
   <string name="error_next">بعدی</string>
-  <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
+  <string name="menu_clear_all_history" fuzzy="true">پاک‌کردن تاریخچه</string>
   <string name="history_item_deleted">%s از تاریخچه حذف شد</string>
   <string name="history_items_deleted">%d مقاله‌ از تاریخچه حذف شد</string>
   <string name="history_item_delete_undo">بازگردانی</string>
@@ -90,7 +90,7 @@
   <string name="wikimedia_commons">ویکی‌انبار</string>
   <string name="wikidata">ویکی‌داده</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
-  <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
   <string name="dialog_message_clear_history_no">خیر</string>
   <string name="share_via">اشتراک‌گذاری با</string>

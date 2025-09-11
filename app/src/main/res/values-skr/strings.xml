@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">واپس ڄُلو</string>
   <string name="error_back">واپس ڄُلو</string>
   <string name="error_next">اڳلا</string>
-  <string name="menu_clear_all_history">تاریخچہ مٹاؤ</string>
+  <string name="menu_clear_all_history" fuzzy="true">تاریخچہ مٹاؤ</string>
   <string name="history_item_deleted">%s تاریخ توں مٹا ݙتن</string>
   <string name="history_items_deleted">%d ورقے تاریخ توں ہٹا ݙتن</string>
   <string name="history_item_delete_undo">واپس</string>

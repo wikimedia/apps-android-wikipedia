@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Ortga</string>
   <string name="error_back">Ortga</string>
   <string name="error_next">Keyingi</string>
-  <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalamoq</string>
+  <string name="menu_clear_all_history" fuzzy="true">Oldingi ro\'yxatni tozalamoq</string>
   <string name="history_item_deleted">%s tarixdan o‘chirildi</string>
   <string name="history_items_deleted">%d ta maqola tarixdan o‘chirildi</string>
   <string name="history_item_delete_undo">Bekor qilish</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Vikiombor</string>
   <string name="wikidata">Vikimaʼlumot</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
-  <string name="dialog_message_clear_history">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
   <string name="dialog_message_clear_history_yes">Ha</string>
   <string name="dialog_message_clear_history_no">Yo‘q</string>
   <string name="share_via">Quyidagida ulashmoq</string>

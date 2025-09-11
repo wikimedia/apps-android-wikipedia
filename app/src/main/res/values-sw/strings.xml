@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Rudi nyuma</string>
   <string name="error_back">Rudi nyuma</string>
   <string name="error_next">Endelea</string>
-  <string name="menu_clear_all_history">Futa historia</string>
+  <string name="menu_clear_all_history" fuzzy="true">Futa historia</string>
   <string name="history_item_deleted">%s imeondolewa kwenye historia</string>
   <string name="history_items_deleted">Makala %d yameondolewa kwenye historia</string>
   <string name="history_item_delete_undo">Tengua</string>

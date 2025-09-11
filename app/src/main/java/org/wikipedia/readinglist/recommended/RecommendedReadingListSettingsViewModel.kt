@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
+import org.wikipedia.util.log.L
 
 class RecommendedReadingListSettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(RecommendedReadingListSettingsState())
@@ -19,15 +20,23 @@ class RecommendedReadingListSettingsViewModel : ViewModel() {
     val resetUiState = _resetUiState.asStateFlow()
 
     fun toggleDiscoverReadingList(enabled: Boolean) {
-        Prefs.isRecommendedReadingListEnabled = enabled
-        if (enabled) {
-            // Should reshow the onboarding if it was previously skipped
-            Prefs.isRecommendedReadingListOnboardingShown = AppDatabase.instance.recommendedPageDao().findIfAny() == null
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            Prefs.isRecommendedReadingListEnabled = enabled
+            if (enabled) {
+                // Should reshow the onboarding if it was previously skipped
+                Prefs.isRecommendedReadingListOnboardingShown =
+                    AppDatabase.instance.recommendedPageDao().findIfAny() == null
+            }
+            if (!enabled) {
+                Prefs.isRecommendedReadingListNotificationEnabled = false
+            }
+            _uiState.value = _uiState.value.copy(
+                isRecommendedReadingListEnabled = enabled,
+                isRecommendedReadingListNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled
+            )
         }
-        if (!enabled) {
-            Prefs.isRecommendedReadingListNotificationEnabled = false
-        }
-        _uiState.value = _uiState.value.copy(isRecommendedReadingListEnabled = enabled, isRecommendedReadingListNotificationEnabled = Prefs.isRecommendedReadingListNotificationEnabled)
     }
 
     fun updateArticleNumbers(number: Int) {

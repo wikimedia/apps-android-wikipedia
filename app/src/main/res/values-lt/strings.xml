@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="error_back">Grįžti atgal</string>
   <string name="error_next">Kitas</string>
-  <string name="menu_clear_all_history">Valyti istoriją</string>
+  <string name="menu_clear_all_history" fuzzy="true">Valyti istoriją</string>
   <string name="history_item_deleted">%s pašalintas iš istorijos</string>
   <string name="history_items_deleted">%d straipsniai pašalinti iš sąrašo</string>
   <string name="history_item_delete_undo">Anuliuoti</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">Vikiteka</string>
   <string name="wikidata">Vikiduomenys</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
-  <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
   <string name="dialog_message_clear_history_yes">Taip</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Dalintis per</string>

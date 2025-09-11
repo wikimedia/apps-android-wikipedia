@@ -43,7 +43,7 @@
   <string name="page_error_back_to_main">Reveni</string>
   <string name="error_back">Reveni</string>
   <string name="error_next">Sekva</string>
-  <string name="menu_clear_all_history">Malplenigi historion</string>
+  <string name="menu_clear_all_history" fuzzy="true">Malplenigi historion</string>
   <string name="history_item_deleted">%s estas forigita de historio</string>
   <string name="history_items_deleted">%d artikoloj estis forigitaj de historio</string>
   <string name="history_item_delete_undo">Malfari</string>
@@ -55,7 +55,7 @@
   <string name="wikimedia_commons">Vikimedia Komunejo</string>
   <string name="wikidata">Vikidatumoj</string>
   <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
-  <string name="dialog_message_clear_history">Tio ĉi forigos vian tutan retuman historion kaj fermos ĉiujn nuntempe malfermitajn langetojn. Ĉu vi certas?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tio ĉi forigos vian tutan retuman historion kaj fermos ĉiujn nuntempe malfermitajn langetojn. Ĉu vi certas?</string>
   <string name="dialog_message_clear_history_yes">Jes</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Konigi per</string>
