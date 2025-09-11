@@ -320,6 +320,12 @@ class ActivityTabViewModel() : ViewModel() {
 
     companion object {
         const val CAMPAIGN_ID = "appmenu_activity"
+
+        fun markUserInteractedAfterLogin() {
+            if (AccountUtil.isLoggedIn) {
+                Prefs.hasUserInteractedWithTheAppAfterLogIn = true
+            }
+        }
     }
 }
 

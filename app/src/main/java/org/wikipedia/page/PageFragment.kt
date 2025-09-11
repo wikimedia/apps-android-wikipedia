@@ -48,6 +48,7 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabViewModel
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -259,6 +260,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         // adding this here, so that this call would always be before any donation reminder config updates
         DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
+        ActivityTabViewModel.markUserInteractedAfterLogin()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

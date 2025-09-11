@@ -158,9 +158,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                 }
             }
         }
-        if (AccountUtil.isLoggedIn) {
-            Prefs.hasUserInteractedWithTheAppAfterLogIn = true
-        }
     }
 
     override fun onDestroy() {
