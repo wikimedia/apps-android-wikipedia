@@ -16,6 +16,8 @@ import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.concurrency.AppEvent
+import org.wikipedia.concurrency.AppEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.isStarted
@@ -379,6 +381,7 @@ object ReadingListBehaviorsUtil {
                 } else {
                     FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_article_already_exists_message, defaultList.title, title.displayText))
                 }
+                AppEventBus.post(AppEvent.ReadingHistoryChanged)
             }
         } else {
             ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager,
