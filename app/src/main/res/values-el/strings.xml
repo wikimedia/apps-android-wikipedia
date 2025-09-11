@@ -77,7 +77,7 @@
   <string name="page_edit_history_filter_by">Φιλτράρισμα κατά</string>
   <string name="page_edit_history_filter_by_all">Όλες οι τροποποιήσεις (%s)</string>
   <string name="page_edit_history_filter_by_user">Τροποποιήσεις χρηστών (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">Μη συνδεδεμένες επεξεργασίες</string>
+  <string name="page_edit_history_filter_by_anon" fuzzy="true">Μη συνδεδεμένες επεξεργασίες (%s)</string>
   <string name="page_edit_history_filter_by_bot">Επεξεργασίες ρομπότ (%s)</string>
   <string name="page_edit_history_metrics_content_description">Μετρικές από %1$s μέχρι %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
