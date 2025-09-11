@@ -18,6 +18,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
+import org.wikipedia.settings.RemoteConfig
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -191,6 +192,9 @@ interface RestService {
         @Path("title") title: String,
         @Body body: PreviewRequest
     ): ResponseBody
+
+    @GET("feed/configuration")
+    suspend fun getConfiguration(): RemoteConfig.RemoteConfigImpl
 
     companion object {
         const val REST_API_PREFIX = "/api/rest_v1"
