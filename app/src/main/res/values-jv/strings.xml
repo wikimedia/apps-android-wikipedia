@@ -29,14 +29,14 @@
   <string name="offline_load_error_retry">Jajal manèh</string>
   <string name="page_error_back_to_main">Balik</string>
   <string name="error_back">Balik</string>
-  <string name="menu_clear_all_history">Resiki sajarah</string>
+  <string name="menu_clear_all_history" fuzzy="true">Resiki sajarah</string>
   <string name="history_item_deleted">%s dibusak saka sajarah</string>
   <string name="history_items_deleted">%d artikel kabusek saka sajarah</string>
   <string name="history_item_delete_undo">Balèkaké</string>
   <string name="notification_archive_undo">Balèkaké</string>
   <string name="app_settings">Setèlan aplikasi</string>
   <string name="dialog_title_clear_history">Resiki sajarahing pangluru</string>
-  <string name="dialog_message_clear_history">Laku iki bakal mbusek kabèh sajarahing panglurumu lan nutup kabèh tab kang isih kabukak. Kowé yakin?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Laku iki bakal mbusek kabèh sajarahing panglurumu lan nutup kabèh tab kang isih kabukak. Kowé yakin?</string>
   <string name="dialog_message_clear_history_yes">Iya</string>
   <string name="dialog_message_clear_history_no">Ora</string>
   <string name="share_via">Dum lumantar</string>

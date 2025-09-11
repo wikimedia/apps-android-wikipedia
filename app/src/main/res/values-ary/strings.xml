@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">رجع لّور</string>
   <string name="error_back">رجع لّور</string>
   <string name="error_next">لماجي</string>
-  <string name="menu_clear_all_history">مسح ليسطوريك</string>
+  <string name="menu_clear_all_history" fuzzy="true">مسح ليسطوريك</string>
   <string name="history_item_deleted">تحيدات %s من ليسطوريك</string>
   <string name="history_items_deleted">تحيدات %d مقالة من ليسطوريك</string>
   <string name="history_item_delete_undo">رجّع</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكيداطا</string>
   <string name="dialog_title_clear_history">مسح ليسطوريك</string>
-  <string name="dialog_message_clear_history">هادشي غايمسح ڭاع ليسطوريك ديالك، وغايسد ڭاع التبويبات لي محلولين. واش متأكد؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">هادشي غايمسح ڭاع ليسطوريك ديالك، وغايسد ڭاع التبويبات لي محلولين. واش متأكد؟</string>
   <string name="dialog_message_clear_history_yes">آه</string>
   <string name="dialog_message_clear_history_no">لا</string>
   <string name="share_via">پارطاجي ب</string>

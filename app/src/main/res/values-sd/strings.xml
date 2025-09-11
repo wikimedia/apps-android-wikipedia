@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">پوئتي وڃو</string>
   <string name="error_back">پوئتي وڃو</string>
   <string name="error_next">اڳيون</string>
-  <string name="menu_clear_all_history">سوانح ڊاهيو</string>
+  <string name="menu_clear_all_history" fuzzy="true">سوانح ڊاهيو</string>
   <string name="history_item_deleted">%s کي سوانح مان ڪڍيو ويو</string>
   <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيا ويا</string>
   <string name="history_item_delete_undo">اڻڪريو</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">وڪيميڊيا العام</string>
   <string name="wikidata">وڪيڊيٽا</string>
   <string name="dialog_title_clear_history">برائوزر سوانح مٽايو</string>
-  <string name="dialog_message_clear_history">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
   <string name="dialog_message_clear_history_yes">ھا</string>
   <string name="dialog_message_clear_history_no">نہ</string>
   <string name="share_via">ونڊيو بذريعہ</string>

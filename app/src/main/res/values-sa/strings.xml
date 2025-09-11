@@ -19,9 +19,9 @@
   <string name="error_network_error">अन्तर्जालेन सह सम्पर्कः न शक्यते</string>
   <string name="page_error_retry">पुनःप्रयासः</string>
   <string name="page_error_back_to_main">प्रतिगम्यताम्</string>
-  <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहासः मार्ज्यताम्</string>
   <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
-  <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
   <string name="share_via">द्वारा वितरतु</string>
   <string name="search_redirect_from">(%s इत्यस्मात् पुनर्निर्दिष्टम्)</string>
   <string name="menu_page_show_tabs">प्लवनानि दृश्यताम्</string>

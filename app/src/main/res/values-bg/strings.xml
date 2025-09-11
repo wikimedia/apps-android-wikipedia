@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Следваща</string>
-  <string name="menu_clear_all_history">Изчистване на историята</string>
+  <string name="menu_clear_all_history" fuzzy="true">Изчистване на историята</string>
   <string name="history_item_deleted">%s е премахната от историята</string>
   <string name="history_items_deleted">%d статии са премахнати от историята</string>
   <string name="history_item_delete_undo">Отмяна</string>
@@ -52,7 +52,7 @@
   <string name="wikimedia_commons">Общомедия</string>
   <string name="wikidata">Уикиданни</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
-  <string name="dialog_message_clear_history">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Споделяне чрез</string>

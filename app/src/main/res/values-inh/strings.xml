@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">ТIехьашкахьа</string>
   <string name="error_back">ЮхагIо</string>
   <string name="error_next">ДӀахо</string>
-  <string name="menu_clear_all_history">IоцIенде тархьар</string>
+  <string name="menu_clear_all_history" fuzzy="true">IоцIенде тархьар</string>
   <string name="history_item_deleted">Статья \"%s\" дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_items_deleted">%d статья дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_item_delete_undo">Юхадаккха</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Викиларма</string>
   <string name="wikidata">Викидараш</string>
   <string name="dialog_title_clear_history">ЦIенде хьалха даь хьажараш</string>
-  <string name="dialog_message_clear_history">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
   <string name="dialog_message_clear_history_yes">XӀаъу</string>
   <string name="dialog_message_clear_history_no">A</string>
   <string name="share_via">Кхычахьа дIаяхийтта...</string>

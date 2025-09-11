@@ -40,7 +40,7 @@
   <string name="page_error_back_to_main">უკან</string>
   <string name="error_back">უკან დაბრუნება</string>
   <string name="error_next">შემდეგი</string>
-  <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
+  <string name="menu_clear_all_history" fuzzy="true">ისტორიის გასუფთავება</string>
   <string name="history_item_deleted">%s წაიშალა ისტორიიდან</string>
   <string name="history_items_deleted">%d სტატია წაიშალა ისტორიიდან</string>
   <string name="history_item_delete_undo">დაბრუნება</string>
@@ -53,7 +53,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
-  <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ბრძანდებით?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ბრძანდებით?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
   <string name="dialog_message_clear_history_no">არა</string>
   <string name="share_via">გაზიარება</string>

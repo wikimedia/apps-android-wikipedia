@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Հետ գնալ</string>
   <string name="error_back">Հետ գնալ</string>
   <string name="error_next">Հաջորդ</string>
-  <string name="menu_clear_all_history">Մաքրել պատմությունը</string>
+  <string name="menu_clear_all_history" fuzzy="true">Մաքրել պատմությունը</string>
   <string name="history_item_deleted">%s հոդվածը հեռացվել է դիտումների պատմությունց</string>
   <string name="history_items_deleted">%d հոդվածներ հեռացվել են դիտումների պատմությունից</string>
   <string name="history_item_delete_undo">Հետ շրջել</string>

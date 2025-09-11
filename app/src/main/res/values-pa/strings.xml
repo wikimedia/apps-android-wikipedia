@@ -41,7 +41,7 @@
   <string name="page_error_back_to_main">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="error_back">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="error_next">ਅਗਲਾ</string>
-  <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="history_item_deleted">%s ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_items_deleted">%d ਲੇਖਾਂ ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_item_delete_undo">ਰੱਦ ਕਰੋ</string>
@@ -54,7 +54,7 @@
   <string name="wikimedia_commons">ਵਿਕੀਮੀਡੀਆ ਭਾਈਚਾਰਾ</string>
   <string name="wikidata">ਵਿਕੀਡਾਟਾ</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
-  <string name="dialog_message_clear_history">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
   <string name="dialog_message_clear_history_yes">ਹਾਂ</string>
   <string name="dialog_message_clear_history_no">ਨਹੀਂ</string>
   <string name="share_via">ਇਸ ਰਾਹੀਂ ਸਾਂਝਾ ਕਰੋ</string>

@@ -40,7 +40,7 @@
   <string name="page_error_back_to_main">گەڕانەوە</string>
   <string name="error_back">گەڕانەوە</string>
   <string name="error_next">دواتر</string>
-  <string name="menu_clear_all_history">سڕینەوەی مێژوو</string>
+  <string name="menu_clear_all_history" fuzzy="true">سڕینەوەی مێژوو</string>
   <string name="history_item_deleted">%s سڕایەوە لە مێژوو</string>
   <string name="history_items_deleted">%d وتارەکان سڕانەوە لە مێژوو</string>
   <string name="history_item_delete_undo">پووچەڵکردنەوە</string>
@@ -53,7 +53,7 @@
   <string name="wikimedia_commons">ویکیمیدیا کۆمنز</string>
   <string name="wikidata">ویکیدراوە</string>
   <string name="dialog_title_clear_history">سڕینەوەی مێژووی گەڕانەکان</string>
-  <string name="dialog_message_clear_history">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
   <string name="dialog_message_clear_history_yes">بەڵێ</string>
   <string name="dialog_message_clear_history_no">نەخێر</string>
   <string name="share_via">ھاوبەشکردن لەڕێی</string>

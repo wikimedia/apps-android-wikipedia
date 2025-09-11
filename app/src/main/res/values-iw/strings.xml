@@ -56,7 +56,7 @@
   <string name="page_error_back_to_main">חזרה</string>
   <string name="error_back">לחזור</string>
   <string name="error_next">הבא</string>
-  <string name="menu_clear_all_history">ניקוי היסטוריה</string>
+  <string name="menu_clear_all_history" fuzzy="true">ניקוי היסטוריה</string>
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
@@ -69,7 +69,7 @@
   <string name="wikimedia_commons">ויקישיתוף</string>
   <string name="wikidata">ויקינתונים</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
-  <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
   <string name="share_via">שיתוף באמצעות</string>

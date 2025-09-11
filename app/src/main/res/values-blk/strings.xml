@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">သဲင်ꩻချာ</string>
   <string name="error_back">သဲင်ꩻချာ</string>
   <string name="error_next">လွေꩻငါ</string>
-  <string name="menu_clear_all_history">သျင်ꩻထိုꩻမုဲင်တန်ꩻ</string>
+  <string name="menu_clear_all_history" fuzzy="true">သျင်ꩻထိုꩻမုဲင်တန်ꩻ</string>
   <string name="history_item_deleted">အဝ်ႏရာႏဇာႏဝင်ႏမုဲင်တန်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း %s</string>
   <string name="history_items_deleted">အဝ်ႏရာႏဇာႏဝင်ႏမုဲင်တန်ꩻကို ဖုဲင်းထန်ႏထွူလဲဉ်း ရောမ်ဖြုဲင်ꩻ %d ဗာႏ</string>
   <string name="history_item_delete_undo">သဲင်ꩻဖျင်ချာ</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">ဝီခီမီဒီယာ ကောင်မွဥ်း</string>
   <string name="wikidata">ဝီခီဒေတာ</string>
   <string name="dialog_title_clear_history">သျင်ꩻထိုꩻ ထူႏသုင်ꩻမုဲင်တန်ꩻ</string>
-  <string name="dialog_message_clear_history">ယားကုဲင်လို့ နာꩻထူႏသုင်ꩻမုဲင်တန်ꩻဖိုင်ႏထွူ အီႏပေ့ꩻပါသွူ ခွုန်းကဗွောင်ခါꩻမုꩻဖိုင်ႏသွူ။ နာꩻသေႏချာႏလဲဉ်းနဲ့ဟောင်ႏ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ယားကုဲင်လို့ နာꩻထူႏသုင်ꩻမုဲင်တန်ꩻဖိုင်ႏထွူ အီႏပေ့ꩻပါသွူ ခွုန်းကဗွောင်ခါꩻမုꩻဖိုင်ႏသွူ။ နာꩻသေႏချာႏလဲဉ်းနဲ့ဟောင်ႏ?</string>
   <string name="dialog_message_clear_history_yes">မွေး</string>
   <string name="dialog_message_clear_history_no">မွေးတဝ်း</string>
   <string name="share_via">ဖန်းဖြယ်</string>

@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">ကလေင် ဂတး</string>
   <string name="error_back">ကလေင် ဂတး</string>
   <string name="error_next">ဆက်အာ</string>
-  <string name="menu_clear_all_history">ဖအး အရာမဗှ်လဝ်တုဲ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ဖအး အရာမဗှ်လဝ်တုဲ</string>
   <string name="history_item_deleted">%s ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_items_deleted">%d လိက်ပရေင်ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_item_delete_undo">ဟွံပ</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">ဝဳကဳမဳဒဳယာ ခမ်မောန်</string>
   <string name="wikidata">တင်ဂၞင်ဝဳကဳ</string>
   <string name="dialog_title_clear_history">ဖအး စရင်လိက် မၞးမဗှ်လဝ်</string>
-  <string name="dialog_message_clear_history">ဣဏအ်ဂှ် ဒှ်အရာ မဖအးဇိုတ်ထောအ် အရာမၞး မဗှ်လဝ်တုဲဂမၠိုင်၊ တုဲပၠန် မုက်လိက် မပံက်လဝ် လၟုဟ်တအ်ဂှ်လေဝ် ကၟာတ်အာ သီုဖအိုတ်ရောင်၊၊ မၞး ချိုတ်ပၠိုတ် ဟာ？</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ဣဏအ်ဂှ် ဒှ်အရာ မဖအးဇိုတ်ထောအ် အရာမၞး မဗှ်လဝ်တုဲဂမၠိုင်၊ တုဲပၠန် မုက်လိက် မပံက်လဝ် လၟုဟ်တအ်ဂှ်လေဝ် ကၟာတ်အာ သီုဖအိုတ်ရောင်၊၊ မၞး ချိုတ်ပၠိုတ် ဟာ？</string>
   <string name="dialog_message_clear_history_yes">ယွံ</string>
   <string name="dialog_message_clear_history_no">ဟအှ်ေ</string>
   <string name="share_via">ပါ်ပရအ် နကဵု</string>

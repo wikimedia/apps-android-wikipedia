@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">पीछू जा</string>
   <string name="error_back">पीछू जा</string>
   <string name="error_next">आगू</string>
-  <string name="menu_clear_all_history">इतिहास मेटाबौ</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहास मेटाबौ</string>
   <string name="history_item_deleted">%s क इतिहास सँ हटैलौ गेलै</string>
   <string name="history_items_deleted">%d लेख इतिहास सँ हटैलौ गेलै</string>
   <string name="history_item_delete_undo">पहलकरौ जैसनौ करौ</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">विकिमीडिया कॉमन्स</string>
   <string name="wikidata">विकिडाटा</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करौ</string>
-  <string name="dialog_message_clear_history">ई आपनै के सब्भे ब्राउज़िंग इतिहास क हटाय देतै, आरू अखनको खुललो कोय भी टैब क बंद करी देतै। आपनै निश्चिंत छियै?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ई आपनै के सब्भे ब्राउज़िंग इतिहास क हटाय देतै, आरू अखनको खुललो कोय भी टैब क बंद करी देतै। आपनै निश्चिंत छियै?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नै</string>
   <string name="share_via">के माध्यम सँ साझा करौ</string>

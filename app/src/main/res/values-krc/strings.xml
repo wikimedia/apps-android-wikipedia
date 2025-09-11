@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Кери къайт</string>
   <string name="error_back">Кери къайт</string>
   <string name="error_next">Эндиги</string>
-  <string name="menu_clear_all_history">Тарихни ариула</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихни ариула</string>
   <string name="history_item_deleted">%s тарихден къоратылды</string>
   <string name="history_items_deleted">%d статья тарихден къоратылды</string>
   <string name="history_item_delete_undo">Кери ал</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Викигёзен</string>
   <string name="wikidata">Викибилгиле</string>
   <string name="dialog_title_clear_history">Къарауланы тарихин ариула</string>
-  <string name="dialog_message_clear_history">Бу ишлеу, бютеу браузер терихнигизни кетерликди эмда бютеу ачыкъ салгъычларыгъызны джабарыкъды. Ишексизмисиз?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Бу ишлеу, бютеу браузер терихнигизни кетерликди эмда бютеу ачыкъ салгъычларыгъызны джабарыкъды. Ишексизмисиз?</string>
   <string name="dialog_message_clear_history_yes">Хоу</string>
   <string name="dialog_message_clear_history_no">Огъай</string>
   <string name="share_via">Буну бла юлюшле:</string>

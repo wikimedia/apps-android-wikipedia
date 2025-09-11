@@ -28,14 +28,14 @@
   <string name="offline_load_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
-  <string name="menu_clear_all_history">Llimpiar historial</string>
+  <string name="menu_clear_all_history" fuzzy="true">Llimpiar historial</string>
   <string name="history_item_deleted">%s desaniciáu del historial</string>
   <string name="history_items_deleted">%d artículos desaniciaos del historial</string>
   <string name="history_item_delete_undo">Desfacer</string>
   <string name="notification_archive_undo">Desfacer</string>
   <string name="app_settings">Preferencies de la app</string>
   <string name="dialog_title_clear_history">Llimpiar l\'historial de navegación</string>
-  <string name="dialog_message_clear_history">Esto desaniciará tol historial de navegación, y zarrará cualquier llingüeta abierta. ¿Tas seguru?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Esto desaniciará tol historial de navegación, y zarrará cualquier llingüeta abierta. ¿Tas seguru?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Compartir per</string>

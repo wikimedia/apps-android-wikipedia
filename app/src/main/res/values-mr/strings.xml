@@ -20,13 +20,13 @@
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="page_error_back_to_main">परत जा</string>
-  <string name="menu_clear_all_history">इतिहास साफ करा</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहास साफ करा</string>
   <string name="history_item_deleted">%s इतिहासामधून काढले</string>
   <string name="history_items_deleted">%d लेख इतिहासामधून काढले</string>
   <string name="history_item_delete_undo">उलटवा</string>
   <string name="app_settings">मांडण्या (सेटींग्ज) लागु करा</string>
   <string name="dialog_title_clear_history">न्याहाळकाचा इतिहास मिटवा</string>
-  <string name="dialog_message_clear_history">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
   <string name="dialog_message_clear_history_yes">होय</string>
   <string name="dialog_message_clear_history_no">नाही</string>
   <string name="share_via">याद्वारे वाटप करा</string>

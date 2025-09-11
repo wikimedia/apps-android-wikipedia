@@ -13,13 +13,13 @@
   <string name="error_network_error">Inda bisa mamyambung tu internet</string>
   <string name="page_error_retry">Kajo mulak</string>
   <string name="page_error_back_to_main">Mulak</string>
-  <string name="menu_clear_all_history">Apus riwayat</string>
+  <string name="menu_clear_all_history" fuzzy="true">Apus riwayat</string>
   <string name="history_item_deleted">%s apus tingon riwayat</string>
   <string name="history_items_deleted">%d artikel iapus tingon riwayat</string>
   <string name="history_item_delete_undo">Botalkon</string>
   <string name="app_settings">Pangaturan aplikasi</string>
   <string name="dialog_title_clear_history">Apus riwayat panjalajahan</string>
-  <string name="dialog_message_clear_history">On nangkan mangapus sude riwayat panjalajahan Mu, dot manutup tab na saonnari lek bukak. Na yakin domui?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">On nangkan mangapus sude riwayat panjalajahan Mu, dot manutup tab na saonnari lek bukak. Na yakin domui?</string>
   <string name="dialog_message_clear_history_yes">Olo</string>
   <string name="dialog_message_clear_history_no">Inda</string>
   <string name="share_via">Bagion lewat</string>
