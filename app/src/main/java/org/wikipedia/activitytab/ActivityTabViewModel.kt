@@ -325,10 +325,3 @@ sealed class TimelineDisplayItem {
     data class DateSeparator(val date: Date) : TimelineDisplayItem()
     data class TimelineEntry(val item: TimelineItem) : TimelineDisplayItem()
 }
-
-sealed class ActivityTabUpdateEvent {
-    object ReadingHistoryChanged : ActivityTabUpdateEvent()
-    object ImpactChanged : ActivityTabUpdateEvent()
-    object DonationsChanged : ActivityTabUpdateEvent()
-    object GamesChanged : ActivityTabUpdateEvent()
-}

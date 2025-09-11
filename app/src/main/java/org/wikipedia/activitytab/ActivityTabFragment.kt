@@ -84,7 +84,8 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.concurrency.ActivityTabEventBus
+import org.wikipedia.concurrency.AppEvent
+import org.wikipedia.concurrency.AppEventBus
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
@@ -140,25 +141,21 @@ class ActivityTabFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                ActivityTabEventBus.events.collectLatest { event ->
-                    println("orange ActivityTabEventBus event --> $event")
+                AppEventBus.events.collectLatest { event ->
+                    println("orange event $event")
                     when (event) {
-                        ActivityTabUpdateEvent.ReadingHistoryChanged -> {
-                            println("orange ReadingHistoryChanged")
+                        AppEvent.ReadingHistoryChanged -> {
                             viewModel.loadReadingHistory()
                             viewModel.shouldRefreshTimelineSilently = true
                             viewModel.refreshTimeline()
                         }
-                        ActivityTabUpdateEvent.DonationsChanged -> {
-                            println("orange DonationsChanged")
+                        AppEvent.DonationsChanged -> {
                             viewModel.loadDonationResults()
                         }
-                        ActivityTabUpdateEvent.GamesChanged -> {
-                            println("orange GamesChanged")
+                        AppEvent.GamesChanged -> {
                             viewModel.loadWikiGamesStats()
                         }
-                        ActivityTabUpdateEvent.ImpactChanged -> {
-                            println("orange ImpactChanged")
+                        AppEvent.ImpactChanged -> {
                             viewModel.loadImpact()
                         }
                     }
@@ -205,14 +202,12 @@ class ActivityTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        println("orange onResume")
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
     }
 
     override fun onPause() {
         super.onPause()
-        println("orange onPause")
         requireActivity().removeMenuProvider(menuProvider)
     }
 
