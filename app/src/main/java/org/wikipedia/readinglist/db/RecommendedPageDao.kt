@@ -36,5 +36,5 @@ interface RecommendedPageDao {
 
     // find if any recommended page exists
     @Query("SELECT * FROM RecommendedPage WHERE id = 0")
-    fun findIfAny(): RecommendedPage?
+    suspend fun findIfAny(): RecommendedPage?
 }
