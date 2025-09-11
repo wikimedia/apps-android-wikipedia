@@ -204,6 +204,6 @@
     <string name="preference_category_donations">donations</string>
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
-    <string name="preference_key_has_user_interacted_with_the_app_after_log_in">hasUserInteractedWithTheAppAfterLogIn</string>
+    <string name="preference_key_has_user_interacted_with_pages_after_log_in">hasUserInteractedWithTheAppAfterLogIn</string>
 
 </resources>

@@ -251,13 +251,10 @@ class ActivityTabViewModel() : ViewModel() {
 
     private fun createTimelineSources(): List<TimelineSource> {
         val sources = mutableListOf<TimelineSource>()
-
         sources.add(HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao()))
-
-        if (Prefs.hasUserInteractedWithTheAppAfterLogIn) {
+        if (Prefs.hasUserInteractedWithPagesAfterLogIn) {
             sources.add(ReadingListPagingSource(AppDatabase.instance.readingListPageDao()))
         }
-
         val userContribPagingSource = UserContribPagingSource(wikiSiteForTimeline, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
         sources.add(userContribPagingSource)
         return sources
@@ -323,7 +320,7 @@ class ActivityTabViewModel() : ViewModel() {
 
         fun markUserInteractedAfterLogin() {
             if (AccountUtil.isLoggedIn) {
-                Prefs.hasUserInteractedWithTheAppAfterLogIn = true
+                Prefs.hasUserInteractedWithPagesAfterLogIn = true
             }
         }
     }
