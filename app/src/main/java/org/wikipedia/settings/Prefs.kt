@@ -858,4 +858,8 @@ object Prefs {
     var isActivityTabOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_onboarding_shown, value)
+
+    var hasUserInteractedWithTheAppAfterLogIn
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_has_user_interacted_with_the_app_after_log_in, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_has_user_interacted_with_the_app_after_log_in, value)
 }

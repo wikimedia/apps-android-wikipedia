@@ -250,10 +250,17 @@ class ActivityTabViewModel() : ViewModel() {
     }
 
     private fun createTimelineSources(): List<TimelineSource> {
-        val historyEntryPagingSource = HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao())
+        val sources = mutableListOf<TimelineSource>()
+
+        sources.add(HistoryEntryPagingSource(AppDatabase.instance.historyEntryWithImageDao()))
+
+        if (Prefs.hasUserInteractedWithTheAppAfterLogIn) {
+            sources.add(ReadingListPagingSource(AppDatabase.instance.readingListPageDao()))
+        }
+
         val userContribPagingSource = UserContribPagingSource(wikiSiteForTimeline, AccountUtil.userName, AppDatabase.instance.historyEntryWithImageDao())
-        val readingListPagingSource = ReadingListPagingSource(AppDatabase.instance.readingListPageDao())
-        return listOf(historyEntryPagingSource, readingListPagingSource, userContribPagingSource)
+        sources.add(userContribPagingSource)
+        return sources
     }
 
     fun getTotalEditsCount(): Int {
