@@ -36,6 +36,9 @@ data class ReadingListPage(
                 title.description, title.thumbUrl, lang = title.wikiSite.languageCode) {
         val now = System.currentTimeMillis()
         mtime = now
+        // The `atime` (added time) field is used for sorting pages added *locally* only.
+        // For pages added from a remote sync, we set the atime to zero, so that these pages
+        // will not be counted as locally-added pages when sorting.
         atime = if (fromRemoteSync) 0 else now
     }
 
