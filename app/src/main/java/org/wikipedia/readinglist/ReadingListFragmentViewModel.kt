@@ -120,6 +120,7 @@ class ReadingListFragmentViewModel : ViewModel() {
                             remoteId = 0
                         ).apply {
                             mtime = System.currentTimeMillis()
+                            atime = mtime
                         }
                     }
                     val recommendedList = ReadingList(
