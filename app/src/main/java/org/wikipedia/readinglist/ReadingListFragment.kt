@@ -1030,7 +1030,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             } else if (item != null) {
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, if (isRecommendedList) HistoryEntry.SOURCE_RECOMMENDED_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
-                item.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
                 if (isRecommendedList) {
                     RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")

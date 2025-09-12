@@ -86,17 +86,17 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     suspend fun getAllPagesToBeSynced(): List<ReadingListPage>
 
-    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE mtime > :timestamp")
-    suspend fun getTotalPagesSince(timestamp: Long): Int?
+    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp")
+    suspend fun getTotalLocallySavedPagesSince(timestamp: Long): Int?
 
-    @Query("SELECT * FROM ReadingListPage WHERE mtime > :timestamp ORDER BY mtime DESC LIMIT :limit")
-    suspend fun getPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
+    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY atime DESC LIMIT :limit")
+    suspend fun getLocallySavedPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
 
-    @Query("SELECT * FROM ReadingListPage ORDER BY mtime DESC LIMIT 1")
-    suspend fun getMostRecentSavedPage(): ReadingListPage?
+    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
+    suspend fun getMostRecentLocallySavedPage(): ReadingListPage?
 
-    @Query("SELECT * FROM ReadingListPage ORDER BY mtime DESC LIMIT :limit OFFSET :offset")
-    suspend fun getPagesWithLimitOffset(limit: Int, offset: Int): List<ReadingListPage>
+    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
+    suspend fun getPagesByLocalySavedTime(limit: Int, offset: Int): List<ReadingListPage>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
