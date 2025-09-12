@@ -4,11 +4,11 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Request
@@ -34,7 +34,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
             try {
                 val request: Request = Request.Builder().url(ALPHA_BUILD_DATA_URL).build()
                 OkHttpConnectionFactory.client.newCall(request).execute().use {
-                    hashString = it.body?.string()
+                    hashString = it.body.string()
                 }
             } catch (e: IOException) {
                 // It's ok, we can do nothing.
@@ -52,7 +52,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return
         }
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
+        val intent = Intent(Intent.ACTION_VIEW, ALPHA_BUILD_APK_URL.toUri())
         val pendingIntent = PendingIntentCompat.getActivity(context, 0, intent, 0, false)
 
         val notificationManagerCompat = NotificationManagerCompat.from(context)
