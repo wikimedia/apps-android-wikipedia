@@ -119,7 +119,7 @@ class ReadingListPagingSource(
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
-        val items = dao.getPagesByAddedTime(pageSize, offset).map {
+        val items = dao.getPagesByLocalySavedTime(pageSize, offset).map {
             TimelineItem(
                 id = it.mtime + it.atime + it.id,
                 pageId = 0,
