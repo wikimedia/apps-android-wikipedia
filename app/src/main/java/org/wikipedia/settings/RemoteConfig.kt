@@ -7,7 +7,6 @@ import org.wikipedia.util.log.L
 object RemoteConfig {
     private var curConfig: RemoteConfigImpl? = null
 
-    // If there's no pref set, just give back the empty JSON Object
     val config: RemoteConfigImpl
         get() {
             if (curConfig == null) {
@@ -21,15 +20,28 @@ object RemoteConfig {
             return curConfig!!
         }
 
-    fun updateConfig(configStr: String) {
-        Prefs.remoteConfigJson = configStr
+    fun updateConfig(config: RemoteConfigImpl) {
+        Prefs.remoteConfigJson = JsonUtil.encodeToString(config).orEmpty()
         curConfig = null
     }
 
     @Suppress("unused")
     @Serializable
     class RemoteConfigImpl {
+        val commonv1: RemoteConfigCommonV1? = null
+        val androidv1: RemoteConfigAndroidV1? = null
+
+        val disableReadingListSync
+            get() = androidv1?.disableReadingListSync == true
+    }
+
+    @Suppress("unused")
+    @Serializable
+    class RemoteConfigCommonV1
+
+    @Suppress("unused")
+    @Serializable
+    class RemoteConfigAndroidV1 {
         val disableReadingListSync = false
-        val disableAnonEditing = false
     }
 }
