@@ -50,6 +50,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
@@ -333,6 +334,7 @@ class ActivityTabFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
+                    viewModel.shouldRefreshTimelineSilently = false
                     timelineItems.refresh()
                     viewModel.loadAll()
                 },
@@ -540,12 +542,23 @@ class ActivityTabFragment : Fragment() {
                         val isRefreshing = timelineItems.loadState.refresh is LoadState.Loading
                         val isEmpty = timelineItems.itemCount == 0
                         when {
-                            isRefreshing -> {
+                            // Show loading for fresh navigation or explicit refresh, User came from tab navigation OR pulled to refresh
+                            isRefreshing && !viewModel.shouldRefreshTimelineSilently -> {
                                 item {
                                     ActivityTabShimmerView()
                                 }
                                 return@LazyColumn
                             }
+                            // Show loading UI during silent refresh transition
+                            // User clicked timeline item (shouldRefreshTimelineSilently = true) and returned,
+                            // but timeline data is still loading/empty. Without this case, user would see empty state briefly before data loads instead of loading UI.
+                            isEmpty && viewModel.shouldRefreshTimelineSilently -> {
+                                item {
+                                    ActivityTabShimmerView()
+                                }
+                                return@LazyColumn
+                            }
+                            // empty timeline - no data available
                             isEmpty -> {
                                 item {
                                     TimelineModuleEmptyView(
@@ -776,6 +789,7 @@ class ActivityTabFragment : Fragment() {
     }
 
     private fun handleTimelineItemClick(item: TimelineItem) {
+        viewModel.shouldRefreshTimelineSilently = true
         when (item.activitySource) {
             ActivitySource.EDIT -> {
                 startActivity(
@@ -828,13 +842,15 @@ class ActivityTabFragment : Fragment() {
 }
 
 @Composable
-fun ActivityTabShimmerView() {
+fun ActivityTabShimmerView(
+    size: Dp = 120.dp
+) {
     Box(
         modifier = Modifier
             .padding(16.dp)
             .clip(RoundedCornerShape(size = 12.dp))
             .fillMaxWidth()
             .shimmerEffect()
-            .size(120.dp)
+            .size(size)
     )
 }
