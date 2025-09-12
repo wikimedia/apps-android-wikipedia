@@ -14,6 +14,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.db.Category
+import org.wikipedia.concurrency.AppEvent
+import org.wikipedia.concurrency.AppEventBus
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -287,6 +289,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 WikipediaApp.instance.appSessionEvent.pageViewed(entry)
                 ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
                 ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
+                AppEventBus.post(AppEvent.ReadingHistoryChanged)
             }
         }
     }
