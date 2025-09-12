@@ -37,10 +37,6 @@ class YearInReviewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                /*
-                personalizedScreenList is temporarily populated with screens
-                for testing purposes. This is will adjusted in future iterations
-                 */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
                 var hasVisitedContent by remember { mutableStateOf(false) }
@@ -52,7 +48,7 @@ class YearInReviewActivity : BaseActivity() {
                     if (canShowSurvey) {
                         isSurveyVisible = true
                     } else {
-                        endYearInReviewActivity(coroutineScope, this)
+                        finish(coroutineScope)
                     }
                 }
 
@@ -61,7 +57,7 @@ class YearInReviewActivity : BaseActivity() {
                     YearInReviewSurvey(
                         onCancelButtonClick = {
                             isSurveyVisible = false
-                            endYearInReviewActivity(coroutineScope, this)
+                            finish(coroutineScope)
                         },
                         onSubmitButtonClick = { selectedOption, userInput ->
                             PatrollerExperienceEvent.logAction(
@@ -74,7 +70,7 @@ class YearInReviewActivity : BaseActivity() {
                                     )
                             )
                             isSurveyVisible = false
-                            endYearInReviewActivity(coroutineScope, this)
+                            finish(coroutineScope)
                         }
                     )
                 }
@@ -95,7 +91,7 @@ class YearInReviewActivity : BaseActivity() {
                                 if (canShowSurvey) {
                                     isSurveyVisible = true
                                 } else {
-                                    endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
+                                    finish(coroutineScope)
                                 }
                             },
                             customBottomBar = {
@@ -112,7 +108,6 @@ class YearInReviewActivity : BaseActivity() {
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData,
-                                    context = this@YearInReviewActivity,
                                     screenCaptureMode = false,
                                     isOnboardingScreen = true
                                 )
@@ -157,7 +152,6 @@ class YearInReviewActivity : BaseActivity() {
                                         }
                                         YearInReviewScreenContent(
                                             innerPadding = innerPadding,
-                                            context = this@YearInReviewActivity,
                                             screenData = contentData,
                                         )
                                     },
@@ -170,16 +164,16 @@ class YearInReviewActivity : BaseActivity() {
         }
     }
 
+    fun finish(scope: CoroutineScope, delayTimeMillis: Long = 200) {
+        scope.launch {
+            delay(delayTimeMillis)
+            finish()
+        }
+    }
+
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, YearInReviewActivity::class.java)
-        }
-
-        fun endYearInReviewActivity(scope: CoroutineScope, activity: YearInReviewActivity) {
-            scope.launch {
-                delay(200)
-                activity.finish()
-            }
         }
     }
 }

@@ -103,7 +103,6 @@ fun YearInReviewScreen(
     if (startCapture) {
         CreateScreenShotBitmap(
             screenContent = contentData[pagerState.currentPage],
-            context = context,
         ) { bitmap ->
             ShareUtil.shareImage(
                 coroutineScope = coroutineScope,
@@ -336,11 +335,11 @@ fun OnboardingBottomBar(
 fun YearInReviewScreenContent(
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData,
-    context: Context,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
+    val context = LocalContext.current
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
 
@@ -409,7 +408,6 @@ fun YearInReviewScreenContent(
 @Composable
 fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
-    context: Context,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val shadowColor = WikipediaTheme.colors.primaryColor
@@ -458,7 +456,6 @@ fun CreateScreenShotBitmap(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
             screenCaptureMode = true,
-            context = context
         ) { isLoaded -> isImageLoaded = isLoaded }
 
         Card(
@@ -562,8 +559,7 @@ fun PreviewContent() {
             screenContent = { innerPadding, screenData, pagerState ->
                 YearInReviewScreenContent(
                     innerPadding = innerPadding,
-                    screenData = screenData,
-                    context = LocalContext.current
+                    screenData = screenData
                 )
             },
             navController = NavHostController(LocalContext.current),
@@ -575,11 +571,9 @@ fun PreviewContent() {
 @Preview
 @Composable
 fun PreviewScreenShot() {
-    val context = LocalContext.current
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
-            screenContent = nonEnglishCollectiveEditCountData,
-            context = context
-        ) { /* No logic, preview only */ }
+            screenContent = nonEnglishCollectiveEditCountData
+        ) { }
     }
 }
