@@ -83,10 +83,8 @@ object ShareUtil {
         if (file == null) {
             return null
         }
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
-        else Uri.parse(FILE_PREFIX + file.absolutePath)
-    }
+        return FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
+     }
 
     private fun processBitmapForSharing(context: Context, bmp: Bitmap,
                                         imageFileName: String): File? {
@@ -132,8 +130,7 @@ object ShareUtil {
     }
 
     private fun getShareFolder(context: Context): File {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) context.cacheDir
-        else context.getExternalFilesDir(null)!!
+        return context.cacheDir
     }
 
     private fun cleanFileName(fileName: String): String {
@@ -176,11 +173,7 @@ object ShareUtil {
                     .setComponent(ComponentName(activityInfo.packageName, activityInfo.name))
             targetIntents.add(LabeledIntent(targetIntent, activityInfo.packageName, info.labelRes, info.icon))
         }
-        val chooserIntent = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Intent.createChooser(Intent(), chooserTitle)
-        } else {
-            Intent.createChooser(targetIntents.removeAt(0), chooserTitle)
-        }) ?: return null
+        val chooserIntent = (Intent.createChooser(Intent(), chooserTitle)) ?: return null
 
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>())
         return chooserIntent

@@ -5,8 +5,6 @@ import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Gravity
@@ -803,10 +801,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onProvideAssistContent(outContent: AssistContent) {
         super.onProvideAssistContent(outContent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            pageFragment.model.title?.let {
-                outContent.setWebUri(Uri.parse(it.uri))
-            }
+        pageFragment.model.title?.let {
+            outContent.webUri = it.uri.toUri()
         }
     }
 
