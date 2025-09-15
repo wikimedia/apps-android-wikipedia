@@ -90,14 +90,6 @@ class YearInReviewActivity : BaseActivity() {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewScreen(
                             contentData = listOf(YearInReviewViewModel.getStartedData),
-                            navController = navController,
-                            canShowSurvey = {
-                                if (canShowSurvey) {
-                                    isSurveyVisible = true
-                                } else {
-                                    endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
-                                }
-                            },
                             customBottomBar = {
                                 OnboardingBottomBar(
                                     onGetStartedClick = {
@@ -108,13 +100,20 @@ class YearInReviewActivity : BaseActivity() {
                                     context = this@YearInReviewActivity
                                 )
                             },
+                            onNavigationBackButtonClick = {
+                                if (canShowSurvey) {
+                                    isSurveyVisible = true
+                                } else {
+                                    endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
+                                }
+                            },
                             screenContent = { innerPadding, contentData, _ ->
                                 YearInReviewScreenContent(
                                     innerPadding = innerPadding,
                                     screenData = contentData,
                                     context = this@YearInReviewActivity,
                                     screenCaptureMode = false,
-                                    isOnboardingScreen = true
+                                    isOnboardingScreen = true,
                                 )
                             },
                         )
@@ -128,7 +127,6 @@ class YearInReviewActivity : BaseActivity() {
                             is Resource.Success -> {
                                 YearInReviewScreen(
                                     contentData = screenState.data,
-                                    navController = navController,
                                     customBottomBar = { pagerState -> MainBottomBar(
                                         onNavigationRightClick = {
                                             coroutineScope.launch {
@@ -151,6 +149,15 @@ class YearInReviewActivity : BaseActivity() {
                                             launchDonateDialog("yir")
                                         }
                                     ) },
+                                    onNavigationBackButtonClick = { pagerState ->
+                                        coroutineScope.launch {
+                                            if (pagerState.currentPage > 0) {
+                                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                                            } else {
+                                                navController.navigate(route = YearInReviewNavigation.Onboarding.name)
+                                            }
+                                        }
+                                    },
                                     screenContent = { innerPadding, contentData, pagerState ->
                                         if (pagerState.currentPage >= 1) {
                                             hasVisitedContent = true

@@ -71,12 +71,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.navigation.NavHostController
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -92,9 +90,8 @@ fun YearInReviewScreen(
     context: Context = LocalContext.current,
     customBottomBar: @Composable (PagerState) -> Unit,
     screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
-    navController: NavHostController,
     contentData: List<YearInReviewScreenData>,
-    canShowSurvey: (() -> Unit)? = null
+    onNavigationBackButtonClick: (PagerState) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
@@ -131,16 +128,7 @@ fun YearInReviewScreen(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = {
-                        if (contentData.size > 1 && pagerState.currentPage != 0) {
-                            coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
-                        } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            canShowSurvey?.invoke()
-                        } else {
-                            navController.navigate(
-                                route = YearInReviewNavigation.Onboarding.name)
-                        }
-                    }) {
+                    IconButton(onClick = { onNavigationBackButtonClick(pagerState) }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                             tint = WikipediaTheme.colors.primaryColor,
@@ -566,8 +554,8 @@ fun PreviewContent() {
                     context = LocalContext.current
                 )
             },
-            navController = NavHostController(LocalContext.current),
             contentData = listOf(nonEnglishCollectiveEditCountData),
+            onNavigationBackButtonClick = {}
         )
     }
 }
@@ -579,7 +567,7 @@ fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
             screenContent = nonEnglishCollectiveEditCountData,
-            context = context
+            context = context,
         ) { /* No logic, preview only */ }
     }
 }
