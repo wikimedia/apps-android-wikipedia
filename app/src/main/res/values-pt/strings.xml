@@ -46,6 +46,7 @@
   <string name="search_icon_content_description">Procurar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar as minhas listas</string>
   <string name="nav_item_suggested_edits">Edições</string>
+  <string name="nav_item_activity">Atividade</string>
   <string name="nav_item_more">Mais</string>
   <string name="nav_item_search">Procurar</string>
   <string name="nav_item_contribute">Contribuir</string>
@@ -58,7 +59,7 @@
   <string name="page_error_back_to_main">Voltar</string>
   <string name="error_back">Voltar</string>
   <string name="error_next">Seguinte</string>
-  <string name="menu_clear_all_history" fuzzy="true">Limpar histórico</string>
+  <string name="menu_clear_all_history">Limpar histórico de leitura</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
   <string name="history_item_delete_undo">Anular</string>
@@ -71,7 +72,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Isto irá eliminar todo o seu histórico de navegação, e fechar todos os separadores atuais abertos. Tem a certeza?</string>
+  <string name="dialog_message_clear_history">Isto irá eliminar todo o seu histórico de navegação. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Partilhar via</string>
@@ -123,7 +124,7 @@
   <string name="menu_page_recently_viewed">Visualizados recentemente</string>
   <string name="menu_page_archive">Arquivo</string>
   <string name="menu_long_press_open_page">Abrir</string>
-  <string name="menu_long_press_open_in_places">Abrir nos Locais</string>
+  <string name="menu_long_press_open_in_places">Abrir em Lugares</string>
   <string name="menu_long_press_open_in_new_tab">Abrir num separador novo</string>
   <string name="menu_long_press_copy_page">Copiar endereço da hiperligação</string>
   <string name="menu_text_select_define">Definir</string>
@@ -236,7 +237,7 @@
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="preferences_account_heading">Conta</string>
-  <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
+  <string name="wikipedia_app_faq">Perguntas Mais Frequentes da Aplicação Wikipédia</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_heading_syncing">Sincronização</string>
@@ -249,7 +250,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover as listas de leitura sincronizadas da sua conta \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permite que a aplicação envie automaticamente relatórios de falhas fatais para um fornecedor de serviços terceiro, para podermos analisar a sua falha e corrigir o defeito mais rapidamente e mais facilmente.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permite que a aplicação envie automaticamente relatórios de craches fatais para um fornecedor de serviços terceiro, e assim nós podemos analisar o seu crache e corrigir o erro mais rapidamente e mais facilmente.</string>
   <string name="editing_error_spamblacklist">Foram detetadas hiperligações para domínios bloqueados (%s). Remova-as e tente novamente, por favor.</string>
   <string name="history_filter_list_hint">Filtrar historial</string>
   <string name="error_can_not_process_link">Não foi possível apresentar esta hiperligação</string>
@@ -474,7 +475,7 @@
   <string name="temp_account_end_session">Terminar sessão</string>
   <string name="temp_account_end_session_confirm">Isto irá terminar a sessão da sua conta temporária. Deseja continuar?</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
-  <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
+  <string name="crash_report_relaunch_or_quit">As nossas desculaps, a aplicação Wikipédia encontrou um erro e foi encerrada.\n\nDeseja começar de novo ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
   <string name="crash_report_quit">Sair</string>
   <string name="article_menu_bar_save_button">Guardar</string>
@@ -491,7 +492,7 @@
   <string name="color_theme_black">Preto</string>
   <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texto exemplificativo</string>
-  <string name="color_theme_test_text">Arraste a barra deslizante para alterar o tamanho do texto que é usado para ler artigos. Para definir o tamanho do texto na restante aplicação, altere o tamanho de texto do sistema.</string>
+  <string name="color_theme_test_text">Arraste o cursor para alterar o tamanho do texto que é usado para ler os artigos. Para definir o tamanho do texto na restante aplicação, altere o tamanho de texto do sistema.</string>
   <string name="preference_title_app_theme">Tema da aplicação</string>
   <string name="preference_summary_color_theme">Mudar para o tema escuro da aplicação</string>
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
@@ -629,7 +630,7 @@
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
-  <string name="no_user_lists_msg">Criar listas de lugares aonde ir, tópicos preferidos, e muito mais</string>
+  <string name="no_user_lists_msg">Criar listas de lugares para viajar, tópicos preferidos, e muito mais</string>
   <string name="reading_list_saved_list_rename">%1$s (criada pelo utilizador)</string>
   <string name="split_reading_list_message">Há um limite de %d artigos por cada lista de leitura. As listas existentes com um valor acima deste limite foram divididas em várias listas.</string>
   <string name="reading_list_move_article_limit_message">Não foi possível mover para esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
@@ -936,6 +937,7 @@
   <string name="customize_toolbar_reset_to_default_button">Reiniciar para valores padrão</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Segure o ícone de arrastar para mover o elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pressione e arraste um elemento para reposicioná-lo</string>
+  <string name="suggested_edits_activity_title">Editar</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Legendar imagens</string>
   <string name="suggested_edits_tag_images">Etiquetar imagens</string>
@@ -1148,6 +1150,27 @@
   <string name="edit_summary_added_caption">Legenda adicionada</string>
   <string name="edit_summary_added_image_and_caption">Adição de imagem e legenda</string>
   <string name="edit_published_view">Visualizar</string>
+  <string name="activity_tab_logged_out_title">Inicie a sessão ou crie uma conta para ver a sua atividade na aplicação Wikipédia</string>
+  <string name="activity_tab_user_reading">Leitura de %s</string>
+  <string name="activity_tab_on_wikipedia_android">Na Wikipédia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_donation_unknown">Desconhecido</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; na aplicação</string>
+  <string name="activity_tab_menu_feedback">Problema com a funcionalidade</string>
+  <string name="activity_tab_menu_info">Saber mais</string>
+  <string name="activity_tab_menu_customize">Personalizar</string>
+  <string name="activity_tab_highlights">Destaques</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Histórico de leitura</string>
+  <string name="activity_tab_impact">O seu impacto</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Última doação na aplicação</string>
+  <string name="activity_tab_timeline_today">Hoje</string>
+  <string name="activity_tab_timeline_yesterday">Ontem</string>
+  <string name="activity_tab_timeline_view_changes_button">Ver alterações</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Padrões de leitura</string>
+  <string name="activity_tab_onboarding_screen_title">Introdução à Atividade</string>
+  <string name="activity_tab_onboarding_impact_title">Destaques de impacto</string>
+  <string name="activity_tab_onboarding_engage_title">Mais maneiras para se envolver</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Mantenha o controle</string>
   <string name="file_page_activity_title">Página do ficheiro</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar etiquetas de imagens</string>
@@ -1178,8 +1201,8 @@
   <string name="onboarding_welcome_title_v2">A Enciclopédia Livre\n... em mais de 300 línguas</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
-  <string name="app_shortcuts_search">Pesquisar</string>
-  <string name="app_shortcuts_places">Locais</string>
+  <string name="app_shortcuts_search">Procurar</string>
+  <string name="app_shortcuts_places">Lugares</string>
   <string name="on_this_day_card_title">Neste dia</string>
   <string name="more_events_text">Mais neste dia</string>
   <string name="events_count_text">%1$s acontecimentos de %2$s–%3$d</string>
@@ -1319,7 +1342,7 @@
   <string name="talk_response_submitted">Resposta publicada.</string>
   <string name="talk_snackbar_undo">Anular</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; de %2$s</string>
-  <string name="talk_snackbar_survey_text">Obrigado por usar as páginas de discussão. Poderia nos ajudar a melhorar o aplicativo participando de uma pesquisa?</string>
+  <string name="talk_snackbar_survey_text">Obrigado por usar as páginas de discussão. Poderia ajudar-nos a melhorar a aplicação participando num inquérito?</string>
   <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="talk_share_discussion_subject">Wikipédia - discussão no tópico \"%s\" de página de discussão</string>
   <string name="talk_share_talk_page">Wikipédia - conversas em página de discussão</string>
@@ -1501,7 +1524,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Que nome gostaria de dar à lista que foi partilhada consigo?</string>
   <string name="shareable_reading_lists_new_indicator">*nova*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Foi partilhada consigo uma lista de leitura</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista na aplicação móvel, volte à mensagem original e prima novamente a hiperligação.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Nós notámos que foi partilhada consigo uma lista de leitura. Para ver esta lista na aplicação, volte para a mensagem original e toque novamente na hiperligação.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Entendido</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Lista de leitura importada</string>
   <string name="reading_list_share_menu_label">Partilhar...</string>
@@ -1658,15 +1681,15 @@
   <string name="donate_gpay_help_tax">Informação sobre dedução fiscal</string>
   <string name="donation_history_deleted_message_snackbar">Histórico de doadores eliminados</string>
   <string name="places_title">Lugares</string>
-  <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
-  <string name="places_search_hint">Procurar lugares</string>
-  <string name="places_filter_title">Filtrar por língua</string>
+  <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Por favor, tente novamente.</string>
+  <string name="places_search_hint">Procurar por lugares</string>
+  <string name="places_filter_title">Filtrar por idioma</string>
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
-  <string name="places_card_title">Locais nas proximidades</string>
-  <string name="places_card_action">Mais locais nas proximidades</string>
-  <string name="places_card_enable_location_card_message">Locais é uma maneira baseada em mapas de explorar a Wikipédia</string>
+  <string name="places_card_title">Lugares próximos</string>
+  <string name="places_card_action">Mais lugares próximos</string>
+  <string name="places_card_enable_location_card_message">Lugares é uma maneira baseada em mapa para explorar a Wikipédia</string>
   <string name="places_card_enable_location_card_button">Ativar localização</string>
   <string name="places_card_distance_suffix">%s ausente</string>
   <string name="places_card_distance_unknown">Distância desconhecida</string>
