@@ -8,7 +8,6 @@ coilCompose = "3.3.0"
 commonsLang3 = "3.18.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.17.0"
-coreRemoteviews = "1.1.0"
 desugar_jdk_libs = "2.1.5"
 drawerlayout = "1.2.0"
 espressoVersion = "3.7.0"
@@ -56,7 +55,6 @@ composeViewModel = "2.9.3"
 [libraries]
 android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
 android-plugin-annotation-v9 = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "androidPluginAnnotationV9" }
-androidx-core-remoteviews = { module = "androidx.core:core-remoteviews", version.ref = "coreRemoteviews" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
