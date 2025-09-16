@@ -352,6 +352,14 @@
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
   <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="zero">تا نهار</item>
+    <item quantity="one">نهار واحد</item>
+    <item quantity="two">يوماين</item>
+    <item quantity="few">%d يوم</item>
+    <item quantity="many">%d يام</item>
+    <item quantity="other">%d يوم</item>
+  </plurals>
   <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
   <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>

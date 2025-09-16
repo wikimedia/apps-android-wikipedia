@@ -39,6 +39,7 @@
   <string name="search_icon_content_description">Keresés</string>
   <string name="filter_hint_filter_my_lists_and_articles">Listáim szűrése</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>
+  <string name="nav_item_activity">Tevékenység</string>
   <string name="nav_item_more">Több</string>
   <string name="nav_item_search">Keresés</string>
   <string name="nav_item_contribute">Közreműködés</string>
@@ -939,6 +940,7 @@
   <string name="customize_toolbar_reset_to_default_button">Alapértelmezés visszaállítása</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Tartsd lenyomva a húzás ikont az elem mozgatásához</string>
   <string name="customize_toolbar_item_default_tooltip">Nyomja meg és húzza át az elemet az áthelyezéséhez</string>
+  <string name="suggested_edits_activity_title">Szerkesztés</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
@@ -1151,6 +1153,83 @@
   <string name="edit_summary_added_caption">Képaláírás hozzáadása</string>
   <string name="edit_summary_added_image_and_caption">Kép és felirat hozzáadva</string>
   <string name="edit_published_view">Megtekintés</string>
+  <string name="activity_tab_logged_out_title">Jelentkezz be, vagy hozz létre egy fiókot, hogy lásd a tevékenységed a Wikipédia alkalmazásban</string>
+  <string name="activity_tab_user_reading">%s olvasása</string>
+  <string name="activity_tab_on_wikipedia_android">A Wikipédián Androidon</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d óra %2$d perc</string>
+  <string name="activity_tab_weekly_time_spent">Ezen a héten olvasással töltött idő</string>
+  <string name="activity_tab_monthly_articles_read">Ebben a hónapban olvasott szócikkek</string>
+  <string name="activity_tab_monthly_articles_saved">Ebben a hónapban elmentett szócikkek</string>
+  <string name="activity_tab_monthly_top_categories">Ebben a hónapban legtöbbet olvasott kategóriák</string>
+  <string name="activity_tab_explore_wikipedia">Felfedezés a Wikipédián</string>
+  <string name="activity_tab_discover_encourage">Valami újat keresel olvasnivalónak?</string>
+  <string name="activity_tab_donation_unknown">Ismeretlen</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Utolsó adomány&lt;/b&gt; az alkalmazásban</string>
+  <string name="activity_tab_game_stats">Játékstatisztikák</string>
+  <string name="activity_tab_game_stats_best_streak">Legjobb nyerőszéria</string>
+  <string name="activity_tab_play_wiki_games">WikiJátékok indítása</string>
+  <string name="activity_tab_report_email_subject">Problémabejelentés – Tevékenység fül</string>
+  <string name="activity_tab_report_email_body">Problémát tapasztaltam a Tevékenység fül funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n\nAzt szeretném, ha a rendszer így viselkedne:\n\n– [Írd le, szerinted hogyan működjön helyesen]</string>
+  <string name="activity_tab_menu_feedback">Probléma a funkcióval</string>
+  <string name="activity_tab_menu_info">Tudj meg többet</string>
+  <string name="activity_tab_menu_customize">Testreszabás</string>
+  <string name="activity_tab_menu_customize_description">A Tevékenység fül áttekintései a beállításokban megadott elsődleges nyelven alapulnak, és helyi adatokra támaszkodnak, kivéve a szerkesztéseket, amelyek nyilvánosak.</string>
+  <string name="activity_tab_highlights">Kiemelések</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Olvasási előzmények</string>
+  <string name="activity_tab_impact">Tevékenységed</string>
+  <string name="activity_tab_impact_most_viewed">Legnézettebb a szerkesztésed óta</string>
+  <string name="activity_tab_impact_contributions_this_month">Hozzájárulásaid ebben a hónapban</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">szerkesztés ebben a hónapban</item>
+    <item quantity="other">szerkesztés ebben a hónapban</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">szerkesztés múlt hónapban</item>
+    <item quantity="other">szerkesztés múlt hónapban</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Összesített hozzájárulás</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">összes szerkesztés</item>
+    <item quantity="other">összes szerkesztés</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">köszönet</item>
+    <item quantity="other">köszönet</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d nap</item>
+    <item quantity="other">%d nap</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Leghosszabb szerkesztési sorozat</string>
+  <string name="activity_tab_impact_last_edited">Legutóbbi szerkesztés</string>
+  <string name="activity_tab_impact_suggested_edits_title">Mostanában nem volt szócikk-szerkesztés</string>
+  <string name="activity_tab_impact_suggested_edits_message">Úgy tűnik, ebben a hónapban még nem szerkesztettél. Bővítsd a szabad tudást azoknak a témáknak a szerkesztésével, amelyek a legfontosabbak számodra.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Szerkesztés</string>
+  <string name="activity_tab_impact_recent_activity">Legutóbbi tevékenységed (az elmúlt 30 napban)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">szerkesztés</item>
+    <item quantity="other">szerkesztés</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">megtekintés az általad szerkesztett szócikkeken</item>
+    <item quantity="other">megtekintés az általad szerkesztett szócikkeken</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Olvasással töltött idő</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Olvasási áttekintések</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Szerkesztési áttekintések</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Összesített hozzájárulás</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Játékstatisztikák</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Legutóbbi adomány az alkalmazásban</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Tevékenységi idővonal</string>
+  <string name="activity_tab_customize_screen_no_modules_message">A tevékenységi modulok ki vannak kapcsolva. &lt;a href=\"#\"&gt;Kapcsold be őket&lt;/a&gt;, hogy lásd a frissítéseket ezen a fülön.</string>
+  <string name="activity_tab_timeline_today">Ma</string>
+  <string name="activity_tab_timeline_yesterday">Tegnap</string>
+  <string name="activity_tab_timeline_empty_state_title">Nincs megjeleníthető tartalom</string>
+  <string name="activity_tab_timeline_empty_state_message">Olvass és szerkessz, hogy legyen előzményed</string>
+  <string name="activity_tab_timeline_view_changes_button">Változtatások megtekintése</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Olvasási minták</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Nézd meg, mennyi időt töltöttél olvasással, és mely szócikkeket vagy témákat fedeztél fel az idők során.</string>
+  <string name="activity_tab_onboarding_screen_title">A Tevékenység bemutatása</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>

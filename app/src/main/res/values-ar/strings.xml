@@ -1367,7 +1367,39 @@
   <string name="activity_tab_impact">تأثيرك</string>
   <string name="activity_tab_impact_most_viewed">الأكثر مشاهدة منذ تعديلك</string>
   <string name="activity_tab_impact_contributions_this_month">المساهمات هذا الشهر</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="zero">لا تعديلات هذا الشهر</item>
+    <item quantity="one">تعديل هذا الشهر</item>
+    <item quantity="two">تعديلان هذا الشهر</item>
+    <item quantity="few">تعديلات قليلة ها الشهر</item>
+    <item quantity="many">تعديلات كثيرة هذا الشهر</item>
+    <item quantity="other">تعديلات هذا الشهر</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="zero">لا تعديلات الشهر الماضي</item>
+    <item quantity="one">تعديل الشهر الماضي</item>
+    <item quantity="two">تعديلان الشهر الماضي</item>
+    <item quantity="few">تعديلات قليلة الشهر الماضي</item>
+    <item quantity="many">تعديلات كثيرة الشهر الماضي</item>
+    <item quantity="other">تعديلات الشهر الماضي</item>
+  </plurals>
   <string name="activity_tab_impact_all_time">التأثير في كل الأوقات</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="zero">لا تعديلات</item>
+    <item quantity="one">تعديل إجمالي</item>
+    <item quantity="two">تعديلان إجماليان</item>
+    <item quantity="few">تعديلات إجمالية قليلة</item>
+    <item quantity="many">تعديلات إجمالية كثيرة</item>
+    <item quantity="other">تعديلات إجمالية</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="zero">لا شكر</item>
+    <item quantity="one">شكر</item>
+    <item quantity="two">شكران</item>
+    <item quantity="few">شكر قليل</item>
+    <item quantity="many">شكر كثير</item>
+    <item quantity="other">شكرًا</item>
+  </plurals>
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="zero">و لا يوم</item>
     <item quantity="one">يوم واحدة</item>
@@ -1389,6 +1421,14 @@
     <item quantity="few">تعديلات قليلة</item>
     <item quantity="many">تعديلات كثيرة</item>
     <item quantity="other">تعديلات</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="zero">لا عرض للمقالات التي قمت بتحريرها</item>
+    <item quantity="one">عرض المقالات التي قمت بتحريرها</item>
+    <item quantity="two">عرض المقالتين التين قمت بتحريرهما</item>
+    <item quantity="few">عرض للمقالات القليلة التي قمت بتحريرها</item>
+    <item quantity="many">عرض للمقالات الكثيرة التي قمت بتحريرها</item>
+    <item quantity="other">عرض المقالات التي قمت بتحريرها</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">الوقت المستغرق في القراءة</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">رؤى القراءة</string>
@@ -2082,6 +2122,38 @@
   <string name="year_in_review_entry_dialog_title">استكشف ويكيبيديا الخاصة بك في المراجعة</string>
   <string name="year_in_review_entry_dialog_bodytext">اطلع على رؤى حول المقالات التي قرأناها وحررناها، وشارك أبرز أحداث عامنا على ويكيبيديا.</string>
   <string name="year_in_review_entry_dialog_continue">استمرار</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="zero">أنت لم تقرأ أي مقال ها العام</item>
+    <item quantity="one">لقد قرأت %d مقالة هذا العام</item>
+    <item quantity="two">أنت قرأت مقالين ها العام</item>
+    <item quantity="few">أنت قرأت مقالات قليلة هذا العام</item>
+    <item quantity="many">أنت قرأت مقالات كثيرة هذا العام</item>
+    <item quantity="other">لقد قرأت %d مقالة هذا العام</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="zero">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+    <item quantity="one">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+    <item quantity="two">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+    <item quantity="few">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+    <item quantity="many">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+    <item quantity="other">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="zero">أنت لم تحرر ويكيبيديا</item>
+    <item quantity="one">لقد حررت ويكيبيديا %d مرة</item>
+    <item quantity="two">أنت حررت ويكيبيديا مرتين</item>
+    <item quantity="few">أنت حررت ويكيبيديا مرات قليلة</item>
+    <item quantity="many">أنت حررت ويكيبيديا مرات كثيرة</item>
+    <item quantity="other">لقد حررت ويكيبيديا %d مرة</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="zero">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+    <item quantity="one">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+    <item quantity="two">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+    <item quantity="few">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+    <item quantity="many">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+    <item quantity="other">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
+  </plurals>
   <string name="year_in_review_non_english_collective_readcount_headline">كانت ويكيبيديا متاحة بأكثر من 300 لغة</string>
   <string name="year_in_review_non_english_collective_readcount_bodytext">احتوت ويكيبيديا على أكثر من 63 مليون مقالة بأكثر من 300 لغة نشطة هذا العام. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</string>
   <string name="year_in_review_non_english_collective_editcount_headline">قام المحررون على تطبيق iOS بإجراء تعديلات تزيد قيمتها عن $1</string>
