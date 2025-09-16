@@ -355,12 +355,40 @@ fun YearInReviewScreenContent(
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
+    when (screenData) {
+        is YearInReviewScreenData.StandardScreen -> {
+            StandardLayoutWithVariants(
+                innerPadding = innerPadding,
+                screenData = screenData,
+                screenCaptureMode = screenCaptureMode,
+                isOnboardingScreen = isOnboardingScreen,
+                isImageResourceLoaded = isImageResourceLoaded,
+            )
+        }
+        is YearInReviewScreenData.GeoScreen -> {
+            // @TODO: geo location screen
+        }
+        is YearInReviewScreenData.HighlightsScreen -> {
+            // @TODO: has different layout structure based on ios slides
+        }
+    }
+}
+
+@Composable
+private fun StandardLayoutWithVariants(
+    modifier: Modifier = Modifier,
+    innerPadding: PaddingValues,
+    screenData: YearInReviewScreenData.StandardScreen,
+    screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
+    isImageResourceLoaded: ((Boolean) -> Unit)? = null,
+) {
     val scrollState = rememberScrollState()
     val gifAspectRatio = 3f / 2f
     val context = LocalContext.current
     Column(
         verticalArrangement = Arrangement.Top,
-        modifier = Modifier
+        modifier = modifier
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
@@ -388,7 +416,7 @@ fun YearInReviewScreenContent(
                         .padding(top = 10.dp, start = 16.dp, end = 8.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = processString(screenData.headLineText),
+                    text = processString(screenData.headlineText),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -416,6 +444,14 @@ fun YearInReviewScreenContent(
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
+
+            screenData.bottomButton?.let {
+                // @TODO: donation button based on android design
+            }
+
+            screenData.unlockIcon?.let {
+                // @TODO: unlock icon based on android design
+            }
         }
     }
 }

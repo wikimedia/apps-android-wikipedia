@@ -27,7 +27,7 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.Resource
+import org.wikipedia.util.UiState
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -104,10 +104,10 @@ class YearInReviewActivity : BaseActivity() {
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         when (screenState) {
-                            is Resource.Loading -> {
+                            is UiState.Loading -> {
                                 LoadingIndicator()
                             }
-                            is Resource.Success -> {
+                            is UiState.Success -> {
                                 YearInReviewScreenDeck(
                                     contentData = screenState.data,
                                     onNavigationBackButtonClick = { pagerState ->
@@ -140,6 +140,8 @@ class YearInReviewActivity : BaseActivity() {
                                     }
                                 )
                             }
+
+                            is UiState.Error -> {}
                         }
                     }
                 }
