@@ -44,6 +44,7 @@
   <string name="search_icon_content_description">Пошук</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
   <string name="nav_item_suggested_edits">Редагування</string>
+  <string name="nav_item_activity">Активність</string>
   <string name="nav_item_more">Більше</string>
   <string name="nav_item_search">Пошук</string>
   <string name="nav_item_contribute">Зробити внесок</string>
@@ -56,7 +57,7 @@
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="error_back">Повернутися</string>
   <string name="error_next">Далі</string>
-  <string name="menu_clear_all_history" fuzzy="true">Очистити історію</string>
+  <string name="menu_clear_all_history">Очистити історію читання</string>
   <string name="history_item_deleted">%s вилучено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
   <string name="history_item_delete_undo">Скасувати</string>
@@ -69,7 +70,7 @@
   <string name="wikimedia_commons">Вікісховище</string>
   <string name="wikidata">Вікідані</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
+  <string name="dialog_message_clear_history">Буде вилучена вся історія відвідування сторінок. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Ні</string>
   <string name="share_via">Поділитися через</string>
@@ -455,7 +456,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Вилучити локальну історію пожертв</string>
+  <string name="preference_title_delete_local_donation_history">Очистити історію пожертв</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="page_footer_license_text">Вміст доступний на умовах $1, якщо не вказано інше</string>
   <string name="empty_tab_title">Нова вкладка</string>
@@ -998,14 +999,15 @@
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Автоматичні пропозиції</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Пропозиції генеруються машиною, а не волонтерами чи Фондом Вікімедіа</string>
-  <string name="customize_toolbar_title">Налаштувати панель інструменту</string>
+  <string name="customize_toolbar_title">Налаштувати панель інструментів</string>
   <string name="customize_toolbar_shortcut_description_text">Налаштуйте нижню панель інструментів, додавши 5 речей, які ви вважаєте найбільш корисними.</string>
-  <string name="customize_toolbar_category_toolbar">Панель інструменту</string>
+  <string name="customize_toolbar_category_toolbar">Панель інструментів</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Перетягніть сюди улюблені предмети 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Скинути за замовчуванням</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Щоб перемістити елемент, утримуйте значок перетягування</string>
   <string name="customize_toolbar_item_default_tooltip">Натисніть і перетягніть елемент, щоб змінити його положення</string>
+  <string name="suggested_edits_activity_title">Редагувати</string>
   <string name="suggested_edits_describe_articles">Опишіть статті</string>
   <string name="suggested_edits_caption_images">Назвіть зображення</string>
   <string name="suggested_edits_tag_images">Теги до зображень</string>
@@ -1239,6 +1241,97 @@
   <string name="edit_summary_added_caption">Додати підпис</string>
   <string name="edit_summary_added_image_and_caption">Додано зображення та підпис</string>
   <string name="edit_published_view">Переглянути</string>
+  <string name="activity_tab_logged_out_title">Увійдіть або створіть обліковий запис, щоб переглядати свою активність у застосунку Вікіпедії</string>
+  <string name="activity_tab_user_reading">Читання %s</string>
+  <string name="activity_tab_on_wikipedia_android">У Вікіпедії для Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d год %2$d хв</string>
+  <string name="activity_tab_weekly_time_spent">Час, витрачений на читання цього тижня</string>
+  <string name="activity_tab_monthly_articles_read">Статті, прочитані цього місяця</string>
+  <string name="activity_tab_monthly_articles_saved">Статті, збережені цього місяця</string>
+  <string name="activity_tab_monthly_top_categories">Найпопулярніші категорії, читані цього місяця</string>
+  <string name="activity_tab_explore_wikipedia">Відкрийте для себе через Вікіпедію</string>
+  <string name="activity_tab_discover_encourage">Шукаєте щось нове для читання?</string>
+  <string name="activity_tab_donation_unknown">Невідомо</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Остання пожертва&lt;/b&gt; в застосунку</string>
+  <string name="activity_tab_game_stats">Статистика гри</string>
+  <string name="activity_tab_game_stats_best_streak">Найкраща серія</string>
+  <string name="activity_tab_play_wiki_games">Грати у Вікіігри</string>
+  <string name="activity_tab_report_email_subject">Звіт про проблему – вкладка «Активність»</string>
+  <string name="activity_tab_report_email_body">У мене виникла проблема з вкладкою активності:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="activity_tab_menu_feedback">Проблема з функцією</string>
+  <string name="activity_tab_menu_info">Дізнатися більше</string>
+  <string name="activity_tab_menu_customize">Налаштувати</string>
+  <string name="activity_tab_menu_customize_description">Статистика вкладки «Активність» базується на основній мові, встановленій у налаштуваннях, та використовує локальні дані (окрім редагувань: вони є публічними).</string>
+  <string name="activity_tab_highlights">Основні моменти</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Історія читання</string>
+  <string name="activity_tab_impact">Ваш вплив</string>
+  <string name="activity_tab_impact_most_viewed">Найбільше переглядів з моменту вашого редагування</string>
+  <string name="activity_tab_impact_contributions_this_month">Внесок цього місяця</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">редагування цього місяця</item>
+    <item quantity="few">редагування цього місяця</item>
+    <item quantity="many">редагувань цього місяця</item>
+    <item quantity="other">редагувань цього місяця</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">редагування минулого місяця</item>
+    <item quantity="few">редагування минулого місяця</item>
+    <item quantity="many">редагувань минулого місяця</item>
+    <item quantity="other">редагувань минулого місяця</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Вплив за весь час</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">редагування разом</item>
+    <item quantity="few">редагування разом</item>
+    <item quantity="many">редагувань разом</item>
+    <item quantity="other">редагувань разом</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">подяка</item>
+    <item quantity="few">подяки</item>
+    <item quantity="many">подяк</item>
+    <item quantity="other">подяк</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d день</item>
+    <item quantity="few">%d дні</item>
+    <item quantity="many">%d днів</item>
+    <item quantity="other">%d днів</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Найкраща серія</string>
+  <string name="activity_tab_impact_last_edited">Останнє редагування</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 нещодавніх редагувань статей</string>
+  <string name="activity_tab_impact_suggested_edits_message">Схоже, ви не робили жодного редагування цього місяця. Розширте вільні знання, редагуючи теми, які вам небайдужі.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Зробити редагування</string>
+  <string name="activity_tab_impact_recent_activity">Ваша нещодавня активність (за минулі 30 днів)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Редагування</item>
+    <item quantity="few">Редагування</item>
+    <item quantity="many">Редагувань</item>
+    <item quantity="other">Редагувань</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Час, витрачений на читання</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Статистика читання</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Статистика редагування</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Вплив за весь час</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Статистика гри</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Минуле пожертвування в застосунку</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Хронологія поведінки</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Модулі активності вимкнено. &lt;a href=\"#\"&gt;Увімкніть їх&lt;/a&gt;, щоб переглядати оновлення на цій вкладці.</string>
+  <string name="activity_tab_timeline_today">Сьогодні</string>
+  <string name="activity_tab_timeline_yesterday">Учора</string>
+  <string name="activity_tab_timeline_empty_state_title">Нічого показати</string>
+  <string name="activity_tab_timeline_empty_state_message">Почніть читати та редагувати, щоб створити свою історію</string>
+  <string name="activity_tab_timeline_view_changes_button">Переглянути зміни</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Закономірності читання</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Подивіться, скільки часу ви витратили на читання та які статті чи теми ви досліджували протягом певного часу.</string>
+  <string name="activity_tab_onboarding_screen_title">Ласкаво просимо до Активності</string>
+  <string name="activity_tab_onboarding_impact_title">Основні моменти впливу</string>
+  <string name="activity_tab_onboarding_impact_message">Дізнайтеся більше про свій внесок та охоплення знань, якими ви поділилися.</string>
+  <string name="activity_tab_onboarding_engage_title">Більше способів взаємодії</string>
+  <string name="activity_tab_onboarding_engage_message">Переглядайте статистику ігор, збережених статей та інших дій, які глибше пов\'язують вас із Вікіпедією.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Контролюйте ситуацію</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Виберіть, які модулі відображати. Усі персональні дані залишаються конфіденційними на вашому пристрої, а історію переглядів можна очистити будь-коли.</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
@@ -2037,6 +2130,7 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">статті/ей</string>
   <string name="donation_reminders_settings_warning_min_amount">Будь ласка, введіть щонайменше %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Дозволено максимум %s</string>
+  <string name="donation_reminders_settings_option_custom">Користувацький…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Дякуємо! Ми нагадаємо вам пожертвувати %1$s, коли ви прочитаєте %2$s під час цього експерименту.</string>
   <string name="donation_reminders_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s ви попросили нас нагадати вам про пожертву після прочитання %2$s. Якщо Вікіпедія надала вам %3$s знань, будь ласка, приєднайтесь до 2%% читачів, які роблять пожертви, та виконайте свою обіцянку.</string>
