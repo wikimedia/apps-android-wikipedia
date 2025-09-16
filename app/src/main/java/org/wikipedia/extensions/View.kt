@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import org.wikipedia.util.L10nUtil
 import java.util.Locale
 import kotlin.coroutines.CoroutineContext
-import androidx.core.graphics.drawable.toDrawable
 
 fun View.coroutineScope(coroutineContext: CoroutineContext = Dispatchers.Main): CoroutineScope {
     return (context as? AppCompatActivity)?.lifecycleScope ?: CoroutineScope(coroutineContext)
