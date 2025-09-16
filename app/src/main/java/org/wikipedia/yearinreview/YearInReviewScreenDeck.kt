@@ -73,6 +73,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
@@ -80,69 +81,80 @@ import kotlin.math.absoluteValue
 @Composable
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
-    contentData: List<YearInReviewScreenData>,
+    state: UiState<List<YearInReviewScreenData>>,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState) -> Unit,
     onBackButtonClick: (PagerState) -> Unit
 ) {
-    val coroutineScope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(pageCount = { contentData.size })
-    var startCapture by remember { mutableStateOf(false) }
-    val context = LocalContext.current
-
-    if (startCapture) {
-        CreateScreenShotBitmap(
-            screenContent = contentData[pagerState.currentPage]
-        ) { bitmap ->
-            ShareUtil.shareImage(
-                coroutineScope = coroutineScope,
-                context = context,
-                bmp = bitmap,
-                imageFileName = "year_in_review",
-                subject = context.getString(R.string.year_in_review_share_subject),
-                text = context.getString(R.string.year_in_review_share_url)
-            )
-            startCapture = false
+    when (state) {
+        is UiState.Loading -> {
+            LoadingIndicator()
         }
-    }
-    Scaffold(
-        modifier = modifier,
-        containerColor = WikipediaTheme.colors.paperColor,
-        topBar = { YearInReviewTopBar(
-            onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
-            actions = {
-                IconButton(onClick = {
-                    startCapture = true
-                }) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_share_icon)
+
+        is UiState.Success -> {
+            val coroutineScope = rememberCoroutineScope()
+            val contentData = state.data
+            val pagerState = rememberPagerState(pageCount = { contentData.size })
+            var startCapture by remember { mutableStateOf(false) }
+            val context = LocalContext.current
+
+            if (startCapture) {
+                CreateScreenShotBitmap(
+                    screenContent = contentData[pagerState.currentPage]
+                ) { bitmap ->
+                    ShareUtil.shareImage(
+                        coroutineScope = coroutineScope,
+                        context = context,
+                        bmp = bitmap,
+                        imageFileName = "year_in_review",
+                        subject = context.getString(R.string.year_in_review_share_subject),
+                        text = context.getString(R.string.year_in_review_share_url)
                     )
+                    startCapture = false
                 }
             }
-        ) },
-        bottomBar = {
-            MainBottomBar(
-                onNavigationRightClick = { onNextButtonClick(pagerState) },
-                pagerState = pagerState,
-                totalPages = contentData.size,
-                onDonateClick = onDonateClick
+            Scaffold(
+                modifier = modifier,
+                containerColor = WikipediaTheme.colors.paperColor,
+                topBar = { YearInReviewTopBar(
+                    onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
+                    actions = {
+                        IconButton(onClick = {
+                            startCapture = true
+                        }) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_share),
+                                tint = WikipediaTheme.colors.primaryColor,
+                                contentDescription = stringResource(R.string.year_in_review_share_icon)
+                            )
+                        }
+                    }
+                ) },
+                bottomBar = {
+                    MainBottomBar(
+                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        pagerState = pagerState,
+                        totalPages = contentData.size,
+                        onDonateClick = onDonateClick
+                    )
+                },
+                content = { paddingValues ->
+                    HorizontalPager(
+                        verticalAlignment = Alignment.Top,
+                        state = pagerState,
+                        contentPadding = PaddingValues(0.dp),
+                    ) { page ->
+                        YearInReviewScreenContent(
+                            innerPadding = paddingValues,
+                            screenData = contentData[page]
+                        )
+                    }
+                }
             )
-        },
-        content = { paddingValues ->
-            HorizontalPager(
-                verticalAlignment = Alignment.Top,
-                state = pagerState,
-                contentPadding = PaddingValues(0.dp),
-            ) { page ->
-                YearInReviewScreenContent(
-                    innerPadding = paddingValues,
-                    screenData = contentData[page]
-                )
-            }
         }
-    )
+
+        is UiState.Error -> {}
+    }
 }
 
 @Composable
@@ -508,7 +520,7 @@ fun PreviewScreenShot() {
 fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
-            contentData = listOf(nonEnglishCollectiveEditCountData),
+            state = UiState.Success(listOf(nonEnglishCollectiveEditCountData)),
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}

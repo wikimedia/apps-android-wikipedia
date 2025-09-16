@@ -27,7 +27,6 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.UiState
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -37,10 +36,6 @@ class YearInReviewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                /*
-                personalizedScreenList is temporarily populated with screens
-                for testing purposes. This is will adjusted in future iterations
-                 */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
                 var isSurveyVisible by remember { mutableStateOf(false) }
@@ -103,46 +98,37 @@ class YearInReviewActivity : BaseActivity() {
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
-                        when (screenState) {
-                            is UiState.Loading -> {
-                                LoadingIndicator()
-                            }
-                            is UiState.Success -> {
-                                YearInReviewScreenDeck(
-                                    contentData = screenState.data,
-                                    onBackButtonClick = { pagerState ->
-                                        if (pagerState.currentPage > 0) {
-                                            coroutineScope.launch {
-                                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                                            }
-                                        } else {
-                                            navController.navigate(route = YearInReviewNavigation.Onboarding.name)
-                                        }
-                                    },
-                                    onNextButtonClick = { pagerState ->
-                                        viewModel.canShowSurvey = true
-                                        coroutineScope.launch {
-                                            pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                        }
-                                    },
-                                    onDonateClick = {
-                                        EventPlatformClient.submit(
-                                            BreadCrumbLogEvent(
-                                                screen_name = "year_in_review",
-                                                action = "donate_click")
-                                        )
-                                        DonorExperienceEvent.logAction(
-                                            action = "donate_start_click_yir",
-                                            activeInterface = "wiki_yir",
-                                            campaignId = "yir"
-                                        )
-                                        launchDonateDialog("yir")
+                        YearInReviewScreenDeck(
+                            state = screenState,
+                            onBackButtonClick = { pagerState ->
+                                if (pagerState.currentPage > 0) {
+                                    coroutineScope.launch {
+                                        pagerState.animateScrollToPage(pagerState.currentPage - 1)
                                     }
+                                } else {
+                                    navController.popBackStack()
+                                }
+                            },
+                            onNextButtonClick = { pagerState ->
+                                viewModel.canShowSurvey = true
+                                coroutineScope.launch {
+                                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                }
+                            },
+                            onDonateClick = {
+                                EventPlatformClient.submit(
+                                    BreadCrumbLogEvent(
+                                        screen_name = "year_in_review",
+                                        action = "donate_click")
                                 )
+                                DonorExperienceEvent.logAction(
+                                    action = "donate_start_click_yir",
+                                    activeInterface = "wiki_yir",
+                                    campaignId = "yir"
+                                )
+                                launchDonateDialog("yir")
                             }
-
-                            is UiState.Error -> {}
-                        }
+                        )
                     }
                 }
             }
