@@ -38,6 +38,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -104,8 +105,9 @@ fun YearInReviewScreenDeck(
             startCapture = false
         }
     }
-    YearInReviewScaffold(
+    Scaffold(
         modifier = modifier,
+        containerColor = WikipediaTheme.colors.paperColor,
         topBar = { YearInReviewTopBar(
             onNavigationBackButtonClick = { onNavigationBackButtonClick(pagerState) },
             actions = {
@@ -498,5 +500,18 @@ fun PreviewScreenShot() {
         CreateScreenShotBitmap(
             screenContent = nonEnglishCollectiveEditCountData
         ) { /* No logic, preview only */ }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewContent() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewScreenDeck(
+            contentData = listOf(nonEnglishCollectiveEditCountData),
+            onDonateClick = {},
+            onNavigationBackButtonClick = {},
+            onNavigationRightClick = {}
+        )
     }
 }
