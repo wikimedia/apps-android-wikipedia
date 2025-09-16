@@ -82,8 +82,8 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     contentData: List<YearInReviewScreenData>,
     onDonateClick: () -> Unit,
-    onNavigationRightClick: (PagerState) -> Unit,
-    onNavigationBackButtonClick: (PagerState) -> Unit
+    onNextButtonClick: (PagerState) -> Unit,
+    onBackButtonClick: (PagerState) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { contentData.size })
@@ -109,7 +109,7 @@ fun YearInReviewScreenDeck(
         modifier = modifier,
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = { YearInReviewTopBar(
-            onNavigationBackButtonClick = { onNavigationBackButtonClick(pagerState) },
+            onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
             actions = {
                 IconButton(onClick = {
                     startCapture = true
@@ -124,7 +124,7 @@ fun YearInReviewScreenDeck(
         ) },
         bottomBar = {
             MainBottomBar(
-                onNavigationRightClick = { onNavigationRightClick(pagerState) },
+                onNavigationRightClick = { onNextButtonClick(pagerState) },
                 pagerState = pagerState,
                 totalPages = contentData.size,
                 onDonateClick = onDonateClick
@@ -510,8 +510,8 @@ fun PreviewContent() {
         YearInReviewScreenDeck(
             contentData = listOf(nonEnglishCollectiveEditCountData),
             onDonateClick = {},
-            onNavigationBackButtonClick = {},
-            onNavigationRightClick = {}
+            onBackButtonClick = {},
+            onNextButtonClick = {}
         )
     }
 }

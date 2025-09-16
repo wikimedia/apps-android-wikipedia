@@ -27,7 +27,7 @@ import org.wikipedia.util.UriUtil
 fun YearInReviewOnboardingScreen(
     modifier: Modifier = Modifier,
     contentData: YearInReviewScreenData,
-    onNavigationBackButtonClick: () -> Unit,
+    onBackButtonClick: () -> Unit,
     onGetStartedClick: () -> Unit
 ) {
     Scaffold(
@@ -35,7 +35,7 @@ fun YearInReviewOnboardingScreen(
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
             YearInReviewTopBar(
-                onNavigationBackButtonClick = onNavigationBackButtonClick
+                onNavigationBackButtonClick = onBackButtonClick
             )
         },
         bottomBar = {

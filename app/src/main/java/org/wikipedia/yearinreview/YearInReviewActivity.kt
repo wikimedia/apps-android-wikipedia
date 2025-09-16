@@ -87,7 +87,7 @@ class YearInReviewActivity : BaseActivity() {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
                         YearInReviewOnboardingScreen(
                             contentData = YearInReviewViewModel.getStartedData,
-                            onNavigationBackButtonClick = {
+                            onBackButtonClick = {
                                 if (viewModel.canShowSurvey) {
                                     isSurveyVisible = true
                                 } else {
@@ -110,7 +110,7 @@ class YearInReviewActivity : BaseActivity() {
                             is UiState.Success -> {
                                 YearInReviewScreenDeck(
                                     contentData = screenState.data,
-                                    onNavigationBackButtonClick = { pagerState ->
+                                    onBackButtonClick = { pagerState ->
                                         if (pagerState.currentPage > 0) {
                                             coroutineScope.launch {
                                                 pagerState.animateScrollToPage(pagerState.currentPage - 1)
@@ -119,7 +119,7 @@ class YearInReviewActivity : BaseActivity() {
                                             navController.navigate(route = YearInReviewNavigation.Onboarding.name)
                                         }
                                     },
-                                    onNavigationRightClick = { pagerState ->
+                                    onNextButtonClick = { pagerState ->
                                         viewModel.canShowSurvey = true
                                         coroutineScope.launch {
                                             pagerState.animateScrollToPage(pagerState.currentPage + 1)
