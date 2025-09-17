@@ -18,7 +18,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -141,10 +140,7 @@ class YearInReviewActivity : BaseActivity() {
         }
 
         fun endYearInReviewActivity(scope: CoroutineScope, activity: YearInReviewActivity) {
-            scope.launch {
-                delay(200)
-                activity.finish()
-            }
+            activity.finish()
         }
     }
 }
