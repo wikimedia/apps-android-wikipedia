@@ -111,6 +111,15 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         }
     }
 
+    private val learnMoreClickListener = View.OnClickListener {
+        if (inActivityAbTestGroup) {
+            ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
+            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.edit_screen_learn_more_url).toUri())
+        } else {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -123,21 +132,16 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         if (inActivityAbTestGroup) {
             notificationButtonView = NotificationButtonView(requireContext())
             requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+            binding.layoutTasksContainer.whatIsTitleText.text = getString(R.string.edits_screen_what_is_title)
+            binding.layoutTasksContainer.whatIsBodyText.text = getString(R.string.edits_screen_what_is_body)
         }
 
         binding.layoutContributionsContainer.contributionsContainer.setOnClickListener {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
         val tasksContainer = binding.layoutTasksContainer
-        tasksContainer.learnMoreCard.setOnClickListener {
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-        }
-        tasksContainer.learnMoreButton.setOnClickListener {
-            if (ActivityTabABTest().isInTestGroup()) {
-                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
-            }
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-        }
+        tasksContainer.learnMoreCard.setOnClickListener(learnMoreClickListener)
+        tasksContainer.learnMoreButton.setOnClickListener(learnMoreClickListener)
 
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
@@ -493,7 +497,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
 
             when (task) {
                 addDescriptionsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
+                    if (inActivityAbTestGroup) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
                     } else {
                         ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
@@ -501,7 +505,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
                 }
                 addImageCaptionsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
+                    if (inActivityAbTestGroup) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
                     } else {
                         ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
@@ -509,7 +513,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
                 }
                 addImageTagsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
+                    if (inActivityAbTestGroup) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
                     } else {
                         ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
@@ -521,7 +525,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                     }
                 }
                 imageRecommendationsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
+                    if (inActivityAbTestGroup) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
                     } else {
                         ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
@@ -529,7 +533,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
                 }
                 vandalismPatrolTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
+                    if (inActivityAbTestGroup) {
                         ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
                     } else {
                         PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
