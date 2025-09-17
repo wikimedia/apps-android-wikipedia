@@ -1,8 +1,15 @@
 package org.wikipedia.extensions
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import android.text.TextUtils
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.view.children
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,4 +27,24 @@ fun View.setTextDirectionByLang(lang: String) {
 
 fun View.setLayoutDirectionByLang(lang: String) {
     layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(lang))
+}
+
+fun View.ensureSoftwareBitmaps() {
+    when (this) {
+        is ViewGroup -> {
+            children.forEach {
+                it.ensureSoftwareBitmaps()
+            }
+        }
+        is ImageView -> {
+            val drawable = drawable
+            if (drawable is BitmapDrawable) {
+                val bmp = drawable.bitmap
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && bmp?.config == Bitmap.Config.HARDWARE) {
+                    val softwareCopy = bmp.copy(Bitmap.Config.ARGB_8888, false)
+                    setImageDrawable(softwareCopy.toDrawable(resources))
+                }
+            }
+        }
+    }
 }
