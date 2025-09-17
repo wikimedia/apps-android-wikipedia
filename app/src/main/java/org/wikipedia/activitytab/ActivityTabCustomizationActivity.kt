@@ -26,11 +26,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -47,7 +49,8 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                         finish()
                     },
                     modules = Prefs.activityTabModules,
-                    haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty()
+                    haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
+                    areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)
                 )
             }
         }
@@ -71,7 +74,8 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                 donations = if (Prefs.donationResults.isNotEmpty()) isDonationsEnabled.toOnOffString() else null,
                 timeline = isTimelineEnabled.toOnOffString(),
                 all = when {
-                    noModulesVisible(Prefs.donationResults.isNotEmpty()) -> "off"
+                    noModulesVisible(haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
+                        areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) -> "off"
                     areAllModulesEnabled() -> "on"
                     else -> null
                 }
@@ -91,7 +95,8 @@ fun CustomizationScreen(
     modifier: Modifier = Modifier,
     onBackButtonClick: () -> Unit,
     modules: ActivityTabModules,
-    haveAtLeastOneDonation: Boolean = false
+    haveAtLeastOneDonation: Boolean = false,
+    areGamesAvailable: Boolean = false
 ) {
     var currentModules by remember { mutableStateOf(modules) }
 
@@ -122,7 +127,8 @@ fun CustomizationScreen(
                     )
                 }
                 itemsIndexed(ModuleType.entries) { index, moduleType ->
-                    if (moduleType == ModuleType.DONATIONS && !haveAtLeastOneDonation) {
+                    if ((moduleType == ModuleType.DONATIONS && !haveAtLeastOneDonation) ||
+                        (moduleType == ModuleType.GAMES && !areGamesAvailable)) {
                         return@itemsIndexed
                     }
                     CustomizationScreenSwitch(
