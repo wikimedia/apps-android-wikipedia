@@ -130,6 +130,7 @@ class AppLanguageState(context: Context) {
         if (_appLanguageCodes.size > 1) {
             _appLanguageCodes.removeAll(codes)
             Prefs.appLanguageCodeList = _appLanguageCodes
+            WikipediaApp.instance.resetWikiSite()
         }
     }
 
