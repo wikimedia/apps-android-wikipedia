@@ -1231,6 +1231,8 @@
   <string name="activity_tab_onboarding_engage_message">Short explanation about the stats, saved articles, and other activities that connect the user more deeply with Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Title for the section about privacy and control.</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
+  <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
+  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

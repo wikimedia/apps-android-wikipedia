@@ -45,6 +45,7 @@
             android:paddingBottom="8dp">
 
             <TextView
+                android:id="@+id/whatIsTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/suggested_edits_what_is_title"
@@ -53,6 +54,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/whatIsBodyText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
