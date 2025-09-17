@@ -35,6 +35,7 @@ import org.wikipedia.databinding.FragmentOnThisDayGameResultBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.ensureSoftwareBitmaps
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -94,6 +95,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
                     R.string.on_this_day_game_share_link_message,
                     getString(R.string.on_this_day_game_share_url)
                 )
+                binding.shareLayout.shareContainer.ensureSoftwareBitmaps()
                 binding.shareLayout.shareContainer.drawToBitmap().run {
                     ShareUtil.shareImage(lifecycleScope, requireContext(), this,
                         "wikipedia_on_this_day_game_" + LocalDateTime.now(),
