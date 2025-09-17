@@ -33,12 +33,15 @@ data class ActivityTabModules(
         ModuleType.TIMELINE -> copy(isTimelineEnabled = enabled)
     }
 
-    fun isModuleVisible(moduleType: ModuleType, haveAtLeastOneDonation: Boolean = false): Boolean = when (moduleType) {
+    fun isModuleVisible(moduleType: ModuleType, haveAtLeastOneDonation: Boolean = false, areGamesAvailable: Boolean = false): Boolean = when (moduleType) {
         ModuleType.DONATIONS -> isModuleEnabled(moduleType) && haveAtLeastOneDonation
+        ModuleType.GAMES -> isModuleEnabled(moduleType) && areGamesAvailable
         else -> isModuleEnabled(moduleType)
     }
 
-    fun noModulesVisible(haveAtLeastOneDonation: Boolean = false) = ModuleType.entries.all { !isModuleVisible(it, haveAtLeastOneDonation) }
+    fun noModulesVisible(haveAtLeastOneDonation: Boolean = false, areGamesAvailable: Boolean = false) = ModuleType.entries.all {
+        !isModuleVisible(it, haveAtLeastOneDonation = haveAtLeastOneDonation, areGamesAvailable = areGamesAvailable)
+    }
 
     fun areAllModulesEnabled(): Boolean {
         return ModuleType.entries.all { this.isModuleEnabled(it) }
