@@ -111,6 +111,15 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         }
     }
 
+    private val learnMoreClickListener = View.OnClickListener {
+        if (inActivityAbTestGroup) {
+            ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
+            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.edit_screen_learn_more_url).toUri())
+        } else {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -131,22 +140,8 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
         }
         val tasksContainer = binding.layoutTasksContainer
-        tasksContainer.learnMoreCard.setOnClickListener {
-            if (inActivityAbTestGroup) {
-                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
-                UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.edit_screen_learn_more_url).toUri())
-            } else {
-                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-            }
-        }
-        tasksContainer.learnMoreButton.setOnClickListener {
-            if (inActivityAbTestGroup) {
-                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
-                UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.edit_screen_learn_more_url).toUri())
-            } else {
-                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-            }
-        }
+        tasksContainer.learnMoreCard.setOnClickListener(learnMoreClickListener)
+        tasksContainer.learnMoreButton.setOnClickListener(learnMoreClickListener)
 
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
