@@ -163,6 +163,7 @@ class ActivityTabFragment : Fragment() {
                         userName = AccountUtil.userName,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
+                        areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
@@ -193,6 +194,7 @@ class ActivityTabFragment : Fragment() {
         userName: String,
         modules: ActivityTabModules,
         haveAtLeastOneDonation: Boolean,
+        areGamesAvailable: Boolean,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
@@ -297,7 +299,7 @@ class ActivityTabFragment : Fragment() {
                 return@Scaffold
             }
 
-            if (modules.noModulesVisible(haveAtLeastOneDonation)) {
+            if (modules.noModulesVisible(haveAtLeastOneDonation = haveAtLeastOneDonation, areGamesAvailable = areGamesAvailable)) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -475,7 +477,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.DONATIONS)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable) || modules.isModuleVisible(ModuleType.DONATIONS)) {
                                 Text(
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
                                     text = stringResource(R.string.activity_tab_highlights),
@@ -485,7 +487,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleVisible(ModuleType.GAMES)) {
+                            if (modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -515,7 +517,7 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation)) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation = haveAtLeastOneDonation)) {
                                 DonationModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -531,7 +533,10 @@ class ActivityTabFragment : Fragment() {
                                 )
                             }
 
-                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation) || modules.isModuleVisible(ModuleType.GAMES) || modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleEnabled(ModuleType.IMPACT)) {
+                            if (modules.isModuleVisible(ModuleType.DONATIONS, haveAtLeastOneDonation = haveAtLeastOneDonation) ||
+                                modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable) ||
+                                modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) ||
+                                modules.isModuleEnabled(ModuleType.IMPACT)) {
                                 // Add bottom padding only if at least one of the modules in this gradient box is enabled.
                                 Spacer(modifier = Modifier.size(16.dp))
                             }
@@ -627,6 +632,7 @@ class ActivityTabFragment : Fragment() {
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
                 haveAtLeastOneDonation = true,
+                areGamesAvailable = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -668,6 +674,7 @@ class ActivityTabFragment : Fragment() {
                 userName = "User",
                 modules = ActivityTabModules(isDonationsEnabled = true),
                 haveAtLeastOneDonation = false,
+                areGamesAvailable = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -695,6 +702,7 @@ class ActivityTabFragment : Fragment() {
                 userName = "User",
                 modules = ActivityTabModules(),
                 haveAtLeastOneDonation = false,
+                areGamesAvailable = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -730,6 +738,7 @@ class ActivityTabFragment : Fragment() {
                     isTimelineEnabled = false
                 ),
                 haveAtLeastOneDonation = true,
+                areGamesAvailable = true,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
