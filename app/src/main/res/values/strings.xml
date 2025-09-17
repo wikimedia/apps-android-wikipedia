@@ -1274,6 +1274,8 @@
     <string name="activity_tab_onboarding_engage_message">Explore stats for games, saved articles, and other activities that connect you more deeply with Wikipedia.</string>
     <string name="activity_tab_onboarding_stay_in_control_title">Stay in control</string>
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
+    <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
+    <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
 
     <!-- /Suggested edits -->
 
