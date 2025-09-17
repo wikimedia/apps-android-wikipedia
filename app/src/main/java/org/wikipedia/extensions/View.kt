@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.view.children
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,17 +30,20 @@ fun View.setLayoutDirectionByLang(lang: String) {
 }
 
 fun View.ensureSoftwareBitmaps() {
-    if (this is ViewGroup) {
-        for (i in 0 until childCount) {
-            getChildAt(i).ensureSoftwareBitmaps()
+    when (this) {
+        is ViewGroup -> {
+            children.forEach {
+                it.ensureSoftwareBitmaps()
+            }
         }
-    } else if (this is ImageView) {
-        val drawable = drawable
-        if (drawable is BitmapDrawable) {
-            val bmp = drawable.bitmap
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && bmp?.config == Bitmap.Config.HARDWARE) {
-                val softwareCopy = bmp.copy(Bitmap.Config.ARGB_8888, false)
-                setImageDrawable(softwareCopy.toDrawable(resources))
+        is ImageView -> {
+            val drawable = drawable
+            if (drawable is BitmapDrawable) {
+                val bmp = drawable.bitmap
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && bmp?.config == Bitmap.Config.HARDWARE) {
+                    val softwareCopy = bmp.copy(Bitmap.Config.ARGB_8888, false)
+                    setImageDrawable(softwareCopy.toDrawable(resources))
+                }
             }
         }
     }
