@@ -18,7 +18,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -27,7 +26,6 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.Resource
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -37,19 +35,12 @@ class YearInReviewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BaseTheme {
-                /*
-                personalizedScreenList is temporarily populated with screens
-                for testing purposes. This is will adjusted in future iterations
-                 */
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
-                var hasVisitedContent by remember { mutableStateOf(false) }
                 var isSurveyVisible by remember { mutableStateOf(false) }
 
-                val canShowSurvey = hasVisitedContent && !Prefs.yirSurveyShown
-
                 BackHandler {
-                    if (canShowSurvey) {
+                    if (viewModel.canShowSurvey) {
                         isSurveyVisible = true
                     } else {
                         endYearInReviewActivity(coroutineScope, this)
@@ -88,82 +79,55 @@ class YearInReviewActivity : BaseActivity() {
                     exitTransition = { ExitTransition.None }
                 ) {
                     composable(route = YearInReviewNavigation.Onboarding.name) {
-                        YearInReviewScreen(
-                            contentData = listOf(YearInReviewViewModel.getStartedData),
-                            navController = navController,
-                            canShowSurvey = {
-                                if (canShowSurvey) {
+                        YearInReviewOnboardingScreen(
+                            contentData = YearInReviewViewModel.getStartedData,
+                            onBackButtonClick = {
+                                if (viewModel.canShowSurvey) {
                                     isSurveyVisible = true
                                 } else {
                                     endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
                                 }
                             },
-                            customBottomBar = {
-                                OnboardingBottomBar(
-                                    onGetStartedClick = {
-                                        navController.navigate(
-                                            route = YearInReviewNavigation.ScreenDeck.name
-                                        )
-                                    },
-                                    context = this@YearInReviewActivity
+                            onGetStartedClick = {
+                                navController.navigate(
+                                    route = YearInReviewNavigation.ScreenDeck.name
                                 )
-                            },
-                            screenContent = { innerPadding, contentData, _ ->
-                                YearInReviewScreenContent(
-                                    innerPadding = innerPadding,
-                                    screenData = contentData,
-                                    context = this@YearInReviewActivity,
-                                    screenCaptureMode = false,
-                                    isOnboardingScreen = true
-                                )
-                            },
+                            }
                         )
                     }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
-                        when (screenState) {
-                            is Resource.Loading -> {
-                                LoadingIndicator()
-                            }
-                            is Resource.Success -> {
-                                YearInReviewScreen(
-                                    contentData = screenState.data,
-                                    navController = navController,
-                                    customBottomBar = { pagerState -> MainBottomBar(
-                                        onNavigationRightClick = {
-                                            coroutineScope.launch {
-                                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                                            }
-                                        },
-                                        pagerState = pagerState,
-                                        totalPages = screenState.data.size,
-                                        onDonateClick = {
-                                            EventPlatformClient.submit(
-                                                BreadCrumbLogEvent(
-                                                    screen_name = "year_in_review",
-                                                    action = "donate_click")
-                                            )
-                                            DonorExperienceEvent.logAction(
-                                                action = "donate_start_click_yir",
-                                                activeInterface = "wiki_yir",
-                                                campaignId = "yir"
-                                            )
-                                            launchDonateDialog("yir")
-                                        }
-                                    ) },
-                                    screenContent = { innerPadding, contentData, pagerState ->
-                                        if (pagerState.currentPage >= 1) {
-                                            hasVisitedContent = true
-                                        }
-                                        YearInReviewScreenContent(
-                                            innerPadding = innerPadding,
-                                            context = this@YearInReviewActivity,
-                                            screenData = contentData,
-                                        )
-                                    },
+                        YearInReviewScreenDeck(
+                            state = screenState,
+                            onBackButtonClick = { pagerState ->
+                                if (pagerState.currentPage > 0) {
+                                    coroutineScope.launch {
+                                        pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                                    }
+                                } else {
+                                    navController.popBackStack()
+                                }
+                            },
+                            onNextButtonClick = { pagerState ->
+                                viewModel.canShowSurvey = true
+                                coroutineScope.launch {
+                                    pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                }
+                            },
+                            onDonateClick = {
+                                EventPlatformClient.submit(
+                                    BreadCrumbLogEvent(
+                                        screen_name = "year_in_review",
+                                        action = "donate_click")
                                 )
+                                DonorExperienceEvent.logAction(
+                                    action = "donate_start_click_yir",
+                                    activeInterface = "wiki_yir",
+                                    campaignId = "yir"
+                                )
+                                launchDonateDialog("yir")
                             }
-                        }
+                        )
                     }
                 }
             }
@@ -176,10 +140,7 @@ class YearInReviewActivity : BaseActivity() {
         }
 
         fun endYearInReviewActivity(scope: CoroutineScope, activity: YearInReviewActivity) {
-            scope.launch {
-                delay(200)
-                activity.finish()
-            }
+            activity.finish()
         }
     }
 }
