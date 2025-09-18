@@ -167,7 +167,6 @@ data class TimelineItem(
             displayTitle = displayTitle,
             id = id,
             namespace = namespace,
-            timestamp = timestamp,
             source = source
         )
         entry.title.thumbUrl = thumbnailUrl
