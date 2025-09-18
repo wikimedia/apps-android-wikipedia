@@ -24,6 +24,7 @@
   <string name="search_icon_content_description">پلټل</string>
   <string name="filter_hint_filter_my_lists_and_articles">لړليکونه مې چاڼول</string>
   <string name="nav_item_suggested_edits">سمونونه</string>
+  <string name="nav_item_activity">چاره</string>
   <string name="nav_item_more">نور</string>
   <string name="nav_item_search">پلټل</string>
   <string name="nav_item_contribute">ونډه اخيستل</string>
@@ -36,7 +37,7 @@
   <string name="page_error_back_to_main">پر شا تلل</string>
   <string name="error_back">پر شا تلل</string>
   <string name="error_next">راتلونکی</string>
-  <string name="menu_clear_all_history" fuzzy="true">پېښليک پاکول</string>
+  <string name="menu_clear_all_history">لوست پېښليک پاکول</string>
   <string name="history_item_deleted">%s له پېښليک څخه لرې شو</string>
   <string name="history_items_deleted">%d ليکنې له پېښليک څخه لرې شوې</string>
   <string name="history_item_delete_undo">ناکړل</string>
@@ -49,7 +50,7 @@
   <string name="wikimedia_commons">ويکيمېډيا ټولواله</string>
   <string name="wikidata">ويکي‌اومتوک</string>
   <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
-  <string name="dialog_message_clear_history" fuzzy="true">دا به ستاسو د لټون ټول پېښليک ړنگ کړي، او هر اوسمهاله پرانېستې کړکۍ به وتړي. ايا تاسو ډاډه ياست؟</string>
+  <string name="dialog_message_clear_history">دا به ستاسو د لټون ټول پېښليک ړنگ کړي. ايا تاسو ډاډه ياست؟</string>
   <string name="dialog_message_clear_history_yes">هو</string>
   <string name="dialog_message_clear_history_no">نه</string>
   <string name="share_via">د شريکولو لار</string>
@@ -660,7 +661,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s ولولئ</string>
   <string name="view_announcement_card_negative_action">نه مننه</string>
   <string name="view_offline_card_text">کله چې افلاين وي منځپانگه نشي بارېدای.</string>
-  <string name="view_featured_article_card_title">مخکښه ليکنه</string>
+  <string name="view_featured_article_card_title">غوره ليکنه</string>
   <string name="view_static_card_save_button_label">خوندي کول</string>
   <string name="feed_configure_activity_title">خواړه دوديزول</string>
   <string name="feed_configure_menu_reset">تلواله کتنه بيازېرمل</string>

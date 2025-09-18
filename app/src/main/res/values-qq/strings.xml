@@ -1196,10 +1196,7 @@
   <string name="activity_tab_impact_most_viewed">Title of the most viewed card of the activity tab.</string>
   <string name="activity_tab_impact_contributions_this_month">Title of the contributions card of the activity tab.</string>
   <string name="activity_tab_impact_edits_this_month">Label of the contributions card that indicates the edits this month.</string>
-  <plurals name="activity_tab_impact_edits_last_month">
-    <item quantity="one">Label of the contributions card that indicates the edit last month.</item>
-    <item quantity="other">Label of the contributions card that indicates the edits last month.</item>
-  </plurals>
+  <string name="activity_tab_impact_edits_last_month">Label of the contributions card that indicates the edits last month.</string>
   <string name="activity_tab_impact_all_time">Title of the all time impact card of the activity tab.</string>
   <string name="activity_tab_impact_total_edits">Label of the suggested edits card that indicates the total number of edits.</string>
   <string name="activity_tab_impact_thanks">Label of the suggested edits card that indicates the number of thanks.</string>
@@ -1234,6 +1231,8 @@
   <string name="activity_tab_onboarding_engage_message">Short explanation about the stats, saved articles, and other activities that connect the user more deeply with Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Title for the section about privacy and control.</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
+  <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
+  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>

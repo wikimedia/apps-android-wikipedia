@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -111,21 +112,23 @@ object EventPlatformClient {
 
     suspend fun refreshStreamConfigs() {
         val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
-        updateStreamConfigs(response.streamConfigs)
-    }
-
-    private fun updateStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
         STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(streamConfigs)
-        Prefs.streamConfigs = STREAM_CONFIGS
+        STREAM_CONFIGS.putAll(response.streamConfigs)
+        // Ensure that serialization of configs is done off the main thread
+        withContext(Dispatchers.Default) {
+            Prefs.streamConfigs = STREAM_CONFIGS
+        }
     }
 
     fun setUpStreamConfigs() {
-        STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(Prefs.streamConfigs)
         MainScope().launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {
+            STREAM_CONFIGS.clear()
+            // Ensure that serialization of configs is done off the main thread
+            withContext(Dispatchers.Default) {
+                STREAM_CONFIGS.putAll(Prefs.streamConfigs)
+            }
             refreshStreamConfigs()
         }
     }
