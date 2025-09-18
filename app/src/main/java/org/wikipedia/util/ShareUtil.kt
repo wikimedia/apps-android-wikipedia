@@ -173,7 +173,7 @@ object ShareUtil {
                     .setComponent(ComponentName(activityInfo.packageName, activityInfo.name))
             targetIntents.add(LabeledIntent(targetIntent, activityInfo.packageName, info.labelRes, info.icon))
         }
-        val chooserIntent = (Intent.createChooser(Intent(), chooserTitle)) ?: return null
+        val chooserIntent = Intent.createChooser(Intent(), chooserTitle) ?: return null
 
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>())
         return chooserIntent

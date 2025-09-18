@@ -145,8 +145,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (Intent.ACTION_SEND == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_SHARE)
-        } else if (Intent.ACTION_PROCESS_TEXT == intent.action && Constants.PLAIN_TEXT_MIME_TYPE ==
-                intent.type) {
+        } else if (Intent.ACTION_PROCESS_TEXT == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
             requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
             requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_PROCESS_TEXT)
         }
