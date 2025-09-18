@@ -112,7 +112,9 @@ class YearInReviewViewModel() : ViewModel() {
             val commonsResponse = commonsCall.await()
             val wikidataResponse = wikidataCall.await()
 
-            val editCount = homeSiteResponse.query?.userInfo!!.editCount + wikidataResponse.query?.userInfo!!.editCount + commonsResponse.query?.userInfo!!.editCount
+            var editCount = homeSiteResponse.query?.userInfo!!.editCount
+            editCount += wikidataResponse.query?.userInfo!!.editCount
+            editCount += commonsResponse.query?.userInfo!!.editCount
 
             if (editCount >= MINIMUM_EDIT_COUNT) {
                 val editCountData = YearInReviewScreenData.StandardScreen(
