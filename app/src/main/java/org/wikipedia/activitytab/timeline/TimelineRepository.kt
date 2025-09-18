@@ -156,10 +156,10 @@ data class TimelineItem(
     var apiTitle: String = "",
     var displayTitle: String = "",
     var namespace: String = "",
-    val wiki: WikiSite? = null
+    val wiki: WikiSite
 ) {
     fun toPageTitle(): PageTitle {
-        return PageTitle(namespace, apiTitle, wiki ?: WikiSite.forLanguageCode(lang)).also {
+        return PageTitle(namespace, apiTitle, wiki).also {
             it.displayText = displayTitle
             it.thumbUrl = thumbnailUrl
             it.description = description
