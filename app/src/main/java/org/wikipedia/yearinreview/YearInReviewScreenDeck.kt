@@ -1,6 +1,5 @@
 package org.wikipedia.yearinreview
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
 import androidx.compose.animation.animateColorAsState
@@ -32,21 +31,15 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -71,85 +64,61 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.navigation.NavHostController
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun YearInReviewScreen(
-    context: Context = LocalContext.current,
-    customBottomBar: @Composable (PagerState) -> Unit,
-    screenContent: @Composable (PaddingValues, YearInReviewScreenData, PagerState) -> Unit,
-    navController: NavHostController,
-    contentData: List<YearInReviewScreenData>,
-    canShowSurvey: (() -> Unit)? = null
+fun YearInReviewScreenDeck(
+    modifier: Modifier = Modifier,
+    state: UiState<List<YearInReviewScreenData>>,
+    onDonateClick: () -> Unit,
+    onNextButtonClick: (PagerState) -> Unit,
+    onBackButtonClick: (PagerState) -> Unit
 ) {
-    val coroutineScope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(pageCount = { contentData.size })
-    var startCapture by remember { mutableStateOf(false) }
-
-    if (startCapture) {
-        CreateScreenShotBitmap(
-            screenContent = contentData[pagerState.currentPage],
-            context = context,
-        ) { bitmap ->
-            ShareUtil.shareImage(
-                coroutineScope = coroutineScope,
-                context = context,
-                bmp = bitmap,
-                imageFileName = "year_in_review",
-                subject = context.getString(R.string.year_in_review_share_subject),
-                text = context.getString(R.string.year_in_review_share_url)
-            )
-            startCapture = false
+    when (state) {
+        is UiState.Loading -> {
+            LoadingIndicator()
         }
-    }
 
-    Scaffold(
-        containerColor = WikipediaTheme.colors.paperColor,
-        topBar = {
-            CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = WikipediaTheme.colors.paperColor),
-                title = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_w_transparent),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+        is UiState.Success -> {
+            val coroutineScope = rememberCoroutineScope()
+            val contentData = state.data
+            val pagerState = rememberPagerState(pageCount = { contentData.size })
+            var startCapture by remember { mutableStateOf(false) }
+            val context = LocalContext.current
+
+            if (startCapture) {
+                CreateScreenShotBitmap(
+                    screenContent = contentData[pagerState.currentPage]
+                ) { bitmap ->
+                    ShareUtil.shareImage(
+                        coroutineScope = coroutineScope,
+                        context = context,
+                        bmp = bitmap,
+                        imageFileName = "year_in_review",
+                        subject = context.getString(R.string.year_in_review_share_subject),
+                        text = context.getString(R.string.year_in_review_share_url)
                     )
-                },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        if (contentData.size > 1 && pagerState.currentPage != 0) {
-                            coroutineScope.launch { pagerState.animateScrollToPage(pagerState.currentPage - 1) }
-                        } else if (navController.currentDestination?.route == YearInReviewNavigation.Onboarding.name) {
-                            canShowSurvey?.invoke()
-                        } else {
-                            navController.navigate(
-                                route = YearInReviewNavigation.Onboarding.name)
-                        }
-                    }) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_navigate_left)
-                        )
-                    }
-                },
-                actions = {
-                    if (contentData.size > 1) {
+                    startCapture = false
+                }
+            }
+            Scaffold(
+                modifier = modifier,
+                containerColor = WikipediaTheme.colors.paperColor,
+                topBar = { YearInReviewTopBar(
+                    onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
+                    actions = {
                         IconButton(onClick = {
                             startCapture = true
                         }) {
@@ -160,22 +129,31 @@ fun YearInReviewScreen(
                             )
                         }
                     }
+                ) },
+                bottomBar = {
+                    MainBottomBar(
+                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        pagerState = pagerState,
+                        totalPages = contentData.size,
+                        onDonateClick = onDonateClick
+                    )
+                },
+                content = { paddingValues ->
+                    HorizontalPager(
+                        verticalAlignment = Alignment.Top,
+                        state = pagerState,
+                        contentPadding = PaddingValues(0.dp),
+                    ) { page ->
+                        YearInReviewScreenContent(
+                            innerPadding = paddingValues,
+                            screenData = contentData[page]
+                        )
+                    }
                 }
             )
-        },
-        bottomBar = { customBottomBar(pagerState) },
-    ) { innerPadding ->
-        if (contentData.size > 1) {
-            HorizontalPager(
-                verticalAlignment = Alignment.Top,
-                state = pagerState,
-                contentPadding = PaddingValues(0.dp),
-            ) { page ->
-                screenContent(innerPadding, contentData[page], pagerState)
-            }
-        } else {
-            screenContent(innerPadding, contentData[0], pagerState)
         }
+
+        is UiState.Error -> {}
     }
 }
 
@@ -280,136 +258,8 @@ fun MainBottomBar(
 }
 
 @Composable
-fun OnboardingBottomBar(
-    onGetStartedClick: () -> Unit,
-    context: Context
-) {
-    BottomAppBar(
-        containerColor = WikipediaTheme.colors.paperColor,
-        content = {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 10.dp, end = 10.dp)
-            ) {
-                OutlinedButton(
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor),
-                    modifier = Modifier
-                        .width(152.dp)
-                        .height(42.dp),
-                    onClick = {
-                        UriUtil.handleExternalLink(
-                            context = context,
-                            uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
-                        )
-                    }
-                ) {
-                    Text(
-                        text = stringResource(R.string.year_in_review_learn_more),
-                        style = MaterialTheme.typography.labelLarge
-                    )
-                }
-                Button(
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.progressiveColor,
-                        contentColor = WikipediaTheme.colors.paperColor
-                    ),
-                    modifier = Modifier
-                        .width(152.dp)
-                        .height(42.dp),
-                    onClick = { onGetStartedClick() }
-                ) {
-                    Text(
-                        text = stringResource(R.string.year_in_review_get_started),
-                        style = MaterialTheme.typography.labelLarge
-                    )
-                }
-            }
-        }
-    )
-}
-
-@Composable
-fun YearInReviewScreenContent(
-    innerPadding: PaddingValues,
-    screenData: YearInReviewScreenData,
-    context: Context,
-    screenCaptureMode: Boolean = false,
-    isOnboardingScreen: Boolean = false,
-    isImageResourceLoaded: ((Boolean) -> Unit)? = null
-) {
-    val scrollState = rememberScrollState()
-    val gifAspectRatio = 3f / 2f
-
-    Column(
-        verticalArrangement = Arrangement.Top,
-        modifier = Modifier
-            .padding(innerPadding)
-            .verticalScroll(scrollState)
-    ) {
-        SubcomposeAsyncImage(
-            model = ImageRequest.Builder(context)
-                .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
-                .allowHardware(false)
-                .build(),
-            loading = { LoadingIndicator() },
-            success = { SubcomposeAsyncImageContent() },
-            onSuccess = { isImageResourceLoaded?.invoke(true) },
-            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(gifAspectRatio)
-                .clip(RoundedCornerShape(16.dp))
-        )
-        Column {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    modifier = Modifier
-                        .padding(top = 10.dp, start = 16.dp, end = 8.dp)
-                        .height(IntrinsicSize.Min)
-                        .weight(1f),
-                    text = processString(screenData.headLineText),
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.headlineMedium
-                )
-                if (!screenCaptureMode && !isOnboardingScreen) {
-                    IconButton(
-                        onClick = {
-                            UriUtil.handleExternalLink(
-                                context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
-                            )
-                        }) {
-                        Icon(
-                            painter = painterResource(R.drawable.baseline_info_24),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_information_icon)
-                        )
-                    }
-                }
-            }
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
-                    .height(IntrinsicSize.Min),
-                text = processString(screenData.bodyText),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.bodyLarge
-            )
-        }
-    }
-}
-
-@Composable
 fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
-    context: Context,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val shadowColor = WikipediaTheme.colors.primaryColor
@@ -458,7 +308,6 @@ fun CreateScreenShotBitmap(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
             screenCaptureMode = true,
-            context = context
         ) { isLoaded -> isImageLoaded = isLoaded }
 
         Card(
@@ -513,6 +362,115 @@ fun CreateScreenShotBitmap(
 }
 
 @Composable
+fun YearInReviewScreenContent(
+    innerPadding: PaddingValues,
+    screenData: YearInReviewScreenData,
+    screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
+    isImageResourceLoaded: ((Boolean) -> Unit)? = null
+) {
+    when (screenData) {
+        is YearInReviewScreenData.StandardScreen -> {
+            StandardLayoutWithVariants(
+                innerPadding = innerPadding,
+                screenData = screenData,
+                screenCaptureMode = screenCaptureMode,
+                isOnboardingScreen = isOnboardingScreen,
+                isImageResourceLoaded = isImageResourceLoaded,
+            )
+        }
+        is YearInReviewScreenData.GeoScreen -> {
+            // @TODO: geo location screen
+        }
+        is YearInReviewScreenData.HighlightsScreen -> {
+            // @TODO: has different layout structure based on ios slides
+        }
+    }
+}
+
+@Composable
+private fun StandardLayoutWithVariants(
+    modifier: Modifier = Modifier,
+    innerPadding: PaddingValues,
+    screenData: YearInReviewScreenData.StandardScreen,
+    screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
+    isImageResourceLoaded: ((Boolean) -> Unit)? = null,
+) {
+    val scrollState = rememberScrollState()
+    val gifAspectRatio = 3f / 2f
+    val context = LocalContext.current
+    Column(
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+            .padding(innerPadding)
+            .verticalScroll(scrollState)
+    ) {
+        SubcomposeAsyncImage(
+            model = ImageRequest.Builder(context)
+                .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
+                .allowHardware(false)
+                .build(),
+            loading = { LoadingIndicator() },
+            success = { SubcomposeAsyncImageContent() },
+            onSuccess = { isImageResourceLoaded?.invoke(true) },
+            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(gifAspectRatio)
+                .clip(RoundedCornerShape(16.dp))
+        )
+        Column {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 10.dp, start = 16.dp, end = 8.dp)
+                        .height(IntrinsicSize.Min)
+                        .weight(1f),
+                    text = processString(screenData.headlineText),
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.headlineMedium
+                )
+                if (!screenCaptureMode && !isOnboardingScreen) {
+                    IconButton(
+                        onClick = {
+                            UriUtil.handleExternalLink(
+                                context = context,
+                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                            )
+                        }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
+                }
+            }
+            Text(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+                    .height(IntrinsicSize.Min),
+                text = processString(screenData.bodyText),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.bodyLarge
+            )
+
+            screenData.bottomButton?.let {
+                // @TODO: donation button based on android design
+            }
+
+            screenData.unlockIcon?.let {
+                // @TODO: unlock icon based on android design
+            }
+        }
+    }
+}
+
+@Composable
 fun LoadingIndicator() {
     Column(
         verticalArrangement = Arrangement.Center,
@@ -548,38 +506,23 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 
 @Preview
 @Composable
-fun PreviewContent() {
+fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        YearInReviewScreen(
-            customBottomBar = { pagerState ->
-                MainBottomBar(
-                    pagerState = pagerState,
-                    totalPages = 1,
-                    onNavigationRightClick = { /* No logic, preview only */ },
-                    onDonateClick = { /* No logic, preview only */ }
-                )
-            },
-            screenContent = { innerPadding, screenData, pagerState ->
-                YearInReviewScreenContent(
-                    innerPadding = innerPadding,
-                    screenData = screenData,
-                    context = LocalContext.current
-                )
-            },
-            navController = NavHostController(LocalContext.current),
-            contentData = listOf(nonEnglishCollectiveEditCountData),
-        )
+        CreateScreenShotBitmap(
+            screenContent = nonEnglishCollectiveEditCountData
+        ) { /* No logic, preview only */ }
     }
 }
 
 @Preview
 @Composable
-fun PreviewScreenShot() {
-    val context = LocalContext.current
+fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        CreateScreenShotBitmap(
-            screenContent = nonEnglishCollectiveEditCountData,
-            context = context
-        ) { /* No logic, preview only */ }
+        YearInReviewScreenDeck(
+            state = UiState.Success(listOf(nonEnglishCollectiveEditCountData)),
+            onDonateClick = {},
+            onBackButtonClick = {},
+            onNextButtonClick = {}
+        )
     }
 }

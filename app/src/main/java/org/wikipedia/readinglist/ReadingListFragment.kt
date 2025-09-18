@@ -390,9 +390,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun setToolbar() {
         binding.readingListAppBar.addOnOffsetChangedListener(appBarListener)
         binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
+        binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
     private fun setHeaderView() {

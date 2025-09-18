@@ -38,7 +38,7 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode 50549
         testApplicationId 'org.wikipedia.test'
