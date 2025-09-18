@@ -502,7 +502,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data
-            if (ReleaseUtil.isProdRelease && uri?.scheme != null && uri.scheme == "http") {
+            if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
