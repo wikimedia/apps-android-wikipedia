@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -617,10 +616,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     override fun onProvideAssistContent(outContent: AssistContent) {
         super.onProvideAssistContent(outContent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            currentItem?.mediaInfo?.commonsUrl?.let {
-                outContent.setWebUri(it.toUri())
-            }
+        currentItem?.mediaInfo?.commonsUrl?.let {
+            outContent.webUri = it.toUri()
         }
     }
 
