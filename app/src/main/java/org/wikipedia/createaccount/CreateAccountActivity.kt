@@ -203,11 +203,15 @@ class CreateAccountActivity : BaseActivity() {
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
                 .siteKey("45205f58-be1c-40f0-b286-07a4498ea3da")
+                //.siteKey("f1f21d64-6384-4114-b7d0-d9d23e203b4a")
                 .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
                 .size(HCaptchaSize.NORMAL)
 
                 .host("meta.wikimedia.org")
-                .jsSrc("https://assets-hcaptcha.wikimedia.org/captcha/1/73f27c192b38c05ce2ebce596a0e28f88a2a56bf/secure-api.js")
+
+                //.jsSrc("https://assets-hcaptcha.wikimedia.org/captcha/1/73f27c192b38c05ce2ebce596a0e28f88a2a56bf/secure-api.js")
+                .jsSrc("https://js.hcaptcha.com/1/api.js")
+                
                 .endpoint("https://hcaptcha.wikimedia.org")
                 .assethost("https://assets-hcaptcha.wikimedia.org")
                 .imghost("https://imgs-hcaptcha.wikimedia.org")
