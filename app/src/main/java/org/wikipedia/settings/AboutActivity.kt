@@ -37,11 +37,6 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hcaptcha.sdk.HCaptcha
-import com.hcaptcha.sdk.HCaptchaConfig
-import com.hcaptcha.sdk.HCaptchaError
-import com.hcaptcha.sdk.HCaptchaSize
-import com.hcaptcha.sdk.HCaptchaTokenResponse
 import kotlinx.coroutines.launch
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -55,14 +50,8 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.log.L
 
 class AboutActivity : BaseActivity() {
-    private var hCaptcha: HCaptcha? = null
-    private var tokenResponse: HCaptchaTokenResponse? = null
-
-
     private val credits = listOf(
         LinkTextData(
             text = "Balloon",
@@ -118,68 +107,11 @@ class AboutActivity : BaseActivity() {
                     versionName = BuildConfig.VERSION_NAME,
                     credits = credits,
                     onBackButtonClick = {
-                        //onBackPressedDispatcher.onBackPressed()
-
-
-
-                        verifyHCaptcha()
-                        //hCaptcha = HCaptcha.getClient(this).setup(getHCaptchaConfig())
-                        //setupHCaptchaClient(hCaptcha)
-
-
-
+                        onBackPressedDispatcher.onBackPressed()
                     }
                 )
             }
         }
-    }
-
-    private fun setupHCaptchaClient(captcha: HCaptcha?) {
-        captcha?.addOnSuccessListener { response ->
-            tokenResponse = response
-            val userResponseToken = response.tokenResult
-            L.d("hCaptcha token: $userResponseToken")
-            finish()
-        }?.addOnFailureListener { e ->
-            L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
-            tokenResponse = null
-            FeedbackUtil.showMessage(this, "hCaptcha failed: ${e.message} (${e.statusCode})")
-        }?.addOnOpenListener {
-            FeedbackUtil.showMessage(this, "hCaptcha shown")
-        }
-    }
-
-    private fun getHCaptchaConfig(): HCaptchaConfig {
-        val size = HCaptchaSize.NORMAL
-        return HCaptchaConfig.builder()
-            .siteKey("f1f21d64-6384-4114-b7d0-d9d23e203b4a") // << TODO: use our site key
-            .size(size)
-            .loading(true)
-            .hideDialog(false)
-            .tokenExpiration(10)
-            .diagnosticLog(true)
-            .retryPredicate { config, exception ->
-                exception.hCaptchaError == HCaptchaError.SESSION_TIMEOUT
-            }
-            .build()
-    }
-
-    private fun verifyHCaptcha() {
-        if (hCaptcha != null) {
-            hCaptcha?.verifyWithHCaptcha()
-        } else {
-            hCaptcha = HCaptcha.getClient(this).verifyWithHCaptcha(getHCaptchaConfig())
-            setupHCaptchaClient(hCaptcha)
-        }
-    }
-
-    private fun resetHCaptcha() {
-        hCaptcha?.reset()
-        hCaptcha = null
-    }
-
-    private fun markHCaptchaUsed() {
-        tokenResponse?.markUsed()
     }
 
     companion object {

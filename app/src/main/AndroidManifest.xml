@@ -86,9 +86,6 @@
         <!-- Necessary for Google Pay API -->
         <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
 
-        <!-- TODO: replace with our API key for HCaptcha -->
-        <meta-data android:name="com.hcaptcha.sdk.site-key" android:value="f1f21d64-6384-4114-b7d0-d9d23e203b4a" />
-
         <activity
             android:name=".main.MainActivity"
             android:icon="@mipmap/launcher"

@@ -19,6 +19,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
+import com.hcaptcha.sdk.HCaptcha
+import com.hcaptcha.sdk.HCaptchaConfig
+import com.hcaptcha.sdk.HCaptchaSize
+import com.hcaptcha.sdk.HCaptchaTheme
+import com.hcaptcha.sdk.HCaptchaTokenResponse
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -48,6 +53,9 @@ class CreateAccountActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
+
+    private var hCaptcha: HCaptcha? = null
+    private var tokenResponse: HCaptchaTokenResponse? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -163,7 +171,14 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            FeedbackUtil.showPrivacyPolicy(this)
+
+
+
+            showHCaptcha()
+
+
+
+            //FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
             visitInExternalBrowser(this, PageTitle("Special:PasswordReset", wiki).uri.toUri())
@@ -179,6 +194,57 @@ class CreateAccountActivity : BaseActivity() {
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.verifyUserName(text)
         }
+    }
+
+    private fun showHCaptcha() {
+        if (hCaptcha == null) {
+
+            hCaptcha = HCaptcha.getClient(this)
+            hCaptcha?.setup(
+                HCaptchaConfig.builder()
+                .siteKey("45205f58-be1c-40f0-b286-07a4498ea3da")
+                .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
+                .size(HCaptchaSize.NORMAL)
+
+                .host("meta.wikimedia.org")
+                .jsSrc("https://assets-hcaptcha.wikimedia.org/captcha/1/73f27c192b38c05ce2ebce596a0e28f88a2a56bf/secure-api.js")
+                .endpoint("https://hcaptcha.wikimedia.org")
+                .assethost("https://assets-hcaptcha.wikimedia.org")
+                .imghost("https://imgs-hcaptcha.wikimedia.org")
+                .reportapi("https://report-hcaptcha.wikimedia.org")
+                .sentry(false)
+
+
+                //.loading(true)
+                //.locale("en")
+                //.size(HCaptchaSize.INVISIBLE)
+                //.hideDialog(false)
+                //.tokenExpiration(10)
+                //.diagnosticLog(true)
+                //.retryPredicate { config, exception ->
+                //    exception.hCaptchaError == HCaptchaError.SESSION_TIMEOUT
+                //}
+                .build())
+
+            hCaptcha?.addOnSuccessListener { response ->
+                tokenResponse = response
+                val userResponseToken = response.tokenResult
+                L.d("hCaptcha token: $userResponseToken")
+                finish()
+            }?.addOnFailureListener { e ->
+                L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
+                tokenResponse = null
+                FeedbackUtil.showMessage(this, "hCaptcha failed: ${e.message} (${e.statusCode})")
+            }?.addOnOpenListener {
+                FeedbackUtil.showMessage(this, "hCaptcha shown")
+            }
+        }
+        hCaptcha?.verifyWithHCaptcha()
+    }
+
+    private fun resetHCaptcha() {
+        hCaptcha?.reset()
+        hCaptcha = null
     }
 
     private fun handleAccountCreationError(message: String) {
@@ -210,6 +276,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
+        resetHCaptcha()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
