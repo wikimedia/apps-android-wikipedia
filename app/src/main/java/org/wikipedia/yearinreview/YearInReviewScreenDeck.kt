@@ -380,7 +380,12 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.GeoScreen -> {
-            // @TODO: geo location screen
+            YearInReviewGeoLocation(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .height(500.dp)
+            )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
