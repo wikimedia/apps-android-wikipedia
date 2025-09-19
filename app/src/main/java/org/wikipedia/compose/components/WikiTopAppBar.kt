@@ -27,6 +27,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WikiTopAppBar(
+    modifier: Modifier = Modifier,
     title: String,
     onNavigationClick: (() -> Unit),
     titleStyle: TextStyle = MaterialTheme.typography.headlineSmall.copy(
@@ -34,7 +35,6 @@ fun WikiTopAppBar(
         lineHeight = 24.sp
     ),
     elevation: Dp = 0.dp,
-    modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     val context = LocalContext.current
