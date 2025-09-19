@@ -116,20 +116,22 @@ fun YearInReviewScreenDeck(
             Scaffold(
                 modifier = modifier,
                 containerColor = WikipediaTheme.colors.paperColor,
-                topBar = { YearInReviewTopBar(
-                    onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
-                    actions = {
-                        IconButton(onClick = {
-                            startCapture = true
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_share),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_share_icon)
-                            )
+                topBar = {
+                    YearInReviewTopBar(
+                        onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
+                        actions = {
+                            IconButton(onClick = {
+                                startCapture = true
+                            }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_share),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_share_icon)
+                                )
+                            }
                         }
-                    }
-                ) },
+                    )
+                },
                 bottomBar = {
                     MainBottomBar(
                         onNavigationRightClick = { onNextButtonClick(pagerState) },

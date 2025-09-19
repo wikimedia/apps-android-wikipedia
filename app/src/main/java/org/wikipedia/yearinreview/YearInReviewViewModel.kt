@@ -10,7 +10,12 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
@@ -18,6 +23,8 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
     private val currentYear = LocalDate.now().year
@@ -104,29 +111,68 @@ class YearInReviewViewModel() : ViewModel() {
                 }
             }
 
-//            if (editCount >= MINIMUM_EDIT_COUNT) {
-//                val editCountData = YearInReviewScreenData.StandardScreen(
-//                    animatedImageResource = R.drawable.wyir_bytes,
-//                    staticImageResource = R.drawable.english_slide_05,
-//                    headlineText = WikipediaApp.instance.resources.getQuantityString(
-//                        R.plurals.year_in_review_edit_count_headline,
-//                        editCount,
-//                        editCount
-//                    ),
-//                    bodyText = WikipediaApp.instance.resources.getQuantityString(
-//                        R.plurals.year_in_review_edit_count_bodytext,
-//                        editCount,
-//                        editCount
-//                    )
-//                )
-//                _uiScreenListState.value = UiState.Success(
-//                    data = listOf(readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-//                )
-//            } else {
-//                _uiScreenListState.value = UiState.Success(
-//                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-//                )
-//            }
+            // TODO: think about the actual data to show.
+            val wikiSite = WikipediaApp.instance.wikiSite
+            val now = Instant.now().epochSecond
+            val impact: GrowthUserImpact
+            val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+            val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+            if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
+                val userId = ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                impactLastResponseBodyMap[wikiSite.languageCode] = JsonUtil.encodeToString(impact).orEmpty()
+                Prefs.impactLastResponseBody = impactLastResponseBodyMap
+                Prefs.impactLastQueryTime = now
+            } else {
+                impact = JsonUtil.decodeFromString(impactResponse)!!
+            }
+
+            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+                titles = impact.topViewedArticles.keys.joinToString(separator = "|")
+            )
+
+            // Transform the response to a map of PageTitle to ArticleViews
+            val pageMap = pagesResponse.query?.pages?.associate { page ->
+                val pageTitle = PageTitle(
+                    text = page.title,
+                    wiki = wikiSite,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(wikiSite.languageCode)
+                )
+                pageTitle to impact.topViewedArticles[pageTitle.text]!!
+            } ?: emptyMap()
+
+            impact.topViewedArticlesWithPageTitle = pageMap
+
+            // TODO: handle remote config to show numbers
+            val remoteConfig = RemoteConfig.config
+
+            // TODO: determine how many slides to show based on actual data
+            val editCount = impact.totalUserEditCount
+            if (editCount >= MINIMUM_EDIT_COUNT) {
+                val editCountData = YearInReviewScreenData.StandardScreen(
+                    animatedImageResource = R.drawable.wyir_bytes,
+                    staticImageResource = R.drawable.english_slide_05,
+                    headlineText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_edit_count_headline,
+                        editCount,
+                        editCount
+                    ),
+                    bodyText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_edit_count_bodytext,
+                        editCount,
+                        editCount
+                    )
+                )
+                _uiScreenListState.value = UiState.Success(
+                    data = listOf(readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+                )
+            } else {
+                _uiScreenListState.value = UiState.Success(
+                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+                )
+            }
         }
     }
 
