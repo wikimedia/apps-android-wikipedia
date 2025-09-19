@@ -21,13 +21,7 @@ fun YearInReviewTopBar(
     TopAppBar(
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = WikipediaTheme.colors.paperColor),
-        title = {
-            Icon(
-                painter = painterResource(R.drawable.ic_w_transparent),
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
-            )
-        },
+        title = { },
         navigationIcon = {
             IconButton(onClick = { onNavigationBackButtonClick() }) {
                 Icon(

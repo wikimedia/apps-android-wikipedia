@@ -137,12 +137,12 @@ class ActivityTabViewModel() : ViewModel() {
             val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
 
             val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
-            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(thirtyDaysAgo) ?: 0
+            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(weekAgo) ?: 0)
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(weekAgo) ?: 0)
             for (i in 1..3) {
                 weekAgo -= weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(weekAgo, weekAgo + weekInMillis)
+                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(weekAgo, weekAgo + weekInMillis)
                 articlesReadByWeek.add(articlesRead)
             }
             val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
